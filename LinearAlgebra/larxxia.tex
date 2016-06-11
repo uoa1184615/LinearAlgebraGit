@@ -1,0 +1,149 @@
+\ifcase1
+\or%1=A5 drafting
+   \documentclass[10pt,a5paper,smallborder]{refrep}
+   \addtolength{\textheight}{-1.2ex}% allows space for footer
+%   \def\includeonly#1{}\usepackage{showkeys}%% iff whole book draft
+\or%2=A4 drafting
+   \documentclass[11pt,a4paper]{refrep}
+   \def\includeonly#1{}%\usepackage{showkeys}%% iff whole book draft
+\or%3=alpha version on A4
+   \documentclass[11pt,a4paper]{refrep}
+   \def\includeonly#1{}
+   \AtBeginDocument{%
+   \SetWatermarkText{\quad alpha.1a}
+   \excludeversion{comment}
+   \excludeversion{draft}
+   \def\ajr#1{}% redundant
+   \def\thmIndent{-4.4em} % useful indenting into margin ??
+   \def\titlePageInfo{\vfil\small 
+   Please inform me of typographical glitches, 
+   writing infelicities, and errors.}
+   }%end of AtBeginDocument
+\fi
+
+
+\includeonly{
+%front,back
+%,Vectors/ch
+%,Vectors/secVecs
+%,Vectors/secVecOps
+%,Vectors/secDot
+%,Vectors/secCross %draft
+%,Vectors/secScript
+%,Vectors/secLogic %draft
+%,LinEqns/ch
+%,LinEqns/secIntro
+%,LinEqns/secSolve
+%,LinEqns/secSpan
+%,Matrices/ch
+%,Matrices/secOps
+%,Matrices/secInverse
+%,Matrices/secSVD
+%,Matrices/secSubsp
+%,Matrices/secIncon
+%,Matrices/secLinTran
+%,EigSym/ch
+%,EigSym/secIntro
+%,EigSym/secProps
+%,ApproxMat/ch
+%,ApproxMat/secRelate
+%,ApproxMat/secRegular
+%,Determinants/ch
+%,Determinants/secGeometry
+%,Determinants/secExpand
+%,EigGen/ch
+%,EigGen/secFind
+%,EigGen/secLinInd
+%,EigGen/secDiag
+%,ComVecSp/ch %draft
+%,QR/ch %draft
+%,back
+}
+
+
+
+\title{Linear Algebra Reformed
+\\for 21st\,C Application}
+\author{A.~J. Roberts
+\\University of Adelaide
+\\South Australia
+\thanks{\url{http://www.maths.adelaide.edu.au/anthony.roberts}}}
+\date{\today\titlePageInfo}
+
+
+\usepackage{linearAlgebra}[2016/06/10]
+
+
+\makeindex
+
+%\usepackage{pdfcomment}
+%\newcommand{\ajr}[1]{\pdfcomment[author=AJR%
+%    ,color={0.8 0.8 0},subject={#1}]{#1}}
+%\AtBeginDocument{\listofpdfcomments}
+%\atBegin{tableofcontents}{\listofpdfcomments}
+
+
+%\excludeversion{proof}
+%\excludeversion{example}
+%\excludeversion{exercise}
+%\excludeversion{answer}%testing
+
+
+\begin{document}
+
+\include{front}
+
+\tableofcontents
+
+\include{Vectors/ch}
+\include{Vectors/secVecs}
+\include{Vectors/secVecOps}
+\include{Vectors/secDot}
+\include{Vectors/secCross}
+\include{Vectors/secScript}
+\include{Vectors/secLogic}
+\makeanswers
+
+\include{LinEqns/ch}
+\include{LinEqns/secIntro}
+\include{LinEqns/secSolve}
+\include{LinEqns/secSpan}
+\makeanswers
+
+\include{Matrices/ch}
+\include{Matrices/secOps}
+\include{Matrices/secInverse}
+\include{Matrices/secSVD}
+\include{Matrices/secSubsp}
+\include{Matrices/secIncon}
+\include{Matrices/secLinTran}
+\makeanswers
+
+\include{EigSym/ch}
+\include{EigSym/secIntro}
+\include{EigSym/secProps}
+\makeanswers
+
+\include{ApproxMat/ch}
+\include{ApproxMat/secRelate}
+\include{ApproxMat/secRegular}
+\makeanswers
+
+\include{Determinants/ch}
+\include{Determinants/secGeometry}
+\include{Determinants/secExpand}
+\makeanswers
+
+\include{EigGen/ch}
+\include{EigGen/secFind}
+\include{EigGen/secLinInd}
+\include{EigGen/secDiag}
+\makeanswers
+
+\include{ComVecSp/ch}
+
+\include{QR/ch}
+
+\include{back}
+
+\end{document}
