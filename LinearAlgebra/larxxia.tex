@@ -1,20 +1,22 @@
-\ifcase1
+\ifcase3
 \or%1=A5 drafting
-   \documentclass[10pt,a5paper,smallborder]{refrep}
+   \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
 %   \def\includeonly#1{}\usepackage{showkeys}%% iff whole book draft
+%   \def\thmIndent{-0.5\marginparwidth} % indent into margin ??
 \or%2=A4 drafting
-   \documentclass[11pt,a4paper]{refrep}
+   \documentclass[11pt,a4paper,twoside]{refrep}
    \def\includeonly#1{}%\usepackage{showkeys}%% iff whole book draft
-\or%3=alpha version on A4
-   \documentclass[11pt,a4paper]{refrep}
+\or%3= version on A4
+   \documentclass[11pt,a4paper,twoside]{refrep}
    \def\includeonly#1{}
+   \def\thmIndent{-0.5\marginparwidth} % indent into margin ??
    \AtBeginDocument{%
-   \SetWatermarkText{\quad alpha.1a}
+   \SetWatermarkText{\quad v0-1b}
    \excludeversion{comment}
    \excludeversion{draft}
+   \excludeversion{activity}% exclude until I have more done??
    \def\ajr#1{}% redundant
-   \def\thmIndent{-4.4em} % useful indenting into margin ??
    \def\titlePageInfo{\vfil\small 
    Please inform me of typographical glitches, 
    writing infelicities, and errors.}
@@ -24,11 +26,11 @@
 
 \includeonly{
 %front,back
-%,Vectors/ch
+,Vectors/ch
 %,Vectors/secVecs
 %,Vectors/secVecOps
 %,Vectors/secDot
-%,Vectors/secCross %draft
+,Vectors/secCross 
 %,Vectors/secScript
 %,Vectors/secLogic %draft
 %,LinEqns/ch
@@ -71,7 +73,8 @@
 \date{\today\titlePageInfo}
 
 
-\usepackage{linearAlgebra}[2016/06/10]
+\usepackage{linearAlgebra}[2016/07/26]
+
 
 
 \makeindex

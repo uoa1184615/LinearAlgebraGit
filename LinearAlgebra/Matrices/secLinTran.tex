@@ -14,8 +14,7 @@
 This optional section unifies the transformation examples seen so far, and forms a foundation for more abstract algebra. 
 \end{aside}
 
-Recall the function notation such as \(f(x)=x^2\) means that for each \(x\in\RR\), the function~\(f(x)\) gives a result in~\(\RR\), namely the value~\(x^2\) as plotted in the margin.  
-We often write \(f:\RR\to\RR\) to denote this functionality: that is, \(f:\RR\to\RR\) means function~\(f\) transforms a given real number into another real number by some rule.
+Recall the function notation such as \(f(x)=x^2\) means that for each \(x\in\RR\), the function~\(f(x)\) gives a result in~\(\RR\), namely the value~\(x^2\), as plotted in the margin.  
 \marginpar{%
 \begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
@@ -24,37 +23,36 @@ We often write \(f:\RR\to\RR\) to denote this functionality: that is, \(f:\RR\to
   ,domain=-1.3:1.3]
   \addplot+[blue,no marks]{x^2};
   \end{axis}
-\end{tikzpicture}
-}
+\end{tikzpicture}}%
+We often write \(f:\RR\to\RR\) to denote this functionality: that is, \(f:\RR\to\RR\) means function~\(f\) transforms any given real number into another real number by some rule.
 
-There is analogous functionality in multiple dimensions with vectors: 
+There is analogous functionality in multiple dimensions with vectors: given any vector 
 \begin{itemize}
-\item multiplication by diagonal matrices stretch and shrink vectors (section~\ref{sec:dmd});
-\item orthogonal matrices rotate vectors (section~\ref{sec:omr});
-and \item projection finds a vector's components in a subspace (section~\ref{sec:proj}).
+\item multiplication by a diagonal matrix stretches and shrinks the vector (section~\ref{sec:dmd});
+\item multiplication by an orthogonal matrix rotate the vector (section~\ref{sec:omr});
+and \item projection finds the vector's components in a subspace (section~\ref{sec:proj}).
 \end{itemize}
-We use the notation \(f:\RR^n\to\RR^m\) to mean function~\(f\) transforms a given vector with \(n\)~components (in~\(\RR^n\)) into another vector with \(m\)~components (in~\(\RR^m\)) according to some rule. 
-For example, suppose \(f(\xv)\)~is multiplication by the matrix
+Correspondingly, we use the notation \(f:\RR^n\to\RR^m\) to mean function~\(f\) transforms a given vector with \(n\)~components (in~\(\RR^n\)) into another vector with \(m\)~components (in~\(\RR^m\)) according to some rule. 
+For example, suppose the function~\(f(\xv)\) is to denote multiplication by the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac13\\\frac12&-1\\-1&-\frac12 \end{bmatrix}.
 \end{equation*}
-Then
+Then the function
 \begin{equation*}
 f(\xv)=\begin{bmatrix} 1&-\frac13\\\frac12&-1\\-1&-\frac12 \end{bmatrix}\begin{bmatrix} x_1\\x_2 \end{bmatrix}
 =\begin{bmatrix} x_1-x_2/3\\x_1/2-x_2\\-x_1-x_2/2 \end{bmatrix}.
 \end{equation*}
-That is, here \(f:\RR^2\to\RR^3\).  
-Given any vector in the 2D-plane, the function~\(f\), also called a \idx{transformation}, returns a vector in 3D-space.  
-The marginal plot illustrates the subspace formed by \(f(\xv)\) for all 2D vectors~\xv.
-\marginpar{%
-\begin{tikzpicture} 
+\marginpar{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
   ,axis equal image
   ,xlabel=$f_1$,ylabel=$f_2$,zlabel={$f_3$},label shift={-2ex}]
   ,view={30}{20}]
 \addplot3[surf,domain=-1:1,samples=11] ({x-y/3},{x/2-y},{-x-y/2});
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
+That is, here \(f:\RR^2\to\RR^3\).  
+Given any vector in the 2D-plane, the function~\(f\), also called a \idx{transformation}, returns a vector in 3D-space.  
+The marginal plot illustrates the subspace formed by \(f(\xv)\) for all 2D vectors~\xv.
 
 
 There is a major difference between `curvaceous' functions like the parabola above, and matrix multiplication functions such as rotation and projection.
@@ -81,9 +79,6 @@ Either of these prove that \(f\)~is not a linear transform.
 \end{solution}
 
 \item Is the function \(T(x)=|x|\) (\(T:\RR\to\RR\)) a linear transform? 
-\begin{solution} 
-To prove not it is sufficient to find just one instance when Definition~\ref{def:lintran} fails. 
-Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1|+|2|=1+2=3\neq T(u+v)\) so the function~\(T\) fails the additivity and so is not a linear transform.
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
@@ -91,14 +86,12 @@ Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1
 \addplot+[no marks]{abs(x)};
 \end{axis}
 \end{tikzpicture}}
+\begin{solution} 
+To prove not it is sufficient to find just one instance when Definition~\ref{def:lintran} fails. 
+Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1|+|2|=1+2=3\neq T(u+v)\) so the function~\(T\) fails the additivity and so is not a linear transform.
 \end{solution}
 
 \item Is the function \(g:\RR\to\RR\) such that \(g(x)=-x/2\) a linear transform?
-\begin{solution} 
-Because the graph of~\(g\) is a straight line (as in the marginal picture) we suspect it is a linear transform.
-Thus check the properties in full generality:
-\begin{description}
-\item[\ref{def:lintran:i}] for all \(u,v\in\RR\), \(g(u+v)=-(u+v)/2=-u/2-v/2=(-u/2)+(-v/2)=g(u)+g(v)\);
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
@@ -106,17 +99,17 @@ Thus check the properties in full generality:
 \addplot+[no marks]{-x/2};
 \end{axis}
 \end{tikzpicture}}
+\begin{solution} 
+Because the graph of~\(g\) is a straight line (as in the marginal picture) we suspect it is a linear transform.
+Thus check the properties in full generality:
+\begin{description}
+\item[\ref{def:lintran:i}] for all \(u,v\in\RR\), \(g(u+v)=-(u+v)/2=-u/2-v/2=(-u/2)+(-v/2)=g(u)+g(v)\);
 \item[\ref{def:lintran:ii}] for all \(u,c\in\RR\), \(g(cu)=-(cu)/2=c(-u/2)=cg(u)\).
 \end{description}
 Hence \(g\) is a linear transformation.
 \end{solution}
 
 \item Show that the function \(h(y)=2y-3\), \(h:\RR\to\RR\), is not a linear transform.
-\begin{solution} 
-Because the graph of~\(h(y)\) is a straight line we suspect it may be a linear transform (as shown in the margin).
-To prove not it is enough to find one instance when Definition~\ref{def:lintran} fails. 
-Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(0)=2\cdot(-3)=-6\neq h(cu)\) so the function~\(g\) fails the multiplication rule and hence is not a linear transform.
-(This function fails because linear transforms have to pass through the origin.)
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
@@ -124,12 +117,14 @@ Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(
 \addplot+[no marks]{2*x-3};
 \end{axis}
 \end{tikzpicture}}
+\begin{solution} 
+Because the graph of~\(h(y)\) is a straight line we suspect it may be a linear transform (as shown in the margin).
+To prove not it is enough to find one instance when Definition~\ref{def:lintran} fails. 
+Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(0)=2\cdot(-3)=-6\neq h(cu)\) so the function~\(g\) fails the multiplication rule and hence is not a linear transform.
+(This function fails because linear transforms have to pass through the origin.)
 \end{solution}
 
 \item Is the function \(S:\NN\to\NN\) given by \(S(n)=-2n\) a linear transform?
-\begin{solution} 
-No, because the function~\(S\) is here only defined for integers~\NN\ (as plotted in the margin) whereas Definition~\ref{def:lintran} requires the function to be defined for all reals.
-\footnote{More advanced linear algebra generalises the definition of a linear transformation to non-reals, but not here.}
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
@@ -137,6 +132,9 @@ No, because the function~\(S\) is here only defined for integers~\NN\ (as plotte
 \addplot+[samples=11,only marks]{-2*x};
 \end{axis}
 \end{tikzpicture}}
+\begin{solution} 
+No, because the function~\(S\) is here only defined for integers~\NN\ (as plotted in the margin) whereas Definition~\ref{def:lintran} requires the function to be defined for all reals.
+\footnote{More advanced linear algebra generalises the definition of a linear transformation to non-reals, but not here.}
 \end{solution}
 
 \end{enumerate}
@@ -390,6 +388,7 @@ and so the projection is not a linear transformation when considered as a functi
 
 One important class of linear transformations are the transforms that can be written as matrix multiplications.
 The reason for the importance is that Theorem~\ref{thm:matlintran} establishes all linear transforms may be written as matrix multiplications!
+This in turn justifies why we define matrix multiplication to be as it is (section~\ref{sec:amwm}): \emph{matrix multiplication is defined just so that all linear transformations are encompassed by them}.
 
 \begin{example} \label{eg:}
 But first, the following Theorem~\ref{thm:mattranlin} proves, among many other possibilities, that the following are linear transformations:
@@ -417,7 +416,7 @@ Hence \(T_A\)~is a linear transformation.
 
 
 \begin{example} \label{eg:}
-Prove that a matrix multiplication with a nonzero shift, \(S:\RR^n\to\RR^m\) where \(S(\xv)=A\xv+\bv\) for \(\bv\neq\ov\), is not a linear transform.
+Prove that a matrix multiplication with a nonzero shift~\bv, \(S:\RR^n\to\RR^m\) where \(S(\xv)=A\xv+\bv\) for vector \(\bv\neq\ov\), is not a linear transform.
 \begin{solution} 
 Just consider the addition property~\ref{def:lintran:i} for the zero vectors \(\uv=\vv=\ov\):  
 on the one hand, \(S(\uv+\vv)=S(\ov+\ov)=S(\ov)=A\ov+\bv=\bv\); 
@@ -476,13 +475,13 @@ Form the standard matrix with these as its three columns, in order,
 \begin{solution} 
 Denote the rotation of the plane by the function \(R:\RR^2\to\RR^2\).
 Since \(60^\circ=\frac\pi3\) then, as illustrated in the margin,
+\marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
 \begin{eqnarray*}
 &&R(\ev_1)=(\cos\tfrac\pi3,\sin\tfrac\pi3)
 =(\tfrac12,\tfrac{\sqrt3}2),
 \\&&R(\ev_2)=(-\sin\tfrac\pi3,\cos\tfrac\pi3)
 =(-\tfrac{\sqrt3}2,\tfrac12).
 \end{eqnarray*}
-\marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
 Form the standard matrix with these as its columns, in order,
 \begin{equation*}
 [R]=\begin{bmatrix} R(\ev_1)&R(\ev_2) \end{bmatrix}
@@ -531,6 +530,15 @@ To find the standard matrix consider
 \\&&H(\ev_n)=a\ev_n=(0,0,\ldots,0,a).
 \end{eqnarray*}
 Hence the standard matrix \([H]=\diag(a,a,\ldots,a)=aI_n\).
+\begin{eqnarray*}
+[H]&=&\begin{bmatrix} H(\ev_1)&H(\ev_2)&\cdots&H(\ev_n) \end{bmatrix}
+\\&=&\begin{bmatrix} a&0&\cdots&0
+\\0&a&&0
+\\\vdots&&\ddots&\vdots
+\\0&0&\cdots&a \end{bmatrix}
+=aI_n\,.
+\end{eqnarray*}
+
 \end{solution}
 \end{example}
 
@@ -579,10 +587,10 @@ Best to introduce such terms in subsequent abstract vector spaces and a detailed
 
 \index{pseudo-inverse|(}
 
+In solving inconsistent linear equations, \(A\xv=\bv\) for some given~\(A\)\,, Procedure~\ref{pro:appsol} finds a solution~\xv\ that depends upon the right-hand side~\bv.
 \begin{aside}
 This subsection is an optional extension.
 \end{aside}
-In solving inconsistent linear equations, \(A\xv=\bv\) for some given~\(A\)\,, Procedure~\ref{pro:appsol} finds a solution~\xv\ that depends upon the right-hand side~\bv.
 That is, any given~\bv\ is transformed by the procedure to some result~\xv.
 This section establishes the resulting solution given by the procedure is a linear transformation of~\bv, and hence there must be a matrix, say~\(A^+\), corresponding to the procedure and hence giving a solution \(\xv=A^+\bv\)\,.
 We call the matrix~\(A^+\) the \idx{pseudo-inverse} of~\(A\).
@@ -963,7 +971,7 @@ A^+=(\tr AA)^{-1}\tr A
 
 \paragraph{Computer considerations} 
 Except for easy cases, we (almost) never explicitly compute the \idx{pseudo-inverse} of a matrix.
-In practical computation, forming~\(\tr AA\) and then manipulating it is both expensive and error enhancing: for example, \(\cond(\tr AA)=(\cond A)^2\) so matrix~\(\tr AA\) typically has a much worse condition number than matrix~\(A\).
+In practical computation, forming~\(\tr AA\) and then manipulating it is both expensive and error enhancing: for example, \(\cond(\tr AA)=(\cond A)^2\) so matrix~\(\tr AA\) typically has a much worse \idx{condition number} than matrix~\(A\).
 Computationally there are (almost) always better ways to proceed, such as Procedure~\ref{pro:appsol}.
 Like an inverse, a \idx{pseudo-inverse} is a theoretical device, rarely a practical tool.
 
@@ -995,11 +1003,11 @@ This section introduces how applying a sequence of linear transforms is equivale
 
 \begin{example}[simple rotation] 
 Recall Example~\ref{eg:stmatlt:b} on rotation by~\(60^\circ\) (illustrated in the margin) with its standard matrix
+\marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
 \begin{equation*}
 [R]=\begin{bmatrix} \frac12&-\frac{\sqrt3}2
 \\\frac{\sqrt3}2&\frac12 \end{bmatrix}.
 \end{equation*}
-\marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
 Consider two successive rotations by~\(60^\circ\): show that the standard matrix of the resultant rotation by~\(120^\circ\)  is the same as the product~\([R][R]\).
 \begin{solution} 
 On the one hand, rotation by~\(120^\circ=2\pi/3\), call it~\(S\), transforms the unit vectors as (illustrated in the margin)
@@ -1054,15 +1062,15 @@ It is thus a matrix transformation, which is consequently linear (Theorem~\ref{t
 
 \begin{example} \label{eg:}
 Consider the linear transform \(T:\RR^3\to\RR^2\) defined by \(T(x_1,x_2,x_3):=(3x_1+x_2,-x_2-7x_3)\), and the linear transform \(S:\RR^2\to\RR^4\) defined by \(S(y_1,y_2)=(-y_1, -3y_1+2y_2, 2y_1-y_2, 2y_2)\).
-Find the standard matrix of the linear transform~\(S\circ T\) and that of~\(T\circ S\).
+Find the standard matrix of the linear transform~\(S\circ T\), and also that of~\(T\circ S\).
 \begin{solution} 
-From the formulas for the two given linear transforms we write down the standard matrices
+From the given formulas for the two given linear transforms we write down the standard matrices
 \begin{equation*}
 [T]=\begin{bmatrix}3&1&0\\0&-1&-7  \end{bmatrix}
 \quad\text{and}\quad
 [S]=\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}.
 \end{equation*}
-Theorem~\ref{thm:stmatcomp} assures us the standard matrix of the composition
+First, Theorem~\ref{thm:stmatcomp} assures us the standard matrix of the composition
 \begin{eqnarray*}
 [S\circ T]&=&[S][T]
 \\&=&\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}
@@ -1070,9 +1078,9 @@ Theorem~\ref{thm:stmatcomp} assures us the standard matrix of the composition
 \\&=&\begin{bmatrix}-3&-1&0
 \\-9&-5&-14
 \\6&3&7
-\\0&-2&-14 \end{bmatrix}
+\\0&-2&-14 \end{bmatrix}.
 \end{eqnarray*}
-However, the standard matrix of~\(T\circ S\) does not exist because it would require the multiplication of a \(2\times3\) matrix by a \(4\times 2\) matrix, and such a multiplication is not defined.
+However, second, the standard matrix of~\(T\circ S\) does not exist because it would require the multiplication of a \(2\times3\) matrix by a \(4\times 2\) matrix, and such a multiplication is not defined.
 The failure is rooted earlier in the question because \(S:\RR^2\to\RR^4\) and \(T:\RR^3\to\RR^2\) so a result of~\(S\), which is in~\(\RR^4\), cannot be used as an argument to~\(T\), which must be in~\(\RR^3\): the lack of a defined multiplication is a direct reflection of this incompatibility in~`\(T\circ S\)' which means \(T\circ S\) cannot exist.
 \end{solution}
 \end{example}
@@ -1085,20 +1093,20 @@ Find the standard matrix of the transformation of the plane that first rotates b
 Two possible solutions are the following.
 \begin{itemize}
 \item Let \(R\)~denote the rotation about the origin of the plane by~\(45^\circ\), \(R:\RR^2\to\RR^2\) (illustrated in the margin).
+\marginpar{\TwoD{0.7071}{-0.7071}{0.7071}{0.7071}}%
 Its standard matrix is
 \newcommand{\rt}{\frac1{\sqrt2}}
 \begin{equation*}
 [R]=\begin{bmatrix} R(1,0)&R(0,1) \end{bmatrix}
 =\begin{bmatrix} \rt&-\rt\\\rt&\rt \end{bmatrix}.
 \end{equation*}
-\marginpar{\TwoD{0.7071}{-0.7071}{0.7071}{0.7071}}%
 Let \(F\)~denote the reflection in the vertical axis of the plane, \(F:\RR^2\to\RR^2\) (illustrated in the margin). 
+\marginpar{\TwoD{-1}00{1}}%
 Its standard matrix is
 \begin{equation*}
 [F]=\begin{bmatrix} F(1,0)&F(0,1) \end{bmatrix}
 =\begin{bmatrix} -1&0\\0&1 \end{bmatrix}.
 \end{equation*}
-\marginpar{\TwoD{-1}00{1}}%
 Then the standard matrix of the composition 
 \begin{equation*}
 [F\circ R]=[F][R]
@@ -1113,11 +1121,11 @@ Then the standard matrix of the composition
 \item \((F\circ R)(0,1)=F(R(0,1))\) which first rotates~\((0,1)\) to point to the top-left, then reflects in the vertical axis to point to the top-right and thus \((F\circ R)(0,1)=(\rt,\rt)\).
 \end{itemize}
 Then the standard matrix of the composition (as illustrated in the margin)
+\marginpar{\TwoD{-0.7071}{0.7071}{0.7071}{0.7071}}%
 \begin{equation*}
 [F\circ R]=\begin{bmatrix}(F\circ R)(1,0)&(F\circ R)(0,1)  \end{bmatrix}
 =\begin{bmatrix} -\rt&\rt\\\rt&\rt \end{bmatrix}
 \end{equation*}
-\marginpar{\TwoD{-0.7071}{0.7071}{0.7071}{0.7071}}%
 \end{itemize}
 As an extension, check that although \(R\circ F\) is defined, it is different to~\(F\circ R\): the difference corresponds to the non-commutativity of matrix multiplication (section~\ref{sec:fapmo}).
 \end{solution}
@@ -1134,10 +1142,10 @@ Then \(S\circ T\) is first rotation by~\(-60^\circ\) by~\(T\), and second rotati
 Because \(S\circ T\) is effectively the identity transformation, we call these rotations the inverse transform of each other.
 
 \item Let \(R\)~be reflection of the plane in the line at~\(30^\circ\) to the horizontal (illustrated in the margin).  
-Then \(R\circ R\) is first reflection in the line at~\(30^\circ\) by~\(R\), and second another reflection in the line at~\(30^\circ\) by~\(R\), results together in the plane being unchanged.
-Because \(R\circ R\) is effectively the identity transformation, the reflection~\(R\) is its own inverse.
 \marginpar{\TwoDx{0.5}{0.866}{0.866}{-0.5}{%
 \addplot[brown] coordinates {(-0.18,-0.1)(1.30,0.75)};}}%
+Then \(R\circ R\) is first reflection in the line at~\(30^\circ\) by~\(R\), and second another reflection in the line at~\(30^\circ\) by~\(R\), results together in the plane being unchanged.
+Because \(R\circ R\) is effectively the identity transformation, the reflection~\(R\) is its own inverse.
 \end{enumerate}
 \end{example}
 
@@ -1244,9 +1252,9 @@ Consequently the matrices \([T]\) and~\([T^{-1}]\) are the inverses of each othe
 
 \begin{example} \label{eg:}
 Estimate the standard matrix of the linear transform~\(T\) illustrated in the margin.  
+\marginpar{\TwoD{1.70}{1.90}{-1.00}{1.70}}%
 Then use Theorem~\ref{thm:2x2det} to determine the standard matrix of its inverse transform~\(T^{-1}\).
 Hence sketch how the inverse transforms the unit square and write a sentence or two about how the sketch confirms it is a reasonable inverse. 
-\marginpar{\TwoD{1.70}{1.90}{-1.00}{1.70}}
 \begin{solution} 
 The illustrated transform shows \(T(1,0)\approx(1.7,-1)\) and \(T(0,1)\approx(1.9,1.7)\) hence its standard matrix is
 \begin{equation*}
@@ -1259,8 +1267,8 @@ Using Theorem~\ref{thm:2x2det} the inverse of this matrix is, since its determin
 \approx\begin{bmatrix} 0.35&-0.40\\0.21&0.35 \end{bmatrix}
 \end{equation*}
 This matrix determines that the inverse maps the corners of the unit square as \(T^{-1}(1,0)=(0.35,0.21)\), \(T^{-1}(0,1)=(-0.40,0.35)\) and \(T^{-1}(1,1)=(-0.05,0.56)\).
+\marginpar{\TwoD{0.35}{-0.40}{0.21}{0.35}}%
 Hence the unit square is transformed as shown in the margin.
-\marginpar{\TwoD{0.35}{-0.40}{0.21}{0.35}}
 The original transform, roughly, rotated the unit square clockwise and stretched it: the sketch shows the inverse roughly rotates the unit square anti-clockwise and shrinks it.  
 Thus the inverse does indeed undo the action of the original transform.
 \end{solution}
@@ -1271,10 +1279,10 @@ Thus the inverse does indeed undo the action of the original transform.
 
 \begin{example} \label{eg:}
 Determine if the orthogonal projection of the plane onto the line at~\(30^\circ\) to the horizontal (illustrated in the margin) is an invertible transform; if it is find its inverse.
+\marginpar{\TwoD{0.75}{0.433}{0.433}{0.25}}%
 \begin{solution} 
 Recall that Theorem~\ref{thm:projmat} gives the matrix of an orthogonal projection as~\(W\tr W\) where columns of~\(W\) are an orthonormal basis for the projected space.
 Here the projected space is the line at~\(30^\circ\) to the horizontal (illustrated in the margin) which has orthonormal basis of the one vector \(\wv=(\cos 30^\circ,\sin 30^\circ)=(\tfrac{\sqrt3}2,\tfrac12)\).
-\marginpar{\TwoD{0.75}{0.433}{0.433}{0.25}}
 Hence the standard matrix of the projection is
 \begin{equation*}
 \wv\tr\wv=\begin{bmatrix} \tfrac{\sqrt3}2\\\tfrac12 \end{bmatrix}
@@ -1543,7 +1551,7 @@ for all scalars \hlist ck\ and all vectors \hlist \uv k\ in~\(\RR^n\).
 
 
 \begin{exercise} \label{ex:} 
-For each of the following vector transformations, if it is a linear transformation then write down its \idx{standard matrix}.
+Consider each of the following vector transformations: if it is a linear transformation, then write down its \idx{standard matrix}.
 % A=full(round(sprandn(ceil(1+4*rand),ceil(1+4*rand),0.5)*4))
 \begin{enumerate}
 \item \(\eAii(x,y,z)=(-3x+2y,-z)\)

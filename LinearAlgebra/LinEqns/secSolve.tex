@@ -116,6 +116,7 @@ In \script, to solve the system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), us
 
 Checking \index{rcond()@\texttt{rcond()}}\verb|rcond()| avoids gross mistakes such as  ``Lies My Computer Told Me'' \pooliv{p.83}.
 Section~\ref{sec:svdsgs} discovers what \verb|rcond| is, and why \verb|rcond| avoids mistakes.
+\footnote{Interestingly, there are incredibly rare pathological matrices for which \texttt{rcond()} and~\texttt{A\slosh} fails us \cite[]{Driscoll07}.  For example, among \(32\times32\) matrices the probability is about~\(10^{-22}\) of encountering a matrix for which \texttt{rcond()} misleads us by more than a factor of a hundred in using~\texttt{A\slosh}.}
 In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond| reflects practical reality.
 
 \begin{quoted}{Jan L.~A. van de Snepscheut\index{van de Snepscheut, Jan L.~A.}}
@@ -1126,7 +1127,7 @@ For any system of linear equations \(A\xv=\bv\)\,, exactly one of the following 
 \begin{proof} 
 First, if there is exactly none or one solution to \(A\xv=\bv\), then the theorem holds. 
 Second, suppose there are two distinct solutions; let them be \(\yv\) and~\(\zv\) so \(A\yv=\bv\) and \(A\zv=\bv\).  
-Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of a line, section~\ref{sec:pel}). 
+Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, section~\ref{sec:pel}). 
 %By distributivity \(A\xv=A(t\xv_1+(1-t)\xv_2) =tA\xv_1+(1-t)A\xv_2 =t\bv+(1-t)\bv =t\bv+\bv-t\bv =\bv\).  
 Consider the first row of~\(A\xv\): by Definition~\ref{def:matvecsys} it is
 \begin{eqnarray*}&&

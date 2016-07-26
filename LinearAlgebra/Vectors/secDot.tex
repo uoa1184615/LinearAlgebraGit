@@ -34,14 +34,14 @@ Dividing by the product of the lengths then gives \(\cos\theta=9/(5\sqrt{58})=0.
 \end{solution}
 \end{example}
 
-The interest in this Example~\ref{eg:ezyang} is the nine on the right-hand side of \(|\uv||\vv|\cos\theta=9\)\,.  
+The interest in this Example~\ref{eg:ezyang} is the number nine on the right-hand side of \(|\uv||\vv|\cos\theta=9\)\,.  
 The reason is that~\(9\) just happens to be~\(14-5\), which in turn just happens to be \(7\cdot2+(-1)\cdot5\), and it is no coincidence that this expression is the same as \(u_1v_1+u_2v_2\) in terms of vector components \(\uv=(u_1,u_2)=(7,-1)\) and \(\vv=(v_1,v_2)=(2,5)\).
 Repeat this example for any pair of vectors~\uv\ and~\vv\ to find that always \(|\uv||\vv|\cos\theta=u_1v_1+u_2v_2\) (Exercise~\ref{ex:ezyang}).
 This equality suggests that the sum of products of corresponding components of~\uv\ and~\vv\ is closely connected to the angle between the vectors.
 
 
 \begin{definition} \label{def:dotprod}
-For any two vectors in~\(\RR^n\), $\uv=(u_1,\ldots,u_n)$ and $\vv=(v_1,\ldots,v_n)$,
+For any two vectors in~\(\RR^n\), $\uv=(\hlist un)$ and $\vv=(\hlist vn)$,
 define the \bfidx{dot product} (or \bfidx{inner product}), denoted by a dot between the two vectors, as the \idx{scalar}
 \begin{equation*}
 \uv\cdot \vv= \lincomb uvn\,.
@@ -769,12 +769,13 @@ We give a special name to vectors at right-angles.
 
 \begin{definition} \label{def:orthovec}
 Two vectors~\uv\ and~\vv\ in~\(\RR^n\) are termed
-\bfidx{orthogonal}\marginpar{The term `orthogonal' derives from the Greek for `right-angled'.} (or \bfidx{perpendicular})
+\bfidx{orthogonal} (or \bfidx{perpendicular})
 if and only if their dot product \(\uv\cdot\vv=0\)\,.
+\marginpar{The term `orthogonal' derives from the Greek for `right-angled'.}
 \end{definition}
 
 By convention the zero vector~\ov\ is orthogonal to all other vectors.
-However, in practice, we almost always use the notion of orthogonality in connection with only \emph{non-zero} vectors.
+However, in practice, we almost always use the notion of orthogonality only in connection with \emph{non-zero} vectors.
 Often the requirement that the orthogonal vectors are non-zero is explicitly made, but beware that sometimes the requirement may be implicit in the problem.
 
 
@@ -859,10 +860,7 @@ Since \(u_1=u_2=\cdots=u_n=0\) the only vector that is orthogonal to all the sta
 \end{proof}
 
 
-To introduce the second theorem, imagine trying to draw three unit vectors in any orientation in the 2D plane such that all three are at right-angles to each other.
-The margin illustrates one attempt.
-It cannot be done.
-There are at most two vectors in 2D that are all at right-angles to each other.
+To introduce the second theorem, 
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
@@ -872,7 +870,10 @@ There are at most two vectors in 2D that are all at right-angles to each other.
   \addplot[blue,thick,quiver={u=-0.8,v=0.6},-stealth] coordinates {(0,0)};
   \addplot[blue,thick,quiver={u=0.145,v=-0.989},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
+imagine trying to draw three unit vectors in any orientation in the 2D plane such that all three are at right-angles to each other.The margin illustrates one attempt.
+It cannot be done.
+There are at most two vectors in 2D that are all at right-angles to each other.
 
 
 \begin{theorem}[orthogonal completeness] \label{thm:orthcomp}
@@ -886,9 +887,7 @@ The representation of a vector in~\(\RR^n\) by \(n\)~components (here Definition
 Use contradiction%
 \ifcsname r@sec:pc\endcsname\ (section~\ref{sec:pc})\fi.
 Suppose there are more than \(n\)~orthogonal unit vectors in the set.
-Define a coordinate system for~\(\RR^n\) using the first~\(n\) unit vectors as the \(n\)~standard unit vectors (as illustrated in the margin). 
-Theorem~\ref{thm:nononz} then says there cannot be any more non-zero vectors orthogonal than these \(n\)~standard unit vectors.
-This contradicts there being more than~\(n\) orthogonal unit vectors.
+Define a coordinate system for~\(\RR^n\) using the first~\(n\) unit vectors as the \(n\)~standard unit vectors 
 \marginpar{\rotatebox{53.10}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal image, axis lines=middle
@@ -901,6 +900,9 @@ This contradicts there being more than~\(n\) orthogonal unit vectors.
   \addplot[blue,thick,quiver={u=-0.704,v=-0.710},-stealth] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}}%
+(as illustrated in the margin).
+Theorem~\ref{thm:nononz} then says there cannot be any more non-zero vectors orthogonal than these \(n\)~standard unit vectors.
+This contradicts there being more than~\(n\) orthogonal unit vectors.
 To avoid this contradiction the supposition must be wrong; that is, there cannot be more than~\(n\) orthogonal unit vectors in~\(\RR^n\).
 \end{proof}
 
@@ -923,8 +925,6 @@ First find the equation of the line that is perpendicular to the vector~\((2,3)\
 Second, find is the equation of the line that passes through the point~\((4,1)\), instead of the origin?
 \begin{solution} 
 Recall that vectors at right-angles have a zero dot product (section~\ref{sec:ovra}).
-Thus the position vector~\xv\ of any point in the line satisfies the dot product \(\xv\cdot(2,3)=0\)\,.
-For \(\xv=(x,y)\), as illustrated in the margin, \(\xv\cdot(2,3)=2x+3y\) so the equation of the line is \(2x+3y=0\)\,.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, xlabel={$x$}, ylabel={$y$}
@@ -936,10 +936,10 @@ For \(\xv=(x,y)\), as illustrated in the margin, \(\xv\cdot(2,3)=2x+3y\) so the 
   \node[above] at (axis cs:-3,2) {$\xv$};  
 \end{axis}
 \end{tikzpicture}}
+Thus the position vector~\xv\ of any point in the line satisfies the dot product \(\xv\cdot(2,3)=0\)\,.
+For \(\xv=(x,y)\), as illustrated in the margin, \(\xv\cdot(2,3)=2x+3y\) so the equation of the line is \(2x+3y=0\)\,.
 
 When the line goes through \((4,1)\), then it is the displacement \(\xv-(4,1)\) that must be orthogonal to~\((2,3)\), as illustrated.
-That is, the equation of the line is \((x-4,y-1)\cdot(2,3)=0\).
-Evaluating the dot product gives \(2(x-4)+3(y-1)=0\); that is, \(2x+3y=2\cdot4+3\cdot1=11\) is an equation of the line.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize, domain=-1:9
   ,axis equal, axis lines=middle, xlabel={$x$}, ylabel={$y$}
@@ -955,6 +955,8 @@ Evaluating the dot product gives \(2(x-4)+3(y-1)=0\); that is, \(2x+3y=2\cdot4+3
   \node[right] at (axis cs:1.3,2.8) {$\vec x-(4,1)$};
 \end{axis}
 \end{tikzpicture}}
+That is, the equation of the line is \((x-4,y-1)\cdot(2,3)=0\).
+Evaluating the dot product gives \(2(x-4)+3(y-1)=0\); that is, \(2x+3y=2\cdot4+3\cdot1=11\) is an equation of the line.
 
 \end{solution}
 \end{example}
@@ -987,7 +989,7 @@ Now use the same approach to finding an equation of a plane in 3D.
 The problem is to find the equation of the plane that goes through a given point~\(P\) and is perpendicular to a given vector~\nv, called a \bfidx{normal vector}.
 As illustrated below, that means to find all points~\(X\) such that~\(\ovect{PX}\) is orthogonal to~\nv.
 \begin{center}\mytmp0\end{center}
-Denote the position vector of~\(P\) by~\(\pv=(x_0,y_0,z_0)\),  the position vector of~\(X\) by \(\xv=(x,y,z)\), and let the normal vector be \(\nv=(a,b,c)\).
+Denote the position vector of~\(P\) by~\(\pv=(x_0,y_0,z_0)\),  the position vector of~\(X\) by \(\xv=(x,y,z)\), and let the \idx{normal vector} be \(\nv=(a,b,c)\).
 Then, as drawn below, the displacement vector \(\ovect{PX}=\xv-\pv=(x-x_0,y-y_0,z-z_0)\) and so for \(\ovect{PX}\) to be orthogonal to~\nv\ requires \(\nv\cdot(\xv-\pv)=0\); that is, an \bfidx{equation of the plane} is
 \begin{equation*}
 a(x-x_0)+b(y-y_0)+c(z-z_0)=0,
@@ -1003,7 +1005,7 @@ ax+by+cz=d
 
 
 \begin{example} \label{eg:}
-Find an \idx{equation of the plane} through point \(P=(1,1,2)\) and which is normal to \(\nv=(1,-1,3)\).
+Find an \idx{equation of the plane} through point \(P=(1,1,2)\) that has \idx{normal vector} \(\nv=(1,-1,3)\).
 (This is the case drawn in the above illustrations.)
 Hence write down three distinct points on the plane.
 \begin{solution} 
@@ -1022,7 +1024,7 @@ To find some points in the plane, rearrange this equation to \(z=2-x/3+y/3\) and
 
 
 \begin{example} \label{eg:}
-Write down a \idx{normal vector} to the following planes:
+Write down a \idx{normal vector} to each of the following planes:
 \begin{parts}
 \item \(3x-6y+z=4\)\,;
 \item \(z=0.2x-3.3y-1.9\)\,.
@@ -1076,6 +1078,9 @@ With the given vectors~\uv\ and~\vv\ shown in the margin, illustrated are the po
 Similarly, all points in the plane have a position vector in the form \(s\uv+t\vv\) for some scalar parameters~\(s\) and~\(t\).
 The grid shown in the margin illustrates the sum of integral and half-integral multiples.
 The formula \(\xv=s\uv+t\vv\) for parameters~\(s\) and~\(t\) is called a parametric equation of the plane.
+
+
+
 
 \begin{example} \label{eg:}
 Find a parametric equation of the plane that passes through the three points \(P=(-1,2,3)\), \(Q=(2,3,2)\) and \(R=(0,4,5)\), drawn below in stereo.
@@ -1307,7 +1312,7 @@ What is the most similar pair of sentences?
 Recall Exercise~\ref{ex:8siambks} found word vectors in~\(\RR^7\) for the titles of eight books that The Society of Industrial and Applied Mathematics (\textsc{siam}) reviewed recently.
 The following four titles have more than one word counted in the word vectors.
 \begin{enumerate}
-\item Introduction to Finite and Spectral Element Methods using MATLAB
+\item Introduction to Finite and Spectral Element Methods using \textsc{matlab}
 \item Iterative Methods for Linear Systems: Theory and Applications 
 \item Singular Perturbations: Introduction to System Order Reduction Methods with Applications 
 \item Stochastic Chemical Kinetics: Theory and Mostly Systems Biology Applications
@@ -1365,7 +1370,7 @@ Verify the \idx{Cauchy--Schwarz inequality} (\(+\)~case) and also the \idx{trian
 
 
 \begin{exercise} \label{ex:} 
-Find an equation of the plane with the given normal vector~\nv\ and through the given point~\(P\).
+Find an equation of the plane with the given \idx{normal vector}~\nv\ and through the given point~\(P\).
 \begin{parts}
 \item \(P=(1,2,-3)\), \(\nv=(2,-5,-2)\).
 \item \(P=(5,-4,-13)\), \(\nv=(-1,0,-1)\).
@@ -1382,7 +1387,7 @@ Find an equation of the plane with the given normal vector~\nv\ and through the 
 
 
 \begin{exercise} \label{ex:} 
-Write down a normal vector to the plane described by each of the following equations.
+Write down a \idx{normal vector} to the plane described by each of the following equations.
 \begin{parts}
 \item \(2x+3y+2z=6\)
 \item \(-7x-2y+4=-5z\)
