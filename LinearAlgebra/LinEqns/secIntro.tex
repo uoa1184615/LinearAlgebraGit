@@ -65,7 +65,6 @@ Graphically and algebraically solve each of the following systems.
 \(\begin{array}{l} x+y=3\\2x-4y=0 \end{array}\)
 \begin{solution} 
 To draw the graphs seen in the marginal plot, rearrange  the linear equations as \(y=3-x\) and \(y=x/2\)\,.  
-They intersect at the point \((2,1)\) so \(x=2\) and \(y=1\) is the unique solution.
 \marginpar{%
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize
@@ -75,7 +74,8 @@ They intersect at the point \((2,1)\) so \(x=2\) and \(y=1\) is the unique solut
     \addplot{3-x};
     \addplot{x/2};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
+They intersect at the point \((2,1)\) so \(x=2\) and \(y=1\) is the unique solution.
 
 Algebraically, one could add twice the first equation to half of the second equation: \(2(x+y)+\frac12(2x-4y)=2\cdot3+\frac12\cdot0\) which simplifies to \(3x=6\) as the \(y\)~terms cancel; hence \(x=2\)\,.  
 Then say consider the second equation, \(2x-4y=0\)\,, which now becomes \(2\cdot2-4y=0\)\,, that is, \(y=1\)\,.  
@@ -86,7 +86,6 @@ This algebra gives the same solution \((x,y)=(2,1)\) as graphically.
 \item \(\begin{array}{l} 2x-3y=2\\-4x+6y=3 \end{array}\)
 \begin{solution} 
 To draw the graphs seen in the marginal plot, rearrange  the linear equations as \(y=\frac23x-\frac23\) and \(y=\frac23x+\frac12\)\,.  
-Evidently these lines never intersection, they are parallel, so there appears to be no solution.
 \marginpar{%
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize
@@ -96,7 +95,8 @@ Evidently these lines never intersection, they are parallel, so there appears to
     \addplot{2*x/3-2/3};
     \addplot{2*x/3+1/2};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
+Evidently these lines never intersection, they are parallel, so there appears to be no solution.
 
 Algebraically, one could add twice the first equation to the second equation: \(2(2x-3y)+(-4x+6y)=2\cdot2+3\) which, as the \(x\) and \(y\)~terms cancel, simplifies to \(0=7\)\,. 
 This equation is a contradiction as zero is not equal to seven.  
@@ -106,8 +106,6 @@ Thus there are no solutions to the system.
 \item \(\begin{array}{l} x+2y=4\\2x+4y=8 \end{array}\)
 \begin{solution} 
 To draw the graphs seen in the marginal plot, rearrange  the linear equations as \(y=2-x/2\) and \(y=2-x/2\)\,.  
-They are the same line so every point on this line is a solution of the system.  
-There are an infinite number of possible solutions.
 \marginpar{%
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize
@@ -117,13 +115,30 @@ There are an infinite number of possible solutions.
     \addplot{2-x/2+0.02};
     \addplot{2-x/2-0.02};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
+They are the same line so every point on this line is a solution of the system.  
+There are an infinite number of possible solutions.
+
 
 Algebraically, the rearrangement of both equations to exactly the same \(y=2-x/2\) establishes an infinite number of solutions, here parametrised by~\(x\).
 \end{solution}
 
 \end{enumerate}
 \end{example}
+
+
+
+
+\begin{activity}
+Solve the system \(x+5y=9\) and \(x+2y=3\) to find the solution is which of the following?
+\partswidth=5em
+\begin{parts}
+\item \((-1,1)\)
+\item \((-1,2)\)%%%%%%
+\item \((1,2)\)
+\item \((1,1)\)
+\end{parts}
+\end{activity}
 
 
 
@@ -138,10 +153,7 @@ The receivers solve a system of equations and inform you of their precise positi
 Let's solve a definite example problem, but in two dimensions for simplicity.
 Suppose you and your smart-phone are at some unknown location~\((x,y)\) in the 2D-plane, on the Earth's surface where the Earth has radius about \(6\)\,Mm (here all distances are measured in units of Megametres,~Mm, thousands of~km).
 But your smart-phone picks up the broadcast from three \gps\ satellites, and then determines their distance from you.
-From the broadcast and the timing, suppose you then know that a satellite at~\((29,10)\) is \(25\)~away, one at \((17,19)\) is \(20\)~away, and one at~\((13,18)\) is \(17\)~away (as drawn in the margin).
-Find your location~\((x,y)\).
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
     , axis equal, axis lines=middle,
     , xlabel={$x$},ylabel={$y$},  grid
@@ -154,8 +166,10 @@ Find your location~\((x,y)\).
     \addplot[red,mark=*] coordinates {(5,3)(13,18)};
     \node[left] at (axis cs:11,14) {$17$};
 \end{axis}
-\end{tikzpicture}
-}
+\end{tikzpicture}}%
+From the broadcast and the timing, suppose you then know that a satellite at~\((29,10)\) is \(25\)~away, one at \((17,19)\) is \(20\)~away, and one at~\((13,18)\) is \(17\)~away (as drawn in the margin).
+Find your location~\((x,y)\).
+
 
 \begin{solution} 
 From these three sources of information, Pythagoras and the length of displacement vectors gives the three equations
@@ -178,10 +192,8 @@ Let's subtract the third equation from each of the other two, then the nonlinear
 \begin{eqnarray*}
 -32x+672+16y-224=336&\iff&-2x+y=-7\,,
 \\-8x+120-2y+37=111&\iff&-4x-y=-23\,.
-\end{eqnarray*}
-Graphically, include these two lines to the picture, namely \(y=-7+2x\) and \(y=23-4x\), and then their intersection gives your location.
-\marginpar{%
-\begin{tikzpicture}[]
+\end{eqnarray*}%
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
     , axis equal image, axis lines=middle,
     , xlabel={$x$},ylabel={$y$},  grid
@@ -196,14 +208,14 @@ Graphically, include these two lines to the picture, namely \(y=-7+2x\) and \(y=
     \addplot[blue,thick,domain=3:9] {-7+2*x};
     \addplot[blue,thick,domain=2:6] {23-4*x};
 \end{axis}
-\end{tikzpicture}
-}
+\end{tikzpicture}}%
+Graphically, include these two lines to the picture, namely \(y=-7+2x\) and \(y=23-4x\), and then their intersection gives your location.
 
 Algebraically, one could add the two equations together: \((-2x+y)+(-4x-y)=-7-23\) which reduces to \(-6x=-30\)\,, that is, \(x=5\)\,.
 Then either equation, say the first, determines~\(y=-7+2x=-7+2\cdot 5=3\)\,.  
 That is, your location is \((x,y)=(5,3)\) (in~Mm), as drawn.
 \end{solution}
-If the \(x\)-axis is a line through the equator, and the \(y\)-axis goes through the North pole, then your location would be at latitude
+If the \(x\)-axis is a line through the equator, and the \(y\)-axis goes through the North pole, then trigonometry gives that your location would be at latitude
 \(\tan^{-1}\frac35=30.96^\circ\)N.
 \end{example}
 
@@ -255,13 +267,6 @@ Algebraically we combine and manipulate the equations in a sequence of steps des
 \Needspace{5\baselineskip}
 \begin{enumerate}
 \item Subtract the first equation from each of the other two equations to deduce (as illustrated)
-\begin{equation*}
-\begin{array}{r@{{}={}}l}
-x_1+x_2-x_3&-2\,,\\
-2x_2+6x_3&10\,,\\
-x_2+2x_3&3\,.
-\end{array}
-\end{equation*}
 \marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,height=5cm
 ,axis equal image, view={55}{35}
@@ -287,6 +292,13 @@ x y z c \\
 \addplot3[only marks,black] coordinates {(1,-1,2)};
 \end{axis}
 \end{tikzpicture}}
+\begin{equation*}
+\begin{array}{r@{{}={}}l}
+x_1+x_2-x_3&-2\,,\\
+2x_2+6x_3&10\,,\\
+x_2+2x_3&3\,.
+\end{array}
+\end{equation*}
 
 \Needspace{5\baselineskip}
 \item Divide the second equation by two:
@@ -300,13 +312,6 @@ x_2+2x_3&3\,.
 
 \Needspace{5\baselineskip}
 \item Subtract the second equation from each of the other two (as illustrated):
-\begin{equation*}
-\begin{array}{r@{{}={}}l}
-x_1\phantom{+x_2}-4x_3&-7\,,\\
-x_2+3x_3&5\,,\\
--x_3&-2\,.
-\end{array}
-\end{equation*}
 \marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,height=5cm
 ,axis equal image, view={55}{35}
@@ -332,6 +337,13 @@ x y z c \\
 \addplot3[only marks,black] coordinates {(1,-1,2)};
 \end{axis}
 \end{tikzpicture}}
+\begin{equation*}
+\begin{array}{r@{{}={}}l}
+x_1\phantom{+x_2}-4x_3&-7\,,\\
+x_2+3x_3&5\,,\\
+-x_3&-2\,.
+\end{array}
+\end{equation*}
 
 \item Multiply the third equation by~\((-1)\):
 \begin{equation*}
@@ -344,13 +356,6 @@ x_3&2\,.
 
 \Needspace{5\baselineskip}
 \item Add four times the third equation to the first, and subtract three times it from the second (as illustrated):
-\begin{equation*}
-\begin{array}{r@{{}={}}l}
-x_1\phantom{+x_2-4x_3}&1\,,\\
-x_2\phantom{+3x_3}&-1\,,\\
-x_3&2\,.
-\end{array}
-\end{equation*}
 \marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,height=5cm
 ,axis equal image, view={55}{35}
@@ -376,6 +381,13 @@ x y z c \\
 \addplot3[only marks,black] coordinates {(1,-1,2)};
 \end{axis}
 \end{tikzpicture}}%
+\begin{equation*}
+\begin{array}{r@{{}={}}l}
+x_1\phantom{+x_2-4x_3}&1\,,\\
+x_2\phantom{+3x_3}&-1\,,\\
+x_3&2\,.
+\end{array}
+\end{equation*}
 \end{enumerate}
 Thus the only solution to this system of three linear equations in three variables is \((x_1,x_2,x_3)=(1,-1,2)\)\,.
 \end{solution}
@@ -384,7 +396,7 @@ Thus the only solution to this system of three linear equations in three variabl
 The sequence of marginal graphs in the previous Example~\ref{eg:3eq3var} illustrate the equations at each main step in the algebraic manipulations.  
 Apart from keeping the solution point fixed, the sequence of graphs looks rather chaotic.
 Indeed there is no particular geometric pattern or interpretation of the steps in this algebra.
-One feature of Section~\ref{sec:fisvd} is that we discover how the so-called `singular value decomposition' solves linear equations via a sound method with a strong geometric interpretation.
+One feature of Section~\ref{sec:fisvd} is that we discover how the so-called `singular value decomposition' solves linear equations via a great method with a strong geometric interpretation.
 This geometric interpretation then empowers further methods useful in applications.
 
 
@@ -400,7 +412,7 @@ Nonetheless, it is the abstraction by linear algebra that empowers immense resul
 
 \begin{example}[infer a surface through three points] \label{eg:inf3pts}
 This example illustrates the previous paragraph.
-Given a geometric problem of inferring what plane passes through three given points, we transform this problem into the linear algebra task of finding the intersection point of three given planes.
+Given a geometric problem of inferring what plane passes through three given points, we transform this problem into the linear algebra task of finding the intersection point of three specific planes.
 This task we do.
 
 %\begin{comment}
@@ -521,7 +533,8 @@ x y z c
 \end{axis}
 \end{tikzpicture}
 \\ \parbox[b]{0.47\linewidth}{\caption{Solving three linear equations in three variables finds the intersection point(s) of three planes.
-The only three possibilities are: (a)~a unique solution; (b)~infinitely many solutions; and (c)~no solution.}}
+The only three possibilities are: (a)~a unique solution; (b)~infinitely many solutions; and (c)~no solution.}
+\label{fig:3eq3var}}
 & (c)
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=\wid
@@ -547,7 +560,6 @@ x y z c
 \end{axis}
 \end{tikzpicture}
 \end{tabular}
-\label{fig:3eq3var}
 \end{figure}
 The solution of three linear equations in three variables leads to finding the intersection point of three planes.
 Figure~\ref{fig:3eq3var} illustrates the three general possibilities: a unique solution (as in Example~\ref{eg:3eq3var}), or infinitely many solutions, or no solution.

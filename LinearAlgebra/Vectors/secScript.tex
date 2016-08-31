@@ -19,10 +19,12 @@ The aim is to develop some basic confidence with \script\ before later using it 
 
 \begin{itemize}
 \item  \script[1]\ is commercial software available from Mathworks.\footnote{\url{http://mathworks.com}}
-It is also available over the internet as \script[1]-Online or \script[1]-Mobile.
-\item \script[2]\ is free software, that for our limited purposes is almost the same as \script[1], and downloadable over the internet.\footnote{\url{https://www.gnu.org/software/octave/}} 
+It is also useable over the internet as \script[1]-Online or \script[1]-Mobile.
+\item \script[2]\ is free software, that for our limited purposes is almost the same as \script[1], and downloadable over the internet.\footnote{\url{https://www.gnu.org/software/octave/}}
+Octave is also freely useable over the internet.\footnote{\url{http://octave-online.net}} 
 \item Alternatively, your home institution may provide \script\ via a web service that is useable from smart phones, tablets and computers.
 \end{itemize}
+
 
 
 \begin{comment}
@@ -33,8 +35,8 @@ Avoid plotting because I do not want to confuse a vector with a row vector of pl
 
 
 \begin{table}
-\caption{Use \script\ to help compute vector results with the following basics.  This and subsequent tables throughout the book summarise the main \script\ information.
-\index{Matlab|textbf}\index{Octave|textbf}} \label{tbl:mtlbpre}
+\caption{Use \script\ to help compute vector results with the following basics.  This and subsequent tables throughout the book summarise \script\ for our use.
+\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbpre}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -43,16 +45,16 @@ Real numbers are computed and stored to a maximum \idx{precision} of nearly sixt
 \footnote{If desired, `\idx{computer algebra}' software provides us with an arbitrary level of precision, even exact.
 Current computer algebra software includes the free Sage, Maxima and Reduce, and the commercial Maple, Mathematica and (via Matlab) MuPad.}
 
-\item \script\ potentially uses complex numbers~(\CC), but mostly we stay with real numbers~(\RR).
+\item \script\ potentially uses complex numbers~(\CC), but mostly we stay within real numbers~(\RR).
 
 \item Each \script\ command is usually typed on one line by itself.
 
 \item \index{[\ldots]@\texttt{[\ldots]}}\verb|[ . ; . ; . ]| where each dot denotes a number, forms vectors in~\(\RR^3\) (or use newlines instead of the semi-colons).  
-Use more numbers separated by semi-colons for vectors in other~\(\RR^n\).
+Use \(n\)~numbers separated by semi-colons for vectors in~\(\RR^n\).
 
-\item \index{=@\texttt{=}}\verb|=| assigns the value of the expression on the right to the variable name on the left.
+\item \index{=@\texttt{=}}\verb|=| assigns the result of the expression on the right to the variable name on the left.
 
-If the computation of an expression is not assigned to anything explicitly, then by default it is assigned to the variable~\verb|ans| (as  denoted by ``\index{ans@\texttt{ans}}\verb|ans =|'' in \script).
+If the result of an expression is not explicitly assigned to a variable, then by default it is assigned to the variable~\verb|ans| (denoted by ``\index{ans@\texttt{ans}}\verb|ans =|'' in \script).
 
 \item Variable names are alphanumeric starting with a letter.
 
@@ -63,10 +65,12 @@ If the computation of an expression is not assigned to anything explicitly, then
 \item \index{+,-,*@\texttt{+,-,*}}\verb|+,-,*| is vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of the two vectors are the same.
 Parentheses \index{()@\texttt{()}}\verb|()| control the order of operations.
 
-\item \index{/@\texttt{/}}\verb|/x| divides by a scalar~\(x\).
-However, be warned that \verb|/v| for a vector~\vv\ typically gives strange results as \script\ interprets it to mean you want to (approximately) solve some linear equation.
+\item \index{/@\texttt{/}}\verb|/x| divides a vector\slash scalar by a scalar~\(x\).
+However, be warned that \verb|/v| for a vector~\vv\ typically gives strange results as \script\ interprets it to mean you want to approximately solve some linear equation.
 
-\item \index{dot()@\texttt{dot()}}\verb|dot(u,v)| computes the \idx{dot product} of vectors~\verb|u| and~\verb|v| (Definition~\ref{def:dotprod})--if they have the same size.
+\item \index{^@\texttt{\^}}\verb|x^y| for scalars~\(x\) and~\(y\) computes~\(x^y\).
+
+\item \index{dot()@\texttt{dot()}}\verb|dot(u,v)| computes the \idx{dot product} of vectors~\verb|u| and~\verb|v| (Definition~\ref{def:dotprod})---if they have the same size.
 
 \item \index{acos()@\texttt{acos()}}\verb|acos(q)| computes the \idx{arc-cos}, the \idx{inverse cosine}, of the scalar~\verb|q| in radians.  To find the angle in degrees use \verb|acos(q)*180/pi|\,.
 
@@ -370,6 +374,41 @@ error: operator +: nonconformant arguments
 
 
 
+\begin{activity}
+You enter the two vectors into \script[1]\ by typing \verb|u=[1.1;3.7;-4.5]| and \verb|v=[1.7;0.6;-2.6]|.
+\begin{itemize}
+\item Which of the following is the result of typing the command \verb|u-v|?
+\begin{parts} 
+\item \tt\begin{tabular}r
+    2.8000\\
+    4.3000\\
+   -7.1000
+\end{tabular}
+\item \tt\begin{tabular}r
+   -0.6000\\
+    3.1000\\
+   -1.9000
+\end{tabular}
+\item \tt\begin{tabular}{p{9em}}
+Error using  * \\
+Inner matrix dimensions must agree. 
+\end{tabular}
+\item \tt\begin{tabular}r
+    2.2000\\
+    7.4000\\
+   -9.0000
+\end{tabular}
+\end{parts}
+\item Which is the result of typing the command \verb|2*u|?
+\item Which is the result of typing the command \verb|u*v|?
+\end{itemize}
+\end{activity}
+
+
+
+
+
+
 \begin{example} \label{eg:}
 Use \script\ to compute the angles between the pair of vectors \((4,3)\) and \((5,12)\) (Theorem~\ref{thm:anglev}).
 \begin{solution} In \script
@@ -486,6 +525,26 @@ ans =  13.390
 That the two answers agree verifies the distributive law for dot products.
 \end{solution}
 \end{example}
+
+
+
+\begin{activity}
+Given two vectors~\uv\ and~\vv\ that have already been typed into \script,
+which of the following expressions could check the identity that \((\uv-2\vv)\cdot(\uv+\vv)=\uv\cdot\uv-\uv\cdot\vv-2\vv\cdot\vv\)\,?
+\begin{enumerate}
+\item \verb|(u-2*v)*(u+v)-u*u+u*v+2*v*v|
+\item \verb|dot(u-2*v,u+v)-dot(u,u)+dot(u,v)+2*dot(v,v)|
+\item \verb|dot(u-2v,u+v)-dot(u,u)+dot(u,v)+2dot(v,v)|
+\item None of the others.
+\end{enumerate}
+\end{activity}
+
+
+
+
+Many other books \cite[\S\S1.1--3, e.g.]{Quarteroni2006} give more details about the basics than the essentials introduced here.
+
+
 
 
 \begin{quoted}{Charles Babbage}\index{Babbage, Charles}%

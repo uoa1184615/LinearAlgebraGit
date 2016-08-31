@@ -14,7 +14,7 @@
 The previous Section~\ref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
 We  continue to do so for small systems.  
 However, such by-hand solutions are tedious for systems bigger than say four equations in four unknowns.  
-For bigger systems---which are typical in applications---we use computers to find solutions because computers are ideal for tedious manipulations.
+For bigger systems with tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious repetitive calculuations.
 
 
 \subsection{Compute a system's solution}
@@ -104,20 +104,35 @@ for \(2\times3\) matrix~\(A\).
 
 
 
+\begin{activity}
+Which of the following systems corresponds to the matrix-vector equation
+\begin{equation*}
+\begin{bmatrix} -1&3\\1&2 \end{bmatrix}\begin{bmatrix} u\\w \end{bmatrix}=\begin{bmatrix} 1\\0 \end{bmatrix}?
+\end{equation*}
+\begin{parts}
+\item \(\begin{matrix} -x+3y=1\\x+2y=0 \end{matrix}\)
+\item \(\begin{matrix} -u+w=1\\3u+2w=0 \end{matrix}\)
+\item \(\begin{matrix} -x+y=1\\3x+2y=0 \end{matrix}\)
+\item \(\begin{matrix} -u+3w=1\\u+2w=0 \end{matrix}\)
+\end{parts}
+\end{activity}
+
+
+
 
 \begin{procedure}[\idx{unique solution}] \label{pro:unisol}
-In \script, to solve the system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), use commands listed in Table~\ref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics} to:
+In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), use commands listed in Table~\ref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics} to:
 \begin{enumerate}
 \item form matrix~\(A\) and \idx{column vector}~\(\bv\);
-\item check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| exists and is not too small, \(1\geq\text{good} >10^{-2} >\text{poor} >10^{-4} >\text{bad} >10^{-8} >\text{terrible}\), (\verb|rcond| is always between zero and one inclusive);
-\item if \index{rcond()@\texttt{rcond()}}\verb|rcond| both exists and is acceptable, then execute \verb|x=A\b| to compute the solution vector~\(\xv\). 
+\item check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| exists and is not too small, \(1\geq\text{good} >10^{-2} >\text{poor} >10^{-4} >\text{bad} >10^{-8} >\text{terrible}\), (\verb|rcond(A)| is always between zero and one inclusive);
+\item if \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| both exists and is acceptable, then execute \verb|x=A\b| to compute the solution vector~\(\xv\). 
 \end{enumerate}
 \end{procedure}
 
 Checking \index{rcond()@\texttt{rcond()}}\verb|rcond()| avoids gross mistakes such as  ``Lies My Computer Told Me'' \pooliv{p.83}.
-Section~\ref{sec:svdsgs} discovers what \verb|rcond| is, and why \verb|rcond| avoids mistakes.
+Section~\ref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
 \footnote{Interestingly, there are incredibly rare pathological matrices for which \texttt{rcond()} and~\texttt{A\slosh} fails us \cite[]{Driscoll07}.  For example, among \(32\times32\) matrices the probability is about~\(10^{-22}\) of encountering a matrix for which \texttt{rcond()} misleads us by more than a factor of a hundred in using~\texttt{A\slosh}.}
-In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond| reflects practical reality.
+In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond()| reflects practical reality.
 
 \begin{quoted}{Jan L.~A. van de Snepscheut\index{van de Snepscheut, Jan L.~A.}}
 In theory, there is no difference between theory and practice. 
@@ -127,7 +142,7 @@ But, in practice, there is.
 
 
 \begin{table}
-\caption{To realise Procedure~\ref{pro:unisol}, and other procedures, we need these basics of \script\ as well as that of Table~\ref{tbl:mtlbpre}.\index{Matlab|textbf}\index{Octave|textbf}} \label{tbl:mtlbbasics}
+\caption{To realise Procedure~\ref{pro:unisol}, and other procedures, we need these basics of \script\ as well as that of Table~\ref{tbl:mtlbpre}.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbbasics}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -136,14 +151,13 @@ But, in practice, there is.
 \item \index{rcond()@\texttt{rcond()}}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} (defined precisely by Definition~\ref{def:condnum}).
 \item \index{A\slosh@\texttt{A\slosh}}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
 \item \index{=@\texttt{=}}Change an element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
-\item \index{.^@\texttt{.\^}}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| computes \verb|[1;4;9;16;25]|.
-\item The function \index{ones()@\texttt{ones()}}\verb|ones(m,1)| gives a column vector of \(m\)~ones, \((1,1,\ldots,1)\).
-\item Lastly, remember that `the answer' by a computer is not necessarily `the solution' of your problem.
+\item \index{.^@\texttt{.\^}}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| results in \verb|[1;4;9;16;25]|.
+\item The function \index{ones()@\texttt{ones()}}\verb|ones(m,1)| gives a (column) vector of \(m\)~ones, \((1,1,\ldots,1)\).
+\item Lastly, always remember that `the answer' by a computer is not necessarily `the solution' of your problem.
 \end{itemize}
 \end{minipage}
 \hrule
 \end{table}
-
 
 \begin{example} \label{eg:3eq3varc}
 Use \script\ to solve the system (from Example~\ref{eg:3eq3var})
@@ -165,13 +179,16 @@ Begin by writing the system in the abstract matrix-vector form \(A\xv=\bv\) as a
 Then the three steps of Procedure~\ref{pro:unisol} are the following.
 \begin{enumerate}
 \item Form matrix~\(A\) and {column vector}~\(\bv\) with the \script\ assignments
+\begin{aside}
+Beware that the symbol~``\texttt{=}'' in \script\ is a procedural assignment of a value---quite different in nature to the~``\(=\)'' in algebra which denotes equality.
+\end{aside}%
 \begin{verbatim}
 A=[1 1 -1; 1 3 5; 1 2 1]
 b=[-2;8;1]
 \end{verbatim}
-Table~\ref{tbl:mtlbbasics} summarises that in \script: each line is one command; the \verb|=|~symbol assigns the value of the right-hand expression to the variable name of the left-hand side\footnote{Beware that the symbol~``\texttt{=}'' in \script\ is a procedural assignment of a value, which is quite different in nature to the~``\(=\)'' in algebra which denotes equality.}; and the \idx{brackets}~\verb|[ ]| construct matrices and vectors.
-\item Check \verb|rcond(A)|: here it is~\(0.018\) which is in the good range.
-\item Since \verb|rcond| is acceptable, then execute \verb|x=A\b| to compute the solution vector~\(\xv=(1,-1,2)\) (and assign it to the variable~\verb|x|, see Table~\ref{tbl:mtlbbasics}). 
+Table~\ref{tbl:mtlbbasics} summarises that in \script: each line is one command; the \verb|=|~symbol assigns the value of the right-hand expression to the variable name of the left-hand side; and the \idx{brackets}~\verb|[ ]| construct matrices and vectors.
+\item Check the value of \verb|rcond(A)|: here it is~\(0.018\) which is in the good range.
+\item Since \verb|rcond(A)| is acceptable,  execute \verb|x=A\b| to compute the solution vector~\(\xv=(1,-1,2)\) (and assign it to the variable~\verb|x|, see Table~\ref{tbl:mtlbbasics}). 
 \end{enumerate}
 All together that is the four commands
 \begin{verbatim}
@@ -190,6 +207,23 @@ x=A\slosh b
 Such \idx{qr-code}s in the margin encodes these commands for you to possibly scan, copy and paste into \script.
 \end{solution}
 \end{example}
+
+
+
+\begin{activity}
+% for i=1:9999,a=0+round(randn(2)*50); if ismember(abs(det(a)),[1 2 5 10]), break, end, end,  a=a, b=0+round(randn(2,1)*50), x=a\b, a'\b
+Use \script\ to solve the system \(7x+8y=42\) and \(32x+38y=57\), to find the answer for \((x,y)\) is
+\partswidth=5em
+\begin{parts}
+\item \(\begin{bmatrix} -94.5\\114 \end{bmatrix}\)
+\item \(\begin{bmatrix} 73.5\\342 \end{bmatrix}\)
+\item \(\begin{bmatrix} 114\\-94.5 \end{bmatrix}\)%%%%%%%%
+\item \(\begin{bmatrix} 342\\73.5 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
 
 
 \begin{example} \label{eg:3eq3vard}
@@ -232,7 +266,8 @@ b =
      5
      1
 \end{verbatim}
-Check: \verb|rcond(A)| is \(0.14\) which is good, so obtain the solution from \verb|x=A\b|, namely
+Check the value of \verb|rcond(A)|, here \(0.14\) is good.
+Then obtain the solution from \verb|x=A\b| with the result
 \begin{verbatim}
 x =
    -0.6429
@@ -240,8 +275,8 @@ x =
     1.2143
 \end{verbatim}
 That is, the solution \(\xv=(-0.64,-0.14,1.21)\) to two \idx{decimal places} (\idx{2~d.p.}).\footnote{The four or five significant digits printed by \script\ is effectively exact for most practical purposes.
-This text often reports two significant digits as two is enough for most human readable purposes.
-When a numerical result is reported to two decimal places, the text indicates this truncation with ``\twodp''.}
+This book often reports two significant digits as two is enough for most human readable purposes.
+When a numerical result is reported to two decimal places, the book indicates this truncation with ``\twodp''.}
 
 \item For the second system now execute \verb|A(2,3)=-2| to see the new matrix is the required
 \begin{verbatim}
@@ -257,7 +292,7 @@ If we were to try~\verb|x=A\b| in this second system, then \script\ would report
 \begin{verbatim}
 Warning: Matrix is singular to working precision. 
 \end{verbatim}
-However, one cannot rely on \script\ producing such useful messages: use \verb|rcond| to almost always avoid mistakes.
+However, we cannot rely on \script\ producing such useful messages: we must use \verb|rcond()| to almost always avoid mistakes.
 \end{solution}
 \end{example}
 
@@ -285,7 +320,7 @@ A=[1  -2   3   1   2
   -2  -2   1   1  -2 ]
 b=[7;-1;-9;-3;5]
 \end{verbatim}
-Check: find \verb|rcond(A)| is acceptably~\(0.020\) so compute the solution via \verb|x=A\b| to find
+Check: find \verb|rcond(A)| is acceptably~\(0.020\), so compute the solution via \verb|x=A\b| to find the result
 \setbox\ajrqrbox\hbox{\qrcode{% solve 5 eqns in 5 variables
 A=[1  -2   3   1   2
   -2  -6  -3  -2   2
@@ -344,13 +379,13 @@ rcond(A)
 Error using rcond
 Input must be a square matrix. 
 \end{verbatim}
-As \verb|rcond| does not exist, the procedure cannot give a solution.
+As \verb|rcond(A)| does not exist, the procedure cannot give a solution.
 \end{enumerate}
 The reason for the procedure not leading to a solution is that a system of three equations in two variables, as here, generally does not have a solution.
 \footnote{If one were to execute \texttt{x=A\slosh b}, then you would find \script\ gives the `answer' \(\xv=(-0.77,-0.73)\) \twodp.
 But this answer is not a solution.
 Instead this answer has another meaning, often sensibly useful, which is explained by Section~\ref{sec:asie}.
-Using \texttt{rcond} avoids us confusing such an answer with a solution.}
+Using \texttt{rcond()} helps us to avoid confusing such an answer with a solution.}
 \end{solution}
 \end{example}
 
@@ -358,15 +393,20 @@ Using \texttt{rcond} avoids us confusing such an answer with a solution.}
 
 
 \begin{example}[\idx{partial fraction} decomposition] \label{eg:}
-Recall that mathematical analysis sometimes needs to separate a rational function into a sum of simpler `partial' fractions.  
+Recall that mathematical methods sometimes need to separate a rational function into a sum of simpler `partial' fractions.  
 For example, for some purposes\(\frac3{(x-1)(x+2)}\) needs to be written as \(\frac1{x-1}-\frac1{x+2}\)\,.  
-Solving linear equations helps: here  pose that \(\frac3{(x-1)(x+2)} = \frac A{x-1}+\frac B{x+2}\) for some unknown~\(A\) and~\(B\); then write the right-hand side over the common denominator,
-\begin{equation*}
+Solving linear equations helps: \begin{itemize}
+\item here  pose that \(\frac3{(x-1)(x+2)} = \frac A{x-1}+\frac B{x+2}\) for some unknown~\(A\) and~\(B\); 
+\item then write the right-hand side over the common denominator,
+\begin{eqnarray*}
 \frac A{x-1}+\frac B{x+2}
-=\frac{A(x+2)+B(x-1)}{(x-1)(x+2)}
-=\frac{(A+B)x+(2A-B)}{(x-1)(x+2)}
-\end{equation*}
-and this equals \(\frac3{(x-1)(x+2)}\) only if \(A+B=0\) and \(2A-B=3\)\,; solving these two linear equations gives the required \(A=1\) and \(B=-1\) to determine the decomposition \(\frac3{(x-1)(x+2)}=\frac1{x-1}-\frac1{x+2}\)\,.
+&=&\frac{A(x+2)+B(x-1)}{(x-1)(x+2)}
+\\&=&\frac{(A+B)x+(2A-B)}{(x-1)(x+2)}
+\end{eqnarray*}
+and this equals \(\frac3{(x-1)(x+2)}\) only if \(A+B=0\) and \(2A-B=3\)\,; 
+\item solving these two linear equations gives the required \(A=1\) and \(B=-1\) to determine the decomposition \(\frac3{(x-1)(x+2)}=\frac1{x-1}-\frac1{x+2}\)\,.
+\end{itemize}
+
 
 Now find the partial fraction decomposition of \(\frac{-4x^3+8x^2-5x+2}{x^2(x-1)^2}\).
 \begin{solution} 
@@ -436,7 +476,7 @@ As before, these coefficients give the decomposition as
 
 
 
-\begin{example}[rcond avoids disaster] \label{eg:infertemp2}
+\begin{example}[\texttt{rcond} avoids disaster] \label{eg:infertemp2}
 In Example~\ref{eg:infertemp} an American and European compared temperatures and using two days temperatures discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
 Continuing the story, three days later they again meet and compare the temperatures they experienced: the American reporting that ``for the last three days it has been \(51^\circ\), \(74^\circ\) and~\(81^\circ\)'', whereas the European reports ``why, I recorded it as \(11^\circ\), \(23^\circ\) and~\(27^\circ\)''.
 The marginal figure plots this data with the original two data points, apparently confirming a reasonable linear relationship between the two temperature scales.
@@ -452,7 +492,8 @@ The marginal figure plots this data with the original two data points, apparentl
 
 Let's fit a polynomial to this temperature data.
 \begin{solution}
-There are five data points which will each give an equation to be satisfied.
+There are five data points.
+Each data point gives us an equation to be satisfied.
 This suggests we use linear algebra to determine five coefficients in a formula.
 Let's fit the data with the quartic polynomial
 \begin{equation}
@@ -570,7 +611,8 @@ Because of such a timing unknown, five satellites determine our precise position
 %   1   1   6   6.1644
 
 Suppose at some time (according to our smart-phone) the phone receives from a \gps\ satellite that it is at 3D location \((6,12,23)\)\,Mm (Megametres) and that the signal was sent at a true time~\(0.04\)\,s (seconds) before the phone's time.
-But the phone's time is different to the true time by some unknown amount, say~\(t\), then the travel time of the signal from the satellite to the phone is actually \(t+0.04\)\,.
+But the phone's time is different to the true time by some unknown amount, say~\(t\).
+Consequently, the travel time of the signal from the satellite to the phone is actually \(t+0.04\)\,.
 Given the speed of light is \(c=300\)\,Mm/s, this is a distance of \(300(t+0.04)=300t+12\) ---linear in the discrepancy of the phone's clock to the \gps\ clocks.
 Let \((x,y,z)\) be you and your phone's position in 3D space, then the distance to the satellite is also \(\sqrt{(x-6)^2+(y-12)^2+(z-23)^2}\)\,.
 Equating the squares of these two gives one equation
@@ -580,7 +622,7 @@ Equating the squares of these two gives one equation
 Similarly other satellites give other equations that help determine our position.
 But writing ``\(300t\)'' all the time is a bit tedious, so replace it with the new unknown \(w=300t\)\,.
 
-Given your phone also detects four other satellites broadcast the following position and time information:
+Given your phone also detects that four other satellites broadcast the following position and time information:
 \((13,20,12)\) time shift~\(0.04\)\,s before;
 \((17,14,10)\) time shift~\(0.033\cdots\)\,s before;
 \((8,21,10)\) time shift~\(0.033\cdots\)\,s before; and
@@ -662,7 +704,7 @@ A variant of \textsc{ge} [Gaussian Elimination] was used by the Chinese around t
 
 To solve \idx{linear equation}s with non-square matrices, or with poorly conditioned matrices we need to know much more details about linear algebra.
 
-\Needspace{14ex}
+\Needspace{7\baselineskip}
 \begin{aside}
 This and the next subsection are not essential, but many further courses currently assume knowledge of the content. 
 Theorems~\ref{thm:fred} and~\ref{thm:feweqns} are convenient to establish in the next subsection, but could alternatively be established using Procedure~\ref{pro:gensol}. 
@@ -671,7 +713,7 @@ This subsection systematises the algebraic working of Examples~\ref{eg:2eqs2vars
 The systematic approach empowers by-hand solution of systems of linear equations, together with two general properties on the number of solutions possible.
 The algebraic methodology invoked here also reinforces algebraic skills that will help in further courses.
 
-In hand calculations we often want to minimise writing, so the discussion here uses two forms side-by-side for the linear equations: one with all symbols recorded for best clarity; and beside it, one where only coefficients are recorded for quickest writing.
+In hand calculations we often want to minimise writing, so the discussion here uses two forms side-by-side for the linear equations: one form with all symbols recorded for best clarity; and beside it, one form where only coefficients are recorded for quickest writing.
 Translating from one to the other is crucial even in a computing era as the computer also primarily deals with arrays of numbers, and we must interpret what those arrays of numbers mean in terms of linear equations.
 
 \begin{example} \label{eg:}
@@ -732,8 +774,23 @@ Such variations to the augmented matrix are valid, but you must remember the cor
 \end{solution}
 \end{example}
 
+
+\begin{activity}
+Which of the following \emph{cannot} be an augmented matrix for the system \(p+4q=3\) and \(-p+2q=-2\)\,?
+\begin{parts}
+\item \(\begin{bmatrix} 1&4\V3\\-1&2\V-2 \end{bmatrix}\)
+\item \(\begin{bmatrix} -1&2\V-2\\1&4\V3 \end{bmatrix}\)
+\item \(\begin{bmatrix} 4&1\V3\\2&-1\V-2 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)%%%%%%%%%%
+\end{parts}
+\end{activity}
+
+
+
+
+
 Recall that Examples~\ref{eg:2eqs2vars} and~\ref{eg:3eq3var} manipulated the linear equations to deduce solution(s) to systems of linear equations.
-The following definition-theorem validates such manipulations in general. 
+The following theorem validates such manipulations in general, and gives the basic operations a collective name. 
 
 
 \begin{theorem} \label{thm:erowop} 
@@ -750,15 +807,25 @@ Interestingly, some other texts omit a proof that row operations preserve the so
 \end{comment}
 
 \begin{proof} 
-We establish that each of the row operations are reversible. 
-Hence: a solution of the system before a row operation remains a solution after the row operation; and conversely, a solution of the system after a row operation is also a solution before the row operation.
-When reversible, the possible solutions are the same before and after.
-
 We just address the system of equations form as the augmented matrix form is equivalent but more abstract.
 \begin{enumerate}
-\item Swapping the order of two equations is reversed by the same swap.
-\item Multiplying an equation by a non-zero constant is reversed through multiplying by the reciprocal.
-\item Adding \(c\)~times equation~\(i\) to equation~\(j\), for \(i\neq j\)\,, is reversed by adding \((-c)\)~times  equation~\(i\) to equation~\(j\).
+\item Swapping the order of two equations does not change the system of equations, the set of relations between the variables, so does not change the solution.
+\item Let vector~\xv\ satisfy \(\lincomb axn=b\)\,.
+Then \(\lincomb{ca}xn=c(\lincomb axn)=cb\) and so~\xv\ satisfies \(c\)~times the equation.
+When the constant~\(c\) is non-zero, the above can be reversed through dividing by~\(c\).
+Hence multiplying an equation by a non-zero constant~\(c\) does not change the possible solutions.
+\item 
+Let vector~\xv\ satisfy both \(\lincomb axn=b\) and \(\lincomb{a'}xn=b'\).
+Then
+\begin{eqnarray*}
+&&(a'_1+ca_1)x_1+(a'_2+ca_2)x_2+\cdots+(a'_n+ca_n)x_n
+\\&=&a'_1x_1+ca_1x_1+a'_2x_2+ca_2x_2+\cdots+a'_nx_n+ca_nx_n
+\\&=&\lincomb{a'}xn +c(\lincomb{a}xn)
+\\&=&b'+cb\,.
+\end{eqnarray*}
+That is, \xv~also satisfies the equation formed by adding \(c\)~times the first to the second.
+Conversely, every vector~\xv\ that satisfies both \(\lincomb axn=b\) and \((a'_1+ca_1)x_1+(a'_2+ca_2)x_2+\cdots+(a'_n+ca_n)x_n=b'+cb\), by adding \((-c)\)~times the first to the second as above, also satisfies \(\lincomb{a'}xn=b'\).
+Hence adding a multiple of an equation to another does not change the possible solutions.
 \end{enumerate}
 \end{proof}
 
@@ -794,7 +861,7 @@ rcond(A)
 x=A\slosh b
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-\verb|rcond| is just good,~\(0.0104\), so the computed answer \(\xv=(x,y,z)=(7,4,-14)\) is the solution.
+\verb|rcond(A)| is just good,~\(0.0104\), so the computed answer \(\xv=(x,y,z)=(7,4,-14)\) is the solution.
 
 Second, use elementary row operations.
 Let's write the working in both full symbolic equations and in augmented matrix form in order to see the correspondence between the two---you would not have to do both, either one would suffice.
@@ -804,42 +871,42 @@ x+2y+z=1\\ 2x-3y+0z=2\\ 0x-3y-z=2
 \end{cases}
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\2&-3&0\V2\\0&-3&-1\V2 \end{bmatrix}
-\\
+\\[0ex plus 1ex]
 \parbox{0.5\linewidth}{Add \((-2)\) times the first equation\slash row to the second.}
-\\
+\\[0ex plus 1ex]
 \begin{cases}
 x+2y+z=1\\ 0x-7y-2z=0\\ 0x-3y-z=2
 \end{cases}
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\0&-7&-2\V0\\0&-3&-1\V2 \end{bmatrix}
-\\
+\\[0ex plus 1ex]
 \parbox{0.5\linewidth}{This makes the first column have a leading one (Definition~\ref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
-\\
+\\[0ex plus 1ex]
 \begin{cases}
 x+2y+z=1\\ 0x+y+\frac27z=0\\ 0x-3y-z=2
 \end{cases}
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\0&1&\frac27\V0\\0&-3&-1\V2 \end{bmatrix}
-\\
+\\[0ex plus 1ex]
 \parbox{0.5\linewidth}{Now subtract twice the second equation\slash row from the first, and add three times the second to the third.}
-\\
+\\[0ex plus 1ex]
 \begin{cases}
 x+0y+\frac37z=1\\ 0x+y+\frac27z=0\\ 0x+0y-\frac17z=2
 \end{cases}
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&0&\frac37\V1\\0&1&\frac27\V0\\0&0&-\frac17\V2 \end{bmatrix}
-\\
+\\[0ex plus 1ex]
 \parbox{0.5\linewidth}{This makes the second column have the second leading one (Definition~\ref{def:rref}).  
 Start on the third column by multiplying the third equation\slash row by~\((-7)\).}
-\\
+\\[0ex plus 1ex]
 \begin{cases}
 x+0y+\frac37z=1\\ 0x+y+\frac27z=0\\ 0x+0y+z=-14
 \end{cases}
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&0&\frac37\V1\\0&1&\frac27\V0\\0&0&1\V-14 \end{bmatrix}
-\\
+\\[0ex plus 1ex]
 \parbox{0.5\linewidth}{Now subtract \(3/7\)~of the third equation\slash row from the first, and \(2/7\) from the second.}
-\\
+\\[0ex plus 1ex]
 \begin{cases}
 x+0y+0z=7\\ 0x+y+0z=4\\ 0x+0y+z=-14
 \end{cases}
@@ -854,7 +921,7 @@ the transformed augmented matrix on the right tells us exactly the same thing be
 \begin{bmatrix} x\\y\\z \end{bmatrix}
 =\begin{bmatrix} 7\\4\\-14 \end{bmatrix},
 \end{equation*}
-which is the same as the system on the left and tells us the solution \(\xv=(x,y,z)=(7,4,-14)\).
+which is the same as the system on the above-left and tells us the solution \(\xv=(x,y,z)=(7,4,-14)\).
 \end{solution}
 \end{example}
 
@@ -968,17 +1035,51 @@ This augmented matrix is not in \rref\ as there are not even any leading ones.
 
 
 
+\begin{activity}
+Which one of the following augmented matrices is \emph{not} in reduced row echelon form?
+\begin{parts}
+\item \(\begin{bmatrix} 1&0&1\V2
+\\0&1&-0\V1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 0&1&1\V-1
+\\0&0&0\V0 \end{bmatrix}\)
+\item \(\begin{bmatrix} 1&1&0\V0
+\\0&-1&1\V-1 \end{bmatrix}\)%%%%%%%%%%%%%%%%%
+\item \(\begin{bmatrix} 0&1&0\V1
+\\0&0&1\V2 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
+
+
+\begin{activity}
+Which one of the following is a general solution to the system with augmented matrix in reduced row echelon form of
+\begin{equation*}
+\begin{bmatrix} 1&0&-0.2\V0.4
+\\0&1&-1.2\V-0.6 \end{bmatrix}?
+\end{equation*}
+\begin{parts}
+\item \((0.4,-0.6,0)\)
+\item \((0.2t+0.4,1.2t+0.6,t)\)%%%%%
+\item \((0.2+0.4t,1.2+0.6t,t)\)
+\item DNE
+\end{parts}
+\end{activity}
+
+
+
 The previous Example~\ref{eg:rref} showed that given a system of linear equations in \idx{reduced row echelon form} we can immediately write down all solutions, or immediately determine if none exists.
-Generalising Example~\ref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (Theorem~\ref{thm:erowop}) to find an equivalent system of equations in reduced row echelon form so that we can then write down the general solution.
+Generalising Example~\ref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (Theorem~\ref{thm:erowop}) to find an equivalent system of equations in reduced row echelon form so that we then write down the general solution.
 
 
 
 
-\Needspace{14ex}
+\needspace{7\baselineskip}
 \begin{procedure}[\idx{Gauss--Jordan elimination}] \label{pro:gje}
 \begin{aside}
-Computers and graphics calculators can perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script.  
-However, if you want to use a computer, then the singular value decomposition of Section~\ref{sec:fisvd} is a far better choice for any system for which \verb|A\| is inappropriate.
+Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script. 
+However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singular value decomposition of Section~\ref{sec:fisvd} is a far better choice than this Gauss--Jordan elimination.
 \end{aside}\ 
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
@@ -1146,7 +1247,7 @@ a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
 \end{eqnarray*}
 Similarly for all rows of~\(A\xv\): that is, each row in \(A\xv\) equals the corresponding row of~\bv.
 Consequently, \(A\xv=\bv\). 
-Hence, if there are ever two distinct solutions, then there are an infinite number of solutions, \(\xv=t\yv+(1-t)\zv\).
+Hence, if there are ever two distinct solutions, then there are an infinite number of solutions: \(\xv=t\yv+(1-t)\zv\) for all~\(t\).
 \end{proof}
 
 
@@ -1243,7 +1344,23 @@ These solutions include \(\xv=\ov\) via the choice \(s=t=0\).
 \end{example}
 
 
-As this last example illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
+
+
+\begin{activity}
+Which one of the following systems of equations for \(x\) and~\(y\) is homogeneous?
+\begin{parts}
+\item \(-3x-y=0\) and \(7x+5y=3\)
+\item \(5y=3x\) and \(4x=2y\)%%%%%
+\item \(3x+1=0\) and \(-x-y=0\)
+\item \(-2x+y-3=0\) and \(x+4=2y\)
+\end{parts}
+\end{activity}
+
+
+
+
+
+As Example~\ref{eg:homosysiv} illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
 Namely, if the number of equations is less than the number of unknowns (two is less than four in the last example), then a homogeneous system always has an infinite number of solutions.
 
 
@@ -1251,7 +1368,7 @@ Namely, if the number of equations is less than the number of unknowns (two is l
 If \(A\xv=\ov\) is a \idx{homogeneous} system of \(m\)~\idx{linear equation}s with \(n\)~variables where \(m<n\)\,, then the system has \idx{infinitely many solutions}.
 \end{theorem}
 
-Remember that this theorem says nothing about the cases where there are at least as many equations as variables when there may or may not be an infinite number of solutions.
+Remember that this theorem says nothing about the cases where there are at least as many equations as variables (\(m\geq n)\), when there may or may not be an infinite number of solutions.
 
 \begin{proof} 
 The zero vector, \(\xv=\ov\) in~\(\RR^n\), is a solution of \(A\xv=\ov\) so a homogeneous system is always consistent.
@@ -1274,7 +1391,7 @@ A large part of this and preceding sections is devoted to arithmetic and algebra
 This is working at the `element level' commented on by Higham.
 But as Higham also comments, we need to work more at a whole matrix level.
 This means we need to discuss and manipulate matrices as a whole, not  get enmeshed in the intricacies of the element operations.
-This has close intellectual parallels with computing where abstract data structures empower us to encode complex tasks: here the analogous abstract data structures are matrices and vectors, and working with matrices and vectors as objects in their own right empowers linear algebra.
+This has close intellectual parallels in computing where abstract data structures empower us to encode complex tasks: here the analogous abstract data structures are matrices and vectors, and working with matrices and vectors as objects in their own right empowers linear algebra.
 The next chapter proceeds to develop linear algebra at the matrix level.
 But first, the next Section~\ref{sec:lcss} establishes some necessary fundamental aspects at the vector level.
 

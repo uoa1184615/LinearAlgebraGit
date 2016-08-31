@@ -8,18 +8,17 @@
 \pooliv{\S3.1--3.2, p.138--62} \layiv{\S2.1} \holti{\S3.3} \cite[\S3.1]{Nakos1998} \cite[Ch.~3, 5]{Chartier2015}
 \end{comment}
 
-This section introduces some basic matrix concepts, operations and algebra.
-Many of you will have met much of it in previous study.
-Consequently, this introduction is fairly quick.
-%%%{Is the design here too inconsistent with previous chapters??}
+This section introduces basic matrix concepts, operations and algebra.
+Many of you will have met some of it in previous study.
+%%%{Is the design here inconsistent with previous chapters??}
 
 
 \subsection{Basic matrix terminology}
 
 Let's start with some basic definitions of terminology.
 \begin{itemize}
-\item A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \  \end{bmatrix}\), such as the following six:
-\footnote{Chapter~\ref{ch:gee} will start using complex numbers in a matrix, but until then we stay within the realm of real numbers.}
+\item A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdot  \end{bmatrix}\), such as the following six:
+\footnote{Chapter~\ref{ch:gee} starts using complex numbers in a matrix, but until then we stay within the realm of real numbers.  Some books use parentheses,~\((\cdot)\), around matrices: we do not as here parentheses denote a vector (most often used when written in text).}
 \begin{eqnarray}&&
 \begin{bmatrix}   -2 & -5 & 4
 \\ 1 & -3 & 0
@@ -56,7 +55,7 @@ For example, the first matrix in~\eqref{eq:egmats} has entries\slash elements\sl
 \item But it is important to identify where the numbers appear in a matrix:  the \bfidx{double subscript} notation identifies the location of an entry.
 For a matrix~\(A\), the entry in row~\(i\) and column~\(j\) is denoted by~\(a_{ij}\):
 by convention we use capital (uppercase) letters for a matrix, and the corresponding lowercase letter subscripted for its entries.%
-\footnote{Some people use the capital letter subscripted for its entries: that is, some use \(A_{ij}\) to denote the entry in the \(i\)th~row and \(j\)th~column of matrix~\(A\).}
+\footnote{Some books use the capital letter subscripted for its entries: that is, some use \(A_{ij}\) to denote the entry in the \(i\)th~row and \(j\)th~column of matrix~\(A\).}
 For example, let matrix
 \begin{equation*}
 A=\begin{bmatrix}   -2 & -5 & 4
@@ -125,6 +124,22 @@ Matrices \(C\) and~\(D\) are not equal, despite having the same elements in the 
 
 
 
+\begin{activity}
+Which of the following matrices equals \(\begin{bmatrix}  3&-1&4
+\\-2&0&1\end{bmatrix}\)?
+\begin{parts}
+\item \(\begin{bmatrix} 3&-1\\4
+&-2\\0&1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 3&-2\\-1&0\\4&1 \end{bmatrix}\)
+\item \(\begin{bmatrix} \sqrt9&-1&2^2
+\\-2&0&\cos0 \end{bmatrix}\)
+\item \(\begin{bmatrix} 3&1-2&\sqrt{16}
+\\3-2&0&e^0 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
 
 
 
@@ -137,7 +152,7 @@ We start with addition and multiplication: `division' is addressed by Section~\r
 
 An analogue in computing science is the concept of object orientated programming.
 In object oriented programming one defines not just data structures, but also the functions that operate on those structures.
-Analogously, an array may be just a group of numbers, but a matrix is an array together with many operations explicitly available. 
+Analogously, an array is just a group of numbers, but a matrix is an array together with many operations explicitly available. 
 The power and beauty of matrices results from the implications of its associated operations.
 
 
@@ -192,6 +207,19 @@ A-A=O\,.
 
 
 
+\begin{activity}
+Given matrices \(A=\begin{bmatrix} 3&-2\\1&-1 \end{bmatrix}\) and \(B=\begin{bmatrix} 2&1\\3&2 \end{bmatrix}\), which of the following is the matrix \(\begin{bmatrix} 5&-1\\-2&-3 \end{bmatrix}\)?
+\partswidth=5em
+\begin{parts}
+\item \(A+B\)
+\item \(A-B\)
+\item \(B-A\)
+\item none of the others%%%%%%%%%
+\end{parts}
+\end{activity}
+
+
+
 
 \subsubsection{Scalar multiplication of matrices}
 
@@ -216,8 +244,9 @@ Then the scalar multiplications
 
 
 In general, suppose \(A\) is an \(m\times n\) matrix, with entries~\(a_{ij}\), then we define the \bfidx{scalar product} by~\(c\), either~\(cA\) or~\(Ac\)\,, as the \(m\times n\) matrix whose \((i,j)\)th~entry is \(ca_{ij}\).
-\footnote{Strictly speaking the product `\(\begin{bmatrix} 0.35 \end{bmatrix}A\)' is not defined because strictly speaking \(\begin{bmatrix} 0.35 \end{bmatrix}\) is not a scalar but is a \(1\times 1\) matrix.
-However, \script\ reasonably treats multiplication by a `\(1\times 1\) matrix' as a scalar multiplication.}
+\footnote{Be aware that \script\ reasonably treats multiplication by a `\(1\times 1\) matrix' as a scalar multiplication.  
+Strictly speaking products such as `\(\begin{bmatrix} 0.35 \end{bmatrix}A\)' are not defined because strictly speaking \(\begin{bmatrix} 0.35 \end{bmatrix}\) is not a scalar but is a \(1\times 1\) matrix.
+However, \script\ do not make the distinction.}
 That is,
 \begin{equation*}
 cA=Ac=\begin{bmatrix} ca_{11}&ca_{12}&\cdots&ca_{1n}
@@ -253,7 +282,7 @@ A=\begin{bmatrix} a_{11}&a_{12}&\cdots&a_{1n}
 \end{equation*}
 This product is only defined when the number of columns of matrix~\(A\) are the same as the number of components of vector~\xv.
 \footnote{Some of you who have studied calculus may wonder about what might be called `continuous matrices'~\(A(x,y)\) which multiply a function~\(f(x)\) according to the integral \(\int_a^b A(x,y)f(y)\,dy\)\,.  
-Then you might wonder about solving problems such as find the unknown~\(f(x)\) such that \(\int_0^1 A(x,y)f(y)\,dy=\sin\pi x\) for given \(A(x,y):=\min(x,y)\big[1-\max(x,y)\big]\); 
+Then you might wonder about solving problems such as find the unknown~\(f(x)\) such that \(\int_0^1 A(x,y)f(y)\,dy=\sin\pi x\) for given `continuous matrix' \(A(x,y):=\min(x,y)\big[1-\max(x,y)\big]\); 
 you may check that here the solution is \(f=\pi^2\sin\pi x\)\,.
 Such notions are a useful generalisation of our linear algebra: they are called \idx{integral equations}; the main structures and patterns developed by this course also apply.}
 
@@ -282,6 +311,22 @@ Further, we do not here define products such as~\(\xv A\) or~\(\bv B\): the orde
 \end{example}
 
 
+
+\begin{activity}
+Which of the following is the result of the matrix-vector product
+\(\begin{bmatrix} 4&1\\3&-2 \end{bmatrix}\begin{bmatrix} 3\\2 \end{bmatrix}\)?
+\partswidth=5em
+\begin{parts}
+\item \(\begin{bmatrix} 14\\5 \end{bmatrix}\)%%%%%%%%%
+\item \(\begin{bmatrix} 15\\2 \end{bmatrix}\)
+\item \(\begin{bmatrix} 18\\-1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 21\\-2 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
+
 \paragraph{Geometric interpretation}
 Multiplication of a vector by a square matrix transforms the vector into another in the same space as shown in the margin for \(A\xv\) from Example~\ref{eg:matvecmul}.
 \marginpar{%
@@ -297,7 +342,7 @@ Multiplication of a vector by a square matrix transforms the vector into another
 \end{axis}
 \end{tikzpicture}%\\[2ex]
 }%
-For another vector \(\yv=(1,1)\) the product
+For another vector \(\yv=(1,1)\) and the same matrix~\(A\) the product
 \begin{equation*}
 A\yv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 \begin{bmatrix} 1\\1 \end{bmatrix}
@@ -318,7 +363,7 @@ as illustrated in the second marginal picture.
 \end{axis}
 \end{tikzpicture}%\\[2ex]
 }%
-Similarly, for the vector \(\zv=(-1,2)\) the product
+Similarly, for the vector \(\zv=(-1,2)\) and the same matrix~\(A\) the product
 \begin{equation*}
 A\zv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 \begin{bmatrix} -1\\2 \end{bmatrix}
@@ -340,7 +385,7 @@ as illustrated in the third marginal picture.
 \end{tikzpicture}
 }%
 Such a geometric interpretation underlies the use of matrix multiplication in video and picture processing, for example.
-Such processing employs stretching and shrinking (section~\ref{sec:dmd}), rotations (section~\ref{sec:omr}), among more general transformations (Section~\ref{sec:ilt}).
+Such video\slash picture processing employs stretching and shrinking (section~\ref{sec:dmd}), rotations (section~\ref{sec:omr}), among more general transformations (Section~\ref{sec:ilt}).
 
 
 \begin{example} \label{eg:}
@@ -427,7 +472,7 @@ After a third year the number of females is predicted by the matrix-vector produ
 
 \subsubsection{Matrix-matrix multiplication}
 
-Matrix-vector multiplication explicitly writes the vector in its equivalent form as an \(n\times1\) matrix---a matrix with one column.
+Matrix-vector multiplication explicitly uses the vector in its equivalent form as an \(n\times1\) matrix---a matrix with one column.
 Such multiplication immediately generalises to the case of a right-hand matrix with multiple columns.
 
 \begin{example} \label{eg:}
@@ -449,7 +494,7 @@ A\begin{bmatrix} 4\\-3 \end{bmatrix} \end{bmatrix}
 \begin{bmatrix}6\\-11 \end{bmatrix} \end{bmatrix}
 \\&=&\begin{bmatrix}  13& -24&6\\-11 &9&-11\end{bmatrix}.
 \end{eqnarray*}
-Conversely, the product~\(BA\) cannot be done because if we follow the same procedure
+Conversely, the product~\(BA\) cannot be done because if we try the same procedure then
 \begin{eqnarray*}
 BA&=&B\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 \\&=&B\begin{bmatrix} \begin{bmatrix} 3 \\ -2 \end{bmatrix}\W 
@@ -527,6 +572,29 @@ b_{nj}&\cdots&b_{np} \end{bmatrix}.
 \end{equation*}
 As seen in the examples, although the two matrices~\(A\) and~\(B\) may be of different sizes, the number of columns of~\(A\) must equal the number of rows of~\(B\) in order for the product~\(AB\) to be defined.
 
+
+
+
+\begin{activity}
+Which one of the following matrix products is not defined?
+\begin{parts}
+\item \(\begin{bmatrix} -1&2
+\\1&-3 \end{bmatrix}\begin{bmatrix} -3&-1&-1
+\\0&-4&-1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 3&-1 \end{bmatrix}\begin{bmatrix} -3&1
+\\7&-3 \end{bmatrix}\)
+\item \(\begin{bmatrix} 8&9&3
+\\2&5&1 \end{bmatrix}\begin{bmatrix} -2&8
+\\3&-2 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2&5&-3 \end{bmatrix}\begin{bmatrix} -3&1
+\\-5&-1
+\\2&-2 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
+
 \begin{example} \label{eg:}
 Matrix multiplication leads to powers of a square matrix.
 Let matrix
@@ -539,7 +607,8 @@ AA=\begin{bmatrix} 3&2\\-2&1 \end{bmatrix}\begin{bmatrix} 3&2\\-2&1 \end{bmatrix
 \end{equation*}
 and by~\(A^3\) we mean the product
 \begin{equation*}
-AAA=AA^2=\begin{bmatrix} 5&8\\-8&-3 \end{bmatrix}\begin{bmatrix} 3&2\\-2&1 \end{bmatrix}
+AAA=AA^2=\begin{bmatrix} 3&2\\-2&1 \end{bmatrix}
+\begin{bmatrix} 5&8\\-8&-3 \end{bmatrix}
 =\begin{bmatrix} -1&18\\-18&-19 \end{bmatrix},
 \end{equation*}
 and so on.
@@ -552,9 +621,9 @@ A^p=\underbrace{AA\cdots A}_{p\text{ factors}}.
 The matrix powers~\(A^p\) are also \(n\times n\) square matrices.
 
 
-\begin{example}[age structured ecology] \label{eg:poppred}
-Matrix powers occur naturally in modelling populations by ecologists such as the animals of Example~\ref{eg:matasp}.
-Recall that given the numbers of female pups, juveniles and mature aged formed into a vector \(\xv=(x_1,x_2,x_3)\), the number in each age one year later  (indicated here by a dash) is \(\xv'=L\xv\) for \idx{Leslie matrix}
+\begin{example}[\idx{age structured population}] \label{eg:poppred}
+\index{matrix power}Matrix powers occur naturally in modelling populations by ecologists such as the animals of Example~\ref{eg:matasp}.
+Recall that given the numbers of female pups, juveniles and mature aged formed into a vector \(\xv=(x_1,x_2,x_3)\), the number in each age one year later (indicated here by a dash) is \(\xv'=L\xv\) for \idx{Leslie matrix}
 \begin{equation*}
 L=\begin{bmatrix} 0&0&4\\\frac12&0&0\\0&\frac13&\frac13 \end{bmatrix}.
 \end{equation*}
@@ -587,6 +656,8 @@ That is, the powers of the Leslie matrix help predict what happens two, three, o
 
 \subsubsection{The transpose of a matrix}
 
+\index{transpose|(}
+
 The operations so far defined for matrices correspond directly to analogous operations for real numbers.
 The transpose has no corresponding analogue.
 At first mysterious, the transpose occurs frequently---often due to it linking the dot product of vectors with matrix multiplication.
@@ -614,7 +685,34 @@ That is, if \(B=\tr A\), then \(b_{ij}=a_{ji}\).
 \end{definition}
 
 
-\begin{example}[transpose and dot product] \label{eg:trdp}
+
+\begin{activity}
+Which of the following matrices is the transpose of matrix
+\begin{equation*}
+\begin{bmatrix} 1&-0.5&2.9
+\\-1.4&-1.4&-0.2
+\\0.9&-2.3&1.6 \end{bmatrix}?
+\end{equation*}
+\begin{parts}
+\item \(\begin{bmatrix} 0.9&-2.3&1.6
+\\-1.4&-1.4&-0.2
+\\1&-0.5&2.9 \end{bmatrix}\)
+\item \(\begin{bmatrix} 1&-1.4&0.9
+\\-0.5&-1.4&-2.3
+\\2.9&-0.2&1.6 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2.9&-0.5&1
+\\-0.2&-1.4&-1.4
+\\1.6&-2.3&0.9 \end{bmatrix}\)
+\item \(\begin{bmatrix} 1.6&-2.3&0.9
+\\-0.2&-1.4&-1.4
+\\2.9&-0.5&1 \end{bmatrix}\)
+\end{parts}
+\end{activity} 
+
+
+
+
+\begin{example}[transpose and \idx{dot product}] \label{eg:trdp}
 Consider two vectors in~\(\RR^n\), say \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\); that is,
 \begin{equation*}
 \uv=\begin{bmatrix} u_1\\u_2\\\vdots\\u_n \end{bmatrix},\quad
@@ -622,11 +720,11 @@ Consider two vectors in~\(\RR^n\), say \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)
 \end{equation*}
 Then the dot product between the two vectors
 \begin{eqnarray*}
-\uv\cdot\vv&=&u_1v_1+u_2v_2+\cdots+u_nv_n \quad(\text{Defn.~\ref{def:dotprod}})
+\uv\cdot\vv&=&u_1v_1+u_2v_2+\cdots+u_nv_n \quad(\text{Defn.~\ref{def:dotprod} of dot})
 \\&=&\begin{bmatrix} u_1&u_2&\cdots&u_n \end{bmatrix}
-\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{matrix mult.})
+\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{Defn.~\ref{def:matprod} of mult.})
 \\&=&\tr{\begin{bmatrix} u_1\\u_2\\\vdots\\u_n \end{bmatrix}}
-\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{matrix transpose})
+\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{transpose Defn.~\ref{def:mattran}})
 \\&=&\tr{\uv}\vv\,.
 \end{eqnarray*}
 Subsequent sections and chapters often use this identity, that \(\uv\cdot\vv=\tr{\uv}\vv\)\,.
@@ -667,14 +765,39 @@ That is, the \(2\times 2\) matrix~\(E\) is symmetric iff \(b=c\)\,.
 Symmetric matrices of note are the \(n\times n\) \idx{identity matrix} and \(n\times n\) \idx{zero matrix}, \(I_n\) and~\(O_n\).
 
 
+\begin{activity}
+Which of the following matrices are a \idx{symmetric matrix}?
+\begin{parts}
+\item \(\begin{bmatrix} 0&-3.2&-0.8
+\\3.2&0&3.2
+\\0.8&-3.2&0 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2.3&-1.3&-2
+\\-3.2&-1&-1.3
+\\-3&-3.2&2.3 \end{bmatrix}\)
+\item \(\begin{bmatrix} -2.6&0.3&-1.3
+\\0.3&-0.2&0
+\\-1.3&0&-2 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2.2&-0.9&-1.2
+\\-0.9&-1.2&-3.1 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+   
+
+
+\index{transpose|)}
+
+
+
+
+
 
 \subsubsection{Compute in \script}
 
-\script\ empowers us to compute all these operations quickly, especially for the large problems found in applications: after all, Matlab is an abbreviation of \emph{Mat}rix \emph{Lab}oratory.
-Table~\ref{tbl:mtlbops} summarises the \script\ version of the operations introduced so far, and used in subsequent sections.
+\script\ empowers us to compute all these operations quickly, especially for the large problems found in applications: after all, \script[1]\ is an abbreviation of \emph{Mat}rix \emph{Lab}oratory.
+Table~\ref{tbl:mtlbops} summarises the \script\ version of the operations introduced so far, and used in the rest of this book.
 
 \begin{table}
-\caption{As well as the basics of \script\ listed in Table~\ref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics},  we need these matrix operations.\index{Matlab|textbf}\index{Octave|textbf}} \label{tbl:mtlbops}
+\caption{As well as the basics of \script\ listed in Table~\ref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbops}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -738,7 +861,7 @@ The answer, ``\verb|3  5|'', confirms \(A\) is \(3\times5\).
 \script\ accesses individual elements, rows and columns.
 For example, execute each of the following:
 \begin{itemize}
-\item \verb|A(2,4)| gives~\(a_{24}\) which here is~\(11\);
+\item \verb|A(2,4)| gives~\(a_{24}\) which here results in~\(11\);
 \item \verb|A(:,5)| is the the fifth \idx{column vector}, here \(\begin{bmatrix} 5\\ -8\\ -3 \end{bmatrix}\);
 \item \verb|A(1,:)| is the first row, here \(\begin{bmatrix} 0 & 0 & -2 & -11 & 5 \end{bmatrix}\).
 \end{itemize}
@@ -768,7 +891,7 @@ A =
 
 \paragraph{Matrix addition and subtraction}
 To illustrate further operations let's use some random matrices generated by \script: you will generate different matrices to the following, but the operations will work the same.
-Table~\ref{tbl:mtlbops} mentions that \verb|randn(m,n)| generates a random matrix so execute say
+Table~\ref{tbl:mtlbops} mentions that \verb|randn(m)| and \verb|randn(m,n)| generate random matrices so execute say
 \begin{verbatim}
 A=randn(4)
 B=randn(4)
@@ -819,7 +942,7 @@ ans =
    1.31  -0.71   0.53  -0.35
 \end{verbatim}
 You could check that \verb|B+A| gives the same matrix as \verb|A+B| (Theorem~\ref{thm:pasma}) by seeing that their difference is the \(3\times5\) zero matrix: execute \verb|(A+B)-(B+A)| (the parentheses control the order of evaluation).
-However, expressions such as \verb|B+C| and \verb|A-C| give an error, because the matrices are of incompatible sizes, reported by Matlab as\index{Error using}
+However, expressions such as \verb|B+C| and \verb|A-C| give an error, because the matrices are of incompatible sizes, reported by \script[1]\ as\index{Error using}
 \begin{verbatim}
 Error using  + 
 Matrix dimensions must agree. 
@@ -833,7 +956,7 @@ error: operator +: nonconformant arguments
 \paragraph{Scalar multiplication of matrices}
 In \script\ the asterisk indicates multiplication.
 Scalar multiplication can be done either way around.
-For example, generate a random \(2\times 4\) matrix~\(A\) and compute \(2A\) and~\(A\frac1{10}\).
+For example, generate a random \(4\times 3\) matrix~\(A\) and compute \(2A\) and~\(A\frac1{10}\).
 These commands 
 \begin{verbatim}
 A=randn(4,3)
@@ -895,7 +1018,7 @@ This last computation illustrates that in any expression the operations of multi
 
 \paragraph{Matrix multiplication}
 In \script\ the asterisk also invokes matrix-matrix and matrix-vector multiplication.
-For example, generate and multiply two random matrices say of size \(3\times4\) and \(4\times 3\) \twodp\ with
+For example, generate and multiply two random matrices say of size \(3\times4\) and \(4\times 2\) with 
 \begin{verbatim}
 A=randn(3,4)
 B=randn(4,2)
@@ -910,7 +1033,7 @@ A(1,:)*B(:,1)
 B*A
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-might give the following result
+might give the following result \twodp\ 
 \begin{verbatim}
 A =
   -0.02   1.31  -0.74  -0.49
@@ -930,16 +1053,16 @@ C =
   -0.60   1.38
 \end{verbatim}
 Without going into excruciating arithmetic detail this product is hard to check.
-However, we can check several things such as the first row of~\(A\) times the first column of~\(B\) gives~\(c_{11}\) by computing \verb|A(1,:)*B(:,1)| and seeing it does give~\(0.62\) as required.
+However, we can check several things such as \(c_{11}\) comes from the first row of~\(A\) times the first column of~\(B\) by computing \verb|A(1,:)*B(:,1)| and seeing it does give~\(0.62\) as required.
 Also check that the two columns of~\(C\) may be viewed as the two matrix-vector products \(A\bv_1\) and~\(A\bv_2\) by comparing~\(C\) with \verb|[A*B(:,1) A*B(:,2)]| and seeing they are the same.
 
 Recall that in a matrix product the number of columns of the left matrix have to be the same as the number of rows of the right matrix.
-\script\ gives an error message if this is not the case, such as occurs  upon asking it to compute~\verb|B*A| when Matlab reports\index{Error using}
+\script\ gives an error message if this is not the case, such as occurs  upon asking it to compute~\verb|B*A| when \script[1] reports\index{Error using}
 \begin{verbatim}
 Error using  * 
 Inner matrix dimensions must agree.
 \end{verbatim}
-and Octave reports\index{error: operator}
+and \script[2] reports\index{error: operator}
 \begin{verbatim}
 error: operator *: nonconformant arguments
 \end{verbatim}
@@ -1030,21 +1153,21 @@ Almost all of the familiar algebraic properties of scalar addition, subtraction 
 The one outstanding exception is that matrix multiplication is \emph{not} commutative: for matrices~\(A\) and~\(B\) the products~\(AB\) and~\(BA\) are usually not equal.
 We are used to non-commutativity in life.
 For example, when you go home, to enter your house you first open the door, second walk in, and third close the door. 
-You cannot swap the order and try to walk in before opening the door---the operations do not commute.
+You cannot swap the order and try to walk in before opening the door---these operations do not commute.
 Similarly, for another example, I often teach classes on the third floor of a building next to my office: after finishing classes, first I walk downstairs to ground level, and second I cross the road to my office.
 If I try to cross the road before going downstairs, then the force of gravity has something very painful to say about the outcome---the operations do not commute.
-Similar to these analogues, the order of matrix multiplication makes a difference to the result.
+Similar to these analogues, the result of a matrix multiplication depends upon the order of the matrices in the multiplication.
 
 
-\begin{theorem}[Properties of addition and scalar multiplication] \label{thm:pasm}
+\begin{theorem}[Properties of \idx{addition} and \idx{scalar multiplication}] \label{thm:pasm}
 Let matrices \(A\), \(B\) and~\(C\) be of the same size, and let \(c\) and~\(d\) be scalars.  Then:
 \begin{enumerate}
-\item\label{thm:pasma} \(A+B=B+A\) (commutativity of addition);
-\item \((A+B)+C=A+(B+C)\) (associativity of addition);
+\item\label{thm:pasma} \(A+B=B+A\) (commutativity of addition);\index{commutative law}
+\item \((A+B)+C=A+(B+C)\) (associativity of addition);\index{associative law}
 \item \(A\pm O=A=O+A\);
-\item \(c(A\pm B)=cA\pm cB\) (distributivity over matrix addition);
-\item \((c\pm d)A=cA\pm dA\) (distributivity over scalar addition);
-\item \(c(dA)=(cd)A\) (associativity of scalar multiplication);
+\item \(c(A\pm B)=cA\pm cB\) (distributivity over matrix addition);\index{distributive law}
+\item \((c\pm d)A=cA\pm dA\) (distributivity over scalar addition);\index{distributive law}
+\item \(c(dA)=(cd)A\) (associativity of scalar multiplication);\index{associative law}
 \item \(1A=A\)\,; and 
 \item \(0A=O\)\,.
 \end{enumerate}
@@ -1065,22 +1188,19 @@ A=\begin{bmatrix} 1&1\\1&0 \end{bmatrix},\quad
 B=\begin{bmatrix} 2&0\\2&-1 \end{bmatrix},\quad
 \xv=\begin{bmatrix} 1\\1 \end{bmatrix}.
 \end{equation*}
-Now the transform \(\xv'=B\xv=(2,1)\), and then transforming with~\(A\) gives \(\xv''=A\xv'=A(B\xv)=(3,2)\), as illustrated in the margin.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
-    , grid,xmin=0,xmax=3.9,ymax=2.9
-    ]
+    , grid,xmin=0,xmax=3.9,ymax=2.9 ]
     \addplot[blue,quiver={u=1,v=1},-stealth, thick] coordinates {(0,0)};
-    \node[above] at (axis cs:1,1) {$\vec x$};
+    \node[above] at (axis cs:1,1) {$\xv$};
     \addplot[red,quiver={u=2,v=1},-stealth, thick] coordinates {(0,0)};
-    \node[below] at (axis cs:2,1) {$B\vec x$};
+    \node[below] at (axis cs:2,1) {$B\xv$};
     \addplot[brown,quiver={u=3,v=2},-stealth, thick] coordinates {(0,0)};
-    \node[above] at (axis cs:3,2) {$A(B\vec x)$};
+    \node[above] at (axis cs:3,2) {$A(B\xv)$};
 \end{axis}
-\end{tikzpicture}
-}%
+\end{tikzpicture}}%
+Now the transform \(\xv'=B\xv=(2,1)\), and then transforming with~\(A\) gives \(\xv''=A\xv'=A(B\xv)=(3,2)\), as illustrated in the margin.
 This is the same results as forming the product
 \begin{equation*}
 AB=\begin{bmatrix} 1&1\\1&0 \end{bmatrix} 
@@ -1088,36 +1208,33 @@ AB=\begin{bmatrix} 1&1\\1&0 \end{bmatrix}
 =\begin{bmatrix} 4&-1\\2&0 \end{bmatrix}
 \end{equation*}
 and then computing \((AB)\xv=(3,2)\) as also illustrated in the margin.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
-    , grid,xmin=0,xmax=3.9,ymax=2.9
-    ]
+    , grid,xmin=0,xmax=3.9,ymax=2.9 ]
     \addplot[blue,quiver={u=1,v=1},-stealth, thick] coordinates {(0,0)};
-    \node[above] at (axis cs:1,1) {$\vec x$};
+    \node[above] at (axis cs:1,1) {$\xv$};
 %    \addplot[red,quiver={u=2,v=1},-stealth, thick] coordinates {(0,0)};
-%    \node[below] at (axis cs:2,1) {$B\vec x$};
+%    \node[below] at (axis cs:2,1) {$B\xv$};
     \addplot[brown,quiver={u=3,v=2},-stealth, thick] coordinates {(0,0)};
-    \node[above] at (axis cs:3,2) {$(AB)\vec x$};
+    \node[above] at (axis cs:3,2) {$(AB)\xv$};
 \end{axis}
-\end{tikzpicture}
-}%
+\end{tikzpicture}}%
 Such associativity asserts that \(A(B\xv)=(AB)\xv\)\,: that is, the geometric transform of~\xv\ by matrix~\(B\) followed by the transform of matrix~\(A\) is the same result as just transforming by the matrix formed from the product~\(AB\)---as assured by Theorem~\ref{thm:pmma}.
 \end{example}
 
 
 
-\begin{theorem}[properties of matrix multiplication] \label{thm:pmm}
+\begin{theorem}[properties of \idx{matrix multiplication}] \label{thm:pmm}
 Let matrices \(A\), \(B\) and~\(C\) be of sizes such that the following expressions are defined, and let \(c\)~be a scalar, then:
 \begin{enumerate}
-\item\label{thm:pmmb} \(A(B\pm C)=AB\pm AC\) (distributivity of matrix multiplication);
-\item\label{thm:pmmbb} \((A\pm B)C=AC\pm BC\) (distributivity of matrix multiplication);
-\item\label{thm:pmma} \(A(BC)=(AB)C\) (associativity of matrix multiplication);
+\item\label{thm:pmmb} \(A(B\pm C)=AB\pm AC\) (distributivity of matrix multiplication);\index{distributive law}
+\item\label{thm:pmmbb} \((A\pm B)C=AC\pm BC\) (distributivity of matrix multiplication);\index{distributive law}
+\item\label{thm:pmma} \(A(BC)=(AB)C\) (associativity of matrix multiplication);\index{associative law}
 \item\label{thm:pmmc} \(c(AB)=(cA)B=A(cB)\);
 \item\label{thm:pmmd} \(I_mA=A=AI_n\) for \(m\times n\) matrix~\(A\) (multiplicative identity);
 \item\label{thm:pmme} \(O_mA=O_{m\times n}=AO_n\)  for \(m\times n\) matrix~\(A\);
-\item\label{thm:pmmg} \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square~\(A\) and for positive integers~\(p\) and~\(q\).\footnote{Generically, these exponent properties hold for all scalar~\(p\) and~\(q\), although we have to be very careful with non-integer exponents.}
+\item\label{thm:pmmg} \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square~\(A\) and for positive integers~\(p\) and~\(q\).\index{matrix power}\footnote{Generically, these exponent properties hold for all scalar~\(p\) and~\(q\), although we have to be very careful with non-integer exponents.}
 \end{enumerate}
 \end{theorem}
 
@@ -1234,15 +1351,18 @@ Since \(JA\neq A\) then matrix~\(J\) cannot be a multiplicative identity (the mu
 
 
 
-\begin{theorem}[properties of transpose] \label{thm:pot}
+\begin{theorem}[properties of \idx{transpose}] \label{thm:pot}
 Let matrices \(A\) and~\(B\) be of sizes such that the following expressions are defined, then:
 \begin{enumerate}
 \item\label{thm:pota} \(\tr{(\tr A)}=A\);
 \item\label{thm:potb} \(\tr{(A\pm B)}=\tr A\pm \tr B\);
 \item\label{thm:potc} \(\tr{(cA)}=c(\tr A)\) for any scalar~\(c\);
 \item\label{thm:potd} \(\tr{(AB)}=\tr B\tr A\);
-\item\label{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for all positive integer exponents~\(p\);\footnote{With care, this property also holds for all scalar exponents~\(p\).}
-\item\label{thm:potf} \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are symmetric matrices.
+\begin{aside}
+The reversed order is important in the identity \(\tr{(AB)}=\tr B\tr A\).
+\end{aside}
+\item\label{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for all positive integer exponents~\(p\);\index{matrix power}\footnote{With care, this property also holds for all scalar exponents~\(p\).}
+\item\label{thm:potf} \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are symmetric matrices.\index{symmetric matrix}
 \end{enumerate}
 \end{theorem}
 

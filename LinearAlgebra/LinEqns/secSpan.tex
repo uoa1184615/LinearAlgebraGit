@@ -42,22 +42,22 @@ Estimate roughly each of the blue vectors as a \idx{linear combination} of the g
 \begin{axis}[footnotesize,font=\footnotesize%,domain=-1.5:1.5
     ,axis equal image, axis lines=none    ] 
     \addplot[red,thick,quiver={u=2,v=1},-stealth] coordinates {(0,0)};
-    \node[right] at (axis cs:2,1) {$\vec v_1$};
+    \node[right] at (axis cs:2,1) {$\vv_1$};
     \addplot[red,thick,quiver={u=-1,v=2},-stealth] coordinates {(0,0)};
-    \node[above] at (axis cs:-1,2) {$\vec v_2$};
+    \node[above] at (axis cs:-1,2) {$\vv_2$};
     \addplot[blue,thick,quiver={u=1,v=3},-stealth] coordinates {(0,0)};
-    \node[right] at (axis cs:1,3) {$\vec a$};
+    \node[right] at (axis cs:1,3) {$\av$};
     \addplot[blue,thick,quiver={u=5,v=0},-stealth] coordinates {(0,0)};
-    \node[above] at (axis cs:5,0) {$\vec b$};
+    \node[above] at (axis cs:5,0) {$\bv$};
     \addplot[blue,thick,quiver={u=-1,v=1},-stealth] coordinates {(0,0)};
-    \node[left] at (axis cs:-1,1) {$\vec c$};
+    \node[left] at (axis cs:-1,1) {$\cv$};
 \end{axis}
 \end{tikzpicture}
 \begin{solution} 
 By visualising various combinations: 
-vector \(\av\approx -1\vv_1+4\vv_2\)\,;
-vector \(\bv\approx 2\vv_1-2\vv_2\)\,;
-vector \(\cv\approx -1\vv_1+2\vv_2\)\,. 
+ \(\av\approx \vv_1+\vv_2 =1\vv_1+1\vv_2\)\,;
+ \(\bv\approx 2\vv_1-\vv_2 =2\vv_1+(-1)\vv_2\)\,;
+ \(\cv\approx -0.2\vv_1+0.6\vv_2\)\,.
 \end{solution}
 
 
@@ -66,40 +66,62 @@ vector \(\cv\approx -1\vv_1+2\vv_2\)\,.
 \begin{axis}[footnotesize,font=\footnotesize%,domain=-1.5:1.5
     ,axis equal image, axis lines=none    ] 
     \addplot[red,thick,quiver={u=3,v=1},-stealth] coordinates {(0,0)};
-    \node[right] at (axis cs:3,1) {$\vec v_1$};
+    \node[right] at (axis cs:3,1) {$\vv_1$};
     \addplot[red,thick,quiver={u=1,v=1},-stealth] coordinates {(0,0)};
-    \node[right] at (axis cs:1,1) {$\vec v_2$};
+    \node[right] at (axis cs:1,1) {$\vv_2$};
     \addplot[blue,thick,quiver={u=1,v=3},-stealth] coordinates {(0,0)};
-    \node[right] at (axis cs:1,3) {$\vec a$};
+    \node[right] at (axis cs:1,3) {$\av$};
     \addplot[blue,thick,quiver={u=5,v=0},-stealth] coordinates {(0,0)};
-    \node[above] at (axis cs:5,0) {$\vec b$};
+    \node[above] at (axis cs:5,0) {$\bv$};
     \addplot[blue,thick,quiver={u=-1,v=1},-stealth] coordinates {(0,0)};
-    \node[left] at (axis cs:-1,1) {$\vec c$};
+    \node[left] at (axis cs:-1,1) {$\cv$};
 \end{axis}
 \end{tikzpicture}
 \begin{solution} 
 By visualising various combinations: 
-vector \(\av\approx -1\vv_1+4\vv_2\)\,;
-vector \(\bv\approx 2\vv_1-2\vv_2\)\,;
-vector \(\cv\approx -1\vv_1+2\vv_2\)\,. 
+ \(\av\approx -1\vv_1+4\vv_2\)\,;
+ \(\bv\approx 2\vv_1-2\vv_2\)\,;
+ \(\cv\approx -1\vv_1+2\vv_2\)\,. 
 \end{solution}
 
 \end{parts}
-%\begin{solution} 
-%\begin{enumerate}
-%\item By visualising various combinations: 
-%vector \(\av\approx \vv_1+\vv_2=1\vv_1+1\vv_2\)\,;
-%vector \(\bv\approx 2\vv_1-\vv_2=2\vv_1+(-1)\vv_2\)\,;
-%vector \(\cv\approx -0.2\vv_1+0.6\vv_2\)\,.
-%
-%\item By visualising various combinations: 
-%vector \(\av\approx -1\vv_1+4\vv_2\)\,;
-%vector \(\bv\approx 2\vv_1-2\vv_2\)\,;
-%vector \(\cv\approx -1\vv_1+2\vv_2\)\,.
-%
-%\end{enumerate}
-%\end{solution}
 \end{example}
+
+
+
+
+
+\begin{activity}
+Choose any one of these linear combinations:
+\begin{equation*}
+2\vv_1-0.5\vv_2 \qquad
+0\vv_1-\vv_2 \qquad
+-0.5\vv_1+0.5\vv_2 \qquad 
+\vv_1+\vv_2 \qquad 
+\end{equation*}
+Then in the plot below, which vector, \av, \bv, \cv\ or~\dv, corresponds to the chosen linear combination?
+\begin{center}
+\begin{tikzpicture} 
+\begin{axis}[small,font=\footnotesize%,domain=-1.5:1.5
+    ,axis equal image, axis lines=none    ] 
+    \addplot[red,thick,quiver={u=3,v=1},-stealth] coordinates {(0,0)};
+    \node[right] at (axis cs:3,1) {$\vv_1$};
+    \addplot[red,thick,quiver={u=-4,v=3},-stealth] coordinates {(0,0)};
+    \node[right] at (axis cs:-4,3) {$\vv_2$};
+    \addplot[blue,thick,quiver={u=-1,v=4},-stealth] coordinates {(0,0)};
+    \node[right] at (axis cs:-1,4) {$\av$};
+    \addplot[blue,thick,quiver={u=-3.5,v=1},-stealth] coordinates {(0,0)};
+    \node[below] at (axis cs:-3.5,1) {$\bv$};
+    \addplot[blue,thick,quiver={u=8,v=0.5},-stealth] coordinates {(0,0)};
+    \node[below] at (axis cs:8,0.5) {$\cv$};
+    \addplot[blue,thick,quiver={u=4,v=-3},-stealth] coordinates {(0,0)};
+    \node[above] at (axis cs:4,-3) {$\dv$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{activity}
+
+
 
 
 
@@ -107,9 +129,7 @@ vector \(\cv\approx -1\vv_1+2\vv_2\)\,.
 \index{parametric equation}Parametric descriptions of lines and planes  involve \idx{linear combination}s (Sections~\ref{sec:asv}--\ref{sec:dpdal}).
 \begin{enumerate}
 \item 
-For each value of~\(t\), \((3,4)+t(-1,2)\) is a linear combination of the two vectors \((3,4)\) and~\((-1,2)\).  
-Over all values of parameter~\(t\) it describes the line illustrated in the margin.
-(The line is alternatively described as \(2x+y=10\)\,.)
+For each value of~\(t\), the expression \((3,4)+t(-1,2)\) is a linear combination of the two vectors \((3,4)\) and~\((-1,2)\).  
 \marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
     , axis equal image, axis lines=middle,
@@ -119,14 +139,16 @@ Over all values of parameter~\(t\) it describes the line illustrated in the marg
     \addplot[red,quiver={u=3,v=4},-stealth,thick] coordinates {(0,0)};
     \addplot[red,quiver={u=-1,v=2},-stealth,thick] coordinates {(3,4)};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
+Over all values of parameter~\(t\) it describes the line illustrated in the margin.
+(The line is alternatively described as \(2x+y=10\)\,.)
 
-\item For each value of \(s\) and~\(t\), \(2(1,0,1)+s(-1,-\frac12,\frac12)+t(1,-1,0)\) is a linear combination of the three vectors \((1,0,1)\), \((-1,-\frac12,\frac12)\) and~\((1,-1,0)\).
+
+\item For each value of \(s\) and~\(t\), the expression \(2(1,0,1)+s(-1,-\frac12,\frac12)+t(1,-1,0)\) is a linear combination of the three vectors \((1,0,1)\), \((-1,-\frac12,\frac12)\) and~\((1,-1,0)\).
 Over all values of the parameters~\(s\) and~\(t\) it describes the plane illustrated below.
 (Alternatively the plane could be described as \(x+y+3z=8\)).
-%\marginpar{%
 \begin{center}
-\foreach \q in {37,40} {\begin{tikzpicture}
+\qview{37}{40} {\begin{tikzpicture}
 \begin{axis}[footnotesize,view={\q}{30}
     , xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-1.5ex}
     , grid, domain=0:4
@@ -141,13 +163,12 @@ Over all values of the parameters~\(s\) and~\(t\) it describes the plane illustr
 
 
 \item 
-\(t(-1,2,0)+t^2(0,2,1)\)
+The expression \(t(-1,2,0)+t^2(0,2,1)\)
 is a linear combination of the two vectors \((-1,2,0)\) and~\((0,2,1)\) as the vectors are multiplied by scalars and then added.  
 That a coefficient is a nonlinear function of some parameter is irrelevant to the property of linear combination.
 This expression is the parametric description of a parabola in~\(\RR^3\), as illustrated below, and very soon we will be able to say it is a parabola in the plane spanned by \((-1,2,0)\) and~\((0,2,1)\).
-%\marginpar{%
 \begin{center}
-\foreach \q in {37,40} {\begin{tikzpicture}
+\qview{37}{40} {\begin{tikzpicture}
 \begin{axis}[footnotesize,view={\q}{30}
     , grid, domain=-1:1]
     \addplot3[blue,samples y=0,thick]({-x},{2*x+2*x^2},{x^2});
@@ -193,10 +214,10 @@ Then use addition and scalar multiplication of vectors (Definition~\ref{def:veco
 This left-hand side is a linear combination of the columns of matrix~\(A\): define from the columns of~\(A\) the \(n\)~vectors, \(\av_1=(a_{11},a_{21},\ldots,a_{m1})\), \(\av_2=(a_{12},a_{22},\ldots,a_{m2})\), \ldots, \(\av_n=(a_{1n},a_{2n},\ldots,a_{mn})\), then the left-hand side is a linear combination of these vectors, with the coefficients of the linear combination being \hlist xn.
 \end{example}
 
+\begin{theorem} \label{thm:conlincom} \ 
 \begin{aside}
 Be aware of a subtle twist going on here: this theorem turns a question about the existence of \(n\)~variable solution~\xv, into a question about vectors with \(m\)~components; and vice-versa.
 \end{aside}
-\begin{theorem} \label{thm:conlincom} 
 A system of \idx{linear equation}s \(A\xv=\bv\) is \idx{consistent} (Procedure~\ref{pro:gje}) if and only if the right-hand side vector~\bv\ is a \idx{linear combination} of the columns of~\(A\).
 \end{theorem}
 
@@ -207,7 +228,7 @@ Conversely, if \bv~is a linear combination of the columns, then a solution~\xv\ 
 
 
 \begin{example} \label{eg:}
-This first example considers the simplest case when the matrix has only one column, and so any linear combination is only a scalar multiple of that column.
+This first example considers the simplest cases when the matrix has only one column, and so any linear combination is only a scalar multiple of that column.
 Compare the consistency of the equations with the right-hand side being a linear combination of the column of the matrix.
 \begin{enumerate}
 \item \(\begin{bmatrix} -1\\2 \end{bmatrix}x
@@ -220,8 +241,6 @@ Also, the right-hand side \(\bv=(-2,4)\) is the linear combination \(2(-1,2)\) o
 \item \(\begin{bmatrix} -1\\2 \end{bmatrix}x
 =\begin{bmatrix} 2\\3 \end{bmatrix}\).
 \begin{solution} 
-The system is inconsistent as the first equation requires \(x=-2\) whereas the second requires \(x=\tfrac32\) and these cannot hold simultaneously (Procedure~\ref{pro:gje}).
-Also, there is no multiple of \((-1,2)\) that gives the right-hand side \(\bv=(2,3)\) so the right-hand side cannot be a linear combination of the column of the matrix---as illustrated in the margin.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal, axis lines=middle, grid,domain=-3:3
@@ -230,17 +249,13 @@ Also, there is no multiple of \((-1,2)\) that gives the right-hand side \(\bv=(2
     \addplot[black, mark=*] coordinates {(2,3)} node[right] {\((2,3)\)};
 \end{axis}
 \end{tikzpicture}}
+The system is inconsistent as the first equation requires \(x=-2\) whereas the second requires \(x=\tfrac32\) and these cannot hold simultaneously (Procedure~\ref{pro:gje}).
+Also, there is no multiple of \((-1,2)\) that gives the right-hand side \(\bv=(2,3)\) so the right-hand side cannot be a linear combination of the column of the matrix---as illustrated in the margin.
 \end{solution}
 
 \item \(\begin{bmatrix} 1\\a \end{bmatrix}x
 =\begin{bmatrix} 3\\-6 \end{bmatrix}\) depending upon parameter~\(a\).
 \begin{solution} 
-The first equation requires \(x=3\) whereas the second equation requires \(ax=-6\); that is, \(a\cdot3=-6\)\,, that is, \(a=-2\)\,.
-Thus it is only for \(a=-2\) that the system is consistent;
-for \(a\neq-2\) the system is inconsistent.
-Also, plotted in the margin are vectors \((1,a)\) for various~\(a\).
-It is only for \(a=-2\) that the vector is aligned towards the given \((3,-6)\).
-Hence it is only for \(a=-2\) that a linear combination of~\((1,a)\) can give the required~\((3,-6)\).
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal, axis lines=middle, grid,domain=-1:3
@@ -252,6 +267,12 @@ Hence it is only for \(a=-2\) that a linear combination of~\((1,a)\) can give th
      node[above] {\qquad\((3,-6)\)};
 \end{axis}
 \end{tikzpicture}}
+The first equation requires \(x=3\) whereas the second equation requires \(ax=-6\); that is, \(a\cdot3=-6\)\,, that is, \(a=-2\)\,.
+Thus it is only for \(a=-2\) that the system is consistent;
+for \(a\neq-2\) the system is inconsistent.
+Also, plotted in the margin are vectors \((1,a)\) for various~\(a\).
+It is only for \(a=-2\) that the vector is aligned towards the given \((3,-6)\).
+Hence it is only for \(a=-2\) that a linear combination of~\((1,a)\) can give the required~\((3,-6)\).
 \end{solution}
 
 \end{enumerate}
@@ -259,12 +280,26 @@ Hence it is only for \(a=-2\) that a linear combination of~\((1,a)\) can give th
 
 
 
-In the examples of linear combination, the coefficients mostly involve a variable parameter or unknown.
+
+\begin{activity}
+For what value of~\(a\) is the system \(\begin{bmatrix} 3-a\\-2a \end{bmatrix}x=\begin{bmatrix} 1\\1 \end{bmatrix}\) consistent?
+\partswidth=5em
+\begin{parts}
+\item \(a=-3\)
+\item \(a=-1/2\)
+\item \(a=1\)
+\item \(a=2\)
+\end{parts}
+\end{activity}
+
+
+
+In the Examples~\ref{eg:lcs} and~\ref{eg:lcmatvec} of linear combination, the coefficients mostly are a variable parameter or unknown.
 Consequently, mostly we are interested in the range of possibilities encompassed by a given set of vectors.
 
 
 \begin{definition} \label{def:span} 
-Let a set of vectors in~\(\RR^n\) be  \(S=\{\hlist\vv k\}\), then the set of all \idx{linear combination}s of \hlist\vv k\ is called the \bfidx{span} of \hlist\vv k, and is denoted by \(\Span\{\hlist\vv k\}\) or \(\Span S\)\,.%
+Let a set of \(k\)~vectors in~\(\RR^n\) be  \(S=\{\hlist\vv k\}\), then the set of all \idx{linear combination}s of \hlist\vv k\ is called the \bfidx{span} of \hlist\vv k, and is denoted by \(\Span\{\hlist\vv k\}\) or \(\Span S\)\,.%
 \footnote{In the degenerate case of the set~\(S\) being the empty set, we take its span to be just the zero vector; that is, by convention \(\Span\{\}=\{\ov\}\).  But we rarely need this degenerate case.}
 %If \(\Span S=\RR^n\), then \(S\) is called a \bfidx{spanning set} for~\(\RR^n\).
 \end{definition}
@@ -272,9 +307,8 @@ Let a set of vectors in~\(\RR^n\) be  \(S=\{\hlist\vv k\}\), then the set of all
 
 \begin{example} \label{eg:span}
 \begin{enumerate}
-\item Let the set \(S=\{(-1,2)\}\) with just one vector.  Then \(\Span S=\Span\{(-1,2)\}\) is the set of all vectors encompassed by the form \(t(-1,2)\): from the parametric equation of a line (Definition~\ref{def:parlin}), \(\Span S\) is all vectors in the line \(y=-2x\) as shown in the margin.
-\marginpar{%
-\begin{tikzpicture}[]
+\item Let the set \(S=\{(-1,2)\}\) with just one vector.  
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize
     , axis equal, axis lines=middle,
     , xlabel={$x$},ylabel={$y$},  grid, domain=-2.5:2.5
@@ -282,8 +316,8 @@ Let a set of vectors in~\(\RR^n\) be  \(S=\{\hlist\vv k\}\), then the set of all
     \addplot[blue]{-2*x} ;
     \addplot[red,quiver={u=-1,v=2},-stealth,thick] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}
-}
+\end{tikzpicture}}%
+Then \(\Span S=\Span\{(-1,2)\}\) is the set of all vectors encompassed by the form \(t(-1,2)\): from the parametric equation of a line (Definition~\ref{def:parlin}), \(\Span S\) is all vectors in the line \(y=-2x\) as shown in the margin.
 
 \item With two vectors in the set, \(\Span\{(-1,2),(3,4)\}=\RR^2\) is the entire 2D plane.
 To see this, recall that any point in the span must be of the form \(s(-1,2)+t(3,4)\).
@@ -300,10 +334,8 @@ s\begin{bmatrix} -1\\2 \end{bmatrix}+t\begin{bmatrix} 3\\4 \end{bmatrix}
 \end{eqnarray*}
 Since every vector in~\(\RR^2\) can be expressed as \(s(-1,2)+t(3,4)\), then \(\RR^2=\Span\{(-1,2),(3,4)\}\)
 
-\item But if two vectors are proportional to each other then their span is a line: for example, \(\Span\{(-1,2),(2,-4)\}\) is the set of all vectors of the form \(r(-1,2)+s(2,-4)=r(-1,2)+(-2s)(-1,2)=(r-2s)(-1,2)=t(-1,2)\) for \(t=r-2s\).  
-That is, \(\Span\{(-1,2),(2,-4)\}=\Span\{(-1,2)\}\) as illustrated in the margin.
-\marginpar{%
-\begin{tikzpicture}[]
+\item But if two vectors are proportional to each other then their span is a line: 
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize
     , axis equal, axis lines=middle,
     , xlabel={$x$},ylabel={$y$},  grid, domain=-2.5:2.5
@@ -312,14 +344,14 @@ That is, \(\Span\{(-1,2),(2,-4)\}=\Span\{(-1,2)\}\) as illustrated in the margin
     \addplot[red,quiver={u=-1,v=2},-stealth,thick] coordinates {(0,0)};
     \addplot[red,quiver={u=2,v=-4},-stealth,thick] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}
-}
+\end{tikzpicture}}%
+for example, \(\Span\{(-1,2),(2,-4)\}\) is the set of all vectors of the form \(r(-1,2)+s(2,-4)=r(-1,2)+(-2s)(-1,2)=(r-2s)(-1,2)=t(-1,2)\) for \(t=r-2s\).  
+That is, \(\Span\{(-1,2),(2,-4)\}=\Span\{(-1,2)\}\) as illustrated in the margin.
 
 \item  In 3D, \(\Span\{(-1,2,0),(0,2,1)\}\) is the set of all linear combinations \(s(-1,2,0)+t(0,2,1)\) which here is a parametric form of the plane illustrated below (Definition~\ref{def:parpla}).  
 The plane passes through the origin~\ov, obtained when \(s=t=0\)\,.
-%\marginpar{%
 \begin{center}
-\foreach \q in {37,40} {\begin{tikzpicture}
+\qview{37}{40} {\begin{tikzpicture}
 \begin{axis}[footnotesize,view={\q}{30}
     , grid, domain=-1:1 ]
     \addplot3[surf,shader=interp,blue,opacity=0.4,samples=2,y domain=-0.5:4] {x+y/2};
@@ -330,7 +362,7 @@ The plane passes through the origin~\ov, obtained when \(s=t=0\)\,.
 \end{center}
 One could also check that the vector~\((2,1,-2)\) is orthogonal to these two vectors, hence is a normal to the plane, and so the plane may be also expressed as \(2x+y-2z=0\)\,.
 
-\item For the complete set of \(n\)~standard unit vectors in~\(\RR^n\), \(\Span\{\hlist\ev n\}=\RR^n\).
+\item For the complete set of \(n\)~\idx{standard unit vector}s in~\(\RR^n\) (Definition~\ref{def:stuniv}), \(\Span\{\hlist\ev n\}=\RR^n\).
 This is because any vector \(\xv=(\hlist xn)\) in~\(\RR^n\) may be written as the linear combination \(\xv=x_1\ev_1+x_2\ev_2+\cdots+x_n\ev_n\) and hence is in \(\Span\{\hlist\ev n\}\).
 
 
@@ -339,7 +371,7 @@ That is, the set of solutions is \(\Span\{(-2,1,0,0),\linebreak[1](-\frac{15}7,0
 
 Generally, the set of solutions to a homogeneous system is the span of some set.
 
-\item However, the set of solutions to a non-homogeneous system is generally not equal to the span of some set.  
+\item However, the set of solutions to a non-homogeneous system is generally not the span of some set.  
 For example, the solutions to Example~\ref{eg:gjeb} are all of the form \((u,v,w)=(-\frac34-\frac14t,\frac12+\frac32t,t) 
 =(-\frac34,\frac12,0)+t(-\frac14,\frac32,1)\) for arbitrary~\(t\).
 True, each of these solutions is a linear combination of vectors \((-\frac34,\frac12,0)\) and \((-\frac14,\frac32,1)\). 
@@ -349,6 +381,27 @@ Consequently, all the possible solutions cannot be the same as the span of some 
 
 \end{enumerate}
 \end{example}
+
+
+
+\begin{activity}
+In the margin is drawn a line: 
+\marginpar{\begin{tikzpicture}[]
+\begin{axis}[footnotesize,font=\footnotesize
+    , axis equal, axis lines=middle,
+    , xlabel={$x$},ylabel={$y$},  grid
+    ]
+    \addplot[blue]{x/2} ;
+\end{axis}
+\end{tikzpicture}}%
+for which one of the following vectors~\(\uv\) is \(\Span\{\uv\}\) \emph{not} the drawn line?
+\begin{parts}
+\item \((2,1)\)
+\item \((-1,-0.5)\)
+\item \((-1,-2)\)
+\item \((4,2)\)
+\end{parts}
+\end{activity}
 
 
 

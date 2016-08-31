@@ -34,7 +34,8 @@ Given two points in space, say~\(A\) and~\(B\), the displacement vector~\(\ovect
 \marginpar{\temp0}
 For example, if your home is at position~\(A\) and your school at position~\(B\), then travelling from home to school is moving by the amount of the displacement vector~\(\ovect{AB}\).
 
-To be able to manipulate vectors we describe them with numbers from a \idx{coordinate system}.
+To be able to manipulate vectors we describe them with numbers.
+For such numbers to have meaning they must be defined via a \idx{coordinate system}.
 So choose an origin for the coordinate system, usually denoted~\(O\), and draw coordinate axes in the plane (or space), as illustrated for the above two \idx{displacement vector}s.
 Here the displacement vector~\(\ovect{AB}\) goes three units to the right and one unit up, so we denote it by the ordered pair of numbers~\(\ovect{AB}=(3,1)\).
 \marginpar{\temp1}
@@ -42,7 +43,7 @@ Whereas the displacement vector~\(\ovect{CD}\) goes three units to the left and 
 \end{example}
 
 
-\needspace{5\baselineskip}
+\needspace{6\baselineskip}
 \begin{example}[position vector] \label{eg:posvec}
 The next important class of vectors are the \bfidx{position vector}s.
 Given some chosen fixed origin in space, then \(\ovect{OA}\)~is the \idx{position vector} of the point~\(A\).
@@ -63,12 +64,12 @@ Given some chosen fixed origin in space, then \(\ovect{OA}\)~is the \idx{positio
 \marginpar{\temp{0}}%
 The marginal picture illustrates the position vectors of four points in the plane, given a chosen origin~\(O\).
 
-Again, to be able to manipulate such vectors we describe them with numbers from a \idx{coordinate system}.
+Again, to be able to manipulate such vectors we describe them with numbers, and such numbers have meaning via a \idx{coordinate system}.
 \marginpar{\temp{1}}
 So draw coordinate axes in the plane (or space), as illustrated for the above four \idx{position vector}s.
 Here the position vector~\(\ovect{OA}\) goes one unit to the right and two units up so we denote it by \(\ovect{OA}=(1,2)\).
 Similarly, the position vectors \(\ovect{OB}=(4,3)\),  \(\ovect{OC}=(2,-1)\), and  \(\ovect{OB}=(-1,3)\).
-Of course you recognise that the ordered pairs of numbers in the position vectors are exactly the coordinates of each of the specified end-points. 
+Recognise that the ordered pairs of numbers in the position vectors are exactly the coordinates of each of the specified end-points. 
 \end{example}
 
 
@@ -112,10 +113,10 @@ Trigonometry then tells us that the Westward speed of the airplane is \(360\cos(
   \node[below] at (axis cs:0,0) {\quad$O$};
 \end{axis}
 \end{tikzpicture}}%
-But West is the opposite direction to East, so if we choose to write East as positive, then West must be negative.
+But West is the opposite direction to East, so if the coordinate system treats East as positive, then West must be negative.
 Consequently, together with the climb in the vertical, the velocity vector is \((-254.6\)\,km/hr,\(254.6\)\,km/hr,\(2\,\)m/s\()\).
 But it is best to avoid mixing units within a vector, so here convert all speeds to~m/s: here \(360\)\,km/hr upon dividing by~\(3600\)\,secs/hr and multiplying by \(1000\)\,m/km gives \(360\)\,km/hr\({}=100\)\,m/s.
-Then the North and West speeds are \(100\cos(\tfrac\pi4)=70.71\)\,m/s.
+Then the North and West speeds are both \(100\cos(\tfrac\pi4)=70.71\)\,m/s.
 Consequently, the \idx{velocity vector} of the climbing airplane should be described as \((-70.71,70.71,2)\) in~m/s.
 \end{example}
 
@@ -183,7 +184,7 @@ In this book exactly the same thing is meant by the columns in brackets: for exa
 \ovect{OC}=(2,-1)=\begin{bmatrix} 2\\-1 \end{bmatrix},\quad
 (-70.71,70.71,2)=\begin{bmatrix} -70.71\\70.71\\2 \end{bmatrix}.
 \end{eqnarray*}
-However, as defined subsequently, a row of numbers within brackets is to be quite different: \((3,1)\neq\begin{bmatrix} 3&1 \end{bmatrix}\),  and \((831,344,0)\neq\begin{bmatrix} 831&344&0 \end{bmatrix}\).
+However, as defined subsequently, a row of numbers within brackets is  quite different: \((3,1)\neq\begin{bmatrix} 3&1 \end{bmatrix}\),  and \((831,344,0)\neq\begin{bmatrix} 831&344&0 \end{bmatrix}\).
 
 The \emph{ordering} of the components is very important.
 \marginpar{\begin{tikzpicture} 
@@ -191,8 +192,8 @@ The \emph{ordering} of the components is very important.
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[below] at (axis cs:#2,#3) {$#1$};}
 \begin{axis}[footnotesize,font=\footnotesize
-  ,axis equal,  ,axis lines=middle, grid
-  ,ymin=-1.9,xmin=-1.9,xmax=3.9,ymax=3.6
+  ,axis equal ,axis lines=middle, grid
+  ,ymin=-1.9,xmin=-2,xmax=3.9,ymax=3.7
   ] 
   \tmp {\quad(3,1)}31 \tmp {\qquad(1,3)}13
   \tmp {\quad(2,-1)}2{-1} \tmp {(-1,2)\qquad}{-1}2
@@ -285,6 +286,20 @@ Now the study of language is becoming a problem of vector space mathematics.
 
 
 
+\begin{activity}
+Given word vectors \(\wv=(N_{\text{cat}}\clb N_{\text{dog}}\clb N_{\text{mat}}\clb N_{\text{sat}}\clb N_{\text{scratched}})\) as in Example~\ref{eg:deflsv},
+which of the following has word vector \(\wv=(2,2,0,2,1)\)?
+\begin{enumerate}
+\item ``The dog scratched the cat on the mat.''
+\item ``A dog sat.  A cat scratched the dog.  The cat sat.''
+\item ``A dog and cat both sat on the mat which the dog had scratched.''
+\item ``Which cat sat by the dog on the mat, and then scratched the dog.''
+\end{enumerate}
+\end{activity}
+
+
+
+
 
 
 
@@ -295,9 +310,8 @@ define the \bfidx{length} (or \bfidx{magnitude}) of vector~\vv\  to be the real 
 \begin{equation*}
 |\vv|=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\,.
 \end{equation*}
-%A vector of length zero is called the \bfidx{zero vector} and denoted~\ov.
 A vector of length one is called a \bfidx{unit vector}.
-(Be aware that many books, especially advanced books, denote the length of a vector with a pair of double lines, as in~\(\|\vv\|\).)
+(Be aware that many books denote the length of a vector with a pair of double lines, as in~\(\|\vv\|\).)
 \end{definition}
 
 
@@ -339,6 +353,20 @@ A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading t
  
 \end{solution}
 \end{example}
+
+
+
+
+\begin{activity}
+What is the length of the vector \((1,-2,2)\)\,?
+\partswidth=5em
+\begin{parts}
+\item \(1\)
+\item \(\sqrt5\)
+\item \(3\)
+\item \(5\)
+\end{parts}
+\end{activity}
 
 
 
@@ -407,22 +435,26 @@ For each case: on the plot draw the \idx{displacement vector}s \(\ovect{AB}\) an
 
 \begin{exercise} \label{ex:fourvec} 
 For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{components} of the four \idx{position vector}s of the points~\(A\), \(B\), \(C\) and~\(D\).
-\newcommand{\mytemp}{\begin{tikzpicture} 
-\begin{axis}[small,font=\small%footnotesize,font=\footnotesize
+\newcommand{\mytemp}{%\edef\myans{begin}% fails to provide answers
+\begin{tikzpicture} 
+\begin{axis}[small,font=\small
   ,axis equal, xlabel={$x$}, ylabel={$y$}
   ,axis lines=middle, grid  ] 
   \foreach \q in {A,B,C,D} {
     \pgfmathparse{rand*4}\let\h\pgfmathresult
     \pgfmathparse{rand*3}\let\v\pgfmathresult
+%    \edef\myans{\myans next $(\h,\v)$}
     \edef\myytmp{\noexpand
     \addplot+[quiver={u=\h,v=\v},-stealth,thick] 
     coordinates {(0,0)};
     \noexpand \node[blue,right] at (axis cs:\h,\v) {$\q$};
     \noexpand \addplot[blue,no marks,forget plot] coordinates {(0.5+\h,1.2*\v)};
     }\myytmp
+%    \savebox{\ajrqrbox}{\myans}
     };
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}%\answer{\noexpand\usebox{\ajrqrbox}}
+}
 \begin{enumerate}
 \pgfmathsetseed{3034}
 \item \mytemp

@@ -8,7 +8,7 @@ and source available here for others to collaborate in this
 venture.
 
 In this directory: 
-* larxxiaM-Nx.pdf is the current draft version (download with "Save Link As...")
+* larxxia-newest.pdf is the current draft version (download with "Save Link As...")
 * Videos is a folder of short videos of examples, proofs, etc
 * LinearAlgebra is the folder of the source of the text
 

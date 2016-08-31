@@ -298,7 +298,7 @@ The \svd\ provides an effective flexible data compression.
 
 
 \begin{table}
-\caption{As well as the \script\ commands and operations listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics}, \ref{tbl:mtlbops}, \ref{tbl:mtlbmops}, \ref{tbl:mtlbsvd}, and~\ref{tbl:mtlbimag}  we may invoke these functions.\index{Matlab|textbf}\index{Octave|textbf}} \label{tbl:mtlbnorm}
+\caption{As well as the \script\ commands and operations listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics}, \ref{tbl:mtlbops}, \ref{tbl:mtlbmops}, \ref{tbl:mtlbsvd}, and~\ref{tbl:mtlbimag}  we may invoke these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbnorm}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -399,6 +399,9 @@ For each matrix, use the plot to roughly estimate their norm.
 \item\label{eg:g2x2norm:a} \(\eAii=\begin{bmatrix} 0.5&0.5\\-0.6&1.2 \end{bmatrix}\)\\
 \marginpar{\eRose{0.5}{0.5}{-0.6}{1.2}}
 \begin{solution} 
+\begin{aside}
+The \script[1]\ function \texttt{eigshow(A)} provides an interactive alternative to this static view.
+\end{aside}%
 The longest \(\eAii\xv\) appear to be near the top and bottom of the plot, and appear to be a little longer than one, so estimate \(\norm{\eAii}\approx 1.3\)\,.
 \end{solution}
 
@@ -1996,7 +1999,7 @@ Principal component analysis summarises and relates these titles.
 \def\temp#1{%
 \begin{center}
 \def\threevcol{red}
-\foreach \q in {25,29} {\begin{tikzpicture}
+\qview{25}{29} {\begin{tikzpicture}
 \begin{axis}[normalsize,font=\footnotesize
   , axis equal image,view={\q}{30}
   ,xmin=0,xmax=1.9,ymin=-0.5,ymax=1.7,zmin=-1.5,zmax=1.1

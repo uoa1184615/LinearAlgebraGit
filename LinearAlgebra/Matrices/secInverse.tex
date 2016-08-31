@@ -29,7 +29,7 @@ B=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 \text{ is an inverse of }
 A=\begin{bmatrix} 1&-1\\4&-3 \end{bmatrix}
 \end{equation*}
-by showing their product is the \(2\times2\) identity~\(I_2\).
+by showing their product is the \(2\times2\) \idx{identity matrix}~\(I_2\).
 \begin{solution} 
 Multiply 
 \begin{equation*}
@@ -45,29 +45,25 @@ BA=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 =\begin{bmatrix} 1&0\\0&1 \end{bmatrix}=I_2\,.
 \end{equation*}
 That these products are the identity---analogous to the number one in scalar arithmetic---means that the matrix~\(A\) has the same relation to the matrix~\(B\) as a number has to its reciprocal\slash inverse.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=12em
     , axis equal , axis lines=middle,
-    , grid, xmax=4.5,ymax=5.5
-    ]
+    , grid, xmax=4.5,ymax=5.5 ]
     \addplot[blue,quiver={u=2,v=1},-stealth, thick] coordinates {(0,0)};
     \node[right] at (axis cs:2,1) {$(2,1)$};
     \addplot[red,quiver={u=1,v=5},-stealth, thick] coordinates {(0,0)};
     \node[right] at (axis cs:1,5) {$A(2,1)$};
 \end{axis}
-\end{tikzpicture}
-}%
+\end{tikzpicture}}%
 
 Being the inverse, matrix~\(B\) `undoes' the action of matrix~\(A\)---as illustrated in the margin.
-The first picture shows multiplication by~\(A\) transforms vector~\((2,1)\) to vector~\((1,5)\): \(A\footnotesize\begin{bmatrix} 2\\1 \end{bmatrix}=\begin{bmatrix} 1\\5 \end{bmatrix}\).
-The second picture shows that multiplication by~\(B\) undoes the transform because \(B\footnotesize\begin{bmatrix} 1\\5 \end{bmatrix}=\begin{bmatrix} 2\\1 \end{bmatrix}\) the original vector.
+The first picture shows multiplication by~\(A\) transforms the vector~\((2,1)\) to the vector~\((1,5)\): \(A\footnotesize\begin{bmatrix} 2\\1 \end{bmatrix}=\begin{bmatrix} 1\\5 \end{bmatrix}\).
+The second picture shows that multiplication by~\(B\) undoes the transform by~\(A\) because \(B\footnotesize\begin{bmatrix} 1\\5 \end{bmatrix}=\begin{bmatrix} 2\\1 \end{bmatrix}\) the original vector.
 \marginpar{%
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=12em
     , axis equal, axis lines=middle,
-    , grid, xmax=4.5,ymax=5.5
-    ]
+    , grid, xmax=4.5,ymax=5.5 ]
     \addplot[red,quiver={u=2,v=1},-stealth, thick] coordinates {(0,0)};
     \node[right] at (axis cs:2,1) {$B(1,5)$};
     \addplot[blue,quiver={u=1,v=5},-stealth, thick] coordinates {(0,0)};
@@ -83,7 +79,7 @@ One restriction is that a clearly defined `division' only works for square matri
 
 
 \begin{definition}[inverse] \label{def:invertible} 
-If \(A\) is an \(n\times n\) \idx{square matrix}, an \bfidx{inverse} of~\(A\) is an \(n\times n\) matrix~\(B\) such that \(AB=I_n\) and \(BA=I_n\)\,.
+If \(A\) is an \(n\times n\) \idx{square matrix}, then an \bfidx{inverse} of~\(A\) is an \(n\times n\) matrix~\(B\) such that both \(AB=I_n\) and \(BA=I_n\)\,.
 If such a matrix~\(B\) exists, then \(A\)~is called \bfidx{invertible}.
 \end{definition}
 
@@ -138,8 +134,28 @@ Since both of these products are the identity, then matrix~\(A\) is invertible, 
 \end{solution}
 \end{example}
 
+
+
+
+\begin{activity}
+What value of~\(b\) makes matrix \(\begin{bmatrix} -1&b\\1&2 \end{bmatrix}\) the inverse of
+\(\begin{bmatrix} 2&3\\-1&-1 \end{bmatrix}\)?
+% a=0+round(randn(2)*3),b=inv(a)
+\partswidth=5em
+\begin{parts}
+\item \(-3\)%%%%%%%%%
+\item \(-2\)
+\item \(1\)
+\item \(3\)
+\end{parts}
+\end{activity}
+
+
+
+
+
 But even among square matrices, there are many non-zero matrices which do not have inverses!
-The next Section~\ref{sec:fisvd} characterises why some matrices do not have an inverse: the reason is associated with both \(\verb|rcond|=0\) (Procedure~\ref{pro:unisol}) and the so-called determinant being zero (Chapter~\ref{ch:ddm}).
+The next Section~\ref{sec:fisvd} further explores why some matrices do not have an inverse: the reason is associated with both \index{rcond()@\texttt{rcond()}}\(\verb|rcond|=0\) (Procedure~\ref{pro:unisol}) and the so-called determinant being zero (Chapter~\ref{ch:ddm}).
 
 \begin{example}[no inverse] \label{eg:no2x2inv}
 Prove that the matrix
@@ -175,7 +191,7 @@ If \(A\) is an \idx{invertible} matrix, then its \idx{inverse} is unique (and de
 We suppose there are two inverses, say \(B_1\) and~\(B_2\), and proceed to show they must be the same.
 Since they are inverses, by Definition~\ref{def:invertible} both
 \(AB_1=B_1A=I_n\) and \(AB_2=B_2A=I_n\)\,.
-Consequently, using associativity of matrix multiplication,
+Consequently, using associativity of matrix multiplication (Theorem~\ref{thm:pmma}),
 \begin{equation*}
 B_1=B_1I_n=B_1(AB_2)=(B_1A)B_2=I_nB_2=B_2\,.
 \end{equation*}
@@ -221,6 +237,20 @@ Theorem~\ref{thm:2x2det} also establishes this matrix is not invertible because 
 \end{example}
 
 
+
+
+\begin{activity}
+Which of the following matrices is invertible?
+\begin{parts}
+\item \(\begin{bmatrix} -2&-1&4\\3&1&1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 0&-3\\4&-2 \end{bmatrix}\)%%%%%%%%
+\item \(\begin{bmatrix} -2&1\\4&-2 \end{bmatrix}\)
+\item \(\begin{bmatrix} -4&-2\\2&2\\-3&1 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
 \begin{proof} 
 To prove Theorem~\ref{thm:2x2det}, first show the given~\(A^{-1}\) satisfies Definition~\ref{def:invertible} when the determinant \(ad-bc\neq 0\) (and using associativity of scalar-matrix multiplication, Theorem~\ref{thm:pmmc}).
 For the proposed~\(A^{-1}\), on the one hand,
@@ -264,10 +294,10 @@ Almost anything you can do with \(A^{-1}\) can be done without it.
 \paragraph{Computer considerations} 
 Except for easy cases such as \(2\times2\) matrices, we rarely explicitly compute the \idx{inverse} of a matrix.
 Computationally there are (almost) always better ways such as the \script\ operation~\verb|A\b| of Procedure~\ref{pro:unisol}.
-The \idx{inverse} is a crucial theoretical device, rarely a practical tool.
+The \idx{inverse} is a crucial theoretical device, rarely a practical computational tool.
 
 
-The following theorem is an example: for a system of linear equations the theorem connects the existence of a unique solution to the invertibility of the matrix of coefficients.
+The following Theorem~\ref{thm:invuniqsol} is an example: for a system of linear equations the theorem connects the existence of a unique solution to the invertibility of the matrix of coefficients.
 Further, section~\ref{sec:svdsgs} connects solutions to the \verb|rcond| invoked by Procedure~\ref{pro:unisol}.
 Although in theoretical statements we write expressions like \(\xv=A^{-1}\bv\)\,,
 practically, once we know a solution exists (\verb|rcond| is acceptable), we generally compute the solution without ever constructing~\(A^{-1}\).
@@ -278,7 +308,7 @@ practically, once we know a solution exists (\verb|rcond| is acceptable), we gen
 If \(A\) is an \idx{invertible} \(n\times n\) matrix, then the system of \idx{linear equation}s \(A\xv=\bv\) has the \idx{unique solution} \(\xv=A^{-1}\bv\) for any \(\bv\) in~\(\RR^n\).
 \end{theorem}
 
-Consequently, if a system of linear equations has no solution or an infinite number of solutions (Theorem~\ref{thm:fred}), then this theorem establishes that the matrix of the system is not invertible.
+One consequence is the following: if a system of linear equations has no solution or an infinite number of solutions (Theorem~\ref{thm:fred}), then this theorem establishes that the matrix of the system is not invertible.
 
 \begin{proof} 
 The proof has two parts: first showing \(\xv=A^{-1}\bv\) is a solution, and second showing that there are no others.
@@ -294,8 +324,12 @@ A^{-1}(A\yv)=A^{-1}\bv
 \\&\implies& I_n\yv=\xv
 \\&\implies& \yv=\xv\,.
 \end{eqnarray*}
-That is, \(\xv=A^{-1}\bv\) is the unique solution.
+Since any solution~\yv\ has to be the same as~\xv, \(\xv=A^{-1}\bv\) is the unique solution.
 \end{proof}
+
+
+
+
 
 \begin{example} \label{eg:}
 Use the matrices of Examples~\ref{eg:a2x2inv}, \ref{eg:a3x3inv} and~\ref{eg:no2x2inv} to decide whether the following systems have a unique solution, or not.
@@ -324,11 +358,15 @@ By Theorem~\ref{thm:fred} there may be either no solution or an infinite number 
 \end{example}
 
 
+
+
+
+
 \begin{example} \label{eg:}
 Given the following information about solutions of systems of linear equations, write down if the matrix associated with each system is invertible, or not, or there is not enough given information to decide.  Give reasons.
 \begin{parts}
-\item The general solution is \((1,-5,0,3)\).
-\item The general solution is \((3,-5+3t,3-t,-1)\).
+\item A general solution is \((1,-5,0,3)\).
+\item A general solution is \((3,-5+3t,3-t,-1)\).
 \item A solution of a system is \((-3/2,-2,-\pi,2,-4)\).
 \item A solution of a homogeneous system is \((1,2,-8)\).
 \end{parts}
@@ -345,7 +383,7 @@ Given the following information about solutions of systems of linear equations, 
 
 
 
-Recall from Section~\ref{sec:moaa} the properties of scalar multiplication, matrix powers, transpose, and their computation Table~\ref{tbl:mtlbops}.
+Recall from Section~\ref{sec:moaa} the properties of scalar multiplication, matrix powers, transpose, and their computation (Table~\ref{tbl:mtlbops}).
 The next theorem incorporates the inverse into this suite of properties.
 
 
@@ -353,7 +391,7 @@ The next theorem incorporates the inverse into this suite of properties.
 Let \(A\) and~\(B\) be \idx{invertible} matrices of the same size, then:
 \begin{enumerate}
 \item\label{thm:invpropa}  matrix \(A^{-1}\) is invertible and \((A^{-1})^{-1}=A\)\,;
-\item\label{thm:invpropb} if scalar \(c\neq0\)\,, then \(cA\)~is invertible and \((cA)^{-1}=\frac1cA^{-1}\);
+\item\label{thm:invpropb} if scalar \(c\neq0\)\,, then matrix~\(cA\) is invertible and \((cA)^{-1}=\frac1cA^{-1}\);
 \item\label{thm:invpropc}\begin{aside}
 The reversed order is important in the identity $(AB)^{-1}=B^{-1}A^{-1}$.
 \end{aside} 
@@ -369,7 +407,7 @@ Three parts are proved, and two are left as exercises.
 \begin{description}
 \item[\ref{thm:invpropa}]
 By Definition~\ref{def:invertible} the matrix~\(A^{-1}\) satisfies \(A^{-1}A=AA^{-1}=I\)\,.
-But also by Definition~\ref{def:invertible} this is exactly the identities we need to assert that matrix~\(A\) is the inverse of matrix~\(A^{-1}\).
+But also by Definition~\ref{def:invertible} this is exactly the identities we need to assert that matrix~\(A\) is the inverse of matrix~\((A^{-1})\).
 Hence \(A=(A^{-1})^{-1}\).
 
 \item[\ref{thm:invpropc}]
@@ -413,12 +451,27 @@ Consider
 
 
 
+\begin{activity}
+Given the matrix \(\begin{bmatrix} 3&-5\\4&-7 \end{bmatrix}\) has inverse \(\begin{bmatrix} 7&-5\\4&-3 \end{bmatrix}\), what is the inverse of matrix \(\begin{bmatrix} 6&-10\\8&-14 \end{bmatrix}\)?
+% for i=1:999, a=0+round(randn(2)*4); if abs(det(a))==1, a=a, break,end, end
+\begin{parts}
+\item \(\begin{bmatrix} 14&-10\\8&-3 \end{bmatrix}\)
+\item \(\begin{bmatrix} 3.5&-2.5\\2&-1.5 \end{bmatrix}\)
+\item \(\begin{bmatrix} 3.5&2\\-2.5&-1.5 \end{bmatrix}\)
+\item \(\begin{bmatrix} 7&4\\-5&-3 \end{bmatrix}\)
+\end{parts}
+Further, which of the above is the inverse of \(\begin{bmatrix} 3&4\\-5&-7 \end{bmatrix}\)?
+\end{activity}
+
+
+
+
 
 \begin{definition}[non-positive powers] \label{def:invpow} 
 If \(A\) is an \idx{invertible} matrix, then define \(A^0=I\) and  for any positive integer~\(p\) define \(A^{-p}=(A^{-1})^p\) (or by Theorem~\ref{thm:invprope} equivalently as~\((A^p)^{-1}\)).
 \end{definition}
 
-\begin{example} \label{eg:}
+\begin{example} \label{eg:a2x2negp}
 Recall from Example~\ref{eg:a2x2inv} that matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-1\\4&-3 \end{bmatrix}
@@ -443,6 +496,20 @@ upon using one of the power laws of Theorem~\ref{thm:pmmg}.
 \end{example}
 
 
+
+\begin{activity}
+Example~\ref{eg:a2x2negp} gives the inverse of a matrix~\(A\) and determines~\(A^{-2}\): what is~\(A^{-3}\)?
+\begin{parts}
+\item \(\begin{bmatrix} -7&3\\-12&5 \end{bmatrix}\)%%%%%%%
+\item \(\begin{bmatrix} 3&-7\\5&-12 \end{bmatrix}\)
+\item \(\begin{bmatrix} -7&-12\\3&5 \end{bmatrix}\)
+\item \(\begin{bmatrix} 3&5\\-7&-12 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
+
 \begin{example}[predict the past] \label{eg:invph}
 Recall Example~\ref{eg:matasp} introduced how to use a \idx{Leslie matrix} to predict the future population of an animal.
 If \(\xv=(60,70,20)\) is the current number of pups, juveniles, and mature females respectively, then, for the Leslie matrix
@@ -454,7 +521,7 @@ L=\begin{bmatrix} 0&0&4\\\frac12&0&0\\0&\frac13&\frac13 \end{bmatrix},
 Assume the same rule applies for earlier years.
 \begin{itemize}
 \item Letting the population numbers a year ago be denoted by~\(\xv^-\) then by the modelling the current population \(\xv=L\xv^-\).
-Multiply by the inverse: \(L^{-1}\xv=L^{-1}L\xv^-=\xv^-\); that is, the population a year before the current is \(\xv^-=L^{-1}\xv\).
+Multiply by the inverse of~\(L\): \(L^{-1}\xv=L^{-1}L\xv^-=\xv^-\); that is, the population a year before the current is \(\xv^-=L^{-1}\xv\).
 \item Similarly, letting the population numbers two years ago be denoted by~\(\xv^=\) then  by the modelling \(\xv^-=L\xv^=\) and multiplication by~\(L^{-1}\) gives \(\xv^==L^{-1}\xv^-=L^{-1}L^{-1}\xv=L^{-2}\xv\).
 \item One more year earlier, letting the population numbers two years ago be denoted by~\(\xv^\equiv\) then  by the modelling \(\xv^==L\xv^\equiv\) and multiplication by~\(L^{-1}\) gives \(\xv^\equiv=L^{-1}\xv^==L^{-1}L^{-2}\xv=L^{-3}\xv\).
 \end{itemize}
@@ -580,8 +647,10 @@ Because of the special nature of this diagonal, this section explores matrices w
 \begin{example} \label{eg:4diag}
 That is, this section explores the nature of so-called diagonal matrices such as
 \begin{equation*}
+%I_n,\quad
 \begin{bmatrix} 3&0\\0&2 \end{bmatrix},\quad
-\begin{bmatrix} 0.58&0&0\\0&-1.61&0\\0&0&2.17 \end{bmatrix}.
+\begin{bmatrix} 0.58&0&0\\0&-1.61&0\\0&0&2.17 \end{bmatrix},\quad
+\begin{bmatrix} \pi&0&0\\0&\sqrt3&0\\0&0&0 \end{bmatrix}.
 \end{equation*}
 We use the term {diagonal matrix} to also include non-square matrices such as
 \begin{equation*}
@@ -601,17 +670,38 @@ Amazingly, the singular value decomposition of Section~\ref{sec:fisvd} proves th
 \begin{definition}[diagonal matrix] \label{def:diag} 
 Given an \(m\times n\) matrix~\(A\), the \bfidx{diagonal entries} of~\(A\) are \(a_{11},a_{22},\ldots,a_{pp}\) where \(p=\min(m,n)\).
 A matrix whose non-diagonal entries are all zero is called a \bfidx{diagonal matrix}.
+
 For brevity we may write \index{diag}\(\diag(\hlist vn)\) to denote the \(n\times n\) square matrix with diagonal entries \hlist vn\,, or \(\diag_{m\times n}(\hlist vp)\) for an \(m\times n\) matrix with diagonal entries \hlist vp.
 \end{definition}
 
 \begin{example} \label{eg:} \sloppy
-The four diagonal matrices of Example~\ref{eg:4diag} could equivalently be written as \(\diag(3,2)\), \(\diag(2,\tfrac23,-1)\), \(\diag_{3\times2}(-\sqrt2,\tfrac12)\) and \(\diag_{3\times5}(1,\pi,e)\), respectively.
+The five diagonal matrices of Example~\ref{eg:4diag} could equivalently be written as \(\diag(3,2)\), \(\diag(0.58,-1.61,2.17)\) \(\diag(\pi,\sqrt3,0)\), \(\diag_{3\times2}(-\sqrt2,\tfrac12)\) and \(\diag_{3\times5}(1,\pi,e)\), respectively.
 \end{example}
 
 
+Diagonal matrices may also have zeros on the diagonal, as well as the required zeros for the non-diagonal entries.
+
+
+
+\begin{activity}
+Which of the following matrices are not diagonal?
+\begin{parts}
+\item \(I_n\)
+\item \(O_n\)
+\item \(\begin{bmatrix} 1&0&0&0
+\\0&2&0&0
+\\0&0&0&0 \end{bmatrix}\)
+\item \(\begin{bmatrix} 1&0&0
+\\0&0&0
+\\0&2&0
+\\0&0&0 \end{bmatrix}\)%%%%%%%%%%%
+\end{parts}
+\end{activity}
+  
+
 
 \begin{table}
-\caption{As well as the basics of \script\ listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics} and~\ref{tbl:mtlbops},  we need these matrix operations.\index{Matlab|textbf}\index{Octave|textbf}} \label{tbl:mtlbmops}
+\caption{As well as the basics of \script\ listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics} and~\ref{tbl:mtlbops},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbmops}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -629,8 +719,6 @@ The four diagonal matrices of Example~\ref{eg:4diag} could equivalently be writt
 [5 14 33]./[5 7 3]=[1 2 11]
 \end{verbatim}
 
-%\item \index{norm()@\texttt{norm()}}\verb|norm(v)| computes the length of a vector \(\vv=(\hlist vn)\).
-%(The function \verb|norm()| also applies to matrices as explained by Section~\ref{sec:rmmsvd}.)
 
 \item Section~\ref{sec:asie} also needs to compute the logarithm of data: \index{log10()@\texttt{log10()}}\verb|log10(v)| finds the logarithm to base~\(10\) of each component of~\verb|v| and returns the results in a vector of the same size; \index{log()@\texttt{log()}}\verb|log(v)| does the same but for the natural logarithm (not \verb|ln(v)|).
 
@@ -661,13 +749,14 @@ Solve \begin{equation*}
 \begin{solution}
 Algebraically this matrix-vector equation means
 \begin{equation*}
-\begin{array}{l} 3x_1+0x_2=2 \\ 0x_1+2x_2=-5\end{array}
+\begin{cases} 3x_1+0x_2=2 \\ 0x_1+2x_2=-5\end{cases}
 \iff
-\begin{array}{l} 3x_1=2 \\ 2x_2=-5\end{array}
+\begin{cases} 3x_1=2 \\ 2x_2=-5\end{cases}
 \iff
-\begin{array}{l} x_1=2/3 \\ x_2=-5/2\end{array}.
+\begin{cases} x_1=2/3 \\ x_2=-5/2\end{cases}
 \end{equation*}
 The solution is \(\xv=(2/3,-5/2)\).
+Interestingly, the two components of this solution are firstly the~\(2\) on the right-hans side divided by the~\(3\) in the matrix, and secondly the~\(-5\) on the right-hand side divided by the~\(2\) in the matrix.
 %\begin{equation*}
 %\xv=\begin{bmatrix} \frac23\\-\frac52 \end{bmatrix}
 %=\begin{bmatrix} \frac13&0\\0&\frac12 \end{bmatrix}
@@ -676,7 +765,12 @@ The solution is \(\xv=(2/3,-5/2)\).
 \end{solution}
 \end{example}
 
-\begin{example} \label{eg:}
+
+
+
+
+
+\begin{example} \label{eg:a3x3inv}
 Solve \begin{equation*}
 \begin{bmatrix} 2&0&0\\0&\frac23&0\\0&0&-1 \end{bmatrix}
 \begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}
@@ -685,20 +779,21 @@ Solve \begin{equation*}
 \begin{solution}
 Algebraically this equation means
 \begin{equation*}
-\begin{array}{l} 2x_1+0x_2+0x_3=b_1
+\begin{cases} 2x_1+0x_2+0x_3=b_1
 \\0x_1+\frac23x_2+0x_3=b_2
-\\0x_1+0x_2-1x_3=b_3\end{array}
+\\0x_1+0x_2-1x_3=b_3\end{cases}
 \iff
-\begin{array}{l} 2x_1=b_1
+\begin{cases} 2x_1=b_1
 \\\frac23x_2=b_2
-\\-x_3=b_3\end{array}
+\\-x_3=b_3\end{cases}
 \iff
-\begin{array}{l} x_1=\frac12b_1 \\ x_2=\frac32b_2 \\ x_3=-b_3\end{array}.
+\begin{cases} x_1=\frac12b_1 \\ x_2=\frac32b_2 \\ x_3=-b_3\end{cases}.
 \end{equation*}
 The solution is 
 \begin{equation*}
-\xv=\begin{bmatrix} \frac12b_1 \\ \frac32b_2 \\ -b_3 \end{bmatrix}
-=\begin{bmatrix} \frac12&0&0\\0&\frac32&0\\0&0&-1 \end{bmatrix}
+\xv=\begin{bmatrix} \frac12b_1 \\ \frac32b_2 \\ -b_3 \end{bmatrix},
+\quad\text{rewritten as }
+\xv=\begin{bmatrix} \frac12&0&0\\0&\frac32&0\\0&0&-1 \end{bmatrix}
 \begin{bmatrix} b_1\\b_2\\b_3 \end{bmatrix}.
 \end{equation*}
 Consequently, by its uniqueness (Theorem~\ref{thm:uninv}), the inverse of the given diagonal matrix must be
@@ -709,6 +804,20 @@ Consequently, by its uniqueness (Theorem~\ref{thm:uninv}), the inverse of the gi
 which interestingly is the diagonal of reciprocals of the given matrix.
 \end{solution}
 \end{example}
+
+
+
+
+\begin{activity}
+What is the solution to the system \(\begin{bmatrix} 0.4&0\\0&0.1 \end{bmatrix}\xv=\begin{bmatrix} 0.1\\-0.2 \end{bmatrix}\)?
+\partswidth=5em
+\begin{parts}
+\item \((4,-2)\)
+\item \((\frac14,-\frac12)\)
+\item \((4,-\frac12)\)
+\item \((\frac14,-2)\)%%%%%%%%%%
+\end{parts}
+\end{activity}
 
 
 
@@ -755,7 +864,7 @@ By Definition~\ref{def:invertible}, \(D\)~is invertible with the given inverse.
 \end{proof}
 
 \begin{example} \label{eg:}
-The previous example gave the inverse of a \(3\times3\).  
+The previous Example~\ref{eg:a3x3inv} gave the inverse of a \(3\times3\) matrix.  
 For the \(2\times2\) matrix \(D=\diag(3,2)=\begin{bmatrix} 3&0\\0&2 \end{bmatrix}\) the inverse is \(D^{-1}=\diag(\frac13,\frac12)=\begin{bmatrix} \frac13&0\\0&\frac12 \end{bmatrix}\).  Then the solution to
 \begin{equation*}
 \begin{bmatrix} 3&0\\0&2 \end{bmatrix}\xv
@@ -767,7 +876,7 @@ For the \(2\times2\) matrix \(D=\diag(3,2)=\begin{bmatrix} 3&0\\0&2 \end{bmatrix
 
 
 \begin{compute}
-To solve \(D\xv=\bv\) recognise this matrix-vector equation means
+To solve the matrix-vector equation \(D\xv=\bv\) recognise that this equation means
 \begin{eqnarray}&&
 \begin{bmatrix} d_1&0&\cdots&0
 \\0&d_2&&0
@@ -777,9 +886,9 @@ To solve \(D\xv=\bv\) recognise this matrix-vector equation means
 =\begin{bmatrix} d_1x_1\\d_2x_2\\\vdots\\d_nx_n \end{bmatrix}
 =\begin{bmatrix} b_1\\b_2\\\vdots\\b_n \end{bmatrix}
 \nonumber\\&&\iff
-\begin{matrix} d_1x_1=b_1\\d_2x_2=b_2\\\vdots\\d_nx_n=b_n \end{matrix}
+\begin{cases} d_1x_1=b_1\\d_2x_2=b_2\\\vdots\\d_nx_n=b_n \end{cases}
 \iff
-\begin{matrix} x_1=b_1/d_1\\x_2=b_2/d_2\\\vdots\\x_n=b_n/d_n \end{matrix}
+\begin{cases} x_1=b_1/d_1\\x_2=b_2/d_2\\\vdots\\x_n=b_n/d_n \end{cases}
 \label{eq:ddslin}
 \end{eqnarray}
 \begin{itemize}
@@ -795,7 +904,8 @@ d=[2;2/3;-1]
 b=[1;2;3]
 x=b./d
 \end{verbatim}
-where \verb|./| does  element-by-element division in \script\ (Table~\ref{tbl:mtlbmops}) to here find the answer \verb|[0.5;3;-3]|.
+to find the answer \verb|[0.5;3;-3]|.
+Here the \script\ operation~\verb|./| does  element-by-element division (Table~\ref{tbl:mtlbmops}).
 
 \item When you have the diagonal matrix in full:  extract the diagonal elements into a column vector with \verb|diag()| (Table~\ref{tbl:mtlbmops});  then execute the element-by-element division; for example,
 \setbox\ajrqrbox\hbox{\qrcode{% solve diagonal system
@@ -826,12 +936,16 @@ x=b./diag(D)
 Dividing by zero is almost aways nonsense.
 Instead use reasoning.
 Consider solving \(D\xv=\bv\) for diagonal~\(D=\diag(\hlist dn)\) where \(d_n=0\) (and similarly for any others that are zero).
-From~\eqref{eq:ddslin} we need to solve \(d_nx_n=0\cdot x_n=b_n\)\,, that is, \(0=b_n\)\,.
+From~\eqref{eq:ddslin} we need to solve \(d_nx_n=b_n\)\,, which here is \(0\cdot x_n=b_n\)\,, that is, \(0=b_n\)\,. 
 There are two cases: 
 \begin{itemize}
 \item if \(b_n\neq 0\)\,, then there is no solution; conversely
 \item if \(b_n=0\)\,, then there is an infinite number of solutions as any~\(x_n\) satisfies \(0\cdot x_n=0\)\,.
 \end{itemize}
+
+
+
+
 
 \begin{example} \label{eg:}
 Solve the two systems (the only difference is the last component on the \rhs)
@@ -885,51 +999,43 @@ I attempt to see things in terms of geometry.
 \end{quoted}
 
 
-\begin{aside}
-This geometric interpretation prepares for the geometry of rotation by orthogonal matrices.
-\end{aside} 
+%\begin{aside}
+%This geometric interpretation prepares for the geometry of rotation by orthogonal matrices.
+%\end{aside} 
 Multiplication by matrices transforms shapes:
 multiplication by diagonal matrices just stretches or squashes and/or reflects in the direction of the coordinate axes.
+The next section~\ref{sec:omr} introduces matrices that rotate.
 
-%\Needspace{100pt}
-%\begin{wrapfigure}{r}{0pt} \TwoD3002 \end{wrapfigure}
+
+
+
 \begin{example} \label{eg:}
 Consider \(A=\diag(3,2)=\footnotesize\begin{bmatrix} 3&0\\0&2 \end{bmatrix}\). 
-The marginal pictures shows this matrix stretches the (blue) unit square (with `roof') by a factor of three horizontally and two vertically (to the red). 
+\marginpar{\TwoD3002}%
+The marginal pictures shows this matrix stretches the (blue) unit square (drawn with a `roof') by a factor of three horizontally and two vertically (to the red). 
 Recall that \((x_1,x_2)\) denotes the corresponding column vector.  
 As seen in the corner points of the graphic in the margin,  \(A\times(1,0)=(3,0)\), \(A\times(0,1)=(0,2)\), \(A\times(0,0)=(0,0)\),  and \(A\times(1,1)=(3,2)\).   
 The `roof' just helps to track which corner goes where.
-\marginpar{\TwoD3002}
 
-%\begin{wrapfigure}{r}{0pt} \TwoD{1/3}00{1/2} \end{wrapfigure}
-%\(A^{-1}=\begin{bmatrix} \frac13&0\\0&\frac12 \end{bmatrix}\). 
-%This inverse undoes the stretching of the matrix~\(A\) by squashing both horizontally and vertically.  
-
-%\begin{tabular}{@{}cc@{}}
-%\parbox[b]{0.6\linewidth}{\raggedright
-The inverse \(A^{-1}=\diag(\frac13,\frac12)=\footnotesize\begin{bmatrix} \frac13&0\\0&\frac12 \end{bmatrix}\) undoes the stretching of the matrix~\(A\) by squashing both horizontally and vertically (from blue to red).  
-%} &
-%\TwoD{1/3}00{1/2}
-%\end{tabular}
-\marginpar{\TwoD{1/3}00{1/2}}
+\marginpar{\TwoD{1/3}00{1/2}}%
+The inverse \(A^{-1}=\diag(\frac13,\frac12)=\footnotesize\begin{bmatrix} \frac13&0\\0&\frac12 \end{bmatrix}\) undoes the stretching of the matrix~\(A\) by squashing in both the horizontal and vertical directions (from blue to red).  
 \end{example}
 
-%\Needspace{\unithouseheight}
-%\begin{wrapfigure}{r}{0pt} \def\unithousesize{small}
-%\ThreeD{2}000{2/3}000{-1} 
-%\end{wrapfigure}
+
+
+
 \begin{example} \label{eg:}
 Consider \(\diag(2,\frac23,-1)=\footnotesize\begin{bmatrix} 2&0&0\\0&\frac23&0\\0&0&-1 \end{bmatrix}\): 
-the \idx{stereo pair} below illustrates how this diagonal matrix stretches in one direction, squashes in another, and reflects in the vertical.  By multiplying the matrix by corner vectors \((1,0,0)\), \((0,1,0)\), \((0,0,1)\) and so on, we see that the blue unit cube (with roof and door) maps to the red.
-%\marginpar{\def\unithousesize{footnotesize}
-%\ThreeD{2}000{2/3}000{-1}}
+the \idx{stereo pair} below illustrates how this diagonal matrix stretches in one direction, squashes in another, and reflects in the vertical.  
+By multiplying the matrix by corner vectors \((1,0,0)\), \((0,1,0)\), \((0,0,1)\), and so on, we see that the blue unit cube (with `roof' and `door') maps to the red.
 \begin{center}
 \def\unithousesize{small}
 \ThreeD{2}000{2/3}000{-1}
 \end{center}
 \end{example}
 
-One great aspect of a diagonal matrix is that it is easy to separate its effects into separate effects in each coordinate direction.  For example, the above \(3\times3\) matrix is the same as the combined effects of the following three.
+One great aspect of a diagonal matrix is that it is easy to separate its effects into each coordinate direction.  
+For example, the above \(3\times3\) matrix is the same as the combined effects of the following three.
 \begin{align*}
 &\parbox[b]{0.35\linewidth}{\raggedright
 \(\footnotesize\begin{bmatrix} 2&0&0\\0&1&0\\0&0&1 \end{bmatrix}\).  Stretch by a factor of two in the \(x_1\) direction.} &&
@@ -945,8 +1051,9 @@ One great aspect of a diagonal matrix is that it is easy to separate its effects
 \end{align*}
 
 
-%\Needspace{\unithouseheight}
-%\begin{wrapfigure}{r}{0pt} \TwoD{3/2}00{-1/2} \end{wrapfigure}\ 
+
+
+
 \begin{example} \label{eg:}
 What diagonal matrix transforms the blue unit square to the red in the illustration in the margin? 
 \marginpar{\TwoD{3/2}00{-1/2}}
@@ -957,69 +1064,89 @@ Hence the matrix is
 \end{solution}
 \end{example}
 
-%\Needspace{\unithouseheight}
-%\begin{wrapfigure}{r}{0pt} \TwoD{-1}00{-1} \end{wrapfigure}\ 
+
+
+
+\begin{activity}
+Which of the following diagrams represents the transformation of the unit square by the matrix \(\diag(-1.3,0.7)\)?
+\begin{parts}
+\item \TwoD{-0.7}00{1.3}
+\item \TwoD{0.7}00{-1.3}
+\item \TwoD{-1.3}00{0.7}
+\item \TwoD{1.3}00{-0.7}
+\end{parts}
+\end{activity}
+
+
+
+
 \paragraph{Some diagonal matrices rotate}
 Now consider the transformation of multiplying by matrix \(\footnotesize\begin{bmatrix} -1&0\\0&-1 \end{bmatrix}\):
+\marginpar{\TwoD{-1}00{-1}}%
 the two reflections of this diagonal matrix, the two~\(-1\)s, have  the same effect as one rotation, here by~\(180^\circ\), as shown to the left.
 Matrices that rotate are incredibly useful and is the topic of the next section~\ref{sec:omr}.
-\marginpar{\TwoD{-1}00{-1}}
 
 
 
 
 
 \subsubsection{Sketch convenient coordinates}
+One of the fundamental principles of applying mathematics in science and engineering
 \begin{aside}
 Optional preliminary to diagonalisation.
-\end{aside}
-One of the fundamental principles of applying mathematics in science and engineering is that the real world, nature, does its thing irrespective of our mathematical description.
+\end{aside}%
+is that the real world---nature---does its thing irrespective of our mathematical description.
 Hence we often simplify our mathematical description of real world applications by choosing a coordinate system to suit its nature.
-That is, although this book (almost) always draws the \(x\) or \(x_1\)~axis horizontally, and the \(y\) or \(x_2\)~axis vertically, in applications it is often better to draw the axes in some other  directions which are convenient for the application.
+That is, although this book (almost) always draws the \(x\) or \(x_1\)~axis horizontally, and the \(y\) or \(x_2\)~axis vertically, in applications it is often better to draw the axes in some other  directions---directions which are convenient for the application.
 This example illustrates the principle.
 
 \begin{example} \label{eg:}
-Consider the transformation shown in the margin (it might arise from the deformation of some material and we need to know the internal stretching and shrinking to predict failure): it has no coordinate axes shown because it supposed to be some transformation in nature; now we wish to impose on nature our mathematical description.
+Consider the transformation shown in the margin (it might arise from the deformation of some material and we need to know the internal stretching and shrinking to predict failure).
+\marginpar{\TwoDx{1.04}{-0.72}{-0.72}{1.46}{}}%
+The drawing has no coordinate axes shown because it supposed to be some transformation in nature. 
+Now we impose on nature our mathematical description.
 Draw approximate coordinate axes, with origin at the common point at the lower-left corner, so the transformation becomes that of the diagonal matrix \(\diag(\frac12,2)=\footnotesize\begin{bmatrix} 0.5&0\\0&2 \end{bmatrix}\).
-\marginpar{\TwoDx{1.04}{-0.72}{-0.72}{1.46}{}}
 
 \begin{solution} 
 From the diagonal matrix we first look for a direction in which the transformation squashes by a factor of~\(1/2\): from the marginal graph, this direction must be towards the top-right.
-Second, from the diagonal matrix we look for a direction in which the transformation stretches by a factor of two: from the marginal picture this direction must be aligned to the top-left.
-Because the top-right corner of the square is stretched a little in this second direction, the first direction must be aimed a little lower than this corner.
-Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in the margin. 
 \marginpar{\TwoDx{1.04}{-0.72}{-0.72}{1.46}{%
 \addplot[black,quiver={u=1.2,v=0.9},-stealth] coordinates {(0,0)};
 \node[right] at (axis cs:1.2,0.9) {$x_1$};
 \addplot[black,quiver={u=-0.9,v=1.2},-stealth] coordinates {(0,0)};    
 \node[above] at (axis cs:-0.9,1.2) {$x_2$};
-}}
+}}%
+Second, from the diagonal matrix we look for a direction in which the transformation stretches by a factor of two: from the marginal picture this direction must be aligned to the top-left.
+Because the top-right corner of the square is stretched a little in this second direction, the first direction must be aimed a little lower than this corner.
+Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in the margin. 
 \end{solution}
 \end{example}
 
 
 \begin{example} \label{eg:}
-Consider the transformation shown in the margin: it has no coordinate axes shown because it supposed to be some transformation in nature; now impose on nature our mathematical description.
+Consider the transformation shown in the margin.
+\marginpar{\TwoDx1{-2}{-2}1{}}%
+It has no coordinate axes shown because it supposed to be some transformation in nature. 
+Now impose on nature our mathematical description.
 Draw approximate coordinate axes, with origin at the common corner point, so the transformation becomes that of the diagonal matrix \(\diag(3,-1)=\footnotesize\begin{bmatrix} 3&0\\0&-1 \end{bmatrix}\).
-\marginpar{\TwoDx1{-2}{-2}1{}}
 
 \begin{solution} 
-From the diagonal matrix we first look for a direction in which the transformation stretches by a factor of three: from the marginal graph, this direction must be aligned along the diagonal top-left to bottom-right.
-Second, from the diagonal matrix we look for a direction in which the transformation reflects: from the marginal picture this direction must be aligned along the top-right to bottom-left.
-Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in the margin. 
+From the diagonal matrix we first look for a direction in which the transformation stretches by a factor of three: 
 \marginpar{\TwoDx1{-2}{-2}1{%
 \addplot[black,quiver={u=-3,v=3},-stealth] coordinates {(1.5,-1.5)};
 \node[right] at (axis cs:-1.5,1.5) {$x_1$};
 \addplot[black,quiver={u=-3,v=-3},-stealth] coordinates {(1.5,1.5)};    
 \node[left] at (axis cs:-1.5,-1.5) {$x_2$};
-}}
+}}%
+from the marginal graph, this direction must be aligned along the diagonal top-left to bottom-right.
+Second, from the diagonal matrix we look for a direction in which the transformation reflects: from the marginal picture this direction must be aligned along the top-right to bottom-left.
+Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in the margin. 
 \end{solution}
 \end{example}
 
 
 Finding such coordinate systems in which a given real world transformation is diagonal is important in science, engineering, and computer science.
 Systematic methods for such diagonalisation are developed in Section~\ref{sec:fisvd}, and Chapters~\ref{ch:eesm} and~\ref{ch:gee}.
-These rely on understanding the algebra and geometry of rotations, which is our next topic.
+These rely on understanding the algebra and geometry of not only diagonal matrices, but also rotations, which is our next topic.
 
 
 
@@ -1037,15 +1164,13 @@ These rely on understanding the algebra and geometry of rotations, which is our 
 \subsection{Orthogonal matrices rotate}
 \label{sec:omr}
 
-%\Needspace{\unithouseheight}
-%\begin{wrapfigure}{r}{0pt} \TwoD{3/5}{-4/5}{4/5}{3/5} \end{wrapfigure} 
+
 Whereas diagonal matrices stretch and squash, the so-called 
 `orthogonal matrices' represent just \idx{rotation}s (and/or \idx{reflection}).
+\marginpar{\TwoD{3/5}{-4/5}{4/5}{3/5}}%
 For example, this section shows that multiplying by the `orthogonal matrix'~\(\footnotesize\begin{bmatrix} 3/5&-4/5\\4/5&3/5 \end{bmatrix}\) rotates by~\(53.13^\circ\) as shown in the marginal picture.
 Orthogonal matrices are the best to compute with, such as to solve linear equations, since they all have \(\verb|rcond|=1\)\,.
 To see these and related marvellous properties, we must invoke the geometry of lengths and angles.
-%They are also a second example of the notion of a {linear transform}.
-\marginpar{\TwoD{3/5}{-4/5}{4/5}{3/5}}
 
 
 \index{dot product|(}
@@ -1077,143 +1202,6 @@ If the two vectors are at right-angles, then the dot product is zero and the two
 
 
 
-%\subsubsection{Recall the dot product determines lengths and angles}
-%\index{dot product|(}
-%
-%\begin{comment}
-%Do not need this subsubsection.
-%\end{comment}
-%
-%Recall the following from previous study (Chapter~\ref{ch:v}).
-%%\begin{aside}
-%%Previously done in Convex Sets but more skimpily.
-%%Length and angle are currently in Maths~IB.
-%%\end{aside}
-%For any two vectors in~\(\RR^n\), $\uv=(u_1,\ldots,u_n)$ and $\vv=(v_1,\ldots,v_n)$,
-%define the \bfidx{dot product} 
-%\begin{eqnarray*}
-%\uv\cdot \vv&=&(u_1,\ldots,u_n)\cdot (v_1,\ldots,v_n)
-%\\&=& u_1v_1+u_2v_2+\cdots+u_nv_n\,.
-%\end{eqnarray*}
-%\begin{example} \label{eg:}
-%Let \(\uv=(-1,-2,3)\) and \(\vv=(-3,4,1)\); find the dot product \(\uv\cdot\vv\).
-%\begin{solution} 
-%The dot product \(\uv\cdot\vv=(-1)\cdot(-3)+(-2)\cdot4+3\cdot1=-2\)\,.
-%\end{solution}
-%\end{example}
-%As Example~\ref{eg:trdp} introduced, considering the two vectors as column matrices, the dot product 
-%\begin{equation*}
-%\uv\cdot\vv=\tr\uv\vv=\tr\vv\uv=\vv\cdot\uv\,.
-%\end{equation*}
-%Recall that the reason is
-%\begin{equation*}
-%\tr\uv\vv
-%=\begin{bmatrix} u_1&u_2&\cdots&u_n \end{bmatrix}
-%\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}
-%=\lincomb uvn\,.
-%\end{equation*}
-%
-%
-%
-%%Some key properties are the following \pooliv{p.19}:
-%%\begin{enumerate}
-%%\item \(\uv\cdot\vv=\vv\cdot\uv\);
-%%\item \((t\uv)\cdot \vv=t(\uv\cdot\vv)\);
-%%\item \((\uv+\vv)\cdot \wv = \uv\cdot \wv+\vv\cdot\wv\);
-%%\item \(\uv\cdot\uv\geq0\)\,; further, \(\uv\cdot\uv=0\) if and only if \(\uv=\ov\)\,.
-%%\end{enumerate}
-%%
-%%\begin{example} \label{eg:}
-%%When \(\uv=(-1,-2,3)\), \(\vv=(-3,4,1)\) and \(\wv=(1,-1,0)\): 
-%%\begin{enumerate}
-%%\item  \(\vv\cdot\uv=(-3)\cdot(-1)+4\cdot(-2)+1\cdot3=-2=\uv\cdot\vv\)\,;
-%%
-%%\item \((-2\uv)\cdot\vv
-%%=(2,4,-6)\cdot(-3,4,1)
-%%=2\cdot(-3)+4\cdot4+(-6)\cdot1=4
-%%=-2(\uv\cdot\vv)\);
-%%
-%%\item \((\uv+\vv)\cdot \wv=(-4,2,4)\cdot(1,-1,0)=-4-2+0=-6\) which is the same as \(\uv\cdot \wv+\vv\cdot\wv
-%%=(-1+2+0)+(-3-4+0)=-6\)\,.
-%%
-%%\item \(\uv\cdot\uv=(-1)^2+(-2)^2+3^3=1+4+9=14\geq0\)\,.
-%%\end{enumerate}
-%%\end{example}
-%
-%
-%\paragraph{Length} Recall from Pythagoras that the length of the vector \(\vv=(a,b)\) is~\(\sqrt{a^2+b^2}\).  
-%In general, define the \bfidx{length} of a vector \(\vv=(\hlist vn)\) in~\(\RR^n\) to be the real number~(\(\geq0\)) 
-%\begin{equation*}
-%|\vv|=\sqrt{\vv\cdot\vv}=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}.
-%\end{equation*}
-%For example, \(|(1,2)|=\sqrt{1^2+2^2}=\sqrt5\), and \(|(1,-2,2)|=\sqrt{1^2+(-2)^2+2^2}=\sqrt{1+4+4}=3\)\,.
-%
-%Two properties of the length are: 
-%\begin{itemize}
-%\item \(|\vv|=0\) if and only if \(\vv=\ov\)\,; and
-%\item \(|t\vv|=|t||\vv|\)\,.
-%\end{itemize}
-%The last of these empowers us to construct vectors of length one: a vector of length one is called a \bfidx{unit vector}.
-%\begin{example} \label{eg:}
-%Make unit vectors from \((1,2)\) and \((1,-2,2)\).
-%\begin{solution} 
-%Since \(|(1,2)|=\sqrt5\) we know that  \(1=\frac1{\sqrt5}\sqrt5=\frac1{\sqrt5}|(1,2)|=|\frac1{\sqrt5}(1,2)|=|(\frac1{\sqrt5},\frac2{\sqrt5})|\) and so \((\frac1{\sqrt5},\frac2{\sqrt5})\) is a unit vector.
-%Similarly, since \(|(1,-2,2)|=3\) we know \(1=\frac133=\frac13|(1,-2,2)|=|\frac13(1,-2,2)|=|(\frac13,-\frac23,\frac23)|\) and so \((\frac13,-\frac23,\frac23)\) is a unit vector. 
-%\end{solution}
-%\end{example}
-%The \bfidx{standard unit vector}s in~\(\RR^n\) are those aligned along the \(n\)~coordinate axes: \(\ev_1=(1,0,\ldots,0)\), \(\ev_2=(0,1,\ldots,0)\), \ldots, \(\ev_n=(0,0,\ldots,1)\).
-%
-%
-%\paragraph{Angles} 
-%The following definition of the angle between two vectors agrees with known properties for triangles. 
-%For two non-zero vectors \(\uv,\vv\) in~\(\RR^n\) define the \bfidx{angle}~\(\theta\) between the vectors by 
-%\begin{equation*}
-%\cos\theta=\frac{\uv\cdot\vv}{|\uv||\vv|}\,,
-%\quad 0\leq\theta\leq\pi\,.
-%\end{equation*}
-%%\begin{center}
-%%\begin{tikzpicture} 
-%%\begin{axis}[axis equal image,hide axis,domain=-135:180]
-%%    \addplot[quiver={u=x,v=2*y,scale arrows=0.5},
-%%        red,-stealth,samples=8] ({cos(x)},{sin(x)/2});
-%%    \addplot[quiver={u=1,v=0,scale arrows=0.6},
-%%        blue,-stealth,samples=8] ({cos(x)},{sin(x)/2});
-%%    \node at (axis cs:0.95,0.45) {$\frac\pi4$};
-%%    \node at (axis cs:0.95,-0.45) {$\frac\pi4$};
-%%    \node at (axis cs:0.1,0.6) {$\frac\pi2$};
-%%    \node at (axis cs:0.1,-0.6) {$\frac\pi2$};
-%%    \node at (axis cs:-0.6,0.45) {$\frac{3\pi}4$};
-%%    \node at (axis cs:-0.6,-0.45) {$\frac{3\pi}4$};
-%%    \node[above] at (axis cs:-1,0) {$\pi$};
-%%    \node[above] at (axis cs:1,0) {$0$};
-%%\end{axis}
-%%\end{tikzpicture}
-%%\end{center}
-%Two (non-zero) vectors are termed \bfidx{orthogonal} when \(\uv\cdot\vv=0\)\,: 
-%as then \(\cos\theta=0\) which means the angle \(\theta=\frac\pi2=90^\circ\); that is,  the vectors are at right-angles.
-%
-%\begin{example} \label{eg:}
-%What is the angle between two diagonals on two adjacent faces of the unit cube? 
-%\begin{solution} 
-%The two vectors of the two diagonals maybe \((1,1,0)\) and \((1,0,1)\).  They are of length \(\sqrt{1^2+1^2+0^2}=\sqrt2\)\,.
-%Hence
-%\begin{equation*}
-%\cos\theta=\frac{1\cdot1+1\cdot0+0\cdot1}{\sqrt2\sqrt2}=\frac12\,.
-%\end{equation*}
-%The angle (\(0\leq\theta\leq\pi\)) with this cosine is \(\theta=\frac\pi3=60^\circ\).
-%\end{solution}
-%\end{example}
-%
-%\begin{example} \label{eg:}
-%What is the angle between vectors \((1,-2,2)\) and \((2,2,1)\)?
-%\begin{solution} 
-%Their dot product is \(1\cdot2+(-2)\cdot2+2\cdot1=2-4+2=0\) and so they are orthogonal (at right-angles).
-%\end{solution}
-%\end{example}
-%
-%
-%\index{dot product|)}
-
 
 
 
@@ -1224,24 +1212,26 @@ If the two vectors are at right-angles, then the dot product is zero and the two
 \index{orthogonal set|(}
 \index{orthonormal set|(}
 
-We need sets of \idx{orthogonal} vectors (vectors which are all at right-angles to each other).
+We need sets of \idx{orthogonal} vectors (non-zero vectors which are all at right-angles to each other).
 One example is the set of \idx{standard unit vector}s \(\{\hlist\ev n\}\) aligned with the coordinate axes in~\(\RR^n\).  
 
+\needspace{6\baselineskip}
 \begin{example} \label{eg:orthogduo}
-The set of two vectors \(\{(3,4),(-4,3)\}\) shown in the margin is an \idx{orthogonal set} as the two vectors have dot product\({}=3\cdot(-4)+4\cdot3=-12+12=0\)\,.
+The set of two vectors \(\{(3,4),(-8,6)\}\) shown in the margin
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[axis equal, axis lines=middle,footnotesize]
     \addplot[quiver={u=3,v=4},blue,-stealth,thick] coordinates {(0,0)};
-    \addplot[quiver={u=-4,v=3},blue,-stealth,thick] coordinates {(0,0)};
+    \addplot[quiver={u=-8,v=6},blue,-stealth,thick] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}%
+is an \idx{orthogonal set} as the two vectors have dot product\({}=3\cdot(-8)+4\cdot6=-24+24=0\)\,.
 \end{example}
 
 
 \begin{example} \label{eg:orthogtrio}
 Let vectors \(\qv_1=(1,-2,2)\), \(\qv_2=(2,2,1)\) and \(\qv_3=(-2,1,2)\), illustrated in stereo below. 
 Is \(\{\qv_1,\qv_2,\qv_3\}\) an \idx{orthogonal set}?
-\begin{center}\foreach \q in {46,50}{
+\begin{center}\qview{46}{50}{
 \begin{tikzpicture} 
 \begin{axis}[axis equal,footnotesize,font=\footnotesize
   ,view={\q}{30}]
@@ -1260,8 +1250,11 @@ Yes, because all the pairwise dot products are zero: \(\qv_1\cdot\qv_2=2-4+2=0\)
 \begin{definition} \label{def:orthoset} 
 A set of non-zero vectors \(\{\hlist\qv k\}\) in~\(\RR^n\) is called an \bfidx{orthogonal set} if all pairs of distinct vectors in the set are \idx{orthogonal}: that is, \(\qv_i\cdot\qv_j=0\) whenever \(i\neq j\) for \(i,j=1,2,\ldots,k\)\,.
 A set of vectors in~\(\RR^n\) is called an \bfidx{orthonormal set} if it is an \idx{orthogonal set} of \idx{unit vector}s.
-\footnote{A single non-zero vector always forms an orthogonal set.  A single unit vector always forms an orthonormal set.}
 \end{definition}
+
+A single non-zero vector always forms an orthogonal set.  
+A single unit vector always forms an orthonormal set.
+
 
 \begin{example} \label{eg:}
 Any set, or subset, of \idx{standard unit vector}s in~\(\RR^n\) (Definition~\ref{def:stuniv}) are an \idx{orthonormal set} as they are all at right-angles (orthogonal), and all of length one.
@@ -1280,6 +1273,18 @@ Hence \(\{\qv_1,\qv_2,\qv_3\}\) is an orthonormal set in~\(\RR^3\).
 \end{solution}
 \end{example}
 
+
+
+\begin{activity}
+Which one of the following sets of vectors is \emph{not} an orthogonal set?
+\begin{parts}
+\item \(\{(2,3),(4,-1)\}\)
+\item \(\{(-5,4)\}\)
+\item \(\{(-2,3),(4,-6)\}\)%%%%%%%%%%
+\item \(\{\iv,\kv\}\)
+\end{parts}
+\end{activity}
+
 \index{orthonormal set|)}
 \index{orthogonal set|)}
 
@@ -1290,8 +1295,8 @@ Hence \(\{\qv_1,\qv_2,\qv_3\}\) is an orthonormal set in~\(\RR^3\).
 \index{orthogonal matrix|(}
 
 \begin{example} \label{eg:}
-Example~\ref{eg:orthogduo} showed \(\{(3,4),(-4,3)\}\) is an orthogonal set.  
-Each vector has length five so dividing by its length means \(\{(\frac35,\frac45),(-\frac45,\frac35)\}\) is an \idx{orthonormal set}.
+Example~\ref{eg:orthogduo} showed \(\{(3,4),(-8,6)\}\) is an orthogonal set.  
+The vectors have lengths five and ten, respectively, so dividing each by their length means \(\{(\frac35,\frac45),(-\frac45,\frac35)\}\) is an \idx{orthonormal set}.
 Form the matrix~\(Q\) with these two vectors as its columns:
 \[Q%=\begin{bmatrix} \qv_1&\qv_2 \end{bmatrix}
 =\begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}.\]
@@ -1310,6 +1315,9 @@ The transpose being the inverse is no accident.
 Also no accident is that multiplication by this~\(Q\) gives the rotation illustrated at the start of this section,~(\S\ref{sec:omr}).
 \end{example}
 
+
+
+
 \begin{comment}
 Could change this definition to $Q$~is {invertible} and $Q^{-1}=\tr Q$.  Then prove equivalence.  Use this for now.
 \end{comment}
@@ -1317,10 +1325,24 @@ Could change this definition to $Q$~is {invertible} and $Q^{-1}=\tr Q$.  Then pr
 A square \(n\times n\) matrix~\(Q\) is called an \bfidx{orthogonal matrix} if \(\tr QQ=I_n\)\,.
 Because of its special properties (Theorem~\ref{thm:orthog}),
 multiplication by an orthogonal matrix is called a \bfidx{rotation and/or reflection};  
-\footnote{Although herein we term multiplication by an orthogonal matrix as a `rotation' it generally is not a rotation about a single axis.  
-Instead, generally the `rotation' characterised by any one orthogonal matrix may be composed of a sequence of `rotations about different axes'---each axis with a different orientation.}
+\footnote{Although herein we term multiplication by an orthogonal matrix as a `rotation' it generally is not a single rotation about a single axis.  
+Instead, generally the `rotation' characterised by any one orthogonal matrix may be composed of a sequence of several rotations about different axes---each axis with a different orientation.}
 for brevity and depending upon the circumstances it may be called just a \bfidx{rotation} or just a \bfidx{reflection}.
 \end{definition}
+
+
+
+
+\begin{activity}
+For which of the following values of~\(p\) is the matrix \(Q=\begin{bmatrix} \frac12&p\\-p&\frac12 \end{bmatrix}\) orthogonal?
+\partswidth=5em
+\begin{parts}
+\item \(p=-1/2\)
+\item \(p=\sqrt3/2\)
+\item \(p=3/4\)
+\item some other
+\end{parts}
+\end{activity}
 
 
 
@@ -1332,11 +1354,9 @@ In the following equation, check that the matrix is orthogonal, and hence solve 
 \\-\frac23&\frac13&\frac23 \end{bmatrix}\xv
 =\begin{bmatrix} 0\\2\\-1 \end{bmatrix}.
 \end{equation*} 
-The \idx{stereo pair} below illustrates the rotation of the unit cube under multiplication by this matrix: every point~\xv\ in the (blue) unit cube, is mapped to the point~\(Q\xv\) to form the (red) result.
-%\marginpar{\def\unithousesize{footnotesize}
-%\ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}}
+The \idx{stereo pair} below illustrates the rotation of the unit cube under multiplication by the matrix~\(Q\): every point~\xv\ in the (blue) unit cube, is mapped to the point~\(Q\xv\) to form the (red) result.
 \begin{center}
-\def\unithousesize{footnotesize,height=5cm}
+\def\unithousesize{footnotesize,height=5.5cm}
 \ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}
 \end{center}
 \begin{solution} In \script\ (recall the single quote (prime) gives the transpose, Table~\ref{tbl:mtlbops}),
@@ -1372,8 +1392,10 @@ Given the matrix is orthogonal, solve the linear equation
 =\begin{bmatrix} 1\\-1\\1\\3 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-Given the matrix is orthogonal, calling the matrix~\(Q\) we know \(\tr QQ=I_4\), just multiply the equation \(Q\xv=\bv\) by the transpose~\(\tr Q\) to deduce \(\tr QQ\xv=\tr Q\bv\), that is, \(\xv=\tr Q=\bv\)\,.  
-Here this gives the solution to be
+Denote the matrix by~\(Q\).
+Given the matrix~\(Q\) is orthogonal, we know \(\tr QQ=I_4\). 
+Just multiply the equation \(Q\xv=\bv\) by the transpose~\(\tr Q\) to deduce \(\tr QQ\xv=\tr Q\bv\), that is, \(\xv=\tr Q\bv\)\,.  
+Here this equation gives the solution to be
 \begin{equation*}
 \xv=\begin{bmatrix} 
   \frac12&\frac12&\frac12&\frac12
@@ -1388,23 +1410,25 @@ Here this gives the solution to be
 
 
 \begin{example} \label{eg:introt}
-The marginal graph shows a rotation of the unit square.  
-From the graph estimate roughly the matrix~\(Q\) that performs the rotation. Confirm that your estimated matrix is orthogonal (approximately).
-\marginpar{\TwoD{0.513}{0.857}{-0.858}{0.513}}
+The marginal graph shows a rotation of the unit square. 
+\def\unithousesize{footnotesize,grid} 
+\marginpar{\TwoD{0.513}{0.857}{-0.858}{0.513}}%
+From the graph estimate roughly the matrix~\(Q\) such that multiplication by~\(Q\) performs the rotation. 
+Confirm that your estimated matrix is orthogonal (approximately).
 \begin{solution} 
-Consider what happens to the standard unit vectors:  \((1,0)\mapsto(0.5,-0.9)\) roughly (one decimal place); and \((0,1)\mapsto(0.9,0.5)\) roughly.
-To do this the matrix must have these two vectors as its two columns, that is,
+Consider what happens to the standard unit vectors:  multiplying~\(Q\) by~\((1,0)\) gives~\((0.5,-0.9)\) to roughly (one decimal place); whereas multiplying~\(Q\) by~\((0,1)\) gives~\((0.9,0.5)\) roughly.
+To do this the matrix~\(Q\) must have these two vectors as its two columns, that is,
 \begin{equation*}
 Q\approx\begin{bmatrix} 0.5&0.9\\-0.9&0.5 \end{bmatrix}.
 \end{equation*}
-We may check by what happens to the corner point~\((1,1)\): \(Q(1,1)\approx (1.4,-0.4)\) which looks approximately correct.
+Let's check what happens to the corner point~\((1,1)\): \(Q(1,1)\approx (1.4,-0.4)\) which looks approximately correct.
 To confirm orthogonality of~\(Q\), find
 \begin{equation*}
 \tr QQ=\begin{bmatrix} 0.5&-0.9\\0.9&0.5 \end{bmatrix}
 \begin{bmatrix} 0.5&0.9\\-0.9&0.5 \end{bmatrix}
 =\begin{bmatrix} 1.06&0\\0&1.06 \end{bmatrix}\approx I_2\,,
 \end{equation*}
-and so is approximately orthogonal.
+and so \(Q\)~is approximately orthogonal.
 \end{solution}
 \end{example}
 
@@ -1434,6 +1458,7 @@ Let \(Q\) be an \(n\times n\) matrix, then the following statements are equivale
 
 \begin{proof} 
 Write matrix \(Q=\begin{bmatrix} \qv_1&\qv_2&\cdots&\qv_n \end{bmatrix}\) in terms of its \(n\)~columns \hlist\qv n.
+So then the transpose~\(\tr Q\) has the vectors \hlist\qv n\ as its rows---the \(i\)th~row being the row vector~\(\tr\qv_i\).
 \begin{description}
 \item[\ref{thm:orthog:0}$\iff$\ref{thm:orthog:ii}]   Consider
 \begin{eqnarray*}
@@ -1475,12 +1500,13 @@ Pre-multiply by~\(\tr Q\): \(\tr QX
 =\tr QI_n-I_n\tr Q
 =\tr Q-\tr Q
 =O_n\)\,.
-That is, \(\tr QX=O_n\) but each column is of the form \(\tr Q\xv=\ov\) which we know requires \(\xv=\ov\)\,, hence \(X=O_n\)\,.
+That is, \(\tr QX=O_n\)\,. 
+But each column of \(\tr QX=O_n\) is of the form \(\tr Q\xv=\ov\) which we know requires \(\xv=\ov\)\,, hence \(X=O_n\)\,.
 Then \(X=I_n-Q\tr Q=O_n\) which rearranged gives \(Q\tr Q=I_n\)\,. 
 Put \(Q\tr Q=I_n\) together with \(\tr QQ=I_n\) (Definition~\ref{def:orthog}),  then by Definition~\ref{def:invertible}  \(Q\)~is invertible with inverse~\(\tr Q\).
 
 \item[\ref{thm:orthog:i}$\implies$\ref{thm:orthog:0},\ref{thm:orthog:ia}]
-Part~\ref{thm:orthog:i} asserts \(Q\)~is invertible with inverse~\(\tr Q\), that is, \(\tr QQ=Q\tr Q=I_n\).  
+Part~\ref{thm:orthog:i} asserts \(Q\)~is invertible with inverse~\(\tr Q\): by Definition~\ref{def:invertible} of the inverse, \(\tr QQ=Q\tr Q=I_n\).  
 Since \(\tr QQ=I_n\)\,, matrix~\(Q\) is orthogonal.
  
 Since \(I_n=Q\tr Q=\tr{(\tr Q)}\tr Q\), by Definition~\ref{def:orthog} \(\tr Q\)~is orthogonal.
@@ -1492,8 +1518,8 @@ The proof is similar to that for \ref{thm:orthog:0}$\iff$\ref{thm:orthog:ii}, bu
 Similar to that for \ref{thm:orthog:ii}$\implies$\ref{thm:orthog:i}, but for the rows of~\(Q\), \(Q\xv=\ov\) and \(X=I_n-\tr QQ\)\,.
 
 \item[\ref{thm:orthog:0}$\implies$\ref{thm:orthog:iv}] 
-We prove that multiplication by orthogonal~\(Q\) preserves all lengths and angles, as illustrated in the picture in Examples~\ref{eg:3dorthog} and~\ref{eg:introt}, by comparing the properties of transformed vectors~\(Q\uv\) with the properties of the original~\uv.
-For any \(\uv,\vv\) in~\(\RR^n\), consider the dot product
+We prove that multiplication by orthogonal~\(Q\) preserves all lengths and angles, as illustrated in Examples~\ref{eg:3dorthog} and~\ref{eg:introt}, by comparing the properties of transformed vectors~\(Q\uv\) with the properties of the original~\uv.
+For any vectors~\(\uv,\vv\) in~\(\RR^n\), consider the dot product
 \((Q\uv)\cdot(Q\vv)=\tr{(Q\uv)}Q\vv
 =\tr\uv\tr QQ\vv
 =\tr\uv I_n\vv
@@ -1505,9 +1531,9 @@ We use this identity \((Q\uv)\cdot(Q\vv)=\uv\cdot\vv\) below.
 \begin{equation*}
 \cos\theta'=\frac{(Q\uv)\cdot(Q\vv)}{|Q\uv||Q\vv|}
 =\frac{\uv\cdot \vv}{|\uv||\vv|}
-=\cos\theta\,,
+=\cos\theta\,.
 \end{equation*}
-and so all angles are preserved.
+Since \(\cos\theta'=\cos\theta\) and the cosine is 1-1 for \(0\leq\text{angles}\leq\pi\)\,, all angles are preserved.
 \end{itemize}
 
 \item[\ref{thm:orthog:iv}$\implies$\ref{thm:orthog:ii}]
@@ -1553,26 +1579,44 @@ Its inverse is the transpose (Theorem~\ref{thm:orthog:i})
 
 
 \begin{example} \label{eg:}
-The following graphs illustrate the transformation of the unit square through multiplying by some different matrices: using Theorem~\ref{thm:orthog:iv}, which transformations appear to be that of multiplying by an orthogonal matrix?
+The following graphs illustrate the transformation of the unit square through multiplying by some different matrices. 
+Using Theorem~\ref{thm:orthog:iv}, which transformations appear to be that of multiplying by an orthogonal matrix?
 % a=randn(2),svd(a)',[b,r]=qr(a),det(b)
 \begin{parts}
 \item \TwoD{-1.15}{2.44}{0.95}{0.82}
 \item \TwoD{0.64}{-0.77}{0.77}{0.64}
-%\item \TwoD{-1.67}{1.54}{1.07}{2.11}
 \item \TwoD{-0.84}{0.54}{0.54}{0.84}
 \item \TwoD{1.33}{-0.52}{0.82}{0.35}
-%\item \TwoD{-0.85}{-0.52}{-0.52}{0.85}
 \end{parts}
 
-\begin{solution} 
-\begin{enumerate}
+\begin{solution} \ 
+\begin{parts}
 \item No---the square is stretched and angles changed.
 \item Yes---the square is just rotated.
 \item Yes---the square is rotated and reflected.
 \item No---the square is squashed and angles changed.
-\end{enumerate}
+\end{parts}
 \end{solution}
 \end{example}
+
+
+
+
+\begin{activity}
+The following graphs illustrate the transformation of the unit square through multiplying by some different matrices. 
+\begin{itemize}
+\item Which transformations appear to be that of multiplying by an orthogonal matrix?
+\begin{parts}
+\item \TwoD{-1.67}{1.54}{1.07}{2.11}
+\item \TwoD{-1.3}{0}{0}{0.8}
+\item \TwoD{-0.85}{-0.52}{-0.52}{0.85}
+\item \TwoD{1.06}{-1.02}{-0.16}{-0.51}
+\end{parts}
+\item Further, which of the above transformations appear to be that of multiplying by a diagonal matrix?
+\end{itemize}
+\end{activity}
+
+
 
 
 
@@ -1588,6 +1632,7 @@ The following \idx{stereo pair}s illustrate the transformation of the unit cube 
 }{1.17}{-1.58}{-0.91
 }{-0.18}{-0.33}{1.35}
 
+\def\unithousesize{small}
 \item \ThreeD{-0.05}{1.50}{-0.51
 }{-2.35}{0.49}{0.35
 }{-0.76}{0.28}{-0.18}
@@ -1604,6 +1649,7 @@ The following \idx{stereo pair}s illustrate the transformation of the unit cube 
 %}{0.24}{-0.44}{0.86
 %}{-0.19}{0.85}{0.49}
 
+\def\unithousesize{small}
 \item \ThreeD{0.02}{0.20}{0.98
 }{0.99}{-0.16}{0.01
 }{-0.16}{-0.97}{0.20}
@@ -1632,7 +1678,7 @@ The following \idx{stereo pair}s illustrate the transformation of the unit cube 
 
 
 \begin{comment}
-Could we have a section on GF(2): that is, inverses of 0-1 matrices mod 2??  Relevant to computer science encoding and encryption---somehow.  Does matlab/octave support modular computation?
+Could have a section on GF(2): that is, inverses of 0-1 matrices mod 2??  Relevant to computer science encoding and encryption---somehow.  Matlab/octave supports modular computation via gf() something and some package, respectively.
 \end{comment}
 
 
@@ -1909,7 +1955,7 @@ Given the following information about solutions of systems of linear equations, 
 \begin{exercise} \label{ex:} 
 Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalar exponents (see Table~\ref{tbl:mtlbops}).
 Then confirm the properties of \index{inverse matrix}inverse matrices given by Theorem~\ref{thm:pasm}.
-For the purposes of this exercise, use the \script\ function \index{inv()@\texttt{inv()}}\verb|inv(A)| that computes the inverse of the matrix~\(A\) if it exists (as commented, computing the inverse of a matrix is generally not desirable---the inverse is primarily a useful theoretical device: this exercise only computes the inverse for educational purposes).
+For the purposes of this exercise, use the \script\ function \index{inv()@\texttt{inv()}}\verb|inv(A)| that computes the inverse of the matrix~\(A\) if it exists (as commented, computing the inverse of a matrix is generally not appropriate---the inverse is primarily a  theoretical device---this exercise only computes the inverse for educational purposes).
 Record all your commands and the output from \script.
 \end{exercise}
 
@@ -2305,7 +2351,7 @@ Which of the following pairs of vectors appear to form an \idx{orthogonal set} o
 \begin{exercise} \label{ex:} 
 Which of the following sets of vectors, drawn as \idx{stereo pair}s, appear to form an \idx{orthogonal set}?  
 Which appear to form an \idx{orthonormal set}?
-\newcommand{\ThreeVec}[9]{\foreach \q in {35,39}{
+\newcommand{\ThreeVec}[9]{\qview{35}{39}{
 \begin{tikzpicture} 
 \begin{axis}[axis equal, footnotesize, height=5cm, view={\q}{30}]
     \threev{#1}{#2}{#3}{}
