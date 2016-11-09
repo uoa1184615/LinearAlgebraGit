@@ -35,7 +35,7 @@ A =
   -0.54   0.80   1.11  -1.90   1.64
 \end{verbatim}
 This matrix is symmetric as \(a_{ij}=a_{ji}\)\,.
-\item Find its \svd\ via \verb|[U,S,V]=svd(A)|
+\item Find an \svd\ via \verb|[U,S,V]=svd(A)|
 \begin{verbatim}
 U =
   -0.41  -0.09  -0.28  -0.67   0.55
@@ -58,24 +58,29 @@ V =
 \end{verbatim}
 Observe the second and fourth columns of \(U\) and~\(V\) are identical, and the other columns have opposite signs.
 \end{enumerate}
-Repeat and observe \(\uv_j=\pm \vv_j\) for all columns~\(j\).
+Repeat for different random symmetric matrices and observe \(\uv_j=\pm \vv_j\) for all columns~\(j\).
 \end{solution}
 \end{example}
 
 Why, for symmetric matrices, are the columns of~\(U\) (almost) always \(\pm\)~the columns of~\(V\)?
 The answer is connected to the following rearrangement of an \svd.  
-Because \(A=\usv\), post-multiplying by~\(V\) gives \(AV=US\tr VV=US\)\,, and then the \(j\)th~column of \(AV=US\) is \(A\vv_j=\sigma_j\uv_j\)\,.
+Because \(A=\usv\), post-multiplying by~\(V\) gives \(AV=US\tr VV=US\)\,, and so, equating corresponding columns on both sides of \(AV=US\)\,, the \(j\)th~column is \(A\vv_j=\sigma_j\uv_j\)\,.
 Example~\ref{eg:symsigns} observes for symmetric~\(A\) that \(\uv_j=\pm\vv_j\) (almost always) so this last equation becomes \(A\vv_j=(\pm \sigma_j)\vv_j\).
 This equation is of the important form \(A\vv=\lambda\vv\)\,.
 This form is important because it is the mathematical expression of the following geometric question: for what vectors~\vv\ does multiplication by~\(A\) just stretch\slash shrink~\vv\ by some scalar~\(\lambda\)?
 
 \begin{comment}
-Dynamics of two masses on a spring (relate to molecular vibrations), and seek solutions in~\(\cos(ft)\) for eigenvalue \(\lambda=f^2\).  As done for three masses in Example~\ref{eg:eig3vib}.  Say symmetry from equal and opposite, claim holds even for gigantic structures with millions of interacting components.
+Dynamics of two masses on a spring (relate to molecular vibrations), and seek solutions in~\(\cos(ft)\) for eigenvalue \(\lambda=f^2\).  
+As done for three masses in Example~\ref{eg:eig3vib}.  Say symmetry from equal and opposite, claim holds even for gigantic structures with millions of interacting components.
 \end{comment}
 
 
-\paragraph{Solid modelling} Lean with a hand on a table\slash wall: the force changes depending upon the orientation of the surface.  Similarly inside any solid: the internal forces\({}=A\nv\) where \(\nv\)~is the normal \idx{unit vector} to the internal `surface'.  
-Matrix~\(A\) is always symmetric.  To know whether a material will break apart under pulling, or to crumble under compression,  we need to know where the extreme forces are.  They are found as solutions to \(A\nv=\lambda\nv\) where \nv~gives the direction and \(\lambda\)~the strength of the force.
+\paragraph{Solid modelling} Lean with a hand on a table\slash wall: the force changes depending upon the orientation of the surface.  
+Similarly inside any solid: the internal forces\({}=A\vv\) where \(\vv\)~is the orthogonal \idx{unit vector} to the internal `surface'.  
+Matrix~\(A\) is always symmetric.  
+To know whether a material will break apart under pulling, or to crumble under compression,  we need to know where the extreme forces are.  
+They are found as solutions to \(A\vv=\lambda\vv\) where \vv~gives the direction and \(\lambda\)~the strength of the force.
+To understand the potential failure of the material we need to solve equations in the form \(A\vv=\lambda\vv\)\,.
 
 
 

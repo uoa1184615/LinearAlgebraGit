@@ -13,12 +13,16 @@
 This chapter focuses on some marvellous properties of symmetric matrices.  
 Nonetheless it defines basic concepts in general.  
 Chapter~\ref{ch:gee} explores analogous properties for general matrices.
-The marvellously useful properties result from asking for which vectors does multiplication by a given matrix simply stretch or shrink the vector.
+The marvellously useful properties developed here result from asking for which vectors does multiplication by a given matrix simply stretch or shrink the vector.
 
 
 \begin{definition} \label{def:evecval}
 Let \(A\) be a \idx{square matrix}.  
-A scalar~\(\lambda\) is called an \bfidx{eigenvalue} of~\(A\) if there is a nonzero vector~\xv, called an \bfidx{eigenvector} corresponding to~\(\lambda\), such that \(A\xv=\lambda\xv\)\,.  
+A scalar~\(\lambda\) is called an \bfidx{eigenvalue} of~\(A\) if 
+\begin{aside}
+The symbol~\idx{$\lambda$} is the Greek letter lambda, and denotes eigenvalues.
+\end{aside}%
+there is a nonzero vector~\xv, called an \bfidx{eigenvector} corresponding to the eigenvalue~\(\lambda\), such that \(A\xv=\lambda\xv\)\,.  
 \end{definition}
 
 
@@ -67,7 +71,7 @@ A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 If there was a constant of proportionality (an eigenvalue), then the first component would require the constant \(\lambda=-1\) but the second component would require \(\lambda=+1\) which is a contradiction.
 Hence \((1,2,1)\) is not an eigenvector of~\(A\).
 
-\item Inspection is useful if it is quick: here one might see that the elements in each row of~\(A\) sum to the same thing, namely zero, so  try vector \(\xv=(1,1,1)\)\,:
+\item Inspection is useful if it is quick: here one might quickly spot that the elements in each row of~\(A\) sum to the same thing, namely zero, so  try vector \(\xv=(1,1,1)\)\,:
 \begin{equation*}
 A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \begin{bmatrix} 1\\1\\1 \end{bmatrix}
@@ -82,13 +86,29 @@ Hence \((1,1,1)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\
 
 
 
+\begin{activity}
+Which of the following vectors is an eigenvector of the symmetric matrix \(\begin{bmatrix} -1&12\\12&6 \end{bmatrix}\)?
+\partswidth=5em
+\begin{parts}
+\item \(\begin{bmatrix} -3\\1 \end{bmatrix}\)
+\item \(\begin{bmatrix} -1\\2 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2\\1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 4\\-3 \end{bmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
 Importantly, eigenvectors tell us key directions of a given matrix: the directions in which the multiplication by a matrix is to simply stretch, shrink, or reverse by a factor: the factor being the corresponding eigenvalue.
 In two dimensional plots we can graphically estimate eigenvectors and eigenvalues.
-
-We might plot a given vector~\xv\ and join onto its head the vector~\(A\xv\): if both~\xv\ and~\(A\xv\) are aligned in the same direction (or opposite direction), then \xv~is an eigenvector; if they form a non-trivial angle, then \xv~is not an eigenvector.  
+For some examples and exercises we plot a given vector~\xv\ and join onto its head the vector~\(A\xv\): \begin{itemize}
+\item if both~\xv\ and~\(A\xv\) are aligned in the same direction (or opposite direction), then \xv~is an eigenvector; 
+\item if they form some other angle, then \xv~is not an eigenvector.
+\end{itemize}
+  
 
 \begin{example}   \label{eg:eig2sym}
-Let the matrix \(A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix}\). 
+Let the matrix \(A=\begin{bmatrix} 1&-\tfrac12\\-\tfrac12&1 \end{bmatrix}\). 
 The plot below-left shows the vector \(\xv=(1,\tfrac12)\), and adjoined to its head the matrix-vector product \(A\xv=(\frac34,0)\): 
 because the two are at an angle, \((1,\frac12)\)~is not an eigenvector.
 \begin{center}
@@ -125,18 +145,75 @@ Because of the alignment, \((1,1)\) is an eigenvector of this matrix.
 The constant of proportionality is the corresponding eigenvalue: here \(A\xv=(\frac12,\frac12)=\frac12(1,1)=\frac12\xv\) so the eigenvalue is \(\lambda=\frac12\)\,.
 \end{example}
 
-As in the next example, we can plot for many directions~\xv\ a diagram of vector~\(A\xv\) adjoined head-to-tail to vector~\xv.
+
+
+
+\begin{activity}
+For some matrix~\(A\), the following pictures plot a vector~\xv\ and the corresponding product~\(A\xv\), head-to-tail.
+Which picture indicates that~\xv\ is an eigenvector of the matrix?
+\begin{parts}
+\item \begin{tikzpicture} 
+\begin{axis}[footnotesize,font=\footnotesize
+    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+    \twovec{\noexpand\xv}1000
+    \twovec{\quad A\noexpand\xv}{0.5}{-0.5}10
+\end{axis}
+\end{tikzpicture}
+
+\item \begin{tikzpicture} 
+\begin{axis}[footnotesize,font=\footnotesize
+    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+    \twovec{\noexpand\xv}{0.85}{0.52}00
+    \twovec{\quad A\noexpand\xv}{0.165}{0.095}{0.85}{0.52}
+\end{axis}
+\end{tikzpicture}
+
+\item \begin{tikzpicture} 
+\begin{axis}[footnotesize,font=\footnotesize
+    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+    \twovec{\noexpand\xv}{0.52}{0.85}00
+    \twovec{\quad A\noexpand\xv}{-0.165}{0.59}{0.52}{0.85}
+\end{axis}
+\end{tikzpicture}
+
+\item \begin{tikzpicture} 
+\begin{axis}[footnotesize,font=\footnotesize
+    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+    \twovec{\noexpand\xv}0100
+    \twovec{\quad A\noexpand\xv}{-0.5}{1}01
+\end{axis}
+\end{tikzpicture}
+
+\end{parts}
+Further, for the above picture that indicates~\xv\ is an eigenvector, is the corresponding eigenvalue~\(\lambda\):
+\partswidth=5em
+\begin{parts}
+\item \(\lambda>1\)
+\item \(1>\lambda>0.5\)
+\item \(0.5>\lambda>0\)
+\item \(0>\lambda\)
+\end{parts}
+\end{activity}
+
+
+
+As in the next example, we sometimes plot for many directions~\xv\ a diagram of vector~\(A\xv\) adjoined head-to-tail to vector~\xv.
 Then inspection estimates the eigenvectors and corresponding eigenvalues \cite[]{Schonefeld1995}.
 
 \begin{example}[graphical eigenvectors one] \label{eg:eig2pic1}
 \ \\
 \begin{tabular}{@{}cc@{}}
+\def\eRosesize{small}%
 \eRose1{-0.5}{-0.5}1 &
-\parbox[b]{15em}{The plot on the left shows (unit) vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
+\parbox[b]{0.45\linewidth}{The plot on the left shows unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.}
 \end{tabular}
 \begin{aside}
-The \script[1]\ function \texttt{eigshow(A)} provides an interactive alternative to this static view.
+The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
 \end{aside}%
 \begin{solution} 
 We seek vectors~\xv\ such that~\(A\xv\) is in the same direction (to graphical accuracy).
@@ -151,9 +228,11 @@ Any multiple of these eigenvectors will also be eigenvectors so we may report th
 
 \begin{example}[graphical eigenvectors two] \label{eg:eig2pic2} \ \\
 \begin{tabular}{@{}cc@{}}
+\def\eRosesize{small}%
 \eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[b]{14em}{The plot on the left shows (unit) vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.}
-\end{tabular}
+\parbox[b]{0.4\linewidth}{The plot on the left shows unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. }
+\end{tabular}\\
+Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.
 \begin{solution} 
 We seek vectors~\xv\ such that~\(A\xv\) is in the same direction (to graphical accuracy):  \begin{itemize}
 \item the two (blue) vectors \(\pm(0.9,-0.3)\) appear stretched a little by a factor about~\(1.2\) (red) so we estimate eigenvectors are \(\xv\propto(0.9,-0.3)\) and the corresponding eigenvalue is \(\lambda\approx1.2\)\,;
@@ -214,13 +293,18 @@ Let's collect all possible eigenvectors into a subspace.
 \begin{theorem} \label{thm:espacedef} 
 Let \(A\) be a \idx{square matrix}. 
 A scalar~\(\lambda\) is an \idx{eigenvalue} of~\(A\) iff the \idx{homogeneous} linear system \((A-\lambda I)\xv=\ov\) has nonzero solutions~\(\xv\).  
-The set of all \idx{eigenvector}s corresponding to~\(\lambda\), together with the \idx{zero vector}, is a \idx{subspace}; the subspace is called the \bfidx{eigenspace} of~\(\lambda\) and is denoted by~\(\EE_\lambda\).
+\begin{aside}
+Hereafter, ``\idx{iff}'' is short for ``if and only if''.
+\end{aside}%
+The set of all \idx{eigenvector}s corresponding to any one eigenvalue~\(\lambda\), together with the \idx{zero vector}, is a \idx{subspace}; the subspace is called the \bfidx{eigenspace} of~\(\lambda\) and is denoted by~\(\EE_\lambda\).
 \end{theorem}
 
+
+
 \begin{proof} 
-From Definition~\ref{def:evecval},  \(A\xv=\lambda\xv \iff A\xv-\lambda\xv=\ov \iff A\xv-\lambda I\xv=\ov \iff (A-\lambda I)\xv=\ov\)\,.  
+From Definition~\ref{def:evecval},  \(A\xv=\lambda\xv\)  rearranged is \(A\xv-\lambda\xv=\ov\)\,, that is, \(A\xv-\lambda I\xv=\ov\)\,, which upon factoring becomes \((A-\lambda I)\xv=\ov\)\,, and vice-versa.  
 Also, eigenvectors~\xv\ must be nonzero, so the homogeneous system \((A-\lambda I)\xv=\ov\) must have nonzero solutions.
-Theorem~\ref{thm:homosubsp} assures us that the set of solutions to a homogeneous system, such as \((A-\lambda I)\xv=\ov\) for any given~\(\lambda\), is a subspace. 
+Theorem~\ref{thm:homosubsp} assures us that the set of solutions to a homogeneous system, here \((A-\lambda I)\xv=\ov\) for any given~\(\lambda\), is a subspace. 
 Hence the set of eigenvectors for any given eigenvalue~\(\lambda\), nonzero solutions, together with~\ov, form a subspace.
 \end{proof}
 
@@ -241,7 +325,7 @@ Find the eigenspaces~\(\EE_1\), \(\EE_3\) and~\(\EE_0\)\,.
 \end{equation*}
 That is, \(-x_2=0\)\,, \(-x_1+x_2-x_3=0\) and \(-x_2=0\)\,.
 Hence, \(x_2=0\) and \(x_1=-x_3\)\,.
-A general solution is \(\xv=(t,0,-t)\) so the eigenspace \(\EE_1=\{(t,0,-t) : t\in\RR\}=\Span\{(1,0,-1)\}\).
+A general solution is \(\xv=(-t,0,t)\) so the eigenspace \(\EE_1=\{(-t,0,t) : t\in\RR\}=\Span\{(-1,0,1)\}\).
 
 \item The eigenspace~\(\EE_3\) is the set of solutions of
 \begin{equation*}
@@ -267,17 +351,34 @@ Thus a general solution is \(\xv=(t,t,t)\) so the eigenspace \(\EE_0=\{(t,t,t) :
 \end{example}
 
 
+
+
+
+\begin{activity}
+Which line, in the \(xy\)-plane, is the eigenspace corresponding to the eigenvalue~\(-5\) of the matrix~\(\begin{bmatrix} 3&4\\4&-3 \end{bmatrix}\)?
+\begin{parts}
+\item \(x+2y=0\)
+\item \(2x+y=0\)\actans
+\item \(x=2y\)
+\item \(y=2x\)
+\end{parts}
+\end{activity}
+
+
+
+
+
 \begin{example}[graphical eigenspaces] \label{eg:eig2sp2} \ \\
 \begin{tabular}{@{}cc@{}}
 \eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[b]{14em}{The plot on the left shows (unit) vectors~\xv\  (blue), and for the matrix~\(A\) of Example~\ref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
+\parbox[b]{14em}{The plot on the left shows unit vectors~\xv\  (blue), and for the matrix~\(A\) of Example~\ref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate and draw the eigenspaces of matrix~\(A\).}
 \end{tabular}
 \begin{solution} \ \\
 \def\eRoseHook{%
-\addplot[brown,domain=-1.5:1.5,thick] ({0.34*x},{0.94*x});
+\addplot[brown,domain=-1.5:1.5,very thick] ({0.34*x},{0.94*x});
 \node[right] at (axis cs:0.41,1.13) {$\EE_{-0.4}$};
-\addplot[brown,domain=-2.6:2.6,thick] ({0.94*x},{-0.34*x});
+\addplot[brown,domain=-2.6:2.6,very thick] ({0.94*x},{-0.34*x});
 \node[above] at (axis cs:-2.1,0.75) {$\EE_{1.2}$};
 }%
 \begin{tabular}{@{}cc@{}}
@@ -322,7 +423,8 @@ Then the eigenspace \(\EE_{3/2}=\{t\ev_2+s\ev_3 : t,s\in\RR\}=\Span\{\ev_2,\ev_3
 
 \begin{definition} \label{def:eigsymult}
 For a \idx{symmetric matrix}, the \bfidx{multiplicity} of an \idx{eigenvalue}~\(\lambda\) is the \idx{dimension} of the corresponding \idx{eigenspace}~\(\EE_\lambda\).% 
-\footnote{Section~\ref{sec:dit} discusses that for non-symmetric matrices the dimension of an eigenspace may be less than the multiplicity of an eigenvalue, Theorem~\ref{thm:dimee}, but for symmetric matrices they are the same.}
+\footnote{Section~\ref{sec:dit} discusses that for non-symmetric matrices the dimension of an eigenspace may be less than the multiplicity of an eigenvalue (Theorem~\ref{thm:dimee}). 
+But for symmetric matrices they are the same.}
 \end{definition}
 
 
@@ -362,7 +464,9 @@ The multiplicity of the various eigenvalues in earlier examples are the followin
 \subsection{Systematically find eigenvalues and eigenvectors}
 
 Computer packages easily compute eigenvalues and eigenvectors for us.
-However, sometimes we need to explicitly see dependence upon a parameter so we also explore small systems by hand.
+Sometimes we need to explicitly see dependence upon a parameter so this subsections also develops how to find by hand the eigenvalues and eigenvectors of small matrices.
+We start with computation.
+
 
 \subsubsection{Compute eigenvalues and eigenvectors}
 \label{sec:cee}
@@ -432,7 +536,7 @@ D =
          0         0    3.0000
 \end{verbatim}
 \begin{itemize}
-\item The first diagonal element of~\verb|D| is zero (actually \(10^{-16}\)) so eigenvalue \(\lambda_1=0\)\,.
+\item The first diagonal element of~\verb|D| is zero\footnote{The function~\texttt{eig()} actually computes the eigenvalue to be~\(10^{-16}\), which is effectively zero as \(10^{-15}\) is the typical level of relative error in computer calculations.} so eigenvalue \(\lambda_1=0\)\,.
 A corresponding eigenvector is the first column of~\verb|V|, namely \(\vv_1=-0.5774(1,1,1)\);  since eigenvectors can be scaled by a constant, we could also say an eigenvector is \(\vv_1=(1,1,1)\).
 \item The second diagonal element of~\verb|D| is one so eigenvalue \(\lambda_2=1\)\,.
 A corresponding eigenvector is the second column of~\verb|V|, namely \(\vv_2=0.7071(-1,0,1)\);  we could also say an eigenvector is \(\vv_2=(-1,0,1)\).
@@ -455,6 +559,36 @@ ans =
 \end{verbatim}
 \end{solution}
 \end{example}
+
+
+
+
+\begin{activity}
+The statement \verb|[V,D]=eig(A)| returns the following result \twodp
+\begin{verbatim}
+V =
+   0.50   0.50  -0.10  -0.70
+   0.10  -0.70   0.50  -0.50
+  -0.70  -0.10  -0.50  -0.50
+   0.50  -0.50  -0.70   0.10
+D =
+  -0.10      0      0      0
+      0   0.10      0      0
+      0      0   0.30      0
+      0      0      0   0.50
+\end{verbatim}
+Which of the following is \emph{not} an eigenvalue of the matrix~\verb|A|?
+\partswidth=5em
+\begin{parts}
+\item \(-0.5\)\actans
+\item \(-0.1\)
+\item \(0.1\)
+\item \(0.5\)
+\end{parts}
+\end{activity}
+
+
+
 
 
 \begin{example}[application to vibrations] \label{eg:eig3vib}
@@ -573,7 +707,7 @@ D =
 \end{verbatim}
 }%
 The five eigenvalues are \(-5.00\), \(-4.30\), \(-3.00\), \(-0.70\) and~\(0.00\) (to two decimal places).
-Three of the eigenvalues are repeated as a consequence of the additional geometric symmetry in the network.
+Three of the eigenvalues are repeated as a consequence of the geometric symmetry in the network (different from the symmetry in the matrix).
 The following are the eigenspaces.
 \begin{itemize}
 \item Corresponding to eigenvalue \(\lambda=-5\) are eigenvectors \(\xv\propto(-0.41,0,0.41,-0.41,0,0.41,-0.41,0,0.41)\); that is, the eigenspace \(\EE_{-5}=\Span\{(-1,0,1,-1,0,1,-1,0,1)\}\).
@@ -654,7 +788,7 @@ ans =
 In 1966 Mark Kac asked ``Can one hear the shape of the drum?"
 \begin{aside}
 Challenge: find the two smallest connected networks that have different connectivity and yet the same eigenvalues (unit strength connections).
-\end{aside}
+\end{aside}%
 That is, from just knowing the eigenvalues of a network such as the one in Example~\ref{eg:sier2eig}, can one infer the connectivity of the network?
 The question for 2D drums was answered ``no'' in 1992 by Gordon, Webb and Wolpert who constructed two different shaped 2D drums which have the same set of frequencies of oscillation: that is, the same set of eigenvalues.
 %\end{remark}
@@ -662,8 +796,9 @@ The question for 2D drums was answered ``no'' in 1992 by Gordon, Webb and Wolper
 Why write ``the computation may give'' in Example~\ref{eg:sier2eig}?  
 The reason is associated with the duplicated eigenvalues.
 What is important is the eigenspace.
-When an eigenvalue of a symmetric matrix is duplicated (or triplicated) there are many choices of eigenvectors that form an orthonormal basis (Definition~\ref{def:orthobasis}) of the eigenspace (the same holds for singular vectors of a duplicated singular value).
-Different algorithms may report different orthonormal bases of the same eigenspace: those given in  Example~\ref{eg:sier2eig} are just one possibility for each eigenspace.
+When an eigenvalue of a symmetric matrix is duplicated (or triplicated) in the diagonal~\(D\) then there are many choices of eigenvectors that form an orthonormal basis (Definition~\ref{def:orthobasis}) of the eigenspace (the same holds for singular vectors of a duplicated singular value).
+Different algorithms may report different orthonormal bases of the same eigenspace.
+The bases given in  Example~\ref{eg:sier2eig} are just one possibility for each eigenspace.
 
 
 
@@ -676,19 +811,20 @@ Then \hlist\lambda m\ are eigenvalues of~\(A\) with corresponding eigenvectors \
 \begin{proof} 
 From Definition~\ref{def:evecval}, \(\lambda_j\)~are eigenvalues and non-zero~\(\vv_j\) are eigenvectors iff \(A\vv_j=\lambda_j\vv_j\)\,.
 Form into the matrix equation
-\begin{eqnarray*}&&
+\begin{equation*}
 \begin{bmatrix} A\vv_1&A\vv_2&\cdots&A\vv_m \end{bmatrix}
 =\begin{bmatrix} \lambda_1\vv_1&\lambda_2\vv_2&\cdots&\lambda_m\vv_m \end{bmatrix}
-\\&\iff&
+\end{equation*}
+By the definition of matrix products this equation is identical to
+\begin{equation*}
 A\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}
-\\&&{}
 =\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}
 \begin{bmatrix} \lambda_1&0&\cdots&0
 \\0&\lambda_2&&0
 \\\vdots&&\ddots&\vdots
-\\0&0&\cdots&\lambda_m \end{bmatrix}
-\\&\iff&AV=VD\,.
-\end{eqnarray*}
+\\0&0&\cdots&\lambda_m \end{bmatrix}.
+\end{equation*}
+Since the matrix of eigenvectors is called~\(V\), and the diagonal matrix of eigenvalues is called~\(D\), this equation is the same as \(AV=VD\)\,.
 \end{proof}
 
 
@@ -762,7 +898,7 @@ ans =
 \label{sec:feebh}
 
 \begin{itemize}
-\item Recall from previous study (Theorem~\ref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
+\item Recall from previous study (Theorem~\ref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and that \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
 \item Similarly, although not justified until Chapter~\ref{ch:ddm}, a \(3\times 3\) matrix \(A=\begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
 \end{itemize}
 This section shows these two formulas for a determinant are useful for hand calculations on small problems.
@@ -805,7 +941,7 @@ Use Procedure~\ref{pro:eeh} to find the eigenvalues and eigenvectors of the matr
 A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix}
 \end{equation*}
 (this is the matrix illustrated in Examples~\ref{eg:eig2sym} and~\ref{eg:eig2pic1}).
-\begin{solution} Follow the two steps of Procedure~\ref{pro:eeh}.
+\begin{solution} Follow the first two steps of Procedure~\ref{pro:eeh}.
 \begin{enumerate}
 \item Solve \(\det(A-\lambda I)=0\) for the eigenvalues~\(\lambda\).
 Using~\eqref{eq:dets23},
@@ -847,6 +983,21 @@ That is, the eigenspace \(\EE_{3/2}=\Span \{(1,-1)\}\).
 \end{enumerate}
 \end{solution}
 \end{example}
+
+
+
+
+\begin{activity}
+Use the characteristic equation to determine all eigenvalues of the matrix \(A=\begin{bmatrix} 3&2\\2&0 \end{bmatrix}\) are which of the following.
+\partswidth=5em
+\begin{parts}
+\item \(-4,1\)
+\item \(-1,4\)\actans
+\item \(0,3\)
+\item \(3,4\)
+\end{parts}
+\end{activity}
+
 
 
 
@@ -1262,7 +1413,7 @@ For each of the given symmetric matrices, determine all eigenvalues by finding a
 \end{exercise}
 
 
-\begin{example} \label{eg:}
+\begin{exercise} \label{eg:}
 For each symmetric matrix, find the eigenspace of the given `eigenvalues' by hand solution of linear equations, or determine from your solution that the given value cannot be an eigenvalue.
 \begin{enumerate}
 \item \(\begin{bmatrix} 1&3\\3&1 \end{bmatrix}\), \(4\), \(-2\)
@@ -1291,11 +1442,11 @@ For each symmetric matrix, find the eigenspace of the given `eigenvalues' by han
 \(4\)~is not an eigenvalue,
 \(\EE_9=\Span\{(1,-2,1)\}\).}
 \end{enumerate}
-\end{example}
+\end{exercise}
 
 
 
-\begin{example} \label{eg:}
+\begin{exercise} \label{eg:}
 For each symmetric matrix, find by hand all \idx{eigenvalue}s and an \idx{orthogonal basis} for the corresponding \idx{eigenspace}.
 What is the \idx{multiplicity} of each eigenvalue?
 \begin{parts}
@@ -1370,7 +1521,7 @@ All eigenvalues have multiplicity one.}
 Eigenvalue \(\lambda=-6\) has multiplicity one, whereas \(\lambda=5\) has multiplicity two.}
 
 \end{parts}
-\end{example}
+\end{exercise}
 
 
 
@@ -1403,14 +1554,14 @@ Thus rank the centre left node as the most important, the right node is least im
 
 
 \begin{exercise} \label{eg:}
-For each of the following networks: 
+For each of the following networks:\footnote{Although a well known web search engine does much the same thing for web pages, it uses an approximate iterative algorithm more suited to the mind-boggingly vast size of the internet.}
 \begin{itemize}
 \item label the nodes; 
 \item construct the symmetric \idx{adjacency matrix}~\(A\) such that \(a_{ij}\)~is one if node~\(i\) is linked to node~\(j\), and \(a_{ij}\)~is zero otherwise (and zero on the diagonal);
 \item in \script\ use \verb|eig()| to find all eigenvalues and eigenvectors;
-\item rank the `importance' of the nodes from the magnitude of their component in the eigenvector of the largest (most positive) eigenvalue.
+\item rank the `importance' of the nodes from the magnitude of their component in the eigenvector corresponding to the largest (most positive) eigenvalue.
 \end{itemize}
-Although a well known web search engine does much the same thing for web pages, it uses an approximate iterative algorithm more suited to the mind-boggingly vast size of the internet. 
+ 
 
 \newcommand{\netwk}[2]{\begin{tikzpicture}
 \begin{axis}[axis equal image, axis lines=none,small]

@@ -18,8 +18,8 @@ This section starts with two properties for eigenvalues of general matrices, and
 \subsection{Matrix powers maintain eigenvectors}
 \label{sec:mpmev}
 
-Recall that section~\ref{sec:im} introduced the inverse of a matrix (Definition~\ref{def:invertible}).
-The first theorem links an eigenvalue of zero to the non-existence of an inverse and hence to more problematic linear equations.
+Recall that Section~\ref{sec:im} introduced the inverse of a matrix (Definition~\ref{def:invertible}).
+This first theorem links an eigenvalue of zero to the non-existence of an inverse and hence links a zero eigenvalue to problematic linear equations.
 
 
 \begin{theorem} \label{thm:evalinv} 
@@ -38,7 +38,7 @@ Consequently a matrix is invertible iff zero is not an eigenvalue.
 \item The plot in the margin shows (unit) vectors~\xv\ (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined.
 \marginpar{\eRose1{-0.5}{-0.5}1}%
 %\begin{aside}
-%The \script[1]\ function \texttt{eigshow(A)} provides an interactive alternative to this static view.
+%The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
 %\end{aside}%
 There are no directions~\xv\ for which \(A\xv=\ov=0\xv\)\,. 
 Hence zero cannot be an eigenvalue and the matrix~\(A\) must be invertible.
@@ -48,7 +48,7 @@ Similarly for Example~\ref{eg:eig2pic2}.
 \item The \(3\times3\) diagonal matrix of Example~\ref{eg:espace2d} has eigenvalues of only \(-\tfrac13\) and~\(\tfrac32\).
 Since zero is not an eigenvalue, the matrix is invertible.
 
-\item The \(9\times9\) matrix of the Sierpinski network in Example~\ref{eg:sier2eig} is not invertible as it has zero among its nine eigenvalues.
+\item The \(9\times9\) matrix of the Sierpinski network in Example~\ref{eg:sier2eig} is not invertible as it has zero among its five eigenvalues.
 
 \item The \(2\times 2\) matrix of Example~\ref{eg:2evals} is invertible as its eigenvalues are \(\lambda=\frac12,\frac32\), neither of which are zero.
 Indeed, the matrix
@@ -106,8 +106,8 @@ The marginal pictures illustrates the reciprocal relation graphically:
 the first picture shows~\(A\xv\) for various~\xv, the second picture shows \(A^{-1}\xv\).
 \marginpar{\eRose{4/3}{2/3}{2/3}{4/3}}
 The eigenvector directions are the same for both matrix and inverse.
-But in those directions where the matrix stretches, the inverse shrinks, and where the matrix shrinks, the inverse stretches.
-The relationship is obscure in directions which are not eigenvectors.
+But in those eigenvector directions where the matrix stretches, the inverse shrinks, and where the matrix shrinks, the inverse stretches.
+In contrast, in directions which are not eigenvectors, the relationship between~\(A\xv\) and~\(A^{-1}\xv\) is obscure.
 \end{itemize}
 \end{example}
 
@@ -172,6 +172,24 @@ Then
 and so \(A^2\) has eigenvalues~\(1/4=(1/2)^2\) and~\(9/4=(3/2)^2\) with the same corresponding eigenvectors~\((1,1)\) and~\((1,-1)\) respectively.
 \end{solution}
 \end{example}
+
+
+
+\begin{activity}
+Given that \(-3\) and~\(2\) are eigenvalues of the matrix \(A=\begin{bmatrix} 1&2\\2&-2 \end{bmatrix}\), which of the following matrices has an eigenvalue of~\(8\)?
+\partswidth=5em
+\begin{parts}
+\item \(A^{-2}\)
+\item \(A^{-1}\)
+\item \(A^2\)
+\item \(A^3\)\actans
+\end{parts}
+Further, which of the above matrices has eigenvalue~\(1/9\)?
+\end{activity}
+
+
+
+
 
 
 \begin{example} \label{eg:3x3sympow}
@@ -282,10 +300,15 @@ Thus the model predicts that after many generations the population reaches a ste
 General matrices may have complex valued eigenvalues (as in Examples~\ref{eg:ccevals} and~\ref{eg:ltas}): that real symmetric matrices always have real eigenvalues (such as in all matrices of Examples~\ref{eg:2x2sympow} and~\ref{eg:3x3sympow}) is a special property that often reflects the physical reality of many applications.
 
 To establish the reality of eigenvalues (Theorem~\ref{thm:realeigsym}), the proof invokes contradiction. 
-The contradiction is to assume a complex valued eigenvalue exists and then prove it cannot.
-Thus the proof of Theorem~\ref{thm:realeigsym} needs to use some \idx{complex numbers} and some properties of complex numbers.
-Recall: that any complex number \(z=a+bi\) has a \idx{complex conjugate} \(\bar z=a-bi\) (denoted by the overbar); a complex number equals its conjugate only if it is real valued (the imaginary part is zero); and properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex matrices and vectors.
+The contradiction is to assume a complex valued eigenvalue exists, and then prove it cannot.
+Consequently, the proof of the next Theorem~\ref{thm:realeigsym} needs to use some \idx{complex numbers} and some properties of complex numbers.
+Recall that any complex number \(z=a+bi\) has a \idx{complex conjugate} \(\bar z=a-bi\) (denoted by the overbar), and that a complex number equals its conjugate only if it is real valued (the imaginary part is zero).
+Such properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex matrices and vectors.
 
+
+\begin{comment}
+Have not yet thought of reasonable Activities for this subsection.
+\end{comment}
 
 
 
@@ -297,7 +320,7 @@ Let \(A\) be a real \idx{symmetric matrix}, then the \idx{eigenvalue}s of~\(A\) 
 
 \begin{proof} 
 Let \(\lambda\) be any eigenvalue of~\(A\) with corresponding eigenvector~\xv; that is, \(A\xv=\lambda\xv\) for \(\xv\neq\ov\)\,.
-To establish a \idx{contradiction}: assume the eigenvalue~\(\lambda\) is complex valued, and so correspondingly is the eigenvector~\xv.
+To create a \idx{contradiction} that establishes the theorem: assume the eigenvalue~\(\lambda\) is complex valued, and so correspondingly is the eigenvector~\xv.
 First,  the complex conjugate~\(\bar\lambda\) must be another eigenvalue of~\(A\), corresponding to an eigenvector which is the complex conjugate~\(\bar\xv\).
 To see this just take the complex conjugate of both sides of \(A\xv=\lambda\xv\)\,:
 \begin{equation*}
@@ -306,7 +329,7 @@ To see this just take the complex conjugate of both sides of \(A\xv=\lambda\xv\)
 \implies A\bar\xv=\bar\lambda\bar\xv
 \end{equation*}
 as matrix~\(A\) is real (\(\bar A=A\)).
-Second, consider \(\tr\xv A\bar\xv\) in two ways:
+Second, consider \(\tr\xv A\bar\xv\) in two different ways:
 \begin{eqnarray*}
 \tr\xv A\bar\xv&=&\tr\xv(A\bar\xv)
 =\tr\xv(\bar A\bar\xv)\quad\text{(as \(A\) is real)}
@@ -323,7 +346,7 @@ Second, consider \(\tr\xv A\bar\xv\) in two ways:
 \end{eqnarray*}
 Equating the two ends of this identity gives \(\bar\lambda\tr\xv\bar\xv=\lambda\tr\xv\bar\xv\)\,.
 Rearrange to \(\bar\lambda\tr\xv\bar\xv-\lambda\tr\xv\bar\xv
-=(\bar\lambda-\lambda)\tr\xv\bar\xv
+=0\)\,, which factors to \((\bar\lambda-\lambda)\tr\xv\bar\xv
 =0\)\,.
 Because this product is zero, either \(\bar\lambda-\lambda=0\) or \(\tr\xv\bar\xv=0\)\,.
 But we next prove the second is impossible, hence the first must hold; that is, \(\bar\lambda-\lambda=0\)\,, equivalently \(\bar\lambda=\lambda\)\,.
@@ -358,7 +381,7 @@ Recall Example~\ref{eg:3x3hande} found the \(3\times3\) symmetric matrix
 \begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}
 \end{equation*}
 has eigenspaces \(\EE_0=\Span\{(-6,-3,2)\}\), \(\EE_7=\Span\{(-2,6,3)\}\) and \(\EE_{-14}=\Span\{(3,-2,6)\}\).
-These eigenspaces are orthogonal as seen by the dot products
+These eigenspaces are orthogonal as evidenced by the dot products of the basis vectors:
 \begin{eqnarray*}&&
 (-6,-3,2)\cdot(-2,6,3)=12-18+6=0\,,
 \\&&
@@ -376,7 +399,7 @@ Let \(A\) be a real \idx{symmetric matrix}, then for every two distinct \idx{eig
 \end{theorem}
 \begin{proof} 
 Let eigenvalues \(\lambda_1\neq\lambda_2\)\,, and let \(\xv_1\) and~\(\xv_2\) be corresponding eigenvectors, respectively; that is, \(A\xv_1=\lambda_1\xv_1\) and \(A\xv_2=\lambda_2\xv_2\)\,.
-Consider \(\tr\xv_1A\xv_2\) in two ways:
+Consider \(\tr\xv_1A\xv_2\) in two different ways:
 \begin{eqnarray*}
 \tr\xv_1A\xv_2
 &=&\tr\xv_1(A\xv_2)
@@ -394,13 +417,13 @@ Equating the two ends of this identity gives \(\lambda_2\xv_1\cdot\xv_2=\lambda_
 Rearrange to \(\lambda_2\xv_1\cdot\xv_2-\lambda_1\xv_1\cdot\xv_2
 =(\lambda_2-\lambda_1)(\xv_1\cdot\xv_2)=0\)\,.
 Since \(\lambda_1\neq\lambda_2\) it follows that the dot product \(\xv_1\cdot\xv_2=0\)\,.
-Hence the two eigenvectors are orthogonal.
+Hence (Definition~\ref{def:orthovec}) the two eigenvectors are orthogonal.
 \end{proof}
 
 
 
 \begin{example} \label{eg:}
-The plots below shows (unit) vectors~\xv\ (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
+The plots below shows (unit) vectors~\xv\ (blue), and for some matrix~\(A\) (different for different plots) the corresponding vectors~\(A\xv\) (red) adjoined. 
 By estimating eigenvectors determine which cases \emph{cannot} be the plot of a real symmetric matrix.
 \begin{parts}
 %\item \eRose{1.96}{-0.44}{0.56}{0.88}
@@ -449,7 +472,8 @@ Estimate eigenvectors \((0.1,-1)\) and \((1,0.1)\) which are orthogonal, so may 
 
 
 \begin{example} \label{eg:2x2orthevec}
-By hand find eigenvectors corresponding to the two distinct eigenvalues of the following matrices and confirm that symmetric matrix~\(A\) has orthogonal eigenvectors, and that non-symmetric matrix~\(B\) does not:
+By hand find eigenvectors corresponding to the two distinct eigenvalues of the following matrices.
+Confirm that symmetric matrix~\(A\) has orthogonal eigenvectors, and that non-symmetric matrix~\(B\) does not:
 \begin{equation*}
 A=\begin{bmatrix} 1&\frac32\\\frac32&-3 \end{bmatrix};\quad
 B=\begin{bmatrix} 0&-3\\-2&1 \end{bmatrix}.
@@ -465,20 +489,22 @@ B=\begin{bmatrix} 0&-3\\-2&1 \end{bmatrix}.
 \end{eqnarray*}
 so eigenvalues are \(\lambda=-1\pm\tfrac52=-\tfrac72,\tfrac32\)\,.
 \begin{itemize}
-\item Corresponding to eigenvalue \(\lambda=-7/2\), eigenvectors~\vv\ satisfy \((A+\tfrac72I)\vv=\ov\)\,, that is
+\item Corresponding to eigenvalue \(\lambda=-7/2\), eigenvectors~\xv\ satisfy \((A+\tfrac72I)\xv=\ov\)\,, that is
 \begin{equation*}
-\begin{bmatrix} \frac92&\frac32\\\frac32&\frac12 \end{bmatrix}\vv
-=\frac12\begin{bmatrix} 9v_1+3v_2\\3v_1+v_2 \end{bmatrix}
+\begin{bmatrix} \frac92&\frac32\\\frac32&\frac12 \end{bmatrix}\xv
+=\frac12\begin{bmatrix} 9x_1+3x_2\\3x_1+x_2 \end{bmatrix}
 =\begin{bmatrix} 0\\0 \end{bmatrix},
 \end{equation*}
-giving \(v_2=-3v_1\)\,.  Eigenvectors must be \(\vv\propto(1,-3)\).
-\item Corresponding to eigenvalue \(\lambda=3/2\), eigenvectors~\vv\ satisfy \((A-\tfrac32I)\vv=\ov\)\,, that is
+giving \(x_2=-3x_1\)\,.  
+Eigenvectors must be \(\xv\propto(1,-3)\).
+\item Corresponding to eigenvalue \(\lambda=3/2\), eigenvectors~\xv\ satisfy \((A-\tfrac32I)\xv=\ov\)\,, that is
 \begin{equation*}
-\begin{bmatrix} -\frac12&\frac32\\\frac32&-\frac92 \end{bmatrix}\vv
-=\frac12\begin{bmatrix} -v_1+3v_2\\3v_1-9v_2 \end{bmatrix}
+\begin{bmatrix} -\frac12&\frac32\\\frac32&-\frac92 \end{bmatrix}\xv
+=\frac12\begin{bmatrix} -x_1+3x_2\\3x_1-9x_2 \end{bmatrix}
 =\begin{bmatrix} 0\\0 \end{bmatrix},
 \end{equation*}
-giving \(v_1=3v_2\)\,.  Eigenvectors must be \(\vv\propto(3,1)\).
+giving \(x_1=3x_2\)\,.  
+Eigenvectors must be \(\xv\propto(3,1)\).
 \end{itemize}
 The dot product of the two basis eigenvectors is \((1,-3)\cdot(3,1)=3-3=0\) and hence they are orthogonal.
 
@@ -490,20 +516,20 @@ The dot product of the two basis eigenvectors is \((1,-3)\cdot(3,1)=3-3=0\) and 
 \end{eqnarray*}
 so eigenvalues are \(\lambda=3,-2\)\,.
 \begin{itemize}
-\item Corresponding to eigenvalue \(\lambda=-2\), eigenvectors~\vv\ satisfy \((B+2I)\vv=\ov\)\,, that is
+\item Corresponding to eigenvalue \(\lambda=-2\), eigenvectors~\xv\ satisfy \((B+2I)\xv=\ov\)\,, that is
 \begin{equation*}
-\begin{bmatrix} 2&-3\\-2&3 \end{bmatrix}\vv
-=\begin{bmatrix} 2v_1-3v_2\\-2v_1+3v_2 \end{bmatrix}
+\begin{bmatrix} 2&-3\\-2&3 \end{bmatrix}\xv
+=\begin{bmatrix} 2x_1-3x_2\\-2x_1+3x_2 \end{bmatrix}
 =\begin{bmatrix} 0\\0 \end{bmatrix},
 \end{equation*}
-giving \(v_2=\tfrac23v_1\)\,.  Eigenvectors must be \(\vv\propto(3,2)\).
-\item Corresponding to eigenvalue \(\lambda=3\), eigenvectors~\vv\ satisfy \((B-3I)\vv=\ov\)\,, that is
+giving \(x_2=\tfrac23x_1\)\,.  Eigenvectors must be \(\xv\propto(3,2)\).
+\item Corresponding to eigenvalue \(\lambda=3\), eigenvectors~\xv\ satisfy \((B-3I)\xv=\ov\)\,, that is
 \begin{equation*}
-\begin{bmatrix} -3&-3\\-2&-2 \end{bmatrix}\vv
-=\begin{bmatrix} -3v_1-3v_2\\-2v_1-2v_2 \end{bmatrix}
+\begin{bmatrix} -3&-3\\-2&-2 \end{bmatrix}\xv
+=\begin{bmatrix} -3x_1-3x_2\\-2x_1-2x_2 \end{bmatrix}
 =\begin{bmatrix} 0\\0 \end{bmatrix},
 \end{equation*}
-giving \(v_1=-v_2\)\,.  Eigenvectors must be \(\vv\propto(-1,1)\).
+giving \(x_1=-x_2\)\,.  Eigenvectors must be \(\xv\propto(-1,1)\).
 \end{itemize}
 The dot product of the two basis eigenvectors is \((3,2)\cdot(-1,1)=-3+2=-1\neq 0\) and hence they are not orthogonal.
 
@@ -514,7 +540,8 @@ The dot product of the two basis eigenvectors is \((3,2)\cdot(-1,1)=-3+2=-1\neq 
 
 
 \begin{example} \label{eg:4x4orthevec}
-Use \script\ to compute eigenvectors of the following matrices, and to confirm the eigenvectors are orthogonal for a symmetric matrix.
+Use \script\ to compute eigenvectors of the following matrices.
+Confirm the eigenvectors are orthogonal for a symmetric matrix.
 \begin{parts}
 \item \(\begin{bmatrix} 0 & 3 & 2 & -1
 \\ 0 & 3 & 0 & 0
@@ -635,9 +662,9 @@ The symmetry of this matrix~\verb|B| requires such orthogonality.
 
 
 
-Recall that when we find eigenvalues by hand for \(2\times2\) or \(3\times 3\) matrices we solve a quadratic or cubic characteristic equation, respectively.
-Thus we get at most two or three eigenvalues, respectively.
-Further, when we ask \script\ to compute eigenvalues of an \(n\times n\) matrix, it always returns \(n\)~values.
+Recall that to find eigenvalues by hand for \(2\times2\) or \(3\times 3\) matrices we solve a quadratic or cubic characteristic equation, respectively.
+Thus we find at most two or three eigenvalues, respectively.
+Further, when we ask \script\ to compute eigenvalues of an \(n\times n\) matrix, it always returns \(n\)~eigenvalues in an \(n\times n\) diagonal matrix.
 
 
 \begin{theorem} \label{thm:lenlam}
@@ -648,15 +675,15 @@ Invoke the \idx{pigeonhole principle} and \idx{contradiction}.
 Assume there are more than \(n\)~distinct eigenvalues, then there would be more than \(n\)~eigenvectors corresponding to distinct eigenvalues.
 Theorem~\ref{thm:orthoevec} asserts all such eigenvectors are orthogonal. 
 But there cannot be more than \(n\)~vectors in an orthogonal set in~\(\RR^n\) (Theorem~\ref{thm:orthcomp}).
-Hence the assumption is wrong and there cannot be any more than \(n\)~distinct eigenvalues.
+Hence the assumption is wrong: there cannot be any more than \(n\)~distinct eigenvalues.
 \end{proof}
 
 
-The previous theorem establishes there are at most \(n\)~distinct \idx{eigenvalue}s (for symmetric matrices but it is true more generally).  
+The previous theorem establishes there are at most \(n\)~distinct \idx{eigenvalue}s (here for symmetric matrices but Theorem~\ref{thm:geecp} establishes it is true for general matrices).  
 Now we establish that typically there exist \(n\)~distinct \idx{eigenvalue}s of an \(n\times n\) matrix---here symmetric.
 
 \begin{comment}
-The problem case of repeated singular values and repeated eigenvalues appears to be not adequately dealt with by any first textbook.
+The problem case of repeated singular values and repeated eigenvalues appears to be not adequately dealt with by any first textbook that I have read.
 \pooliv{p.294} discusses algebraic and geometric {multiplicity}, but best left for eigenproblem of general matrices, if necessary.
 \end{comment}
 
@@ -680,7 +707,7 @@ However, the proof is too involved to give here.
 \begin{proof} 
 First, for any zero singular value, \(\sigma_j=0\)\,, then the result is immediate as from the \svd, \(AV=US\)\, the \(j\)th~column gives \(A\vv_j=0\uv_j=\ov=0\vv_j\) for the nonzero~\(\vv_j\).
 
-Second, for the singular values \(\sigma_j>0\) use a form of \idx{induction} allied with a \idx{contradiction} to prove \(\uv_j=\pm \vv_j\).
+Second, for the singular values \(\sigma_j>0\) we use a form of \idx{induction} allied with a \idx{contradiction} to prove \(\uv_j=\pm \vv_j\).
 By \idx{contradiction}, suppose \(\uv_1\neq\pm\vv_1\)\,, then we can write \(\uv_1=\vv_1\cos t+\wv\sin t\) for some vector~\wv\ orthogonal to~\(\vv_1\) (\(\wv:=\Perp_{\vv_1}\uv_1\)) and for angle \(0< t<\pi\) (as illustrated in the margin).
 \marginpar{\begin{tikzpicture}
   \begin{axis}[tiny,font=\footnotesize
@@ -726,7 +753,7 @@ But specifically for symmetric~\(A\), the proof of the previous theorem~\ref{thm
 In which case the \svd\ becomes \(A=VD\tr V\) and so is intimately connected to the following definition.
 
 
-\begin{definition} \label{def:} 
+\begin{definition} \label{def:odsble} 
 A real \idx{square matrix}~\(A\) is \bfidx{orthogonally diagonalisable} if there exists an \idx{orthogonal matrix}~\(V\) and a \idx{diagonal matrix}~\(D\) such that \(\tr VAV=D\), equivalently \(AV=VD\), equivalently \(A=VD\tr V\) is a factorisation of~\(A\).
 \end{definition}
 
@@ -782,10 +809,10 @@ and see that this matrix~\(B\) is orthogonally diagonalisable.
 
 
 
-These examples of orthogonal diagonalisation involve symmetric matrices.
+These examples of orthogonal diagonalisation invoke symmetric matrices.
 Also, the connection between an \svd\ and orthogonal matrices was previously discussed only for symmetric matrices. 
 The next theorem establishes that all real symmetric matrices are orthogonally diagonalisable, and vice versa.
-That is, eigenvectors form an orthogonal set if and only if the matrix is symmetric.
+That is, eigenvectors of a matrix form an orthogonal set if and only if the matrix is symmetric.
  
 
 \begin{theorem}[spectral] \label{thm:symspec} 
@@ -796,7 +823,7 @@ Then matrix~\(A\) is symmetric iff it is \idx{orthogonally diagonalisable}.
 \begin{proof} 
 The ``if'' and the ``only if'' lead to two parts in the proof.
 \begin{itemize}
-\item If matrix~\(A\) is orthogonally diagonalisable, then \(A=VD\tr V\) for orthogonal~\(V\) and diagonal~\(D\) (and recall \(\tr D=D\)).
+\item If matrix~\(A\) is orthogonally diagonalisable, then \(A=VD\tr V\) for orthogonal~\(V\) and diagonal~\(D\) (and recall that for a diagonal matrix, \(\tr D=D\)).
 Consider
 \begin{equation*}
 \tr A=\tr{(VD\tr V)}
@@ -879,7 +906,7 @@ In this coordinate system the hyperbola is algebraically \(y^2=1+2x^2\).
 \end{solution}
 \end{example}
 
-Now let's proceed to see how this geometric idea of choosing good coordinates may be implemented in algebra. 
+Now let's proceed to see how to implement in algebra this geometric idea of choosing good coordinates to fit a given physical curve. 
 
 
 \subsubsection{Graph quadratic equations}
@@ -891,7 +918,7 @@ ax^2+bxy+cy^2+dx+ey+f=0 \label{eq:gqe}
 \end{equation}
 (where \(a,b,c\) cannot all be zero).
 As invoked in the example, the canonical simplest algebraic form of such curves are the following.
-The challenge of this subsection is to choose new coordinates so that the quadratic equation~\eqref{eq:gqe} becomes one of these recognised canonical forms.
+The challenge of this subsection is to choose good new coordinates so that a given quadratic equation~\eqref{eq:gqe} becomes one of these recognised canonical forms.
 \begin{description}
 \item[Ellipse or circle] \(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)
 \begin{itemize}
@@ -1010,7 +1037,7 @@ Group the linear terms with corresponding quadratic powers and seek to rewrite a
 \\\iff&&
 2(x-1)^2+(y+2)^2=4\,.
 \end{eqnarray*}
-Thus changing to a new (dashed) coordinate system \(x'=x-1\) and \(y'=y+2\)\,, that is choosing the origin of the dashed coordinate system at \((x,y)=(1,-2)\), the quadratic equation becomes
+Thus changing to a new (dashed) coordinate system \(x'=x-1\) and \(y'=y+2\)\,, that is, choosing the origin of the dashed coordinate system at \((x,y)=(1,-2)\), the quadratic equation becomes
 \marginpar{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle
@@ -1023,7 +1050,7 @@ Thus changing to a new (dashed) coordinate system \(x'=x-1\) and \(y'=y+2\)\,, t
   \end{axis}
 \end{tikzpicture}}%
 \begin{equation*}
-2{x'}^2+{y'}^2=4\,, \quad\text{that is }
+2{x'}^2+{y'}^2=4\,, \quad\text{that is, }
 \frac{{x'}^2}{2}+\frac{{y'}^2}{4}=1\,.
 \end{equation*}
 In this new coordinate system the equation is that of an ellipse with horizontal axis of half-length~\(\sqrt2\) and vertical axis of half-length~\(\sqrt4=2\) (as illustrated in the margin).
@@ -1071,7 +1098,7 @@ A=\begin{bmatrix} 1&\frac32\\\frac32&-3 \end{bmatrix}
   \fi
   \end{axis}
 \end{tikzpicture}}%
-\marginpar{\temp0}
+\marginpar{\temp0}%
 Suppose we change to some new (dashed) coordinate system with its standard unit vectors~\(\vv_1\) and~\(\vv_2\) as illustrated in the margin.
 The vectors in the plane will be written as the linear combination \(\xv=\vv_1x'+\vv_2y'\).
 That is, \(\xv=V\xv'\) for new coordinate vector \(\xv'=(x',y')\) and matrix \(V=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}\).
@@ -1092,6 +1119,7 @@ V=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
 \\ -\frac3{\sqrt{10}}& \frac1{\sqrt{10}} \end{bmatrix}.
 \end{equation*}
 Using this~\(V\), in the new dashed coordinate system (illustrated) the quadratic terms in the equation become
+\marginpar{\temp1}%
 \begin{equation*}
 \tr{\xv'}(\tr VAV)\xv'
 =\tr{\xv'}D\xv'
@@ -1099,7 +1127,6 @@ Using this~\(V\), in the new dashed coordinate system (illustrated) the quadrati
 =-\tfrac72{x'}^2+\tfrac32{y'}^2
 \end{equation*}
 Hence the quadratic equation becomes
-\marginpar{\temp1}%
 \begin{equation*}
 -\tfrac72{x'}^2+\tfrac32{y'}^2-\tfrac12=0
 \iff -7{x'}^2+3{y'}^2=1
@@ -1224,6 +1251,7 @@ In this new coordinate system the equation is that of an ellipse with \(x''\)-ax
 
 \begin{comment}
 Should include classification of 3D surfaces, but write later. 
+Further motivate the following quadratic forms by mentioning some more applications.
 \end{comment}
 
 
@@ -1232,6 +1260,9 @@ Should include classification of 3D surfaces, but write later.
 
 \subsubsection{Simplify quadratic forms}
 
+To understand the response and strength of built structures like bridges, buildings and cars, engineers need to analyse the dynamics of energy distribution in the structure.
+The potential energy in such structures is expressed and analysed as the following quadratic form.
+Such quadratic forms are also important in distinguishing maxima from minima in economic optimisation.
 
 \begin{definition} \label{def:}
 A \bfidx{quadratic form} in variables \(\xv\in\RR^n\) is a function \(q:\RR^n\to\RR\) that may be written as \(q(\xv)=\tr\xv A\xv\) for some real symmetric \(n\times n\) matrix~\(A\).
@@ -1285,6 +1316,53 @@ Could link to SVD and extreme values of length \(|A\xv|\): but where is it best 
 
 
 
+
+\begin{example} \label{eg:}
+Consider the quadratic form \(f(x,y)=x^2+3xy-3y^2\). 
+That is, consider \(f(\xv)=\tr\xv A\xv\) for \(\xv=(x,y)\) and matrix \(A=\begin{bmatrix} 1&3/2\\3/2&-3 \end{bmatrix}\).
+The following illustration plots the surface~\(f(x,y)\).
+\begin{center}
+\qview{28}{33}{\begin{tikzpicture} 
+\begin{axis}[footnotesize,font=\footnotesize,view={\q}{60}
+    ,domain=-1.3:1.3,zmin=-5
+    ,xlabel={$x$},ylabel={$y$},label shift={-1.5ex}]
+    \addplot3[surf,opacity=0.5] {x^2+3*x*y-3*y^2};
+    \addplot3[samples y=0,domain=0:360,smooth,thick] 
+    ({cos(x)},{sin(x)},{cos(x)^2+3*cos(x)*sin(x)-3*sin(x)^2});
+    \addplot3[samples y=0,domain=0:360,smooth] 
+    ({cos(x)},{sin(x)},{-5});
+\end{axis}
+\end{tikzpicture}}
+\end{center}
+Also plotted in black is the curve of values of~\(f(x,y)\) on the unit circle \(x^2+y^2=1\) (also shown); that is, \(f(\xv)\)~for unit vectors~\xv.
+Find the maxima and minima of~\(f\) on this unit circle (for unit vectors~\xv).
+Relate to the eigenvalues of Example~\ref{eg:2x2orthevec}.
+\begin{solution} 
+Let's express the unit vectors as \(\xv=(\cos t,\sin t)\) and consider~\(f\) as a function of~\(t\).
+Then 
+\begin{eqnarray*}
+f(t)&=&x^2+3xy-3y^2\quad(\text{for }x=\cos t\text{ and }y=\sin t)
+\\&=&\cos^2t+3\cos t\sin t-3\sin^2t
+\\&=&\tfrac12+\tfrac12\cos2t+\tfrac32\sin2t -\tfrac32+\tfrac32\cos2t
+\\&=&-1+2\cos2t+\tfrac32\sin2t\,.
+\end{eqnarray*}
+From calculus, maxima and minima occur when the derivative is zero, \(df/dt=0\)\,.
+Here \(df/dt=-4\sin2t+3\cos2t\) which to be zero requires \(4\sin2t=3\cos2t\)\,, that is, \(\tan2t=\tfrac34\)\,.
+From the classic Pythagorean triplet of the \(3:4:5\) triangle, this tangent being~\(3/4\) requires either \begin{itemize}
+\item \(\cos2t=\tfrac45\) and \(\sin2t=\tfrac35\) giving the function \(f(t)=-1+2\cdot\tfrac45+\tfrac32\cdot\tfrac35
+=\tfrac32=1.5\)\,,
+\item or the negative \(\cos2t=-\tfrac45\) and \(\sin2t=-\tfrac35\) giving the function \(f(t)=-1-2\cdot\tfrac45-\tfrac32\cdot\tfrac35
+=-\tfrac72=-3.5\)\,.
+\end{itemize}
+These maximum and minimum values of~\(f\) seem reasonable from the plot.
+We observe that these extreme values are precisely the two eigenvalues of the matrix~\(A\)---the next theorem shows this connection is no accident.
+\end{solution}
+\end{example}
+
+
+
+
+
 \begin{theorem}[extreme values] \label{thm:optqform}
 Let~\(A\) be an \(n\times n\) symmetric matrix with \idx{eigenvalue}s \(\lambda_1\leq\lambda_2\leq\cdots\leq\lambda_n\) (sorted). 
 Then for all \idx{unit vector}s \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \idx{quadratic form}~\(\tr\xv A\xv\) has the following properties:
@@ -1296,7 +1374,7 @@ Then for all \idx{unit vector}s \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \idx
 \end{theorem}
 
 \begin{proof} 
-Change to an orthogonal coordinate system that diagonalises the matrix~\(A\) (Theorem~\ref{thm:patqform}): say \(\yv=V\xv\) for orthogonal matrix~\(V\) whose columns are orthogonal eigenvectors of~\(A\) in order so that \(D=\tr VAV=\diag(\hlist\lambda n)\).
+Change to an orthogonal coordinate system~\yv\ that diagonalises the matrix~\(A\) (Theorem~\ref{thm:patqform}): say coordinates \(\yv=V\xv\) for orthogonal matrix~\(V\) whose columns are orthogonal eigenvectors of~\(A\) in order so that \(D=\tr VAV=\diag(\hlist\lambda n)\).
 Then the quadratic form 
 \begin{equation*}
 \tr\xv A\xv=\tr{(V\yv)} A(V\yv)=\tr\yv \tr VAV\yv=\tr\yv D\yv\,.
@@ -1319,7 +1397,7 @@ Since \(V\)~is orthogonal it preserves lengths (Theorem~\ref{thm:orthog:iv}) so 
 Similarly for the upper bound (Exercise~\ref{ex:optqform}).  
 Thus \(\lambda_1\leq \tr\xv A\xv\leq\lambda_n\) for all unit vectors~\xv.
 
-\item Let \(\vv_1\) be a unit eigenvector of~\(A\) corresponding to the smallest eigenvalue~\(\lambda_1\); that is, \(A\vv_1=\lambda_1\vv_1\) and \(|\vv_1|=1\)\,.
+\item Let \(\vv_1\) be a unit eigenvector of~\(A\) corresponding to the minimal eigenvalue~\(\lambda_1\); that is, \(A\vv_1=\lambda_1\vv_1\) and \(|\vv_1|=1\)\,.
 Then, setting \(\xv=\vv_1\)\,, the quadratic form
 \begin{equation*}
 \tr\xv A\xv=\tr\vv_1A\vv_1
@@ -1333,6 +1411,24 @@ Thus the quadratic form~\(\tr\xv A\xv\) takes on the minimum value~\(\lambda_1\)
 \item Exercise~\ref{ex:optqform} proves the maximum value occurs.
 \end{enumerate}
 \end{proof}
+
+
+\begin{activity}
+Recall Example~\ref{eg:3x3hande} found the \(3\times3\) symmetric matrix
+\begin{equation*}
+A=\begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}
+\end{equation*}
+has eigenvalues \(7\), \(0\) and~\(-14\).
+What is the maximum of the quadratic form \(\tr\xv A\xv\) over unit vectors~\xv?
+\partswidth=5em
+\begin{parts}
+\item \(-14\)
+\item \(0\)
+\item \(7\)
+\item \(14\)
+\end{parts}
+Further, what is the minimum of the quadratic form \(\tr\xv A\xv\) over unit vectors~\xv?
+\end{activity}
 
 
 

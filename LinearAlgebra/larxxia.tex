@@ -14,14 +14,13 @@
    \excludeversion{comment}
    \excludeversion{draft}
    \def\ajr#1{}% redundant??
-   \def\titlePageInfo{\vfil\small 
-   Please inform me of typographical glitches, 
-   writing infelicities, and errors.}
+%   \def\titlePageInfo{Please inform me of typographical glitches, 
+%   writing infelicities, and errors.}
    }%end of AtBeginDocument
 \fi
 
 % specify the version number of the next version
-\AtBeginDocument{\SetWatermarkText{\quad v0.2a}}
+\AtBeginDocument{\SetWatermarkText{\quad v0.3a}}
 
 
 \includeonly{
@@ -39,13 +38,13 @@
 %,LinEqns/secSolve
 %,LinEqns/secSpan
 %,LinEqns/summary
-,Matrices/ch
+%,Matrices/ch
 %,Matrices/secOps
 %,Matrices/secInverse
 %,Matrices/secSVD
 %,Matrices/secSubsp
 %,Matrices/secIncon
-,Matrices/secLinTran
+%,Matrices/secLinTran
 %,Matrices/summary
 %,EigSym/ch
 %,EigSym/secIntro
@@ -59,10 +58,10 @@
 %,Determinants/secGeometry
 %,Determinants/secExpand
 %,Determinants/summary
-%,EigGen/ch
+,EigGen/ch
 %,EigGen/secFind
 %,EigGen/secLinInd
-%,EigGen/secDiag
+,EigGen/secDiag
 %,EigGen/summary
 %,ComVecSp/ch %draft
 %,QR/ch %draft
@@ -73,13 +72,18 @@
 
 \title{Linear Algebra Reformed
 \\for 21st\,C Application}
+
 \author{A.~J. Roberts
 \thanks{\url{http://orcid.org/0000-0001-8930-1552}}
 %\thanks{\url{http://www.maths.adelaide.edu.au/anthony.roberts}}
 \\University of Adelaide
 \\South Australia, 5005}
 
-\date{\today\titlePageInfo}
+\date{\today\footnotetext[0]{\titlePageInfo}
+\\[8ex]
+\def\unithousesize{footnotesize,height=5.5cm}
+\ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}
+}
 
 
 \usepackage{linearAlgebra}[2016/08/07]

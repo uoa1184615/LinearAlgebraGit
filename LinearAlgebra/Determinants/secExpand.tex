@@ -6,7 +6,6 @@
 \secttoc
 
 
-
 This section develops a so-called row\slash column algebraic expansion for determinants. 
 This expansion is useful for theoretical purposes.
 But there are vastly more efficient ways of computing \idx{determinant}s than using a row\slash column expansion.  
@@ -15,7 +14,12 @@ You may find this function useful for checking the results of some examples and 
 However, just like computing an \idx{inverse}, computing the determinant is expensive and error prone.  
 In medium to large scale problems avoid computing the determinant, something else is almost always better.
 
-Nonetheless, a row\slash column algebraic expansion for a determinant is useful for small matrix problems, as well as its beautiful  theoretical uses.
+\begin{quoted}{\index{Moler, Cleve}Cleve Moler, MathWorks, 2006}
+The most numerically reliable way to determine whether matrices are singular [not invertible] is to test their singular values. 
+This is far better than trying to compute determinants, which have atrocious scaling properties.
+\end{quoted}
+
+Nonetheless, a row\slash column algebraic expansion for a determinant is useful for small matrix problems, as well as for its beautiful  theoretical uses.
 We start with examples of row properties that underpin a row\slash column algebraic expansion.
 
 
@@ -33,7 +37,7 @@ Confirm this determinant algebraically.
 Using~\eqref{eq:dets23b}, \(\det A
 =1\cdot\frac12\cdot0+\frac12\cdot1\cdot0+0\cdot0\cdot0
 -0\cdot\frac12\cdot0-1\cdot1\cdot0-\frac12\cdot0\cdot0
-=0\)\,.  (There is a zero from the last row in every term.)
+=0\)\,.  (In every term there is a zero from the last row of the matrix.)
 \end{solution}
 \end{example}
 
@@ -82,19 +86,23 @@ B=\begin{bmatrix} 0&1&1
 Confirm algebraically that their determinants are the negative of each other.
 Give a geometric reason why this should be so.
 \begin{solution} 
-Using~\eqref{eq:dets23b}, \(\det A 
+Using~\eqref{eq:dets23b} twice: 
+\begin{itemize}
+\item \(\det A 
 =1\cdot1\cdot1 +(-1)\cdot1\cdot\frac15 +0\cdot0\cdot\frac12
 -0\cdot1\cdot\frac15 -1\cdot1\cdot\frac12 -(-1)\cdot0\cdot1 
-=1-\frac15-\frac12=\frac3{10}\)\,.  
-Using~\eqref{eq:dets23b}, \(\det B =0\cdot(-1)\cdot1 
+=1-\frac15-\frac12=\frac3{10}\)\,;  
+\item \(\det B =0\cdot(-1)\cdot1 
 +1\cdot0\cdot\frac15 
 +1\cdot1\cdot\frac12
 -1\cdot(-1)\cdot\frac15 
 -0\cdot0\cdot\frac12 
 -1\cdot1\cdot1 
-=\frac12+\frac15-1=-\frac3{10}=-\det A\)\,.  
+=\frac12+\frac15-1=-\frac3{10}=-\det A\)\,.
+\end{itemize}
+  
 
-Geometrically, since the first two rows in~\(A\) and~\(B\) are swapped that means that multiplying by the matrix as in \(A\xv\) and~\(B\xv\) has the first two components swapped.
+Geometrically, since the first two rows in~\(A\) and~\(B\) are swapped that means that multiplying by the matrix, as in \(A\xv\) and~\(B\xv\), has the first two components swapped.
 Hence \(A\xv\) and~\(B\xv\) are always the reflection of each other in the plane \(x_1=x_2\).
 %\marginpar{%
 %\def\unithousesize{tiny}
@@ -301,15 +309,39 @@ Cannot answer as none of these row and column operations on~\(A\) appear to give
 
 
 
+
+\begin{activity}
+Given that \(\det\begin{bmatrix} 2&-3&1
+\\2&-5&-3
+\\-4&1&-3 \end{bmatrix}=-36\), which of the following matrices has determinant of~\(18\)?
+\begin{parts}
+\item \(\begin{bmatrix} -1&-3&1
+\\-1&-5&-3
+\\2&1&-3 \end{bmatrix}\)  \actans
+\item \(\begin{bmatrix} 2&-3&1
+\\2&-5&-3
+\\2&-5&-3 \end{bmatrix}\)
+\item \(\begin{bmatrix} -4&6&-2
+\\2&-5&-3
+\\-4&1&-3 \end{bmatrix}\)
+\item \(\begin{bmatrix} 2&-3&1/3
+\\2&-5&-1
+\\-4&1&-1 \end{bmatrix}\)
+\end{parts}
+Further, which has determinant~\(-12\)? \(0\)? \(72\)?
+\end{activity}
+
+
+
 \begin{example} \label{eg:linedet}
 Without evaluating the determinant, use Theorem~\ref{thm:ppdet} to establish that the determinant equation
 \begin{equation}
 \begin{vmatrix} 1&x&y\\1&2&3\\1&4&5 \end{vmatrix}=0
 \label{eq:detline2}
 \end{equation}
-is the equation of the straight line in the \(xy\)-plane through the two points \((2,3)\) and~\((4,5)\).
+is the equation of the straight line in the \(xy\)-plane that passes through the two points~\((2,3)\) and~\((4,5)\).
 \begin{solution} 
-First, equation~\eqref{eq:detline2} is linear in variables \(x\) and~\(y\) as at most one of \(x\) and~\(y\) occur in each term of the determinant expansion:
+First, the determinant equation~\eqref{eq:detline2} is linear in variables \(x\) and~\(y\) as at most one of \(x\) and~\(y\) occur in each term of the determinant expansion:
 \begin{center}\setlength{\unitlength}{1ex}
 \begin{picture}(18,9)
 %\put(0,0){\framebox(18,9){}}
@@ -327,8 +359,8 @@ Thus the solution straight line passes through the two required points.
 
 Let's evaluate the determinant to check:
 equation~\eqref{eq:detline2} becomes
-\(1\cdot2\cdot5 +x\cdot3\cdot1 +y\cdot1\cdot4 -y\cdot2\cdot1 -1\cdot3\cdot4 -x\cdot1\cdot5 =-2-2x+2y=0
-\)\,.  That is, \(y=x+1\) which does indeed pass through \((2,3)\) and~\((4,5)\).
+\(1\cdot2\cdot5 +x\cdot3\cdot1 +y\cdot1\cdot4 -y\cdot2\cdot1 -1\cdot3\cdot4 -x\cdot1\cdot5 =-2-2x+2y=0\)\,.  
+That is, \(y=x+1\) which does indeed pass through \((2,3)\) and~\((4,5)\).
 \end{solution}
 \end{example}
 
@@ -339,12 +371,12 @@ Without evaluating the determinant, use Theorem~\ref{thm:ppdet} to establish tha
 \begin{equation*}
 \begin{vmatrix} x&y&z\\-1&-2&2\\3&5&2 \end{vmatrix}=0
 \end{equation*}
-is, in \(xyz\)-space, the equation of the plane through the origin and the two points \((-1,-2,2)\) and~\((3,5,2)\).
+is, in \(xyz\)-space, the equation of the plane that passes through the origin and the two points \((-1,-2,2)\) and~\((3,5,2)\).
 \begin{solution} 
-As in the previous example, the determinant is linear in~\(x\), \(y\) and~\(z\), so the solutions must be those of one linear equation, namely a plane (Section~\ref{sec:nvep}).
+As in the previous example, the determinant is linear in~\(x\), \(y\) and~\(z\), so the solutions must be those of a single linear equation, namely a plane (Section~\ref{sec:nvep}).
 \begin{itemize}
 \item The solutions include the origin since when \(x=y=z=0\) the first row of the matrix is zero, hence the determinant is zero, and the equation satisfied.
-\item The solutions include the  points \((-1,-2,2)\) and~\((3,5,2)\) since when \((x,y,z)\) are either, then two rows in the determinant are identical, so the determinant is zero, and the equation satisfied.
+\item The solutions include the  points \((-1,-2,2)\) and~\((3,5,2)\) since when \((x,y,z)\) is either of these points, then two rows in the determinant are identical, so the determinant is zero, and the equation satisfied.
 \end{itemize}
 Hence the solutions are the points in the plane passing through the origin and \((-1,-2,2)\) and~\((3,5,2)\).
 \end{solution}
@@ -429,9 +461,9 @@ By the product Theorem~\ref{thm:detprod},
 
 
 \begin{theorem}[almost zero row/column] \label{thm:rpdet:vii} 
-Let \(A\) be an \(n\times n\) matrix.
-Define the \((i,j)\)th~\bfidx{minor} \(A_{ij}\)~to be the \((n-1)\times(n-1)\) square matrix obtained from~\(A\) by omitting the \(i\)th~row and \(j\)th~column.  
-If, except for the entry~\(a_{ij}\), the \(i\)th~row (or \(j\)th~column) is all zero, then 
+For every \(n\times n\) matrix~\(A\),
+define the \((i,j)\)th~\bfidx{minor} \(A_{ij}\)~to be the \((n-1)\times(n-1)\) square matrix obtained from~\(A\) by omitting the \(i\)th~row and \(j\)th~column.  
+If, except for the entry~\(a_{ij}\), the \(i\)th~row (or \(j\)th~column) of~\(A\) is all zero, then 
 \begin{equation}
 \det A=(-1)^{i+j}a_{ij}\det A_{ij}\,.
 \label{eq:rpdet:vii}
@@ -491,6 +523,9 @@ for the minor~\(A_{nn}\) and \(\ov\in\RR^{n-1}\).
 Recall Definition~\ref{def:detarea}: the image of the \(n\)D-cube under multiplication by the matrix~\(A\) is the image of the \((n-1)\)D-cube under multiplication by~\(A_{nn}\) extended orthogonally a length~\(a_{nn}\) in the orthogonal direction~\(\ev_n\) (as illustrated in the margin in 3D).
 The volume of the \(n\)D-image is thus \(a_{nn}\times{}\)(volume of the \((n-1)\)D-image).
 Consequently, \(\det A=a_{nn}\det A_{nn}\)\,.
+\begin{comment}
+The above glosses over details for when \(a_{nn}<0\).
+\end{comment}
 
 Third, consider the special case when the last row of matrix~\(A\) is all zero except for~\(a_{nn}\neq0\); that is, 
 \begin{equation*}
@@ -520,13 +555,13 @@ By Theorem~\ref{thm:detprod}, \(\det A=\det(FB)=\det(F)\det(B)\)\,.
 From the previous part \(\det B=a_{nn}\det A_{nn}\)\,, so we just need to determine~\(\det F\)\,.
 \marginpar{\def\unithouseviews{30}\ThreeD10{0.5}01{0.4}001}
 As illustrated for 3D in the margin, the action of matrix~\(F\) on the unit \(n\)D-cube is that of a simple shear keeping the \((n-1)\)D-cube base unchanged (due to the identity~\(I_{n-1}\) in~\(F\)).
-Since the height orthogonal to the \((n-1)\)D-cube base is unchanged (due to the one in the bottom corner of~\(F\)), the action of multiplying by~\(F\) leaves the volume of the unit \(n\)D-cube unchanged at one.
+Since the height orthogonal to the \((n-1)\)D-cube base is unchanged (due to the one in the bottom-right corner of~\(F\)), the action of multiplying by~\(F\) leaves the volume of the unit \(n\)D-cube unchanged at one.
 Hence \(\det F=1\)\,.
 Thus \(\det A=1\det(B)=a_{nn}\det A_{nn}\) as required.
 
 Fourth, suppose row~\(i\) of matrix~\(A\) is all zero except for entry~\(a_{ij}\).
-Swap rows~\(i\) and~\(i+1\), then swap rows~\(i+1\) and~\(i+2\), and so on until the original row~\(i\) is in the last row, and the order of all other rows are unchanged: this takes \((n-i)\)~row swaps which changes the sign of the determinant \((n-i)\)~times, that is, multiplies it by~\((-1)^{n-i}\).
-Then swap columns~\(j\) and~\(j+1\), then swap columns~\(j+1\) and~\(j+2\), and so on until the original column~\(j\) is in the last column: this takes \((n-j)\)~column swaps which change the determinant by a factor~\((-1)^{n-j}\).
+Swap rows~\(i\) and~\(i+1\), then swap rows~\(i+1\) and~\(i+2\), and so on until the original row~\(i\) is in the last row, and the order of all other rows are unchanged: this takes \((n-i)\)~row swaps which changes the sign of the determinant \((n-i)\)~times (Theorem~\ref{thm:ppdet:iii}), that is, multiplies it by~\((-1)^{n-i}\).
+Then swap columns~\(j\) and~\(j+1\), then swap columns~\(j+1\) and~\(j+2\), and so on until the original column~\(j\) is in the last column: this takes \((n-j)\)~column swaps which change the determinant by a factor~\((-1)^{n-j}\) (Theorem~\ref{thm:ppdet:iii}).
 The resulting matrix, say~\(C\), has the form
 \begin{equation*}
 C=\begin{bmatrix} A_{ij}&\av'_j\\\tr\ov&a_{ij} \end{bmatrix}
@@ -539,7 +574,7 @@ From the row and column swapping, \(\det A=(-1)^{n-i}(-1)^{n-j}\det C =(-1)^{2n-
 
 
 
-\begin{example} \label{eg:}
+\begin{example} \label{eg:rpdet}
 Use Theorem~\ref{thm:rpdet:vii} to evaluate the determinant of the following matrices.  
 \begin{parts}
 \item \(\begin{bmatrix} -3&-3&-1\\-3&2&0\\0&0&2 \end{bmatrix}\)
@@ -572,6 +607,29 @@ There are two zeros in the first column so the determinant is \((-1)^22\det\begi
 
 
 
+
+\begin{activity}
+Using one of the determinants in the above Example~\ref{eg:rpdet}, what is the determinant of the matrix
+\begin{equation*}
+\begin{bmatrix} 2&1&0&3
+\\5&-2&15&2
+\\0&-2&0&-3
+\\0&2&0&4 \end{bmatrix} ?
+\end{equation*}
+\partswidth=5em
+\begin{parts}
+\item \(-120\)
+\item \(-60\)
+\item \(60\)\actans
+\item \(120\)
+\end{parts}
+\end{activity}
+
+
+
+
+
+
 \begin{example} \label{eg:dettrii}
 Use Theorem~\ref{thm:rpdet:vii} to evaluate the determinant of the  so-called \idx{triangular matrix}  
 %a=triu(round(randn(5)*3))
@@ -583,20 +641,20 @@ A=\begin{bmatrix}2&-2&3&1&0
 \\0&0&0&0&3 \end{bmatrix}
 \end{equation*}
 \begin{solution} 
-The last row is all zero except for the last element, so
+The last row is all zero except for the last element of~\(3\), so
 \begin{eqnarray*}
 \det A&=&(-1)^{10}3\det\begin{bmatrix}2&-2&3&1
 \\0&2&-1&-1
 \\0&0&5&-2
 \\0&0&0&1\end{bmatrix}
-\\&&(\text{as the last row is zero except the last})
+\\&&(\text{then as the last row is zero except the~\(1\)})
 \\&=&3\cdot (-1)^81\det\begin{bmatrix}2&-2&3
 \\0&2&-1
 \\0&0&5\end{bmatrix}
-\\&&(\text{as the last row is zero except the last})
+\\&&(\text{then as the last row is zero except the~\(5\)})
 \\&=&3\cdot1\cdot(-1)^65\det\begin{bmatrix}2&-2
 \\0&2\end{bmatrix}
-\\&&(\text{as the last row is zero except the last})
+\\&&(\text{then as the last row is zero except the~\(2\)})
 \\&=&3\cdot1\cdot5(-1)^42\det\begin{bmatrix}2\end{bmatrix}
 \\&=&3\cdot1\cdot5\cdot2\cdot2=60\,.
 \end{eqnarray*}
@@ -604,7 +662,7 @@ The last row is all zero except for the last element, so
 \end{example}
 
 
-The relative simplicity of finding the determinant in Example~\ref{eg:dettrii} indicates that there is something special and memorable about matrices with zeros in the lower-left `triangle'.
+The relative simplicity of finding the determinant in Example~\ref{eg:dettrii} indicates that there is something special and memorable about matrices with zeros in the entire lower-left `triangle'.
 There is, as expressed by the following definition and theorem.
 
 
@@ -614,7 +672,7 @@ There is, as expressed by the following definition and theorem.
 
 \begin{definition} \label{def:trim}
 A \bfidx{triangular matrix} is a \idx{square matrix} where all entries are zero either to the lower-left of the diagonal or to the upper-right:
-\footnote{From time-to-time, some people may call an upper triangular matrix either a \idx{right triangular} or an \idx{upper-right triangular} matrix.  Correspondingly, from time-to-time, some people may call a lower triangular matrix either a \idx{left triangular} or a \idx{lower-left triangular} matrix.}
+\footnote{From time-to-time, some people call an upper triangular matrix either a \idx{right triangular} or an \idx{upper-right triangular} matrix.  Correspondingly, from time-to-time, some people  call a lower triangular matrix either a \idx{left triangular} or a \idx{lower-left triangular} matrix.}
 \begin{itemize}
 \item an \idx{upper triangular} matrix has the form (although any of the~\(a_{ij}\) may also be zero)
 \begin{equation*}
@@ -643,8 +701,8 @@ Thus the following theorem encompasses square diagonal matrices and so generalis
 
 
 \begin{theorem}[triangular matrix]\label{thm:rpdet:vi} 
-Let \(A\) be an \(n\times n\) \idx{triangular matrix}.
-The \idx{determinant} of~\(A\) is the product of the diagonal entries, \(\det A=a_{11}a_{22}\cdots a_{nn}\).
+For every \(n\times n\) \idx{triangular matrix}~\(A\),
+the \idx{determinant} of~\(A\) is the product of the diagonal entries, \(\det A=a_{11}a_{22}\cdots a_{nn}\).
 \end{theorem}
 \begin{proof} 
 A little induction proves the determinant of a triangular matrix is the product of its diagonal entries: only consider upper triangular matrices as transposing the matrix caters for lower triangular matrices.
@@ -658,16 +716,41 @@ The results is also straightforward for \(2\times 2\) matrices since the determi
 which is the product of the diagonal entries as required.
 
 Second, assume the property for \((n-1)\times(n-1)\) matrices.
-Also the upper triangular matrix~\(A\) has the form
+Now, every upper triangular \(n\times n\) matrix~\(A\) has the form
 \begin{equation*}
 A=\begin{bmatrix} A_{nn}&\av_n'\\\tr\ov&a_{nn} \end{bmatrix}.
 \end{equation*}
 for \((n-1)\times(n-1)\) minor~\(A_{nn}\).
 Theorem~\ref{thm:rpdet:vii} establishes \(\det A=a_{nn}\det A_{nn}\)\,.  
 Since the  minor~\(A_{nn}\) is upper triangular and \((n-1)\times(n-1)\), by assumption \(\det A_{nn}=a_{11}a_{22}\cdots a_{n-1,n-1}\)\,.
-Consequently, \(\det A=a_{nn}\det A_{nn}=a_{nn}a_{11}a_{22}\cdots a_{n-1,n-1}\).
-Induction then establishes the theorem.
+Consequently, \(\det A=a_{nn}\det A_{nn}=a_{nn}a_{11}a_{22}\cdots a_{n-1,n-1}\)\,, as required.
+Induction then establishes the theorem for all~\(n\).
 \end{proof}
+
+
+
+
+\begin{activity}
+Which of the following matrices is \emph{not} a triangular matrix?
+\begin{parts}
+\item \(\begin{bmatrix} -1&-1&1&0
+\\0&-5&4&2
+\\0&0&1&-2
+\\0&0&0&1 \end{bmatrix}\)
+\item \(\begin{bmatrix} 0&0&0&0
+\\3&4&0&0
+\\4&-2&-1&0
+\\-1&-2&2&-3 \end{bmatrix}\)
+\item \(\begin{bmatrix} 0&0&0&-2
+\\0&0&-1&-1
+\\0&1&1&4
+\\-1&-1&0&3 \end{bmatrix}\)
+\item \(\begin{bmatrix} -2&0&0&0
+\\0&-1&0&0
+\\0&0&2&0
+\\0&0&0&3 \end{bmatrix}\)
+\end{parts}
+\end{activity}
 
 
 
@@ -732,7 +815,7 @@ Nonetheless, if we swap the 1st and 4th~rows, and the 2nd and 3rd~rows, then the
 \\-4&2&0&0
 \\-1&4&-1&0
 \\1&5&1&-6\end{bmatrix}\) and its determinant is \((-3)\cdot2\cdot(-1)\cdot(-6)=-36\). 
-But each row swap changes the sign so the determinant of the original matrix is~\((-1)^2(-36)=36\). 
+But each row swap changes the sign so the determinant of the original matrix is~\((-1)^2(-36)=-36\). 
 \end{solution}
 
 \item \(\begin{bmatrix}-1&0&0&1
@@ -741,7 +824,7 @@ But each row swap changes the sign so the determinant of the original matrix is~
 \\-1&0&4&2\end{bmatrix}\)
 \begin{solution} 
 This is not triangular, so we do not have to compute its determinant. 
-Nonetheless, if we swap the 2nd and 4th~columns, the 1st and 2nd~rows, and the 3rd and 4th~rows, then the result is the lower triangular \(\footnotesize\begin{bmatrix}-2&0&0&0
+Nonetheless, if we magically know to swap the 2nd and 4th~columns, the 1st and 2nd~rows, and the 3rd and 4th~rows, then the result is the lower triangular \(\footnotesize\begin{bmatrix}-2&0&0&0
 \\-1&1&0&0
 \\-1&2&4&0
 \\2&-2&-1&-2\end{bmatrix}\) and its determinant is \((-2)\cdot1\cdot4\cdot(-2)=16\). 
@@ -768,7 +851,7 @@ Let's rewrite the explicit formulas~\eqref{eq:dets23b} for \(2\times2\) and \(3\
 +\begin{vmatrix} 0&b\\c&d \end{vmatrix}.
 \end{eqnarray*}
 That is, the original determinant is the same as the sum of two determinants, each with a zero in the first row and the other row unchanged.
-Equivalently, the first row is decomposed as \(\begin{bmatrix} a&b \end{bmatrix}=\begin{bmatrix} a&0 \end{bmatrix}+\begin{bmatrix} 0&b \end{bmatrix}\), while the other row is unchanged.
+This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\begin{bmatrix} a&0 \end{bmatrix}+\begin{bmatrix} 0&b \end{bmatrix}\), while the other row is unchanged.
 
 \item Recall from~\eqref{eq:dets23b} that the \(3\times3\) determinant
 \begin{eqnarray*}
@@ -782,9 +865,9 @@ Equivalently, the first row is decomposed as \(\begin{bmatrix} a&b \end{bmatrix}
 +\begin{vmatrix} 0&0&c\\d&e&f\\g&h&i \end{vmatrix}.
 \end{eqnarray*}
 That is, the original determinant is the same as the sum of three determinants, each with two zeros in the first row and the other rows unchanged.
-Equivalently, the first row is decomposed as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), while the other rows are unchanged.
+This identity decomposes the first row as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), while the other rows are unchanged.
 \end{itemize}
-This sort of rearrangement of a determinant makes progress because then Theorem~\ref{thm:rpdet:vii} helps by finding the determinant of the resultant matrices that have almost all zero rows.
+This sort of rearrangement of a determinant makes progress because then Theorem~\ref{thm:rpdet:vii} helps by finding the determinant of the resultant matrices that have an almost all zero row.
 \end{example}
 
 \begin{example} \label{eg:cpdet2}
@@ -797,7 +880,7 @@ A \(2\times2\) example of a more general summation property is furnished by the 
 +\det\begin{bmatrix} a_{11}&c_1\\a_{21}&c_2 \end{bmatrix}
 \\&=&\det B+\det C\,,
 \end{eqnarray*}
-where matrices~\(B\) and~\(C\) have the same first column as~\(A\), and their second columns add up to that of~\(A\).
+where matrices~\(B\) and~\(C\) have the same first column as~\(A\), and their second columns add up to the second column of~\(A\).
 \end{example}
 
 
@@ -806,8 +889,8 @@ where matrices~\(B\) and~\(C\) have the same first column as~\(A\), and their se
 
 \begin{theorem}[sum formula] \label{thm:rpdet:v} 
 Let \(A\), \(B\) and~\(C\) be \(n\times n\) matrices.
-If \(A\), \(B\) and~\(C\) are identical except for their \(i\)th~column, and that the \(i\)th~column of~\(A\) is the sum of the \(i\)th~columns of \(B\) and~\(C\), then \(\det A=\det B+\det C\)\,.
-Further, the same property holds when ``column'' is replaced by ``row'' throughout.
+If matrices~\(A\), \(B\) and~\(C\) are identical except for their \(i\)th~column, and that the \(i\)th~column of~\(A\) is the sum of the \(i\)th~columns of \(B\) and~\(C\), then \(\det A=\det B+\det C\)\,.
+Further, the same sum property holds when ``column'' is replaced by ``row'' throughout.
 \end{theorem}
 
 
@@ -886,7 +969,7 @@ C=\begin{bmatrix} \av_1&\cv \end{bmatrix},
 \end{axis}
 \end{tikzpicture}
 \end{eqnarray*}
-The matrices \(A\), \(B\) and~\(C\) all have the same first column~\(\av_1\), wheras the second columns satisfy \(\av_2=\bv+\cv\) by the condition of the theorem. 
+The matrices \(A\), \(B\) and~\(C\) all have the same first column~\(\av_1\), whereas the second columns satisfy \(\av_2=\bv+\cv\) by the condition of the theorem. 
 Because these parallelograms have common side~\(\av_1\) we can stack the area for \(\det C\) on top of that for~\(\det B\), and because \(\av_2=\bv+\cv\) the top edge of the stack matches that for the area~\(\det A\), as shown below
 \begin{center}
 \begin{tikzpicture} 
@@ -924,7 +1007,7 @@ Because these parallelograms have common side~\(\av_1\) we can stack the area fo
 \end{axis}
 \end{tikzpicture}
 \end{center}
-The base of the stacked shape lies on the line~\AA, and let \nv~denote the orthogonal\slash normal direction (as shown).
+The base of the stacked shape lies on the line~\AA, and let vector~\nv\ denote the orthogonal\slash normal direction (as shown).
 Because the shape has the same cross-section in lines parallel to~\AA, its area is the area of the base times the height of the stacked shape in the direction~\nv.
 But this is precisely the same height and base as the area for~\(\det A\), hence \(\det A=\det B+\det C\)\,.
 
@@ -939,7 +1022,7 @@ where the \(n\times(n-1)\) matrix \(A'=\begin{bmatrix} \av_1&\av_2&\cdots&\av_{n
 and where the three last columns satisfy \(\av_n=\bv+\cv\)\,.
 Consider the \(n\)D-parallelepipeds whose \(n\)D-volumes are the three determinants, as before.
 Because these \(n\)D-parallelepipeds have common base of the \((n-1)\)D-parallelepiped formed by the columns of~\(A'\), we can and do stack the \(n\)D-volume for \(\det C\) on top of that for~\(\det B\), and because \(\av_n=\bv+\cv\) the top \((n-1)\)D-parallelepiped of the stack matches that for the \(n\)D-volume~\(\det A\), as shown schematically before.
-The base of the stacked shape lies on the subspace \(\AA=\Span\{\hlist\av{n-1}\}\), and let \nv~denote the orthogonal\slash normal direction to~\AA\ (as shown schematically).
+The base of the stacked shape lies on the subspace \(\AA=\Span\{\hlist\av{n-1}\}\), and let vector~\nv\ denote the orthogonal\slash normal direction to~\AA\ (as shown schematically).
 Because the shape has the same cross-section parallel to~\AA, its \(n\)D-volume is the \((n-1)\)D-volume of the base \((n-1)\)D-parallelepiped times the height of the stacked shape in the direction~\nv.
 But this is precisely the same height and base as the \(n\)D-volume for~\(\det A\), hence \(\det A=\det B+\det C\)\,.
 
@@ -1043,9 +1126,29 @@ as before.
 
 
 
+
+\begin{activity}
+We could compute the determinant of the matrix 
+\(\begin{bmatrix} -3&6&-4
+\\7&4&6
+\\1&6&-3 \end{bmatrix}\)  
+as a particular sum involving three of the following four determinants.  
+Which one of the following would not be used in the sum?
+\partswidth=5em
+\begin{parts}
+\item \(\begin{vmatrix} 4&6\\6&-3 \end{vmatrix}\)
+\item \(\begin{vmatrix} 7&6\\1&-3 \end{vmatrix}\)\actans
+\item \(\begin{vmatrix} 6&-4\\6&-3 \end{vmatrix}\)
+\item \(\begin{vmatrix} 6&-4\\4&6 \end{vmatrix}\)
+\end{parts}
+\end{activity}
+
+
+
+
 \begin{theorem}[Laplace expansion theorem] \label{thm:letdet} 
-Consider an \(n\times n\) matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) (\(n\geq2\)). 
-Recall the \((i,j)\)th~\idx{minor} \(A_{ij}\)~to be the \((n-1)\times(n-1)\) matrix obtained from~\(A\) by omitting the \(i\)th~row and \(j\)th~column.  Then the \idx{determinant} of~\(A\) can be computed via expansion in any row~\(i\) or any column~\(j\) as, respectively,
+For every \(n\times n\) matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) (\(n\geq2\)), recall the \((i,j)\)th~\idx{minor} \(A_{ij}\)~to be the \((n-1)\times(n-1)\) matrix obtained from~\(A\) by omitting the \(i\)th~row and \(j\)th~column.  
+Then the \idx{determinant} of~\(A\) can be computed via expansion in any row~\(i\) or any column~\(j\) as, respectively,
 \begin{eqnarray}
 \det A
 &=&(-1)^{i+1}a_{i1}\det A_{i1}
@@ -1234,7 +1337,7 @@ The Laplace expansion is generally too computationally expensive for all but sma
 The reason is that computing the determinant of an \(n\times n\) matrix with the Laplace expansion generally takes \(n!\)~operations (the next Theorem~\ref{thm:detnfac}), and the \idx{factorial} \(n!=n(n-1)\cdots3\cdot2\cdot1\) grows very quickly even for medium~\(n\).
 Even for just a \(20\times20\) matrix the Laplace expansion has over two quintillion terms (\(2\cdot10^{18}\)).
 Exceptional matrices are those with lots of zeros, such as triangular matrices (Theorem~\ref{thm:rpdet:vi}).
-In any case, remember that except for theoretical purposes there is rarely need to compute a medium to large determinant.
+In any case, remember that except for theoretical purposes there is rarely any need to compute a medium to large determinant.
 
 
 
@@ -1252,16 +1355,16 @@ Similarly, \(f\)~never appears in a term with the entries~\(d\), \(e\), \(c\) or
 
 
 \begin{theorem} \label{thm:detnfac}
-The determinant of any \(n\times n\) matrix expands to the sum~\((\pm)\) of \index{factorial}\(n!\)~terms, where each term is a product of \(n\)~factors such that each factor comes from different rows and columns of the matrix.
+The determinant of every \(n\times n\) matrix expands to the sum of \index{factorial}\(n!\)~terms, where each term is~\(\pm1\) times a product of \(n\)~factors such that each factor comes from different rows and columns of the matrix.
 \end{theorem}
 
 \begin{proof} 
 Use induction on the size of the matrix.
 First, the properties holds for \(1\times 1\) matrices as \(\det\begin{bmatrix} a_{11} \end{bmatrix}=a_{11}\) is one term of one factor from the only row and column of the matrix.
 
-Second, assume the determinant of any \((n-1)\times (n-1)\) matrix may be written the sum~\((\pm)\) of \((n-1)!\)~terms, where each term is a product of \((n-1)\)~factors such that each factor comes from different rows and columns.
+Second, assume the determinant of every \((n-1)\times (n-1)\) matrix may be written the sum of \((n-1)!\)~terms, where each term is \((\pm1)\)~times a product of \((n-1)\)~factors such that each factor comes from different rows and columns.
 Consider any \(n\times n\) matrix~\(A\).
-By the Laplace Expansion Theorem~\ref{thm:letdet}, \(\det A\) may be written as the sum~\((\pm)\) of \(n\)~terms of the form \(a_{ij}\det A_{ij}\).
+By the Laplace Expansion Theorem~\ref{thm:letdet}, \(\det A\) may be written as the sum of \(n\)~terms of the form \(\pm a_{ij}\det A_{ij}\).
 By induction assumption, the \((n-1)\times(n-1)\) minors~\(A_{ij}\) have determinants with \((n-1)!\)~terms, each of \((n-1)\)~factors and so the \(n\)~terms in a Laplace Expansion of~\(\det A\) expands to \(n(n-1)!=n!\)~terms, each term being of \(n\)~factors through the multiplication by the entry~\(a_{ij}\).
 Further, recall the minor~\(A_{ij}\) is obtained from~\(A\) by omitting row~\(i\) and column~\(j\), and so the minor has no elements from the same row or column as~\(a_{ij}\).
 Consequently, each term in the determinant only has factors from different rows and columns, as required.

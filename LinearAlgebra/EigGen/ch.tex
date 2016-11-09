@@ -15,7 +15,7 @@ Let \(y(t)\) and~\(z(t)\) be the number of female animals in each of the species
 Modelling might deduce the populations interact according to the rule that the population one year later is \(y(t+1)=2y(t)-4z(t)\) and \(z(t+1)=-y(t)+2z(t)\): that is, if it was not for the other species, then for each species the number of females would both double every year (since then \(y(t+1)=2y(t)\) and \(z(t+1)=2z(t)\)); but the other species decreases each of these growths via the~\(-4z(t)\) and~\(-y(t)\) terms.  
 
 Question: can we find special solutions in the form \((y,z)=\xv \lambda^{t}\) for some constant~\(\lambda\)?  
-Substitute \(y=x_1\lambda^{t}\) and \(z=x_2\lambda^{t}\) into the  equations:
+Let's try by substituting \(y=x_1\lambda^{t}\) and \(z=x_2\lambda^{t}\) into the  equations:
 \begin{eqnarray*}
 &&y(t+1)=2y(t)-4z(t)\,,\quad z(t+1)=-y(t)+2z(t)
 \\&\iff& 
@@ -27,7 +27,7 @@ x_2 \lambda^{t+1}=-x_1\lambda^{t}+2x_2\lambda^{t}
 -x_1+2x_2=\lambda x_2
 \end{eqnarray*}
 after dividing by the factor~\(\lambda^{t}\) (assuming constant~\(\lambda\) is non-zero).
-Forming as a matrix-vector equation these last two equations are
+Then form these last two equations as the matrix-vector equation
 \begin{equation*}
 \begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}\xv=\lambda\xv\,.
 \end{equation*}
@@ -61,12 +61,12 @@ The linear algebra of the eigen-problem will empower us to predict that the gene
 
 
 \paragraph{The basic eigen-problem}
-Recall from Section~\ref{sec:iee} that the \idx{eigen-problem} equation \(A\xv=\lambda\xv\) is just asking can we find directions~\xv\ such that matrix~\(A\) acting on~\xv, resulting in~\(A\xv\), is in the same direction as~\xv, namely~\(\lambda\xv\) for some proportionality constant~\(\lambda\).
+Recall from Section~\ref{sec:iee} that the \idx{eigen-problem} equation \(A\xv=\lambda\xv\) is just asking can we find directions~\xv\ such that matrix~\(A\) acting on~\xv\ is in the same direction as~\xv; that is, when is~\(A\xv\) the same as~\(\lambda\xv\) for some proportionality constant~\(\lambda\).
 Now \(\xv=\ov\) is always a solution of the  equation \(A\xv=\lambda \xv\)\,.
 Consequently, we are only interested in those values of the \idx{eigenvalue}~\(\lambda\) when non-zero solutions for the \idx{eigenvector}~\xv\ exist (as it is the directions which are of interest).
 Rearranging the equation \(A\xv=\lambda\xv\) as the homogeneous system \((A-\lambda I)\xv=\ov\)\,, let's invoke properties of linear equations to solve the eigen-problem.
 \begin{itemize}
-\item Procedure~\ref{pro:eeh} establishes that one way to find the eigenvalues~\(\lambda\) is to solve the \idx{characteristic equation} \(\det(A-\lambda I)=0\)\,. 
+\item Procedure~\ref{pro:eeh} establishes that one way to find the eigenvalues~\(\lambda\) (suitable for matrices of small size) is to solve the \idx{characteristic equation} \(\det(A-\lambda I)=0\)\,. 
 \item Then for each eigenvalue, solving the homogeneous system \((A-\lambda I)\xv=\ov\) gives corresponding eigenvectors~\xv. 
 \item The set of eigenvectors for a given eigenvalue forms a subspace called the \idx{eigenspace}~\(\EE_\lambda\) (Theorem~\ref{thm:espacedef}).
 
@@ -90,12 +90,12 @@ In this first picture, for matrix
 \( A=\scriptstyle\begin{bmatrix} 1&1\\\tfrac18&1 \end{bmatrix}\),
 \marginpar{\eRose{1}1{0.125}{1}}%
 \begin{aside}
-The \script[1]\ function \texttt{eigshow(A)} provides an interactive alternative to this static view.
+The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
 \end{aside}%
 the eigenvectors appear to be in directions \(\xv_1\approx\pm(0.9,0.3)\) and \(\xv_2\approx\pm(0.9,-0.3)\) corresponding to eigenvalues \(\lambda_1\approx1.4\) and \(\lambda_2\approx 0.6\)\,.
 (Recall that scalar multiples of an eigenvector are always also eigenvectors, \S\ref{sec:iee}, so we always see \(\pm\)~pairs of eigenvectors in these pictures.)
-These pairs of eigenvectors are not orthogonal, not at right angles---as happens for symmetric matrices (Theorem~\ref{thm:orthoevec}).
-The lack of orthogonality in general means we soon generalise the concept of orthogonal sets of vectors to the new concept of \idx{linearly independent} sets (Section~\ref{sec:lisb}).
+The eigenvectors \(\pm(0.9,0.3)\) are not orthogonal to the other eigenvectors \(\pm(0.9,-0.3)\), not at right angles---as happens for symmetric matrices (Theorem~\ref{thm:orthoevec}).
+This lack of orthogonality in general means we soon generalise the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (Section~\ref{sec:lisb}).
 
 \item 
 In this second case, for
@@ -106,7 +106,7 @@ No eigenvectors and eigenvalues is the answer if we require real answers.
 However, in most applications we find it sensible to have complex valued eigenvalues and eigenvectors (Section~\ref{sec:eennm}).
 So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in Example~\ref{eg:ccevals}). 
 \footnote{In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
-Such a consistent rotation in~\(A\xv\) is characteristic of matrices with complex valued eigenvalues and eigenvectors.}
+Such a consistent `rotation' in~\(A\xv\) is characteristic of matrices with complex valued eigenvalues and eigenvectors.}
 
 \item 
 In this third case, for
@@ -193,9 +193,9 @@ Every eigenvalue has to have non-trivial solutions, eigenvectors~\xv, to \((A-\l
 But matrix \((A-\lambda I)\) is upper triangular, as \(A\)~is upper triangular, so Theorem~\ref{thm:rpdet:vi} asserts the determinant
 \begin{equation*}
 \det(A-\lambda I)=(a_{1,1}-\lambda)(a_{2,2}-\lambda)
-\cdots(a_{n,n}-\lambda)=0
+\cdots(a_{n,n}-\lambda).
 \end{equation*}
-iff the eigenvalue~\(\lambda\) is one of the diagonal elements of~\(A\).
+This expression is zero iff the eigenvalue~\(\lambda\) is one of the diagonal elements of~\(A\).
 
 As an example of the non-orthogonality of eigenvectors, consider the two eigenvalues \(\lambda_1=a_{1,1}\) and \(\lambda_2=a_{2,2}\) with  corresponding eigenvectors \(\xv_1=(1,0,0,\ldots,0)\) and \(\xv_2=(-a_{1,2}/(a_{1,1}-a_{2,2}),1,0,\ldots,0)\).
 Then the dot product \(\xv_1\cdot\xv_2=-a_{1,2}/(a_{1,1}-a_{2,2})\neq 0\) in general (the dot product is zero only when \(a_{1,2}=0\)).
@@ -309,6 +309,29 @@ Row or column swaps could transform it to be triangular, but we have not investi
 
 
 
+\begin{activity}
+What are all the eigenvalues of the matrix
+% 0+round(toeplitz(1:5,[1 0 0 0 0]).*rand(5))
+\begin{equation*}
+\begin{bmatrix} 1&0&0&0&0
+\\0&1&0&0&0
+\\2&2&1&0&0
+\\3&3&1&0&0
+\\2&2&2&0&1
+ \end{bmatrix}?
+\end{equation*}
+\partswidth=5em
+\begin{parts}
+\item \(1\)
+\item \(0,1\)\actans
+\item \(0,1,2\)
+\item \(0,1,2,3\)
+\end{parts}
+\end{activity}
+
+
+
+
 
 
 One consequence of the second part of the proof of Theorem~\ref{thm:trieig} is that, when counted according to multiplicity, there are precisely \(n\)~eigenvalues of an \(n\times n\) diagonal matrix.
@@ -320,6 +343,10 @@ Correspondingly, the next section establishes there are precisely \(n\)~eigenval
 
 
 
+
+
+
+\subsection{Exercises}
 
 \begin{exercise} \label{ex:} 
 Each of the following pictures applies to some specific real matrix, say called~\(A\).

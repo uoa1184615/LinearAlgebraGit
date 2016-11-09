@@ -10,7 +10,7 @@
 \chapter*{Preface}
 
 
-\begin{quoted}{Cleve Moler, MathWorks (2006)}
+\begin{quoted}{\index{Moler, Cleve}Cleve Moler, MathWorks (2006)}
 Traditional courses in linear algebra make considerable use of the reduced row echelon form (\rref), but the \rref\ is an unreliable tool for computation in the face of inexact data and arithmetic. 
 The [Singular Value Decomposition] \svd\ can be regarded as a modern, computationally powerful replacement for the \rref.\footnote{\url{http://au.mathworks.com/company/newsletters/articles/professor-svd.html} [9 Jan 2015]}
 \end{quoted}
@@ -32,6 +32,11 @@ As so many other disciplines use the \svd, it is not only important that mathema
 
 
 
+
+
+
+
+
 \begin{comment}
 In this draft, the blue text comments such as this are notes to developers about related references, about reasons for decisions, about more exercises, about possible future extensions, and so on.
 Such comments are not intended for the published version, they are only notes for myself and developers.
@@ -48,13 +53,18 @@ Outstanding tasks for a first version include:
 \item exercises on computing that do not require a computer, e.g., interpretation;
 \item checking the staged use of abstract symbolism; 
 \item potentially more applications that involve `real' data, especially in Chapter~5 on approximating matrices;
+\item adapt information, especially some uses of the SVD, from the book by Mark Holmes (2016) ``Introduction to scientific computing and data analysis'' Springer;
 \item refining the index;
-\item include quick questions for `active learning';
+\item include quick questions for `active learning'---currently
 \item section/chapter summaries, and possibly concept maps;
 \item short videos of procedures, examples, proofs;
 \item and continual checking for typos and clarity.
 \end{itemize}
 \end{comment}
+
+
+
+
 
 
 
@@ -93,7 +103,7 @@ In view of ubiquitous computing, throughout this book explicitly integrates comp
 The central computational tools to understand are the operation~\verb|A\| for solving straightforward linear equations; the function~\verb|svd()| for difficult linear equation; the function~\verb|svd()| for approximation; and function~\verb|eig()| for probing structures.
 This provides a framework to understand key computational tools to effectively utilise the so-called third arm of science: namely, computation. 
 
-Throughout the book examples, many graphical, introduce and illustrate the concepts and relationships between the concepts.
+Throughout the book examples (many graphical) introduce and illustrate the concepts and relationships between the concepts.
 Working through these will help form the mathematical relationships essential for application.
 Interspersed throughout the text are questions labelled ``Activity'': these aim to help form and test your understanding of the concepts being developed.
 
@@ -149,7 +159,7 @@ Consequently, here we learn the more specific orthogonality before the more abst
 Many modern applications are made available by the relatively early introduction of orthogonality.
 
 In addition to many exercises at the end of every section, throughout the book are questions labelled ``Activity''.
-These are for the students to do to help form the concepts being introduced.
+These are for the students to do to help form the concepts being introduced with a small amount of work.
 These activities may be used in class to foster active participation by students (perhaps utilising clickers or web tools such as that provided by \url{http://www.quizsocket.com}).
 Such active learning has positive effects \cite[]{ED498555}.
 
@@ -162,11 +172,13 @@ Such active learning has positive effects \cite[]{ED498555}.
 All Linear Algebra courses should stress visualization and geometric interpretation of theoretical ideas in 2- and 3-dimensional spaces. Doing so highlights ``algebraic and geometric'' as ``contrasting but complementary points of view,''
 \end{quoted}
 
+
 Throughout, this book also integrates visualisation.
 This visualisation reflects the fundamentally geometric nature of linear algebra.  
 It also empowers learners to utilise different parts of their brain and integrate the knowledge together from the different perspectives.
 Visualisation also facilitates greater skills at interpretation and modelling so essential in applications.
-Lastly, a visual exercise question develops learner's understanding without them being able to defer the challenge to online tools, as yet.  
+But as commented by \cite{Fara2009} [p.249] ``just like reading, deciphering graphs and maps only becomes automatic with practice.''
+Lastly, visual exercise questions develops understanding without a learner being able to defer the challenge to online tools, as yet.  
 
 \begin{quoted}{\cite{Moody2009}}
 Visual representations are effective because they tap into the capabilities of the powerful and highly parallel human visual system.
@@ -222,9 +234,26 @@ long after Riemann had passed away, historians discovered that he had developed 
 
 
 
+\section*{Linear algebra for statisticians}
+
+This book forms an ideal companion to modern statistics courses.
+The recently published Curriculum Guidelines for Undergraduate Programs in Statistical Science by \cite{StatsEduGuidelines2014} emphasises that linear algebra courses must provide ``matrix manipulations, linear transformations, projections in Euclidean space, eigenvalues\slash eigenvectors, and matrix decompositions''.
+These are all core topics in this book, especially the statistically important \svd\ factorisation (Chapts.~\ref{ch:m} and~\ref{ch:am}).
+Furthermore, this book explicitly makes the recommended ``connections between concepts in these mathematical foundations courses and their applications in statistics'' \cite[p.12]{StatsEduGuidelines2014}.
+
+Moreover, with the aid of some indicative statistical applications along with the sustained invocation of ``visualization'' and  ``basic programming concepts'', this book helps to underpin the requirement to ``Encourage synthesis of theory, methods, computation, and applications'' \cite[p.13]{StatsEduGuidelines2014}.
+
+
+
+
+
+
 \section*{Acknowledgements}
 
-I acknowledge with thanks the work of many others who inspired much design and details here, including  the stimulating innovations of calculus reform \cite[e.g.]{HughesHallett2013},  the comprehensive efforts behind recent reviews of  undergraduate mathematics teaching \cite[e.g.]{Alpers2013, Bressoud2014, Turner2014, CUPMguide2015, gaimme2016}, and the books of \cite{Anton6, Davis99a, Holt2013, Larson2013, Lay2012, Nakos1998, Poole2015, Will04}.
+I acknowledge with thanks the work of many others who inspired much design and details here, including 
+the stimulating innovations of calculus reform \cite[e.g.]{HughesHallett2013},  
+the comprehensive efforts behind recent reviews of  undergraduate mathematics and statistics teaching \cite[e.g.]{Alpers2013, Bressoud2014, Turner2014, StatsEduGuidelines2014, CUPMguide2015, gaimme2016}, 
+and the books of \cite{Anton6, Davis99a, Holt2013, Larson2013, Lay2012, Nakos1998, Poole2015, Will04}.
 I also thank the entire \LaTeX\ team, especially Knuth, Lamport, Feuers\"anger, and the \textsc{ams}.
 
 

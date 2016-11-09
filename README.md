@@ -13,7 +13,7 @@ In this directory:
 * LinearAlgebra is the folder of the source of the text
 
 
-I seek others to help by any of
+I seek others to aid development by any of
 * trialling this textbook in classes
 * providing feedback and corrections
 * contributing examples, exercises, and suggestions
