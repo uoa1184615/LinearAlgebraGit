@@ -30,25 +30,25 @@ Let's start seeing what it can do for us.
 You are a contestant in a quiz show.
 The final million dollar question is: 
 \begin{aside}
-Introduce an analogous problem so the \svd\ procedure follows more easily.
+Let's introduce an analogous problem so the \svd\ procedure follows more easily.
 \end{aside}
 \begin{quote}
 in your head, without a calculator, solve \(42\,x=1554\) within twenty seconds,
 \end{quote} 
-your time starts now\dotfill
+your time starts now \dotfill
 \begin{solution} 
 Long division is hopeless in the time available.  
 However, recognise \(42=2\cdot3\cdot7\) and so divide 1554 by~2 to get~777, divide 777 by~3 to get~259, and divide 259 by~7 to get~37, and win the prize.
 \end{solution}
 
 \begin{activity} \label{eg:}
-Given \(154=2\cdot7\cdot11\)\,, solve in your head \(154x=8008\) or~\(9856\) or~\(12628\) or~\(13090\) or~\(14322\) (teacher to choose): first to answer wins.
+Given \(154=2\cdot7\cdot11\)\,, solve in your head \(154\,x=8008\) or~\(9856\) or~\(12628\) or~\(13090\) or~\(14322\) (teacher to choose): first to answer wins.
 \end{activity}
 
 Such examples show \idx{factorisation} can turn a hard problem into a sequence of easy problems.  
 We adopt an analogous matrix factorisation to solve and understand general linear equations.  
 
-To illustrate the procedure to come, let's write the above solution steps in detail: we solve \(42x=1554\)\,.
+To illustrate the procedure to come, let's write the above solution steps in detail: we solve \(42\,x=1554\)\,.
 \begin{enumerate}
 \item Factorise the coefficient \(42=2\cdot3\cdot7\) so the equation becomes  
 \begin{equation*}
@@ -57,10 +57,10 @@ To illustrate the procedure to come, let's write the above solution steps in det
 and introduce two intermediate unknowns \(y\) and~\(z\) as shown above.
 \item Solve \(2z=1554\) to get \(z=777\)\,.
 \item Solve \(3y=z=777\) to get \(y=259\)\,.
-\item Solve \(7x=y=259\) to get \(x=37\)\,---the answer.
+\item Solve \(7x=y=259\) to get \(x=37\)\ ---the answer.
 \end{enumerate}
 
-Now let's proceed to small matrix examples to introduce the general matrix procedure empowered by the factorisation of a singular value decomposition (\svd).
+Now let's proceed to small matrix examples to introduce the general matrix procedure empowered by the factorisation of a matrix to its singular value decomposition (\svd).
 %\begin{comment}
 %Other possible similar matrices are (transposes)
 %[5,5;1,7]
@@ -129,6 +129,7 @@ Given the factorisation, the following four steps forms the general procedure.
 \end{equation*}
 
 \end{enumerate}
+That is, we obtain the solution of the matrix-vector system via two orthogonal matrices and a diagonal matrix.
 \end{solution}
 \end{example}
 
@@ -146,12 +147,16 @@ Let's solve the system \(\begin{bmatrix} 12&-41\\34&-12 \end{bmatrix}\xv=\begin{
 \end{equation*}
 in which the first and third matrices on the right-hand side are orthogonal. 
 After solving \(\begin{bmatrix} \frac45&-\frac35\\\frac35&\frac45 \end{bmatrix}\zv=\begin{bmatrix} 94\\58 \end{bmatrix}\), the next step is to solve which of the following?
-\begin{parts}
-\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} 110\\-10 \end{bmatrix}\)
-\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} \frac{202}5\\\frac{514}5 \end{bmatrix}\)
-\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix}  \frac{514}5\\-\frac{202}5 \end{bmatrix}\)
-\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} 10\\110 \end{bmatrix}\)
-\end{parts}
+\actposs{\(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} 110\\-10 \end{bmatrix}\)}
+{\(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} \frac{202}5\\\frac{514}5 \end{bmatrix}\)}
+{\(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix}  \frac{514}5\\-\frac{202}5 \end{bmatrix}\)}
+{\(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} 10\\110 \end{bmatrix}\)}
+%\begin{parts}
+%\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} 110\\-10 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} \frac{202}5\\\frac{514}5 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix}  \frac{514}5\\-\frac{202}5 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 50&0\\0&25 \end{bmatrix}\yv=\begin{bmatrix} 10\\110 \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
@@ -210,8 +215,8 @@ A=U*S*V'
 
 \item Solve \(\begin{bmatrix} \frac13&-\frac23&\frac23
 \\\frac23&\frac23&\frac13
-\\-\frac23&\frac13&\frac23 \end{bmatrix}\zv=\begin{bmatrix} 10\\2\\-2 \end{bmatrix}\)\,. 
-Now this matrix, called~\verb|U|, is orthogonal---check by computing~\verb|U'*U|---so multiplying by the transpose gives the intermediary: \(\verb|z=U'*b|=(6,-6,6)\).
+\\-\frac23&\frac13&\frac23 \end{bmatrix}\zv=\begin{bmatrix} 10\\2\\-2 \end{bmatrix}\). 
+Now the matrix on the left, called~\verb|U|, is orthogonal---check by computing~\verb|U'*U|---so multiplying by the transpose gives the intermediary: \(\verb|z=U'*b|=(6,-6,6)\).
 
 \item Then solve \(\begin{bmatrix} 12&0&0\\0&6&0\\0&0&3 \end{bmatrix}\yv=\zv=\begin{bmatrix} 6\\-6\\6 \end{bmatrix}\)\,:  this matrix, called~\verb|S|, is diagonal, so dividing by the respective diagonal elements gives the intermediary \(\verb|y=z./diag(S)|=(\frac12,-1,2)\).
 
@@ -230,7 +235,7 @@ This matrix, called~\verb|V|, is also orthogonal---check by computing~\verb|V'*V
 
 \paragraph{Warning: do \emph{not} solve in reverse order} \ 
 \begin{example} \label{eg:}
-Reconsider Example~\ref{eg:2by2svd} wrongly.
+Reconsider \autoref{eg:2by2svd} wrongly.
 \begin{enumerate}
 \item 
 After writing the system using the \svd\ as
@@ -309,7 +314,7 @@ But the non-uniqueness is analogous to the non-uniqueness of row reduction upon 
 
 
 \begin{example} \label{eg:2and3sv}
-Example~\ref{eg:2by2svd} invoked the \svd
+\autoref{eg:2by2svd} invoked the \svd
 \begin{equation*}
 \begin{bmatrix} 10&2\\5&11 \end{bmatrix}=
 \begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}
@@ -319,7 +324,7 @@ Example~\ref{eg:2by2svd} invoked the \svd
 where the two outer matrices are orthogonal (check),
 so the singular values of this matrix are \(\sigma_1=10\sqrt2\) and \(\sigma_2=5\sqrt2\).
 
-Example~\ref{eg:3by3svd} invoked the \svd
+\autoref{eg:3by3svd} invoked the \svd
 {\small
 \begin{equation*}
 \begin{bmatrix}-4&-2&4
@@ -357,14 +362,18 @@ In general, analogous non-uniqueness occurs whenever two or more singular values
 
 
 \begin{activity}
-Example~\ref{eg:svdorthog} commented that \(QI_n\tr I_n\) is an \svd\ of an orthogonal matrix~\(Q\).  
+\autoref{eg:svdorthog} commented that \(QI_n\tr I_n\) is an \svd\ of an orthogonal matrix~\(Q\).  
 Which of the following is also an \svd\ of an orthogonal matrix~\(Q\)?
-\begin{parts}
-\item \(Q(-I_n)\tr{(-I_n)}\)
-\item \(I_nQ\tr I_n\)
-\item \(I_nI_n\tr Q\)
-\item \(I_nI_n\tr{(\tr Q)}\)
-\end{parts}
+\actposs{\(I_nI_n\tr{(\tr Q)}\)}
+{\(Q(-I_n)\tr{(-I_n)}\)}
+{\(I_nQ\tr I_n\)}
+{\(I_nI_n\tr Q\)}
+%\begin{parts}
+%\item \(Q(-I_n)\tr{(-I_n)}\)
+%\item \(I_nQ\tr I_n\)
+%\item \(I_nI_n\tr Q\)
+%\item \(I_nI_n\tr{(\tr Q)}\)
+%\end{parts}
 \end{activity}
 
 
@@ -385,7 +394,7 @@ D=\begin{bmatrix} 1&0&0\\0&-1&0\\0 &0 &-1 \end{bmatrix}
 \tr{\begin{bmatrix} 1&0&0\\0&1&0\\0 &0 &1 \end{bmatrix}},
 \end{equation*}
 where the~\((-1)\)s in the first matrix encode the signs of the corresponding diagonal elements (one could alternatively use the rightmost matrix to encode the pattern of signs).
-However, Theorem~\ref{thm:svd} requires that  singular values be ordered in decreasing magnitude, so sort the diagonal of the middle matrix into order and correspondingly permute the columns of the outer two matrices to obtain the following \svd: 
+However, \autoref{thm:svd} requires that  singular values be ordered in decreasing magnitude, so sort the diagonal of the middle matrix into order and correspondingly permute the columns of the outer two matrices to obtain the following \svd: 
 \begin{equation*}
 D=\begin{bmatrix} 0&1&0\\-1&0&0\\0 &0 &-1 \end{bmatrix}
 \begin{bmatrix} 3.9&0&0\\0&2.7&0\\0 &0 &0.9 \end{bmatrix}
@@ -403,7 +412,7 @@ D=\begin{bmatrix} 0&1&0\\-1&0&0\\0 &0 &-1 \end{bmatrix}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
-\item \index{svd()@\texttt{svd()}}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\) and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\) for \(m\times m\) orthogonal matrix~\(U\), \(n\times n\) orthogonal matrix~\(V\), and \(m\times n\) non-negative diagonal matrix~\(S\) (Theorem~\ref{thm:svd}).
+\item \index{svd()@\texttt{svd()}}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\) and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\) for \(m\times m\) orthogonal matrix~\(U\), \(n\times n\) orthogonal matrix~\(V\), and \(m\times n\) non-negative diagonal matrix~\(S\) (\autoref{thm:svd}).
 
 \verb|svd(A)| just reports the singular values in a vector.
 
@@ -423,7 +432,7 @@ For examples:
 
 
 
-Except for simple cases such as \(2\times 2\) matrices (Example~\ref{eg:2by2svdx}), constructing an \svd\ is usually far too laborious by hand.  
+Except for simple cases such as \(2\times 2\) matrices (\autoref{eg:2by2svdx}), constructing an \svd\ is usually far too laborious by hand.  
 \footnote{For those interested advanced students, \cite{Trefethen1997} [p.234] discusses how the standard method of numerically computing an \svd\ is based upon first transforming to bidiagonal form, and then using an iteration based upon a so-called  \idx{QR factorisation}\ifcsname ch:qrfuma\endcsname\ (Chapter~\ref{ch:qrfuma})\fi.}
 Typically, this book either gives an \svd\ (as in the earlier two examples) or asks you to compute an \svd\ in \script\ with \verb|[U,S,V]=svd(A)| (Table~\ref{tbl:mtlbsvd}).
 
@@ -473,7 +482,7 @@ b=[1;2;1]
 rcond(A)
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-In \script,  we might try Procedure~\ref{pro:unisol}:
+In \script,  we might try \autoref{pro:unisol}:
 \begin{verbatim}
 A=[1,-1,0;1,0,-1;0,1,-1]
 b=[1;2;1]
@@ -628,7 +637,7 @@ It would appear we cannot assign ratings to the players!
 \end{solution}
 \end{example}
 
-Section~\ref{sec:asie} further explores systems with no solution and uses the \svd\ to determine a good approximate solution (Example~\ref{eg:rstp3}).
+Section~\ref{sec:asie} further explores systems with no solution and uses the \svd\ to determine a good approximate solution (\autoref{eg:rstp3}).
 
 
 
@@ -641,7 +650,7 @@ Find the value(s) of the parameter~\(c\) such that the following system has a so
 \begin{bmatrix} c\\8\\-5 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-Because the matrix is not square, we cannot use Procedure~\ref{pro:unisol}: instead use an \svd.
+Because the matrix is not square, we cannot use \autoref{pro:unisol}: instead use an \svd.
 \begin{enumerate}
 \item In \script, compute an \svd\  of this \(3\times 4\) matrix with 
 \setbox\ajrqrbox\hbox{\qrcode{% an SVD
@@ -731,7 +740,7 @@ Obtain a particular solution with \verb|x=V(:,1:2)*y| of \(\xv=(-3,1,-3,1)/8\), 
         \item \label{pro:gensol:a1} Solve \(U\zv=\bv\) by $\zv=\tr U\bv$ (unique given~\(U\)).
     
         \item \label{pro:gensol:a2} When possible, solve \(S\yv=\zv\) as follows.
-        \footnote{Being diagonal, \(S\)~is in a special row reduced echelon form (Definition~\ref{def:rref}).}  
+        \footnote{Being diagonal, \(S\)~is in a special row reduced echelon form (\autoref{def:rref}).}  
         Identify the non-zero and the zero \idx{singular value}s: suppose \(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0\) and \(\sigma_{r+1}=\cdots=\sigma_{\min(m,n)}=0\):
 \begin{itemize}
 \item         if $z_i\neq0$ for any \(i=r+1,\ldots,m\)\,, then there is \idx{no solution} (the equations are \bfidx{inconsistent});
@@ -741,12 +750,12 @@ Obtain a particular solution with \verb|x=V(:,1:2)*y| of \(\xv=(-3,1,-3,1)/8\), 
 
 \end{itemize}
     
-        \item \label{pro:gensol:a3} Solve \(\tr V\xv=\yv\) (unique given~\(V\) and for each~\yv) to obtain a general solution as $\xv=V\yv$.
+        \item \label{pro:gensol:a3} Solve \(\tr V\xv=\yv\) (unique given~\(V\) and for each~\yv) to derive a general solution is $\xv=V\yv$.
     \end{enumerate}
 \end{procedure}
 
 \begin{proof} 
-Given an \svd\ \(A=\usv\) (Theorem~\ref{thm:svd}), consider each and every solution of \(A\xv=\bv\)\,:
+Given an \svd\ \(A=\usv\) (\autoref{thm:svd}), consider each and every solution of \(A\xv=\bv\)\,:
 \begin{eqnarray*}
 A\xv=\bv
   &\iff& \usv\xv=\bv \quad\text{(by step~\ref{pro:gensol:a0})}
@@ -754,16 +763,16 @@ A\xv=\bv
 \\&\iff& S\yv=\zv\quad\text{(by steps~\ref{pro:gensol:a1} and~\ref{pro:gensol:a3}),}
 \end{eqnarray*}
 and step~\ref{pro:gensol:a2}\ determines all possible~\yv\ satisfying \(S\yv=\zv\)\,.
-Hence Procedure~\ref{pro:gensol} determines all possible solutions of \(A\xv=\bv\)\,.%
+Hence \autoref{pro:gensol} determines all possible solutions of \(A\xv=\bv\)\,.%
 \footnote{Any non-uniqueness in the orthogonal \(U\) and~\(V\) just gives rise to equivalent different algebraic expressions for the set of possibilities.}
 \end{proof}
 
 
 
-This Procedure~\ref{pro:gensol} determines for us that there is either none, one or an infinite number of solutions, as Theorem~\ref{thm:fred} requires.
+This \autoref{pro:gensol} determines for us that there is either none, one or an infinite number of solutions, as \autoref{thm:fred} requires.
 
 However,  \script's ``\verb|A\|'' gives one `answer' for all of these cases, even when there is no solution or an infinite number of solutions.
-The function \index{rcond}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (Procedure~\ref{pro:unisol}).
+The function \index{rcond}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (\autoref{pro:unisol}).
 Section~\ref{sec:asie} addresses what the `answer' by \script\ means in the other cases no or infinite solutions.
 
 
@@ -784,25 +793,25 @@ Avoid introducing \verb|cond()| as it is expensive to compute in practice, and b
 \end{comment}
 
 \begin{definition} \label{def:condnum}
-For any \(m\times n\) matrix~\(A\),
-the \bfidx{condition number} is the the ratio of the largest to smallest of its \idx{singular value}s: \(\cond A=\sigma_1/\sigma_{\mn}\)\,. 
-By convention: if \(\sigma_{\mn}=0\)\,, then \(\cond A=\infty\)\,; 
-also, for zero matrices \(\cond O_{m\times n}=\infty\)\,.
+For every \(m\times n\) matrix~\(A\),
+the \bfidx{condition number} of~\(A\) is the the ratio of the largest to smallest of its \idx{singular value}s: \(\cond A:=\sigma_1/\sigma_{\mn}\)\,. 
+By convention: if \(\sigma_{\mn}=0\)\,, then \index{infinity}\(\cond A:=\infty\)\,; 
+also, for zero matrices \(\cond O_{m\times n}:=\infty\)\,.
 \end{definition}
 
 \begin{example} \label{eg:condnum}
-Example~\ref{eg:2and3sv} gives the singular values of two matrices:
+\autoref{eg:2and3sv} gives the singular values of two matrices:
 for the \(2\times 2\) matrix the condition number  \(\sigma_1/\sigma_2=(10\sqrt2)/(5\sqrt2)=2\) (\(\verb|rcond|=0.5\)); for the \(3\times 3\) matrix the condition number \(\sigma_1/\sigma_3=12/3=4\) (\(\verb|rcond|=0.25\)).
-Example~\ref{eg:svdorthog} comments that every \(n\times n\) orthogonal matrix has singular values \(\sigma_1=\cdots=\sigma_n=1\)\,; hence an orthogonal matrix has condition number one (\(\verb|rcond|=1\)).  
-Such small condition numbers (non-small \verb|rcond|) indicate all orthogonal matrices are ``good'' matrices (as classified by Procedure~\ref{pro:unisol}).
+\autoref{eg:svdorthog} comments that every \(n\times n\) orthogonal matrix has singular values \(\sigma_1=\cdots=\sigma_n=1\)\,; hence an orthogonal matrix has condition number one (\(\verb|rcond|=1\)).  
+Such small condition numbers (non-small \verb|rcond|) indicate all orthogonal matrices are ``good'' matrices (as classified by \autoref{pro:unisol}).
 
-However, the matrix in the sports ranking Example~\ref{eg:rstp} has singular values \(\sigma_1=\sigma_2=\sqrt3\) and \(\sigma_3=0\) so its condition number \(\sigma_1/\sigma_3=\sqrt3/0=\infty\) which suggests the equations are likely to be unsolvable.
+However, the matrix in the sports ranking \autoref{eg:rstp} has singular values \(\sigma_1=\sigma_2=\sqrt3\) and \(\sigma_3=0\) so its condition number \(\sigma_1/\sigma_3=\sqrt3/0=\infty\) which suggests the equations are likely to be unsolvable.
 (In \script, see that \(\sigma_3=2\cdot10^{-17}\) so a numerical calculation would give condition number \(1.7321/\sigma_3=7\cdot10^{16}\) which is effectively infinite.)
 \end{example}
 
 
 \begin{activity}
-What is the condition number of the  matrix of Example~\ref{eg:3x4findc}, 
+What is the condition number of the matrix of \autoref{eg:3x4findc}, 
 \begin{equation*}
 \begin{bmatrix} -9&-15&-9&-15
 \\-10&2&-10&2
@@ -819,20 +828,20 @@ given it has an \svd\ \twodp
 \\0.50&0.50&0.19&0.68
 \\0.50&-0.50&-0.68&0.19 \end{bmatrix}}
 \end{equation*}}
-
-\partswidth=5em
-\begin{parts}
-\item \(0\)
-\item \(0.5\)
-\item \(2\)
-\item \(\infty\)
-\end{parts}
+\actposs[4]{\(\infty\)}{\(0\)}{\(0.5\)}{\(2\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(0\)
+%\item \(0.5\)
+%\item \(2\)
+%\item \(\infty\)
+%\end{parts}
 \end{activity}
 
 
 
 
-In practice, a condition number\({}>10^8\) is effectively infinite (equivalently \(\verb|rcond|<10^{-8}\) is effectively zero, and hence called ``terrible'' by Procedure~\ref{pro:unisol}).
+In practice, a condition number\({}>10^8\) is effectively infinite (equivalently \(\verb|rcond|<10^{-8}\) is effectively zero, and hence called ``terrible'' by \autoref{pro:unisol}).
 The closely related important property of a matrix is the \emph{number} of singular values that are nonzero.
 When applying the following definition in practical computation (e.g., \script), any singular values\({}<10^{-8}\sigma_1\) are effectively zero.
 
@@ -862,13 +871,13 @@ equivalently \(S=\diag_{m\times n}(\hlist\sigma r,0,\ldots,0)\).
 \end{definition}
 
 \begin{example} \label{eg:}
-In the four matrices of Example~\ref{eg:condnum}, the respective ranks are~\(2\), \(3\), \(n\) and~\(2\).
+In the four matrices of \autoref{eg:condnum}, the respective ranks are~\(2\), \(3\), \(n\) and~\(2\).
 \end{example}
 
-Theorem~\ref{thm:svd} asserts the singular values are unique for a given matrix, so the rank of a matrix is independent of its different \svd{}s.
+\autoref{thm:svd} asserts the singular values are unique for a given matrix, so the rank of a matrix is independent of its different \svd{}s.
 
 \begin{activity}
-What is the rank of the  matrix of Example~\ref{eg:3x4findc}, 
+What is the rank of the matrix of \autoref{eg:3x4findc}, 
 \begin{equation*}
 \begin{bmatrix} -9&-15&-9&-15
 \\-10&2&-10&2
@@ -885,14 +894,14 @@ given it has an \svd\ \twodp
 \\0.50&0.50&0.19&0.68
 \\0.50&-0.50&-0.68&0.19 \end{bmatrix}}
 \end{equation*}}
-
-\partswidth=5em
-\begin{parts}
-\item \(1\)
-\item \(2\)
-\item \(3\)
-\item \(4\)
-\end{parts}
+\actposs[4]{\(2\)}{\(1\)}{\(3\)}{\(4\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(1\)
+%\item \(2\)
+%\item \(3\)
+%\item \(4\)
+%\end{parts}
 \end{activity}
 
 
@@ -961,12 +970,12 @@ Since four singular values are nonzero, the rank of the matrix is four.
 
 
 \begin{theorem} \label{thm:ranktr} 
-For any matrix~\(A\), let an \svd\ of~\(A\) be~\(\usv\), then the transpose~\(\tr A\) has an \svd\ of \(V(\tr S)\tr U\). 
+For every matrix~\(A\), let an \svd\ of~\(A\) be~\(\usv\), then the transpose~\(\tr A\) has an \svd\ of \(V(\tr S)\tr U\). 
 Further, \(\rank(\tr A)=\rank A\)\,.
 \end{theorem}
 \begin{proof} 
 Let \(m\times n\) matrix~\(A\) have \svd~\(\usv\).  
-Using the properties of the matrix transpose (Theorem~\ref{thm:pot}),
+Using the properties of the matrix transpose (\autoref{thm:pot}),
 \begin{equation*}
 \tr A=\tr{(\usv)}
 =\tr{(\tr V)}\tr S\tr U
@@ -986,7 +995,7 @@ From earlier examples, write down an \svd\ of the matrices
 \end{equation*}
 
 \begin{solution} 
-These matrices are the transpose of the two matrices whose \svd{}s are given in Example~\ref{eg:2and3sv}.
+These matrices are the transpose of the two matrices whose \svd{}s are given in \autoref{eg:2and3sv}.
 Hence their \svd{}s are the transpose of the \svd{}s in that example (remembering that the transpose of a product is the product of the transpose but in reverse order):
 \begin{equation*}
 \begin{bmatrix} 10&5\\2&11 \end{bmatrix}=
@@ -1013,13 +1022,7 @@ and
 
 
 \begin{activity}
-Recall the matrix of Example~\ref{eg:3x4findc}, 
-\begin{equation*}
-\begin{bmatrix} -9&-15&-9&-15
-\\-10&2&-10&2
-\\8&4&8&4 \end{bmatrix},
-\end{equation*}
-has an \svd\ \twodp
+Recall that 
 {\small\arraycolsep=0.3em\begin{equation*}
 \begin{bmatrix} -0.86&0.43&0.29
 \\-0.29&-0.86&0.43
@@ -1030,30 +1033,15 @@ has an \svd\ \twodp
 \\0.50&0.50&0.19&0.68
 \\0.50&-0.50&-0.68&0.19 \end{bmatrix}}
 \end{equation*}}%
-Which of the following is an \svd\ of the transpose of the matrix?
-\begin{enumerate}
-\small\arraycolsep=0.3em
-\item \(\begin{bmatrix} -0.86&0.43&0.29
-\\-0.29&-0.86&0.43
-\\0.43&0.29&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0
-\\0&14&0
-\\0&0&0
-\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&-0.19&-0.68
-\\0.50&-0.50&0.68&-0.19
-\\0.50&0.50&0.19&0.68
-\\0.50&-0.50&-0.68&0.19 \end{bmatrix}}\)
-
-\item \(\begin{bmatrix} -0.86&-0.29&0.43
-\\0.43&-0.86&0.29
-\\0.29&0.43&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0
-\\0&14&0
-\\0&0&0
-\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&0.50&0.50
-\\0.50&-0.50&0.50&-0.50
-\\-0.19&0.68&0.19&-0.68
-\\-0.68&-0.19&0.68&0.19 \end{bmatrix}}\)
-\\
-\item \(\begin{bmatrix} 0.50&0.50&-0.19&-0.68
+is an \svd\ \twodp\ of the matrix of \autoref{eg:3x4findc}, 
+\begin{equation*}
+\begin{bmatrix} -9&-15&-9&-15
+\\-10&2&-10&2
+\\8&4&8&4 \end{bmatrix}.
+\end{equation*}
+Which of the following is an \svd\ of the transpose of this matrix?
+{\small\arraycolsep=0.3em
+\actposs[1]{\(\begin{bmatrix} 0.50&0.50&-0.19&-0.68
 \\0.50&-0.50&0.68&-0.19
 \\0.50&0.50&0.19&0.68
 \\0.50&-0.50&-0.68&0.19 \end{bmatrix}\begin{bmatrix} 28&0&0
@@ -1061,9 +1049,8 @@ Which of the following is an \svd\ of the transpose of the matrix?
 \\0&0&0
 \\0&0&0 \end{bmatrix}\tr{\begin{bmatrix}-0.86&0.43&0.29
 \\-0.29&-0.86&0.43
-\\0.43&0.29&0.86 \end{bmatrix}}\)
-
-\item \(\begin{bmatrix} 0.50&0.50&0.50&0.50
+\\0.43&0.29&0.86 \end{bmatrix}}\)}
+{\(\begin{bmatrix} 0.50&0.50&0.50&0.50
 \\0.50&-0.50&0.50&-0.50
 \\-0.19&0.68&0.19&-0.68
 \\-0.68&-0.19&0.68&0.19 \end{bmatrix}\begin{bmatrix} 28&0&0
@@ -1071,8 +1058,68 @@ Which of the following is an \svd\ of the transpose of the matrix?
 \\0&0&0
 \\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} -0.86&-0.29&0.43
 \\0.43&-0.86&0.29
-\\0.29&0.43&0.86 \end{bmatrix}}\)
-\end{enumerate}
+\\0.29&0.43&0.86 \end{bmatrix}}\)}
+{\(\begin{bmatrix} -0.86&0.43&0.29
+\\-0.29&-0.86&0.43
+\\0.43&0.29&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0
+\\0&14&0
+\\0&0&0
+\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&-0.19&-0.68
+\\0.50&-0.50&0.68&-0.19
+\\0.50&0.50&0.19&0.68
+\\0.50&-0.50&-0.68&0.19 \end{bmatrix}}\)}
+{\(\begin{bmatrix} -0.86&-0.29&0.43
+\\0.43&-0.86&0.29
+\\0.29&0.43&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0
+\\0&14&0
+\\0&0&0
+\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&0.50&0.50
+\\0.50&-0.50&0.50&-0.50
+\\-0.19&0.68&0.19&-0.68
+\\-0.68&-0.19&0.68&0.19 \end{bmatrix}}\)}
+}% end-small,arraycolsep
+%\begin{enumerate}
+%\small\arraycolsep=0.3em
+%\item \(\begin{bmatrix} -0.86&0.43&0.29
+%\\-0.29&-0.86&0.43
+%\\0.43&0.29&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0
+%\\0&14&0
+%\\0&0&0
+%\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&-0.19&-0.68
+%\\0.50&-0.50&0.68&-0.19
+%\\0.50&0.50&0.19&0.68
+%\\0.50&-0.50&-0.68&0.19 \end{bmatrix}}\)
+%
+%\item \(\begin{bmatrix} -0.86&-0.29&0.43
+%\\0.43&-0.86&0.29
+%\\0.29&0.43&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0
+%\\0&14&0
+%\\0&0&0
+%\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&0.50&0.50
+%\\0.50&-0.50&0.50&-0.50
+%\\-0.19&0.68&0.19&-0.68
+%\\-0.68&-0.19&0.68&0.19 \end{bmatrix}}\)
+%\\
+%\item \(\begin{bmatrix} 0.50&0.50&-0.19&-0.68
+%\\0.50&-0.50&0.68&-0.19
+%\\0.50&0.50&0.19&0.68
+%\\0.50&-0.50&-0.68&0.19 \end{bmatrix}\begin{bmatrix} 28&0&0
+%\\0&14&0
+%\\0&0&0
+%\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix}-0.86&0.43&0.29
+%\\-0.29&-0.86&0.43
+%\\0.43&0.29&0.86 \end{bmatrix}}\)
+%
+%\item \(\begin{bmatrix} 0.50&0.50&0.50&0.50
+%\\0.50&-0.50&0.50&-0.50
+%\\-0.19&0.68&0.19&-0.68
+%\\-0.68&-0.19&0.68&0.19 \end{bmatrix}\begin{bmatrix} 28&0&0
+%\\0&14&0
+%\\0&0&0
+%\\0&0&0 \end{bmatrix}\tr{\begin{bmatrix} -0.86&-0.29&0.43
+%\\0.43&-0.86&0.29
+%\\0.29&0.43&0.86 \end{bmatrix}}\)
+%\end{enumerate}
 \end{activity}
 
 
@@ -1082,16 +1129,17 @@ Which of the following is an \svd\ of the transpose of the matrix?
 
 Let's now return to the topic of linear equations and connect new concepts to the task of solving linear equations.
 In particular, the following theorem addresses when a unique solution exists to a system of linear equations.
-Concepts developed in subsequent sections extend this theorem further.
+Concepts developed in subsequent sections extend this theorem further (Theorems~\ref{thm:ftim2} and~\ref{thm:ftim3}).
 
 
 \begin{theorem}[Unique Solutions: version~1] \label{thm:ftim1} 
-Let \(A\) be an \(n\times n\) \idx{square matrix}.  The following statements are equivalent: 
+For every \(n\times n\) \idx{square matrix}~\(A\), the following statements are equivalent: 
 \begin{enumerate}
 \item\label{thm:ftim1i} \(A\) is \idx{invertible};
 \item\label{thm:ftim1ii} \(A\xv=\bv\) has a \idx{unique solution} for every \(\bv\) in~\(\RR^n\);
-\item\label{thm:ftim1iii} \index{homogeneous}\(A\xv=\ov\) has only the zero solution;
+\item\label{thm:ftim1iii} \index{homogeneous}\(A\xv=\ov\) has \emph{only} the zero solution;
 \item\label{thm:ftim1iv} all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
+\item\label{thm:ftim1ivx} the \idx{condition number} of~\(A\) is finite (\verb|rcond|>0);
 \item\label{thm:ftim1v} \(\rank A=n\)\,.
 \end{enumerate}
 \end{theorem}
@@ -1100,35 +1148,37 @@ Let \(A\) be an \(n\times n\) \idx{square matrix}.  The following statements are
 Prove a circular chain of implications. 
 \begin{description}
 \item[\ref{thm:ftim1i}$\implies$\ref{thm:ftim1ii}]
-Established by Theorem~\ref{thm:invuniqsol}.
+Established by \autoref{thm:invuniqsol}.
 \item[\ref{thm:ftim1ii}$\implies$\ref{thm:ftim1iii}]
 Now \(\xv=\ov\) is always a solution of \(A\xv=\ov\).  If property~\ref{thm:ftim1ii} holds, then this is the only solution.
 \item[\ref{thm:ftim1iii}$\implies$\ref{thm:ftim1iv}]
 Use \idx{contradiction}.  
 Assume a singular value is zero. 
-Then Procedure~\ref{pro:gensol} finds an infinite number of solutions to the homogeneous system \(A\xv=\ov\)\,, which contradicts~\ref{thm:ftim1iii}.
+Then \autoref{pro:gensol} finds an infinite number of solutions to the homogeneous system \(A\xv=\ov\)\,, which contradicts~\ref{thm:ftim1iii}.
 Hence the assumption is wrong.
+\item[\ref{thm:ftim1iv}$\iff$\ref{thm:ftim1ivx}]
+By \autoref{def:condnum}, the condition number is finite if and only if the smallest singular value is\({}>0\), and hence if and only if all singular values are nonzero.
 \item[\ref{thm:ftim1iv}$\implies$\ref{thm:ftim1v}]
-Property~\ref{thm:ftim1v} is direct from Definition~\ref{def:rank}.
+Property~\ref{thm:ftim1v} is direct from \autoref{def:rank}.
 \item[\ref{thm:ftim1v}$\implies$\ref{thm:ftim1i}]
 Find an \svd\ \(A=\usv\).  
-The inverse of the \(n\times n\) diagonal matrix~\(S\) exists as its diagonal elements are the \(n\)~non-zero singular values (Theorem~\ref{thm:idm}). 
+The inverse of the \(n\times n\) diagonal matrix~\(S\) exists as its diagonal elements are the \(n\)~non-zero singular values (\autoref{thm:idm}). 
 Let \(B=VS^{-1}\tr U\).
 Then \(AB=\usv VS^{-1}\tr U=USS^{-1}\tr U=U\tr U=I_n\)\,.  Similarly \(BA=I_n\)\,.  
-From Definition~\ref{def:invertible}, \(A\)~is invertible (with \(B=VS^{-1}\tr U\) as its inverse).
+From \autoref{def:invertible}, \(A\)~is invertible (with \(B=VS^{-1}\tr U\) as its inverse).
 \end{description}
 \end{proof}
 
 
 
 \paragraph{Practical shades of grey}
-The Unique Solution Theorem~\ref{thm:ftim1} is `black-and-white': either a solution exists, or it does not.
-But in applications, problems arise in all shades of grey.
-Practical issues in applications are better phrased in terms of reliability, uncertainty, and error estimates.
-For example, suppose in an experiment you measure quantities~\bv\ to three significant digits, then solve the linear equations \(A\xv=\bv\) to estimate quantities of interest~\xv: how accurate are your estimates of the interesting quantities~\xv? or are your estimates complete nonsense?
+The preceding Unique Solution \autoref{thm:ftim1} is `black-and-white': either a solution exists, or it does not.
 \begin{aside}
 Optional: this discussion and theorem reinforces why we must check condition numbers in computation.
-\end{aside}
+\end{aside}%
+But in applications, problems arise in `all shades of grey'.
+Practical issues in applications are better phrased in terms of reliability, uncertainty, and error estimates.
+For example, suppose in an experiment you measure quantities~\bv\ to three significant digits, then solve the linear equations \(A\xv=\bv\) to estimate quantities of interest~\xv: how accurate are your estimates of the interesting quantities~\xv? or are your estimates complete nonsense?
 
 
 
@@ -1142,7 +1192,7 @@ Consider the following innocuous looking system of linear equations
 \\-3p+2q+3r=-5
 \end{cases}
 \end{equation*}
-Solve by hand (Procedure~\ref{pro:gje}) to find the unique solution is \((p,q,r)=(2,-1,1)\).
+Solve by hand (\autoref{pro:gje}) to find the unique solution is \((p,q,r)=(2,-1,1)\).
 
 But, and it is a big but in practical applications, what happens if the right-hand side comes from experimental measurements with a relative error of~1\%? 
 Let's explore by writing the system in matrix-vector form and using \script\ to solve with various example errors.
@@ -1156,7 +1206,7 @@ A=\begin{bmatrix} 0&-2&1
 \quad\text{and right-hand side }
 \bv=\begin{bmatrix} 3\\8\\-5 \end{bmatrix}.
 \end{equation*}
-Use Procedure~\ref{pro:unisol} to solve the system in \script:
+Use \autoref{pro:unisol} to solve the system in \script:
 \begin{enumerate}
 \item enter the matrix and vector with
 \setbox\ajrqrbox\hbox{\qrcode{% solve system
@@ -1192,7 +1242,7 @@ condA=s(1)/s(3)
 \end{enumerate}
 As illustrated below, the large difference between~\xv\ and~\(\xv'\) indicates `the solution'~\xv\ is almost complete nonsense.
 How can a 1\%~error in~\bv\ turn into the astonishingly large 91\%~error in solution~\xv?  
-Theorem~\ref{thm:erramp} below shows it is no accident that the magnification of the error by a factor of~\(91\) is of the same order of magnitude as the condition number\({}=152.27\) computed via \verb|s=svd(A)| and then \verb|condA=s(1)/s(3)|.
+\autoref{thm:erramp} below shows it is no accident that the magnification of the error by a factor of~\(91\) is of the same order of magnitude as the condition number\({}=152.27\) computed via \verb|s=svd(A)| and then \verb|condA=s(1)/s(3)|.
 \begin{center}
 \qview{-52}{-48}{\begin{tikzpicture} 
 \begin{axis}[view={\q}{20},axis equal,footnotesize,font=\footnotesize
@@ -1232,7 +1282,7 @@ At 15\%, the relative error in solution~\(\xv'''\) is still significantly larger
 \end{enumerate}
 This example shows that the apparently innocuous matrix~\(A\) variously multiples measurement errors in~\bv\ by factors of~\(91\), \(41\) or~\(15\) when finding `the solution'~\xv\ to \(A\xv=\bv\)\,.
 The matrix~\(A\) must, after all, be a bad matrix.
-Theorem~\ref{thm:erramp} shows this badness is quantified by its  condition number~\(152.27\), and its estimated reciprocal \verb|rcond|. 
+\autoref{thm:erramp} shows this badness is quantified by its  condition number~\(152.27\), and its poor reciprocal \verb|rcond|~\(0.0031\) (estimated). 
 \end{example}
 
 
@@ -1249,7 +1299,7 @@ Consider solving the system of linear equations
 \end{equation*}
 Use \script\ to explore the effect on the solution~\xv\ of 1\%~errors in the right-hand side vector.
 \begin{solution} 
-Enter the matrix and right-hand side vector into \script, then solve  with Procedure~\ref{pro:unisol}:
+Enter the matrix and right-hand side vector into \script, then solve  with \autoref{pro:unisol}:
 \setbox\ajrqrbox\hbox{\qrcode{% errors
 Q=[0.4 0.4 -0.2 0.8
   -0.2 0.8 -0.4 -0.4
@@ -1295,8 +1345,8 @@ Here the relative error in solution~\xv\ is exactly the same as the relative err
 
 \end{itemize}
 In this example, and in contrast to the previous example, throughout the relative error in solution~\xv\ is exactly the same as the relative error in~\bv.
-The reason is that here the matrix~\(Q\) is an \idx{orthogonal matrix}---check by computing \verb|Q'*Q| (Definition~\ref{def:orthog}).
-Being orthogonal, multiplication by~\(Q\) only rotates or reflects, and so it never stretches or distorts (Theorem~\ref{thm:orthog:i}).
+The reason is that here the matrix~\(Q\) is an \idx{orthogonal matrix}---check by computing \verb|Q'*Q| (\autoref{def:orthog}).
+Being orthogonal, multiplication by~\(Q\) only rotates or reflects, and so it never stretches or distorts (\autoref{thm:orthog:i}).
 Consequently errors remain the same size when multiplied by such orthogonal matrices, as seen in this example, and as reflected in the condition number of~\(Q\) being one (as computed via \verb|s=svd(Q)| and then \verb|condQ=s(1)/s(4)|).
 \end{solution}
 \end{example}
@@ -1306,9 +1356,9 @@ Consequently errors remain the same size when multiplied by such orthogonal matr
 
 
 The \idx{condition number} determines the reliability of the solution of a system of linear equations.
-This is why we should always precede the computation of a solution with an estimate of the condition number such as that provided by the reciprocal~\verb|rcond()| (Procedure~\ref{pro:unisol}). 
+This is why we should always precede the computation of a solution with an estimate of the condition number such as that provided by the reciprocal~\verb|rcond()| (\autoref{pro:unisol}). 
 The next theorem establishes that the condition number characterises the amplification of errors that occurs in solving a linear system.
-Hence solving a system of linear equations with a large condition number (small \verb|rcond|) means that errors are amplified by a large factor as happens in Example~\ref{eg:ilsle}.
+Hence solving a system of linear equations with a large condition number (small \verb|rcond|) means that errors are amplified by a large factor as happens in \autoref{eg:ilsle}.
 
 \begin{theorem}[error magnification] \label{thm:erramp}
 Consider solving \(A\xv=\bv\) for \(n\times n\) matrix~\(A\) with full \(\rank A=n\)\,.  
@@ -1321,9 +1371,9 @@ Suppose the right-hand side \bv~has relative error of size~\(\epsilon\), then th
 \begin{proof} 
 Let the length of the right-hand side vector be \(b=|\bv|\).
 Then the error in~\bv\ has size~\(\epsilon b\) since \(\epsilon\)~is the relative error.
-Following Procedure~\ref{pro:gensol},
+Following \autoref{pro:gensol},
 let \(A=\usv\) be an \svd\ for matrix~\(A\).
-Compute \(\zv=\tr U\bv\)\,: recall that multiplication by orthogonal~\(U\) preserves lengths (Theorem~\ref{thm:orthog}), so not only is \(|\zv|=b\)\,, but also \zv~will be in error by an amount~\(\epsilon b\) since \bv~has this error 
+Compute \(\zv=\tr U\bv\)\,: recall that multiplication by orthogonal~\(U\) preserves lengths (\autoref{thm:orthog}), so not only is \(|\zv|=b\)\,, but also \zv~will be in error by an amount~\(\epsilon b\) since \bv~has this error 
 Consider solving \(S\yv=\zv\)\,: the diagonals of~\(S\) stretch and shrink both `the signal and the noise'.
 The \emph{worst case} is when \(\zv=(b,0,\ldots,0,\epsilon b)\); that is, when all the `signal' happens to be in the first component of~\zv, and all the `noise', the error, is in the last component.
 Then the intermediary \(\yv=(b/\sigma_1,0,\ldots,\epsilon b/\sigma_n)\).
@@ -1358,20 +1408,21 @@ From the given information estimate the maximum relative error in~\xv,  if  poss
 In some experiment the components of~\bv, \(|\bv|=5\)\,, are measured to two decimal places.
 We compute a vector~\xv\ by solving \(A\xv=\bv\) with a matrix~\(A\) for which we compute \(\verb|rcond(A)|=0.02\)\,.
 What is our estimate of the relative error in~\xv?
-\partswidth=5em
-\begin{parts}
-\item 20\%
-\item 5\% \actans
-\item 2\%
-\item 0.1\%
-\end{parts}
+\actposs[4]{5\%}{20\%}{2\%}{0.1\%}
+%\partswidth=5em
+%\begin{parts}
+%\item 20\%
+%\item 5\% \actans
+%\item 2\%
+%\item 0.1\%
+%\end{parts}
 \end{activity}
 
 
 
 
 This issue of the amplification of errors occurs in other contexts.
-The eminent mathematician  \index{Poincar\'e, Henri}Henri Poincar\'e (1854--1912) was the first to detect possible chaos in the orbits of the planets.
+The eminent mathematician  \index{Poincar\'e, Henri}Henri Poincar\'e (1854--1912) was the first to detect possible \idx{chaos} in the orbits of the planets.
 \begin{quoted}{Poincar\'e, 1903}
 If we knew exactly the laws of nature and the situation of the universe at the initial moment, we could predict exactly the situation of that same universe at a succeeding moment.
 But even if it were the case that the natural laws had no longer any secret for us, we could still only know the initial situation approximately. 
@@ -1390,7 +1441,7 @@ The condition number warns when this happens by characterising the amplification
 
 
 
-\subsection{Prove the SVD Theorem~\ref{thm:svd}}
+\subsection{Prove the SVD \autoref{thm:svd}}
 \label{sec:psvdt}
 
 % Maybe revise in light of the proof by Golub and van Loan p.70
@@ -1405,7 +1456,7 @@ But then when you finally resolve it, you have this incredible feeling of how be
 
 \begin{aside}
 This proof may be delayed until the last week of a semester.
-It may be given together with the closely related classic proof of Theorem~\ref{thm:smevec} on the eigenvectors of symmetric matrices.  
+It may be given together with the closely related classic proof of \autoref{thm:smevec} on the eigenvectors of symmetric matrices.  
 \end{aside}
 Two preliminary examples introduce the structure of the general proof that an \svd\ exists.  
 As in this example prelude, the proof of a general singular value decomposition is similarly constructive.
@@ -1415,7 +1466,7 @@ As in this example prelude, the proof of a general singular value decomposition 
 These first two examples are optional: their purpose is to introduce key parts of the general proof in a definite setting.
 
 \begin{example}[a \(2\times2\) case] \label{eg:2by2svdx}
-Recall Example~\ref{eg:2by2svd} factorised the matrix
+Recall \autoref{eg:2by2svd} factorised the matrix
 \begin{equation*}
 A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix}=
 \begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}
@@ -1430,7 +1481,7 @@ In 2D, all unit vectors are of the form \(\vv=(\cos t,\sin t)\) for \(-\pi<t\leq
 The marginal picture plots these unit vectors~\vv\ in blue for 32 angles~\(t\).
 \marginpar{\eRose{10/10}{2/10}{5/10}{11/10}}%
 \begin{aside}
-The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view (click on the \texttt{eig/(svd)} button to make it show \texttt{svd/(eig)}.
+The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view---click on the \texttt{eig/(svd)} button to make \texttt{eigshow(A)} show \texttt{svd/(eig)}.
 \end{aside}%
 Plotted in red from the end of each~\vv\ is the vector~\(A\vv\) (scaled down by a factor of ten for clarity).
 Our aim is to find the~\vv\ that maximises the length of the corresponding adjoined~\(A\vv\).
@@ -1453,7 +1504,7 @@ A\vv&=&\begin{bmatrix} 10&2\\5&11 \end{bmatrix}
 \addplot+[thick,no marks,domain=0:3.1415] {125+75*sin(deg(2*\x))};
 \end{axis}
 \end{tikzpicture}}%
-Since the sine function has maximum of one at angle~\(\frac\pi2\), the maximum of~\(|A\vv|^2\) is~\(125+75=200\) for \(2t=\frac\pi2\)\,, that is, for \(t=\frac\pi4\) corresponding to unit vector \(\vv_1=(\cos\frac\pi4,\sin\frac\pi4)=(\frac1{\sqrt2},\frac1{\sqrt2})\)---this vector point to the top-right as identified from the marginal figure.
+Since the sine function has maximum of one at angle~\(\frac\pi2\)~(\(90^\circ\)), the maximum of~\(|A\vv|^2\) is~\(125+75=200\) for \(2t=\frac\pi2\)\,, that is, for \(t=\frac\pi4\) corresponding to unit vector \(\vv_1=(\cos\frac\pi4,\sin\frac\pi4)=(\frac1{\sqrt2},\frac1{\sqrt2})\)---this vector point to the top-right as identified from the previous marginal figure.
 This vector is the first column of~\(V\).
 
 Now multiply to find \(A\vv_1=(6\sqrt2,8\sqrt2)\).  
@@ -1462,8 +1513,8 @@ Normalise the vector~\(A\vv_1\) by \(A\vv_1/\sigma_1 =(6\sqrt2,8\sqrt2)/(10\sqrt
 
 The other column of~\(V\) must be orthogonal (at right-angles) to~\(\vv_1\) in order for matrix~\(V\) to be orthogonal.
 \marginpar{\begin{tikzpicture} 
-\begin{axis}[axis equal image, axis lines=middle
-,footnotesize,font=\footnotesize ]
+\begin{axis}[axis equal, axis lines=middle
+,footnotesize,font=\footnotesize,xmin=-1.1,xmax=1.1,ymax=1.1 ]
     \addplot[quiver={u=0.707,v=0.707},blue,-stealth] 
     coordinates {(0,0)};
     \node at (axis cs:0.5,0.34) {$\vv_1$};
@@ -1503,13 +1554,13 @@ where we do not worry about the elements denoted by dots as they are multiplied 
 We seek to maximise \(|A\vv|^2\) but here vector~\vv\ is in~\(\RR^1\).  
 Being of unit magnitude, there are two alternatives: \(\vv=(\pm 1)\). 
 Each alternative gives the same \(|A\vv|^2=|(\pm1,\pm1,\pm1)|=3\)\,.  
-Choose one alternative, say \(\vv_1=(1)\), fixes the matrix \(V=\begin{bmatrix} 1 \end{bmatrix}\).
+Choosing one alternative, say \(\vv_1=(1)\), then fixes the matrix \(V=\begin{bmatrix} 1 \end{bmatrix}\).
 
 Then \(A\vv_1=(1,1,1)\) which is of length~\(\sqrt3\).
 This length is the singular value \(\sigma_1=\sqrt3\)\,.  
 Dividing~\(A\vv_1\) by its length gives the unit vector \(\uv_1=(\thr,\thr,\thr)\), the first column of~\(U\).  
 To find the other columns of~\(U\), consider the three standard unit vectors in~\(\RR^3\) (red in the illustration below), rotate them all together so that one lines up with~\(\uv_1\), and then the other two rotated unit vectors form the other two columns of~\(U\) (blue vectors below).  
-Since the columns of~\(U\) are then orthonormal, \(U\)~is an orthogonal matrix (Theorem~\ref{thm:orthog}).
+Since the columns of~\(U\) are then orthonormal, \(U\)~is an orthogonal matrix (\autoref{thm:orthog}).
 \end{solution}
 \begin{center}
 \qview{55}{60}{\begin{tikzpicture} 
@@ -1538,7 +1589,7 @@ We use \idx{induction}
 on the size \(m\times n\) of the matrix.
 \begin{itemize}
 \item First zero matrices have trivial \svd, and
-\(m\times 1\) and \(1\times n\) matrices have straightforward \svd\ (as in Example~\ref{eg:3x1svd}).
+\(m\times 1\) and \(1\times n\) matrices have straightforward \svd\ (as in \autoref{eg:3x1svd}).
 \item Choose \(\vv_1\) to maximise~\(|A\vv|^2\) for unit vectors \(\vv\) in~\(\RR^n\).
 \item Crucially, we then establish that for every vector~\vv\ orthogonal to~\(\vv_1\), the vector \(A\vv\) is orthogonal to~\(A\vv_1\).
 \item Then rotate the standard unit vectors to align one with~\(\vv_1\). Similarly for~\(A\vv_1\).  
@@ -1551,7 +1602,7 @@ This proof corresponds closely to the proof of the spectral theorem~\ref{thm:sme
 
 
 
-\subsubsection{Detailed proof of the SVD Theorem~\ref{thm:svd}}
+\subsubsection{Detailed proof of the SVD \autoref{thm:svd}}
 \label{sec:dpsvdt}
 
 Use \idx{induction} on the size \(m\times n\) of the matrix~\(A\): we assume an \svd\ exists for all \((m-1)\times(n-1)\)~matrices, and prove that consequently an \svd\ must exist for all \(m\times n\)~matrices.  There are three base cases to establish: one for \(m\leq n\)\,, one for \(m\geq n\)\,, and one for matrix \(A=O\)\,; then the induction extends to all sized matrices.
@@ -1640,7 +1691,7 @@ Choose any one of them.
 Nonetheless, the maximum value of~\(|A\vv|^2\) is unique, and so the following singular value~\(\sigma_1\) is unique.
 
 \item \emph{Set the singular value \(\sigma_1:=|A\vv_1|>0\) and unit vector \(\uv_1:=(A\vv_1)/\sigma_1\) in~\(\RR^m\). 
-Let~\vv\ be any unit vector orthogonal to~\(\vv_1\): we prove that then the vector~\(A\vv\) is orthogonal to~\(\uv_1\).}
+For every unit vector~\vv\ orthogonal to~\(\vv_1\) we now prove that the vector~\(A\vv\) is orthogonal to~\(\uv_1\).}
 Let \(\uv:=A\vv\) in~\(\RR^m\) and consider \(f(t):=|A(\vv_1\cos t+\vv\sin t)|^2\).
 Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for all~\(t\) (Exercise~\ref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the Calculus of a maximum).
 On the other hand, 
@@ -1654,11 +1705,11 @@ f(t)&=&|A\vv_1\cos t+A\vv\sin t|^2
 differentiating~\(f(t)\) and evaluating at zero gives
 \(f'(0)=\sigma_1\uv\cdot\uv_1\)\,.
 But from the maximum this derivative is zero, so \(\sigma_1\uv\cdot\uv_1=0\)\,.
-Since the singular value \(\sigma_1>0\)\,, we must have \(\uv\cdot\uv_1=0\) and so \(\uv_1\) and~\(\uv\) are orthogonal (Definition~\ref{def:orthovec}).
+Since the singular value \(\sigma_1>0\)\,, we must have \(\uv\cdot\uv_1=0\) and so \(\uv_1\) and~\(\uv\) are orthogonal (\autoref{def:orthovec}).
 
 \item Consider the orthonormal set of standard unit vectors in~\(\RR^n\): rotate them so that the first unit vector lines up with~\(\vv_1\), and let the other \((n-1)\)~rotated unit vectors become the columns of the \(n\times(n-1)\) matrix~\(\bar V\).
 Then set the \(n\times n\) matrix
-\(V_1:=\begin{bmatrix}\vv_1&\bar V\end{bmatrix}\) which is orthogonal as its columns are orthonormal (Theorem~\ref{thm:orthog:ii}).
+\(V_1:=\begin{bmatrix}\vv_1&\bar V\end{bmatrix}\) which is orthogonal as its columns are orthonormal (\autoref{thm:orthog:ii}).
 Similarly set an \(m\times m\) orthogonal matrix
 \(U_1:=\begin{bmatrix}\uv_1&\bar U\end{bmatrix}\).
 Compute the \(m\times n\) matrix
@@ -1696,7 +1747,8 @@ U:=U_1\begin{bmatrix} 1&0\\0&\hat U \end{bmatrix},\quad
 V:=V_1\begin{bmatrix} 1&0\\0&\hat V\end{bmatrix},\quad
 S:=\begin{bmatrix} \sigma_1&0\\0&\hat S \end{bmatrix}.
 \end{equation*}
-Matrices \(U\) and~\(V\) are orthogonal as each are the product of two orthogonal matrices (Exercise~\ref{ex:orthoprod}), and matrix~\(S\) is diagonal.
+Matrices \(U\) and~\(V\) are orthogonal as each are the product of two orthogonal matrices (Exercise~\ref{ex:orthoprod}).
+Also, matrix~\(S\) is diagonal.
 These form an \svd\ for matrix~\(A\) since
 \begin{eqnarray*}
 AV&=&AV_1\begin{bmatrix} 1&0\\0&\hat V\end{bmatrix}
@@ -1711,7 +1763,7 @@ AV&=&AV_1\begin{bmatrix} 1&0\\0&\hat V\end{bmatrix}
 Hence \(A=\usv\). 
 By induction, an \svd\ exists for all \(m\times n\) matrices.
 \end{enumerate}
-This argument establishes the \svd\ Theorem~\ref{thm:svd}.
+This argument establishes the \svd\ \autoref{thm:svd}.
 
 
 
@@ -1746,7 +1798,7 @@ Using a factorisation of the left-hand side coefficient, quickly solve by hand t
 
 
 \begin{exercise} \label{ex:hsledvs} 
-Find a general solution, if a solution exists, of each of the following systems of \idx{linear equation}s using Procedure~\ref{pro:gensol}.
+Find a general solution, if a solution exists, of each of the following systems of \idx{linear equation}s using \autoref{pro:gensol}.
 Calculate by hand using the given \svd\ factorisation; record your working.
 % Change any part of this exercise => change a later question.
 % u=randq(m), s=diag(-sort(-round(abs(randn(1,4).^2))/2),m,n), v=randq(n), x=v*s'*round(randn(m,1)*4)/2, A=u*s*v', b=A*x
@@ -1960,7 +2012,7 @@ Calculate by hand using the given \svd\ factorisation; record your working.
 
 \begin{exercise} \label{ex:csledvs} 
 Find a general solution, if a solution exists, of each of the following systems of linear equations.
-Calculate by hand using the given \svd\ factorisation; check the \svd\ and confirm your calculations with \script\ (Procedure~\ref{pro:gensol}); then compare and contrast the two methods.
+Calculate by hand using the given \svd\ factorisation; check the \svd\ and confirm your calculations with \script\ (\autoref{pro:gensol}); then compare and contrast the two methods.
 % Change any part of this exercise => change a later exercise.
 % u=randq(m), s=diag(-sort(-round(abs(randn(1,4)*2))),m,n), v=randq(n), x=v*s'*round(randn(m,1)*4), A=u*s*v', b=A*x
 
@@ -2195,7 +2247,7 @@ V=[-1 1 -1 -1
 
 
 \begin{exercise} \label{ex:} 
-Find a general solution, if possible, of each of the following systems of linear equations with \script\ and using Procedure~\ref{pro:gensol}.
+Find a general solution, if possible, of each of the following systems of linear equations with \script\ and using \autoref{pro:gensol}.
 \begin{enumerate}
 \itemsep=3ex %more space for QR codes??
 % u=randq(m), s=diag(-sort(-round(abs(randn(1,min(m,n))*3))),m,n), v=randq(n), x=round(randn(n,1)*4), A=u*s*v', b=A*x
@@ -2431,7 +2483,7 @@ b=[4;-7;2;-3]
 
 \begin{exercise} \label{ex:} 
 Recall Theorems~\ref{thm:fred} and~\ref{thm:feweqns} on the existence of none, one, or an infinite number of solutions to linear equations.
-Use procedure~\ref{pro:gensol} to provide an alternative proof to each of these two theorems.
+Use \autoref{pro:gensol} to provide an alternative proof to each of these two theorems.
 \end{exercise}
 
 
@@ -2477,7 +2529,7 @@ For each square matrix, compute \verb|rcond| and comment on its relation to the 
 
 \begin{exercise} \label{ex:} 
 In \script, use \verb|randn()| to generate some random matrices~\(A\) of chosen sizes, and some correspondingly sized random right-hand side vectors~\bv.
-For each, find a general solution, if possible, of the system \(A\xv=\bv\) with \script\ and using Procedure~\ref{pro:gensol}.
+For each, find a general solution, if possible, of the system \(A\xv=\bv\) with \script\ and using \autoref{pro:gensol}.
 Record each step, the condition number and rank of~\(A\), and comment on what is interesting about the sizes you choose.
 \end{exercise}
 
@@ -2493,7 +2545,7 @@ Derive that the matrix \(A\tr A\) has an \svd\ \(A\tr A=U\tilde S\tr U\), for wh
 
 \begin{exercise} \label{ex:} 
 Consider the problems (a)--(l) in Exercise~\ref{ex:hsledvs} and problems (a)--(f) in Exercise~\ref{ex:csledvs}.
-For each of these problems comment on the applicability of the Unique Solution Theorem~\ref{thm:ftim1}, and comment on how the solution(s) illustrate the theorem.
+For each of these problems comment on the applicability of the Unique Solution \autoref{thm:ftim1}, and comment on how the solution(s) illustrate the theorem.
 \answer{The theorem applies to the square matrix systems of Exercise~\ref{ex:hsledvs} (a)--(d), (i)--(l), and of Exercise~\ref{ex:csledvs}~(e) and~(f).
 The cases with no zero singular value, full rank, have a unique solution.
 The cases with a zero singular value, rank less than~\(n\), either have no solution or an infinite number.}
@@ -2502,10 +2554,10 @@ The cases with a zero singular value, rank less than~\(n\), either have no solut
 
 
 \begin{exercise} \label{ex:} 
-Recall Definition~\ref{def:invertible} says that a square matrix~\(A\) is \idx{invertible} if there exists a matrix~\(B\) such that \emph{both} \(AB=I\) \emph{and} \(BA=I\)\,.
+Recall \autoref{def:invertible} says that a square matrix~\(A\) is \idx{invertible} if there exists a matrix~\(B\) such that \emph{both} \(AB=I\) \emph{and} \(BA=I\)\,.
 We now see that we need only one of these to ensure the matrix is invertible.
 \begin{enumerate}
-\item Use Theorem~\ref{thm:ftim1iii} to now prove that a square matrix~\(A\) is invertible if there exists a matrix~\(B\) such that \(BA=I\)\,.
+\item Use \autoref{thm:ftim1iii} to now prove that a square matrix~\(A\) is invertible if there exists a matrix~\(B\) such that \(BA=I\)\,.
 
 \item Use the transpose and Theorems~\ref{thm:ftim1v} and~\ref{thm:ranktr} to then prove that a square matrix~\(A\) is invertible if there exists a matrix~\(B\) such that \(AB=I\)\,.
 \end{enumerate}
@@ -2699,7 +2751,7 @@ For any \(m\times n\) matrix~\(A\), use an \svd\ \(A=\usv\) to prove that \(\ran
 
 
 %\begin{exercise} \label{ex:} 
-%Generalise Theorem~\ref{thm:erramp} to a general solution of a system with \(m\times n\) matrix.
+%Generalise \autoref{thm:erramp} to a general solution of a system with \(m\times n\) matrix.
 %\begin{comment}
 %Consider whether this exercise is feasible??
 %Not really as it either involves comparing sets of solutions with each other (impossible for most students), or involves dealing with inconsistencies which we do not do until later section.
@@ -2712,7 +2764,7 @@ For any \(m\times n\) matrix~\(A\), use an \svd\ \(A=\usv\) to prove that \(\ran
 
 
 \begin{exercise} \label{ex:} 
-Recall  Example~\ref{eg:2by2svdx} introduced that finding a singular vector and singular value of a matrix~\(A\) came from maximising~\(|A\vv|\).
+Recall \autoref{eg:2by2svdx} introduced that finding a singular vector and singular value of a matrix~\(A\) came from maximising~\(|A\vv|\).
 Each of the following matrices, say~\(A\) for discussion, has plotted \(A\vv\) (red) adjoined the corresponding unit vector~\(\vv\) (blue).
 For each case:
 \begin{enumerate}

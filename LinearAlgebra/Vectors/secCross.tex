@@ -100,15 +100,16 @@ What is the area of the parallelogram (illustrated in the margin) whose edges ar
     \node[right] at (axis cs:\b,\d) {$(\b,\d)$};
 \end{axis}
 \end{tikzpicture}}
-\partswidth=7em
-\begin{parts}
-\item \(-16\)
-\item \(-4\)
-\item \(4\)
-\item \(11\)
-\item \(16\)
-\item \(19\)
-\end{parts}
+\actposs[4]{\(16\)}{\(4\)}{\(11\)}{\(19\)}
+%\partswidth=7em
+%\begin{parts}
+%%\item \(-16\)
+%%\item \(-4\)
+%\item \(4\)
+%\item \(11\)
+%\item\actans \(16\)
+%\item \(19\)
+%\end{parts}
 \end{activity}
 
 
@@ -174,17 +175,18 @@ Since the plane goes through point~\((1,1,2)\), the constant\({}=1-1+3\cdot2=6\)
 
 
 \begin{activity} \label{ex:} 
-Use the procedure of Example~\ref{eg:nviax} to derive a \idx{normal vector} to the plane described in parametric form as \(\xv=(4,-1,-2)+(1,-2,1)s+(2,-3,-2)t\).  
+Use the procedure of \autoref{eg:nviax} to derive a \idx{normal vector} to the plane described in parametric form as \(\xv=(4,-1,-2)+(1,-2,1)s+(2,-3,-2)t\).  
 Which of the following is your computed normal vector?
 %pqr=0+round(randn(3)*2),n=cross(pqr(2,:),pqr(3,:))
-\begin{parts}
-\item \((5,6,7)\)
-\item \((7,4,1)\)
-\item \((-4,4,-10)\)
-\item \((2,-2,5)\)
-\item \((-7,-4,-1)\)
-\item \((-4,-3,3)\)
-\end{parts}
+\actposs{\((7,4,1)\)}{\((5,6,7)\)}{\((-4,4,-10)\)}{\((2,-2,5)\)}
+%\begin{parts}
+%\item \((5,6,7)\)
+%\item\actans \((7,4,1)\)
+%\item \((-4,4,-10)\)
+%\item \((2,-2,5)\)
+%%\item \((-7,-4,-1)\)
+%%\item \((-4,-3,3)\)
+%\end{parts}
 \end{activity}
 
 
@@ -193,7 +195,7 @@ Which of the following is your computed normal vector?
 \subsubsection{Definition of a cross product}
 
 \paragraph{General formula}
-The procedure used in Example~\ref{eg:nviax} to derive a \idx{normal vector} leads to an algebraic formula.  
+The procedure used in \autoref{eg:nviax} to derive a \idx{normal vector} leads to an algebraic formula.  
 Let's apply the same procedure to two general vectors \(\vv=(v_1,v_2,v_3)\) and \(\wv=(w_1,w_2,w_3)\).
 The procedure computes
 {%%%%%%%%%%%%%%%%%%
@@ -251,7 +253,7 @@ Among the \idx{standard unit vector}s, derive that
 \item \(\kv\times\iv=\jv\)\,, \item \(\iv\times\kv=-\jv\)\,,
 \item \(\iv\times\iv=\jv\times\jv=\kv\times\kv=\ov\)\,.
 \end{parts}
-\begin{solution} Using Definition~\ref{def:cp}:
+\begin{solution} Using \autoref{def:cp}:
 \begin{eqnarray*}
 \iv\times\jv&=&(1,0,0)\times(0,1,0)
 \\&=&\iv(0\cdot0-0\cdot1)
@@ -271,20 +273,21 @@ Among the \idx{standard unit vector}s, derive that
 \end{eqnarray*}
 Exercise~\ref{ex:cpijk} asks you to correspondingly establish the other six identities.
 \end{solution}
-These example cross products most clearly demonstrate the orthogonality of a cross product to its two argument vectors (Theorem~\ref{thm:cpga}) and that the direction is in the right-hand sense (Theorem~\ref{thm:cpgb}).
+These example cross products most clearly demonstrate the orthogonality of a cross product to its two argument vectors (\autoref{thm:cpga}) and that the direction is in the right-hand sense (\autoref{thm:cpgb}).
 \end{example}
 
 
 
 
 \begin{activity} 
-Use the Definition~\ref{def:cp} to find the cross product of \((-4,1,-1)\) and \((-2,2,1)\) is which one of the following:
-\begin{parts}
-\item \((-3,-6,6)\),
-\item \((3,-6,-6)\),
-\item \((-3,-6,6)\),
-\item \((3,6,-6)\).
-\end{parts}
+Use \autoref{def:cp} to find the cross product of \((-4,1,-1)\) and \((-2,2,1)\) is which one of the following:
+\actposs{\((3,6,-6)\)}{\((-3,-6,6)\)}{\((3,-6,-6)\)}{\((-3,-6,6)\)}
+%\begin{parts}
+%\item \((-3,-6,6)\),
+%\item \((3,-6,-6)\),
+%\item \((-3,-6,6)\),
+%\item\actans \((3,6,-6)\).
+%\end{parts}
 \end{activity}
 
 
@@ -305,8 +308,8 @@ Compare this area with the cross product
 \\&=&\iv0+\jv0+\kv(v_1w_2-v_2w_1)
 \\&=&\kv(v_1w_2-v_2w_1).
 \end{eqnarray*}
-Consequently, the length of this cross product equals the area of the parallelogram formed by~\vv\ and~\wv\ (Theorem~\ref{thm:cpgd}).
-(Also the direction of the cross product,~\(\pm\kv\), is orthogonal to the \(x_1x_2\)-plane containing the two vectors---Theorem~\ref{thm:cpga}).
+Consequently, the length of this cross product equals the area of the parallelogram formed by~\vv\ and~\wv\ (\autoref{thm:cpgd}).
+(Also the direction of the cross product,~\(\pm\kv\), is orthogonal to the \(x_1x_2\)-plane containing the two vectors---\autoref{thm:cpga}).
 \end{example}
 
 
@@ -323,11 +326,16 @@ Using property~\ref{thm:cpgb} of the next theorem, in which direction is the cro
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-\partswidth=3em
-\begin{parts}
-\item \(+\iv\) \item \(+\jv\) \item \(+\kv\) 
-\item \(-\iv\) \item \(-\jv\) \item \(-\kv\) 
-\end{parts}
+\actposs[4]{\(-\jv\)}{\(+\iv\)}{\(+\jv\)}{\(-\iv\)}
+%\partswidth=3em
+%\begin{parts}
+%\item \(+\iv\) 
+%\item \(+\jv\) 
+%%\item \(+\kv\) 
+%\item \(-\iv\) 
+%\item\actans \(-\jv\) 
+%%\item \(-\kv\) 
+%\end{parts}
 \end{activity}
 
 
@@ -364,7 +372,7 @@ in that if \vv~is in the direction of your thumb, and \wv~is in the direction of
 \begin{proof} 
 Let \(\vv=(v_1,v_2,v_3)\) and \(\wv=(w_1,w_2,w_3)\).
 \begin{enumerate}
-\item[\ref{thm:cpga}] Recall that two vectors are orthogonal if their dot product is zero (Definition~\ref{def:orthovec}).
+\item[\ref{thm:cpga}] Recall that two vectors are orthogonal if their dot product is zero (\autoref{def:orthovec}).
 To determine orthogonality between~\vv\ and the cross product \(\vv\times\wv\), consider
 \begin{eqnarray*}
 \vv\cdot(\vv\times\wv)
@@ -413,7 +421,7 @@ One example is in stereo below.
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-Example~\ref{eg:cppara} derived the cross product \(\vv\times\wv=\kv(v_1w_2-v_2w_1)\).
+\autoref{eg:cppara} derived the cross product \(\vv\times\wv=\kv(v_1w_2-v_2w_1)\).
 Consequently, this cross product is in the~\(+\kv\) direction only when \(v_1w_2-v_2w_1>0\) (it is in the~\(-\kv\) direction in the complementary case when \(v_1w_2-v_2w_1<0\)). 
 This inequality for~\(+\kv\) rearranges to \(v_1w_2>v_2w_1\)\,.
 Dividing by the positive~\(v_1w_1\) requires \(\frac{w_2}{w_1}>\frac{v_2}{v_1}\)\,.
@@ -422,7 +430,7 @@ In this case, if \vv~is in the direction of your thumb on your right-hand, and \
 
 
 \item[\ref{thm:cpgc}] Exercise~\ref{ex:cpgc} establishes the identity \(|\vv\times\wv|^2=|\vv|^2|\wv|^2-(\vv\cdot\wv)^2\).
-From Theorem~\ref{thm:anglev} substitute \(\vv\cdot\wv=|\vv||\wv|\cos\theta\) into this identity:
+From \autoref{thm:anglev} substitute \(\vv\cdot\wv=|\vv||\wv|\cos\theta\) into this identity:
 \begin{eqnarray*}
 |\vv\times\wv|^2&=&|\vv|^2|\wv|^2-(\vv\cdot\wv)^2
 \\&=&|\vv|^2|\wv|^2-(|\vv||\wv|\cos\theta)^2
@@ -521,10 +529,14 @@ What is the area of the parallelogram (in stereo below) with edges formed by vec
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-\partswidth=5em
-\begin{parts} 
-\item 1 \item \(\sqrt{5}\) \item 3 \item 5 
-\end{parts}
+\actposs[4]{\(3\)}{\(1\)}{\(\sqrt{5}\)}{\(5\)}
+%\partswidth=5em
+%\begin{parts} 
+%\item 1 
+%\item \(\sqrt{5}\) 
+%\item\actans 3 
+%\item 5 
+%\end{parts}
 \end{activity}
 
 
@@ -552,7 +564,7 @@ Hence find an equation of the plane given parametrically as \(\xv=-2\iv-\jv+3\kv
 \end{tikzpicture}}
 \end{center}
 \begin{solution} 
-Use Definition~\ref{def:cp} of the cross-product to find a normal vector:
+Use \autoref{def:cp} of the cross-product to find a normal vector:
 \begin{eqnarray*}
 \vv\times\wv&=&
 \iv(3\cdot 3-2\cdot 2)
@@ -593,7 +605,7 @@ Let \uv, \vv\ and~\wv\ be vectors in~\(\RR^3\), and \(c\)~be a scalar:
 \begin{proof} 
 Let's prove property~\ref{thm:cppz} two ways---algebraically and geometrically.  Exercises~\ref{ex:cppa}--\ref{ex:cppc} ask you to prove the other properties.
 \begin{itemize}
-\item Algebraically:  with vector \(\vv=(v_1,v_2,v_3)\),  Definition~\ref{def:cp} gives
+\item Algebraically:  with vector \(\vv=(v_1,v_2,v_3)\),  \autoref{def:cp} gives
 \begin{eqnarray*}
 \vv\times\vv
 &=&\iv(v_2v_3-v_3v_2)
@@ -602,11 +614,11 @@ Let's prove property~\ref{thm:cppz} two ways---algebraically and geometrically. 
 \\&=&0\iv+0\jv+0\kv=\ov\,.
 \end{eqnarray*}
 \item Geometrically: 
-%from Theorem~\ref{thm:cpgc} \(|\vv\times\vv|=|\vv||\vv|\sin\theta\) where \(\theta\)~is the angle between~\vv\ and~\vv, and so \(\theta=0\)\,.
-%Since \(\sin\theta=\sin0=0\)\,, the length \(|\vv\times\vv|=0\) and so \(\vv\time\vv=\ov\) (Theorem~\ref{thm:veclen0}).
-from Theorem~\ref{thm:cpgd}, \(|\vv\times\vv|\) is the area of the parallelogram with edges~\vv\ and~\vv.
+%from \autoref{thm:cpgc} \(|\vv\times\vv|=|\vv||\vv|\sin\theta\) where \(\theta\)~is the angle between~\vv\ and~\vv, and so \(\theta=0\)\,.
+%Since \(\sin\theta=\sin0=0\)\,, the length \(|\vv\times\vv|=0\) and so \(\vv\time\vv=\ov\) (\autoref{thm:veclen0}).
+from \autoref{thm:cpgd}, \(|\vv\times\vv|\) is the area of the parallelogram with edges~\vv\ and~\vv.
 But such a parallelogram has zero area, so \(|\vv\times\vv|=0\)\,.
-Since the only vector of length zero is the zero vector (Theorem~\ref{thm:veclen0}), \(\vv\times\vv=\ov\).
+Since the only vector of length zero is the zero vector (\autoref{thm:veclen0}), \(\vv\times\vv=\ov\).
 \end{itemize}
 \end{proof}
 
@@ -615,10 +627,10 @@ Since the only vector of length zero is the zero vector (Theorem~\ref{thm:veclen
 
 
 \begin{example} \label{eg:}
-As an example of Theorem~\ref{thm:cppa}, Example~\ref{eg:cpijk} showed that \(\iv\times\jv=\kv\)\,, whereas reversing the order of the cross product gives the negative \(\jv\times\iv=-\kv\)\,.  
-Given Example~\ref{eg:cpnvp} derived \(\vv\times\wv=5\iv+10\jv-10\kv\) in the case when \(\vv=-2\iv+3\jv+2\kv\) and \(\wv=2\iv+2\jv+3\kv\)\,, what is \(\wv\times\vv\)?
+As an example of \autoref{thm:cppa}, \autoref{eg:cpijk} showed that \(\iv\times\jv=\kv\)\,, whereas reversing the order of the cross product gives the negative \(\jv\times\iv=-\kv\)\,.  
+Given \autoref{eg:cpnvp} derived \(\vv\times\wv=5\iv+10\jv-10\kv\) in the case when \(\vv=-2\iv+3\jv+2\kv\) and \(\wv=2\iv+2\jv+3\kv\)\,, what is \(\wv\times\vv\)?
 \begin{solution} 
-By Theorem~\ref{thm:cppa},
+By \autoref{thm:cppa},
 \(\wv\times\vv=-(\vv\times\wv)=-5\iv-10\jv+10\kv\)\,.
 \end{solution}
 \end{example}
@@ -627,13 +639,13 @@ By Theorem~\ref{thm:cppa},
 \begin{example} \label{eg:}
 Given \((\iv+\jv+\kv)\times(-2\iv-\jv)=\iv-2\jv+\kv\)\,, what is \((3\iv+3\jv+3\kv)\times(-2\iv-\jv)\)?
 \begin{solution} 
-The first vector is \(3(\iv+\jv+\kv)\) so by Theorem~\ref{thm:cppb},
-\begin{eqnarray*}
-&&(3\iv+3\jv+3\kv)\times(-2\iv-\jv)
-\\&=&[3(\iv+\jv+\kv)]\times(-2\iv-\jv)
-\\&=&3[(\iv+\jv+\kv)\times(-2\iv-\jv)]
-\\&=&3[\iv-2\jv+\kv]=3\iv-6\jv+3\kv\,.
-\end{eqnarray*}
+The first vector is \(3(\iv+\jv+\kv)\) so by \autoref{thm:cppb},
+\begin{align*}
+&(3\iv+3\jv+3\kv)\times(-2\iv-\jv)
+\\&=[3(\iv+\jv+\kv)]\times(-2\iv-\jv)
+\\&=3[(\iv+\jv+\kv)\times(-2\iv-\jv)]
+\\&=3[\iv-2\jv+\kv]=3\iv-6\jv+3\kv\,.
+\end{align*}
 \end{solution}
 \end{example}
 
@@ -646,40 +658,44 @@ For vectors \(\uv=-\iv+3\kv\)\,, \(\vv=\iv+3\jv+5\kv\)\,, and \(\wv=-2\iv+\jv-\k
 \\&&\uv\times\wv=-3\iv-7\jv-\kv\,,
 \\&&\vv\times\wv=-8\iv-9\jv+7\kv\,.
 \end{eqnarray*}
-What is the cross product \((-\iv+3\kv)\times(-\iv+4\jv+4\kv)\)?
-\begin{parts}
-\item \(5\iv-2\jv+8\kv\)
-\item \(\iv-17\jv+10\kv\)
-\item \(-6\iv+15\jv-2\kv\)
-\item \(-11\iv-16\jv+6\kv\)
-\item \(-12\iv+\jv-4\kv\)
-\item \(-17\iv-\jv+4\kv\)
-\end{parts}
-Also, which is \((\iv+3\jv+5\kv)\times(-3\iv+\jv+2\kv)\)?
+Which is the cross product \((-\iv+3\kv)\times(-\iv+4\jv+4\kv)\)?
+\actposs{\(-12\iv+\jv-4\kv\)}
+{\(\iv-17\jv+10\kv\)}
+{\(-11\iv-16\jv+6\kv\)}
+{\(-17\iv-\jv+4\kv\)}
+%\begin{parts}
+%%\item \(5\iv-2\jv+8\kv\)
+%\item \(\iv-17\jv+10\kv\)
+%%\item \(-6\iv+15\jv-2\kv\)
+%\item \(-11\iv-16\jv+6\kv\)
+%\item\actans \(-12\iv+\jv-4\kv\)
+%\item \(-17\iv-\jv+4\kv\)
+%\end{parts}
+Also, which is \((\iv+3\jv+5\kv)\times(-3\iv+\jv+2\kv)\)? %\(\iv-17\jv+10\kv\)
 \end{activity}
 
 
 
 \begin{example} \label{eg:}
-The properties of Theorem~\ref{thm:cpp} empower algebraic manipulation.
-Use such algebraic manipulation, and the identities among \idx{standard unit vector}s of Example~\ref{eg:cpijk}, compute the cross product \((\iv-\jv)\times(4\iv+2\kv)\).
+The properties of \autoref{thm:cpp} empower algebraic manipulation.
+Use such algebraic manipulation, and the identities among \idx{standard unit vector}s of \autoref{eg:cpijk}, compute the cross product \((\iv-\jv)\times(4\iv+2\kv)\).
 \begin{solution} In full detail:
-\begin{eqnarray*}
-&&(\iv-\jv)\times(4\iv+2\kv)
-\\&=&(\iv-\jv)\times(4\iv)+(\iv-\jv)\times(2\kv) 
+\begin{align*}
+&(\iv-\jv)\times(4\iv+2\kv)
+\\&=(\iv-\jv)\times(4\iv)+(\iv-\jv)\times(2\kv) 
 \quad(\text{by Thm~\ref{thm:cppc}})
-\\&=&4(\iv-\jv)\times\iv+2(\iv-\jv)\times\kv
+\\&=4(\iv-\jv)\times\iv+2(\iv-\jv)\times\kv
 \quad(\text{by Thm~\ref{thm:cppb}})
-\\&=&-4\iv\times(\iv-\jv)-2\kv\times(\iv-\jv)
+\\&=-4\iv\times(\iv-\jv)-2\kv\times(\iv-\jv)
 \quad(\text{by Thm~\ref{thm:cppa}})
-\\&=&-4[\iv\times\iv+\iv\times(-\jv)]-2[\kv\times\iv+\kv\times(-\jv)]
+\\&=-4[\iv\times\iv+\iv\times(-\jv)]-2[\kv\times\iv+\kv\times(-\jv)]
 \quad(\text{by Thm~\ref{thm:cppc}})
-\\&=&-4[\iv\times\iv-\iv\times\jv]-2[\kv\times\iv-\kv\times\jv]
+\\&=-4[\iv\times\iv-\iv\times\jv]-2[\kv\times\iv-\kv\times\jv]
 \quad(\text{by Thm~\ref{thm:cppb}})
-\\&=&-4[\ov-\kv]-2[\jv-(-\iv)]
-\quad(\text{by Example~\ref{eg:cpijk}})
-\\&=&-2\iv-2\jv+4\kv\,.
-\end{eqnarray*}
+\\&=-4[\ov-\kv]-2[\jv-(-\iv)]
+\quad(\text{by \autoref{eg:cpijk}})
+\\&=-2\iv-2\jv+4\kv\,.
+\end{align*}
 \end{solution}
 \end{example}
 
@@ -730,15 +746,15 @@ Our challenge is to derive that the volume of the parallelepiped is~\(|\uv\cdot(
 The volume of the parallelepiped is the area of its base times its height.
 \begin{itemize}
 \item The base of the parallelepiped is the parallelogram formed with edges~\vv\ and~\wv.
-Hence the base has area~\(|\vv\times\wv|\) (Theorem~\ref{thm:cpgd}).
+Hence the base has area~\(|\vv\times\wv|\) (\autoref{thm:cpgd}).
 
 \item The height of the parallelepiped is then that part of~\uv\ in the direction of a \idx{normal vector} to~\vv\ and~\wv.
-We know that \(\vv\times\wv\) is orthogonal to both~\vv\ and~\wv\ (Theorem~\ref{thm:cpga}), so by trigonometry the height must be \(|\uv|\cos\theta\) for angle~\(\theta\) between~\uv\ and \(\vv\times\wv\), as illustrated below.
+We know that \(\vv\times\wv\) is orthogonal to both~\vv\ and~\wv\ (\autoref{thm:cpga}), so by trigonometry the height must be \(|\uv|\cos\theta\) for angle~\(\theta\) between~\uv\ and \(\vv\times\wv\), as illustrated below.
 \begin{center}
 \pppd1
 \end{center}
 To cater for cases where \(\vv\times\wv\) points in the opposite direction to that shown, the height is~\(|\uv||\cos\theta|\).
-The dot product  determines this cosine (Theorem~\ref{thm:anglev}):
+The dot product  determines this cosine (\autoref{thm:anglev}):
 \begin{equation*}
 \cos\theta=\frac{\uv\cdot(\vv\times\wv)}{|\uv||\vv\times\wv|}\,.
 \end{equation*}
@@ -757,7 +773,7 @@ Consequently, the volume of the parallelepiped equals
 
 
 
-\begin{definition} \label{def:}
+\begin{definition} \label{def:sctrpr}
 For every three vectors \uv, \vv\ and~\wv\ in~\(\RR^3\), the \bfidx{scalar triple product}\index{triple product, scalar} is \(\uv\cdot(\vv\times\wv)\).
 \end{definition}
 
@@ -787,13 +803,13 @@ Use the scalar triple product to find the area of the parallelepiped formed by v
 \end{tikzpicture}}
 \end{center}
 \begin{solution} 
-Example~\ref{eg:apvw} found the cross product \(\vv\times\wv=-2\iv+4\jv-4\kv\)\,.
+\autoref{eg:apvw} found the cross product \(\vv\times\wv=-2\iv+4\jv-4\kv\)\,.
 So the scalar triple product \(\uv\cdot(\vv\times\wv)=(2\jv+\kv)\cdot(-2\iv+4\jv-4\kv)=8-4=4\)\,.
 Hence the volume of the parallelepiped is~\(4\) (cubic units). 
 
 The order of the vectors in a scalar triple product only affects the sign of the result.  
 For example, we also find the volume of this parallelepiped via~\(\vv\cdot(\uv\times\wv)\).
-Returning to the procedure of Example~\ref{eg:nviax} to find the cross product gives
+Returning to the procedure of \autoref{eg:nviax} to find the cross product gives
 \setlength{\unitlength}{1.2ex}
 \def\abc#1{\begin{vmatrix}\begin{picture}(5.3,6)
 %\put(0,0){\framebox(5,5){}}
@@ -833,8 +849,8 @@ Hence the volume of the parallelepiped is~\(|-4|=4\) as before.
 
 
 
-Using the procedure of Example~\ref{eg:nviax} to find a \idx{scalar triple product} establishes a strong connection to the \idx{determinant}s of Chapter~\ref{ch:ddm}.
-In the second solution to the previous Example~\ref{eg:stppv}, in finding \(\uv\times\wv\), the unit vectors~\iv, \jv\ and~\kv\  just acted as place holding symbols to eventually ensure a multiplication by the correct component of~\vv\ in the dot product.
+Using the procedure of \autoref{eg:nviax} to find a \idx{scalar triple product} establishes a strong connection to the \idx{determinant}s of Chapter~\ref{ch:ddm}.
+In the second solution to the previous \autoref{eg:stppv}, in finding \(\uv\times\wv\), the unit vectors~\iv, \jv\ and~\kv\  just acted as place holding symbols to eventually ensure a multiplication by the correct component of~\vv\ in the dot product.
 We could seamlessly combine the two products by replacing the symbols~\iv, \jv\ and~\kv\ directly with the corresponding component of~\vv:
 {%%%%%%
 \setlength{\unitlength}{1.6ex}
@@ -886,7 +902,7 @@ Chapter~\ref{ch:ddm} shows that this computation of volume generalises to determ
 
 
 \begin{exercise} \label{ex:cpijk} 
-Use Definition~\ref{def:cp} to establish some of the \idx{standard unit vector} identities in Example~\ref{eg:cpijk}: 
+Use \autoref{def:cp} to establish some of the \idx{standard unit vector} identities in \autoref{eg:cpijk}: 
 \begin{enumerate}
 \item \(\jv\times\kv=\iv\)\,, \(\kv\times\jv=-\iv\)\,, \(\jv\times\jv=\ov\)\,;
 \item \(\kv\times\iv=\jv\)\,, \(\iv\times\kv=-\jv\)\,, \(\kv\times\kv=\ov\)\,.
@@ -898,7 +914,7 @@ Use Definition~\ref{def:cp} to establish some of the \idx{standard unit vector} 
 
 
 \begin{exercise} \label{ex:} 
-Use Definition~\ref{def:cp}, perhaps via the procedure used in Example~\ref{eg:nviax}, to determine the following cross products. 
+Use \autoref{def:cp}, perhaps via the procedure used in \autoref{eg:nviax}, to determine the following cross products. 
 Confirm each cross product is orthogonal to the two vectors in the given product.
 Show your details.
 % u=0+round(randn(1,3)*3), v=0+round(randn(1,3)*3), uv=cross(u,v)
@@ -1008,14 +1024,14 @@ Find a \idx{normal vector} to each of the planes.
 
 
 \begin{exercise} \label{ex:cpga} 
-Use Definition~\ref{def:cp} to prove that for all vectors \(\vv,\wv\in\RR^3\), the cross product~\(\vv\times\wv\)~is orthogonal to~\wv.
+Use \autoref{def:cp} to prove that for all vectors \(\vv,\wv\in\RR^3\), the cross product~\(\vv\times\wv\)~is orthogonal to~\wv.
 \end{exercise}
 
 
 
 
 \begin{exercise} \label{ex:cpgc} 
-For all vectors \(\vv,\wv\in\RR^3\) prove the identity \(|\vv\times\wv|^2=|\vv|^2|\wv|^2-(\vv\cdot\wv)^2\) (an identity invoked in the proof of Theorem~\ref{thm:cpgc}). 
+For all vectors \(\vv,\wv\in\RR^3\) prove the identity \(|\vv\times\wv|^2=|\vv|^2|\wv|^2-(\vv\cdot\wv)^2\) (an identity invoked in the proof of \autoref{thm:cpgc}). 
 Use the algebraic Definitions~\ref{def:dotprod} and~\ref{def:cp} of the dot and cross products to expand both sides of the identity and show both sides expand to the same complicated expression.
 \end{exercise}
 
@@ -1023,7 +1039,7 @@ Use the algebraic Definitions~\ref{def:dotprod} and~\ref{def:cp} of the dot and 
 
 
 \begin{exercise} \label{ex:} 
-Using Theorem~\ref{thm:cpp}, and the identities among \idx{standard unit vector}s of Example~\ref{eg:cpijk}, compute the following cross products.
+Using \autoref{thm:cpp}, and the identities among \idx{standard unit vector}s of \autoref{eg:cpijk}, compute the following cross products.
 Record and justify each step in detail.
 % uv=0+round(randn(2,3).^2),cross(uv(1,:),uv(2,:))
 \begin{parts}
@@ -1056,7 +1072,7 @@ You are given that three specific vectors~\uv, \vv\ and~\wv\ in~\(\RR^3\) have t
 \\&&\uv\times\wv=\iv-\kv\,,
 \\&&\vv\times\wv=-\iv+2\jv\,.
 \end{eqnarray*}
-Use Theorem~\ref{thm:cpp} to compute the following cross products.
+Use \autoref{thm:cpp} to compute the following cross products.
 Record and justify each step in detail.
 %cs=0+round(randn(2,3).^2), xy=cs*uvw; cross(xy(1,:),xy(2,:))
 
@@ -1085,21 +1101,21 @@ Record and justify each step in detail.
 
 
 \begin{exercise} \label{ex:cppa} 
-Use Definition~\ref{def:cp} to algebraically prove Theorem~\ref{thm:cppa}---the property that \(\wv\times\vv=-(\vv\times\wv)\).
-Explain how this property also follows from the basic geometry of the cross product (Theorem~\ref{thm:cpg}).
+Use \autoref{def:cp} to algebraically prove \autoref{thm:cppa}---the property that \(\wv\times\vv=-(\vv\times\wv)\).
+Explain how this property also follows from the basic geometry of the cross product (\autoref{thm:cpg}).
 \end{exercise}
 
 
 
 \begin{exercise} \label{ex:cppb} 
-Use Definition~\ref{def:cp} to algebraically prove Theorem~\ref{thm:cppb}---the property that \((c\vv)\times\wv=c(\vv\times\wv)=\vv\times(c\wv)\).
-Explain how this property also follows from the basic geometry of the cross product (Theorem~\ref{thm:cpg})---consider \(c>0\), \(c=0\) and \(c<0\) seperately.
+Use \autoref{def:cp} to algebraically prove \autoref{thm:cppb}---the property that \((c\vv)\times\wv=c(\vv\times\wv)=\vv\times(c\wv)\).
+Explain how this property also follows from the basic geometry of the cross product (\autoref{thm:cpg})---consider \(c>0\), \(c=0\) and \(c<0\) seperately.
 \end{exercise}
 
 
 
 \begin{exercise} \label{ex:cppc} 
-Use Definition~\ref{def:cp} to algebraically prove Theorem~\ref{thm:cppc}---the distributive property that \(\uv\times(\vv+\wv)=\uv\times\vv+\uv\times\wv\).
+Use \autoref{def:cp} to algebraically prove \autoref{thm:cppc}---the distributive property that \(\uv\times(\vv+\wv)=\uv\times\vv+\uv\times\wv\).
 \end{exercise}
 
 

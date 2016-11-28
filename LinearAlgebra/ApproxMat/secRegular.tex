@@ -26,12 +26,12 @@ In particular, suppose they are measured to errors~\(\pm0.05\)\,.
 Solve the equations.
 \begin{solution} 
 \begin{itemize}
-\item Using Procedure~\ref{pro:unisol} in \script, form the matrix and the right-hand side
+\item Using \autoref{pro:unisol} in \script, form the matrix and the right-hand side
 \begin{verbatim}
 A=[0.5 0.3;1.1 0.7]
 b=[1.0;2.0]
 \end{verbatim}
-Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) which previously we would call only just outside the `good' range (Procedure~\ref{pro:unisol}).
+Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) which previously we would call only just outside the `good' range (\autoref{pro:unisol}).
 \marginpar{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle,domain=-5:10
@@ -74,7 +74,7 @@ Let's perturb the matrix~\(A\) by amounts consistent with its experimental error
 For equally valid matrices~\(A\), to within experimental error, the predicted solutions are all over the place!
 
 
-\item If the matrix itself has errors, then we must reconsider Procedure~\ref{pro:unisol}.
+\item If the matrix itself has errors, then we must reconsider \autoref{pro:unisol}.
 The \svd\ empowers a sensible resolution.
 Compute an \svd\ of the matrix, \(A=\usv\), with \verb|[U,S,V]=svd(A)| to find \twodp
 \setbox\ajrqrbox\hbox{\qrcode{% 2x2 approx
@@ -96,7 +96,7 @@ A=\begin{bmatrix} -0.41 & -0.91
 \end{equation*}
 Because the matrix~\(A\) has errors~\(\pm0.05\), the small singular value of~\(0.01\) might as well be zero: it is zero to experimental error.
 That is, because the matrix~\(A_1\) is a distance \(\|A-A_1\|=0.01\) away from~\(A\), and this distance is less than the experimental error of~\(0.05\), then it is better to solve the equation with the singular~\(A_1\) instead of~\(A\).
-The appropriate solution algorithm is then Procedure~\ref{pro:appsol} for inconsistent equations (not Procedure~\ref{pro:unisol}).
+The appropriate solution algorithm is then \autoref{pro:appsol} for inconsistent equations (not \autoref{pro:unisol}).
 Thus \twodp
 \begin{enumerate}
 \item \(\zv=\tr U\bv=(-2.23,-0.10)\);
@@ -109,7 +109,7 @@ to deduce \(\yv=(-1.56,y_2)\);
 The four different `answers' computed above are just four different points on this line.
 
 \item To choose between this infinitude of solutions on the line, extra information must be provided by the context\slash application\slash modelling.  
-For example, often one prefers the solution of smallest length\slash magnitude, obtained by setting \(y_2=0\) (Theorem~\ref{thm:smallsoln}); that is, \(\xv_{\text{smallest}}=(1.32,0.83)\).
+For example, often one prefers the solution of smallest length\slash magnitude, obtained by setting \(y_2=0\) (\autoref{thm:smallsoln}); that is, \(\xv_{\text{smallest}}=(1.32,0.83)\).
 \end{itemize}
 \end{solution}
 \end{example}
@@ -122,17 +122,18 @@ The coefficients in the following pair of linear equations are obtained from an 
 \begin{equation*}
 0.8x+1.1y=4,\quad 0.6x+0.8y=3\,.
 \end{equation*}
-By checking how well the equations are satisfied, which of the following cannot be a plausible solution~\((x,y)\) of the pair of equations?
+By checking how well the equations are satisfied, which of the following \emph{cannot} be a plausible solution~\((x,y)\) of the pair of equations?
 %\begin{verbatim}
 %for i=1:999, A=round(5+rand(2)*10)/10; if abs(cond(A)-200)<100,break, end,end, A=A,condA=cond(A)
 %x=[5;0]+round([0.806;-0.592]*randn*10)/5,res=A*x-[4;3]
 %\end{verbatim}
-\begin{parts}
-\item \((3.6,1)\)
-\item \((5,0)\)
-\item \((5.6,0.8)\) \actans
-\item \((6.6,-1.2)\)
-\end{parts}
+\actposs{\((5.6,0.8)\)}{\((3.6,1)\)}{\((5,0)\)}{\((6.6,-1.2)\)}
+%\begin{parts}
+%\item \((3.6,1)\)
+%\item \((5,0)\)
+%\item \((5.6,0.8)\) \actans
+%\item \((6.6,-1.2)\)
+%\end{parts}
 \end{activity}
 
 
@@ -186,7 +187,7 @@ For safety, even in `exact' computation, every \idx{singular value} smaller than
 
 
 \begin{activity}
-In some system of linear equations the singular values of the matrix are
+In some system of linear equations the five singular values of the matrix are
 %svd(hilb(5)+0.01*randn(5))
 \begin{equation*}
 1.5665,\quad
@@ -196,20 +197,21 @@ In some system of linear equations the singular values of the matrix are
 0.0014.
 \end{equation*}
 Given the matrix components have errors of about~\(0.02\), what is the effective rank of the matrix?
-\partswidth=5em
-\begin{parts}
-\item 1
-\item 2
-\item 3 \actans
-\item 4
-\end{parts}
+\actposs[4]3124
+%\partswidth=5em
+%\begin{parts}
+%\item 1
+%\item 2
+%\item 3 \actans
+%\item 4
+%\end{parts}
 \end{activity}
 
-The final step in Procedure~\ref{pro:appmat} arises because in many cases an infinite number of possible solutions are derived.
+The final step in \autoref{pro:appmat} arises because in many cases an infinite number of possible solutions are derived.
 The linear algebra cannot presume which is best for your application.
 Consequently, you will have to be aware of the freedom, and make a choice based on extra information from your particular application.
 \begin{itemize}
-\item For example, in a \textsc{ct}scan such as Example~\ref{eg:ctscan} one would usually prefer the grayest result in order to avoid diagnosing artifices.
+\item For example, in a \textsc{ct}scan such as \autoref{eg:ctscan} one would usually prefer the grayest result in order to avoid diagnosing artifices.
 \item For example, in the data mining task of fitting curves or surfaces to data, one would instead usually prefer a curve or surface with fewest non-zero coefficients.
 \end{itemize}
 Such extra information from the application is essential. 
@@ -399,7 +401,7 @@ Explore the effects of various assumptions about possible errors in~\(A\) upon t
 Enter the matrix~\(A\) into \script\ with \index{hilb()@\texttt{hilb()}}\verb|A=hilb(5)| for the above \(5\times5\) Hilbert matrix, and enter the right-hand side with \verb|b=ones(5,1)|.
 \begin{itemize}
 \item First assume there is insignificant error in~\(A\) (there is always the base error of~\(10^{-15}\) in computation).
-Then Procedure~\ref{pro:unisol} finds that although the reciprocal of the condition number \(\verb|rcond(A)|\approx10^{-6}\) is bad, the unique solution to \(A\xv=\vec1\)\,, obtained via \verb|x=A\b|, is
+Then \autoref{pro:unisol} finds that although the reciprocal of the condition number \(\verb|rcond(A)|\approx10^{-6}\) is bad, the unique solution to \(A\xv=\vec1\)\,, obtained via \verb|x=A\b|, is
 \begin{equation*}
 \xv=(5,-120,630,-1120,630).
 \end{equation*}
@@ -420,7 +422,7 @@ x=V(:,1:k)*y(1:k)
 \item Second suppose the errors in~\(A\) are roughly~\(10^{-5}\).
 This level of error is a concern as \(\verb|rcond|\approx10^{-6}\) so errors would be magnified by~\(10^6\) in a direct solution of \(A\xv=\vec1\)\,.
 Here we explore when all errors are in~\(A\) and none in the right-hand side vector~\(\vec 1\).
-To explore, adopt Procedure~\ref{pro:appmat}.
+To explore, adopt \autoref{pro:appmat}.
 \begin{enumerate}
 \item Find an \svd\ \(A=\usv\) via \verb|[U,S,V]=svd(A)| \twodp
 \begin{verbatim}
@@ -453,7 +455,7 @@ More informatively, the singular values have the following wide range of magnitu
 \sigma_5=3.29\cdot10^{-6}.
 \end{eqnarray*}
 \item Because the assumed error~\(10^{-5}\) satisfies \(\sigma_4>10^{-5}>\sigma_5\) the matrix~\(A\) is effectively of rank four, \(k=4\)\,.
-\item Solving the system \(A\xv=\usv\xv=\vec1\) as rank four, in the least square sense, Procedure~\ref{pro:appsol} gives \twodp
+\item Solving the system \(A\xv=\usv\xv=\vec1\) as rank four, in the least square sense, \autoref{pro:appsol} gives \twodp
 \begin{enumerate}
 \item \(\zv=\tr U\vec1=(-2.00,-0.97,-0.24,-0.04,0.00)\),
 \item neglect the fifth component of~\zv\ as an error and obtain the first four components of~\yv\ via \verb|y=z(1:4)./diag(S(1:4,1:4))| so that
@@ -475,11 +477,11 @@ and a general solution includes the arbitrary multiple~\(y_5\) of the last colum
 \end{enumerate}
 
 \item Third suppose the errors in~\(A\) are roughly~\(10^{-3}\).
-Re-adopt Procedure~\ref{pro:appmat}.
+Re-adopt \autoref{pro:appmat}.
 \begin{enumerate}
 \item Use the same \svd, \(A=\usv\).
 \item Because the assumed error~\(10^{-3}\) satisfies \(\sigma_3>10^{-3}>\sigma_4\) the matrix~\(A\) is effectively of rank three, \(k=3\)\,.
-\item Solving the system \(A\xv=\usv\xv=\vec1\) as rank three, in the least square sense, Procedure~\ref{pro:appsol} gives \twodp\ the same~\zv, and the same first three components in
+\item Solving the system \(A\xv=\usv\xv=\vec1\) as rank three, in the least square sense, \autoref{pro:appsol} gives \twodp\ the same~\zv, and the same first three components in
 \begin{equation*}
 \yv=(-1.28,-4.66,-21.43,y_4,y_5),
 \end{equation*}
@@ -497,11 +499,11 @@ and a general solution includes the arbitrary multiples of the last columns of~\
 \end{enumerate}
 
 \item Lastly suppose the errors in~\(A\) are roughly~\(0.05\).
-Re-adopt Procedure~\ref{pro:appmat}.
+Re-adopt \autoref{pro:appmat}.
 \begin{enumerate}
 \item Use the same \svd, \(A=\usv\).
 \item Because the assumed error~\(0.05\) satisfies \(\sigma_2>0.05>\sigma_3\) the matrix~\(A\) is effectively of rank two, \(k=2\)\,.
-\item Solving the system \(A\xv=\usv\xv=\vec1\) as rank two, in the least square sense, Procedure~\ref{pro:appsol} gives \twodp\ the same~\zv, and the same first two components in
+\item Solving the system \(A\xv=\usv\xv=\vec1\) as rank two, in the least square sense, \autoref{pro:appsol} gives \twodp\ the same~\zv, and the same first two components in
 \begin{equation*}
 \yv=(-1.28,-4.66,y_3,y_4,y_5),
 \end{equation*}
@@ -528,7 +530,7 @@ To appropriately solve systems of linear equations we must know the level of err
 
 
 \begin{example}[translating temperatures] \label{eg:}
-Recall Example~\ref{eg:infertemp2} attempts to fit a quartic polynomial to observations (plotted in the margin) of the relation between Celsius and Fahrenheit temperature. 
+Recall \autoref{eg:infertemp2} attempts to fit a quartic polynomial to observations (plotted in the margin) of the relation between Celsius and Fahrenheit temperature. 
 The attempt failed because \verb|rcond| is too small.
 Let's try again now that we can cater for matrices with errors.
 Recall the data between temperatures reported by a European and an American are the following:
@@ -546,7 +548,7 @@ T_E&15&26&11&23&27\\
 T_A&60&80&51&74&81
 \end{array}
 \end{equation*}
-Example~\ref{eg:infertemp2} attempts to fit the data with the quartic polynomial
+\autoref{eg:infertemp2} attempts to fit the data with the quartic polynomial
 \begin{equation*}
 T_A=c_1+c_2T_E+c_3T_E^2+c_4T_E^3+c_5T_E^4,
 \end{equation*}
@@ -563,7 +565,7 @@ and deduced the following system of equations for the coefficients
 In order to find a robust solution, here let's approximate both the matrix and the right-hand side vector because both the matrix and the vector come from real data with errors of about up to~\(\pm0.5^\circ\).
 
 \begin{solution}
-Now invoke Procedure~\ref{pro:appmat} to approximate the system of linear equations, and solve the approximate problem.
+Now invoke \autoref{pro:appmat} to approximate the system of linear equations, and solve the approximate problem.
 \begin{enumerate}
 \item
 There is a problem in approximating the matrix: the columns are of wildly different sizes.  
@@ -925,7 +927,7 @@ b=log([0.048
  0.105])
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-Implement Procedure~\ref{pro:appmat}.
+Implement \autoref{pro:appmat}.
 \begin{enumerate}
 \item Here there is no need to \index{data scaling}scale the vector~\bv\ as all entries are essentially the same.
 There is no need to scale the matrix~\(A\) as all entries mean the same, namely simply zero or one depending upon whether  beam passes through the a pixel square.
@@ -975,7 +977,7 @@ V =
 
 \item Here choose the rank of the matrix to be effectively seven as two of the nine singular values, namely \(0.51\) and~\(0.00\), are less than about the size of the expected error, roughly~\(0.5\).
 
-\item Use the rank seven \svd\ to solve the approximate system as in Procedure~\ref{pro:appsol}.
+\item Use the rank seven \svd\ to solve the approximate system as in \autoref{pro:appsol}.
 \begin{enumerate}
 \item Find \(\zv=\tr U\bv\) via \verb|z=U'*b| to find
 \begin{verbatim}
@@ -1121,7 +1123,7 @@ Tikhonov regularisation shares with the normal equation some practical limitatio
 
 
 \begin{example} \label{eg:}
-Use \idx{Tikhonov regularisation} to solve the system of Example~\ref{eg:2regu}:
+Use \idx{Tikhonov regularisation} to solve the system of \autoref{eg:2regu}:
 \begin{equation*}
 0.5x+0.3y=1\quad\text{and}\quad 1.1x+0.7y=2\,,
 \end{equation*}
@@ -1157,7 +1159,7 @@ x=AtA\slosh Atb
 to find the Tikhonov regularised solution is \(\xv=(1.39,0.72)\).%
 \footnote{Interestingly, \(\texttt{rcond}=0.003\) for the Tikhonov system which is worse than \(\texttt{rcond}(A)\).  The regularisation only works because pre-multiplying by~\(\tr A\) puts both sides in the row space of~\(A\) (except for numerical error and the small~\(\alpha^2I\) factor).}
 This solution is reasonably close to the smallest solution found by the \svd\ which is~\((1.32,0.83)\).
-However, Tikhonov regularisation gives no hint of the reasonable general solutions found by the \svd\ approach of Example~\ref{eg:2regu}.
+However, Tikhonov regularisation gives no hint of the reasonable general solutions found by the \svd\ approach of \autoref{eg:2regu}.
 
 Change the regularisation parameter to \(\alpha=0.01\) and \(\alpha=1\) and see that both of these choices degrade the Tikhonov solution.
 \end{solution}
@@ -1173,12 +1175,16 @@ In the linear system for \(\xv=(x,y)\),
 \end{equation*}
 the coefficients on the left-hand side are in error by about~\(\pm0.3\).  
 Tikhonov regularisation should solve which one of the following systems?
-\begin{parts}
-\item \(\begin{bmatrix} 20.1&-6\\-6&2.1 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)
-\item \(\begin{bmatrix} 20.3&-6\\-6&2.3 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)
-\item \(\begin{bmatrix} 18.1&-5\\-10&3.1 \end{bmatrix}\xv=\begin{bmatrix} -19\\11 \end{bmatrix}\)
-\item \(\begin{bmatrix} 18.3&-5\\-10&3.3 \end{bmatrix}\xv=\begin{bmatrix} -19\\11 \end{bmatrix}\)
-\end{parts}
+\actposs{\(\begin{bmatrix} 20.1&-6\\-6&2.1 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)}
+{\(\begin{bmatrix} 20.3&-6\\-6&2.3 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)}
+{\(\begin{bmatrix} 18.1&-5\\-10&3.1 \end{bmatrix}\xv=\begin{bmatrix} -19\\11 \end{bmatrix}\)}
+{\(\begin{bmatrix} 18.3&-5\\-10&3.3 \end{bmatrix}\xv=\begin{bmatrix} -19\\11 \end{bmatrix}\)}
+%\begin{parts}
+%\item \(\begin{bmatrix} 20.1&-6\\-6&2.1 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 20.3&-6\\-6&2.3 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 18.1&-5\\-10&3.1 \end{bmatrix}\xv=\begin{bmatrix} -19\\11 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 18.3&-5\\-10&3.3 \end{bmatrix}\xv=\begin{bmatrix} -19\\11 \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
@@ -1207,7 +1213,7 @@ For small Tikhonov parameter~\(\alpha\) the bias is small, but even so such a bi
 
 
 \begin{example} \label{eg:}
-Use \idx{Tikhonov regularisation} to solve \(A\xv=\bv\) for the matrix and vector of Example~\ref{eg:3regmata}.
+Use \idx{Tikhonov regularisation} to solve \(A\xv=\bv\) for the matrix and vector of \autoref{eg:3regmata}.
 \begin{solution} 
 Here the matrix and right-hand side vector are
 \begin{equation*}
@@ -1251,13 +1257,13 @@ x=AtA\slosh Atb
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 which then finds the Tikhonov regularised solution is \(\xv=(0.10,-0.11,-0.30)\).
 To two decimal places this is the same as the smallest solution found by an \svd.
-However, Tikhonov regularisation gives no hint of the reasonable general solutions found by the \svd\ approach of Example~\ref{eg:3regmata}.
+However, Tikhonov regularisation gives no hint of the reasonable general solutions found by the \svd\ approach of \autoref{eg:3regmata}.
 \end{solution}
 \end{example}
 
 
 
-Although Definition~\ref{def:Tikreg} does not look like it, Tikhonov regularisation relates directly to the \svd\ regularisation of Section~\ref{sec:svdir}.
+Although \autoref{def:Tikreg} does not look like it, Tikhonov regularisation relates directly to the \svd\ regularisation of Section~\ref{sec:svdir}.
 The next theorem establishes the connection.
 
 
@@ -1322,10 +1328,10 @@ with solution
 \item \(y_i=z_i/(\sigma_i+\alpha^2/\sigma_i)\) for \(i=1,\ldots,r\)\,, and
 \item \(y_i=0\) for \(i=r+1,\ldots,n\) (since \(\alpha^2>0\)).
 \end{itemize}
-This establishes that solving the Tikhonov system is equivalent to performing the \svd\ Procedure~\ref{pro:appsol} for the least square solution to \(A\xv=\bv\) but with two changes in Step~\ref{as:a2}:
+This establishes that solving the Tikhonov system is equivalent to performing the \svd\ \autoref{pro:appsol} for the least square solution to \(A\xv=\bv\) but with two changes in Step~\ref{as:a2}:
 \begin{itemize}
 \item for $i=1,\ldots,r$ divide by \(\tilde\sigma_i:=\sigma_i+\alpha^2/\sigma_i\) instead of the true singular value~\(\sigma_i\) (the upcoming marginal plot shows \(\tilde\sigma\) versus~\(\sigma\)), and
-\item for $i=r+1,\ldots,n$ set \(y_i=0\) to obtain the smallest possible solution (Theorem~\ref{thm:smallsoln}).
+\item for $i=r+1,\ldots,n$ set \(y_i=0\) to obtain the smallest possible solution (\autoref{thm:smallsoln}).
 \end{itemize}
 Thus \idx{Tikhonov regularisation} of \(A\xv=\bv\) is equivalent to finding the smallest, {least square}, solution of the system \(\tilde A\xv=\bv\)\,.
 \end{proof}
@@ -1333,7 +1339,7 @@ Thus \idx{Tikhonov regularisation} of \(A\xv=\bv\) is equivalent to finding the 
 
 There is another reason to be careful when using Tikhonov regularisation. 
 Yes, it gives a nice, neat, unique solution.
-However, it does not hint that there may be an infinite number of equally good nearby solutions (as found through Procedure~\ref{pro:appmat}).
+However, it does not hint that there may be an infinite number of equally good nearby solutions (as found through \autoref{pro:appmat}).
 Among those equally good nearby solutions may be ones that you prefer in your application.
 
 \Needspace{5\baselineskip}
@@ -1361,7 +1367,7 @@ Thus the parameter~\(\alpha\) should not be much larger than the expected error 
 The condition number of~\(A\) may be very bad.
 However, as the marginal graph shows the smallest~\(\tilde\sigma\geq2\alpha\).
 Thus, in the regularised system the \idx{condition number} of the effective matrix~\(\tilde A\) is approximately~\(\sigma_1/(2\alpha)\).
-We need to choose the regularisation parameter~\(\alpha\) large enough so that \(\frac{\sigma_1}{2\alpha}\times\)(relative error in~\bv) is an acceptable \idx{relative error} in the solution~\xv\ (Theorem~\ref{thm:erramp}).
+We need to choose the regularisation parameter~\(\alpha\) large enough so that \(\frac{\sigma_1}{2\alpha}\times\)(relative error in~\bv) is an acceptable \idx{relative error} in the solution~\xv\ (\autoref{thm:erramp}).
 It is only when the \idx{regularisation parameter}~\(\alpha\) is big enough that the regularisation will be effective in finding a \idx{least square} approximation. 
 
 \end{itemize}
@@ -1538,7 +1544,7 @@ Finally, use an \svd\ to find a general solution consistent with the error in th
 
 
 \begin{exercise} \label{ex:hilb7} 
-Recall Example~\ref{eg:hilb5} explores the effective rank of the \(5\times5\) \idx{Hilbert matrix} depending upon a supposed level of error.
+Recall \autoref{eg:hilb5} explores the effective rank of the \(5\times5\) \idx{Hilbert matrix} depending upon a supposed level of error.
 Similarly, explore the effective rank of the \(7\times7\) \idx{Hilbert matrix} (\verb|hilb(7)| in \script) depending upon supposed levels of error in the matrix.
 What levels of error in the components would give what effective rank of the matrix?
 \answer{rank one, \(1>e>0.3\);
@@ -1562,7 +1568,7 @@ seven,~\(3\times 10^{-9}>e\).}
 
 \begin{exercise} \label{ex:orb4Periods2} 
 Recall Exercise~\ref{ex:orb4Periods} considered the inner four planets in the solar system.
-The exercise fitted fit a quadratic polynomial to the orbital period \(T=c_1+c_2R+c_3R^2\) as a function of distance~\(R\) using the data of Table~\ref{tbl:orb4Periods}.
+The exercise fitted fit a quadratic polynomial to the orbital period \(T=c_1+c_2R+c_3R^2\) as a function of distance~\(R\) using the data of \autoref{tbl:orb4Periods}.
 In view of the bad condition number, \(\verb|rcond|=6\cdot10^{-6}\), revisit the task with the more powerful techniques of this section.
 Use the data for Mercury, Venus and Earth to fit the quadratic and predict the period for Mars.
 \index{data scaling}Discuss how the bad condition number is due to the failure in Exercise~\ref{ex:orb4Periods} of scaling the data in the matrix.
@@ -1602,7 +1608,7 @@ Discuss why \(\xv\), \(\xv'\) and~\(\xv''\) are all reasonably close to the smal
 
 
 \begin{exercise} \label{ex:} 
-Recall that Example~\ref{eg:hilb5} explores the effective rank of the \(5\times5\) \idx{Hilbert matrix} depending upon a supposed level of error.
+Recall that \autoref{eg:hilb5} explores the effective rank of the \(5\times5\) \idx{Hilbert matrix} depending upon a supposed level of error.
 Here do the alternative and solve the system \(A\xv=\vec 1\) via \idx{Tikhonov regularisation} using a wide range of various regularisation parameters~\(\alpha\).
 Comment on the relation between the solutions obtained for various~\(\alpha\) and those obtained in the example for the various presumed error---perhaps plot the components of~\xv\ versus parameter~\(\alpha\) (on a log-log plot).
 \end{exercise}
@@ -1611,9 +1617,9 @@ Comment on the relation between the solutions obtained for various~\(\alpha\) an
 
 
 \begin{exercise} \label{ex:} 
-Recall Example~\ref{eg:ctscan3x3d2} used a \(3\times3\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
+Recall \autoref{eg:ctscan3x3d2} used a \(3\times3\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
 Redo this example with \idx{Tikhonov regularisation} recognising that the entries in matrix~\(A\) have errors up to roughly~\(0.5\).
-Discuss the relation between the solution of Example~\ref{eg:ctscan3x3d2} that of \idx{Tikhonov regularisation}.
+Discuss the relation between the solution of \autoref{eg:ctscan3x3d2} that of \idx{Tikhonov regularisation}.
 \end{exercise}
 
 

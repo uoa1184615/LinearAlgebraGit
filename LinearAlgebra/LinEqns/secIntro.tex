@@ -9,24 +9,28 @@
 \end{comment}
 
 
-The great aspect of linear equations is that we can straightforwardly manipulate them algebraically to deduce results: some results are not only immensely useful in applications but also in further theory.
+The great aspect of linear equations is that we straightforwardly manipulate them algebraically to deduce results: some results are not only immensely useful in applications but also in further theory.
 
 \begin{example}[simple algebraic manipulation] \label{eg:tempman}
-Following Example~\ref{eg:infertemp}, recall that the temperature in Fahrenheit \(T_F=\frac95T_C+32\) in terms of the temperature in Celsius,~\(T_C\).
+Following \autoref{eg:infertemp}, recall that the temperature in Fahrenheit \(T_F=\frac95T_C+32\) in terms of the temperature in Celsius,~\(T_C\).
 Straightforward algebra answers the following questions.
 \begin{itemize}
 \item What is a formula for the Celsius temperature as a function of the temperature in Fahrenheit?  
 Answer by rearranging the equation: subtract~\(32\) from both sides, \(T_F-32=\frac95T_C\)\,;  multiply both sides by~\(\frac59\), then \(\frac59(T_F-32)=T_C\)\,; that is, \(T_C=\frac59T_F-\frac{160}9\)\,.
 
-\item What temperature has the same \emph{numerical value} in the two scales?  That is, when is \(T_F=T_C\)\,?  Answer by algebra: we want \(T_C=T_F=\frac95T_C+32\)\,; subtract~\(\frac95T_C\) from both sides to give \(-\frac45T_C=32\)\,; multiply both sides by~\(-\frac54\), then \(T_C=-\frac54\times32=-40\)\,. 
+\item What temperature has the same \emph{numerical value} in the two scales?  
+That is, when is \(T_F=T_C\)\,?  
+Answer by algebra: we want \(T_C=T_F=\frac95T_C+32\)\,; subtract~\(\frac95T_C\) from both sides to give \(-\frac45T_C=32\)\,; multiply both sides by~\(-\frac54\), then \(T_C=-\frac54\times32=-40\)\,. 
+Algebra discovers that~\(-40^\circ\)C is the same temperature as~\(-40^\circ\)F.
 \end{itemize}
 \end{example}
 
 
 
 Linear equations are characterised by each unknown never being multiplied or divided by another unknown, or itself, nor inside `curvaceous' functions.  
-Table~\ref{tbl:linnonlin} lists examples of both.
-The power of linear algebra is especially important for large numbers of unknown variables: generally we say there are \(n\)~variables.
+\autoref{tbl:linnonlin} lists examples of both.
+The power of linear algebra is especially important for large numbers of unknown variables: thousands or millions of variables are common in modern applications.
+Generally we say there are \(n\)~variables.
 \begin{table}
 \caption{examples of linear equations, and equations that are not linear (called \idx{nonlinear equation}s).}
 \label{tbl:linnonlin}
@@ -48,7 +52,7 @@ r-5s=2-3s+2t & r/s=2+t \\
 
 
 \begin{definition} \label{def:lineqn} 
-A \bfidx{linear equation} in the \(n\) variables \(x_1,x_2,\ldots,x_n\) is an equation that can be written in the form
+A \bfidx{linear equation} in the \(n\)~variables \(x_1,x_2,\ldots,x_n\) is an equation that can be written in the form
 \begin{equation*}
 \lincomb axn=b
 \end{equation*}
@@ -131,13 +135,14 @@ Algebraically, the rearrangement of both equations to exactly the same \(y=2-x/2
 
 \begin{activity}
 Solve the system \(x+5y=9\) and \(x+2y=3\) to find the solution is which of the following?
-\partswidth=5em
-\begin{parts}
-\item \((-1,1)\)
-\item \((-1,2)\)\actans
-\item \((1,2)\)
-\item \((1,1)\)
-\end{parts}
+\actposs[4]{\((-1,2)\)}{\((-1,1)\)}{\((1,2)\)}{\((1,1)\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \((-1,1)\)
+%\item \((-1,2)\)\actans
+%\item \((1,2)\)
+%\item \((1,1)\)
+%\end{parts}
 \end{activity}
 
 
@@ -148,7 +153,7 @@ Solve the system \(x+5y=9\) and \(x+2y=3\) to find the solution is which of the 
 The Global Positioning System (\gps) is a network of 24~satellites orbiting the Earth.
 Each satellite knows very accurately its position at all times, and broadcasts this position by radio.
 Receivers, such as smart-phones, pick up these signals and from the time taken for the signals to arrive know the distance to those satellites within `sight'.
-The receivers solve a system of equations and inform you of their precise position.
+Each receiver solves a system of equations and informs you of its precise position.
 
 Let's solve a definite example problem, but in two dimensions for simplicity.
 Suppose you and your smart-phone are at some unknown location~\((x,y)\) in the 2D-plane, on the Earth's surface where the Earth has radius about \(6\)\,Mm (here all distances are measured in units of Megametres,~Mm, thousands of~km).
@@ -167,7 +172,7 @@ But your smart-phone picks up the broadcast from three \gps\ satellites, and the
     \node[left] at (axis cs:11,14) {$17$};
 \end{axis}
 \end{tikzpicture}}%
-From the broadcast and the timing, suppose you then know that a satellite at~\((29,10)\) is \(25\)~away, one at \((17,19)\) is \(20\)~away, and one at~\((13,18)\) is \(17\)~away (as drawn in the margin).
+From the broadcast and the timing, suppose you then know that a satellite at~\((29,10)\) is \(25\)~away (all in~Mm), one at \((17,19)\) is \(20\)~away, and one at~\((13,18)\) is \(17\)~away (as drawn in the margin).
 Find your location~\((x,y)\).
 
 
@@ -209,7 +214,7 @@ Let's subtract the third equation from each of the other two, then the nonlinear
     \addplot[blue,thick,domain=2:6] {23-4*x};
 \end{axis}
 \end{tikzpicture}}%
-Graphically, include these two lines to the picture, namely \(y=-7+2x\) and \(y=23-4x\), and then their intersection gives your location.
+Graphically, include these two lines to the picture (in blue), namely \(y=-7+2x\) and \(y=23-4x\), and then their intersection gives your location.
 
 Algebraically, one could add the two equations together: \((-2x+y)+(-4x-y)=-7-23\) which reduces to \(-6x=-30\)\,, that is, \(x=5\)\,.
 Then either equation, say the first, determines~\(y=-7+2x=-7+2\cdot 5=3\)\,.  
@@ -393,7 +398,7 @@ Thus the only solution to this system of three linear equations in three variabl
 \end{solution}
 \end{example}
 
-The sequence of marginal graphs in the previous Example~\ref{eg:3eq3var} illustrate the equations at each main step in the algebraic manipulations.  
+The sequence of marginal graphs in the previous \autoref{eg:3eq3var} illustrate the equations at each main step in the algebraic manipulations.  
 Apart from keeping the solution point fixed, the sequence of graphs looks rather chaotic.
 Indeed there is no particular geometric pattern or interpretation of the steps in this algebra.
 One feature of Section~\ref{sec:fisvd} is that we discover how the so-called `singular value decomposition' solves linear equations via a great method with a strong geometric interpretation.
@@ -404,8 +409,8 @@ This geometric interpretation then empowers further methods useful in applicatio
 \paragraph{Transform into abstract setting}
 Linear algebra has an important aspect crucial in applications.
 A crucial skill in applying linear algebra is that it takes an application problem and transforms it into an abstract setting.
-Example~\ref{eg:infertemp} transformed the problem of inferring a line through two data points into solving two linear equations.
-The next Example~\ref{eg:inf3pts} similarly transforms the problem of inferring a plane through three data points into solving three linear equations.
+\autoref{eg:infertemp} transformed the problem of inferring a line through two data points into solving two linear equations.
+The next \autoref{eg:inf3pts} similarly transforms the problem of inferring a plane through three data points into solving three linear equations.
 The original application is often not easily recognisable in the abstract version. 
 Nonetheless, it is the abstraction by linear algebra that empowers immense results.
 
@@ -420,7 +425,7 @@ This task we do.
 %\end{comment}
 
 Suppose we observe that at some given temperature and humidity we get some rainfall: let's find a formula that predicts the rainfall from temperature and humidity measurements.
-In some \emph{completely artificial units}, Table~\ref{tbl:thr} lists measured temperature (`temp'), humidity (`humid'), and rainfall (`rain').
+In some \emph{completely artificial units}, \autoref{tbl:thr} lists measured temperature (`temp'), humidity (`humid'), and rainfall (`rain').
 \begin{table}
 \caption{in some artificial units, this table lists measured temperature, humidity, and rainfall.}
 \label{tbl:thr}
@@ -451,7 +456,7 @@ To infer a relation to hold generally---to fill in the gaps between the known me
 \text{(`rain')}=x_1+x_2\text{(`temp')}+x_3\text{(`humid')},
 \end{equation*}
 for some coefficients~\(x_1\), \(x_2\) and~\(x_3\) to be determined.
-The measured data of Table~\ref{tbl:thr} constrains and determines these coefficients:
+The measured data of \autoref{tbl:thr} constrains and determines these coefficients:
 substitute each triple of measurements to require
 \begin{equation*}
 \begin{array}{l}
@@ -466,7 +471,7 @@ x_1+x_2-x_3=-2,
 \\x_1+2x_2+x_3=1.
 \end{array}
 \end{equation*}
-The previous Example~\ref{eg:3eq3var} solves this set of three linear equations in three unknowns to determine the solution that the coefficients \((x_1,x_2,x_3)=(1,-1,2)\).
+The previous \autoref{eg:3eq3var} solves this set of three linear equations in three unknowns to determine the solution that the coefficients \((x_1,x_2,x_3)=(1,-1,2)\).
 That is, the requisite formula to infer rain from any given temperature and humidity is 
 \begin{equation*}
 \text{(`rain')}=1-\text{(`temp')}+2\text{(`humid')}.
@@ -562,8 +567,8 @@ x y z c
 \end{tabular}
 \end{figure}
 The solution of three linear equations in three variables leads to finding the intersection point of three planes.
-Figure~\ref{fig:3eq3var} illustrates the three general possibilities: a unique solution (as in Example~\ref{eg:3eq3var}), or infinitely many solutions, or no solution.
-The solution of two linear equations in two variables also has the same three possibilities---as deduced and illustrated in Example~\ref{eg:2eqs2vars}.
+Figure~\ref{fig:3eq3var} illustrates the three general possibilities: a unique solution (as in \autoref{eg:3eq3var}), or infinitely many solutions, or no solution.
+The solution of two linear equations in two variables also has the same three possibilities---as deduced and illustrated in \autoref{eg:2eqs2vars}.
 The next section establishes the general key property of a system of any number of \idx{linear equation}s in any number of variables: the system has either
 \begin{itemize}
 \item a \idx{unique solution} (a \idx{consistent} system), or
@@ -716,7 +721,7 @@ Graphically and algebraically solve each of the following systems of three equat
 
 \begin{exercise}[{Global Positioning System} in 2D] \label{ex:gps2} 
 For each case below, and in two dimensions, suppose you know from three \gps\ satellites that you and your \gps\ receiver are given distances away from the given locations of each of the three satellites (locations and distance are in~Mm).  
-Following Example~\ref{eg:gps2}, determine your position.  
+Following \autoref{eg:gps2}, determine your position.  
 \begin{parts}
 \item \(\begin{array}{r@{\text{ from }}l}
 25&(7,30)\\26&(10,30)\\29&(20,27)

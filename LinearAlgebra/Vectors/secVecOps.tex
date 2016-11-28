@@ -8,7 +8,7 @@
 We want to be able to make sense of statements such as ``king --~man +~women =~queen''.
 To do so we need to define operations on vectors.
 Useful operations on vectors are those which are physically meaningful.
-Then our algebraic manipulations will be able to derive powerful results in applications.
+Then our algebraic manipulations will derive powerful results in applications.
 The first two basic operations are addition and scalar multiplication.
 
 
@@ -61,7 +61,7 @@ the vector~\((2,-1)\) is drawn from the end of \((1,3)\), and the end point of t
 \end{center}
 This result~\((3,2)\) is the same if the vector~\((1,3)\) is drawn from the end of~\((2,-1)\) as shown above-right.
 That is, \((2,-1)+(1,3)=(1,3)+(2,-1)\).
-That the order of addition is immaterial is the \idx{commutative law} of vector addition that is established in general by Theorem~\ref{thm:vecopsa}.
+That the order of addition is immaterial is the \idx{commutative law} of vector addition that is established in general by \autoref{thm:vecopsa}.
 
 \newcommand{\temp}[2]{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,view={#2}{30}
@@ -156,13 +156,14 @@ Equivalently, obtain the result through stretching the vector by a factor of the
 
 \begin{activity}
 Combining multiplication and addition, what is \(\uv+2\vv\) for vectors \(\uv=(4,1)\) and \(\vv=(-1,-3)\)?
-\partswidth=5em
-\begin{parts}
-\item \((1,-8)\)
-\item \((2,-5)\)
-\item \((3,-2)\)
-\item \((5,-8)\)
-\end{parts} 
+\actposs[4]{\((2,-5)\)}{\((1,-8)\)}{\((3,-2)\)}{\((5,-8)\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \((1,-8)\)
+%\item\actans \((2,-5)\)
+%\item \((3,-2)\)
+%\item \((5,-8)\)
+%\end{parts} 
 \end{activity}
 
 
@@ -171,11 +172,11 @@ Combining multiplication and addition, what is \(\uv+2\vv\) for vectors \(\uv=(4
 Let two vectors in~\(\RR^n\) be \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\), and let \(c\)~be a \idx{scalar}.
 Then the \bfidx{sum} or \bfidx{addition} of~\uv\ and~\vv, denoted \(\uv+\vv\), is the vector obtained by joining~\vv\ to~\uv\ `head-to-tail', and is computed as
 \begin{equation*}
-\uv+\vv=(u_1+v_1,u_2+v_2,\ldots,u_n+v_n).
+\uv+\vv:=(u_1+v_1,u_2+v_2,\ldots,u_n+v_n).
 \end{equation*}
 The \bfidx{scalar multiplication} of~\uv\ by~\(c\), denoted~\(c\uv\),  is the vector of length~\(|c||\uv|\) in the direction of~\uv\ when \(c>0\) but in the opposite direction when \(c<0\), and is computed as
 \begin{equation*}
-c\uv=(cu_1,cu_2,\ldots,cu_n).
+c\uv:=(cu_1,cu_2,\ldots,cu_n).
 \end{equation*}
 The \bfidx{negative} of~\uv\, denoted~\(-\uv\), is defined as the scalar multiple \(-\uv=(-1)\uv\), and is a vector of the same length as~\uv\ but in exactly the opposite direction.
 The \bfidx{difference} \(\uv-\vv\) is defined as \(\uv+(-\vv)\) and is equivalently the vector drawn from the end of~\vv\ to the end of~\uv.
@@ -206,13 +207,14 @@ For the vectors~\uv\ and~\vv\ shown in the margin, draw the vectors
 \begin{activity}
 For the vectors~\uv\ and~\vv\ shown in the margin, what is the result vector that is also shown?
 \marginpar{\vecops45{-2}14}
-\partswidth=5em
-\begin{parts}
-\item \(\uv+\vv\)
-\item \(\vv+\uv\)
-\item \(\uv-\vv\)
-\item \(\vv-\uv\)
-\end{parts}
+\actposs[4]{\(\vv-\uv\)}{\(\uv+\vv\)}{\(\vv+\uv\)}{\(\uv-\vv\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(\uv+\vv\)
+%\item \(\vv+\uv\)
+%\item \(\uv-\vv\)
+%\item\actans \(\vv-\uv\)
+%\end{parts}
 \end{activity}
 
 
@@ -308,12 +310,13 @@ That is, for three examples, the following are equivalent ways of writing the sa
 
 \begin{activity}
 Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
-\begin{parts}
-\item \((3,1)\)
-\item \((5,0,2)\)
-\item \((0,3,0,1)\)
-\item \((0,3,0,0,1)\)
-\end{parts}
+\actposs{\((0,3,0,0,1)\)}{\((3,1)\)}{\((5,0,2)\)}{\((0,3,0,1)\)}
+%\begin{parts}
+%\item \((3,1)\)
+%\item \((5,0,2)\)
+%\item \((0,3,0,1)\)
+%\item\actans \((0,3,0,0,1)\)
+%\end{parts}
 \end{activity}
 
 
@@ -388,12 +391,13 @@ Which pair of the following vectors are closest---have the smallest distance bet
 \node[right] at (axis cs:2,4) {$(2,4)$};
 \end{axis}
 \end{tikzpicture}}
-\begin{parts}
-\item \av, \bv \actans
-\item \av, \cv
-\item \bv, \cv
-\item two pairs
-\end{parts}
+\actposs{\av, \bv}{\av, \cv}{\bv, \cv}{two of the pairs}
+%\begin{parts}
+%\item \av, \bv \actans
+%\item \av, \cv
+%\item \bv, \cv
+%\item two pairs
+%\end{parts}
 \end{activity}
 
 
@@ -489,12 +493,16 @@ Which one of the following is \emph{not} a valid vector equation for the line pl
 \addplot+[thick,no marks] {1+x/2};
 \end{axis}
 \end{tikzpicture}}%
-\begin{parts}
-\item \((2,2)+(1,1/2)t\)
-\item \((0,1)+(2,1)t\)
-\item \((-1,1/2)+(2,-1)t\)\actans
-\item \((-2,0)+(-4,-2)t\)
-\end{parts}
+\actposs{\((-1,1/2)+(2,-1)t\)}
+{\((2,2)+(1,1/2)t\)}
+{\((0,1)+(2,1)t\)}
+{\((-2,0)+(-4,-2)t\)}
+%\begin{parts}
+%\item \((2,2)+(1,1/2)t\)
+%\item \((0,1)+(2,1)t\)
+%\item \((-1,1/2)+(2,-1)t\)\actans
+%\item \((-2,0)+(-4,-2)t\)
+%\end{parts}
 \end{activity}
 
 
@@ -637,7 +645,7 @@ Recall \(-\uv=(-1)\uv=(-1)(1,2)=(-1,-2)\), and so \(\uv+(-\uv) =(1,2)+(-1,-2)=(1
 
 \item \(|a\uv|=|a|\cdot|\uv|\).
 \begin{solution} 
-Now \(|a|=|-\tfrac12|=\tfrac12\), and the length \(|\uv|=\sqrt{1^2+2^2}=\sqrt5\) (Definition~\ref{def:veclen}).
+Now \(|a|=|-\tfrac12|=\tfrac12\), and the length \(|\uv|=\sqrt{1^2+2^2}=\sqrt5\) (\autoref{def:veclen}).
 Consequently, \(|a\uv| =|(-\tfrac12)(1,2)| =|(-\tfrac12,-1)| =\sqrt{(-\tfrac12)^2+(-1)^2} =\sqrt{\tfrac14+1} =\sqrt{\tfrac54} =\tfrac12\sqrt5=|a|\cdot|\uv|\) as required.
 \end{solution}
 
@@ -667,7 +675,7 @@ We prove property~\ref{thm:vecopsa}, and leave the proof of other properties as 
 The approach is to establish the properties of vector operations using the known properties of scalar operations.
  
 Property~\ref{thm:vecopsa} is the commutativity of vector addition.
-Example~\ref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in one case, and the margin here shows another case.
+\autoref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in one case, and the margin here shows another case.
 In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \newcommand{\twov}[5]{%
   \pgfmathparse{#2*0.9+#4}\let\h\pgfmathresult
@@ -789,7 +797,7 @@ We frequently use these algebraic properties in rearranging and solving vector e
 \begin{example} \label{eg:}
 Find the vector~\xv\ such that \(3\xv-2\uv=6\vv\)\,.
 \begin{solution} 
-Using Theorem~\ref{thm:vecops}, all the following equations are equivalent:
+Using \autoref{thm:vecops}, all the following equations are equivalent:
 \begin{eqnarray*}
 3\xv-2\uv&=&6\vv
 ;\\
@@ -831,9 +839,9 @@ But exercises and examples in this section often explicitly require full details
 
 
 \begin{example} \label{eg:}
-Rearrange \(3\xv-\av=2(\av+\xv)\) to write vector~\xv\ in terms of~\av: give excruciating detail of the justification using Theorem~\ref{thm:vecops}.
+Rearrange \(3\xv-\av=2(\av+\xv)\) to write vector~\xv\ in terms of~\av: give excruciating detail of the justification using \autoref{thm:vecops}.
 \begin{solution} 
-Using Theorem~\ref{thm:vecops}, the following statements are equivalent:
+Using \autoref{thm:vecops}, the following statements are equivalent:
 \begin{eqnarray*}
 3\xv-\av&=&2(\av+\xv)
 \\3\xv-\av&=&2\av+2\xv
@@ -1020,7 +1028,7 @@ Find a parametric equation of the line through the given two points.
 
 
 \begin{exercise} \label{ex:} 
-Verify the algebraic properties of Theorem~\ref{thm:vecops} for each of the following sets of vectors and scalars.
+Verify the algebraic properties of \autoref{thm:vecops} for each of the following sets of vectors and scalars.
 \begin{enumerate}
 \item \(\uv=2.4\iv-0.3\jv\), \(\vv=-1.9\iv+0.5\jv\), \(\wv=-3.5\iv-1.8\jv\), \(a=0.4\) and \(b=1.4\).
 \item \(\uv=(1/3,14/3)\), \(\vv=(4,4)\), \(\wv=(2/3,-10/3)\), \(a=-2/3\) and \(b=-1\).
@@ -1033,14 +1041,14 @@ Verify the algebraic properties of Theorem~\ref{thm:vecops} for each of the foll
 
 
 \begin{exercise} \label{ex:} 
-Prove in detail some algebraic properties chosen from Theorem~\ref{thm:vecopsb}--\ref{thm:vecopsj} on vector addition and scalar multiplication.
+Prove in detail some algebraic properties chosen from \autoref{thm:vecopsb}--\ref{thm:vecopsj} on vector addition and scalar multiplication.
 \end{exercise}
 
 
 
 
 \begin{exercise} \label{ex:} 
-For each of the following vectors equations, rearrange the equations to get vector~\xv\ in terms of the other vectors.  Give excruciating detail of the justification using Theorem~\ref{thm:vecops}.
+For each of the following vectors equations, rearrange the equations to get vector~\xv\ in terms of the other vectors.  Give excruciating detail of the justification using \autoref{thm:vecops}.
 \begin{enumerate}
 \item \(\xv+\av=\ov\).
 \item \(2\xv-\bv=3\bv\).

@@ -14,7 +14,7 @@
 The previous Section~\ref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
 We  continue to do so for small systems.  
 However, such by-hand solutions are tedious for systems bigger than say four equations in four unknowns.  
-For bigger systems with tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious repetitive calculuations.
+For bigger systems with tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious repetitive calculations.
 
 
 \subsection{Compute a system's solution}
@@ -26,7 +26,7 @@ It is unworthy of excellent persons to lose hours like slaves in the labour of c
 Computers primarily deal with numbers, not algebraic equations, so we have to abstract the coefficients of a system into a numerical data structure.
 We use matrices and vectors.
 \begin{example} \label{eg:}
-The first system of Example~\ref{eg:2eqs2vars:a}
+The first system of \autoref{eg:2eqs2vars:a}
 \begin{equation*}
 \begin{array}{l} x+y=3\\2x-4y=0 \end{array}
 \quad\text{is written}\quad
@@ -35,20 +35,26 @@ The first system of Example~\ref{eg:2eqs2vars:a}
 =\underbrace{\begin{bmatrix} 3\\0 \end{bmatrix}}_\bv .
 \end{equation*}
 That is, the system \(\begin{cases} x+y=3\\2x-4y=0 \end{cases}\)
-is equivalent to \(A\xv=\bv\) for the so-called coefficient matrix \(A=\begin{bmatrix} 1&1\\2&-4 \end{bmatrix}\), right-hand side vector \(\bv=(3,0)\), and vector of variables \(\xv=(x,y)\).
+is equivalent to \(A\xv=\bv\) for
+\begin{itemize}
+\item the so-called coefficient matrix \(A=\begin{bmatrix} 1&1\\2&-4 \end{bmatrix}\), 
+\item right-hand side vector \(\bv=(3,0)\), and 
+\item vector of variables \(\xv=(x,y)\).
+\end{itemize}
+
 \end{example}
 
 
 The beauty of the form \(A\xv=\bv\) is that the numbers involved in the system are abstracted into the matrix~\(A\) and vector~\bv: \script\ handles such numerical matrices and vectors.
 \begin{aside}
 In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
-However, Section~\ref{sec:moaa} defines a useful multiplicative meaning to this composite symbol. 
+Section~\ref{sec:moaa} then defines a crucial multiplicative meaning to this composite symbol. 
 \end{aside}%
-For some of you, writing a system in this matrix-vector form \(A\xv=\bv\) (Definition~\ref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
+For some of you, writing a system in this matrix-vector form \(A\xv=\bv\) (\autoref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
 However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: Section~\ref{sec:moaa} defines and explores such useful operations.
 
 \begin{definition}[matrix-vector form] \label{def:matvecsys}
-For a given \idx{system} of \(m\)~\idx{linear equation}s in \(n\)~variables
+For every given \idx{system} of \(m\)~\idx{linear equation}s in \(n\)~variables
 \begin{eqnarray*}
 &&a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\,,
 \\&&a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2\,,
@@ -80,7 +86,7 @@ x_1+2x_2+x_3=1\,.
 \end{parts}
 \begin{solution} 
 \begin{enumerate}
-\item The first system, that of Example~\ref{eg:3eq3var}, is of three equations in three variables (\(m=n=3\)) and is written in the form \(A\xv=\bv\) as
+\item The first system, that of \autoref{eg:3eq3var}, is of three equations in three variables (\(m=n=3\)) and is written in the form \(A\xv=\bv\) as
 \begin{equation*}
 \underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
@@ -109,19 +115,23 @@ Which of the following systems corresponds to the matrix-vector equation
 \begin{equation*}
 \begin{bmatrix} -1&3\\1&2 \end{bmatrix}\begin{bmatrix} u\\w \end{bmatrix}=\begin{bmatrix} 1\\0 \end{bmatrix}?
 \end{equation*}
-\begin{parts}
-\item \(\begin{matrix} -x+3y=1\\x+2y=0 \end{matrix}\)
-\item \(\begin{matrix} -u+w=1\\3u+2w=0 \end{matrix}\)
-\item \(\begin{matrix} -x+y=1\\3x+2y=0 \end{matrix}\)
-\item \(\begin{matrix} -u+3w=1\\u+2w=0 \end{matrix}\)
-\end{parts}
+\actposs{\(\begin{matrix} -u+3w=1\\u+2w=0 \end{matrix}\)}
+{\(\begin{matrix} -x+3y=1\\x+2y=0 \end{matrix}\)}
+{\(\begin{matrix} -u+w=1\\3u+2w=0 \end{matrix}\)}
+{\(\begin{matrix} -x+y=1\\3x+2y=0 \end{matrix}\)}
+%\begin{parts}
+%\item \(\begin{matrix} -x+3y=1\\x+2y=0 \end{matrix}\)
+%\item \(\begin{matrix} -u+w=1\\3u+2w=0 \end{matrix}\)
+%\item \(\begin{matrix} -x+y=1\\3x+2y=0 \end{matrix}\)
+%\item\actans \(\begin{matrix} -u+3w=1\\u+2w=0 \end{matrix}\)
+%\end{parts}
 \end{activity}
 
 
 
 
 \begin{procedure}[\idx{unique solution}] \label{pro:unisol}
-In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), use commands listed in Table~\ref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics} to:
+In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), use commands listed in \autoref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics} to:
 \begin{enumerate}
 \item form matrix~\(A\) and \idx{column vector}~\(\bv\);
 \item check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| exists and is not too small, \(1\geq\text{good} >10^{-2} >\text{poor} >10^{-4} >\text{bad} >10^{-8} >\text{terrible}\), (\verb|rcond(A)| is always between zero and one inclusive);
@@ -142,13 +152,13 @@ But, in practice, there is.
 
 
 \begin{table}
-\caption{To realise Procedure~\ref{pro:unisol}, and other procedures, we need these basics of \script\ as well as that of Table~\ref{tbl:mtlbpre}.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbbasics}
+\caption{To realise \autoref{pro:unisol}, and other procedures, we need these basics of \script\ as well as that of \autoref{tbl:mtlbpre}.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbbasics}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item The floating point numbers are extended by \index{Inf@\texttt{Inf}}\verb|Inf|, denoting `\idx{infinity}', and \index{NaN@\texttt{NaN}}\verb|NaN|, denoting `\idx{not a number}' such as the indeterminate~\(0/0\).
 \item \index{[\ldots]@\texttt{[\ldots]}}\verb|[ ... ; ... ; ... ]| forms both matrices and vectors, or use newlines instead of the semi-colons.
-\item \index{rcond()@\texttt{rcond()}}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} (defined precisely by Definition~\ref{def:condnum}).
+\item \index{rcond()@\texttt{rcond()}}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} (defined precisely by \autoref{def:condnum}).
 \item \index{A\slosh@\texttt{A\slosh}}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
 \item \index{=@\texttt{=}}Change an element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
 \item \index{.^@\texttt{.\^}}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| results in \verb|[1;4;9;16;25]|.
@@ -160,7 +170,7 @@ But, in practice, there is.
 \end{table}
 
 \begin{example} \label{eg:3eq3varc}
-Use \script\ to solve the system (from Example~\ref{eg:3eq3var})
+Use \script\ to solve the system (from \autoref{eg:3eq3var})
 \begin{equation*}
 \begin{array}{l}
 x_1+x_2-x_3=-2\,,\\
@@ -169,14 +179,14 @@ x_1+2x_2+x_3=1\,.
 \end{array}
 \end{equation*}
 \begin{solution} 
-Begin by writing the system in the abstract matrix-vector form \(A\xv=\bv\) as already done by Example~\ref{eg:matvecsys}.
+Begin by writing the system in the abstract matrix-vector form \(A\xv=\bv\) as already done by \autoref{eg:matvecsys}.
 %\,: here the system is written
 %\begin{equation*}
 %\underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 %\underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
 %=\underbrace{\begin{bmatrix} -2\\8\\1 \end{bmatrix}}_\bv .
 %\end{equation*}
-Then the three steps of Procedure~\ref{pro:unisol} are the following.
+Then the three steps of \autoref{pro:unisol} are the following.
 \begin{enumerate}
 \item Form matrix~\(A\) and {column vector}~\(\bv\) with the \script\ assignments
 \begin{aside}
@@ -186,9 +196,9 @@ Beware that the symbol~``\texttt{=}'' in \script\ is a procedural assignment of 
 A=[1 1 -1; 1 3 5; 1 2 1]
 b=[-2;8;1]
 \end{verbatim}
-Table~\ref{tbl:mtlbbasics} summarises that in \script: each line is one command; the \verb|=|~symbol assigns the value of the right-hand expression to the variable name of the left-hand side; and the \idx{brackets}~\verb|[ ]| construct matrices and vectors.
+\autoref{tbl:mtlbbasics} summarises that in \script: each line is one command; the \verb|=|~symbol assigns the value of the right-hand expression to the variable name of the left-hand side; and the \idx{brackets}~\verb|[ ]| construct matrices and vectors.
 \item Check the value of \verb|rcond(A)|: here it is~\(0.018\) which is in the good range.
-\item Since \verb|rcond(A)| is acceptable,  execute \verb|x=A\b| to compute the solution vector~\(\xv=(1,-1,2)\) (and assign it to the variable~\verb|x|, see Table~\ref{tbl:mtlbbasics}). 
+\item Since \verb|rcond(A)| is acceptable,  execute \verb|x=A\b| to compute the solution vector~\(\xv=(1,-1,2)\) (and assign it to the variable~\verb|x|, see \autoref{tbl:mtlbbasics}). 
 \end{enumerate}
 All together that is the four commands
 \begin{verbatim}
@@ -213,13 +223,17 @@ Such \idx{qr-code}s in the margin encodes these commands for you to possibly sca
 \begin{activity}
 % for i=1:9999,a=0+round(randn(2)*50); if ismember(abs(det(a)),[1 2 5 10]), break, end, end,  a=a, b=0+round(randn(2,1)*50), x=a\b, a'\b
 Use \script\ to solve the system \(7x+8y=42\) and \(32x+38y=57\), to find the answer for \((x,y)\) is
-\partswidth=5em
-\begin{parts}
-\item \(\begin{bmatrix} -94.5\\114 \end{bmatrix}\)
-\item \(\begin{bmatrix} 73.5\\342 \end{bmatrix}\)
-\item \(\begin{bmatrix} 114\\-94.5 \end{bmatrix}\)\actans
-\item \(\begin{bmatrix} 342\\73.5 \end{bmatrix}\)
-\end{parts}
+\actposs[4]{\(\begin{bmatrix} 114\\-94.5 \end{bmatrix}\)}
+{\(\begin{bmatrix} -94.5\\114 \end{bmatrix}\)}
+{\(\begin{bmatrix} 73.5\\342 \end{bmatrix}\)}
+{\(\begin{bmatrix} 342\\73.5 \end{bmatrix}\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(\begin{bmatrix} -94.5\\114 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 73.5\\342 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 114\\-94.5 \end{bmatrix}\)\actans
+%\item \(\begin{bmatrix} 342\\73.5 \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
@@ -227,7 +241,7 @@ Use \script\ to solve the system \(7x+8y=42\) and \(32x+38y=57\), to find the an
 
 
 \begin{example} \label{eg:3eq3vard}
-Following the previous Example~\ref{eg:3eq3varc}, solve each of the two systems:
+Following the previous \autoref{eg:3eq3varc}, solve each of the two systems:
 \begin{parts}
 \item \(\begin{array}{l}
 x_1+x_2-x_3=-2\,,\\
@@ -252,7 +266,7 @@ Begin by writing, or at least by imaging, each system in matrix-vector form:
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
 =\underbrace{\begin{bmatrix} -2\\5\\1 \end{bmatrix}}_\bv .
 \end{equation*}
-As the matrices and vectors are modifications of the previous Example~\ref{eg:3eq3varc} we reduce typing by modifying the matrix and vector of the previous example (using the ability to change a each element in a matrix, see Table~\ref{tbl:mtlbbasics}).
+As the matrices and vectors are modifications of the previous \autoref{eg:3eq3varc} we reduce typing by modifying the matrix and vector of the previous example (using the ability to change a each element in a matrix, see \autoref{tbl:mtlbbasics}).
 \begin{enumerate}
 \item For the first system execute \verb|A(3,2)=-3| and \verb|b(2)=5|
 to see the matrix and vector are now
@@ -311,7 +325,7 @@ x_1-2x_2+3x_3+x_4+2x_5&7\,,\\
 \end{equation*}
 
 \begin{solution} 
-Following Procedure~\ref{pro:unisol}, form the corresponding matrix and vector as
+Following \autoref{pro:unisol}, form the corresponding matrix and vector as
 \begin{verbatim}
 A=[1  -2   3   1   2
   -2  -6  -3  -2   2
@@ -346,7 +360,7 @@ that is, the solution \(\xv=(0.82,-1.37,-6.76,17.18,3.27)\) \twodp.
 
 
 \begin{example} \label{eg:}
-What system of linear equations are represented by the following matrix-vector expression?  and what is the result of using Procedure~\ref{pro:unisol} for this system?
+What system of linear equations are represented by the following matrix-vector expression?  and what is the result of using \autoref{pro:unisol} for this system?
 \begin{equation*}
 \begin{bmatrix} -7&3\\ 7&-5\\1&-2 \end{bmatrix}
 \begin{bmatrix} y\\z \end{bmatrix}
@@ -360,7 +374,7 @@ The corresponding system of linear equations is
 -7y+3z=3\,,\\7y-5z=-2\,,\\y-2z=1\,.
 \end{array}
 \end{equation*}
-Invoking Procedure~\ref{pro:unisol}:
+Invoking \autoref{pro:unisol}:
 \begin{enumerate}
 \item form matrix~\(A\) and \idx{column vector}~\(\bv\) with
 \begin{verbatim}
@@ -394,7 +408,7 @@ Using \texttt{rcond()} helps us to avoid confusing such an answer with a solutio
 
 \begin{example}[\idx{partial fraction} decomposition] \label{eg:}
 Recall that mathematical methods sometimes need to separate a rational function into a sum of simpler `partial' fractions.  
-For example, for some purposes\(\frac3{(x-1)(x+2)}\) needs to be written as \(\frac1{x-1}-\frac1{x+2}\)\,.  
+For example, for some purposes the fraction \(\frac3{(x-1)(x+2)}\) needs to be written as \(\frac1{x-1}-\frac1{x+2}\)\,.  
 Solving linear equations helps: \begin{itemize}
 \item here  pose that \(\frac3{(x-1)(x+2)} = \frac A{x-1}+\frac B{x+2}\) for some unknown~\(A\) and~\(B\); 
 \item then write the right-hand side over the common denominator,
@@ -477,7 +491,7 @@ As before, these coefficients give the decomposition as
 
 
 \begin{example}[\texttt{rcond} avoids disaster] \label{eg:infertemp2}
-In Example~\ref{eg:infertemp} an American and European compared temperatures and using two days temperatures discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
+In \autoref{eg:infertemp} an American and European compared temperatures and using two days temperatures discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
 Continuing the story, three days later they again meet and compare the temperatures they experienced: the American reporting that ``for the last three days it has been \(51^\circ\), \(74^\circ\) and~\(81^\circ\)'', whereas the European reports ``why, I recorded it as \(11^\circ\), \(23^\circ\) and~\(27^\circ\)''.
 The marginal figure plots this data with the original two data points, apparently confirming a reasonable linear relationship between the two temperature scales.
 \marginpar{%
@@ -507,7 +521,7 @@ Substituting each of the five pairs of \(T_E\) and~\(T_A\) into this equation gi
 &\vdots&\\
 81&=&c_1+27c_2+729c_3+19683c_4+531441c_5\,.
 \end{eqnarray*}
-In \script, form these into matrix-vector equation \(A\cv=\tv_A\) for the unknown coefficients \(\cv=(c_1,c_2,c_3,c_4,c_5)\), the vectors of American temperatures~\(\tv_A\), and the \(5\times5\) matrix~\(A\) constructed below (recall from Table~\ref{tbl:mtlbbasics} that \verb|te.^p| computes the \verb|p|th~power of each element in the column vector~\verb|te|).
+In \script, form these into matrix-vector equation \(A\cv=\tv_A\) for the unknown coefficients \(\cv=(c_1,c_2,c_3,c_4,c_5)\), the vectors of American temperatures~\(\tv_A\), and the \(5\times5\) matrix~\(A\) constructed below (recall from \autoref{tbl:mtlbbasics} that \verb|te.^p| computes the \verb|p|th~power of each element in the column vector~\verb|te|).
 \setbox\ajrqrbox\hbox{\qrcode{% plot temperatures, and matrix
 te=[15;26;11;23;27]
 ta=[60;80;51;74;81]
@@ -567,17 +581,17 @@ Disaster: the quartic polynomial relationship is clearly terrible as it is too w
 
 The problem is we forgot \verb|rcond|.
 In \script\ execute~\verb|rcond(A)| and discover \verb|rcond| is \(3\cdot10^{-9}\).
-This value is in the `terrible' range classified by Procedure~\ref{pro:unisol}.
+This value is in the `terrible' range classified by \autoref{pro:unisol}.
 Thus the solution of the linear equations must not be used: here the marginal plot indeed shows the solution coefficients are not acceptable.
 Always use \verb|rcond| to check for bad systems of linear equations.
 \end{solution}
 \end{example}
 
-The previous Example~\ref{eg:infertemp2} illustrates one of the `rules of thumb' in science and engineering: \emph{for data fitting, avoid using polynomials of degree higher than cubic.}
+The previous \autoref{eg:infertemp2} also illustrates one of the `rules of thumb' in science and engineering: \emph{for data fitting, avoid using polynomials of degree higher than cubic.}
 
 
 \begin{example}[{Global Positioning System} in space-time] \label{eg:gps3t}
-Recall the Example~\ref{eg:gps2}.
+Recall the \autoref{eg:gps2}.
 Consider the \gps\ receiver in your smart-phone.
 The phone's clock is generally in error, it may only be by a second but the \gps\ needs micro-second precision. 
 Because of such a timing unknown, five satellites determine our precise position in space \emph{and} time.
@@ -627,7 +641,7 @@ Given your phone also detects that four other satellites broadcast the following
 \((17,14,10)\) time shift~\(0.033\cdots\)\,s before;
 \((8,21,10)\) time shift~\(0.033\cdots\)\,s before; and
 \((22,9,8)\) time shift~\(0.04\)\,s before.
-Adapting the approach of Example~\ref{eg:gps2}, use linear algebra to determine your phone's location in space.
+Adapting the approach of \autoref{eg:gps2}, use linear algebra to determine your phone's location in space.
 
 \begin{solution} 
 Let your unknown position be~\((x,y,z)\) and the unknown time shift to the phone's clock~\(t\) be found from \(w=300t\)\,.
@@ -656,7 +670,7 @@ Combining the constants on the right-hand side, and moving the \(w\)~terms to th
 \\&&10x-10y-4z+4w=0\,,
 \\&&28x-24y-4z+4w=-20\,.
 \end{eqnarray*}
-Following Procedure~\ref{pro:unisol}, solve this system by forming the corresponding matrix and vector as
+Following \autoref{pro:unisol}, solve this system by forming the corresponding matrix and vector as
 \begin{verbatim}
 A=[32  -6 -30  0
    18 -22  -8  0
@@ -707,7 +721,7 @@ To solve \idx{linear equation}s with non-square matrices, or with poorly conditi
 \Needspace{7\baselineskip}
 \begin{aside}
 This and the next subsection are not essential, but many further courses currently assume knowledge of the content. 
-Theorems~\ref{thm:fred} and~\ref{thm:feweqns} are convenient to establish in the next subsection, but could alternatively be established using Procedure~\ref{pro:gensol}. 
+Theorems~\ref{thm:fred} and~\ref{thm:feweqns} are convenient to establish in the next subsection, but could alternatively be established using \autoref{pro:gensol}. 
 \end{aside}
 This subsection systematises the algebraic working of Examples~\ref{eg:2eqs2vars} and~\ref{eg:3eq3var}.
 The systematic approach empowers by-hand solution of systems of linear equations, together with two general properties on the number of solutions possible.
@@ -717,7 +731,7 @@ In hand calculations we often want to minimise writing, so the discussion here u
 Translating from one to the other is crucial even in a computing era as the computer also primarily deals with arrays of numbers, and we must interpret what those arrays of numbers mean in terms of linear equations.
 
 \begin{example} \label{eg:}
-Recall the system of linear equations of Example~\ref{eg:3eq3var}:
+Recall the system of linear equations of \autoref{eg:3eq3var}:
 \begin{equation*}
 \begin{array}{l}
 x_1+x_2-x_3=-2\,,\\
@@ -725,7 +739,7 @@ x_1+3x_2+5x_3=8\,,\\
 x_1+2x_2+x_3=1\,.
 \end{array}
 \end{equation*}
-The first crucial level of abstraction is to write this in the matrix-vector form, Example~\ref{eg:matvecsys},
+The first crucial level of abstraction is to write this in the matrix-vector form, \autoref{eg:matvecsys},
 \begin{equation*}
 \underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
@@ -763,7 +777,7 @@ Write down augmented matrices for the two following systems:
 &\iff&%\leftrightarrow&
 \begin{bmatrix} -7&3\V3\\ 7&-5\V-2\\1&-2\V1 \end{bmatrix}
 \end{eqnarray*} 
-An augmented matrix is not unique: it depends upon the order of the equations, and also the order you choose for the variables in~\xv.  
+An augmented matrix is not unique: it depends upon the order of the equations, and also upon the order you choose for the variables in~\xv.  
 The first example implicitly chose \(\xv=(r,s,t)\); if instead we choose to order the variables as \(\xv=(s,t,r)\), then  
 \begin{equation*}
 \begin{cases} 3s-2r=6\\s-4t=-\pi \end{cases}
@@ -777,12 +791,16 @@ Such variations to the augmented matrix are valid, but you must remember the cor
 
 \begin{activity}
 Which of the following \emph{cannot} be an augmented matrix for the system \(p+4q=3\) and \(-p+2q=-2\)\,?
-\begin{parts}
-\item \(\begin{bmatrix} 1&4\V3\\-1&2\V-2 \end{bmatrix}\)
-\item \(\begin{bmatrix} -1&2\V-2\\1&4\V3 \end{bmatrix}\)
-\item \(\begin{bmatrix} 4&1\V3\\2&-1\V-2 \end{bmatrix}\)
-\item \(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)\actans
-\end{parts}
+\actposs{\(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)}
+{\(\begin{bmatrix} 1&4\V3\\-1&2\V-2 \end{bmatrix}\)}
+{\(\begin{bmatrix} -1&2\V-2\\1&4\V3 \end{bmatrix}\)}
+{\(\begin{bmatrix} 4&1\V3\\2&-1\V-2 \end{bmatrix}\)}
+%\begin{parts}
+%\item \(\begin{bmatrix} 1&4\V3\\-1&2\V-2 \end{bmatrix}\)
+%\item \(\begin{bmatrix} -1&2\V-2\\1&4\V3 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 4&1\V3\\2&-1\V-2 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)\actans
+%\end{parts}
 \end{activity}
 
 
@@ -840,7 +858,7 @@ x+2y+z=1\,,\\ 2x-3y=2\,,\\ -3y-z=2\,.
 \end{equation*}
 Confirm with \script.
 \begin{solution} 
-In order to know what the row operations should find, let's first solve the system with \script\ via Procedure~\ref{pro:unisol}. 
+In order to know what the row operations should find, let's first solve the system with \script\ via \autoref{pro:unisol}. 
 In matrix-vector form the system is
 \begin{equation*}
 \begin{bmatrix} 1&2&1\\2&-3&0\\0&-3&-1 \end{bmatrix}
@@ -880,7 +898,7 @@ x+2y+z=1\\ 0x-7y-2z=0\\ 0x-3y-z=2
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\0&-7&-2\V0\\0&-3&-1\V2 \end{bmatrix}
 \\[0ex plus 1ex]
-\parbox{0.5\linewidth}{This makes the first column have a leading one (Definition~\ref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
+\parbox{0.5\linewidth}{This makes the first column have a leading one (\autoref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
 \\[0ex plus 1ex]
 \begin{cases}
 x+2y+z=1\\ 0x+y+\frac27z=0\\ 0x-3y-z=2
@@ -896,7 +914,7 @@ x+0y+\frac37z=1\\ 0x+y+\frac27z=0\\ 0x+0y-\frac17z=2
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&0&\frac37\V1\\0&1&\frac27\V0\\0&0&-\frac17\V2 \end{bmatrix}
 \\[0ex plus 1ex]
-\parbox{0.5\linewidth}{This makes the second column have the second leading one (Definition~\ref{def:rref}).  
+\parbox{0.5\linewidth}{This makes the second column have the second leading one (\autoref{def:rref}).  
 Start on the third column by multiplying the third equation\slash row by~\((-7)\).}
 \\[0ex plus 1ex]
 \begin{cases}
@@ -913,9 +931,9 @@ x+0y+0z=7\\ 0x+y+0z=4\\ 0x+0y+z=-14
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&0&0\V7\\0&1&0\V4\\0&0&1\V-14 \end{bmatrix}
 \end{eqnarray*}
-This completes the transformation of the equations\slash augmented matrix into a so-called \idx{reduced row echelon form} (Definition~\ref{def:rref}).
+This completes the transformation of the equations\slash augmented matrix into a so-called \idx{reduced row echelon form} (\autoref{def:rref}).
 From this form we read off the solution:  the system of equation on the left directly gives \(x=7\)\,, \(y=4\) and \(z=-14\)\,, that is, the solution vector \(\xv=(x,y,z)=(7,4,-14)\) (as computed by \script);
-the transformed augmented matrix on the right tells us exactly the same thing because (Definition~\ref{def:augmat}) it means the same as the matrix-vector 
+the transformed augmented matrix on the right tells us exactly the same thing because (\autoref{def:augmat}) it means the same as the matrix-vector 
 \begin{equation*}
 \begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}
 \begin{bmatrix} x\\y\\z \end{bmatrix}
@@ -930,7 +948,7 @@ which is the same as the system on the above-left and tells us the solution \(\x
 
 
 \begin{definition} \label{def:rref} 
-  A system of \idx{linear equation}s or (augmented) matrix is in \bfidx{reduced row echelon form} if:
+ A system of \idx{linear equation}s or (augmented) matrix is in \bfidx{reduced row echelon form} (\rref) if:
   \begin{enumerate}
 \item any equations with all zero coefficients, or rows of the matrix consisting entirely of zeros, are at the bottom; 
 \item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), and is in a variable\slash column to the left of any leading ones below it;
@@ -979,12 +997,6 @@ Hence there are no solutions to the system.
 \begin{solution} 
 This augmented matrix is the same as the previous except for a zero in the bottom right entry. 
 It is in \rref\ with leading ones in the first and second columns.
-Explicitly, the corresponding system of linear equations is
-\begin{equation*}
-x_1-x_3=1\,,\quad x_2-x_3=-2\,,\quad 0=0\,.
-\end{equation*}
-Now the last equation, \(0=0\)\,, is is always satisfied.
-Hence the first two equations determine solutions to the system: letting free variable \(x_3=s\) for arbitrary~\(s\) the two equations give solutions \(\xv=(1+s,-2+s,s)\).
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,height=5cm
 , view={20}{45}, axis equal image,zmin=-1,zmax=1
@@ -1005,14 +1017,19 @@ x y z c \\
 \addplot3[only marks,black,domain=-1:1,samples y=0]  ({1+x},{-2+x},{x});
 \end{axis}
 \end{tikzpicture}}%
+Explicitly, the corresponding system of linear equations is
+\begin{equation*}
+x_1-x_3=1\,,\quad x_2-x_3=-2\,,\quad 0=0\,.
+\end{equation*}
+The last equation, \(0=0\)\,, is is always satisfied.
+Hence the first two equations determine solutions to the system: letting free variable \(x_3=s\) for arbitrary~\(s\) the two equations give solutions \(\xv=(1+s,-2+s,s)\) (as illustrated in the margin).
 \end{solution}
 
 \item \(\begin{cases} x+2y=3\\ 0x+y=-2
 \end{cases}\)
 \begin{solution} 
-This system is not in \rref: although there are two leading ones multiplying \(x\) and~\(y\) in the first and the second equation respectively, the variable~\(y\) does not have zero coefficients in the first equation.  (A solution to this system exists, shown graphically in the margin, but the question does not ask for it.)
-\marginpar{%
-\begin{tikzpicture}[]
+This system is not in \rref: 
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
     , axis equal image, axis lines=middle,
     , xlabel={$x$},ylabel={$y$}, thick, no marks, grid, ymax=2.5
@@ -1020,15 +1037,16 @@ This system is not in \rref: although there are two leading ones multiplying \(x
     \addplot{(3-x)/2};
     \addplot{-2+0*x};
 \end{axis}
-\end{tikzpicture}
-}%
+\end{tikzpicture}}%
+although there are two leading ones multiplying \(x\) and~\(y\) in the first and the second equation respectively, the variable~\(y\) does not have zero coefficients in the first equation.  
+(A solution to this system exists, shown  in the margin, but the question does not ask for it.)
 \end{solution}
 
 \item \(\begin{bmatrix} -1&4&1&6\V-1
 \\3&0&1&-2\V-2
  \end{bmatrix}\)
 \begin{solution} 
-This augmented matrix is not in \rref\ as there are not even any leading ones. 
+This augmented matrix is not in \rref\ as there are no leading ones. 
 \end{solution}
 \end{enumerate}
 \end{example}
@@ -1037,16 +1055,24 @@ This augmented matrix is not in \rref\ as there are not even any leading ones.
 
 \begin{activity}
 Which one of the following augmented matrices is \emph{not} in reduced row echelon form?
-\begin{parts}
-\item \(\begin{bmatrix} 1&0&1\V2
-\\0&1&-0\V1 \end{bmatrix}\)
-\item \(\begin{bmatrix} 0&1&1\V-1
-\\0&0&0\V0 \end{bmatrix}\)
-\item \(\begin{bmatrix} 1&1&0\V0
-\\0&-1&1\V-1 \end{bmatrix}\)\actans
-\item \(\begin{bmatrix} 0&1&0\V1
-\\0&0&1\V2 \end{bmatrix}\)
-\end{parts}
+\actposs{\(\begin{bmatrix} 1&1&0\V0
+\\0&-1&1\V-1 \end{bmatrix}\)}
+{\(\begin{bmatrix} 1&0&1\V2
+\\0&1&0\V1 \end{bmatrix}\)}
+{\(\begin{bmatrix} 0&1&1\V-1
+\\0&0&0\V0 \end{bmatrix}\)}
+{\(\begin{bmatrix} 0&1&0\V1
+\\0&0&1\V2 \end{bmatrix}\)}
+%\begin{parts}
+%\item \(\begin{bmatrix} 1&0&1\V2
+%\\0&1&-0\V1 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 0&1&1\V-1
+%\\0&0&0\V0 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 1&1&0\V0
+%\\0&-1&1\V-1 \end{bmatrix}\)\actans
+%\item \(\begin{bmatrix} 0&1&0\V1
+%\\0&0&1\V2 \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
@@ -1059,18 +1085,23 @@ Which one of the following is a general solution to the system with augmented ma
 \begin{bmatrix} 1&0&-0.2\V0.4
 \\0&1&-1.2\V-0.6 \end{bmatrix}?
 \end{equation*}
-\begin{parts}
-\item \((0.4,-0.6,0)\)
-\item \((0.2t+0.4,1.2t+0.6,t)\)\actans
-\item \((0.2+0.4t,1.2+0.6t,t)\)
-\item DNE
-\end{parts}
+\actposs{\((0.2t+0.4,1.2t-0.6,t)\)}
+{\((0.4,-0.6,0)\)}
+{\((0.2+0.4t,1.2+0.6t,t)\)}
+{solution does not exist}
+%\begin{parts}
+%\item \((0.4,-0.6,0)\)
+%\item \((0.2t+0.4,1.2t+0.6,t)\)\actans
+%\item \((0.2+0.4t,1.2+0.6t,t)\)
+%\item DNE
+%\end{parts}
 \end{activity}
 
 
 
-The previous Example~\ref{eg:rref} showed that given a system of linear equations in \idx{reduced row echelon form} we can immediately write down all solutions, or immediately determine if none exists.
-Generalising Example~\ref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (Theorem~\ref{thm:erowop}) to find an equivalent system of equations in reduced row echelon form so that we then write down the general solution.
+The previous \autoref{eg:rref} showed that given a system of linear equations in \idx{reduced row echelon form} we can either immediately write down all solutions, or immediately determine if none exists.
+Generalising \autoref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (\autoref{thm:erowop}) to find an equivalent system of equations in reduced row echelon form. 
+From such a form we then write down a general solution.
 
 
 
@@ -1091,7 +1122,7 @@ However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singul
 
 
 \begin{example} \label{eg:gjea}
-Use \idx{Gauss--Jordan elimination}, Procedure~\ref{pro:gje}, to find all possible solutions to the system
+Use \idx{Gauss--Jordan elimination}, \autoref{pro:gje}, to find all possible solutions to the system
 \begin{equation*}
 \begin{array}{l}
 -x-y=-3\,,\\x+4y=-1\,,\\2x+4y=c\,,
@@ -1149,7 +1180,7 @@ If parameter \(c=\frac{10}3\)\,, then the system is consistent and the first two
 
 
 \begin{example} \label{eg:gjeb}
-Use \idx{Gauss--Jordan elimination}, Procedure~\ref{pro:gje}, to find all possible solutions to the  system
+Use \idx{Gauss--Jordan elimination}, \autoref{pro:gje}, to find all possible solutions to the  system
 \begin{equation*}
 \begin{cases}
 -2v+3w=-1\,,\\2u+v+w=-1\,.
@@ -1215,7 +1246,7 @@ We need to know what are the possibilities.
 As seen in previous examples, the following theorem says there are only three possibilities for linear equations.
 
 \begin{theorem} \label{thm:fred}
-For any system of linear equations \(A\xv=\bv\)\,, exactly one of the following is true:
+For every system of linear equations \(A\xv=\bv\)\,, exactly one of the following is true:
 \begin{itemize}
 \item there is \idx{no solution};
 \item there is a \idx{unique solution};
@@ -1223,14 +1254,16 @@ For any system of linear equations \(A\xv=\bv\)\,, exactly one of the following 
 \end{itemize}
 \end{theorem}
 
-%After studying section~\ref{sec:svdsgs}, this theorem could alternatively be proved directly from the use of the so-called \idx{singular value decomposition} in solving the linear equation \(A\xv=\bv\)\,.
+\begin{comment}
+After studying section~\ref{sec:svdsgs}, this theorem could alternatively be proved directly from the use of the so-called \idx{singular value decomposition} in solving the linear equation \(A\xv=\bv\)\,.
+\end{comment}
 
 \begin{proof} 
 First, if there is exactly none or one solution to \(A\xv=\bv\), then the theorem holds. 
 Second, suppose there are two distinct solutions; let them be \(\yv\) and~\(\zv\) so \(A\yv=\bv\) and \(A\zv=\bv\).  
 Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, section~\ref{sec:pel}). 
 %By distributivity \(A\xv=A(t\xv_1+(1-t)\xv_2) =tA\xv_1+(1-t)A\xv_2 =t\bv+(1-t)\bv =t\bv+\bv-t\bv =\bv\).  
-Consider the first row of~\(A\xv\): by Definition~\ref{def:matvecsys} it is
+Consider the first row of~\(A\xv\): by \autoref{def:matvecsys} it is
 \begin{eqnarray*}&&
 a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
 \\&=&a_{11}[ty_1+(1-t)z_1]+a_{12}[ty_2+(1-t)z_2]
@@ -1254,7 +1287,7 @@ Hence, if there are ever two distinct solutions, then there are an infinite numb
 
 
 An important class of linear equations always has at least one solution, never none.
-For example, modify Example~\ref{eg:gjea} to 
+For example, modify \autoref{eg:gjea} to 
 \begin{equation*}
 \begin{array}{l}
 -x-y=0\,,\\x+4y=0\,,\\2x+4y=0\,,
@@ -1291,7 +1324,7 @@ It must have \(\xv=\ov\) as a solution as the system is homogeneous.
 x_1+2x_2+4x_3-3x_4=0\\
 x_1+2x_2-3x_3+6x_4=0
 \end{cases}\) is homogeneous.  
-Use Gauss--Jordan elimination, Procedure~\ref{pro:gje}, to solve: 
+Use Gauss--Jordan elimination, \autoref{pro:gje}, to solve: 
 \begin{eqnarray*}
 \begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
@@ -1348,19 +1381,23 @@ These solutions include \(\xv=\ov\) via the choice \(s=t=0\).
 
 \begin{activity}
 Which one of the following systems of equations for \(x\) and~\(y\) is homogeneous?
-\begin{parts}
-\item \(-3x-y=0\) and \(7x+5y=3\)
-\item \(5y=3x\) and \(4x=2y\)\actans
-\item \(3x+1=0\) and \(-x-y=0\)
-\item \(-2x+y-3=0\) and \(x+4=2y\)
-\end{parts}
+\actposs{\(5y=3x\) and \(4x=2y\)}
+{\(-3x-y=0\) and \(7x+5y=3\)}
+{\(3x+1=0\) and \(-x-y=0\)}
+{\(-2x+y-3=0\) and \(x+4=2y\)}
+%\begin{parts}
+%\item \(-3x-y=0\) and \(7x+5y=3\)
+%\item \(5y=3x\) and \(4x=2y\)\actans
+%\item \(3x+1=0\) and \(-x-y=0\)
+%\item \(-2x+y-3=0\) and \(x+4=2y\)
+%\end{parts}
 \end{activity}
 
 
 
 
 
-As Example~\ref{eg:homosysiv} illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
+As \autoref{eg:homosysiv} illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
 Namely, if the number of equations is less than the number of unknowns (two is less than four in the last example), then a homogeneous system always has an infinite number of solutions.
 
 
@@ -1432,8 +1469,8 @@ Four: two orderings of rows, and two orderings of the variables.}
 
 \item \(\begin{array}{l}
    7.9x  -4.7y=  -1.7\\
-   2.4x  -0.1y=   1.00\\
-  -3.1x  +2.7y=   2.30\end{array}\)
+   2.4x  -0.1y=   1\\
+  -3.1x  +2.7y=   2.3\end{array}\)
 \answer{Twelve possibilities: \(3!=6\) orderings of rows, and two orderings of the variables.}
 
 \item \(\begin{array}{l}
@@ -1454,7 +1491,7 @@ Four: two orderings of rows, and two orderings of the variables.}
 
 
 \begin{exercise} \label{ex:} 
-Use Procedure~\ref{pro:unisol} in \script\ to try to solve each of the systems of Exercise~\ref{ex:somsys}.
+Use \autoref{pro:unisol} in \script\ to try to solve each of the systems of Exercise~\ref{ex:somsys}.
 % surprisingly the following works, except arabic instead of alph
 \answer{\begin{parts}
 \item \((x,y)=(-0.4,-1.2)\)
@@ -1469,7 +1506,7 @@ Use Procedure~\ref{pro:unisol} in \script\ to try to solve each of the systems o
 
 
 \begin{exercise} \label{ex:3lineq} 
-Use Procedure~\ref{pro:unisol} in \script\ to try to solve each of the following systems.
+Use \autoref{pro:unisol} in \script\ to try to solve each of the following systems.
 \begin{enumerate}
 \item \(\begin{array}{l}
 -5x  -3y   +5z=  -3 \\
@@ -1507,7 +1544,7 @@ u   +3v   +2w=  -1\\
 
 
 \begin{exercise} \label{ex:} 
-Use elementary row operations (Theorem~\ref{thm:erowop}) to solve the systems in Exercise~\ref{ex:3lineq}.
+Use elementary row operations (\autoref{thm:erowop}) to solve the systems in Exercise~\ref{ex:3lineq}.
 \answer{As before, except \((u,v,w)=(-2+3t,\tfrac13-\tfrac53t,t\) for all~\(t\).}
 \end{exercise}
 
@@ -1516,7 +1553,7 @@ Use elementary row operations (Theorem~\ref{thm:erowop}) to solve the systems in
 
 
 \begin{exercise} \label{ex:} 
-Use Procedure~\ref{pro:unisol} in \script\ to try to solve each of the following systems.
+Use \autoref{pro:unisol} in \script\ to try to solve each of the following systems.
 \begin{enumerate}
 \item \(\begin{array}{l}
 2.2x_1  -2.2x_2  -3.5x_3  -2.2x_4=   2.9\\
@@ -1555,11 +1592,27 @@ Use Procedure~\ref{pro:unisol} in \script\ to try to solve each of the following
 Each of the following show some \script\ commands and their results.
 Write down a possible problem that these commands aim to solve, and interpret what the results mean for the problem.
 \begin{enumerate}
+\item
+\begin{verbatim}
+>> A=[0.1 -0.3; 2.2 0.8]
+A =
+   0.1000  -0.3000
+   2.2000   0.8000
+>> b=[-1.2; 0.6]
+b =
+  -1.2000
+   0.6000
+>> rcond(A)
+ans =  0.1072
+>> x=A\b
+x =
+  -1.054
+   3.649
+\end{verbatim}
+\answer{Solve the system \(0.1x-0.3y=-1.2\), \(2.2x+0.8y=0.6\).
+Since \verb|rcond| is good, the solution is \(x=-1.05\), \(x_2=0.63\) and \(y=3.65\) \twodp.}
+
 \item 
-%A=[1.1 2 5.6; 0.4 5.4 0.5; 2 -0.2 -2.8]
-%b=[-3;2.9;1]
-%rcond(A)
-%x=A\b
 \begin{verbatim}
 >> A=[1.1 2 5.6; 0.4 5.4 0.5; 2 -0.2 -2.8]
 A =
@@ -1583,8 +1636,173 @@ x =
 \answer{Solve the system \(1.1x_1+2x_2+5.6x_3=-3\), \(0.4x_1+5.4x_2+0.5x_3=2.9\), \(2x_1-0.2x_2-2.8x_3=1\).
 Since \verb|rcond| is good, the solution is \(x_1=-0.39\), \(x_2=0.63\) and \(x_3=-0.68\) \twodp.}
 
+
+\item
+\begin{verbatim}
+>> A=[0.7 1.4; -0.5 -0.9; 1.9 0.7]
+A =
+   0.7000   1.4000
+  -0.5000  -0.9000
+   1.9000   0.7000
+>> b=[1.1; -0.2; -0.6]
+b =
+   1.1000
+  -0.2000
+  -0.6000
+>> rcond(A)
+error: rcond: matrix must be square
+>> x=A\b
+x =
+  -0.6808
+   0.9751
+\end{verbatim}
+\answer{Fails to solve the system \(0.7x_1+1.4x_2=1.1\), \(-0.5x_1-0.9x_2=-0.2\), \(1.9x_1+0.7x_2=-0.6\) because the matrix is not square as reported by \verb|rcond|.  
+The 'answer'~\verb|x| is not relevant (yet).}
+
+\item
+\begin{verbatim}
+>> A=[-0.7 1.8 -0.1; -1.3 0.3 1.7; 1.8 1. 0.3]
+A =
+  -0.7000   1.8000  -0.1000
+  -1.3000   0.3000   1.7000
+   1.8000   1.0000   0.3000
+>> b=[-1.1; 0.7; 0.2]
+b =
+  -1.1000
+   0.7000
+   0.2000
+>> rcond(A)
+ans =  0.3026
+>> x=A\b
+x =
+   0.2581
+  -0.4723
+   0.6925
+\end{verbatim}
+\answer{Solve the system \(-0.7x+1.8y-0.1z=-1.1\), \(-1.3x+0.3y+1.7z=0.7\), \(1.8x+y+0.3z=0.2\).
+Since \verb|rcond| is good, the solution is \(x=0.26\), \(y=-0.47\) and \(z=0.69\) \twodp.}
+
+
+\item
+\begin{verbatim}
+>> A=[-2 1.2 -0.8; 1.2 -0.8 1.1; 0 0.1 -1]
+A =
+  -2.0000   1.2000  -0.8000
+   1.2000  -0.8000   1.1000
+   0.0000   0.1000  -1.0000
+>> b=[0.8; -0.4; -2.4]
+b =
+   0.8000
+  -0.4000
+  -2.4000
+>> rcond(A)
+ans =  0.003389
+>> x=A\b
+x =
+   42.44
+   78.22
+   10.22
+\end{verbatim}
+\answer{Solve the system \(-2x+1.2y-0.8z=0.8\), \(1.2x-0.8y+1.1z=-0.4\), \(0.1y-z=-2.4\).
+Since \verb|rcond| is poor, the reported solution \(x=42.22\), \(y=78.22\) and \(z=10.22\) \twodp\ is suspect (the relatively large magnitude of \((x,y,z)\) is also suspicious).}
+
+
+
+\item 
+\begin{verbatim}
+>> A=[0.3 0.6 1.7 -0.3
+-0.2 -1 0.2 1.5
+0.2 -0.8 1 1.3
+1.2 0.8 -1.1 -0.9]
+A =
+   0.3000   0.6000   1.7000  -0.3000
+  -0.2000  -1.0000   0.2000   1.5000
+   0.2000  -0.8000   1.0000   1.3000
+   1.2000   0.8000  -1.1000  -0.9000
+>> b=[-1.5; -1.3; -2; 1.2]
+b =
+  -1.500
+  -1.300
+  -2.000
+   1.200
+>> rcond(A)
+ans =  0.02162
+>> x=A\b
+x =
+  -0.3350
+  -0.3771
+  -0.8747
+  -1.0461
+\end{verbatim}
+\answer{Solve the system \(0.3x_1 +0.6x_2 +1.7x_3 -0.3x_4=-1.5\),
+\(-0.2x_1 -x_2 +0.2x_3 +1.5x_4=-1.3\),
+\(0.2x_1 -0.8x_2 +x_3 +1.3x_4=-2\),
+\(1.2x_1 +0.8x_2 -1.1x_3 -0.9x_4=1.2\).
+Since \verb|rcond| is good, the solution is \(x_1=-0.34\), \(x_2=-0.38\), \(x_3=-0.87\) and \(x_4=-1.05\) \twodp.}
+
+\item
+\begin{verbatim}
+>> A=[1.4 0.9 1.9; -0.9 -0.2 0.4]
+A =
+   1.4000   0.9000   1.9000
+  -0.9000  -0.2000   0.4000
+>> b=[-2.3; -0.6]
+b =
+  -2.3000
+  -0.6000
+>> rcond(A)
+error: rcond: matrix must be square
+>> x=A\b
+x =
+   0.1721
+  -0.2306
+  -1.2281
+\end{verbatim}
+\answer{Fails to solve the system \(1.4x +0.9y +1.9z=-2.3\), \(-0.9x -0.2y +0.4z=-0.6\) as \verb|rcond| tells us the system is not square.  The `answer'~\verb|x| is not relevant (yet).}
+
+\item 
+\begin{verbatim}
+>> A=[0.3 0.3 0.3 -0.5
+ 1.5 -0.2 -1 1.5
+ -0.6 1.1 -0.9 -0.4
+ 1.8 1.1 -0.9 0.2]
+A =
+   0.3000   0.3000   0.3000  -0.5000
+   1.5000  -0.2000  -1.0000   1.5000
+  -0.6000   1.1000  -0.9000  -0.4000
+   1.8000   1.1000  -0.9000   0.2000
+>> b=[-1.1; -0.7; 0; 0.3]
+b =
+  -1.1000
+  -0.7000
+   0.0000
+   0.3000
+>> rcond(A)
+ans = 5.879e-05
+>> x=A\b
+x =
+   -501.5000
+   1979.7500
+   1862.2500
+   2006.5000
+\end{verbatim}
+\answer{Solves the system
+\(0.3x_1 +0.3x_2 +0.3x_3 -0.5x_4=-1.1\),
+\( 1.5x_1 -0.2x_2 -x_3 +1.5x_4=-0.7\),
+\( -0.6x_1 +1.1x_2 -0.9x_3 -0.4x_4=0\),
+\( 1.8x_1 +1.1x_2 -0.9x_3 +0.2x_4=0.3\).
+But since\verb|rcond| is bad, the `answer'~\verb|x| is likely to be meaningless: here the large values \(\xv=(-501.5,1979.75,1862.25,2006.5)\) also suggest a bad answer.}
+
 \begin{comment}
-Need more like this, and some displaying bad rcond, and some displaying errors.
+\begin{verbatim}
+m=round(2+2*rand),n=round(2+2*rand)
+for it=1:999,A=0+round(randn(m,n)*10)/10; 
+    if rcond(A)<1e-4, break, end, end, 
+A=A
+b=0+round(randn(m,1)*10)/10
+rcond(A)
+x=A\b
+\end{verbatim}
 \end{comment}
 
 \end{enumerate}
@@ -1778,11 +1996,11 @@ Mars& 227.94& 686.97\\\hline
 \end{array}
 \end{equation*}
 \end{table}%
-Table~\ref{tbl:orb4Periods} lists the time taken by a planet to orbit the Sun and a typical distance of the planet from the Sun. 
-Analogous to Example~\ref{eg:infertemp2}, fit a quadratic polynomial \(T=c_1+c_2R+c_3R^2\) for the period~\(T\) as a function of distance~\(R\).
+\autoref{tbl:orb4Periods} lists the time taken by a planet to orbit the Sun and a typical distance of the planet from the Sun. 
+Analogous to \autoref{eg:infertemp2}, fit a quadratic polynomial \(T=c_1+c_2R+c_3R^2\) for the period~\(T\) as a function of distance~\(R\).
 Use the data for Mercury, Venus and Earth.
 Then use the quadratic to predict the period of Mars: what is the error in your prediction?
-(Example~\ref{eg:orbitalPeriods} shows a power law fit is better, and that the power law agrees with Kepler's law.)
+(\autoref{eg:orbitalPeriods} shows a power law fit is better, and that the power law agrees with Kepler's law.)
 %\begin{verbatim}
 %t=[87.97;224.70;365.26]
 %r=[57.91;108.21;149.60]
@@ -1814,7 +2032,7 @@ Nakos~\S1.4 has lots of good ideas (including derivation of cosine rule for tria
 
 \begin{exercise}[{Global Positioning System} in space-time] \label{ex:gps3t} 
 For each case below, and in space-time, suppose you know from five \gps\ satellites that you and your \gps\ receiver are the given measured time shift away from the given locations of each of the three satellites (locations are in~Mm).  
-Following Example~\ref{eg:gps3t}, determine both your position and the discrepancy in time between your \gps\ receiver and the satellites \gps\ time.  
+Following \autoref{eg:gps3t}, determine both your position and the discrepancy in time between your \gps\ receiver and the satellites \gps\ time.  
 Which case needs another satellite?
 \begin{enumerate}
 \item  
@@ -1881,7 +2099,7 @@ Suppose you are given data at \(n\)~points, equi-spaced in~\(x\).
 Say the known data points are \((1,y_1)\), \((2,y_2)\), \ldots, \((n,y_n)\) for some given \hlist yn.
 Seek a polynomial fit to the data of degree~\((n-1)\); that is, seek the fit \(y=c_1+c_2x+c_3x^2+\cdots+c_{n}x^{n-1}\).
 In \script, form the matrix of the linear equations that need to be solved for the coefficients \hlist cn.  
-According to Procedure~\ref{pro:unisol}, for what number~\(n\) of data points is \verb|rcond| good? poor? bad? terrible? 
+According to \autoref{pro:unisol}, for what number~\(n\) of data points is \verb|rcond| good? poor? bad? terrible? 
 %a=ones(m,1),for n=2:m, a=[ones(m,1) diag(1:m)*a], rcond(a(1:n,:)), end
 \answer{Good, \(\{1,2\}\); poor, \(\{3,4\}\); bad, \(\{5,6,7\}\); terrible, \(\{8,9,\ldots\}\).}
 \end{exercise}

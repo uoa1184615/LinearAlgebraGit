@@ -11,7 +11,7 @@ There are more things in heaven and earth, Horatio, than are dreamt of in your p
 In the eighteenth century, astronomers needed to describe both the position and velocity of the planets. 
 Such a description required quantities which have both a magnitude and a direction.
 Step outside, a wind blowing at~\(8\)\,m/s from the south-west also has both a magnitude and direction.
-Quantities that have both the properties of a magnitude and a direction are called \bfidx{vectors} (from the Latin for \emph{carrier}).
+Quantities that have the properties of both a magnitude and a direction are called \bfidx{vectors} (from the Latin for \emph{carrier}).
 
 \begin{example}[displacement vector] \label{eg:disvec}
 An important class of vectors are the so-called \bfidx{displacement vector}s.
@@ -204,18 +204,21 @@ For example, as illustrated in the margin, the vector~\((3,1)\) is very differen
  
 
 
-\begin{definition} \label{def:}
+\begin{definition} \label{def:rRn}
 The set of all vectors with \(n\)~components is denoted~\(\RR^n\)\index{Rn@\(\RR^n\)}.
 The vector with all components zero,  \((0,0,\ldots,0)\), is called the \bfidx{zero vector} and denoted by~\ov.
 \end{definition}
 
 \begin{example} \label{eg:}
 \begin{itemize}
-\item All the vectors we can draw and imagine in the two dimensional plane form~\(\RR^2\).  Sometimes we write that \(\RR^2\)~is the plane because of this very close connection.
+\item All the vectors we can draw and imagine in the two dimensional plane form~\(\RR^2\).  
+Sometimes we write that \(\RR^2\)~is the plane because of this very close connection.
 
-\item All the vectors we can draw and imagine in three dimensional space form~\(\RR^3\).  Again, sometimes we write that \(\RR^3\)~is three dimensional space because of the close connection. 
+\item All the vectors we can draw and imagine in three dimensional space form~\(\RR^3\).  
+Again, sometimes we write that \(\RR^3\)~is three dimensional space because of the close connection. 
 
-\item The set~\(\RR^1\) is the set of all vectors with one component, and that one component is measured along one axis.  Hence \(\RR^1\)~is effectively the same as the set of real numbers labelling that axis.
+\item The set~\(\RR^1\) is the set of all vectors with one component, and that one component is measured along one axis.  
+Hence \(\RR^1\)~is effectively the same as the set of real numbers labelling that axis.
 \end{itemize}
 \end{example}
 
@@ -287,14 +290,19 @@ Now the study of language is becoming a problem of vector space mathematics.
 
 
 \begin{activity}
-Given word vectors \(\wv=(N_{\text{cat}}\clb N_{\text{dog}}\clb N_{\text{mat}}\clb N_{\text{sat}}\clb N_{\text{scratched}})\) as in Example~\ref{eg:deflsv},
+Given word vectors \(\wv=(N_{\text{cat}}\clb N_{\text{dog}}\clb N_{\text{mat}}\clb N_{\text{sat}}\clb N_{\text{scratched}})\) as in \autoref{eg:deflsv},
 which of the following has word vector \(\wv=(2,2,0,2,1)\)?
-\begin{enumerate}
-\item ``The dog scratched the cat on the mat.''
-\item ``A dog sat.  A cat scratched the dog.  The cat sat.''
-\item ``A dog and cat both sat on the mat which the dog had scratched.''
-\item ``Which cat sat by the dog on the mat, and then scratched the dog.''
-\end{enumerate}
+\actposs[1]
+{``A dog sat.  A cat scratched the dog.  The cat sat.''}
+{``The dog scratched the cat on the mat.''}
+{``A dog and cat both sat on the mat which the dog had scratched.''}
+{``Which cat sat by the dog on the mat, and then scratched the dog.''}
+%\begin{enumerate}
+%\item ``The dog scratched the cat on the mat.''
+%\item\actans ``A dog sat.  A cat scratched the dog.  The cat sat.''
+%\item ``A dog and cat both sat on the mat which the dog had scratched.''
+%\item ``Which cat sat by the dog on the mat, and then scratched the dog.''
+%\end{enumerate}
 \end{activity}
 
 
@@ -308,7 +316,7 @@ For every \idx{vector} \(\vv=(\hlist vn)\) in~\(\RR^n\),
 define the \bfidx{length} (or \bfidx{magnitude}) of vector~\vv\  to be the real number~(\(\geq0\))
 \index{$\vert\cdot\vert$|textbf} 
 \begin{equation*}
-|\vv|=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\,.
+|\vv|:=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\,.
 \end{equation*}
 A vector of length one is called a \bfidx{unit vector}.
 (Be aware that many books denote the length of a vector with a pair of double lines, as in~\(\|\vv\|\).)
@@ -358,14 +366,15 @@ A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading t
 
 
 \begin{activity}
-What is the length of the vector \((1,-2,2)\)\,?
-\partswidth=5em
-\begin{parts}
-\item \(1\)
-\item \(\sqrt5\)
-\item \(3\)
-\item \(5\)
-\end{parts}
+What is the length of the vector \((2,-3,6)\)\,?
+\actposs[4]{\(7\)}{\(\sqrt{11}\)}{\(5\)}{\(11\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(\sqrt{11}\)
+%\item \(5\)
+%\item\actans \(7\)
+%\item \(11\)
+%\end{parts}
 \end{activity}
 
 
@@ -378,13 +387,13 @@ The \idx{zero vector} is the only vector of \idx{length} zero:
 
 \begin{proof} 
 First establish the zero vector has length zero.
-From Definition~\ref{def:veclen}, in~\(\RR^n\),
+From \autoref{def:veclen}, in~\(\RR^n\),
 \begin{equation*}
 |\ov|=\sqrt{0^2+0^2+\cdots+0^2}=\sqrt{0}=0\,.
 \end{equation*}
 Second, if a vector has length zero then it must be the zero vector.
 Let vector \(\vv=(\hlist vn)\) in~\(\RR^n\) have zero length.
-By squaring both sides of the Definition~\ref{def:veclen} for length we then know that
+By squaring both sides of the \autoref{def:veclen} for length we then know that
 \begin{equation*}
 \underbrace{v_1^2}_{\geq0}+\underbrace{v_2^2}_{\geq0}
 +\cdots+\underbrace{v_n^2}_{\geq0}=0\,.
@@ -504,6 +513,20 @@ Being consistent about the order of words, represent each of the eight titles by
 \(\hv=(1,0,0,1,1)\)}
 \end{exercise}
 
+
+
+
+
+\begin{exercise} \label{ex:} 
+Recall that a vectors has both a magnitude and a direction.  
+Comment on why the zero vector is the only vector with zero magnitude.
+\end{exercise}
+
+
+
+\begin{exercise} \label{ex:} 
+Why is a coordinate system important for a vector?
+\end{exercise}
 
 
 

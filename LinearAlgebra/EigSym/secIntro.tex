@@ -11,7 +11,7 @@
 
 
 This chapter focuses on some marvellous properties of symmetric matrices.  
-Nonetheless it defines basic concepts in general.  
+Nonetheless it defines some basic concepts in general.  
 Chapter~\ref{ch:gee} explores analogous properties for general matrices.
 The marvellously useful properties developed here result from asking for which vectors does multiplication by a given matrix simply stretch or shrink the vector.
 
@@ -22,7 +22,8 @@ A scalar~\(\lambda\) is called an \bfidx{eigenvalue} of~\(A\) if
 \begin{aside}
 The symbol~\idx{$\lambda$} is the Greek letter lambda, and denotes eigenvalues.
 \end{aside}%
-there is a nonzero vector~\xv, called an \bfidx{eigenvector} corresponding to the eigenvalue~\(\lambda\), such that \(A\xv=\lambda\xv\)\,.  
+there is a nonzero vector~\xv\ such that \(A\xv=\lambda\xv\)\,. 
+Such a vector~\xv\ is called an \bfidx{eigenvector} of~\(A\) corresponding to the eigenvalue~\(\lambda\).   
 \end{definition}
 
 
@@ -88,13 +89,17 @@ Hence \((1,1,1)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\
 
 \begin{activity}
 Which of the following vectors is an eigenvector of the symmetric matrix \(\begin{bmatrix} -1&12\\12&6 \end{bmatrix}\)?
-\partswidth=5em
-\begin{parts}
-\item \(\begin{bmatrix} -3\\1 \end{bmatrix}\)
-\item \(\begin{bmatrix} -1\\2 \end{bmatrix}\)
-\item \(\begin{bmatrix} 2\\1 \end{bmatrix}\)
-\item \(\begin{bmatrix} 4\\-3 \end{bmatrix}\)
-\end{parts}
+\actposs[4]{\(\begin{bmatrix} 4\\-3 \end{bmatrix}\)}
+{\(\begin{bmatrix} -3\\1 \end{bmatrix}\)}
+{\(\begin{bmatrix} -1\\2 \end{bmatrix}\)}
+{\(\begin{bmatrix} 2\\1 \end{bmatrix}\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(\begin{bmatrix} -3\\1 \end{bmatrix}\)
+%\item \(\begin{bmatrix} -1\\2 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 2\\1 \end{bmatrix}\)
+%\item \(\begin{bmatrix} 4\\-3 \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
@@ -148,57 +153,93 @@ The constant of proportionality is the corresponding eigenvalue: here \(A\xv=(\f
 
 
 
-\begin{activity}
+\begin{activity} \label{act:eig}
 For some matrix~\(A\), the following pictures plot a vector~\xv\ and the corresponding product~\(A\xv\), head-to-tail.
 Which picture indicates that~\xv\ is an eigenvector of the matrix?
-\begin{parts}
-\item \begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
-    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
-    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
-    \twovec{\noexpand\xv}1000
-    \twovec{\quad A\noexpand\xv}{0.5}{-0.5}10
-\end{axis}
-\end{tikzpicture}
-
-\item \begin{tikzpicture} 
+\actposs{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}{0.85}{0.52}00
     \twovec{\quad A\noexpand\xv}{0.165}{0.095}{0.85}{0.52}
 \end{axis}
-\end{tikzpicture}
-
-\item \begin{tikzpicture} 
+\end{tikzpicture}}
+{\begin{tikzpicture} 
+\begin{axis}[footnotesize,font=\footnotesize
+    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+    \twovec{\noexpand\xv}1000
+    \twovec{\quad A\noexpand\xv}{0.5}{-0.5}10
+\end{axis}
+\end{tikzpicture}}
+{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}{0.52}{0.85}00
     \twovec{\quad A\noexpand\xv}{-0.165}{0.59}{0.52}{0.85}
 \end{axis}
-\end{tikzpicture}
-
-\item \begin{tikzpicture} 
+\end{tikzpicture}}
+{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}0100
     \twovec{\quad A\noexpand\xv}{-0.5}{1}01
 \end{axis}
-\end{tikzpicture}
-
-\end{parts}
-Further, for the above picture that indicates~\xv\ is an eigenvector, is the corresponding eigenvalue~\(\lambda\):
-\partswidth=5em
-\begin{parts}
-\item \(\lambda>1\)
-\item \(1>\lambda>0.5\)
-\item \(0.5>\lambda>0\)
-\item \(0>\lambda\)
-\end{parts}
+\end{tikzpicture}}
+%\begin{parts}
+%\item \begin{tikzpicture} 
+%\begin{axis}[footnotesize,font=\footnotesize
+%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+%    \twovec{\noexpand\xv}1000
+%    \twovec{\quad A\noexpand\xv}{0.5}{-0.5}10
+%\end{axis}
+%\end{tikzpicture}
+%
+%\item \begin{tikzpicture} 
+%\begin{axis}[footnotesize,font=\footnotesize
+%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+%    \twovec{\noexpand\xv}{0.85}{0.52}00
+%    \twovec{\quad A\noexpand\xv}{0.165}{0.095}{0.85}{0.52}
+%\end{axis}
+%\end{tikzpicture}
+%
+%\item \begin{tikzpicture} 
+%\begin{axis}[footnotesize,font=\footnotesize
+%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+%    \twovec{\noexpand\xv}{0.52}{0.85}00
+%    \twovec{\quad A\noexpand\xv}{-0.165}{0.59}{0.52}{0.85}
+%\end{axis}
+%\end{tikzpicture}
+%
+%\item \begin{tikzpicture} 
+%\begin{axis}[footnotesize,font=\footnotesize
+%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
+%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
+%    \twovec{\noexpand\xv}0100
+%    \twovec{\quad A\noexpand\xv}{-0.5}{1}01
+%\end{axis}
+%\end{tikzpicture}
+%
+%\end{parts}
 \end{activity}
 
+
+\begin{activity}
+Further, for the picture in Activity~\ref{act:eig} that indicates~\xv\ is an eigenvector, is the corresponding eigenvalue~\(\lambda\):
+\actposs[4]{\(0.5>\lambda>0\)}{\(\lambda>1\)}{\(1>\lambda>0.5\)}{\(0>\lambda\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(\lambda>1\)
+%\item \(1>\lambda>0.5\)
+%\item \(0.5>\lambda>0\)
+%\item \(0>\lambda\)
+%\end{parts}
+\end{activity}
 
 
 As in the next example, we sometimes plot for many directions~\xv\ a diagram of vector~\(A\xv\) adjoined head-to-tail to vector~\xv.
@@ -273,11 +314,11 @@ Multiply by the standard unit vectors \hlist\ev n\ in turn:
 =\begin{bmatrix} 0\\\vdots\\0\\d_n \end{bmatrix}
 =d_n\ev_n\,.
 \end{eqnarray*}
-By Definition~\ref{def:evecval}, each diagonal element~\(d_j\)  is an eigenvalue of the diagonal matrix, and the standard unit vector \(\ev_j\)~is a corresponding eigenvector.
+By \autoref{def:evecval}, each diagonal element~\(d_j\)  is an eigenvalue of the diagonal matrix, and the standard unit vector \(\ev_j\)~is a corresponding eigenvector.
 \end{example}
 
 \paragraph{Eigenvalues}
-The \(3\times 3\) matrix of Example~\ref{eg:eig3intro} has three eigenvalues.
+The \(3\times 3\) matrix of \autoref{eg:eig3intro} has three eigenvalues.
 The \(2\times2\) matrices underlying Examples~\ref{eg:eig2pic1}--\ref{eg:eig2pic2} both have two eigenvalues.
 An \(n\times n\) diagonal matrix has \(n\)~eigenvalues.
 The next section establishes the general pattern that an \(n\times n\) \emph{symmetric matrix} generally has \(n\)~real eigenvalues.
@@ -285,8 +326,8 @@ However, the eigenvalues of non-symmetric matrices are more complex (in both sen
 
 \paragraph{Eigenvectors}
 It is the direction of eigenvectors that is important.
-In Example~\ref{eg:eig3intro} any nonzero multiple of \((1,-2,1)\), positive or negative, is also an eigenvector corresponding to eigenvalue \(\lambda=3\)\,.
-In the diagonal matrices of Example~\ref{eg:eigndiag}, a straightforward extension of the working shows any nonzero multiple of the standard unit vector~\(\ev_j\) is an eigenvector corresponding to the eigenvalue~\(d_j\).
+In \autoref{eg:eig3intro} any nonzero multiple of \((1,-2,1)\), positive or negative, is also an eigenvector corresponding to eigenvalue \(\lambda=3\)\,.
+In the diagonal matrices of \autoref{eg:eigndiag}, a straightforward extension of the working shows any nonzero multiple of the standard unit vector~\(\ev_j\) is an eigenvector corresponding to the eigenvalue~\(d_j\).
 Let's collect all possible eigenvectors into a subspace. 
 
 
@@ -302,9 +343,9 @@ The set of all \idx{eigenvector}s corresponding to any one eigenvalue~\(\lambda\
 
 
 \begin{proof} 
-From Definition~\ref{def:evecval},  \(A\xv=\lambda\xv\)  rearranged is \(A\xv-\lambda\xv=\ov\)\,, that is, \(A\xv-\lambda I\xv=\ov\)\,, which upon factoring becomes \((A-\lambda I)\xv=\ov\)\,, and vice-versa.  
+From \autoref{def:evecval},  \(A\xv=\lambda\xv\)  rearranged is \(A\xv-\lambda\xv=\ov\)\,, that is, \(A\xv-\lambda I\xv=\ov\)\,, which upon factoring becomes \((A-\lambda I)\xv=\ov\)\,, and vice-versa.  
 Also, eigenvectors~\xv\ must be nonzero, so the homogeneous system \((A-\lambda I)\xv=\ov\) must have nonzero solutions.
-Theorem~\ref{thm:homosubsp} assures us that the set of solutions to a homogeneous system, here \((A-\lambda I)\xv=\ov\) for any given~\(\lambda\), is a subspace. 
+\autoref{thm:homosubsp} assures us that the set of solutions to a homogeneous system, here \((A-\lambda I)\xv=\ov\) for any given~\(\lambda\), is a subspace. 
 Hence the set of eigenvectors for any given eigenvalue~\(\lambda\), nonzero solutions, together with~\ov, form a subspace.
 \end{proof}
 
@@ -314,7 +355,7 @@ Reconsider the symmetric matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \end{equation*}
-of Example~\ref{eg:eig3intro}. 
+of \autoref{eg:eig3intro}. 
 Find the eigenspaces~\(\EE_1\), \(\EE_3\) and~\(\EE_0\)\,.
 \begin{solution} 
 \begin{itemize}
@@ -356,12 +397,13 @@ Thus a general solution is \(\xv=(t,t,t)\) so the eigenspace \(\EE_0=\{(t,t,t) :
 
 \begin{activity}
 Which line, in the \(xy\)-plane, is the eigenspace corresponding to the eigenvalue~\(-5\) of the matrix~\(\begin{bmatrix} 3&4\\4&-3 \end{bmatrix}\)?
-\begin{parts}
-\item \(x+2y=0\)
-\item \(2x+y=0\)\actans
-\item \(x=2y\)
-\item \(y=2x\)
-\end{parts}
+\actposs{\(2x+y=0\)}{\(x+2y=0\)}{\(x=2y\)}{\(y=2x\)}
+%\begin{parts}
+%\item \(x+2y=0\)
+%\item \(2x+y=0\)\actans
+%\item \(x=2y\)
+%\item \(y=2x\)
+%\end{parts}
 \end{activity}
 
 
@@ -371,7 +413,7 @@ Which line, in the \(xy\)-plane, is the eigenspace corresponding to the eigenval
 \begin{example}[graphical eigenspaces] \label{eg:eig2sp2} \ \\
 \begin{tabular}{@{}cc@{}}
 \eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[b]{14em}{The plot on the left shows unit vectors~\xv\  (blue), and for the matrix~\(A\) of Example~\ref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
+\parbox[b]{14em}{The plot on the left shows unit vectors~\xv\  (blue), and for the matrix~\(A\) of \autoref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate and draw the eigenspaces of matrix~\(A\).}
 \end{tabular}
 \begin{solution} \ \\
@@ -383,7 +425,7 @@ Estimate and draw the eigenspaces of matrix~\(A\).}
 }%
 \begin{tabular}{@{}cc@{}}
 \eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[b]{14em}{Example~\ref{eg:eig2pic2} found directions in which \(A\xv\) is aligned with~\xv.
+\parbox[b]{14em}{\autoref{eg:eig2pic2} found directions in which \(A\xv\) is aligned with~\xv.
 Then the corresponding eigenspace is all vectors in the line aligned with that direction, including the opposite direction.}
 \end{tabular}
 \end{solution}
@@ -398,7 +440,7 @@ Find the eigenspaces of the diagonal matrix
 D=\begin{bmatrix} -\frac13&0&0\\0&\frac32&0\\0&0&\frac32 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-Example~\ref{eg:eigndiag} shows this matrix has two distinct eigenvalues \(\lambda=-\frac13\) and \(\lambda=\frac32\)\,.
+\autoref{eg:eigndiag} shows this matrix has two distinct eigenvalues \(\lambda=-\frac13\) and \(\lambda=\frac32\)\,.
 \begin{itemize}
 \item Eigenvectors corresponding to eigenvalue \(\lambda=-\frac13\) satisfy
 \begin{equation*}
@@ -422,8 +464,8 @@ Then the eigenspace \(\EE_{3/2}=\{t\ev_2+s\ev_3 : t,s\in\RR\}=\Span\{\ev_2,\ev_3
 
 
 \begin{definition} \label{def:eigsymult}
-For a \idx{symmetric matrix}, the \bfidx{multiplicity} of an \idx{eigenvalue}~\(\lambda\) is the \idx{dimension} of the corresponding \idx{eigenspace}~\(\EE_\lambda\).% 
-\footnote{Section~\ref{sec:dit} discusses that for non-symmetric matrices the dimension of an eigenspace may be less than the multiplicity of an eigenvalue (Theorem~\ref{thm:dimee}). 
+For every \idx{symmetric matrix}~\(A\), the \bfidx{multiplicity} of an \idx{eigenvalue}~\(\lambda\) of~\(A\) is the \idx{dimension} of the corresponding \idx{eigenspace}~\(\EE_\lambda\).%
+\footnote{Section~\ref{sec:dit} discusses that for non-symmetric matrices the dimension of an eigenspace may be less than the multiplicity of an eigenvalue (\autoref{thm:dimee}). 
 But for symmetric matrices they are the same.}
 \end{definition}
 
@@ -478,10 +520,10 @@ We start with computation.
 \begin{itemize}
 \item \index{eig()@\texttt{eig()}}\verb|[V,D]=eig(A)| computes eigenvectors and the eigenvalues of the  \(n\times n\) \idx{square matrix}~\(A\).
 \begin{itemize}
-\item The \(n\)~\idx{eigenvalue}s of~\(A\) (repeated according to their \idx{multiplicity}, Definition~\ref{def:eigsymult}) form the diagonal of \(n\times n\) square matrix \(D=\diag(\hlist\lambda n)\).
+\item The \(n\)~\idx{eigenvalue}s of~\(A\) (repeated according to their \idx{multiplicity}, \autoref{def:eigsymult}) form the diagonal of \(n\times n\) square matrix \(D=\diag(\hlist\lambda n)\).
 \item Corresponding to the \(j\)th~eigenvalue~\(\lambda_j\), the \(j\)th~column of \(n\times n\) square matrix~\(V\) is an \idx{eigenvector} (of unit length).
 \end{itemize}
-\item \verb|eig(A)| by itself just reports, in a vector, the eigenvalues of square matrix~\(A\) (repeated according to their  \idx{multiplicity}, Definition~\ref{def:eigsymult}).
+\item \verb|eig(A)| by itself just reports, in a vector, the eigenvalues of square matrix~\(A\) (repeated according to their  \idx{multiplicity}, \autoref{def:eigsymult}).
 
 \item If the matrix~\(A\) is a real symmetric matrix, then the eigenvalues and eigenvectors are all real, and the eigenvector matrix~\(V\) is orthogonal.
 
@@ -497,11 +539,11 @@ If the matrix~\(A\) is either not symmetric, or is complex valued, then the eige
 The eigenvalues are placed in the diagonal of \(D=\diag(\hlist\lambda n)\). 
 The \(j\)th~column of~\(V\) is a unit \idx{eigenvector} corresponding to the \(j\)th \idx{eigenvalue}~\(\lambda_j\):
 \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\).
-If the matrix~\(A\) is real and symmetric, then \(V\)~is an \idx{orthogonal matrix} (Theorem~\ref{thm:symspec}).
+If the matrix~\(A\) is real and symmetric, then \(V\)~is an \idx{orthogonal matrix} (\autoref{thm:symspec}).
 \end{compute}
 
 \begin{example} \label{eg:eig3eig}
-Reconsider the symmetric matrix of Example~\ref{eg:eig3intro}:
+Reconsider the symmetric matrix of \autoref{eg:eig3intro}:
 \begin{equation*}
 A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 \end{equation*}
@@ -550,7 +592,7 @@ ans =
    1.6874e-16   1.2490e-16   0.0000e+00
   -5.3307e-17  -1.1102e-16  -2.2204e-16
 \end{verbatim}
-To verify the computed matrix~\verb|V| is orthogonal (Definition~\ref{def:orthog}), check~\verb|V'*V| gives the identity:
+To verify the computed matrix~\verb|V| is orthogonal (\autoref{def:orthog}), check~\verb|V'*V| gives the identity:
 \begin{verbatim}
 ans =
     1.0000   -0.0000    0.0000
@@ -578,13 +620,14 @@ D =
       0      0      0   0.50
 \end{verbatim}
 Which of the following is \emph{not} an eigenvalue of the matrix~\verb|A|?
-\partswidth=5em
-\begin{parts}
-\item \(-0.5\)\actans
-\item \(-0.1\)
-\item \(0.1\)
-\item \(0.5\)
-\end{parts}
+\actposs[4]{\(-0.5\)}{\(-0.1\)}{\(0.1\)}{\(0.5\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(-0.5\)\actans
+%\item \(-0.1\)
+%\item \(0.1\)
+%\item \(0.5\)
+%\end{parts}
 \end{activity}
 
 
@@ -616,10 +659,10 @@ These are satisfied for all time~\(t\) only if the coefficients of the cosine ar
 \\&&-f^2x_2=x_1-2x_2+x_3\,,
 \\&&-f^2x_3=x_2-x_3\,.
 \end{eqnarray*}
-Moving the terms on the left to the right, and all terms on the right to the left, this becomes the eigenproblem \(A\xv=\lambda\xv\) for symmetric matrix~\(A\) of Example~\ref{eg:eig3eig} and for eigenvalue \(\lambda=f^2\), the square of the as yet unknown frequency.
+Moving the terms on the left to the right, and all terms on the right to the left, this becomes the eigenproblem \(A\xv=\lambda\xv\) for symmetric matrix~\(A\) of \autoref{eg:eig3eig} and for eigenvalue \(\lambda=f^2\), the square of the as yet unknown frequency.
 The symmetry of matrix~\(A\) reflects Newton's law that every action has an equal and opposite reaction: symmetric matrices arise commonly in applications.
 
-Example~\ref{eg:eig3eig} tells us that there are three possible eigenvalue and eigenvector solutions for us to interpret.
+\autoref{eg:eig3eig} tells us that there are three possible eigenvalue and eigenvector solutions for us to interpret.
 \begin{itemize}
 \item The eigenvalue \(\lambda=1\) and corresponding eigenvector \(\xv\propto(-1,0,1)\) corresponds to oscillations of frequency \(f=\sqrt\lambda=\sqrt 1=1\).
 The eigenvector~\((-1,0,1)\) shows the middle mass is stationary while the outer two masses oscillate in and out in opposition to each other.
@@ -711,7 +754,7 @@ Three of the eigenvalues are repeated as a consequence of the geometric symmetry
 The following are the eigenspaces.
 \begin{itemize}
 \item Corresponding to eigenvalue \(\lambda=-5\) are eigenvectors \(\xv\propto(-0.41,0,0.41,-0.41,0,0.41,-0.41,0,0.41)\); that is, the eigenspace \(\EE_{-5}=\Span\{(-1,0,1,-1,0,1,-1,0,1)\}\).
-From Definition~\ref{def:eigsymult} the multiplicity of eigenvalue \(\lambda=-5\) is one.
+From \autoref{def:eigsymult} the multiplicity of eigenvalue \(\lambda=-5\) is one.
 
 \item Corresponding to eigenvalue \(\lambda=-4.30\) there are two eigenvectors computed by \script.
 These two eigenvectors are orthogonal (you should check).
@@ -789,27 +832,27 @@ In 1966 Mark Kac asked ``Can one hear the shape of the drum?"
 \begin{aside}
 Challenge: find the two smallest connected networks that have different connectivity and yet the same eigenvalues (unit strength connections).
 \end{aside}%
-That is, from just knowing the eigenvalues of a network such as the one in Example~\ref{eg:sier2eig}, can one infer the connectivity of the network?
+That is, from just knowing the eigenvalues of a network such as the one in \autoref{eg:sier2eig}, can one infer the connectivity of the network?
 The question for 2D drums was answered ``no'' in 1992 by Gordon, Webb and Wolpert who constructed two different shaped 2D drums which have the same set of frequencies of oscillation: that is, the same set of eigenvalues.
 %\end{remark}
 
-Why write ``the computation may give'' in Example~\ref{eg:sier2eig}?  
+Why write ``the computation may give'' in \autoref{eg:sier2eig}?  
 The reason is associated with the duplicated eigenvalues.
 What is important is the eigenspace.
-When an eigenvalue of a symmetric matrix is duplicated (or triplicated) in the diagonal~\(D\) then there are many choices of eigenvectors that form an orthonormal basis (Definition~\ref{def:orthobasis}) of the eigenspace (the same holds for singular vectors of a duplicated singular value).
+When an eigenvalue of a symmetric matrix is duplicated (or triplicated) in the diagonal~\(D\) then there are many choices of eigenvectors that form an orthonormal basis (\autoref{def:orthobasis}) of the eigenspace (the same holds for singular vectors of a duplicated singular value).
 Different algorithms may report different orthonormal bases of the same eigenspace.
-The bases given in  Example~\ref{eg:sier2eig} are just one possibility for each eigenspace.
+The bases given in  \autoref{eg:sier2eig} are just one possibility for each eigenspace.
 
 
 
 
 \begin{theorem} \label{thm:avvd}
-Consider any \(n\times n\) matrix~\(A\) (not just symmetric).
-Then \hlist\lambda m\ are eigenvalues of~\(A\) with corresponding eigenvectors \hlist\vv m, for some~\(m\) (commonly \(m=n\)), iff \(AV=VD\) for diagonal matrix \(D=\diag(\hlist\lambda m)\) and \(n\times m\) matrix \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}\) for non-zero \hlist\vv m.
+For every \(n\times n\) \idx{square matrix}~\(A\) (not just symmetric),
+\hlist\lambda m\ are eigenvalues of~\(A\) with corresponding eigenvectors \hlist\vv m, for some~\(m\) (commonly \(m=n\)), iff \(AV=VD\) for diagonal matrix \(D=\diag(\hlist\lambda m)\) and \(n\times m\) matrix \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}\) for non-zero \hlist\vv m.
 \end{theorem}
 
 \begin{proof} 
-From Definition~\ref{def:evecval}, \(\lambda_j\)~are eigenvalues and non-zero~\(\vv_j\) are eigenvectors iff \(A\vv_j=\lambda_j\vv_j\)\,.
+From \autoref{def:evecval}, \(\lambda_j\)~are eigenvalues and non-zero~\(\vv_j\) are eigenvectors iff \(A\vv_j=\lambda_j\vv_j\)\,.
 Form into the matrix equation
 \begin{equation*}
 \begin{bmatrix} A\vv_1&A\vv_2&\cdots&A\vv_m \end{bmatrix}
@@ -898,7 +941,7 @@ ans =
 \label{sec:feebh}
 
 \begin{itemize}
-\item Recall from previous study (Theorem~\ref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and that \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
+\item Recall from previous study (\autoref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and that \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
 \item Similarly, although not justified until Chapter~\ref{ch:ddm}, a \(3\times 3\) matrix \(A=\begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
 \end{itemize}
 This section shows these two formulas for a determinant are useful for hand calculations on small problems.
@@ -912,7 +955,7 @@ Chapter~\ref{ch:ddm} extends the determinant to any size matrix, and explores mo
 
 
 For hand calculation on small matrices the key is the following.
-By Definition~\ref{def:evecval} eigenvalues and eigenvectors are determined from \(A\xv=\lambda\xv\)\,.  
+By \autoref{def:evecval} eigenvalues and eigenvectors are determined from \(A\xv=\lambda\xv\)\,.  
 Rearranging, this equation is equivalent to \((A-\lambda I)\xv=\ov\)\,.  
 Recall that \((A-\lambda I)\xv=\ov\) has nonzero solutions~\xv\ iff the determinant \(\det(A-\lambda I)=0\)\,.
 Since eigenvectors must be nonzero, the \idx{eigenvalue}s of a \idx{square matrix} are precisely the solutions of \(\det(A-\lambda I)=0\)\,. 
@@ -924,7 +967,7 @@ To find by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{squar
 \begin{enumerate}
 %\item determine the \idx{characteristic polynomial} of~\(A\), \(\det(A-\lambda I)\);
 \item find all \idx{eigenvalue}s by solving the \bfidx{characteristic equation} of~\(A\), \(\det(A-\lambda I)=0\)\,;
-\item for each \idx{eigenvalue}~\(\lambda\), solve \((A-\lambda I)\xv=\ov\) to find the \idx{eigenspace}~\(\EE_\lambda\);
+\item for each \idx{eigenvalue}~\(\lambda\), solve the \idx{homogeneous} \((A-\lambda I)\xv=\ov\) to find the \idx{eigenspace}~\(\EE_\lambda\);
 \item write each eigenspace as the \idx{span} of a few chosen \idx{eigenvector}s.
 \end{enumerate}
 \end{procedure}
@@ -936,12 +979,12 @@ None of the beautiful theorems of the next Section~\ref{sec:sm} for symmetric ma
 
 
 \begin{example} \label{eg:2evals}
-Use Procedure~\ref{pro:eeh} to find the eigenvalues and eigenvectors of the matrix
+Use \autoref{pro:eeh} to find the eigenvalues and eigenvectors of the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix}
 \end{equation*}
 (this is the matrix illustrated in Examples~\ref{eg:eig2sym} and~\ref{eg:eig2pic1}).
-\begin{solution} Follow the first two steps of Procedure~\ref{pro:eeh}.
+\begin{solution} Follow the first two steps of \autoref{pro:eeh}.
 \begin{enumerate}
 \item Solve \(\det(A-\lambda I)=0\) for the eigenvalues~\(\lambda\).
 Using~\eqref{eq:dets23},
@@ -988,25 +1031,27 @@ That is, the eigenspace \(\EE_{3/2}=\Span \{(1,-1)\}\).
 
 
 \begin{activity}
-Use the characteristic equation to determine all eigenvalues of the matrix \(A=\begin{bmatrix} 3&2\\2&0 \end{bmatrix}\) are which of the following.
-\partswidth=5em
-\begin{parts}
-\item \(-4,1\)
-\item \(-1,4\)\actans
-\item \(0,3\)
-\item \(3,4\)
-\end{parts}
+Use the characteristic equation to determine all eigenvalues of the matrix \(A=\begin{bmatrix} 3&2\\2&0 \end{bmatrix}\).
+They are which of the following?
+\actposs[4]{\(-1,4\)}{\(-4,1\)}{\(0,3\)}{\(3,4\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(-4,1\)
+%\item \(-1,4\)\actans
+%\item \(0,3\)
+%\item \(3,4\)
+%\end{parts}
 \end{activity}
 
 
 
 
 \begin{example} \label{eg:eig3introval}
-Use the determinant to confirm that \(\lambda=0,1,3\) are the only eigenvalues of the matrix
+Use the determinant to confirm that \(\lambda=0,1,3\) are the \emph{only} eigenvalues of the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 \end{equation*}
-(Example~\ref{eg:eig3sp} already found the eigenspaces corresponding to these three eigenvalues.)
+(\autoref{eg:eig3sp} already found the eigenspaces corresponding to these three eigenvalues.)
 \begin{solution} 
 To find all eigenvalues, find all solutions of the characteristic equation \(\det(A-\lambda I)=0\)\,.  
 Using~\eqref{eq:dets23},
@@ -1019,20 +1064,21 @@ Using~\eqref{eq:dets23},
 \\&&{}=(1-\lambda)\left[-3\lambda+\lambda^2\right]
 \\&&{}=(1-\lambda)(-3+\lambda)\lambda\,.
 \end{eqnarray*}
-So the characteristic equation is \((1-\lambda)(-3+\lambda)\lambda=0\) whose only solutions are the three eigenvalues \(\lambda=0,1,3\) as previously identified.
+So the characteristic equation is \((1-\lambda)(-3+\lambda)\lambda=0\)\,. 
+In this factored form we see the \emph{only} solutions are the three eigenvalues \(\lambda=0,1,3\) as previously identified.
 \end{solution}
 \end{example}
 
 
 
 \begin{example} \label{eg:3x3hande}
-Use Procedure~\ref{pro:eeh} to find all eigenvalues and the corresponding eigenspaces of the symmetric matrix
+Use \autoref{pro:eeh} to find all eigenvalues and the corresponding eigenspaces of the symmetric matrix
 \begin{equation*}
 A=\begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}.
 \end{equation*}
 
 \begin{solution} 
-Follow the steps of Procedure~\ref{pro:eeh}.
+Follow the steps of \autoref{pro:eeh}.
 \begin{enumerate}
 \item Solve \(\det(A-\lambda I)=0\) for the eigenvalues.
 Using~\eqref{eq:dets23},
@@ -1151,7 +1197,7 @@ So a general corresponding eigenvector is \(\xv=(1,-i)t\) for any nonzero~\(t\).
 \end{example}
 
 
-Example~\ref{eg:ccevals} is a problem that might arise using calculus to describe the dynamics of a mass on a spring.  
+\autoref{eg:ccevals} is a problem that might arise using calculus to describe the dynamics of a mass on a spring.  
 Let the displacement of the mass be~\(y_1(t)\) then Newton's law says the acceleration \(d^2y_1/dt^2\propto -y_1\)\,, the negative of the displacement; for simplicity, let the constant of proportionality be one.  
 Introduce \(y_2(t)=dy_1/dt\) then Newton's law becomes \(dy_2/dt=-y_1\)\,.  
 Seek solutions of these two first-order differential equations in the form \(y_j(t)=x_je^{\lambda t}\) and the differential equations become \(x_2=\lambda x_1\) and \(\lambda x_2=-x_1\) respectively.  

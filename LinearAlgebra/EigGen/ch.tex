@@ -66,9 +66,9 @@ Now \(\xv=\ov\) is always a solution of the  equation \(A\xv=\lambda \xv\)\,.
 Consequently, we are only interested in those values of the \idx{eigenvalue}~\(\lambda\) when non-zero solutions for the \idx{eigenvector}~\xv\ exist (as it is the directions which are of interest).
 Rearranging the equation \(A\xv=\lambda\xv\) as the homogeneous system \((A-\lambda I)\xv=\ov\)\,, let's invoke properties of linear equations to solve the eigen-problem.
 \begin{itemize}
-\item Procedure~\ref{pro:eeh} establishes that one way to find the eigenvalues~\(\lambda\) (suitable for matrices of small size) is to solve the \idx{characteristic equation} \(\det(A-\lambda I)=0\)\,. 
+\item \autoref{pro:eeh} establishes that one way to find the eigenvalues~\(\lambda\) (suitable for matrices of small size) is to solve the \idx{characteristic equation} \(\det(A-\lambda I)=0\)\,. 
 \item Then for each eigenvalue, solving the homogeneous system \((A-\lambda I)\xv=\ov\) gives corresponding eigenvectors~\xv. 
-\item The set of eigenvectors for a given eigenvalue forms a subspace called the \idx{eigenspace}~\(\EE_\lambda\) (Theorem~\ref{thm:espacedef}).
+\item The set of eigenvectors for a given eigenvalue forms a subspace called the \idx{eigenspace}~\(\EE_\lambda\) (\autoref{thm:espacedef}).
 
 \end{itemize}
 
@@ -94,7 +94,7 @@ The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}
 \end{aside}%
 the eigenvectors appear to be in directions \(\xv_1\approx\pm(0.9,0.3)\) and \(\xv_2\approx\pm(0.9,-0.3)\) corresponding to eigenvalues \(\lambda_1\approx1.4\) and \(\lambda_2\approx 0.6\)\,.
 (Recall that scalar multiples of an eigenvector are always also eigenvectors, \S\ref{sec:iee}, so we always see \(\pm\)~pairs of eigenvectors in these pictures.)
-The eigenvectors \(\pm(0.9,0.3)\) are not orthogonal to the other eigenvectors \(\pm(0.9,-0.3)\), not at right angles---as happens for symmetric matrices (Theorem~\ref{thm:orthoevec}).
+The eigenvectors \(\pm(0.9,0.3)\) are not orthogonal to the other eigenvectors \(\pm(0.9,-0.3)\), not at right angles---as happens for symmetric matrices (\autoref{thm:orthoevec}).
 This lack of orthogonality in general means we soon generalise the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (Section~\ref{sec:lisb}).
 
 \item 
@@ -104,7 +104,7 @@ there appear to be no eigenvectors at all.
 \marginpar{\eRose01{-1}{0.5}}%
 No eigenvectors and eigenvalues is the answer if we require real answers.
 However, in most applications we find it sensible to have complex valued eigenvalues and eigenvectors (Section~\ref{sec:eennm}).
-So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in Example~\ref{eg:ccevals}). 
+So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in \autoref{eg:ccevals}). 
 \footnote{In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
 Such a consistent `rotation' in~\(A\xv\) is characteristic of matrices with complex valued eigenvalues and eigenvectors.}
 
@@ -113,19 +113,19 @@ In this third case, for
 \( A=\scriptstyle\begin{bmatrix} 1&1\\0&1 \end{bmatrix}\),
 there appears to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
 \marginpar{\eRose1101}%
-Whereas for symmetric matrices there were always two pairs, here we only appear to have one pair of eigenvectors (Theorem~\ref{thm:dimee}).
+Whereas for symmetric matrices there were always two pairs, here we only appear to have one pair of eigenvectors (\autoref{thm:dimee}).
 Such degeneracy occurs for matrices on the border between reality and complexity.
 
 \end{enumerate}
 
 
-The first problem of the general lack of orthogonality of the eigenvectors is most clearly seen in the case of triangular matrices (Definition~\ref{def:trim}).
-The reason is  linked to Theorem~\ref{thm:rpdet:vi} that the determinant of a triangular matrix is simply the product of its diagonal entries.
+The first problem of the general lack of orthogonality of the eigenvectors is most clearly seen in the case of triangular matrices (\autoref{def:trim}).
+The reason is  linked to \autoref{thm:rpdet:vi} that the determinant of a triangular matrix is simply the product of its diagonal entries.
 
 \begin{example} \label{eg:}
 Find algebraically the eigenvalues and eigenvectors of the triangular matrix \(A=\scriptstyle\begin{bmatrix} 2&1\\0&3 \end{bmatrix}\).
 \begin{solution} 
-Recall Procedure~\ref{pro:eeh}. 
+Recall \autoref{pro:eeh}. 
 \begin{enumerate}
 \item Find all eigenvalues by solving the characteristic equation \(\det(A-\lambda I)=0\)\,. 
 Here \(\det(A-\lambda I)=\det\scriptstyle\begin{bmatrix} 2-\lambda&1\\0&3-\lambda \end{bmatrix}\) which being a triangular matrix has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
@@ -189,8 +189,8 @@ that is, \((A-\lambda I)\xv=\ov\)\,.
 Rearranging gives \(A\xv=\lambda\xv\) for non-zero eigenvector~\xv\ and corresponding eigenvalue~\(\lambda=a_{kk}\)\,.
 
 Second, there can be no other eigenvalues.
-Every eigenvalue has to have non-trivial solutions, eigenvectors~\xv, to \((A-\lambda I)\xv=\ov\)\,, which by Theorem~\ref{thm:detinv} requires \(\det(A-\lambda I)=0\)\,.
-But matrix \((A-\lambda I)\) is upper triangular, as \(A\)~is upper triangular, so Theorem~\ref{thm:rpdet:vi} asserts the determinant
+Every eigenvalue has to have non-trivial solutions, eigenvectors~\xv, to \((A-\lambda I)\xv=\ov\)\,, which by \autoref{thm:detinv} requires \(\det(A-\lambda I)=0\)\,.
+But matrix \((A-\lambda I)\) is upper triangular, as \(A\)~is upper triangular, so \autoref{thm:rpdet:vi} asserts the determinant
 \begin{equation*}
 \det(A-\lambda I)=(a_{1,1}-\lambda)(a_{2,2}-\lambda)
 \cdots(a_{n,n}-\lambda).
@@ -206,7 +206,7 @@ Similarly for other pairs of eigenvectors corresponding to distinct eigenvalues.
 
 
 \begin{example} \label{eg:trieig}
-Use Theorem~\ref{thm:trieig} to find the eigenvalues, corresponding eigenvectors, and corresponding eigenspaces, of the following triangular matrices.
+Use \autoref{thm:trieig} to find the eigenvalues, corresponding eigenvectors, and corresponding eigenspaces, of the following triangular matrices.
 \begin{enumerate}
 \item \(\eAii=\begin{bmatrix}-3&2&0
 \\0&-4&2
@@ -300,7 +300,7 @@ That is, the eigenspace \(\EE_{3}=\Span\{(1,-\frac27,-\frac{23}{21},\frac{23}{14
 \\-7&1&0&0&0
 \\-1&0&0&0&0 \end{bmatrix}\)
 \begin{solution} 
-Matrix~\(\eAii\) is not a triangular matrix (Definition~\ref{def:trim}), so Theorem~\ref{thm:trieig} does not apply.
+Matrix~\(\eAii\) is not a triangular matrix (\autoref{def:trim}), so \autoref{thm:trieig} does not apply.
 Row or column swaps could transform it to be triangular, but we have not investigated the effect of such swaps on eigenvalues and eigenvectors.
 \end{solution}
 \end{enumerate}
@@ -320,13 +320,14 @@ What are all the eigenvalues of the matrix
 \\2&2&2&0&1
  \end{bmatrix}?
 \end{equation*}
-\partswidth=5em
-\begin{parts}
-\item \(1\)
-\item \(0,1\)\actans
-\item \(0,1,2\)
-\item \(0,1,2,3\)
-\end{parts}
+\actposs[4]{\(0,1\)}{\(1\)}{\(0,1,2\)}{\(0,1,2,3\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(1\)
+%\item \(0,1\)\actans
+%\item \(0,1,2\)
+%\item \(0,1,2,3\)
+%\end{parts}
 \end{activity}
 
 
@@ -334,7 +335,7 @@ What are all the eigenvalues of the matrix
 
 
 
-One consequence of the second part of the proof of Theorem~\ref{thm:trieig} is that, when counted according to multiplicity, there are precisely \(n\)~eigenvalues of an \(n\times n\) diagonal matrix.
+One consequence of the second part of the proof of \autoref{thm:trieig} is that, when counted according to multiplicity, there are precisely \(n\)~eigenvalues of an \(n\times n\) diagonal matrix.
 Correspondingly, the next section establishes there are precisely \(n\)~eigenvalues of general \(n\times n\) matrices, provided we count the eigenvalues according to multiplicity and allow complex valued eigenvalues.
 
 

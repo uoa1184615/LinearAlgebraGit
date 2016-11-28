@@ -23,7 +23,7 @@ As well as being fundamental to engineering, scientific and computational infere
 \end{aside}
 
 The scientific method is to infer general laws from data and then validate the laws.
-This section addresses the inference of general laws from data.
+This section addresses some aspects of the inference of general laws from data.
 A big challenge is that data is typically corrupted by noise and errors.
 %Another problem is that the `general law' sacrifices accuracy for simplicity.
 So this section shows how the singular value decomposition (\svd) leads to understanding the so-called least square methods.
@@ -37,7 +37,7 @@ So this section shows how the singular value decomposition (\svd) leads to under
 This first example introduces a new, linear algebra, view of approximation in a context that relates to students and one they know the answer.  
 \end{comment}
 
-\begin{example}[rationalise contradictory weights] \label{eg:fourwts}
+\begin{example}[rationalise contradictions] \label{eg:fourwts}
 I weighed myself the other day. 
 I weighed myself four times, each time separated by a few minutes:  the scales reported my weight in~kg as~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.
 The measurements give four different weights!
@@ -59,7 +59,7 @@ Ax=\bv\,,\quad\text{namely }
 \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}x
 =\begin{bmatrix} 84.8\\84.1\\84.7\\84.4 \end{bmatrix}.
 \end{equation*}
-The linear algebra Procedure~\ref{pro:gensol} is to `solve' this system, despite its contradictions, via an \svd\ and some intermediaries:
+The linear algebra \autoref{pro:gensol} is to `solve' this system, despite its contradictions, via an \svd\ and some intermediaries:
 \begin{equation*}
 Ax=U\underbrace{S\overbrace{\tr Vx}^{=y}}_{=\zv}=\bv\,.
 \end{equation*}
@@ -118,9 +118,9 @@ That is, this linear algebra procedure gives my weight as \(x=84.5\)\,kg (approx
 This linear algebra procedure recovers the traditional answer of averaging measurements.
 \end{example}
 
-The answer to the previous Example~\ref{eg:fourwts} illustrates how traditional averaging emerges from trying to make sense of apparently inconsistent information.
+The answer to the previous \autoref{eg:fourwts} illustrates how traditional averaging emerges from trying to make sense of apparently inconsistent information.
 Importantly, the principle of making the smallest possible change to the intermediary~\zv\ is equivalent to making the smallest possible change to the original data vector~\bv.
-The reason is that \(\bv=U\zv\) for an orthogonal matrix~\(U\): since \(U\)~is an orthogonal matrix, multiplication by~\(U\) preserves distances and angles (Theorem~\ref{thm:orthog}) and so the smallest possible change to~\bv\ is the same as the smallest possible change to~\zv.
+The reason is that \(\bv=U\zv\) for an orthogonal matrix~\(U\): since \(U\)~is an orthogonal matrix, multiplication by~\(U\) preserves distances and angles (\autoref{thm:orthog}) and so the smallest possible change to~\bv\ is the same as the smallest possible change to~\zv.
 Scientists and engineers implicitly use this same `\idx{smallest change}' approach to approximately solve many sorts of inconsistent linear equations.
 
 
@@ -148,13 +148,14 @@ Consider the inconsistent equations \(3x=1\) and \(4x=3\) formed as the system
 \end{equation*}
 is an \svd\ factorisation of the \(2\times 1\) matrix.
 Following the procedure of the previous example, what is the `best' approximate solution to these inconsistent equations?
-\partswidth=5em
-\begin{parts}
-\item \(x=1/3\)
-\item \(x=4/7\)
-\item \(x=3/5\)\actans
-\item \(x=3/4\)
-\end{parts}
+\actposs[4]{\(x=3/5\)}{\(x=1/3\)}{\(x=4/7\)}{\(x=3/4\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(x=1/3\)
+%\item \(x=4/7\)
+%\item \(x=3/5\)\actans
+%\item \(x=3/4\)
+%\end{parts}
 \end{activity}
 
 
@@ -162,9 +163,9 @@ Following the procedure of the previous example, what is the `best' approximate 
 
 
 \begin{example} \label{eg:rstp3}
-Recall the \idx{table tennis} \idx{player rating} Example~\ref{eg:rstp2}.
+Recall the \idx{table tennis} \idx{player rating} \autoref{eg:rstp2}.
 There we found that we could not solve the equations to find some ratings because the equations were \idx{inconsistent}.
-In our new terminology of the previous Section~\ref{sec:sbd}, the right-hand side vector~\bv\ is not in the \idx{column space} of the matrix~\(A\) (Definition~\ref{def:colsp}): 
+In our new terminology of the previous Section~\ref{sec:sbd}, the right-hand side vector~\bv\ is not in the \idx{column space} of the matrix~\(A\) (\autoref{def:colsp}): 
 the stereo picture below illustrates the 2D column space spanned by the three columns of~\(A\) and that the vector~\bv\ lies outside the column space.
 \begin{center}
 \qview{58}{63}{\begin{tikzpicture} 
@@ -183,7 +184,7 @@ the stereo picture below illustrates the 2D column space spanned by the three co
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-Now reconsider step~3 in  Example~\ref{eg:rstp2}.
+Now reconsider step~3 in  \autoref{eg:rstp2}.
 \begin{enumerate} \addtocounter{enumi}2
 \item We need to interpret and `solve' \(S\yv=\zv\) which here is
 \begin{equation*}
@@ -428,29 +429,33 @@ Listed below are four approximate solutions to the system \(A\xv=\bv\)\,,
 \begin{bmatrix} 5&3\\3&-1\\1&1 \end{bmatrix}\begin{bmatrix} x\\y \end{bmatrix}=\begin{bmatrix} 9\\2\\10 \end{bmatrix}.
 \end{equation*}
 Setting vector \(\tilde\bv=A\xv\) for each, which one minimises the distance between the original right-hand side \(\bv=(9,2,10)\) and the approximate~\(\tilde\bv\)?
-\partswidth=5em
-\begin{parts}
-\item \(\xv=\begin{bmatrix} 1\\1 \end{bmatrix}\)
-\item \(\xv=\begin{bmatrix} 1\\2 \end{bmatrix}\)\actans
-\item \(\xv=\begin{bmatrix} 2\\1 \end{bmatrix}\)
-\item \(\xv=\begin{bmatrix} 2\\2 \end{bmatrix}\)
-\end{parts}
+\actposs[4]{\(\xv=\begin{bmatrix} 1\\2 \end{bmatrix}\)}
+{\(\xv=\begin{bmatrix} 1\\1 \end{bmatrix}\)}
+{\(\xv=\begin{bmatrix} 2\\1 \end{bmatrix}\)}
+{\(\xv=\begin{bmatrix} 2\\2 \end{bmatrix}\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(\xv=\begin{bmatrix} 1\\1 \end{bmatrix}\)
+%\item \(\xv=\begin{bmatrix} 1\\2 \end{bmatrix}\)\actans
+%\item \(\xv=\begin{bmatrix} 2\\1 \end{bmatrix}\)
+%\item \(\xv=\begin{bmatrix} 2\\2 \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
 
 \begin{theorem}[\bfidx{smallest change}] \label{thm:appsol} 
-All \idx{approximate solution}s obtained by Procedure~\ref{pro:appsol} solve the linear system \(A\xv=\tilde\bv\) for the \idx{consistent} right-hand side vector~\(\tilde\bv\) 
+All \idx{approximate solution}s obtained by \autoref{pro:appsol} solve the linear system \(A\xv=\tilde\bv\) for the \idx{consistent} right-hand side vector~\(\tilde\bv\) 
+that minimises the \idx{distance}~\(|\tilde\bv-\bv|\).
 \begin{aside} The over-tilde on~\bv\ is to suggest an approximation. \end{aside}%
-that minimises the distance~\(|\tilde\bv-\bv|\).
 \end{theorem}
 \begin{proof} 
 Find an \svd\ \(A=\usv\) of \(m\times n\) matrix~\(A\).
-Then Procedure~\ref{pro:appsol} computes \(\zv=\tr U\bv\in\RR^m\), that is, \(\bv=U\zv\) as \(U\)~is orthogonal.
+Then \autoref{pro:appsol} computes \(\zv=\tr U\bv\in\RR^m\), that is, \(\bv=U\zv\) as \(U\)~is orthogonal.
 For any \(\tilde\bv\in\RR^m\) let \(\tilde\zv=\tr U\tilde\bv\in\RR^m\), that is, \(\tilde\bv=U\tilde\zv\).
-Then \(|\tilde\bv-\bv|=|U\tilde\zv-U\zv|=|U(\tilde\zv-\zv)|=|\tilde\zv-\zv|\) as multiplication by orthogonal~\(U\) preserves distances (Theorem~\ref{thm:orthog}).
+Then \(|\tilde\bv-\bv|=|U\tilde\zv-U\zv|=|U(\tilde\zv-\zv)|=|\tilde\zv-\zv|\) as multiplication by orthogonal~\(U\) preserves distances (\autoref{thm:orthog}).
 Thus minimising~\(|\tilde\bv-\bv|\) is equivalent to minimising~\(|\tilde\zv-\zv|\).
-Procedure~\ref{pro:appsol} seeks to solve the diagonal system \(S\yv=\zv\) for \(\yv\in\RR^n\). 
+\autoref{pro:appsol} seeks to solve the diagonal system \(S\yv=\zv\) for \(\yv\in\RR^n\). 
 That is, for a matrix of \(\rank A=r\)
 \begin{equation*}
 \begin{bmatrix} \begin{matrix} \sigma_1&\cdots&0\\
@@ -461,9 +466,9 @@ O_{(m-r)\times r}&O_{(m-r)\times (n-r)}
 \\\,\end{bmatrix}\yv
 =\begin{bmatrix} z_1\\\vdots\\z_r\\z_{r+1}\\\vdots\\z_m \end{bmatrix}.
 \end{equation*}
-Procedure~\ref{pro:appsol} approximately solves this inconsistent system by adjusting the right-hand side to \(\tilde\zv=(z_1,\ldots,z_r,0,\ldots,0)\in\RR^m\).
+\autoref{pro:appsol} approximately solves this inconsistent system by adjusting the right-hand side to \(\tilde\zv=(z_1,\ldots,z_r,0,\ldots,0)\in\RR^m\).
 This change makes \(|\zv-\tilde\zv|\) as small as possible because we must zero the last \((m-r)\)~components of~\zv\ in order to obtain a consistent set of equations, and because any adjustment to the first \(r\)~components of~\zv\ would only increase~\(|\zv-\tilde\zv|\).
-Hence the solution computed by Procedure~\ref{pro:appsol} solves the consistent system \(A\xv=\tilde\bv\) (with \(\tilde\bv=U\tilde\zv\)) such that \(|\bv-\tilde\bv|\) is~minimised.
+Hence the solution computed by \autoref{pro:appsol} solves the consistent system \(A\xv=\tilde\bv\) (with \(\tilde\bv=U\tilde\zv\)) such that \(|\bv-\tilde\bv|\) is~minimised.
 \end{proof}
 
 
@@ -471,7 +476,7 @@ Hence the solution computed by Procedure~\ref{pro:appsol} solves the consistent 
 
 \begin{example}[\idx{life expectancy}] \label{eg:lifeExpectancy}
 \begin{table}
-\caption{life expectancy in years of (white) females and males born in the given years  [\url{http://www.infoplease.com/ipa/A0005140.html}, 2014].  Used by Example~\ref{eg:lifeExpectancy}.}
+\caption{life expectancy in years of (white) females and males born in the given years  [\url{http://www.infoplease.com/ipa/A0005140.html}, 2014].  Used by \autoref{eg:lifeExpectancy}.}
 \label{tbl:lifeExpectancy}
 \begin{equation*}
 \begin{array}{lrrrrrrrr} \hline
@@ -485,7 +490,7 @@ Hence the solution computed by Procedure~\ref{pro:appsol} solves the consistent 
 \centering
 %\includegraphics[width=\linewidth]{lifeExpectancy}
 \input{Matrices/lifeExpectancy.ltx}
-\caption{the life expectancies in years of females and males born in the given years (Table~\ref{tbl:lifeExpectancy}).  Also plotted is the best straight line fit to the female data obtained by Example~\ref{eg:lifeExpectancy}.}
+\caption{the life expectancies in years of females and males born in the given years (Table~\ref{tbl:lifeExpectancy}).  Also plotted is the best straight line fit to the female data obtained by \autoref{eg:lifeExpectancy}.}
 \label{fig:lifeExpectancy}
 \end{figure}
 Table~\ref{tbl:lifeExpectancy} lists life expectancies of people born in a given year; Figure~\ref{fig:lifeExpectancy} plots the data points.
@@ -509,7 +514,7 @@ Form these into the matrix-vector system \(A\xv=\bv\) where
 A= \begin{bmatrix} 1&0\\1&1\\1&2\\1&3\\1&4\\1&5\\1&6 \end{bmatrix},
 \quad \bv=\begin{bmatrix}72.0\\74.2\\75.5\\78.2\\79.6\\80.2\\81.1\end{bmatrix}.
 \end{equation*}
-Procedure~\ref{pro:appsol} then determines a best approximate solution.
+\autoref{pro:appsol} then determines a best approximate solution.
 \begin{enumerate}
 \item Enter the matrix~\(A\) and vector~\bv\ into \script, and compute an \svd\ of \(A=\usv\) via \verb|[U,S,V]=svd(A)| \twodp:
 \setbox\ajrqrbox\hbox{\qrcode{% life expectancy
@@ -587,13 +592,17 @@ In calibrating a vortex flowmeter the following flow rates were obtained for var
 \text{flow rate (litre/s)}&0.18&0.57&0.93&1.27\\\hline
 \end{array}
 \end{equation*}
-Letting \(v_i\) be the voltages and \(f_i\)~the flow rates, which of the following is a reasonable model to seek?
-\begin{parts}
-\item  \(f_i=x_1\)
-\item \(v_i=x_1+x_2f_i\)
-\item \(f_i=x_1+x_2v_i\)\actans
-\item \(v_i=x_1+x_2f_i+x_3f_i^2\)
-\end{parts}
+Letting \(v_i\) be the voltages and \(f_i\)~the flow rates, which of the following is a reasonable model to seek? (for coefficients~\(x_1,x_2,x_3\))
+\actposs{\(f_i=x_1+x_2v_i\)}
+{\(f_i=x_1\)}
+{\(v_i=x_1+x_2f_i\)}
+{\(v_i=x_1+x_2f_i+x_3f_i^2\)}
+%\begin{parts}
+%\item  \(f_i=x_1\)
+%\item \(v_i=x_1+x_2f_i\)
+%\item \(f_i=x_1+x_2v_i\)\actans
+%\item \(v_i=x_1+x_2f_i+x_3f_i^2\)
+%\end{parts}
 \end{activity}
 
 
@@ -601,7 +610,7 @@ Letting \(v_i\) be the voltages and \(f_i\)~the flow rates, which of the followi
 \begin{example}[planetary orbital periods] \label{eg:orbitalPeriods}
 \begin{table}
 \caption{orbital periods for the eight planets of the solar system: the periods are in (Earth) days; the distance is the length of the semi-major axis of the orbits [\idx{Wikipedia}, 2014].
-Used by Example~\ref{eg:orbitalPeriods}}
+Used by \autoref{eg:orbitalPeriods}}
 \label{tbl:orbitalPeriods}
 \begin{equation*}
 \begin{array}{p{12ex}rr} \hline
@@ -622,7 +631,7 @@ Neptune& 4498.54& 60190.03\\\hline
 \centering
 \input{Matrices/orbitalPeriods.ltx}
 \caption{the planetary periods as a function of the distance from the data of Table~\ref{tbl:orbitalPeriods}: the graph is a log-log plot to show the excellent power law.  
-Also plotted is the power law fit computed by Example~\ref{eg:orbitalPeriods}.}
+Also plotted is the power law fit computed by \autoref{eg:orbitalPeriods}.}
 \label{fig:orbitalPeriods}
 \end{figure}%
 Table~\ref{tbl:orbitalPeriods} lists each \idx{orbital period} of the \idx{planets} of the solar system; Figure~\ref{fig:orbitalPeriods} plots the data points as a function of the distance of the planets from the sun.
@@ -663,7 +672,7 @@ A= \begin{bmatrix}   1&1.76\\
 \end{bmatrix}.
 \end{equation*}
 
-Procedure~\ref{pro:appsol} then determines a best approximate solution.
+\autoref{pro:appsol} then determines a best approximate solution.
 \begin{enumerate}
 \item Enter these matrices in \script\ by the commands, for example,
 \setbox\ajrqrbox\hbox{\qrcode{% planetary orbit periods
@@ -779,7 +788,7 @@ There are two separate important computational issues.
 \item Many books approximate solutions of \(A\xv=\bv\) by solving the associated \idx{normal equation} \((\tr AA)\xv=(\tr A\bv)\).  
 For theoretical purposes this normal equation is very useful.  
 However, in practical computation avoid the normal equation because forming~\(\tr AA\), and then manipulating it, is both expensive and error enhancing (especially in large problems).
-For example, \(\cond(\tr AA)=(\cond A)^2\) (Exercise~\ref{ex:ctrAA}) so matrix~\(\tr AA\) typically has a much worse condition number than matrix~\(A\) (Procedure~\ref{pro:unisol}).
+For example, \(\cond(\tr AA)=(\cond A)^2\) (Exercise~\ref{ex:ctrAA}) so matrix~\(\tr AA\) typically has a much worse condition number than matrix~\(A\) (\autoref{pro:unisol}).
 
 \item The last two examples observe that \verb|A\b| gives an answer that was identical to what the \svd\ procedure gives.
 Thus \verb|A\b| can serve as a very useful short-cut to finding a best approximate solution.
@@ -810,7 +819,7 @@ Matlab and Octave currently differ in that octave returns the smallest solution,
 \end{comment}
 
 \paragraph{The \script\ operation \texttt{A$\backslash$b}}
-Recall that Examples~\ref{eg:lifeExpectancy} and~\ref{eg:orbitalPeriods} observed that \verb|A\b| gives an answer identical to the best approximate solution given by the \svd\ Procedure~\ref{pro:appsol}.
+Recall that Examples~\ref{eg:lifeExpectancy} and~\ref{eg:orbitalPeriods} observed that \verb|A\b| gives an answer identical to the best approximate solution given by the \svd\ \autoref{pro:appsol}.
 But there are just as many circumstances when \verb|A\b| is not `the approximate answer' that you want.
 Beware.
 
@@ -818,7 +827,7 @@ Beware.
 \begin{example} \label{eg:}
 Use \verb|x=A\b| to `solve' the problems of Examples~\ref{eg:fourwts}, \ref{eg:rstp3} and~\ref{eg:roundrobin1}.
 \begin{itemize}
-\item With \script[2], observe the answer returned is the \emph{particular} solution determined by the \svd\ Procedure~\ref{pro:appsol} (whether approximate or exact): 
+\item With \script[2], observe the answer returned is the \emph{particular} solution determined by the \svd\ \autoref{pro:appsol} (whether approximate or exact): 
 respectively \(84.5\)\,kg; 
 ratings \((1,\frac13,-\frac43)\); and 
 ratings \((\frac12,1,-\frac54,-\frac14)\). %norm=1.70
@@ -832,7 +841,7 @@ How do we make sense of such differences in computed answers?
 
 Recall that systems of linear equations may not have unique solutions (as in the rating examples): what does \verb|A\b| compute when there are an infinite number of solutions?
 \begin{itemize}
-\item For systems of equations with the number of equations not equal to the number of variables, \(m\neq n\)\,, the \script[2] operation \verb|A\b| computes for you the \emph{\idx{smallest solution}} of all valid solutions (Theorem~\ref{thm:smallsoln}): often `exact' when \(m<n\)\,, or approximate when \(m>n\) (Theorem~\ref{thm:appsol}).  
+\item For systems of equations with the number of equations not equal to the number of variables, \(m\neq n\)\,, the \script[2] operation \verb|A\b| computes for you the \emph{\idx{smallest solution}} of all valid solutions (\autoref{thm:smallsoln}): often `exact' when \(m<n\)\,, or approximate when \(m>n\) (\autoref{thm:appsol}).  
 Using \verb|A\b| is the most efficient computationally, but using the \svd\ helps us understand what it does.
 
 \item \script[1] (R2013b) does something different with \verb|A\b| in the case of fewer equations than variables, \(m<n\)\,. 
@@ -845,8 +854,8 @@ But \script[2]'s choice of the smallest valid solution is often more appealing.
 Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\)\,, in Procedures~\ref{pro:gensol} and~\ref{pro:appsol}.
 \end{theorem}
 \begin{proof} %Direct from \svd\ and that orthogonal matrices are rotations.
-We obtain all possible solutions, whether exact (Procedure~\ref{pro:gensol}) or approximate (Procedure~\ref{pro:appsol}), from solving \(\xv=V\yv\)\,.
-Since multiplication by orthogonal~\(V\) preserves lengths (Theorem~\ref{thm:orthog}), the lengths of~\xv\ and~\yv\ are the same: consequently, \(|\xv|^2=|\yv|^2=y_1^2+\cdots+y_r^2+y_{r+1}^2+\cdots+y_n^2\).  
+We obtain all possible solutions, whether exact (\autoref{pro:gensol}) or approximate (\autoref{pro:appsol}), from solving \(\xv=V\yv\)\,.
+Since multiplication by orthogonal~\(V\) preserves lengths (\autoref{thm:orthog}), the lengths of~\xv\ and~\yv\ are the same: consequently, \(|\xv|^2=|\yv|^2=y_1^2+\cdots+y_r^2+y_{r+1}^2+\cdots+y_n^2\).  
 Now variables \hlist yr\ are fixed by Procedures~\ref{pro:gensol} and~\ref{pro:appsol},
 but \(y_{r+1},\ldots,y_n\) are free to vary.
 Hence the smallest \(|\yv|^2\)~is obtained by setting \(y_{r+1}=\cdots=y_n=0\)\,. 
@@ -855,7 +864,7 @@ Then this gives the particular solution~\(\xv=V\yv\)\ of smallest~\(|\xv|\).
 
 
 \begin{example} \label{eg:}
-In the table tennis ratings of Example~\ref{eg:rstp3} the procedure found the ratings were any of
+In the table tennis ratings of \autoref{eg:rstp3} the procedure found the ratings were any of
 \begin{equation*}
 \xv=\begin{bmatrix} 1\\\frac13\\-\frac43 \end{bmatrix}
 +\frac{y_3}{\sqrt3}\begin{bmatrix} 1\\1\\1 \end{bmatrix},
@@ -893,7 +902,7 @@ Hence the length~\(|\xv|\) is minimised by the free variable \(y_3=0\)\,.
 
 \begin{example}[closest point to the origin] \label{eg:}
 What is the point on the line \(3x_1+4x_2=25\) that is closest to the origin?
-I am sure you could think of several methods, perhaps inspired by the marginal graph, but here use an \svd\ and Theorem~\ref{thm:smallsoln}.
+I am sure you could think of several methods, perhaps inspired by the marginal graph, but here use an \svd\ and \autoref{thm:smallsoln}.
 Confirm the \script[2] computation~\verb|A\b| gives this same closest point, but \script[1] gives a different answer.
 \marginpar{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
@@ -905,7 +914,7 @@ Confirm the \script[2] computation~\verb|A\b| gives this same closest point, but
 \end{tikzpicture}}
 \begin{solution} 
 The point on the line \(3x_1+4x_2=25\) closest to the origin, is the smallest solution of \(3x_1+4x_2=25\)\,.  
-Rephrase as the matrix vector system \(A\xv=b\) for matrix \(A=\begin{bmatrix} 3&4 \end{bmatrix}\) and \(b=25\), and apply Procedure~\ref{pro:gensol}.
+Rephrase as the matrix vector system \(A\xv=b\) for matrix \(A=\begin{bmatrix} 3&4 \end{bmatrix}\) and \(b=25\), and apply \autoref{pro:gensol}.
 \begin{enumerate}
 \item Factorise \(A=\usv\) in \script\ via the command \verb|[U,S,V]=svd([3 4])|\,:
 \begin{verbatim}
@@ -941,12 +950,13 @@ What is the closest point to the origin of the plane \(2x+3y+6z=98\)\,? given th
 \\\frac37&\frac67&-\frac27
 \\\frac67&-\frac27&\frac37 \end{bmatrix}}.
 \end{equation*}
-\begin{parts}
-\item \((2,3,6)\)
-\item \((4,6,12)\)
-\item \((-3,6,-2)\)
-\item \((-12,-4,6)\)
-\end{parts}
+\actposs{\((4,6,12)\)}{\((2,3,6)\)}{\((-3,6,-2)\)}{\((-12,-4,6)\)}
+%\begin{parts}
+%\item \((2,3,6)\)
+%\item \((4,6,12)\)
+%\item \((-3,6,-2)\)
+%\item \((-12,-4,6)\)
+%\end{parts}
 \end{activity}
 
 
@@ -970,7 +980,9 @@ Either \(p\) or~\(q\) can be~\verb|[]| in which case \script\ uses \(p=mn/q\) or
 
 \item \index{log()@\texttt{log()}}\verb|log(x)| where \(x\)~is a  matrix, vector or scalar computes the natural \idx{logarithm} to the base~\(e\) of each element, and returns the result(s) as a correspondingly sized matrix, vector or scalar.
 
-\item \index{exp()@\texttt{exp()}}\verb|exp(x)| where \(x\)~is a  matrix, vector or scalar computes the \idx{exponential} of each element, and returns the result(s) as a correspondingly sized matrix, vector or scalar.
+\item \index{exp()@\texttt{exp()}}\verb|exp(x)| where \(x\)~is a  matrix, vector or scalar computes the \idx{exponential} of each element, and returns the result(s) as a correspondingly sized matrix, vector or scalar.%
+\footnote{In advanced linear algebra, for application to differential equations and Markov chains, we define the exponential of a matrix, denoted~\(\exp A\) or~\(e^A\).  
+This mathematical function is \emph{not} the same as \script's \texttt{exp(A)}, instead one computes \texttt{expm(A)} to get~\(e^A\).}
 
 \end{itemize}
 \end{minipage}
@@ -1181,7 +1193,7 @@ But after such reordering the answer from \script[1]'s \verb|x=A\b|  variously p
 
 
 The reason for such multiplicity of mathematically valid answers is that the problem is underdetermined.  
-There are nine unknowns but only six equations, so in linear algebra there are typically an infinity of valid answers (as in Theorem~\ref{thm:feweqns}): just five of these are illustrated above.
+There are nine unknowns but only six equations, so in linear algebra there are typically an infinity of valid answers (as in \autoref{thm:feweqns}): just five of these are illustrated above.
 \emph{In this application to \textsc{ct}-scans} we add the additional information that we desire the answer that is the `greyest', the most `washed out', the answer with fewest features.
 Finding the answer~\xv\ that minimises~\(|\xv|\) is a reasonable way to quantify this desire.
 \footnote{Another possibility is to increase the number of measurements in order to increase the number of equations to match the number of unknown pixels.
@@ -1189,7 +1201,7 @@ However, measurements are often prohibitively expensive.
 Further, increasing the number of measurements may tempt us to increase the resolution by having more smaller pixels: in which case we again have to deal with the same issue of more variables than known equations.}
 
 The \svd\ procedure guarantees that we find such a smallest answer.
-Procedure~\ref{pro:appsol} in \script\ gives the following process to satisfy the experimental measurements expressed in \(A\xv=\bv\)\,.
+\autoref{pro:appsol} in \script\ gives the following process to satisfy the experimental measurements expressed in \(A\xv=\bv\)\,.
 \begin{enumerate}
 \item First, find an \svd, \(A=\usv\), via \verb|[U,S,V]=svd(A)| and get \twodp
 \setbox\ajrqrbox\hbox{\qrcode{% svd CT scan
@@ -1235,7 +1247,7 @@ V =
 \end{equation*}
 
 \item Because the sixth singular value is zero, ignore the sixth equation: because \(z_6=0.00\) this is only a small inconsistency error.
-Now set $y_i=z_i/\sigma_i$ for \(i=1,\ldots,5\) and \emph{for the smallest magnitude answer set the free variables} \(y_6=y_7=y_8=y_9=0\) (Theorem~\ref{thm:smallsoln}).
+Now set $y_i=z_i/\sigma_i$ for \(i=1,\ldots,5\) and \emph{for the smallest magnitude answer set the free variables} \(y_6=y_7=y_8=y_9=0\) (\autoref{thm:smallsoln}).
 Obtain the non-zero values via \verb|y=z(1:5)./diag(S(1:5,1:5))| to find
 \begin{equation*}
 \yv=(1.16,-0.30, 0.18, 0.03,-0.39,0,0,0,0)
@@ -1344,7 +1356,7 @@ But we could choose any~\(\tilde\bv\) in the column space, so any answer is poss
 \marginpar{\temp1}%
 Instead, the preferred answer is to find the vector~\(\tilde\bv\) in the column space of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\) \emph{and which is closest to}~\bv, as illustrated in the margin here.
 
-The \svd\ approach of Procedure~\ref{pro:appsol} to find~\(\tilde\bv\) and~\(x\) is the following.
+The \svd\ approach of \autoref{pro:appsol} to find~\(\tilde\bv\) and~\(x\) is the following.
 \begin{enumerate}
 \item Use \verb|[U,S,V]=svd([2;1])| to find here the \svd\ factorisation \(A=\usv=\scriptsize\begin{bmatrix} 0.89&-0.45\\0.45&0.89 \end{bmatrix} \begin{bmatrix} 2.24\\0 \end{bmatrix}\tr{\begin{bmatrix} 1 \end{bmatrix}}\) \twodp.
 \item Then \(\zv=\tr U\bv=(4.47,2.24)\).
@@ -1362,11 +1374,11 @@ Start with the crucial observation that the closest point\slash vector~\(\tilde\
 (If \(\bv-\tilde\bv\) were not orthogonal, then we would be able to slide~\(\tilde\bv\) along the line \(\Span\{\av\}\) to reduce the length of \(\bv-\tilde\bv\).)
 Thus we form a right-angle triangle with hypotenuse of length~\(|\bv|\) and angle~\(\theta\) as shown in the margin.
 Trigonometry then gives the adjacent length \(|\tilde\bv|=|\bv|\cos\theta\)\,.
-But the angle~\(\theta\) is that between the given vectors~\av\ and~\bv, so the dot product gives the cosine as \(\cos\theta={\av\cdot\bv}/({|\av||\bv|})\)  (Theorem~\ref{thm:anglev}).
+But the angle~\(\theta\) is that between the given vectors~\av\ and~\bv, so the dot product gives the cosine as \(\cos\theta={\av\cdot\bv}/({|\av||\bv|})\)  (\autoref{thm:anglev}).
 Hence the adjacent length \(|\tilde\bv|=|\bv|{\av\cdot\bv}/({|\av||\bv|})={\av\cdot\bv}/|\av|\).
 To approximately solve \(\av x=\bv\)\,, replace the inconsistent \(\av x=\bv\) by the consistent \(\av x=\tilde\bv\)\,.
 Then as \(x\) is a scalar we solve this consistent equation via the ratio of lengths,  \(x=|\tilde\bv|/|\av|={\av\cdot\bv}/|\av|^2\).
-For Example~\ref{eg:incon1}, this gives `solution' \(x=(2,1)\cdot(3,4)/(2^2+1^2)=10/5=2\) as before.
+For \autoref{eg:incon1}, this gives `solution' \(x=(2,1)\cdot(3,4)/(2^2+1^2)=10/5=2\) as before.
 
 \marginpar{\temp3}%
 A crucial part of such solutions is the general formula for \(\tilde\bv=\av x=\av(\av\cdot\bv)/|\av|^2\).
@@ -1477,12 +1489,13 @@ Then `best solve' equation \(\pv x=\qv\) by the approximation \(\pv x=\proj_\pv(
 \begin{activity}
 Use projection to best solve the inconsistent equation \((1,4,8)x=(4,4,2)\). 
 The best answer is which of the following?
-\begin{parts}
-\item \(x=4/9\)
-\item \(x=10/13\)
-\item \(x=4\)
-\item \(x=21/4\)
-\end{parts}
+\actposs{\(x=4/9\)}{\(x=10/13\)}{\(x=4\)}{\(x=21/4\)}
+%\begin{parts}
+%\item \(x=4/9\)
+%\item \(x=10/13\)
+%\item \(x=4\)
+%\item \(x=21/4\)
+%\end{parts}
 \end{activity}
 
 
@@ -1498,7 +1511,7 @@ The best answer is which of the following?
 \subsubsection{Project onto a subspace}
 
 The previous subsection develops a geometric view of the `best' solution to the \idx{inconsistent system} \(\av x=\bv\)\,.
-The discussion introduced that the conventional `best' solution---that determined by Procedure~\ref{pro:appsol}---is to replace~\bv\ by its projection~\(\proj_{\av}(\bv)\), namely to solve \(\av x=\proj_{\av}(\bv)\).
+The discussion introduced that the conventional `best' solution---that determined by \autoref{pro:appsol}---is to replace~\bv\ by its projection~\(\proj_{\av}(\bv)\), namely to solve \(\av x=\proj_{\av}(\bv)\).
 The rationale is that this is the \emph{smallest} change to the right-hand side that enables the equation to be solved.  
 This subsection introduces that solving inconsistent equations in more variables involves an analogous projection onto a subspace.
 
@@ -1506,7 +1519,7 @@ This subsection introduces that solving inconsistent equations in more variables
 
 \begin{definition}[project onto a subspace] \label{def:orthproj}
 Let \WW\ be a \(k\)-dimensional \idx{subspace} of~\(\RR^n\) with an \idx{orthonormal basis} \(\{\hlist\wv k\}\).
-For any vector \(\vv\in\RR^n\), the \bfidx{orthogonal projection} of vector~\vv\ onto subspace~\WW\ is
+For every vector \(\vv\in\RR^n\), the \bfidx{orthogonal projection} of vector~\vv\ onto subspace~\WW\ is
 \begin{equation*}
 \proj_\WW(\vv)=\wv_1(\wv_1\cdot\vv)+\wv_2(\wv_2\cdot\vv)+\cdots+\wv_k(\wv_k\cdot\vv).
 %\label{eq:orthproj}
@@ -1656,7 +1669,7 @@ Letting \AA~denote the column space of matrix~\(A\), determine \(\proj_\AA(\bv)\
 \end{tikzpicture}}}%
 We need to find an orthonormal basis for the column space (the illustrated plane spanned by the three shown column vectors)---an \svd\ gives it to us.
 \begin{center}\temp1\end{center}
-Example~\ref{eg:rstp} found an \svd\  \(A=\usv\), in \script\ via  \verb|[U,S,V]=svd(A)|, to be
+\autoref{eg:rstp} found an \svd\  \(A=\usv\), in \script\ via  \verb|[U,S,V]=svd(A)|, to be
 \begin{verbatim}
 U =
     0.4082   -0.7071    0.5774
@@ -1698,7 +1711,7 @@ Hence
 \item Find the projection of the vector \((1,2,2)\) onto the plane \(2x-\frac12y+4z=6\)\,.
 \begin{solution} 
 This plane is not a subspace as it does not pass through the origin.
-Definition~\ref{def:orthproj} only defines projection onto a subspace so we cannot answer this problem (as yet). 
+\autoref{def:orthproj} only defines projection onto a subspace so we cannot answer this problem (as yet). 
 \end{solution}
 
 
@@ -1729,7 +1742,7 @@ Definition~\ref{def:orthproj} only defines projection onto a subspace so we cann
 This plane does pass through the origin so it forms a subspace, call it~\PP\ (illustrated above).
 To project we need two orthonormal basis vectors.
 Recall that a normal to the plane is its vectors of coefficients, here~\((2,-\tfrac12,4)\), so we need to find two orthonormal vectors which are orthogonal to~\((2,-\tfrac12,4)\).
-Further, recall that the columns of an orthogonal matrix are orthonormal (Theorem~\ref{thm:orthog:ii}), so use an \svd\ to find orthonormal vectors to~\((2,-\tfrac12,4)\).
+Further, recall that the columns of an orthogonal matrix are orthonormal (\autoref{thm:orthog:ii}), so use an \svd\ to find orthonormal vectors to~\((2,-\tfrac12,4)\).
 In \script,  compute an \svd\ with \verb|[U,S,V]=svd([2;-1/2;4])| to find
 \setbox\ajrqrbox\hbox{\qrcode{% project onto plane
 [U,S,V]=svd([2;-1/2;4])
@@ -1772,62 +1785,66 @@ This answer may be computed in \script\ via the two dot products \verb|cs=U(:,2:
 
 \begin{activity}
 Determine which of the following is \(\proj_\WW(1,1,-2)\) for the subspace \(\WW=\Span\{(2,3,6), (-3,6,-2)\}\).
-\begin{parts}
-\item \((-\frac57,\frac37,-\frac87)\)\actans
-\item \((-\frac17,\frac97,\frac47)\)
-\item \((\frac17,-\frac97,-\frac47)\)
-\item \((\frac57,-\frac37,\frac87)\)
-\end{parts}
+\actposs{\((-\frac57,\frac37,-\frac87)\)}
+{\((-\frac17,\frac97,\frac47)\)}
+{\((\frac17,-\frac97,-\frac47)\)}
+{\((\frac57,-\frac37,\frac87)\)}
+%\begin{parts}
+%\item \((-\frac57,\frac37,-\frac87)\)\actans
+%\item \((-\frac17,\frac97,\frac47)\)
+%\item \((\frac17,-\frac97,-\frac47)\)
+%\item \((\frac57,-\frac37,\frac87)\)
+%\end{parts}
 \end{activity}
 
 
 
 
-Example~\ref{eg:orthproj:iii} determines the orthogonal projection of the given table tennis results \(\bv=(1,2,2)\) onto the column space of matrix~\(A\) is the vector \(\tilde\bv=\tfrac13(2,7,5)\).
-Recall that in Example~\ref{eg:rstp3}, Procedure~\ref{pro:appsol} gives the `approximate' solution of the impossible \(A\xv=\bv\) to be \(\xv=(1,\frac13,-\frac43)\).
+\autoref{eg:orthproj:iii} determines the orthogonal projection of the given table tennis results \(\bv=(1,2,2)\) onto the column space of matrix~\(A\) is the vector \(\tilde\bv=\tfrac13(2,7,5)\).
+Recall that in \autoref{eg:rstp3}, \autoref{pro:appsol} gives the `approximate' solution of the impossible \(A\xv=\bv\) to be \(\xv=(1,\frac13,-\frac43)\).
 Now see that \(A\xv
 =\big(1-\frac13,1-(-\frac43),\frac13-(-\frac43)\big)
 =(\frac23,\frac73,\frac53)
 =\tilde\bv\).
-That is, the approximate solution method of Procedure~\ref{pro:appsol} solved the problem \(A\xv=\proj_\AA(\bv)\).
+That is, the approximate solution method of \autoref{pro:appsol} solved the problem \(A\xv=\proj_\AA(\bv)\).
 The following theorem confirms this is no accident: orthogonally projecting the right-hand side onto the column space of the matrix in a system of linear equations is equivalent to solving the system with a smallest change to the right-hand side that makes it consistent.
 
 
 \begin{theorem}[] \label{thm:lsqproj}
-The `\idx{least square}' solution(s) of the system \(A\xv=\bv\) determined by Procedure~\ref{pro:appsol} is(are) the solution(s) of \(A\xv=\proj_{\AA}(\bv)\) where \AA~denotes the \idx{column space} of~\(A\).
+The `\idx{least square}' solution(s) of the system \(A\xv=\bv\) determined by \autoref{pro:appsol} is(are) the solution(s) of \(A\xv=\proj_{\AA}(\bv)\) where \AA~denotes the \idx{column space} of~\(A\).
 \end{theorem}
 
 \begin{proof} 
-For any \(m\times n\) matrix~\(A\), Procedure~\ref{pro:appsol} first finds an \svd\ \(A=\usv\) and sets \(r=\rank A\)\,.
+For any \(m\times n\) matrix~\(A\), \autoref{pro:appsol} first finds an \svd\ \(A=\usv\) and sets \(r=\rank A\)\,.
 Second, it computes \(\zv=\tr U\bv\) but disregards~\(z_i\) for \(i=r+1,\ldots,m\) as errors.
 %Such disregard is equivalent to setting \(z_i=0\) for \(i=r+1,\ldots,m\) instead of using the \(z_i\)~determined from~\bv.
-That is, instead of using \(\zv=\tr U\bv\) Procedure~\ref{pro:appsol} solves the equations with \(\tilde\zv=(\hlist zr,0,\ldots,0)\). 
+That is, instead of using \(\zv=\tr U\bv\) \autoref{pro:appsol} solves the equations with \(\tilde\zv=(\hlist zr,0,\ldots,0)\). 
 %Let \(m\times r\)~matrix \(W=\begin{bmatrix} \uv_1&\uv_2&\cdots&\uv_r \end{bmatrix}\) be the first \(r\)~columns of~\(U\).
 This vector~\(\tilde\zv\) corresponds to a modified right-hand side~\(\tilde\bv\) satisfying \(\tilde\zv=\tr U\tilde\bv\); that is, \(\tilde\bv=U\tilde\zv\) as matrix~\(U\) is orthogonal.
 Recalling \(\uv_i\)~denotes the \(i\)th~column of~\(U\) and that components \(z_i=\uv_i\cdot\bv\) from  \(\zv=\tr U\bv\),
-the matrix-vector product \(\tilde\bv=U\tilde\zv\) is the linear combination (Example~\ref{eg:lcmatvec})
+the matrix-vector product \(\tilde\bv=U\tilde\zv\) is the linear combination (\autoref{eg:lcmatvec})
 \begin{eqnarray*}
 \tilde\bv&=&\uv_1\tilde z_1+\uv_2\tilde z_2+\cdots+\uv_r\tilde z_r+\uv_{r+1}0+\cdots+\uv_m0
 \\&=&\uv_1(\uv_1\cdot\bv)+\uv_2(\uv_2\cdot\bv)+\cdots+\uv_r(\uv_r\cdot\bv)
 \\&=&\proj_{\Span\{\hlist\uv r\}}(\bv),
 \end{eqnarray*}
-by Definition~\ref{def:orthproj} since the columns~\(\uv_i\) of~\(U\) are orthonormal (Theorem~\ref{thm:orthog}).
-Theorem~\ref{thm:rowcolD} establishes that this span is the column space~\AA\ of matrix~\(A\).
-Hence, \(\tilde\bv=\proj_\AA(\bv)\) and so Procedure~\ref{pro:appsol} solves the system \(A\xv=\proj_\AA(\bv)\).
+by \autoref{def:orthproj} since the columns~\(\uv_i\) of~\(U\) are orthonormal (\autoref{thm:orthog}).
+\autoref{thm:rowcolD} establishes that this span is the column space~\AA\ of matrix~\(A\).
+Hence, \(\tilde\bv=\proj_\AA(\bv)\) and so \autoref{pro:appsol} solves the system \(A\xv=\proj_\AA(\bv)\).
 \end{proof}
 
 
 \begin{example} \label{eg:fourwts2}
-Recall Example~\ref{eg:fourwts} rationalises four apparently contradictory weighings: in~kg the weighings are~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.
+Recall \autoref{eg:fourwts} rationalises four apparently contradictory weighings: in~kg the weighings are~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.
 Denoting the `uncertain' weight by~\(x\),  we write these weighings as the inconsistent matrix-vector system
 \begin{equation*}
 Ax=\bv\,,\quad\text{namely }
 \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}x
 =\begin{bmatrix} 84.8\\84.1\\84.7\\84.4 \end{bmatrix}.
 \end{equation*}
-Let's see that the orthogonal projection of the right-hand side onto the column space of~\(A\) is the same as the minimal change of Example~\ref{eg:fourwts}, which in turn is the well known average.
+Let's see that the orthogonal projection of the right-hand side onto the column space of~\(A\) is the same as the minimal change of \autoref{eg:fourwts}, which in turn is the well known average.
 
-To find the orthogonal projection, observe matrix~\(A\) has one column \(\av_1=(1,1,1,1)\) so by Definition~\ref{def:orthproj1} the orthogonal projection
+To find the orthogonal projection, observe matrix~\(A\) has one column \(\av_1=(1,1,1,1)\) so by \autoref{def:orthproj1} the orthogonal projection
 \begin{eqnarray*}
 &&\proj_{\Span\{\av_1\}}(84.8,84.1,84.7,84.4)
 \\&=&\av_1\frac{\av_1\cdot(84.8,84.1,84.7,84.4)}{|\av_1|^2}
@@ -1836,12 +1853,12 @@ To find the orthogonal projection, observe matrix~\(A\) has one column \(\av_1=(
 \\&=&(84.5,84.5,84.5,84.5).
 \end{eqnarray*}
 The projected system \(Ax=(84.5,84.5,84.5,84.5)\) is now consistent, with solution \(x=84.5\)\,kg.
-As in Example~\ref{eg:fourwts}, this solution is the well-known averaging of the four weights.
+As in \autoref{eg:fourwts}, this solution is the well-known averaging of the four weights.
 \end{example}
 
 
 \begin{example} \label{eg:roundrobin2}
-Recall the round robin tournament amongst four players of Example~\ref{eg:roundrobin1}.
+Recall the round robin tournament amongst four players of \autoref{eg:roundrobin1}.
 To estimate the \idx{player rating}s of the four players from the results of six matches we want to solve the \idx{inconsistent system}
  \(A\xv=\bv\) where
 \begin{equation*}
@@ -1854,9 +1871,9 @@ A=\begin{bmatrix}    1 & -1 & 0 & 0
  \end{bmatrix},\quad
  \bv=\begin{bmatrix} 1\\ 3\\ 1\\ -2\\ 4\\ -1 \end{bmatrix}.
 \end{equation*}
-Let's see that the orthogonal projection of~\bv\ onto the column space of~\(A\) is the same as the minimal change of Example~\ref{eg:roundrobin1}.
+Let's see that the orthogonal projection of~\bv\ onto the column space of~\(A\) is the same as the minimal change of \autoref{eg:roundrobin1}.
 
-An \svd\ finds an orthonormal basis for the column space~\AA\ of matrix~\(A\): Example~\ref{eg:roundrobin1} uses the \svd\ \twodp
+An \svd\ finds an orthonormal basis for the column space~\AA\ of matrix~\(A\): \autoref{eg:roundrobin1} uses the \svd\ \twodp
 \setbox\ajrqrbox\hbox{\qrcode{% project tournament
 A=[1 -1  0  0
    1  0 -1  0
@@ -1889,7 +1906,7 @@ S =
 V = ...
 \end{verbatim}
 As there are three non-zero singular values in~\verb|S|, the first three columns of~\verb|U| are an orthonormal basis for the column space~\AA.
-Letting \(\uv_j\)~denote the columns of~\verb|U|, Definition~\ref{def:orthproj} gives the orthogonal projection \twodp
+Letting \(\uv_j\)~denote the columns of~\verb|U|, \autoref{def:orthproj} gives the orthogonal projection \twodp
 \begin{eqnarray*}
 \proj_\AA(\bv)
 &=&\uv_1(\uv_1\cdot\bv)+\uv_2(\uv_2\cdot\bv)+\uv_3(\uv_3\cdot\bv)
@@ -1897,7 +1914,7 @@ Letting \(\uv_j\)~denote the columns of~\verb|U|, Definition~\ref{def:orthproj} 
 \\&=&(-0.50,1.75,2.25,0.75,1.25,-1.00).
 \end{eqnarray*}
 Compute these three dot products in \script\ with \verb|cs=U(:,1:3)'*b|, and then compute the linear combination with \verb|projb=U(:,1:3)*cs|\,.
-To confirm that Procedure~\ref{pro:appsol} solves \(A\xv=\proj_\AA(\bv)\) we check that the ratings found by Example~\ref{eg:roundrobin1}, \(\xv=(\frac12,1,-\frac54,-\frac14)\), satisfy \(A\xv=\proj_\AA(\bv)\): in \script\ compute \verb|A*[0.50;1.00;-1.25;-0.25]| and see the product is~\(\proj_\AA(\bv)\).
+To confirm that \autoref{pro:appsol} solves \(A\xv=\proj_\AA(\bv)\) we check that the ratings found by \autoref{eg:roundrobin1}, \(\xv=(\frac12,1,-\frac54,-\frac14)\), satisfy \(A\xv=\proj_\AA(\bv)\): in \script\ compute \verb|A*[0.50;1.00;-1.25;-0.25]| and see the product is~\(\proj_\AA(\bv)\).
 \end{example}
 
 
@@ -1912,12 +1929,12 @@ Combining these two steps into one (using associativity) gives
 \begin{equation*}
 \proj_\WW(\bv)=W\cv=W(\tr W)\bv=(W\tr W)\bv\,.
 \end{equation*}
-The useful feature is that the orthogonal projection formula of Definition~\ref{def:orthproj} is equivalent to the multiplication by matrix~\((W\tr W)\) for an appropriate matrix~\(W\).
+The useful feature is that the orthogonal projection formula of \autoref{def:orthproj} is equivalent to the multiplication by matrix~\((W\tr W)\) for an appropriate matrix~\(W\).
 
 
 
 \begin{theorem}[orthogonal projection matrix] \label{thm:projmat}
-Let \WW\ be a \(k\)-dimensional \idx{subspace} of~\(\RR^n\) with an \idx{orthonormal basis} \(\{\hlist\wv k\}\), then for any vector \(\vv\in\RR^n\), the \idx{orthogonal projection}
+Let \WW\ be a \(k\)-dimensional \idx{subspace} of~\(\RR^n\) with an \idx{orthonormal basis} \(\{\hlist\wv k\}\), then for every vector \(\vv\in\RR^n\), the \idx{orthogonal projection}
 \begin{equation}
 \proj_\WW(\vv)=(W\tr W)\vv
 %\label{eq:}
@@ -1926,14 +1943,14 @@ for the \(n\times k\) matrix \(W=\begin{bmatrix} \wv_1&\wv_2&\cdots&\wv_k \end{b
 \end{theorem}
 
 \begin{proof} 
-Directly from Definition~\ref{def:orthproj},
+Directly from \autoref{def:orthproj},
 \begin{eqnarray*}
 \proj_\WW(\vv)&=&\wv_1(\wv_1\cdot\vv)+\wv_2(\wv_2\cdot\vv)+\cdots+\wv_k(\wv_k\cdot\vv)
-\\&&(\text{using that \(\wv\cdot\vv=\tr\wv\vv\), Example~\ref{eg:trdp}})
+\\&&(\text{using that \(\wv\cdot\vv=\tr\wv\vv\), \autoref{eg:trdp}})
 \\&=&\wv_1\tr\wv_1\vv+\wv_2\tr\wv_2\vv+\cdots+\wv_k\tr\wv_k\vv
 \\&=&\left(\wv_1\tr\wv_1+\wv_2\tr\wv_2+\cdots+\wv_k\tr\wv_k\right)\vv.
 \end{eqnarray*}
-Let the components of the vector \(\wv_j=(w_{1j},w_{2j},\ldots,w_{nj})\), then from the matrix product Definition~\ref{def:matprod}, the \(k\)~products in the sum 
+Let the components of the vector \(\wv_j=(w_{1j},w_{2j},\ldots,w_{nj})\), then from the matrix product \autoref{def:matprod}, the \(k\)~products in the sum 
 \def\ww#1{\begin{bmatrix} 
 w_{1#1}w_{1#1}& w_{1#1}w_{2#1}&\cdots& w_{1#1}w_{n#1} \\
 w_{2#1}w_{1#1}& w_{2#1}w_{2#1}&\cdots& w_{2#1}w_{n#1} \\
@@ -1952,14 +1969,14 @@ So the \((i,j)\)th entry of this sum is
 &&w_{i1}w_{j1}+w_{i2}w_{j2}+\cdots+w_{ik}w_{jk}
 \\&=&w_{i1}(\tr W)_{1j}+w_{i2}(\tr W)_{2j}+\cdots+w_{ik}(\tr W)_{kj} \,,
 \end{eqnarray*}
-which, from Definition~\ref{def:matprod} again, is the \((i,j)\)th~entry of the product~\(W\tr W\).
+which, from \autoref{def:matprod} again, is the \((i,j)\)th~entry of the product~\(W\tr W\).
 Hence \(\proj_\WW(\vv)=(W\tr W)\vv\)\,.
 \end{proof}
 
 
 
 \begin{example} \label{eg:projlinem}
-Find the matrices of the following orthogonal projections (from Example~\ref{eg:projline}), and use the matrix to find the given projection.
+Find the matrices of the following orthogonal projections (from \autoref{eg:projline}), and use the matrix to find the given projection.
 \begin{enumerate}
 \item \(\proj_\uv(\vv)\) for vector \(\uv=(3,4)\) and \(\vv=(4,1)\).
 \begin{solution} 
@@ -2023,20 +2040,32 @@ Then the projection
 
 \begin{activity}
 Finding the projection \(\proj_\uv(\vv)\) for vectors \(\uv=(2,6,3)\) and \(\vv=(1,4,8)\) could be done by premultiplying by which of the following the matrices?
-\begin{parts}
-\item \(\begin{bmatrix} \frac{4}{49}&\frac{12}{49}&\frac{6}{49}
+\actposs{\(\begin{bmatrix} \frac{4}{49}&\frac{12}{49}&\frac{6}{49}
 \\\frac{12}{49}&\frac{36}{49}&\frac{18}{49}
-\\\frac{6}{49}&\frac{18}{49}&\frac{9}{49} \end{bmatrix}\)  %%%%%%%%%
-\item \(\begin{bmatrix} \frac{2}{63}&\frac{8}{63}&\frac{16}{63}
+\\\frac{6}{49}&\frac{18}{49}&\frac{9}{49} \end{bmatrix}\)}
+{\(\begin{bmatrix} \frac{2}{63}&\frac{8}{63}&\frac{16}{63}
 \\\frac{2}{21}&\frac{8}{21}&\frac{16}{21}
-\\\frac{1}{21}&\frac{4}{21}&\frac{8}{21} \end{bmatrix}\)
-\item \(\begin{bmatrix} \frac{2}{63}&\frac{2}{21}&\frac{1}{21}
+\\\frac{1}{21}&\frac{4}{21}&\frac{8}{21} \end{bmatrix}\)}
+{\(\begin{bmatrix} \frac{2}{63}&\frac{2}{21}&\frac{1}{21}
 \\\frac{8}{63}&\frac{8}{21}&\frac{4}{21}
-\\\frac{16}{63}&\frac{16}{21}&\frac{8}{21} \end{bmatrix}\)
-\item \(\begin{bmatrix} \frac{1}{81}&\frac{4}{81}&\frac{8}{81}
+\\\frac{16}{63}&\frac{16}{21}&\frac{8}{21} \end{bmatrix}\)}{
+\(\begin{bmatrix} \frac{1}{81}&\frac{4}{81}&\frac{8}{81}
 \\\frac{4}{81}&\frac{16}{81}&\frac{32}{81}
-\\\frac{8}{81}&\frac{32}{81}&\frac{64}{81} \end{bmatrix}\)
-\end{parts}
+\\\frac{8}{81}&\frac{32}{81}&\frac{64}{81} \end{bmatrix}\)}
+%\begin{parts}
+%\item \(\begin{bmatrix} \frac{4}{49}&\frac{12}{49}&\frac{6}{49}
+%\\\frac{12}{49}&\frac{36}{49}&\frac{18}{49}
+%\\\frac{6}{49}&\frac{18}{49}&\frac{9}{49} \end{bmatrix}\)  %%%%%%%%%
+%\item \(\begin{bmatrix} \frac{2}{63}&\frac{8}{63}&\frac{16}{63}
+%\\\frac{2}{21}&\frac{8}{21}&\frac{16}{21}
+%\\\frac{1}{21}&\frac{4}{21}&\frac{8}{21} \end{bmatrix}\)
+%\item \(\begin{bmatrix} \frac{2}{63}&\frac{2}{21}&\frac{1}{21}
+%\\\frac{8}{63}&\frac{8}{21}&\frac{4}{21}
+%\\\frac{16}{63}&\frac{16}{21}&\frac{8}{21} \end{bmatrix}\)
+%\item \(\begin{bmatrix} \frac{1}{81}&\frac{4}{81}&\frac{8}{81}
+%\\\frac{4}{81}&\frac{16}{81}&\frac{32}{81}
+%\\\frac{8}{81}&\frac{32}{81}&\frac{64}{81} \end{bmatrix}\)
+%\end{parts}
 \end{activity}
 
 
@@ -2044,7 +2073,7 @@ Finding the projection \(\proj_\uv(\vv)\) for vectors \(\uv=(2,6,3)\) and \(\vv=
 
 
 \begin{example} \label{eg:}
-Find the matrices of the following orthogonal projections (from Example~\ref{eg:projline}).
+Find the matrices of the following orthogonal projections (from \autoref{eg:projline}).
 \begin{enumerate}
 \item \(\proj_\XX(\vv)\) where \XX\ is the \(xy\)-plane in \(xyz\)-space.
 \begin{solution} 
@@ -2082,14 +2111,14 @@ W\tr W&=&\frac13\begin{bmatrix} 2&2\\-2&1\\1&-2 \end{bmatrix}
 A=\begin{bmatrix} 1&-1&0\\ 1&0&-1\\ 0&1&-1 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-The \svd\ of Example~\ref{eg:orthproj:iii} determines an orthonormal basis is \(\uv_1=(1,-1,-2)/\sqrt6\) and \(\uv_2=(-1,-1,0)/\sqrt2\).
+The \svd\ of \autoref{eg:orthproj:iii} determines an orthonormal basis is \(\uv_1=(1,-1,-2)/\sqrt6\) and \(\uv_2=(-1,-1,0)/\sqrt2\).
 Hence the matrix of the projection is
 \begin{eqnarray*}
 W\tr W&=&\begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt2}\\-\frac1{\sqrt6}&-\frac1{\sqrt2}\\-\frac2{\sqrt6}&0 \end{bmatrix}
 \begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt6}&-\frac2{\sqrt6}\\ -\frac1{\sqrt2}&-\frac1{\sqrt2}&0\end{bmatrix}
 \\&=&\begin{bmatrix} \frac23&\frac13&-\frac13\\\frac13&\frac23&\frac13\\-\frac13&\frac13&\frac23 \end{bmatrix}.
 \end{eqnarray*}
-Alternatively, recall the \svd\ of matrix~\(A\) from Example~\ref{eg:rstp}, and recall that the first two columns of~\verb|U| are the orthonormal basis vectors.  
+Alternatively, recall the \svd\ of matrix~\(A\) from \autoref{eg:rstp}, and recall that the first two columns of~\verb|U| are the orthonormal basis vectors.  
 Hence matrix \(W=\verb|U(:,1:2)|\) and so \script\ computes the matrix of the projection,~\(W\tr W\), via \verb|WWT=U(:,1:2)*U(:,1:2)'| to give the answer
 \setbox\ajrqrbox\hbox{\qrcode{% project matrix tournament
 A=[1 -1  0
@@ -2110,7 +2139,7 @@ WWT =
 
 \item The orthogonal projection onto the plane \(2x-\frac12y+4z=0\)\,.
 \begin{solution} 
-The \svd\ of  Example~\ref{eg:orthogproj:v}  determines an orthonormal basis is the last two columns of
+The \svd\ of  \autoref{eg:orthogproj:v}  determines an orthonormal basis is the last two columns of
 \begin{verbatim}
 U =
   -0.4444   0.1111  -0.8889
@@ -2153,10 +2182,10 @@ WWT =
 \end{comment}
 
 
-Because orthogonal projection has such a close connection to the geometry underlying important tasks such as `least square' approximation (Theorem~\ref{thm:lsqproj}), this section develops further some orthogonal properties.
+Because orthogonal projection has such a close connection to the geometry underlying important tasks such as `least square' approximation (\autoref{thm:lsqproj}), this section develops further some orthogonal properties.
 
 For any subspace~\WW\ of interest, it is often useful to be able to discuss the set of vectors orthogonal to all those in~\WW, called the orthogonal complement.
-Such a set forms a subspace, called~\(\WW^\perp\)  (read as ``W~perp''), as illustrated below and defined by Definition~\ref{def:orthsubsp}.
+Such a set forms a subspace, called~\(\WW^\perp\)  (read as ``W~perp''), as illustrated below and defined by \autoref{def:orthsubsp}.
 \begin{enumerate}
 \item \begin{tabular}{cc}
 \parbox[b]{0.5\linewidth}{Given the blue subspace~\WW\ in~\(\RR^2\) (the origin is a black dot), consider the set of all vectors at right-angles to~\WW\ (drawn arrows).  Move the base of these vectors to the origin, and then they all lie in the red subspace~\(\WW^\perp\).}
@@ -2228,12 +2257,13 @@ Given the above qualitative description of an orthogonal complement, which of th
   \fi
   \end{axis}
 \end{tikzpicture}}
-\begin{parts}
-\item \temp3
-\item \temp1 
-\item \temp2
-\item \temp0
-\end{parts}
+\actposs{\temp0}{\temp1}{\temp2}{\temp3}
+%\begin{parts}
+%\item \temp3
+%\item \temp1 
+%\item \temp2
+%\item \temp0
+%\end{parts}
 \end{activity}
 
 
@@ -2359,12 +2389,13 @@ That is, \(\WW^\perp=\Span\{(\tfrac12,1,1)\}\) (as illustrated below in stereo).
 
 \begin{activity}
 Which of the following vectors are in the orthogonal complement of the vector space spanned by~\((3,-1,1)\)?
-\begin{parts}
-\item \((-1,-1,1)\)
-\item \((1,3,-1)\)
-\item \((3,5,-4)\)\actans
-\item \((6,-2,2)\)
-\end{parts}
+\actposs{\((3,5,-4)\)}{\((-1,-1,1)\)}{\((1,3,-1)\)}{\((6,-2,2)\)}
+%\begin{parts}
+%\item \((-1,-1,1)\)
+%\item \((1,3,-1)\)
+%\item \((3,5,-4)\)\actans
+%\item \((6,-2,2)\)
+%\end{parts}
 \end{activity}
 
 
@@ -2374,7 +2405,7 @@ Prove \(\{\ov\}^\perp=\RR^n\) and \((\RR^n)^\perp=\{\ov\}\)\,.
 \begin{solution} 
 \begin{itemize}
 \item The only vector in \(\{\ov\}\) is \(\wv=\ov\).
-Since all vectors \(\vv\in\RR^n\) satisfy \(\wv\cdot\vv=\ov\cdot\vv=0\)\,, by Definition~\ref{def:orthsubsp} \(\{\ov\}^\perp=\RR^n\).
+Since all vectors \(\vv\in\RR^n\) satisfy \(\wv\cdot\vv=\ov\cdot\vv=0\)\,, by \autoref{def:orthsubsp} \(\{\ov\}^\perp=\RR^n\).
 
 \item Certainly, \(\ov\in(\RR^n)^\perp\) as \(\wv\cdot\ov=0\) for all vectors \(\wv\in\RR^n\).
 Establish there are no others by contradiction.
@@ -2395,8 +2426,8 @@ Thus \((\RR^n)^\perp=\{\ov\}\).
 %\end{theorem}
 %
 %\begin{proof} 
-%To prove Theorem~\ref{thm:orthsubsp}, recall that Theorem~\ref{thm:projmat} establishes that solving \(\proj_\WW(\vv)=\ov\) for~\vv\ is identical to solving the matrix equation \((W\tr W)\vv=\ov\)\,.  
-%All these solutions form the nullspace \(\Null(W\tr W)\) which is a subspace (Theorem~\ref{thm:homosubsp}).
+%To prove \autoref{thm:orthsubsp}, recall that \autoref{thm:projmat} establishes that solving \(\proj_\WW(\vv)=\ov\) for~\vv\ is identical to solving the matrix equation \((W\tr W)\vv=\ov\)\,.  
+%All these solutions form the nullspace \(\Null(W\tr W)\) which is a subspace (\autoref{thm:homosubsp}).
 %Consequently, \(\WW^\perp\) is a subspace.
 %\end{proof}
 %
@@ -2408,24 +2439,24 @@ These examples find orthogonal complements that are lines, planes, or the entire
 These indicate that an orthogonal complement is generally a subspace as proved next.
 
 \begin{theorem}[orthogonal complement is subspace] \label{thm:perpnull}
-For any \idx{subspace}~\WW\ of~\(\RR^n\),  the \idx{orthogonal complement}~\(\WW^\perp\) is a \idx{subspace} of~\(\RR^n\).
+For every \idx{subspace}~\WW\ of~\(\RR^n\),  the \idx{orthogonal complement}~\(\WW^\perp\) is a \idx{subspace} of~\(\RR^n\).
 Further, the \idx{intersection} \(\WW\cap\WW^\perp=\{\ov\}\); that is, the \idx{zero vector} is the only vector in both~\WW\ and~\(\WW^\perp\).
 \end{theorem}
 
 \begin{proof} 
-Recall the Definition~\ref{def:subspace} of a subspace: we need to establish \(\WW^\perp\) has the zero vector, and is closed under addition and scaler multiplication.
+Recall the \autoref{def:subspace} of a subspace: we need to establish \(\WW^\perp\) has the zero vector, and is closed under addition and scaler multiplication.
 \begin{itemize}
 \item For all \(\wv\in\WW\), \(\ov\cdot\wv=0\) and so \(\ov\in\WW^\perp\).
 \item Let \(\vv_1,\vv_2\in\WW^\perp\), then for all \(\wv\in\WW\) the dot product  \((\vv_1+\vv_2)\cdot\wv=\vv_1\cdot\wv+\vv_2\cdot\wv=0+0=0\) and so \(\vv_1+\vv_2\in\WW^\perp\).
 \item Let scalar \(c\in\RR\) and \(\vv\in\WW^\perp\), then for all \(\wv\in\WW\) the dot product  \((c\vv)\cdot\wv=c(\vv\cdot\wv)=c0=0\) and so \(c\vv\in\WW^\perp\).
 \end{itemize}
-Hence, by Definition~\ref{def:subspace}, \(\WW^\perp\)~is a subspace.
+Hence, by \autoref{def:subspace}, \(\WW^\perp\)~is a subspace.
 
 Further, as they are both subspaces, the zero vector is in both~\WW\ and~\(\WW^\perp\).
 Let vector~\uv\ be any vector in both~\WW\ and~\(\WW^\perp\).
-As \(\uv\in\WW^\perp\), by Definition~\ref{def:orthsubsp} \(\uv\cdot\wv=0\) for all \(\wv\in\WW\).
+As \(\uv\in\WW^\perp\), by \autoref{def:orthsubsp} \(\uv\cdot\wv=0\) for all \(\wv\in\WW\).
 But \(\uv\in\WW\) also, so using this for~\wv\ in the previous equation gives \(\uv\cdot\uv=0\)\,; that is, \(|\uv|^2=0\)\,.
-Hence vector~\uv\ has to be the zero vector (Theorem~\ref{thm:veclen0}).
+Hence vector~\uv\ has to be the zero vector (\autoref{thm:veclen0}).
 That is, \(\WW\cap\WW^\perp=\{\ov\}\).
 \end{proof}
 
@@ -2443,12 +2474,13 @@ Vectors in which of the following (red) sets form the orthogonal complement to t
   \fi
   \end{axis}
 \end{tikzpicture}}
-\begin{parts}
-\item \temp2
-\item \temp3
-\item \temp0
-\item \temp1 
-\end{parts}
+\actposs{\temp0}{\temp1}{\temp2}{\temp3}
+%\begin{parts}
+%\item \temp2
+%\item \temp3
+%\item \temp0
+%\item \temp1 
+%\end{parts}
 \end{activity}
 
 
@@ -2456,7 +2488,7 @@ When orthogonal complements arise, they are often usefully written as the nullsp
 
 
 \begin{theorem}[\idx{nullspace} complementarity] \label{thm:nulltrw}
-For any \(m\times n\) matrix~\(A\), the \idx{column space} of~\(A\) has \(\Null(\tr A)\) as its \idx{orthogonal complement} in~\(\RR^m\).
+For every \(m\times n\) matrix~\(A\), the \idx{column space} of~\(A\) has \(\Null(\tr A)\) as its \idx{orthogonal complement} in~\(\RR^m\).
 That is, identifying the columns of matrix \(A=\begin{bmatrix} \av_1&\av_2&\cdots&\av_n \end{bmatrix}\), and denoting the column space by \(\AA=\Span\{\hlist\av n\}\), then the orthogonal complement \(\AA^\perp=\Null(\tr A)\).
 Further, \(\Null(A)\) in~\(\RR^n\) is the orthogonal complement of the \idx{row space} of~\(A\).
 \begin{center}
@@ -2491,7 +2523,7 @@ Further, \(\Null(A)\) in~\(\RR^n\) is the orthogonal complement of the \idx{row 
 \end{theorem}
 
 \begin{proof} 
-First, by Definition~\ref{def:orthsubsp}, any vector \(\vv\in\AA^\perp\) is orthogonal to all vectors in the column space of~\(A\), in particular it is orthogonal to the columns of~\(A\):
+First, by \autoref{def:orthsubsp}, any vector \(\vv\in\AA^\perp\) is orthogonal to all vectors in the column space of~\(A\), in particular it is orthogonal to the columns of~\(A\):
 \begin{eqnarray*}
 && \av_1\cdot\vv=0,\ \av_2\cdot\vv=0,\ \ldots,\ \av_k\cdot\vv=0
 \\&\iff& \tr\av_1\vv=0,\ \tr\av_2\vv=0,\ \ldots,\ \tr\av_k\vv=0
@@ -2501,7 +2533,7 @@ First, by Definition~\ref{def:orthsubsp}, any vector \(\vv\in\AA^\perp\) is orth
 \end{eqnarray*}
 That is, \(\AA^\perp\subseteq\Null(\tr A)\).
 Second, for any \(\vv\in\Null(\tr A)\),
-recall that by Definition~\ref{def:colsp} for any vector~\(\wv\) in the column space of~\(A\), there exists a linear combination \(\wv=\lincomb c\av n\). 
+recall that by \autoref{def:colsp} for any vector~\(\wv\) in the column space of~\(A\), there exists a linear combination \(\wv=\lincomb c\av n\). 
 Then
 \begin{eqnarray*}
 \wv\cdot\vv&=&(\lincomb c\av n)\cdot\vv
@@ -2510,7 +2542,7 @@ Then
 \quad(\text{from above}\iff)
 \\&=&0\,,
 \end{eqnarray*}
-and so by Definition~\ref{def:orthsubsp} vector \(\vv\in\AA^\perp\); that is, \(\Null(\tr A)\subseteq\AA^\perp\).
+and so by \autoref{def:orthsubsp} vector \(\vv\in\AA^\perp\); that is, \(\Null(\tr A)\subseteq\AA^\perp\).
 Putting these two together, \(\Null(\tr A)=\AA^\perp\).
 
 Lastly, that the \(\Null(A)\) in~\(\RR^n\) is the orthogonal complement of the \idx{row space} of~\(A\) follows from applying the above result to the matrix~\(\tr A\).
@@ -2622,9 +2654,9 @@ A=\begin{bmatrix}    1 & -1 & 0 & 0
  \end{bmatrix},
 \end{equation*}
 then seek \(\Null(\tr A)\), the solutions of \(\tr A\xv=\ov\).
-Adapt Procedure~\ref{pro:gensol} to solve \(\tr A\xv=\ov\)\,:
+Adapt \autoref{pro:gensol} to solve \(\tr A\xv=\ov\)\,:
 \begin{enumerate}
-\item Example~\ref{eg:roundrobin1} computed an \svd\ \(A=\usv\) for this matrix~\(A\), which gives the \svd\ \(\tr A=V\tr S\tr U\) for the transpose where \twodp
+\item \autoref{eg:roundrobin1} computed an \svd\ \(A=\usv\) for this matrix~\(A\), which gives the \svd\ \(\tr A=V\tr S\tr U\) for the transpose where \twodp
 \begin{verbatim}
 U =
   0.31 -0.26 -0.58 -0.26  0.64 -0.15
@@ -2659,27 +2691,29 @@ That is, the orthogonal complement is the three dimensional subspace \(\Span\{\u
 \end{example}
 
 
-In the previous Example~\ref{eg:nulltrw:d} there are three non-zero singular values in the first three rows of~\(S\).
+In the previous \autoref{eg:nulltrw:d} there are three non-zero singular values in the first three rows of~\(S\).
 These three nonzero singular values determine that the first three columns of~\(U\) form a basis for the column space of~\(A\).
 The example argues that the remaining three columns of~\(U\) form a basis for the orthogonal complement of the column space.
 That is, all six of the columns of the orthogonal~\(U\) are used in either the column space or its complement.
 This is generally true.
 
 \begin{activity}
-A given matrix~\(A\) has column space~\WW\ such that \(\dim\WW=4\) and \(\dim\WW^\perp=3\)\,.  What size could the matrix be?
-\partswidth=5em
-\begin{parts}
-\item \(3\times4\)
-\item \(4\times3\)
-\item \(7\times3\)
-\item \(7\times5\)\actans
-\end{parts}
+A given matrix~\(A\) has column space~\WW\ such that \(\dim\WW=4\) and \(\dim\WW^\perp=3\)\,.  
+What size could the matrix be?
+\actposs[4]{\(7\times5\)}{\(3\times4\)}{\(4\times3\)}{\(7\times3\)}
+%\partswidth=5em
+%\begin{parts}
+%\item \(3\times4\)
+%\item \(4\times3\)
+%\item \(7\times3\)
+%\item \(7\times5\)\actans
+%\end{parts}
 \end{activity}
 
 
 
 \begin{example} \label{eg:orthrank}
-Recall the cases of Example~\ref{eg:nulltrw}.
+Recall the cases of \autoref{eg:nulltrw}.
 \begin{description}
 \item[\ref{eg:nulltrw:a}] \(\dim\WW+\dim\WW^\perp=1+1=2=\dim\RR^2\).
 \item[\ref{eg:nulltrw:b}] \(\dim\WW+\dim\WW^\perp=1+2=3=\dim\RR^3\).
@@ -2688,7 +2722,7 @@ Recall the cases of Example~\ref{eg:nulltrw}.
 \end{description}
 \end{example}
 
-Recall the Rank Theorem~\ref{thm:rank} connects the  dimension of a space with the dimensions of a nullspace and column space of a matrix.
+Recall the Rank \autoref{thm:rank} connects the  dimension of a space with the dimensions of a nullspace and column space of a matrix.
 Since a subspace is closely connected to matrices, and its orthogonal complement is connected to nullspaces, then the Rank Theorem should say something general here.
 
 
@@ -2698,8 +2732,8 @@ Let \WW\ be a \idx{subspace} of~\(\RR^n\), then \(\dim\WW+\dim\WW^\perp=n\)\,; e
 \end{theorem}
 
 \begin{proof} 
-Let the columns of a matrix~\(W\) form an orthonormal basis for the subspace~\WW\ (Theorem~\ref{thm:obaseexists} asserts a basis exists).
-Theorem~\ref{thm:nulltrw} establishes that \(\WW^\perp=\Null(\tr W)\).
+Let the columns of a matrix~\(W\) form an orthonormal basis for the subspace~\WW\ (\autoref{thm:obaseexists} asserts a basis exists).
+\autoref{thm:nulltrw} establishes that \(\WW^\perp=\Null(\tr W)\).
 Equating dimensions of both sides, 
 \begin{eqnarray*}
 \dim\WW^\perp&=&\nullity(\tr W) 
@@ -2718,12 +2752,12 @@ as required.
 Since the dimension of the whole space is the sum of the dimension of a subspace plus the dimension of its orthogonal complement, surely we must be able to separate vectors into two corresponding components.
 
 \begin{example} \label{eg:perp2}
-Recall from Example~\ref{eg:orthsubsp:a} that subspace \(\WW=\Span\{(3,4)\}\) has orthogonal complement \(\WW^\perp=\Span\{(-4,3)\}\), as illustrated below.
+Recall from \autoref{eg:orthsubsp:a} that subspace \(\WW=\Span\{(3,4)\}\) has orthogonal complement \(\WW^\perp=\Span\{(-4,3)\}\), as illustrated below.
 \begin{center}
 \begin{tabular}{@{}cc@{}}
 \parbox[b]{0.47\linewidth}{\sloppy
 As shown, for example,  write the brown vector \((2,4)=(3.2,2.4)+(-1.2,1.6)=\proj_\WW(2,4)+\Perp\), where here the vector \(\Perp=(-1.2,1.6)\in\WW^\perp\).
-Indeed, any vector can be written as a component in subspace~\WW\ and a component in the orthogonal complement~\(\WW^\perp\) (Theorem~\ref{thm:odt}).
+Indeed, any vector can be written as a component in subspace~\WW\ and a component in the orthogonal complement~\(\WW^\perp\) (\autoref{thm:odt}).
 }&
 \begin{tikzpicture}
   \begin{axis}[small,font=\footnotesize
@@ -2758,13 +2792,18 @@ For example,  write the green vector \((-5,1)=(-2.72,-2.04)+(-2.28,3.04)=\proj_\
 
 
 \begin{activity}
-Let subspace \(\WW=\Span\{(1,1)\}\) and its orthogonal complement \(\WW^\perp=\Span\{(1,-1)\}\).  Which of the following writes vector \((5,-9)\) as a sum of two vectors, one from each of~\WW\ and~\(\WW^\perp\)?
-\begin{parts}
-\item \((-2,-2)+(7,-7)\)\actans
-\item \((5,5)+(0,-14)\)
-\item \((7,7)+(-2,2)\)
-\item \((9,-9)+(-4,0)\)
-\end{parts}
+Let subspace \(\WW=\Span\{(1,1)\}\) and its orthogonal complement \(\WW^\perp=\Span\{(1,-1)\}\).  
+Which of the following writes vector \((5,-9)\) as a sum of two vectors, one from each of~\WW\ and~\(\WW^\perp\)?
+\actposs{\((-2,-2)+(7,-7)\)}
+{\((5,5)+(0,-14)\)}
+{\((7,7)+(-2,2)\)}
+{\((9,-9)+(-4,0)\)}
+%\begin{parts}
+%\item \((-2,-2)+(7,-7)\)\actans
+%\item \((5,5)+(0,-14)\)
+%\item \((7,7)+(-2,2)\)
+%\item \((9,-9)+(-4,0)\)
+%\end{parts}
 \end{activity}
 
 
@@ -2776,11 +2815,11 @@ To proceed, let's define what is meant by ``\Perp'' in such a context.
 
 \begin{definition}[perpendicular component] \label{def:perpn}
 Let \WW\ be a \idx{subspace} of~\(\RR^n\).
-For any vector \(\vv\in\RR^n\), the \bfidx{perpendicular component} of~\vv\  to~\WW\ is the vector
+For every vector \(\vv\in\RR^n\), the \bfidx{perpendicular component} of~\vv\  to~\WW\ is the vector
 \(\Perp_\WW(\vv):=\vv-\proj_{\WW}(\vv)\).
 \end{definition}
 
-%From Theorem~\ref{thm:nulltrw} we know the orthogonal complement~\(\WW^\perp\) is the \idx{nullspace} of~\(\tr W\) for matrix~\(W\) whose columns are an orthonormal basis for~\WW.
+%From \autoref{thm:nulltrw} we know the orthogonal complement~\(\WW^\perp\) is the \idx{nullspace} of~\(\tr W\) for matrix~\(W\) whose columns are an orthonormal basis for~\WW.
 %The following examples use this to find \(\Perp_\WW(\vv)\). 
 
 
@@ -2860,7 +2899,7 @@ Hence \(\Perp_\WW(-5,-1,6)\) lies in the plane \(-2x-3y+6z=0\) (which is the ort
 \item\label{eg:perpn:c} Let the subspace \(\XX=\Span\{(2,-2,1),(2,1,-2)\}\).
 Determine the perpendicular component of each of the two vectors \(\yv=(3,2,1)\) and \(\zv=(3,-3,-3)\).
 \begin{solution} 
-Computing \(\proj_\XX\) needs an orthonormal basis for~\XX\ (Definition~\ref{def:orthproj}).
+Computing \(\proj_\XX\) needs an orthonormal basis for~\XX\ (\autoref{def:orthproj}).
 The two vectors in the span are orthogonal, so normalise them to \(\wv_1=(2,-2,1)/3\) and \(\wv_2=(2,1,-2)/3\).
 \begin{itemize}
 \item Then for the first vector \(\yv=(3,2,1)\),
@@ -2926,8 +2965,8 @@ Let \WW\ be a \idx{subspace} of~\(\RR^n\) and let \(\vv\)~be any vector in~\(\RR
 \end{theorem}
 
 \begin{proof} 
-Let vectors \hlist\wv k\ form an orthonormal basis for the subspace~\WW\ (a basis exists by Theorem~\ref{thm:obaseexists}).
-Let the \(n\times k\) matrix \(W=\begin{bmatrix} \wv_1&\wv_2&\cdots&\wv_k \end{bmatrix}\) so subspace~\WW\ is the column space of matrix~\(W\), then Theorem~\ref{thm:nulltrw} asserts we just need to check that \(\tr W\Perp_\WW(\vv)=\ov\)\,.
+Let vectors \hlist\wv k\ form an orthonormal basis for the subspace~\WW\ (a basis exists by \autoref{thm:obaseexists}).
+Let the \(n\times k\) matrix \(W=\begin{bmatrix} \wv_1&\wv_2&\cdots&\wv_k \end{bmatrix}\) so subspace~\WW\ is the column space of matrix~\(W\), then \autoref{thm:nulltrw} asserts we just need to check that \(\tr W\Perp_\WW(\vv)=\ov\)\,.
 Consider 
 \begin{eqnarray*}
 \tr W\Perp_\WW(\vv)
@@ -2943,10 +2982,10 @@ Consider
 \quad(\text{only if }\tr WW=I_k)
 \\&=&\tr W\vv-\tr W\vv =\ov\,.
 \end{eqnarray*}
-Hence \(\Perp_\WW(\vv)\in\Null(\tr W)\) and so is in~\(\WW^\perp\) (by Theorem~\ref{thm:nulltrw}).
+Hence \(\Perp_\WW(\vv)\in\Null(\tr W)\) and so is in~\(\WW^\perp\) (by \autoref{thm:nulltrw}).
 
 But this proof only holds if \(\tr WW=I_k\)\,.
-To establish this identity, use the same argument as in the proof of Theorem~\ref{thm:orthog:0}$\iff$\ref{thm:orthog:ii}:
+To establish this identity, use the same argument as in the proof of \autoref{thm:orthog:0}$\iff$\ref{thm:orthog:ii}:
 \begin{eqnarray*}
 \tr WW
 &=&\begin{bmatrix} \tr\wv_1\\\tr\wv_2\\\vdots\\\tr\wv_k \end{bmatrix}
@@ -2961,7 +3000,7 @@ To establish this identity, use the same argument as in the proof of Theorem~\re
 \\ \wv_k\cdot\wv_1&\wv_k\cdot\wv_2&\cdots&\wv_k\cdot\wv_k \end{bmatrix}
 \\&=&I_k
 \end{eqnarray*}
-as vectors \hlist\wv k\ are an orthonormal set (from Definition~\ref{def:orthoset}, \(\wv_i\cdot\wv_j=0\) for \(i\neq j\) and \(|\wv_i|^2=\wv_i\cdot\wv_i=1\)).
+as vectors \hlist\wv k\ are an orthonormal set (from \autoref{def:orthoset}, \(\wv_i\cdot\wv_j=0\) for \(i\neq j\) and \(|\wv_i|^2=\wv_i\cdot\wv_i=1\)).
 %First show \(\Perp_\WW(\vv)\) is orthogonal to each basis vector.
 %Let \(\wv_j\)~be any of the \(k\)~vectors in the orthonormal basis, then the dot product
 %\begin{eqnarray*}
@@ -2995,7 +3034,7 @@ as vectors \hlist\wv k\ are an orthonormal set (from Definition~\ref{def:orthose
 %\\&=&c_10+c_20+\cdots+c_k0
 %\\&=&0\,.
 %\end{eqnarray*}
-%Because the dot product is zero for all~\(\wv\in\WW\), \(\Perp_\WW(\vv)\) lies in~\(\WW^\perp\) (Definition~\ref{def:orthsubsp}).
+%Because the dot product is zero for all~\(\wv\in\WW\), \(\Perp_\WW(\vv)\) lies in~\(\WW^\perp\) (\autoref{def:orthsubsp}).
 \end{proof}
 
 
@@ -3020,14 +3059,14 @@ Let \WW\ be a \idx{subspace} of~\(\RR^n\) and vector \(\vv\in\RR^n\), then there
 \begin{proof} 
 \begin{itemize}
 \item First establish existence.  
-By Definition~\ref{def:perpn}, \(\Perp_\WW(\vv)=\vv-\proj_\WW(\vv)\), so it follows that \(\vv=\proj_\WW(\vv)+\Perp_\WW(\vv)=\wv+\nv\) when we set \(\wv=\proj_\WW(\vv)\in\WW\) and \(\nv=\Perp_\WW(\vv)\in\WW^\perp\).
+By \autoref{def:perpn}, \(\Perp_\WW(\vv)=\vv-\proj_\WW(\vv)\), so it follows that \(\vv=\proj_\WW(\vv)+\Perp_\WW(\vv)=\wv+\nv\) when we set \(\wv=\proj_\WW(\vv)\in\WW\) and \(\nv=\Perp_\WW(\vv)\in\WW^\perp\).
 
 \item Second establish uniqueness by \idx{contradiction}.
 Suppose there is another decomposition \(\vv=\wv'+\nv'\) where \(\wv'\in\WW\) and \(\nv'\in\WW^\perp\).
 Then \(\wv+\nv=\vv=\wv+\nv'\).
 Rearranging gives \(\wv-\wv'=\nv'-\nv\)\,.
-By closure of a subspace under vector addition (Definition~\ref{def:subspace}), the left-hand side is in~\WW\ and the right-hand side is in~\(\WW^\perp\), so the two sides must be both in~\WW\ and~\(\WW^\perp\).
-The zero vector is the only common vector to the two subspaces (Theorem~\ref{thm:perpnull}), so \(\wv-\wv'=\nv'-\nv=\ov\)\,, and hence both \(\wv=\wv'\) and \(\nv=\nv'\).
+By closure of a subspace under vector addition (\autoref{def:subspace}), the left-hand side is in~\WW\ and the right-hand side is in~\(\WW^\perp\), so the two sides must be both in~\WW\ and~\(\WW^\perp\).
+The zero vector is the only common vector to the two subspaces (\autoref{thm:perpnull}), so \(\wv-\wv'=\nv'-\nv=\ov\)\,, and hence both \(\wv=\wv'\) and \(\nv=\nv'\).
 That is, the decomposition must be unique.
 \end{itemize}
 \end{proof}
@@ -3068,13 +3107,12 @@ In each case, the two brown vectors shown are the decomposition, with \(\text{pr
 
 In two or even three dimensions, that a decomposition has such a nice physical picture is appealing.
 What is powerful is that the same decomposition works in any number of dimensions: it works no matter how complicated the scenario, no matter how much data.
-In particular, the next theorem gives a geometric view of the `\idx{least square}' solution of Procedure~\ref{pro:appsol}: 
-in that procedure the minimal change of the right-hand side~\bv\ to make the linear equation \(A\xv=\bv\) consistent (Theorem~\ref{thm:appsol}) is also to be viewed as the projection of the right-hand side~\bv\ to the \emph{closest} point in the columns space of the matrix.
+In particular, the next theorem gives a geometric view of the `\idx{least square}' solution of \autoref{pro:appsol}: 
+in that procedure the minimal change of the right-hand side~\bv\ to make the linear equation \(A\xv=\bv\) consistent (\autoref{thm:appsol}) is also to be viewed as the projection of the right-hand side~\bv\ to the \emph{closest} point in the columns space of the matrix.
 That is, the `least square' procedure solves \(A\xv=\proj_\AA(\bv)\).
 
-\begin{theorem}[best approximation] 
-Given any vector~\vv\ in~\(\RR^n\), and any subspace~\WW\ in~\(\RR^n\), then \(\proj_\WW(\vv)\) is the closest vector in~\WW\ to~\vv; that is,  \(|\vv-\proj_\WW(\vv)|\leq|\vv-\wv|\) for all \(\wv\in\WW\).
-\end{theorem}
+\begin{theorem}[best approximation] \label{thm:bapr}
+For every vector~\vv\ in~\(\RR^n\), and every subspace~\WW\ in~\(\RR^n\),  \(\proj_\WW(\vv)\) is the closest vector in~\WW\ to~\vv; that is,  \(|\vv-\proj_\WW(\vv)|\leq|\vv-\wv|\) for all \(\wv\in\WW\).\end{theorem}
 
 \begin{center}
 \qview{28}{33} {\begin{tikzpicture} 
@@ -3172,7 +3210,7 @@ Yonkers beat Newark, 2~to~0;
 Edison beat Newark 5~to~2; and
 Edison beat Yonkers 3~to~2.
 Assuming the teams can be rated, and  based upon the scores, write three equations that ideally relate the team ratings.  
-Use Procedure~\ref{pro:appsol} to estimate the ratings.
+Use \autoref{pro:appsol} to estimate the ratings.
 \answer{To within an arbitrary constant: Newark, \(-1.67\); Yonkers, \(0.33\); Edison, \(1.33\).}
 \end{exercise}
 
@@ -3184,7 +3222,7 @@ Adelaide beat Brisbane, 5~to~1;
 Canberra beat Adelaide 5~to~0; and
 Brisbane beat Canberra 2~to~1.
 Assuming the teams can be rated, and  based upon the scores, write three equations that ideally relate the team ratings.  
-Use Procedure~\ref{pro:appsol} to estimate the ratings.
+Use \autoref{pro:appsol} to estimate the ratings.
 \answer{To within an arbitrary constant: Adelaide, \(-0.33\); Brisbane, \(-1.00\); Canberra, \(1.33\).}
 \end{exercise}
 
@@ -3207,7 +3245,7 @@ Dalston & 3 & 1 & 0 & - \\ \hline
 \end{center}
 \end{table}%
 Assuming the teams can be rated, and  based upon the scores, write six equations that ideally relate the team ratings.  
-Use Procedure~\ref{pro:appsol} to estimate the ratings.
+Use \autoref{pro:appsol} to estimate the ratings.
 \answer{To within an arbitrary constant: 
 Acton, \(0.25\); 
 Barbican, \(0.75\); 
@@ -3235,7 +3273,7 @@ Frankfort& 2 & 3 & 6 & 7 & - \\\hline
 \end{center}
 \end{table}%
 Assuming the teams can be rated, and  based upon the scores, write ten equations that ideally relate the team ratings.  
-Use Procedure~\ref{pro:appsol} to estimate the ratings.
+Use \autoref{pro:appsol} to estimate the ratings.
 \answer{To within an arbitrary constant: 
 Atlanta, \(1.0\); 
 Boston, \(0.0\); 
@@ -3262,7 +3300,7 @@ Algeria beat Ethiopia 4~to~1,
 Botswana beat Djibouti 3~to~1,
 Chad drew with Gabon 2~all.
 Assuming the teams can be rated, and  based upon the scores after the first three weeks, write nine equations that ideally relate the ratings of the six teams.  
-Use Procedure~\ref{pro:appsol} to estimate the ratings.
+Use \autoref{pro:appsol} to estimate the ratings.
 %\begin{verbatim}
 %A=[1 -1 0 0 0 0
 %0 0 1 -1 0 0
@@ -3316,7 +3354,7 @@ flow=[ 0.01
 \text{flow rate (litre/s)}&0.01&0.27&0.59&0.94&1.21&1.36&2.14\\\hline
 \end{array}
 \end{equation*}
-Use Procedure~\ref{pro:appsol} to find the best straight line that gives the flow rate as a function of the applied voltage.
+Use \autoref{pro:appsol} to find the best straight line that gives the flow rate as a function of the applied voltage.
 Plot both the data and the fitted straight line.
 \answer{\(\text{flow-rate}=-0.658+0.679\,\text{voltage}\) (3.d.p)}
 \end{exercise}
@@ -3331,7 +3369,7 @@ These are simple examples of what, in modern parlance, might be termed `\idx{dat
 
 \begin{exercise} \label{ex:metabolism} 
 Table~\ref{tbl:metabolism} lists data on the body weight and heat production of various mammals. 
-As in Example~\ref{eg:orbitalPeriods}, use this data to discover \idx{Kleiber's power law} that \((\text{heat})\propto(\text{weight})^{3/4}\).  
+As in \autoref{eg:orbitalPeriods}, use this data to discover \idx{Kleiber's power law} that \((\text{heat})\propto(\text{weight})^{3/4}\).  
 Graph the data on a log-log plot, fit a straight line, check the correspondence between neglected parts of the right-hand side and the quality of the graphical fit, describe the power law.
 % see metabolism.m
 \setbox\ajrqrbox\hbox{\qrcode{% animal weight and heat production
@@ -3387,7 +3425,7 @@ elephant&3.56\textsc{e}{+}3 & 4.79\textsc{e}{+}4 \\
 
 \begin{exercise} \label{ex:riverLength} 
 Table~\ref{tbl:riverLength} lists data on \idx{river length}s and \idx{basin area}s of some Russian rivers. 
-As in Example~\ref{eg:orbitalPeriods}, use this data to discover \idx{Hack's exponent} in the power law that \(\text{(length)}\propto(\text{area})^{0.58}\).  
+As in \autoref{eg:orbitalPeriods}, use this data to discover \idx{Hack's exponent} in the power law that \(\text{(length)}\propto(\text{area})^{0.58}\).  
 Graph the data on a log-log plot, fit a straight line, check the correspondence between neglected parts of the right-hand side and the quality of the graphical fit, describe the power law.
 \setbox\ajrqrbox\hbox{\qrcode{% Russian river areas and lengths
 river=['Moscow'
@@ -3460,7 +3498,7 @@ coast=[ 2845
          914 ]
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-As in Example~\ref{eg:orbitalPeriods}, use this data to discover the power law that the coast \(\text{length}\propto(\text{stick})^{-1/4}\).
+As in \autoref{eg:orbitalPeriods}, use this data to discover the power law that the coast \(\text{length}\propto(\text{stick})^{-1/4}\).
 Hence as the measuring stick length goes to `zero', the coast length goes to `infinity'!  
 Graph the data on a log-log plot, fit a straight line, check the correspondence between neglected parts of the right-hand side and the quality of the graphical fit, describe the power law.
 \begin{table}
@@ -3657,7 +3695,7 @@ For the lines in 2D, draw a graph to show the answer is correct.
 
 
 \begin{exercise} \label{ex:} 
-Following the \idx{computed tomography} Example~\ref{eg:ctscan}, predict the densities in the body if the fraction of X-ray energy measured in the six paths is \(\fv=(0.9\clb 0.2\clb 0.8\clb 0.9\clb 0.8\clb 0.2)\) respectively.  
+Following the \idx{computed tomography} \autoref{eg:ctscan}, predict the densities in the body if the fraction of X-ray energy measured in the six paths is \(\fv=(0.9\clb 0.2\clb 0.8\clb 0.9\clb 0.8\clb 0.2)\) respectively.  
 Draw an image of your predictions.  Which region is the most absorbing (least transmitting)?
 %\begin{verbatim}
 %A=[1 1 1 0 0 0 0 0 0 
@@ -4288,7 +4326,7 @@ Describe the orthogonal complement of each of the sets given below, if the set h
 
 \begin{exercise} \label{ex:} 
 Compute, using \script\ when necessary, an orthonormal basis for the \idx{orthogonal complement}, if it exists, to each of the following sets.
-Use that the an orthogonal complement is the nullspace of the transpose of a matrix of column vectors (Theorem~\ref{thm:nulltrw}).
+Use that the an orthogonal complement is the nullspace of the transpose of a matrix of column vectors (\autoref{thm:nulltrw}).
 
 \sloppy%??
 \begin{enumerate}
