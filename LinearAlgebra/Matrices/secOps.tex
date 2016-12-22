@@ -19,7 +19,7 @@ Many of you will have met some of it in previous study.
 Let's start with some basic definitions of terminology.
 \begin{itemize}
 \item A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\), such as these six examples:
-\footnote{Chapter~\ref{ch:gee} starts using complex numbers in a matrix, but until then we stay within the realm of real numbers.  Some books use parentheses,~\((\cdot)\), around matrices: we do not as here parentheses denote a vector (most often used when written in text).}
+\footnote{\autoref{ch:gee} starts using complex numbers in a matrix, but until then we stay within the realm of real numbers.  Some books use parentheses,~\((\cdot)\), around matrices: we do not as here parentheses denote a vector (most often used when written in text).}
 \begin{eqnarray}&&
 \begin{bmatrix}   -2 & -5 & 4
 \\ 1 & -3 & 0
@@ -46,10 +46,11 @@ For example, the first, second and last matrices in~\eqref{eq:egmats} are square
 
 \item To correspond with vectors,  we often invoke the term \bfidx{column vector} which means a matrix with only one column; that is, a matrix of size \(m\times 1\) for some~\(m\).
 For convenience and compatibility with vectors, we often write a column vector horizontally within \bfidx{parentheses}~\((\cdots )\).
-The third matrix in~\eqref{eq:egmats} is an example, and may also be written as \((0.56,3.99,-5.22)\).
+The third matrix of~\eqref{eq:egmats} is an example, and may also be written as \((0.56,3.99,-5.22)\).
 
-Occasionally we refer to a \bfidx{row vector} to mean a matrix with one row; that is, a \(1\times n\) matrix for some~\(n\), such as the fifth matrix in~\eqref{eq:egmats}.  
+Occasionally we refer to a \bfidx{row vector} to mean a matrix with one row; that is, a \(1\times n\) matrix for some~\(n\), such as the fifth matrix of~\eqref{eq:egmats}.  
 %%%%% I am not sure I have been consistent with this??
+Remember the distinction: a row of numbers written within brackets,~\([\cdots]\), is a row vector, whereas a row of numbers written within parentheses,~\((\cdots)\), is a column vector.
 
 \item The numbers appearing in a matrix are called the \bfidx{entries}, \bfidx{elements} or \bfidx{components} of the matrix.  
 For example, the first matrix in~\eqref{eq:egmats} has entries\slash elements\slash components of the numbers \(-5\), \(-3\), \(-2\), \(0\), \(1\), \(2\) and~\(4\).
@@ -66,6 +67,9 @@ A=\begin{bmatrix}   -2 & -5 & 4
 \\ 2 & 4 & 0 \end{bmatrix},
 \end{equation*}
 then entries \(a_{12}=-5\)\,, \(a_{22}=-3\) and \(a_{31}=2\)\,.
+\begin{comment}
+Maybe we should use an accent to denote the minor?? and then capitals for the entries to be more consistent with computing.  But then column vectors of a matrix should also use capital letters, which would be ugly.
+\end{comment}
 
 \item The first of two special matrices is a \bfidx{zero matrix} of all zeros and of any size: \(O_{m\times n}\)~denotes the \(m\times n\) zero matrix, such as
 \begin{equation*}
@@ -73,7 +77,7 @@ O_{2\times 4}=\begin{bmatrix} 0&0&0&0\\0&0&0&0 \end{bmatrix}.
 \end{equation*}
 The symbol~\(O_n\) denotes the square zero matrix of size \(n\times n\), whereas the plain symbol~\(O\) denotes a zero matrix whose size is apparent from the context.
 
-\item Arising from the nature of matrix multiplication (section~\ref{sec:amwm}), the second special matrix is the \bfidx{identity matrix}: \(I_n\)~denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones.
+\item Arising from the nature of matrix multiplication (\autoref{sec:amwm}), the second special matrix is the \bfidx{identity matrix}: \(I_n\)~denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones.
 Occasionally we invoke non-square `identity' matrices denoted \(I_{m\times n}\).
 For examples,
 \begin{equation*}
@@ -158,7 +162,7 @@ Which of the following matrices equals \(\begin{bmatrix}  3&-1&4
 \label{sec:amwm}
 
 A matrix is not just an array of numbers: associated with a matrix is a suite of operations that empower a matrix to be useful in applications.
-We start with addition and multiplication: `division' is addressed by Section~\ref{sec:im} and others.
+We start with addition and multiplication: `division' is addressed by \autoref{sec:im} and others.
 
 An analogue in computing science is the concept of object orientated programming.
 In object oriented programming one defines not just data structures, but also the functions that operate on those structures.
@@ -273,7 +277,7 @@ cA=Ac=\begin{bmatrix} ca_{11}&ca_{12}&\cdots&ca_{1n}
 
 Recall that the matrix-vector form of a system of linear equations, \autoref{def:matvecsys}, wrote \(A\xv=\bv\)\,.  
 In this form, \(A\xv\)~denotes a matrix-vector product.
-As implied by \autoref{def:matvecsys}, we define the general \bfidx{matrix-vector product}
+As implied by \autoref{def:matvecsys}, we define the general \bfidx{matrix-vector product} 
 \begin{equation*}
 A\xv:=
 \begin{bmatrix} a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
@@ -295,7 +299,8 @@ This product is only defined when the number of columns of matrix~\(A\) are the 
 \footnote{Some of you who have studied calculus may wonder about what might be called `continuous matrices'~\(A(x,y)\) which multiply a function~\(f(x)\) according to the integral \(\int_a^b A(x,y)f(y)\,dy\)\,.  
 Then you might wonder about solving problems such as find the unknown~\(f(x)\) such that \(\int_0^1 A(x,y)f(y)\,dy=\sin\pi x\) for given `continuous matrix' \(A(x,y):=\min(x,y)\big[1-\max(x,y)\big]\); 
 you may check that here the solution is \(f=\pi^2\sin\pi x\)\,.
-Such notions are a useful generalisation of our linear algebra: they are called \idx{integral equations}; the main structures and patterns developed by this course also apply.}
+Such notions are a useful generalisation of our linear algebra: they are called \idx{integral equations}; the main structures and patterns developed by this course also apply to such integral equations.}
+If not, then the product cannot be used.
 
 \begin{example} \label{eg:matvecmul}
 Let matrices
@@ -400,7 +405,7 @@ as illustrated in the third marginal picture.
 \end{tikzpicture}
 }%
 Such a geometric interpretation underlies the use of matrix multiplication in video and picture processing, for example.
-Such video\slash picture processing employs stretching and shrinking (section~\ref{sec:dmd}), rotations (section~\ref{sec:omr}), among more general transformations (Section~\ref{sec:ilt}).
+Such video\slash picture processing employs stretching and shrinking (\autoref{sec:dmd}), rotations (\autoref{sec:omr}), among more general transformations (\autoref{sec:ilt}).
 
 
 \begin{example} \label{eg:}
@@ -419,6 +424,51 @@ I_3\bv&=&\begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\0&0&1 \end{bmatrix}
 \end{eqnarray*}
 That is, and justifying its name of ``identity'', the products with an \idx{identity matrix} give the result that is the vector itself: \(I_2\xv=\xv\) and \(I_3\bv=\bv\)\,.
 Multiplication by the identity matrix leaves the vector unchanged (\autoref{thm:pmmd}).
+\end{example}
+
+
+
+\begin{example}[\idx{rabbit}s multiply]
+In 1202 
+\marginpar{\includegraphics[width=\marginparwidth]{Matrices/rabbit}}%
+\idx{Fibonacci} famously considered the breeding of \idx{rabbit}s.
+One pair of rabbits can give birth to another pair of rabbits (called kittens) every month, say.
+\begin{aside}
+Fibonacci's real name is Leonardo Bonacci, lived circa 1175 to 1250, travelled extensively from Pisa, and is considered to be one of the most talented Western mathematician of the Middle Ages.
+\end{aside}%
+Each kitten becomes fertile after it has aged a month, when it becomes adult and is called a buck (male) or doe (female).
+The new bucks and does then also start breeding.
+How many rabbits are there after six months?
+
+Let's just count the females, the does, and the female kittens.
+At the start of any month let there be \(x_1\)~kittens (female) and \(x_2\)~does.
+Then at the end of the month:
+\begin{itemize}
+\item because all the kittens grow up to be does, the number of does is now \(x_2'=x_2+x_1\)\,;
+\item and because all the does at the start month have breed another pair of kittens, of which we expect one to be female, the new number of female kittens just born is \(x_1'=x_2\)\,.
+\end{itemize}
+Then \(x_1'\) and~\(x_2'\) is the number of kittens and does at the start of the next month.
+Write this as a matrix vector system.
+Let the female population be \(\xv=(x_1,x_2)\) and the population one month later be \(\xv'=(x_1',x_2')\).
+Then our model is that
+\begin{equation*}
+\xv'=\begin{bmatrix} x_1'\\x_2' \end{bmatrix}
+=\begin{bmatrix} x_2\\x_1+x_2 \end{bmatrix}
+=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} x_1\\x_2 \end{bmatrix}
+=L\xv
+\quad\text{for }L=\begin{bmatrix} 0&1\\1&1 \end{bmatrix},
+\end{equation*}
+called a \idx{Leslie matrix}.
+\begin{itemize}
+\item At the start there is one adult pair, one doe, so the initial population is \(\xv=(0,1)\).
+\item After one month, the does \(\xv'=L\xv=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} 0\\1 \end{bmatrix}=\begin{bmatrix} 1\\1 \end{bmatrix}\).
+\item After two months, the does \(\xv''=L\xv'=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}=\begin{bmatrix} 1\\2 \end{bmatrix}\).
+\item After three months, the does \(\xv'''=L\xv''=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} 1\\2 \end{bmatrix}=\begin{bmatrix} 2\\3 \end{bmatrix}\).
+\item After four months, the does \(\xv^{iv}=L\xv'''=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} 2\\3 \end{bmatrix}=\begin{bmatrix} 3\\5 \end{bmatrix}\).
+\item After five months, the does \(\xv^{v}=L\xv^{iv}=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} 3\\5 \end{bmatrix}=\begin{bmatrix} 5\\8 \end{bmatrix}\).
+\item After six months, the does \(\xv^{vi}=L\xv^{v}=\begin{bmatrix} 0&1\\1&1 \end{bmatrix}\begin{bmatrix} 5\\8 \end{bmatrix}=\begin{bmatrix} 8\\13 \end{bmatrix}\).
+\end{itemize}
+Fibonacci's model predicts the rabbit population grows rapidly according to the famous \idx{Fibonacci numbers} \(\mathcode`\,="213B 1,2,3,5,8,13,21,34,55,89,\ldots\)\,.
 \end{example}
 
 
@@ -570,7 +620,7 @@ c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}\,.
 \end{equation*}
 \end{definition}
 
-This formula looks like a dot product~(\ref{def:dotprod}) of two vectors : indeed we do use that the expression for the \((i,j)\)th~entry is the dot product of the \(i\)th~row of~\(A\) and the \(j\)th~column of~\(B\) as illustrated by
+This formula looks like a dot product~(\autoref{def:dotprod}) of two vectors : indeed we do use that the expression for the \((i,j)\)th~entry is the dot product of the \(i\)th~row of~\(A\) and the \(j\)th~column of~\(B\) as illustrated by
 \begin{equation*}
 \begin{bmatrix} a_{11}&a_{12}&\cdots&a_{1n}
 \\\vdots&\vdots&&\vdots
@@ -687,7 +737,7 @@ That is, the powers of the Leslie matrix help predict what happens two, three, o
 The operations so far defined for matrices correspond directly to analogous operations for real numbers.
 The transpose has no corresponding analogue.
 At first mysterious, the transpose occurs frequently---often due to it linking the dot product of vectors with matrix multiplication.
-The transpose also reflects symmetry in applications (Chapter~\ref{ch:eesm}), such as Newton's law that every action has an equal and opposite reaction.
+The transpose also reflects symmetry in applications (\autoref{ch:eesm}), such as Newton's law that every action has an equal and opposite reaction.
 
 \begin{example} \label{eg:mattrans}
 Let matrices
@@ -770,14 +820,14 @@ Subsequent sections and chapters often use this identity, that \(\uv\cdot\vv=\tr
 
 
 \begin{definition}[symmetry] \label{def:matsym}
-A matrix~\(A\) is a \bfidx{symmetric matrix} if \(\tr A=A\)\,; that is, if the matrix is equal to its \idx{transpose}.
+A (real) matrix~\(A\) is a \bfidx{symmetric matrix} if \(\tr A=A\)\,; that is, if the matrix is equal to its \idx{transpose}.
 \end{definition}
 
 A symmetric matrix must be a square matrix---as otherwise the sizes of \(A\) and~\(\tr A\) would be different and so the matrices could not be equal.
 
 
 \begin{example} \label{eg:}
-None of the three matrices in \autoref{eg:mattrans} are symmetric: the first two matrices are not square so cannot be symmetric, and the third \(C\neq\tr C\).  
+None of the three matrices in \autoref{eg:mattrans} are symmetric: the first two matrices are not square so cannot be symmetric, and the third matrix \(C\neq\tr C\).  
 The following matrix is symmetric:
 \begin{equation*}
 D=\begin{bmatrix} 2 & 0 & 1\\ 0 & -6 & 3\\ 1 & 3 & 4  \end{bmatrix}
@@ -843,10 +893,10 @@ Which one of the following matrices is a \idx{symmetric matrix}?
 \subsubsection{Compute in \script}
 
 \script\ empowers us to compute all these operations quickly, especially for the large problems found in applications: after all, \script[1]\ is an abbreviation of \emph{Mat}rix \emph{Lab}oratory.
-Table~\ref{tbl:mtlbops} summarises the \script\ version of the operations introduced so far, and used in the rest of this book.
+\autoref{tbl:mtlbops} summarises the \script\ version of the operations introduced so far, and used in the rest of this book.
 
 \begin{table}
-\caption{As well as the basics of \script\ listed in Table~\ref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbops}
+\caption{As well as the basics of \script\ listed in \autoref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbops}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -854,7 +904,7 @@ Table~\ref{tbl:mtlbops} summarises the \script\ version of the operations introd
 \item \verb|A(i,j)| is the \((i,j)\)th entry of a matrix~\(A\), \verb|A(:,j)|~is the \(j\)th~column, \verb|A(i,:)|~is the \(i\)th~row; either to use the value(s) or to assign value(s).
 \item \index{+,-,*@\texttt{+,-,*}}\verb|+,-,*| is matrix\slash vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of the two operands are compatible.
 %\item As well as enclosing subscripts, parentheses,~\verb|()|, control the order of evaluation of a complicated expression.
-\item \verb|A^p| for scalar~\(p\) computes the \(p\)th~power of square matrix~\(A\) (in contrast to~\verb|A.^p| which  computes the \(p\)th~power of \emph{each element} of~\(A\), Table~\ref{tbl:mtlbbasics}).
+\item \verb|A^p| for scalar~\(p\) computes the \(p\)th~power of square matrix~\(A\) (in contrast to~\verb|A.^p| which  computes the \(p\)th~power of \emph{each element} of~\(A\), \autoref{tbl:mtlbbasics}).
 \item The character single \idx{quote},~\verb|A'|, \idx{transpose}s the matrix~\(A\).
 \item Predefined matrices include:
 \begin{itemize}
@@ -940,7 +990,7 @@ A =
 
 \paragraph{Matrix addition and subtraction}
 To illustrate further operations let's use some random matrices generated by \script: you will generate different matrices to the following, but the operations will work the same.
-Table~\ref{tbl:mtlbops} mentions that \verb|randn(m)| and \verb|randn(m,n)| generate random matrices so execute say
+\autoref{tbl:mtlbops} mentions that \verb|randn(m)| and \verb|randn(m,n)| generate random matrices so execute say
 \begin{verbatim}
 A=randn(4)
 B=randn(4)
@@ -1709,7 +1759,7 @@ For the given matrix, evaluate the following matrix-scalar products.
 
 
 \begin{exercise} \label{ex:} 
-Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalars (see Table~\ref{tbl:mtlbops}).
+Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalars (see \autoref{tbl:mtlbops}).
 Then confirm the addition and scalar multiplication properties of \autoref{thm:pasm}.
 Record all your commands and the output from \script.
 \end{exercise}
@@ -1879,7 +1929,7 @@ Reflection in the diagonal line `\(x=y\)'.}
 
 
 \begin{exercise} \label{ex:} 
-Using the matrix-vector products you calculated for Exercise~\ref{ex:matvc}, write down the results of the following matrix-matrix products.
+Using the matrix-vector products you calculated for \autoref{ex:matvc}, write down the results of the following matrix-matrix products.
 \begin{enumerate}
 \item For \(A=\begin{bmatrix} 4&-3
 \\-2&5 \end{bmatrix}\), write down the matrix products
@@ -1943,13 +1993,13 @@ Using the matrix-vector products you calculated for Exercise~\ref{ex:matvc}, wri
 
 
 \begin{exercise} \label{ex:} 
-Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalars (see Table~\ref{tbl:mtlbops}).
+Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalars (see \autoref{tbl:mtlbops}).
 Choose some suitable exponents.
 Then confirm the matrix multiplication properties of \autoref{thm:pmm}.
 Record all your commands and the output from \script.
 
-In checking some properties you may get matrices with elements such as \verb|2.2204e-16|: recall from Table~\ref{tbl:mtlbops} that this denotes the very small number \(2.2204\cdot10^{-16}\). 
-When adding and subtracting numbers of size one or so, the result \verb|2.2204e-16| is effectively zero (due to the sixteen digit \idx{precision} of \script, Table~\ref{tbl:mtlbpre}).
+In checking some properties you may get matrices with elements such as \verb|2.2204e-16|: recall from \autoref{tbl:mtlbops} that this denotes the very small number \(2.2204\cdot10^{-16}\). 
+When adding and subtracting numbers of size one or so, the result \verb|2.2204e-16| is effectively zero (due to the sixteen digit \idx{precision} of \script, \autoref{tbl:mtlbpre}).
 \end{exercise}
 
 \begin{exercise} \label{ex:} 
@@ -1968,6 +2018,7 @@ Use the other parts of \autoref{thm:pmm} to prove part~\ref{thm:pmmg} that \((A^
 % 2 females born per year is OK
 % 60% of pups do not survive to maturity
 Ecologists studying a colony of Tasmanian Devils, an Australian marsupial, observed the following:
+\marginpar{\includegraphics[width=\marginparwidth]{Matrices/tasmanianDevil}}
 two-thirds of the female newborns survive to be one year old;
 two-thirds of female one year olds survive to be two years old;
 one-half of female two year olds survive to be three years old;
@@ -2070,7 +2121,7 @@ Are the following matrices symmetric?
 
 
 \begin{exercise} \label{ex:} 
-Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalars (see Table~\ref{tbl:mtlbops}).
+Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalars (see \autoref{tbl:mtlbops}).
 Choose some suitable exponents.
 Recalling that in \script\ the dash~\verb|'| performs the transpose, confirm the matrix transpose properties of \autoref{thm:pot}.
 Record all your commands and the output from \script.

@@ -9,7 +9,7 @@
 
 \subsubsection*{Measure changes to matrices}
 
-\item \autoref{pro:ai} approximates matrices.
+\itemhi \autoref{pro:ai} approximates matrices.
 For an image stored as scalars in an \(m\times n\) matrix~\(A\).
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
@@ -24,7 +24,7 @@ A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
 
 \item In \script:
 \begin{itemize}
-\item \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm} of \autoref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
+\itemme \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm} of \autoref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
 
 Also, \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
 
@@ -32,16 +32,16 @@ Also, \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1
 
 Similarly for \index{scatter3()@\texttt{scatter3()}}\verb|scatter3(x,y,z,[],c)| but in 3D.
 
-\item \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)| computes the \(k\)~largest singular values of the matrix~\(A\) in the diagonal of \(k\times k\) matrix~\(S\), and the  \(k\)~columns of~\(U\) and~\(V\) are the corresponding singular vectors.
+\itemme \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)| computes the \(k\)~largest singular values of the matrix~\(A\) in the diagonal of \(k\times k\) matrix~\(S\), and the  \(k\)~columns of~\(U\) and~\(V\) are the corresponding singular vectors.
 
 \item  \index{imread()@\texttt{imread()}}\verb|imread('|filename\verb|')| typically reads an image from a file into an \(m\times n\times 3\) array of red-green-blue values. 
 The values are all `integers' in the range~\([0,255]\).
 
-\item \index{mean()@\texttt{mean()}}\verb|mean(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of \idx{average}s (the arithmetic mean) over each column of~\(A\).
+\itemme \index{mean()@\texttt{mean()}}\verb|mean(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of \idx{average}s (the arithmetic mean) over each column of~\(A\).
 
 Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the mean over the \verb|p|th~index to give an array of size \(m_1\times\cdots\times m_{p-1}\times m_{p+1}\times\cdots\times m_\ell\).
 
-\item \index{std()@\texttt{std()}}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of the \idx{standard deviation} over each column of~\(A\).
+\itemme \index{std()@\texttt{std()}}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of the \idx{standard deviation} over each column of~\(A\).
 
 \item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
 When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
@@ -55,14 +55,18 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 \end{itemize}
 \end{itemize}
 
-\item Define the \bfidx{matrix norm} (sometimes called the \idx{spectral norm}) such that for every \(m\times n\) matrix~\(A\), 
+
+
+
+\itemhi Define the \bfidx{matrix norm} (sometimes called the \idx{spectral norm}) such that for every \(m\times n\) matrix~\(A\), 
 \begin{equation*}
 \norm A:=\max_{|\xv|=1}|A\xv|, 
 \quad\text{equivalently }\norm A=\sigma_1
 \end{equation*}
 the largest \idx{singular value} of the matrix~\(A\) (\autoref{def:norm}).
+This norm usefully measures the `length' or `magnitude' of a matrix, and hence also the `distance' between two matrices as~\(\norm{A-B}\).
 
-\item For every\(m\times n\) real matrix~\(A\) (\autoref{thm:norm}):
+\itemme For every \(m\times n\) real matrix~\(A\) (\autoref{thm:norm}):
 \begin{itemize}
 \item \(\norm A=0\) if and only if \(A=O_{m\times n}\)\,;
 \item \(\norm{I_n}=1\)\,;
@@ -74,7 +78,7 @@ the largest \idx{singular value} of the matrix~\(A\) (\autoref{def:norm}).
 \item \(\norm{AB}\leq\norm A\norm B\) for every \(n\times p\) matrix~\(B\).
 \end{itemize}
 
-\item Let \(A\) be an \(m\times n\) matrix of \(\rank r\) with \svd\ \(A=\usv\).  
+\itemme Let \(A\) be an \(m\times n\) matrix of \(\rank r\) with \svd\ \(A=\usv\).  
 Then for every \(k< r\) the matrix
 \begin{equation*}
 A_k:=US_k\tr V =\sigma_1\uv_1\tr\vv_1 +\sigma_2\uv_2\tr\vv_2+\cdots +\sigma_k\uv_k\tr\vv_k
@@ -86,8 +90,8 @@ The distance between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 
 \item Using the \idx{matrix norm} to measure `best', the best \(k\)-dimensional summary of the \(m\times n\) data matrix~\(A\) (usually of zero mean) are the first~\(k\) principal components in the directions of the first~\(k\) principal vectors (\autoref{thm:pc}).
 
-\item  
-Consider the case when you have data values consisting of \(n\)~attributes for each of \(m\)~instances: \autoref{pro:pca} finds a good \(k\)-dimensional summary\slash view of the data. 
+\itemme  
+\autoref{pro:pca} considers the case when you have data values consisting of \(n\)~attributes for each of \(m\)~instances: it finds a good \(k\)-dimensional summary\slash view of the data. 
 \begin{enumerate} \sloppy
 \item Form\slash enter the \(m\times n\) data matrix~\(B\).
 \item \index{data scaling}Scale the data matrix~\(B\) to form \(m\times n\) matrix~\(A\):
@@ -100,12 +104,13 @@ Use \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| to compute in \script.
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
 \end{enumerate}
 
+\item Latent Semantic Indexing uses \svd{}s to form useful low-rank approximations to word data and queries.
 
 
 
 \subsubsection*{Regularise linear equations}
 
-\item \autoref{pro:appmat} approximates linear equations.
+\itemhi \autoref{pro:appmat} approximates linear equations.
 Suppose the system of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
 Suppose the expected error in the matrix entries are of size~\(e\) (here ``\(e\)''~denotes ``error'', not the exponential~\(e\))
 \begin{enumerate}

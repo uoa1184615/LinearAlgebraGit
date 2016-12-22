@@ -103,7 +103,7 @@ But we cannot because the last three components in the equation are impossible: 
 \end{equation*}
 Instead of seeking an \emph{exact} solution, ask what is the \emph{\idx{smallest change}} we can make to~\(\zv=(169,-0.1,0.2,0.5)\)\ so that we can report a solution to a slightly different problem?
 Answer: we \emph{have to} adjust the last three components to zero. 
-Also, any adjustment to the first component is unnecessary, would make the change to~\zv\ bigger than necessary, and so we do not adjust the first component.
+Further, any adjustment to the first component is unnecessary, would make the change to~\zv\ bigger than necessary, and so we do not adjust the first component.
 Hence we solve a slightly different problem, that of
 \begin{equation*}
 \begin{bmatrix} 2\\0\\0\\0 \end{bmatrix}y
@@ -165,7 +165,7 @@ Following the procedure of the previous example, what is the `best' approximate 
 \begin{example} \label{eg:rstp3}
 Recall the \idx{table tennis} \idx{player rating} \autoref{eg:rstp2}.
 There we found that we could not solve the equations to find some ratings because the equations were \idx{inconsistent}.
-In our new terminology of the previous Section~\ref{sec:sbd}, the right-hand side vector~\bv\ is not in the \idx{column space} of the matrix~\(A\) (\autoref{def:colsp}): 
+In our new terminology of the previous \autoref{sec:sbd}, the right-hand side vector~\bv\ is not in the \idx{column space} of the matrix~\(A\) (\autoref{def:colsp}): 
 the stereo picture below illustrates the 2D column space spanned by the three columns of~\(A\) and that the vector~\bv\ lies outside the column space.
 \begin{center}
 \qview{58}{63}{\begin{tikzpicture} 
@@ -246,7 +246,7 @@ We focus on the geometry and linear algebra of obtaining the `best' approximate 
 
 \begin{example}[round robin tournament] \label{eg:roundrobin1}
 Consider four players (or teams) that play in a round robin sporting event: Anne, Bob, Chris and Dee.
-Table~\ref{tbl:roundrobin1} summarises the results of the six games played.
+\autoref{tbl:roundrobin1} summarises the results of the six games played.
 \begin{table}
 \caption{the results of six games played in a round robin: the scores are games\slash goals\slash points scored by each when playing the others.  For example, Dee beat Anne 3~to~1.}
 \label{tbl:roundrobin1}
@@ -265,7 +265,7 @@ As in many real-life situations, the information appears contradictory such as A
 Assume that the rating~\(x_i\) of player~\(i\) is to reflect, as best we can, the difference in scores upon playing player~\(j\):  that is, pose the difference in ratings, \(x_i-x_j\)\,, should equal the difference in the scores when they play.
 \begin{solution} 
 The first stage is to model the results by idealised mathematical equations.
-From Table~\ref{tbl:roundrobin1} six games were played with the following scores.  
+From \autoref{tbl:roundrobin1} six games were played with the following scores.  
 Each game then generates the shown ideal equation for the difference between two ratings.
 \begin{itemize}
 \item Anne beats Bob 3-2, so \(x_1-x_2=3-2=1\)\,.
@@ -381,7 +381,7 @@ Add an arbitrary multiple of the fourth column of~\verb|V| to get a general solu
 \end{enumerate}
 The final stage is to interpret the solution for the application.
 In this application the absolute ratings are not important, so we ignore~\(y_4\) (consider it zero).  
-From the game results of Table~\ref{tbl:roundrobin1} this analysis indicates the players' rankings are, in decreasing order, Bob, Anne, Dee, and Chris.
+From the game results of \autoref{tbl:roundrobin1} this analysis indicates the players' rankings are, in decreasing order, Bob, Anne, Dee, and Chris.
 \end{solution}
 \end{example}
 
@@ -389,9 +389,9 @@ From the game results of Table~\ref{tbl:roundrobin1} this analysis indicates the
 
 \begin{table}
 \begin{tabular}{@{}p{\linewidth}@{}}
-\hline\\
+\hline
 Be aware of \index{Arrow, Kenneth}Kenneth Arrow's \idx{Impossibility Theorem} (one of the great theorems of the 20th~century): \emph{all 1D ranking systems are flawed!}  
-\idx{Wikipedia} [2014] describes the theorem this way (in the context of voting systems): that among 
+\idx{Wikipedia} [2014] described the theorem this way (in the context of voting systems): that among 
 \begin{quote}
 three or more distinct alternatives (options), no rank order voting system can convert the ranked preferences of individuals into a community-wide (complete and transitive) ranking while also meeting [four sensible] criteria \ldots\ called unrestricted domain, non-dictatorship, Pareto efficiency, and independence of irrelevant alternatives.
 \end{quote}
@@ -413,6 +413,7 @@ When rating players or teams based upon results, be clear the purpose.
 For example, is the purpose to summarise past performance? or to predict future contests?  
 % should we remove these question marks??
 If the latter, then my limited experience suggests that one should fit the win-loss record instead of the scores.
+Explore the difference for your favourite sport.
 
 
 
@@ -445,7 +446,7 @@ Setting vector \(\tilde\bv=A\xv\) for each, which one minimises the distance bet
 
 
 \begin{theorem}[\bfidx{smallest change}] \label{thm:appsol} 
-All \idx{approximate solution}s obtained by \autoref{pro:appsol} solve the linear system \(A\xv=\tilde\bv\) for the \idx{consistent} right-hand side vector~\(\tilde\bv\) 
+All \idx{approximate solution}s obtained by \autoref{pro:appsol} solve the linear system \(A\xv=\tilde\bv\) for the unique \idx{consistent} right-hand side vector~\(\tilde\bv\) 
 that minimises the \idx{distance}~\(|\tilde\bv-\bv|\).
 \begin{aside} The over-tilde on~\bv\ is to suggest an approximation. \end{aside}%
 \end{theorem}
@@ -468,7 +469,8 @@ O_{(m-r)\times r}&O_{(m-r)\times (n-r)}
 \end{equation*}
 \autoref{pro:appsol} approximately solves this inconsistent system by adjusting the right-hand side to \(\tilde\zv=(z_1,\ldots,z_r,0,\ldots,0)\in\RR^m\).
 This change makes \(|\zv-\tilde\zv|\) as small as possible because we must zero the last \((m-r)\)~components of~\zv\ in order to obtain a consistent set of equations, and because any adjustment to the first \(r\)~components of~\zv\ would only increase~\(|\zv-\tilde\zv|\).
-Hence the solution computed by \autoref{pro:appsol} solves the consistent system \(A\xv=\tilde\bv\) (with \(\tilde\bv=U\tilde\zv\)) such that \(|\bv-\tilde\bv|\) is~minimised.
+Further, it is the only change to~\zv\ that does so.
+Hence the solution computed by \autoref{pro:appsol} solves the consistent system \(A\xv=\tilde\bv\) (with the unique \(\tilde\bv=U\tilde\zv\)) such that \(|\bv-\tilde\bv|\) is~minimised.
 \end{proof}
 
 
@@ -490,16 +492,16 @@ Hence the solution computed by \autoref{pro:appsol} solves the consistent system
 \centering
 %\includegraphics[width=\linewidth]{lifeExpectancy}
 \input{Matrices/lifeExpectancy.ltx}
-\caption{the life expectancies in years of females and males born in the given years (Table~\ref{tbl:lifeExpectancy}).  Also plotted is the best straight line fit to the female data obtained by \autoref{eg:lifeExpectancy}.}
+\caption{the life expectancies in years of females and males born in the given years (\autoref{tbl:lifeExpectancy}).  Also plotted is the best straight line fit to the female data obtained by \autoref{eg:lifeExpectancy}.}
 \label{fig:lifeExpectancy}
 \end{figure}
-Table~\ref{tbl:lifeExpectancy} lists life expectancies of people born in a given year; Figure~\ref{fig:lifeExpectancy} plots the data points.
+\autoref{tbl:lifeExpectancy} lists life expectancies of people born in a given year; \autoref{fig:lifeExpectancy} plots the data points.
 Over the decades the life expectancies have increased.
-Let's quantify the overall trend to be able to draw, as in Figure~\ref{fig:lifeExpectancy}, the \idx{best straight line} to the female life expectancy.
+Let's quantify the overall trend to be able to draw, as in \autoref{fig:lifeExpectancy}, the \idx{best straight line} to the female life expectancy.
 Solve the approximation problem with an \svd\ and confirm it gives the same solution as~\verb|A\b| in \script.
 \begin{solution} 
 Start by posing a mathematical model: let's suppose that the life expectancy~\(\ell\) is a straight line function of year of birth: \(\ell=x_1+x_2t\) where we need to find the coefficients \(x_1\) and~\(x_2\), and where \(t\)~counts the number of decades since~1951, the start of the data.
-Table~\ref{tbl:lifeExpectancy} then gives seven ideal equations to solve for \(x_1\) and~\(x_2\):
+\autoref{tbl:lifeExpectancy} then gives seven ideal equations to solve for \(x_1\) and~\(x_2\):
 \begin{eqnarray*}
 (1951)&&x_1+0x_2=72.0\,,
 \\(1961)&&x_1+1x_2=74.2\,,
@@ -576,7 +578,7 @@ Compute \verb|x=A\b| to find it gives exactly the same answer: we soon discuss w
 
 Lastly, interpret the answer.
 The approximation gives \(x_1=72.61\) and \(x_2=1.55\) \twodp.  
-Since the ideal model was life expectancy \(\ell=x_1+x_2t\) we  determine a `best' approximate model is \(\ell\approx72.61+1.55\,t\) years where \(t\)~is the number of decades since 1951: this is the straight line drawn in Figure~\ref{fig:lifeExpectancy}.
+Since the ideal model was life expectancy \(\ell=x_1+x_2t\) we  determine a `best' approximate model is \(\ell\approx72.61+1.55\,t\) years where \(t\)~is the number of decades since 1951: this is the straight line drawn in \autoref{fig:lifeExpectancy}.
 That is, females tend to live an extra 1.55~years for every decade born after 1951.
 For example, for females born in 2021, some seven decades after 1951, this model predicts a life expectancy of \(\ell\approx72.61+1.55\times7=83.46\)~years.
 \end{solution}
@@ -607,6 +609,79 @@ Letting \(v_i\) be the voltages and \(f_i\)~the flow rates, which of the followi
 
 
 
+\begin{table}
+\hrule
+\begin{minipage}{\linewidth}
+\paragraph{Power laws and the log-log plot}
+Hundreds of power-laws have been identified in engineering, physics, biology and the social sciences.
+These laws were typically detected via \idx{log-log plot}s.
+A log-log plot is a two-dimensional graph of the numerical data that uses a logarithmic scale on both the horizontal and vertical axes, as in \autoref{fig:orbitalPeriods}.
+Then curvaceous relationships of the form $y=cx^a$ between the vertical variable,~$y$, and the horizontal variable,~$x$, appear as straight lines on a log-log plot.
+For example, below-left is plotted the three curves $y\propto x^2$,  $y\propto x^3$, and  $y\propto x^4$.
+It is hard to tell which is which.
+\begin{center} 
+\begin{tikzpicture}
+\begin{axis}[tiny,domain=0.5:8,no marks,xlabel={$x$},ylabel={$y$}]
+\addplot+{x^2/30};
+\addplot+{x^3/200};
+\addplot+{x^4/1000};
+\end{axis} 
+\end{tikzpicture} \hfil
+\begin{tikzpicture}
+\begin{loglogaxis}[tiny,domain=0.5:8,no marks,xlabel={$x$},ylabel={$y$}]
+\addplot+{x^2/30};
+\addplot+{x^3/200};
+\addplot+{x^4/1000};
+\end{loglogaxis} 
+\end{tikzpicture} 
+\end{center}
+However, plot the same curves on the above-right log-log plot and it  distinguishes the curves as different straight lines: the steepest line is the curve with the largest exponent, $y\propto x^4$, whereas the least-steep line is the curve with the smallest exponent, $y\propto x^2$.
+
+%\begin{verbatim}
+%x=10.^(cumsum(1+rand(3,1))/5), y=x.^2.618/5
+%x=round(x*10)/10, y=round(y*10)/10
+%A=[log10(x) ones(3,1)]
+%ab=A\log10(y)
+%octave:35> A=[log10(x) ones(3,1)]
+%A =
+%   0.2553   1.0000
+%   0.5185   1.0000
+%   0.8261   1.0000
+%octave:36> ab=A\log10(y)
+%ab =
+%   2.6437
+%  -0.7162
+%\end{verbatim}
+For example, suppose you make three measurements that at $x=1.8,3.3,6.7$ the value of $y=0.9,4.6,29.1$, respectively.  
+The graph below-left show the three data points~$(x,y)$.  
+Find the power law curve $y=cx^a$ that explains these points.
+\begin{center} 
+\begin{tikzpicture}
+\begin{axis}[tiny,domain=0.5:8,xlabel={$x$},ylabel={$y$}]
+\addplot+[only marks] coordinates {(1.8,0.9)(3.3,4.6)(6.7,29.1)};
+\end{axis} 
+\end{tikzpicture} \hfil
+\begin{tikzpicture}
+\begin{loglogaxis}[tiny,xlabel={$x$},ylabel={$y$},xtick={1,2.512,6.310}]
+\addplot+[only marks] coordinates {(1.8,0.9)(3.3,4.6)(6.7,29.1)};
+\addplot+[no marks] coordinates {(1,0.1922)(8,46.91)};
+\end{loglogaxis} 
+\end{tikzpicture} 
+\end{center}
+Take the logarithm (to any base so let's choose base~$10$) of both sides of $y=cx^a$ to get $\log_{10} y=(\log_{10} c)+a(\log_{10} x)$, equivalently, $(\log_{10} y)=a(\log_{10} x)+b$ for constant $b=\log_{10} c$\,.
+That is, there is a straight line relationship between $(\log_{10} y)$ and $(\log_{10} x)$, as illustrated above-right.
+Here $\log_{10}x=0.26,0.52,0.83$ and $\log_{10}y=-0.04,0.66,1.46$, respectively \twodp.
+Using the end points to estimate the slope gives $a=2.63$, the exponent in the power law.
+Then the constant $b=-0.04-2.63\cdot0.26=-0.72$ so the coefficient $c=10^b=0.19$\,.
+That is, via the log-log plot, the power law $y=0.19\cdot 2.63^x$ explains the data.
+Such log-log plots are not only used in \autoref{eg:orbitalPeriods}, they are endemic in science and engineering.
+\end{minipage}
+\hrule
+\end{table}
+
+
+
+
 \begin{example}[planetary orbital periods] \label{eg:orbitalPeriods}
 \begin{table}
 \caption{orbital periods for the eight planets of the solar system: the periods are in (Earth) days; the distance is the length of the semi-major axis of the orbits [\idx{Wikipedia}, 2014].
@@ -630,18 +705,18 @@ Neptune& 4498.54& 60190.03\\\hline
 \begin{figure}
 \centering
 \input{Matrices/orbitalPeriods.ltx}
-\caption{the planetary periods as a function of the distance from the data of Table~\ref{tbl:orbitalPeriods}: the graph is a log-log plot to show the excellent power law.  
+\caption{the planetary periods as a function of the distance from the data of \autoref{tbl:orbitalPeriods}: the graph is a \idx{log-log plot} to show the excellent power law.  
 Also plotted is the power law fit computed by \autoref{eg:orbitalPeriods}.}
 \label{fig:orbitalPeriods}
 \end{figure}%
-Table~\ref{tbl:orbitalPeriods} lists each \idx{orbital period} of the \idx{planets} of the solar system; Figure~\ref{fig:orbitalPeriods} plots the data points as a function of the distance of the planets from the sun.
-Let's infer \idx{Kepler's law} that the period grows as the distance to the power~\(3/2\): shown by the straight line fit in Figure~\ref{fig:orbitalPeriods}.
+\autoref{tbl:orbitalPeriods} lists each \idx{orbital period} of the \idx{planets} of the solar system; \autoref{fig:orbitalPeriods} plots the data points as a function of the distance of the planets from the sun.
+Let's infer \idx{Kepler's law} that the period grows as the distance to the power~\(3/2\): shown by the straight line fit in \autoref{fig:orbitalPeriods}.
 Use the data for Mercury to Uranus to infer the law with an \svd, confirm it gives the same solution as~\verb|A\b| in \script, and use the fit to predict Neptune's period from its distance.
 \begin{solution} 
 Start by posing a mathematical model: Kepler's law is a power law that the \(i\)th~period \(p_i=c_1d_i^{c_2}\) for some unknown coefficient~\(c_1\) and exponent~\(c_2\).  
 Take logarithms (to any base so let's use base~\(10\)) and seek that 
 \(\log_{10}p_i=\log_{10} c_1+c_2\log_{10}d_i\)\,; that is, seek unknowns \(x_1\) and~\(x_2\) such that \(\log_{10}p_i=x_1+x_2\log_{10}d_i\)\,.
-The first seven rows of Table~\ref{tbl:orbitalPeriods} then gives seven ideal linear equations to solve for \(x_1\) and~\(x_2\):
+The first seven rows of \autoref{tbl:orbitalPeriods} then gives seven ideal linear equations to solve for \(x_1\) and~\(x_2\):
 \begin{eqnarray*}
 &&x_1+\log_{10}57.91\,x_2=\log_{10}87.97\,, %&\implies&x_1+1.76x_2=1.94\,,
 \\&&x_1+\log_{10}108.21\,x_2=\log_{10}224.70\,, %&\implies&x_1+2.03x_2=2.35\,,
@@ -713,7 +788,7 @@ p=[ 87.97
 A=[ones(7,1) log10(d)]
 b=log10(p)
 \end{verbatim}
-since the \script\ function \index{log10()@\texttt{log10()}}\verb|log10()| computes the logarithm to base~\(10\) of each component in its argument (Table~\ref{tbl:mtlbmops}).
+since the \script\ function \index{log10()@\texttt{log10()}}\verb|log10()| computes the logarithm to base~\(10\) of each component in its argument (\autoref{tbl:mtlbmops}).
 Then compute an \svd\ of \(A=\usv\) via \verb|[U,S,V]=svd(A)| \twodp:
 \begin{verbatim}
 U =
@@ -770,7 +845,7 @@ Also check that computing \verb|x=A\b| gives exactly the same `best' approximate
 Lastly, interpret the answer.
 The approximation gives \(x_1=-0.6980\) and \(x_2=1.4991\)\,.  
 Since the ideal model was the log of the period \(\log_{10}p=x_1+x_2\log_{10}d\) we determine a `best' approximate model is \(\log_{10}p\approx-0.6980+1.4991\log_{10}d\)\,. 
-Raising ten to the power of both sides gives the power law that the period \(p\approx0.2005\,d^{1.4991}\)~days: this is the straight line drawn in Figure~\ref{fig:orbitalPeriods}.
+Raising ten to the power of both sides gives the power law that the period \(p\approx0.2005\,d^{1.4991}\)~days: this is the straight line drawn in \autoref{fig:orbitalPeriods}.
 The exponent~\(1.4991\) is within~\(0.1\)\% of the exponent~\(3/2\) that is Kepler's law.
 
 For example, for Neptune with a semi-major axis distance of \(4498.542\)\,Gm, using the `best' model predicts Neptune's period\[10^{-0.6980+1.4991\log_{10}4498.542}=60019\text{ days.}\]
@@ -788,7 +863,7 @@ There are two separate important computational issues.
 \item Many books approximate solutions of \(A\xv=\bv\) by solving the associated \idx{normal equation} \((\tr AA)\xv=(\tr A\bv)\).  
 For theoretical purposes this normal equation is very useful.  
 However, in practical computation avoid the normal equation because forming~\(\tr AA\), and then manipulating it, is both expensive and error enhancing (especially in large problems).
-For example, \(\cond(\tr AA)=(\cond A)^2\) (Exercise~\ref{ex:ctrAA}) so matrix~\(\tr AA\) typically has a much worse condition number than matrix~\(A\) (\autoref{pro:unisol}).
+For example, \(\cond(\tr AA)=(\cond A)^2\) (\autoref{ex:ctrAA}) so matrix~\(\tr AA\) typically has a much worse condition number than matrix~\(A\) (\autoref{pro:unisol}).
 
 \item The last two examples observe that \verb|A\b| gives an answer that was identical to what the \svd\ procedure gives.
 Thus \verb|A\b| can serve as a very useful short-cut to finding a best approximate solution.
@@ -851,7 +926,7 @@ But \script[2]'s choice of the smallest valid solution is often more appealing.
 \end{itemize}
 
 \begin{theorem}[\bfidx{smallest solution}] \label{thm:smallsoln}
-Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\)\,, in Procedures~\ref{pro:gensol} and~\ref{pro:appsol}.
+Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by Procedures~\ref{pro:gensol} or~\ref{pro:appsol}, as appropriate, and setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\).
 \end{theorem}
 \begin{proof} %Direct from \svd\ and that orthogonal matrices are rotations.
 We obtain all possible solutions, whether exact (\autoref{pro:gensol}) or approximate (\autoref{pro:appsol}), from solving \(\xv=V\yv\)\,.
@@ -1013,7 +1088,8 @@ Artificial features must not be generated because of deficiencies in the measure
 If there is any ambiguity about the answer, then the answer computed should be the `greyest'---the `greyest' corresponds to the mathematical smallest solution.
 
 \def\temp#1{\begin{tikzpicture} 
-\begin{axis}[small,axis equal image,axis lines=none]
+\begin{axis}[small,axis equal image
+  ,axis lines=none,ymax=3.8,ymin=-0.5]
   \addplot[] coordinates {(0,0)(3,0)(3,1)(0,1)(0,2)(3,2)(3,3)(0,3)
   (0,0)(1,0)(1,3)(2,3)(2,0)(3,0)(3,3)};
   \node at (axis cs:0.5,0.5) {$r_3$};
@@ -1039,8 +1115,8 @@ If there is any ambiguity about the answer, then the answer computed should be t
 \end{tikzpicture}}
 Let's analyse a toy example.%
 \footnote{For those interested in reading further, \cite{Kress2015} [\S8] introduces the advanced, highly mathematical, approach to computerized tomography.}
-Suppose we divide a cross-section of a body into nine squares (large pixels) in a \(3\times3\) grid.
 \marginpar{\temp0}%
+Suppose we divide a cross-section of a body into nine squares (large pixels) in a \(3\times3\) grid.
 Inside each square the body's material has some unknown density represented by transmission factors, \hlist r9\ as shown in the margin, that the \textsc{ct}-scan is to find: the fraction~\(r_j\) of the incident X-ray emerges after passing through the \(j\)th~square.
 
 As indicated next in the margin, six X-ray measurements are made through the body where \hlist f6\ denote the fraction of energy in the measurements relative to the power of the X-ray beam.
@@ -1306,12 +1382,11 @@ onto a vector, parallel and perpendicular components, work done
 orthogonal projections onto subspace, orthogonal decomposition thm,
 \end{comment}
 
-Reconsider the task of making a minimal change to the right-hand side of a system of linear equations, 
-\begin{aside}
-This optional section does usefully support least square approximation, and provides examples of transformations for the next section~\ref{sec:ilt}.
+Reconsider \begin{aside}
+This optional section does usefully support least square approximation, and provides examples of transformations for the next \autoref{sec:ilt}.
 These orthogonal projections are extensively used in applications.
 \end{aside}%
-and let's connect it to the so-called orthogonal projection.
+the task of making a minimal change to the right-hand side of a system of linear equations, and let's connect it to the so-called orthogonal projection.
 This important connection occurs because of the geometry that the closest point on a line or plane to another given point is the one which forms a right-angle; that is, is forms an orthogonal vector.
 
 
@@ -1919,7 +1994,7 @@ To confirm that \autoref{pro:appsol} solves \(A\xv=\proj_\AA(\bv)\) we check tha
 
 
 \begin{aside}
-Section~\ref{sec:ilt} uses orthogonal projection as an example of a linear transformation. 
+\autoref{sec:ilt} uses orthogonal projection as an example of a linear transformation. 
 The section shows that a linear transformation always correspond to multiplying by a matrix, which for orthogonal projection is here~\(W\tr W\).
 \end{aside}
 There is an useful feature of Examples~\ref{eg:orthogproj:v} and~\ref{eg:roundrobin2}.
@@ -2612,7 +2687,7 @@ A=\begin{bmatrix} 1&-1&0\\ 1&0&-1\\ 0&1&-1 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
 The required orthogonal complement is the nullspace of~\(\tr A\).
-Recall from Section~\ref{sec:isle} that for such small problems we find all solutions of \(\tr A\vv=\ov\) by algebraic elimination; that is,
+Recall from \autoref{sec:isle} that for such small problems we find all solutions of \(\tr A\vv=\ov\) by algebraic elimination; that is,
 \begin{eqnarray*}
 \begin{bmatrix} 1&1&0\\-1&0&1\\ 0&-1&-1 \end{bmatrix}\vv=\ov
 &\iff&
@@ -3230,9 +3305,9 @@ Use \autoref{pro:appsol} to estimate the ratings.
 
 \begin{exercise} \label{ex:roundrobin4} 
 Consider four sporting teams that play each other in a round robin  event: Acton, Barbican, Clapham, and Dalston.
-Table~\ref{tbl:roundrobin4} summarises the results of the six matches played.
+\autoref{tbl:roundrobin4} summarises the results of the six matches played.
 \begin{table}
-\caption{the results of six matches played in a round robin: the scores are games\slash goals\slash points scored by each when playing the others.  For example, Clapham beat Acton 4~to~2. Exercise~\ref{ex:roundrobin4} rates these teams.}
+\caption{the results of six matches played in a round robin: the scores are games\slash goals\slash points scored by each when playing the others.  For example, Clapham beat Acton 4~to~2. \autoref{ex:roundrobin4} rates these teams.}
 \label{tbl:roundrobin4}
 \begin{center}
 \begin{tabular}{l|cccc} \hline
@@ -3257,9 +3332,9 @@ Dalston, \(-3.25\).}
 
 \begin{exercise} \label{ex:roundrobin5} 
 Consider five sporting teams that play each other in a round robin  event: Atlanta, Boston, Concord, Denver, and Frankfort.
-Table~\ref{tbl:roundrobin5} summarises the results of the ten matches played.
+\autoref{tbl:roundrobin5} summarises the results of the ten matches played.
 \begin{table}
-\caption{the results of ten matches played in a round robin: the scores are games\slash goals\slash points scored by each when playing the others.  For example, Atlanta beat Concord 3~to~2.  Exercise~\ref{ex:roundrobin5} rates these teams.}
+\caption{the results of ten matches played in a round robin: the scores are games\slash goals\slash points scored by each when playing the others.  For example, Atlanta beat Concord 3~to~2.  \autoref{ex:roundrobin5} rates these teams.}
 \label{tbl:roundrobin5}
 \begin{center}
 \begin{tabular}{@{}l|ccccc@{}} \hline
@@ -3364,11 +3439,11 @@ Plot both the data and the fitted straight line.
 
 
 \paragraph{Discover power laws}
-Exercises~\ref{ex:metabolism}--\ref{ex:coastlength} use log-log plots as examples of the scientific \idx{inference} of some surprising patterns in nature.  
+Exercises~\ref{ex:metabolism}--\ref{ex:coastlength} use \idx{log-log plot}s as examples of the scientific \idx{inference} of some surprising patterns in nature.  
 These are simple examples of what, in modern parlance, might be termed `\idx{data mining}', `\idx{knowledge discovery}' or `\idx{artificial intelligence}'.
 
 \begin{exercise} \label{ex:metabolism} 
-Table~\ref{tbl:metabolism} lists data on the body weight and heat production of various mammals. 
+\autoref{tbl:metabolism} lists data on the body weight and heat production of various mammals. 
 As in \autoref{eg:orbitalPeriods}, use this data to discover \idx{Kleiber's power law} that \((\text{heat})\propto(\text{weight})^{3/4}\).  
 Graph the data on a log-log plot, fit a straight line, check the correspondence between neglected parts of the right-hand side and the quality of the graphical fit, describe the power law.
 % see metabolism.m
@@ -3424,7 +3499,7 @@ elephant&3.56\textsc{e}{+}3 & 4.79\textsc{e}{+}4 \\
 
 
 \begin{exercise} \label{ex:riverLength} 
-Table~\ref{tbl:riverLength} lists data on \idx{river length}s and \idx{basin area}s of some Russian rivers. 
+\autoref{tbl:riverLength} lists data on \idx{river length}s and \idx{basin area}s of some Russian rivers. 
 As in \autoref{eg:orbitalPeriods}, use this data to discover \idx{Hack's exponent} in the power law that \(\text{(length)}\propto(\text{area})^{0.58}\).  
 Graph the data on a log-log plot, fit a straight line, check the correspondence between neglected parts of the right-hand side and the quality of the graphical fit, describe the power law.
 \setbox\ajrqrbox\hbox{\qrcode{% Russian river areas and lengths
@@ -3470,18 +3545,18 @@ Yauza& 452 & 41 \\
 \end{exercise}
 
 \begin{exercise} \label{ex:riverLength2} 
-Find for another country some river length and basin area data akin to that of Exercise~\ref{ex:riverLength}.
+Find for another country some river length and basin area data akin to that of \autoref{ex:riverLength}.
 Confirm, or otherwise, Hack's exponent for your data.  
 Write a short report.
 \end{exercise}
 
 
 \begin{exercise} \label{ex:coastlength} 
-The area-length relationship of a river is expected to be \((\text{length})\propto(\text{area})^{1/2}\), so it is a puzzle as to why one consistently finds \idx{Hack's exponent} (e.g., Exercise~\ref{ex:riverLength}).
+The area-length relationship of a river is expected to be \((\text{length})\propto(\text{area})^{1/2}\), so it is a puzzle as to why one consistently finds \idx{Hack's exponent} (e.g., \autoref{ex:riverLength}).
 The puzzle may be answered by the surprising notion that rivers do not have a well defined length!
 \index{Richardson, L.~F.}L.~F.~Richardson first established this remarkable notion for \idx{coastlines}.
 
-Table~\ref{tbl:coastLength} lists data on the length of the west coast of Britain computed by using measuring sticks of various lengths: as one uses a smaller and smaller measuring stick, more and more bays and inlets are resolved and measured which increases the computed coast length. 
+\autoref{tbl:coastLength} lists data on the length of the west coast of Britain computed by using measuring sticks of various lengths: as one uses a smaller and smaller measuring stick, more and more bays and inlets are resolved and measured which increases the computed coast length. 
 % see coastlength.m
 \setbox\ajrqrbox\hbox{\qrcode{% coast vs measuring length
 stick=[  10.4
@@ -3551,7 +3626,7 @@ University of California, Santa Barbara&218&11&1205\\
 \end{array}
 \end{equation*}
 \end{table}%
-Table~\ref{tbl:top25USA} lists nine of the US universities ranked by an organisation in 2013, in the order they list.
+\autoref{tbl:top25USA} lists nine of the US universities ranked by an organisation in 2013, in the order they list.
 \marginpar{\small
 I do not condone nor endorse such naive one dimensional ranking of complex multi-faceted institutions.  This exercise simply illustrates a technique that deconstructs such a credulous endeavour.}
 The table also lists three of the attributes used to generate the ranked list.
@@ -3593,7 +3668,7 @@ Exercises involving higher-D inference.
 
 
 %\begin{exercise}[\idx{voting paradox}] \label{ex:votepara} 
-%\cite{Saari2015} introduced a voting paradox via Table~\ref{tbl:scvp}.
+%\cite{Saari2015} introduced a voting paradox via \autoref{tbl:scvp}.
 %\begin{table}
 %\caption{in some social club we count the number of people who rank in a particular order the three candidates for an election to president. 
 %The three candidates are Alice, Bob, and Chris, and  $\succ$~means ``is preferred to''.}
@@ -3613,7 +3688,7 @@ Exercises involving higher-D inference.
 %\end{center}
 %\end{table}%
 %Three people stand for president of a social club: Alice~\(A\), Bob~\(B\), and Chris~\(C\).
-%The nineteen voters in the club all fall into one of six groups: for example, Table~\ref{tbl:scvp} indicates two voters prefer Alice over Bob and prefer Bob over Chris, whereas six voters prefer Alice over Chris and prefer Chris over Bob, and so on.
+%The nineteen voters in the club all fall into one of six groups: for example, \autoref{tbl:scvp} indicates two voters prefer Alice over Bob and prefer Bob over Chris, whereas six voters prefer Alice over Chris and prefer Chris over Bob, and so on.
 %Various outcomes may arise depending upon the voting system.
 %\begin{itemize}
 %\item If each voter allocates one vote for their single preferred candidate, then 
@@ -3642,7 +3717,7 @@ Exercises involving higher-D inference.
 %
 %\item Alternatively, the club might a pairwise comparison of the three candidates to resolve the preferred president.
 %\begin{itemize}
-%\item Table~\ref{tbl:scvp} shows that groups 1, 2 and~3 prefer Alice to Bob, whereas groups~4, 5 and~6 prefer Bob to Alice: that is, compared to the \(2+6+0=8\) people who prefer Alice to Bob,  the majority of \(4+4+3=11\) people prefer Bob to Alice.
+%\item \autoref{tbl:scvp} shows that groups 1, 2 and~3 prefer Alice to Bob, whereas groups~4, 5 and~6 prefer Bob to Alice: that is, compared to the \(2+6+0=8\) people who prefer Alice to Bob,  the majority of \(4+4+3=11\) people prefer Bob to Alice.
 %\item The table also shows groups~1, 5 and~6 prefer Bob to Chris, whereas groups~2, 3 and~4 prefer  Chris to Bob: that is, the majority of \(6+0+4=10\) people prefer Chris to Bob.
 %\item Lastly, the table shows groups~1, 2 and~6 prefer Alice to Chris, whereas groups~3, 4 and~5 prefer Chris to Alice: that is, the majority of \(2+6+3=11\) people prefer Alice to Chris.
 %\end{itemize}
@@ -4136,7 +4211,7 @@ For each of the following matrices, compute an \svd\ in \script\ to find an \idx
 
 \begin{exercise} \label{ex:aicebcb} 
 Generally, each of the following systems of equations are inconsistent.
-Use your answers to the previous Exercise~\ref{ex:orprmat} to find the right-hand side vector~\(\bv'\) that is the closest vector to the given right-hand side among all the vectors in the column space of the matrix.  
+Use your answers to the previous \autoref{ex:orprmat} to find the right-hand side vector~\(\bv'\) that is the closest vector to the given right-hand side among all the vectors in the column space of the matrix.  
 What is the magnitude of the difference between~\(\bv'\) and the given right-hand side?
 Hence write down a system of \emph{consistent} equations that best approximates the original system.
 %\begin{verbatim}
@@ -4246,7 +4321,7 @@ difference~\(2.91\)}
 
 
 \begin{exercise} \label{ex:} 
-Theorems~\ref{thm:appsol} and~\ref{thm:lsqproj}, examples and Exercise~\ref{ex:aicebcb} solve an inconsistent system of equations by some specific `best approximation' that forms a consistent system of equations to solve.
+Theorems~\ref{thm:appsol} and~\ref{thm:lsqproj}, examples and \autoref{ex:aicebcb} solve an inconsistent system of equations by some specific `best approximation' that forms a consistent system of equations to solve.
 Describe briefly the key idea of this `best approximation'.
 Discuss other possibilities for a `best approximation' that might be developed.
 %\answer{It is smallest change to the RHS.  Could also change the matrix by some smallest amount.  Could use a different measure of change: infinity-norm, 1-norm, sparse 0-norm, etc.}

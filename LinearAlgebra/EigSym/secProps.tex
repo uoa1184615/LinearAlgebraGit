@@ -11,14 +11,14 @@
 
 
 
-This section starts with two properties for eigenvalues of general matrices, and then proceeds to the special case of real symmetric  matrices which have the beautifully useful properties of always having real eigenvalues and orthogonal eigenvectors.
+This section starts by exploring two properties for eigenvalues of general matrices, and then proceeds to the special case of real symmetric  matrices which have the beautifully useful properties of always having real eigenvalues and orthogonal eigenvectors.
 
 
 
 \subsection{Matrix powers maintain eigenvectors}
 \label{sec:mpmev}
 
-Recall that Section~\ref{sec:im} introduced the inverse of a matrix (\autoref{def:invertible}).
+Recall that \autoref{sec:im} introduced the inverse of a matrix (\autoref{def:invertible}).
 This first theorem links an eigenvalue of zero to the non-existence of an inverse and hence links a zero eigenvalue to problematic linear equations.
 
 
@@ -100,14 +100,14 @@ That is, \((\lambda-\tfrac43)^2=\tfrac49\)\,.
 \marginpar{\eRose1{-0.5}{-0.5}1}
 Taking the square-root of both sides gives \(\lambda-\tfrac43=\pm\tfrac23\)\,; that is, the two eigenvalues of the inverse~\(A^{-1}\) are \(\lambda=\tfrac43\pm\tfrac23=2,\tfrac23\)\,.
 Observe these eigenvalues of the inverse are the reciprocals of the eigenvalues \(\frac12,\frac32\) of~\(A\).
-This relation also holds generally.
+This reciprocal relation also holds generally.
 
 The marginal pictures illustrates the reciprocal relation graphically:
 the first picture shows~\(A\xv\) for various~\xv, the second picture shows \(A^{-1}\xv\).
 \marginpar{\eRose{4/3}{2/3}{2/3}{4/3}}
 The eigenvector directions are the same for both matrix and inverse.
 But in those eigenvector directions where the matrix stretches, the inverse shrinks, and where the matrix shrinks, the inverse stretches.
-In contrast, in directions which are not eigenvectors, the relationship between~\(A\xv\) and~\(A^{-1}\xv\) is obscure.
+In contrast, in directions which are not eigenvectors, the  relationship between~\(A\xv\) and~\(A^{-1}\xv\) is somewhat obscure.
 \end{itemize}
 \end{example}
 
@@ -140,7 +140,7 @@ Pre-multiply \(A\xv=\lambda\xv\) by~\(\frac1\lambda A^{-1}\) to deduce
 \(\frac1\lambda A^{-1}A\xv=\frac1\lambda A^{-1}\lambda\xv\)\,, which gives \(\frac1\lambda I\xv=\frac1\lambda \lambda A^{-1}\xv\)\,, that is, \(\frac1\lambda\xv= A^{-1}\xv\)\,.  
 Consequently, \(1/\lambda\)~is an \idx{eigenvalue} of~\(A^{-1}\) with corresponding \idx{eigenvector}~\xv.
 
-\item[\ref{thm:ematpow:iii}.] Proved by Exercise~\ref{ex:ematpow:iii}.  
+\item[\ref{thm:ematpow:iii}.] Proved by \autoref{ex:ematpow:iii}.  
 \end{itemize}
 \end{proof}
 
@@ -265,7 +265,7 @@ Predict what happens after many generations: does the population die out? grow? 
 \begin{solution} 
 Consider what happens after \(n\)~generations for large~\(n\), say \(n=10\) or~\(100\).
 The predicted population is \(\xv^{(n)}=L^n\xv\)\,; that is, the matrix~\(L^n\) transforms the current population to that after \(n\)~generations.
-The stretching and/or shrinking of matrix~\(L^n\) is summarised by its eigenvectors and eigenvalues (section~\ref{sec:iee}).
+The stretching and/or shrinking of matrix~\(L^n\) is summarised by its eigenvectors and eigenvalues (\autoref{sec:iee}).
 By \autoref{thm:ematpow} the eigenvalues of~\(L^n\) are~\(\lambda^n\) in terms of the eigenvalues~\(\lambda\) of~\(L\).
 By hand (\autoref{pro:eeh}), the characteristic equation of~\(L\) is
 \begin{eqnarray*}
@@ -278,7 +278,7 @@ By hand (\autoref{pro:eeh}), the characteristic equation of~\(L\) is
 \end{eqnarray*}
 Such complex valued eigenvalues may arise in real applications when the matrix is not symmetric, as here---the next \autoref{thm:realeigsym} proves such complexities do not arise for symmetric matrices.
 
-But the algebra still works with \idx{complex eigenvalue}s (Chapter~\ref{ch:gee}).
+But the algebra still works with \idx{complex eigenvalue}s (\autoref{ch:gee}).
 Here, the eigenvalues of~\(L^n\) are~\(\lambda^n\) (\autoref{thm:ematpow}) namely \(1^n=1\) for all~\(n\) and \([(-1\pm i\sqrt5)/3]^n\).
 Because the absolute value \(|(-1\pm i\sqrt5)/3|
 =|-1\pm i\sqrt5|/3=\sqrt{1+5}/3=\sqrt{6}/3=\sqrt{2/3}=0.8165\), then the absolute value of \([(-1\pm i\sqrt5)/3]^n\) is~\(0.8165^n\) which becomes negligibly small for large~\(n\); for example, \(0.8165^{34}\approx 0.001\).
@@ -307,7 +307,7 @@ To establish the reality of eigenvalues (\autoref{thm:realeigsym}), the proof in
 The contradiction is to assume a complex valued eigenvalue exists, and then prove it cannot.
 Consequently, the proof of the next \autoref{thm:realeigsym} needs to use some \idx{complex numbers} and some properties of complex numbers.
 Recall that any complex number \(z=a+bi\) has a \idx{complex conjugate} \(\bar z=a-bi\) (denoted by the overbar), and that a complex number equals its conjugate only if it is real valued (the imaginary part is zero).
-Such properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex matrices and vectors.
+Such properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex valued matrices and vectors.
 
 
 \begin{comment}
@@ -323,7 +323,7 @@ For every real \idx{symmetric matrix}~\(A\), the \idx{eigenvalue}s of~\(A\) are 
 
 
 \begin{proof} 
-Let \(\lambda\) be any eigenvalue of~\(A\) with corresponding eigenvector~\xv; that is, \(A\xv=\lambda\xv\) for \(\xv\neq\ov\)\,.
+Let \(\lambda\) be any eigenvalue of real matrix~\(A\) with corresponding eigenvector~\xv; that is, \(A\xv=\lambda\xv\) for \(\xv\neq\ov\)\,.
 To create a \idx{contradiction} that establishes the theorem: assume the eigenvalue~\(\lambda\) is complex valued, and so correspondingly is the eigenvector~\xv.
 First,  the complex conjugate~\(\bar\lambda\) must be another eigenvalue of~\(A\), corresponding to an eigenvector which is the complex conjugate~\(\bar\xv\).
 To see this just take the complex conjugate of both sides of \(A\xv=\lambda\xv\)\,:
@@ -386,11 +386,14 @@ Recall \autoref{eg:3x3hande} found the \(3\times3\) symmetric matrix
 \end{equation*}
 has eigenspaces \(\EE_0=\Span\{(-6,-3,2)\}\), \(\EE_7=\Span\{(-2,6,3)\}\) and \(\EE_{-14}=\Span\{(3,-2,6)\}\).
 These eigenspaces are orthogonal as evidenced by the dot products of the basis vectors:
-\begin{eqnarray*}&&
-(-6,-3,2)\cdot(-2,6,3)=12-18+6=0\,,
-\\&&
-(-2,6,3)\cdot(3,-2,6)=-6-12+18=0\,,
-\\&&
+\begin{eqnarray*}
+\EE_0,\EE_7,&&
+(-6,-3,2)\cdot(-2,6,3)=12-18+6=0\,;
+\\
+\EE_7,\EE_{-14},&&
+(-2,6,3)\cdot(3,-2,6)=-6-12+18=0\,;
+\\
+\EE_{-14},\EE_0,&&
 (3,-2,6)\cdot(-6,-3,2)=-18+6+12=0\,.
 \end{eqnarray*}
 \end{example}
@@ -420,7 +423,7 @@ Consider \(\tr\xv_1A\xv_2\) in two different ways:
 Equating the two ends of this identity gives \(\lambda_2\xv_1\cdot\xv_2=\lambda_1\xv_1\cdot\xv_2\)\,.
 Rearrange to \(\lambda_2\xv_1\cdot\xv_2-\lambda_1\xv_1\cdot\xv_2
 =(\lambda_2-\lambda_1)(\xv_1\cdot\xv_2)=0\)\,.
-Since \(\lambda_1\neq\lambda_2\) it follows that the dot product \(\xv_1\cdot\xv_2=0\)\,.
+Since \(\lambda_1\neq\lambda_2\)\,, the factor \(\lambda_2-\lambda_1\neq0\)\,, and so it follows that the dot product \(\xv_1\cdot\xv_2=0\)\,.
 Hence (\autoref{def:orthovec}) the two eigenvectors are orthogonal.
 \end{proof}
 
@@ -683,7 +686,7 @@ Hence the assumption is wrong: there cannot be any more than \(n\)~distinct eige
 \end{proof}
 
 
-The previous theorem establishes there are at most \(n\)~distinct \idx{eigenvalue}s (here for symmetric matrices but \autoref{thm:geecp} establishes it is true for general matrices).  
+The previous theorem establishes there are at most \(n\)~distinct \idx{eigenvalue}s (here for symmetric matrices, but \autoref{thm:geecp} establishes it is true for general matrices).  
 Now we establish that typically there exist \(n\)~distinct \idx{eigenvalue}s of an \(n\times n\) matrix---here symmetric.
 
 \begin{comment}
@@ -736,7 +739,7 @@ Equate the lengths of both sides: \(\sigma_1^2=\sigma_1^2\cos^2 t+|A\wv|^2\sin^2
 For angles \(0< t<\pi\) this implies \(|A\wv|=\sigma_1\) for a vector orthogonal to~\(\vv_1\) which implies the singular value~\(\sigma_1\) is repeated.  
 This contradicts the supposition; hence \(\uv_1=\pm\vv_1\) (for one of the signs, not both).
 
-Recall the \idx{induction} proof for the \svd\ \autoref{thm:svd}  (section~\ref{sec:dpsvdt}).  
+Recall the \idx{induction} proof for the \svd\ \autoref{thm:svd}  (\autoref{sec:dpsvdt}).  
 Here, since \(\uv_1=\pm\vv_1\) we can and do choose \(\bar U=\bar V\)\,.  
 Hence \(B=\tr{\bar U}A\bar V =\tr{\bar V}A\bar V \) is symmetric as \(\tr{B} =\tr{\tr{\bar V}A\bar V} =\tr{\bar V}\tr A\bar V =\tr{\bar V}A\bar V =B\)\,.
 Consequently, the same argument applies at all steps in the induction for the proof of an \svd\ and hence establishes \(\uv_j=\pm\vv_j\) (each for one of the signs, not both).
@@ -865,7 +868,7 @@ Also, every \idx{square matrix} has a \idx{polar decomposition} \(A=RQ\) for sym
 The following preliminary example illustrates the important principle, 
 applicable throughout mathematics, that we often either choose or change to a coordinate system in which the mathematical algebra is simplest.
 \begin{aside}
-An optional subsection which has many uses---although not an application itself as it does not involve real data.
+This is optional subsection which has many uses---although not an application itself as it does not involve real data.
 \end{aside}
 
 
@@ -1022,7 +1025,7 @@ The challenge of this subsection is to choose good new coordinates so that a giv
 \end{description}
 
 
-\autoref{eg:cuceh} implicitly had two steps: first, we decided upon an orientation for the coordinate axes; second, we decided that the coordinate system should be `centred' in the picture.
+\autoref{eg:cuceh} implicitly has two steps: first, we decide upon an orientation for the coordinate axes; second, we decides that the coordinate system should be `centred' in the picture.
 Algebra follows the same two steps.
 
 \begin{example}[centre coordinates] \label{eg:}
@@ -1062,7 +1065,7 @@ In this new coordinate system the equation is that of an ellipse with horizontal
 \end{example}
 
 
-\begin{example}[rotate coordinates] \label{eg:}
+\begin{example}[rotate coordinates] \label{eg:csrc2}
 By rotating the coordinate system, identify the conic section whose equation is
 \begin{equation*}
 x^2+3xy-3y^2-\tfrac12=0\,.
@@ -1143,7 +1146,7 @@ which is the equation of a hyperbola intersecting the \(y'\)-axis at \(y'=\pm1/\
 
 
 
-\begin{example} \label{eg:}
+\begin{example} \label{eg:cstrrc2}
 Identify the conic section whose equation is
 \begin{equation*}
 x^2-xy+y^2+\tfrac5{2\sqrt2}x-\tfrac7{2\sqrt2}y+\tfrac18=0\,.
@@ -1274,12 +1277,18 @@ A \bfidx{quadratic form} in variables \(\xv\in\RR^n\) is a function \(q:\RR^n\to
 
 \begin{example} \label{eg:}
 \begin{enumerate}
-\item The dot product in~\(\RR^n\) is a quadratic form.
+\item The dot product of a vector with itself is a quadratic form.
 For all \(\xv\in\RR^n\) consider
 \begin{equation*}
 \xv\cdot\xv=\tr\xv\xv=\tr\xv I_n\xv\,,
 \end{equation*}
 which is the quadratic form associated with the identity matrix~\(I_n\).
+
+\item \autoref{eg:csrc2} found the hyperbola satisfying equation \(x^2+3xy-3y^2-\tfrac12=0\)\,.
+This equation may be written in terms of a quadratic form as \(\tr\xv A\xv-\tfrac12=0\) for vector \(\xv=(x,y)\) and symmetric matrix \(A=\begin{bmatrix} 1&\tfrac32\\\tfrac32&-3 \end{bmatrix}\).
+
+\item \autoref{eg:cstrrc2} found the ellipse satisfying the equation
+\(x^2-xy+y^2+\tfrac5{2\sqrt2}x-\tfrac7{2\sqrt2}y+\tfrac18=0\) via writing the quadratic part of the equation as \(\tr\xv A\xv\) for vector \(\xv=(x,y)\) and symmetric matrix \(A=\begin{bmatrix} 1&-\tfrac12\\-\tfrac12&1 \end{bmatrix}\).
 \end{enumerate}
 \end{example}
 
@@ -1367,13 +1376,14 @@ We observe that these extreme values are precisely the two eigenvalues of the ma
 
 
 
-\begin{theorem}[extreme values] \label{thm:optqform}
+\begin{theorem}%[Rayleigh's inequality] %?
+\label{thm:optqform}
 Let~\(A\) be an \(n\times n\) symmetric matrix with \idx{eigenvalue}s \(\lambda_1\leq\lambda_2\leq\cdots\leq\lambda_n\) (sorted). 
 Then for all \idx{unit vector}s \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \idx{quadratic form}~\(\tr\xv A\xv\) has the following properties:
 \begin{enumerate}
 \item \(\lambda_1\leq \tr\xv A\xv\leq\lambda_n\)\,;
-\item the minimum of~\(\tr\xv A\xv\) is~\(\lambda_1\), and occurs when \(\xv\) is a (unit) eigenvector corresponding to~\(\lambda_1\);
-\item the maximum of~\(\tr\xv A\xv\) is~\(\lambda_n\), and occurs when \(\xv\) is a (unit) eigenvector corresponding to~\(\lambda_n\).
+\item the minimum of~\(\tr\xv A\xv\) is~\(\lambda_1\), and occurs when \(\xv\) is a unit eigenvector corresponding to~\(\lambda_1\);
+\item the maximum of~\(\tr\xv A\xv\) is~\(\lambda_n\), and occurs when \(\xv\) is a unit eigenvector corresponding to~\(\lambda_n\).
 \end{enumerate}
 \end{theorem}
 
@@ -1398,7 +1408,7 @@ Since \(V\)~is orthogonal it preserves lengths (\autoref{thm:orthog:iv}) so the 
 \\&&{}=\lambda_1|\yv|^2
 \\&&{}=\lambda_1\,.
 \end{eqnarray*}
-Similarly for the upper bound (Exercise~\ref{ex:optqform}).  
+Similarly for the upper bound (\autoref{ex:optqform}).  
 Thus \(\lambda_1\leq \tr\xv A\xv\leq\lambda_n\) for all unit vectors~\xv.
 
 \item Let \(\vv_1\) be a unit eigenvector of~\(A\) corresponding to the minimal eigenvalue~\(\lambda_1\); that is, \(A\vv_1=\lambda_1\vv_1\) and \(|\vv_1|=1\)\,.
@@ -1412,7 +1422,7 @@ Then, setting \(\xv=\vv_1\)\,, the quadratic form
 \end{equation*}
 Thus the quadratic form~\(\tr\xv A\xv\) takes on the minimum value~\(\lambda_1\) and it occurs when \(\xv=\vv_1\) (at least).
 
-\item Exercise~\ref{ex:optqform} proves the maximum value occurs.
+\item \autoref{ex:optqform} proves the maximum value occurs.
 \end{enumerate}
 \end{proof}
 
@@ -1649,7 +1659,7 @@ By roughly estimating eigenvalues and eigenvectors by eye, identify the pairs of
 
 
 \begin{exercise} \label{ex:} 
-For the symmetric matrices of Exercise~\ref{ex:smoevs}, confirm that eigenvectors corresponding to distinct eigenvalues are orthogonal (\autoref{thm:orthoevec}).  Show your working.
+For the symmetric matrices of \autoref{ex:smoevs}, confirm that eigenvectors corresponding to distinct eigenvalues are orthogonal (\autoref{thm:orthoevec}).  Show your working.
 \end{exercise}
 
 
@@ -1663,7 +1673,7 @@ For an \(n\times n\) symmetric matrix,
 \item  eigenvectors corresponding to different eigenvalues are orthogonal (\autoref{thm:orthoevec}), and
 \item  there are generally \(n\)~eigenvalues.
 \end{itemize}
-Which of the illustrated 2D examples of Exercise~\ref{ex:evecpic} appear to come from symmetric matrices, and which appear to come from non-symmetric matrices?
+Which of the illustrated 2D examples of \autoref{ex:evecpic} appear to come from symmetric matrices, and which appear to come from non-symmetric matrices?
 \end{exercise}
 
 
@@ -1737,7 +1747,7 @@ Find eigenvectors by hand for \(2\times 2\) and \(3\times 3\) matrices, and comp
 
 
 \begin{exercise} \label{ex:} 
-For the symmetric matrices of Exercise~\ref{ex:smoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
+For the symmetric matrices of \autoref{ex:smoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
 Confirm that each column of~\(V\) is an eigenvector of the matrix (that is, proportional to what the exercise found) and the corresponding singular value is the magnitude of the corresponding eigenvalue (\autoref{thm:smevec}).
 Show and discuss your working.
 \end{exercise}
@@ -1746,7 +1756,7 @@ Show and discuss your working.
 
 
 \begin{exercise} \label{ex:} 
-To complement the previous exercise, for each of the \emph{non-symmetric} matrices of Exercise~\ref{ex:smnoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
+To complement the previous exercise, for each of the \emph{non-symmetric} matrices of \autoref{ex:smnoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
 Confirm that each column of~\(V\) is \emph{not} an eigenvector of the matrix, and the singular values do \emph{not} appear closely related to the eigenvalues.
 Show and discuss your working.
 \end{exercise}

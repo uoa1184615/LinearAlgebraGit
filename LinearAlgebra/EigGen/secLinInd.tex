@@ -2,6 +2,7 @@
 
 \section{Linear independent vectors may form a basis}
 \label{sec:lisb}
+
 \secttoc
 \begin{comment}
 \pooliv{p.92--7,198--208} \holti{\S2.3}
@@ -13,10 +14,10 @@
 \index{linear independence|(}
 
 
-In Chapter~\ref{ch:eesm} on symmetric matrices, the \idx{eigenvector}s from distinct \idx{eigenvalue}s are proved to be always \idx{orthogonal}.  
-For general matrices the eigenvectors are not orthogonal---as introduced at the start of this Chapter~\ref{ch:gee}.  
+In \autoref{ch:eesm} on symmetric matrices, the \idx{eigenvector}s from distinct \idx{eigenvalue}s are proved to be always \idx{orthogonal}.  
+For general matrices the eigenvectors are not orthogonal---as introduced at the start of this \autoref{ch:gee}.  
 But the orthogonal property is extremely useful.
-Question: is there a similarly useful analogue of orthogonality?
+Question: is there some analogue of orthogonality that is similarly useful?
 Answer: yes; we now extend ``orthogonal'' to the more general concept of ``linear independence'' which for general matrices replaces orthonormality.
 
 One reason that orthogonal vectors are useful is that they can form an \idx{orthonormal basis} and hence act as the unit vectors of an orthogonal coordinate systems.
@@ -69,7 +70,7 @@ We replace the orthonormal standard unit vectors by any suitable set of basis ve
 \end{tikzpicture}}%
 For example, in the plane any two vectors at an angle to each other suffice to be able to describe uniquely every vector (point) in the plane.
 As illustrated in the margin, every point in the plane (end point of a vector) is a unique linear combination of the two drawn basis vectors~\(\vv_1\) and~\(\vv_2\).
-Such a pair of basis vectors, termed linearly independent, avoid the  difficulties of algebraic ambiguity.
+Such a pair of basis vectors, termed a linearly independent pair, avoids the  difficulties of algebraic ambiguity.
 
 
 
@@ -361,7 +362,7 @@ Because \(e^x\) and~\(e^{-x}\) are not proportional to each other, there is no l
 
 
 \begin{theorem} \label{thm:ortholi}
-Every \idx{orthonormal set} (\autoref{def:orthoset}) of vectors is \idx{linearly independent}.
+Every \idx{orthonormal set} of vectors (\autoref{def:orthoset}) is \idx{linearly independent}.
 \end{theorem}
 \begin{proof} %Take dot products with the defining equation.
 Let \(\{\hlist\vv k\}\) be an orthonormal set of vectors in~\(\RR^n\).
@@ -429,7 +430,7 @@ In particular, a set of two vectors \(\{\vv_1,\vv_2\}\) is linearly dependent if
 \end{theorem}
 
 \begin{proof} 
-Exercise~\ref{ex:lindeplc} establishes the particular case of a set of two vectors.
+\autoref{ex:lindeplc} establishes the particular case of a set of two vectors.
 %Start with the particular case of the set of two vectors \(\{\vv_1,\vv_2\}\).
 %Say \(\vv_1\) is a multiple of~\(\vv_2\), \(\vv_1=c\vv_2\)\,, then the linear combination \(\vv_1-c\vv_2=\ov\)\,, and so the set is linearly dependent. 
 %Similarly if \(\vv_2\) is a multiple of~\(\vv_1\).
@@ -532,12 +533,12 @@ Now subtract \(\lambda_{k+1}\times\) the original linear combination:
 \\&&{}
 -\left(\lincomb c{\lambda_{k+1}\vv}{k}
 +c_{k+1}\lambda_{k+1}\vv_{k+1}\right)=\ov
-\\\implies&&
+\\&&\implies\\&&
 c_1(\lambda_1-\lambda_{k+1})\vv_1+c_2(\lambda_2-\lambda_{k+1})\vv_2+\cdots
 \\&&{}
 +c_k(\lambda_k-\lambda_{k+1})\vv_k
 +c_{k+1}\underbrace{(\lambda_{k+1}-\lambda_{k+1})}_{=0}\vv_{k+1}=\ov
-\\\implies&&
+\\&&\implies\\&&
 \lincomb{c'}\vv k=\ov
 \end{eqnarray*}
 for coefficients \(c'_j=c_j(\lambda_j-\lambda_{k+1})\).
@@ -707,7 +708,7 @@ Which of the following sets of vectors are linearly dependent?
 \ifnum#1>2\addplot[blue,quiver={u=-0.5,v=-1.5},-stealth,thick] coordinates {(0,0)};\fi
 \end{axis}
 \end{tikzpicture}}
-\actposs{\temp2}{\temp1}{\temp3}{None of these sets.}
+\actposs{\temp3}{\temp1}{\temp2}{None of these sets.}
 %\begin{parts}
 %\item \temp1
 %\item \temp2
@@ -835,7 +836,7 @@ However, the answer depends upon the context.
 In the strict mathematical context the vectors are unequivocally linearly independent.
 But in the context of practical problems, where errors in matrix entries are likely, there are `shades of grey' . 
 Here, one of the singular values is quite small, namely~\(0.0024\).
-If the context informs us that the entries in the matrix had errors of say~\(0.01\), then this singular value is effectively zero (Section~\ref{sec:rle}).
+If the context informs us that the entries in the matrix had errors of say~\(0.01\), then this singular value is effectively zero (\autoref{sec:rle}).
 In the context of such errors, this set of five vectors would be  linearly dependent.
 \end{solution}
 
@@ -859,7 +860,7 @@ In the context of such errors, this set of five vectors would be  linearly depen
 \subsection{Form a basis for subspaces}
 
 
-Recall, from Sections~\ref{sec:lcss} and~\ref{sec:sbd}, the definition of \idx{subspace}s and the \idx{span}: namely that a subspace is a set of vectors closed under addition and scalar multiplication; and a span is a set of vectors whose linear combinations give all vectors in a given subspace.
+Recall, from Sections~\ref{sec:lcss} and~\ref{sec:sbd}, the definition of \idx{subspace}s and the \idx{span}: namely that a subspace is a set of vectors closed under addition and scalar multiplication; and a span gives a subspace as all linear combinations of a set of vectors.
 Also, \autoref{def:orthobasis} defined an ``\idx{orthonormal basis}'' for a subspace to be a set of orthonormal vectors that span a subspace.
 This section generalises the concept of an ``orthonormal basis'' by relaxing the requirement of orthonormality to result in the concept of a ``basis''.
 
@@ -924,7 +925,7 @@ Since this line is not a subspace, it cannot have a basis.
 
 \item Find a basis for the plane \(3x-2y+z=0\)\,.
 \begin{solution} 
-Writing the equation of the plane as \(z=-3x+2y\) we then write the plane parametrically (section~\ref{sec:nvep}) as the vectors \(\xv=(x,y,-3x+2y) =(x,0,-3x)+(0,y,2y) =x(1,0,-3) +y(0,1,2)\).
+Writing the equation of the plane as \(z=-3x+2y\) we then write the plane parametrically (\autoref{sec:nvep}) as the vectors \(\xv=(x,y,-3x+2y) =(x,0,-3x)+(0,y,2y) =x(1,0,-3) +y(0,1,2)\).
 Since \(x\) and~\(y\) may vary over all values, the plane is the subspace \(\Span\{(1,0,-3),\,(0,1,2)\}\) (as illustrated below in stereo).
 Since \((1,0,-3)\) and \((0,1,2)\) are not proportional to each other, they form a linearly independent set.
 Hence \(\{(1,0,-3),\,(0,1,2)\}\) is a basis for the plane.
@@ -1046,7 +1047,7 @@ Each of the following are a basis for the plane:
 \end{itemize}
 The reasons are that all three vectors involved are in the plane, and that each pair are linearly independent (as, in each pair, one is not proportional to the other).
 
-Although each of the three vectors in the set \(\{(-1,1,0),\ (1,-2,1),\ (0,1,-1)\}\) is in the plane, this set is not a basis because it is not linearly independent (\autoref{eg:lindepa}).
+Although, in the set \(\{(-1,1,0),\ (1,-2,1),\ (0,1,-1)\}\), each of the three vectors is in the plane, this set is not a basis because it is not linearly independent (\autoref{eg:lindepa}).
 Each individual vector, say \((-1,1,0)\), cannot form a basis for the plane because the span of one vector, such as \(\Span\{(-1,1,0)\}\), is a line not the whole plane.
 
 The orthonormal basis \(\big\{(1,0,-1)/\sqrt2,\ (1,-2,1)/\sqrt6\big\}\) is another basis for the plane: both vectors satisfy \(x+y+z=0\) and are orthogonal and so linearly independent (\autoref{thm:ortholi}).  
@@ -1091,7 +1092,7 @@ Find a \idx{basis} for the \idx{subspace} \(\AA=\Span\{\hlist\av n\}\) given $\{
 Recall \autoref{pro:ospan} underpins finding an \idx{orthonormal basis} by the following.
 \begin{enumerate}
 \item Form \(m\times n\) matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
-\item Factorise~\(A\) into its \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors, Section~\ref{sec:rle}).
+\item Factorise~\(A\) into its \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors, \autoref{sec:rle}).
 \item The set \(\{\hlist\uv r\}\)  (where \(\uv_j\)~denotes the columns of~$U$) is a \idx{basis}, specifically an \idx{orthonormal basis}, for the \(r\)-dimensional subspace~\AA.
 \end{enumerate}
 Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{linearly independent} and span the subspace~\AA, and so is also a \idx{basis} for the \(n\)-dimensional subspace~\AA.
@@ -1281,7 +1282,7 @@ Suppose we seek a \idx{basis} for a \idx{subspace}~\WW\ specified as the solutio
 \begin{enumerate}
 \item Rewrite the system of equations as the \idx{homogeneous} system \(A\xv=\ov\)\,. 
 Then the subspace~\WW\ is the \idx{nullspace} of \(m\times n\) matrix~\(A\).
-\item  Adapting \autoref{pro:gensol} for the specific case of homogeneous systems, first find an \svd\ factorisation \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors, Section~\ref{sec:rle}).
+\item  Adapting \autoref{pro:gensol} for the specific case of homogeneous systems, first find an \svd\ factorisation \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors, \autoref{sec:rle}).
 \item A \idx{general solution} of \(S\yv=\zv=\ov\) is \(\yv=(0,\ldots,0,y_{r+1},\ldots,y_n)\).
 Consequently, all possible solutions \(\xv=V\yv\) are spanned by the last \(n-r\) columns of~\(V\), which thus form an \idx{orthonormal basis} for the subspace~\WW.
 \end{enumerate}
@@ -1361,7 +1362,7 @@ That is, an orthonormal basis for the subspace of all solutions is \(\{(0.09,-0.
 
 
 
-Recall this Section~\ref{sec:lisb} started by discussing the need to have a unique representation of solutions to problems.
+Recall this \autoref{sec:lisb} started by discussing the need to have a unique representation of solutions to problems.
 If we do not have uniqueness, then the ambiguity in algebraic representation ruins basic algebra.
 The forthcoming theorem assures us that the linear independence of a basis ensures the unique representation that we need.
 In essence it says that every basis, whether orthogonal or not, can be used to form a \idx{coordinate system}.
@@ -1461,7 +1462,7 @@ Then in this system the three vectors have coordinates \(\av=(2,1)\), \(\bv=(1,-
 
 But we cannot say both \(\av=(7,4)\) and \(\av=(2,1)\): it appears nonsense.
 The reason for the different numbers representing the one vector~\av\ is that the underlying coordinate systems are different.
-For example, we can say both \(\av=7\ev_1+4\ev_2\) and \(\av=2\vv_1+\vv_2\) without any apparent contradiction: these statements recognise the underlying standard unit vectors in the first expression and the underlying non-orthogonal basis vectors in the second.
+For example, we can say both \(\av=7\ev_1+4\ev_2\) and \(\av=2\vv_1+\vv_2\) without any apparent contradiction: these two statements explicitly recognise the underlying standard unit vectors in the first expression and the underlying non-orthogonal basis vectors in the second.
 
 Consequently we invent a new better notation.
 We write \([\av]_\cB=(2,1)\) to represent that the coordinates of vector~\av\ in the basis~\cB\ are~\((2,1)\).
@@ -1470,7 +1471,7 @@ Similarly, \([\bv]_\cE=(0,-5)\) and \([\bv]_\cB=(1,-3)\);
 and \([\cv]_\cE=(-3,4)\) and \([\cv]_\cB=(-2,3)\).
 
 The endemic practice of just writing \(\av=(2,1)\), \(\bv=(1,-3)\) and \(\cv=(-2,3)\) is rationalised in this new notation by the convention that if no basis is explicitly specified, then the \idx{standard basis}~\cE\ is assumed.
-\footnote{Given that the numbers in the components of a vector changes with the coordinate basis, some of you will wonder whether the same thing happens for matrices.  The answer is yes: the numbers in the components of a matrix also depend upon the coordinate basis. }
+\footnote{Given that the numbers in the components of a vector changes with the coordinate basis, some of you will wonder whether the same thing happens for matrices.  The answer is yes:  for a given transformation, the numbers in the components of its matrix also depend upon the coordinate basis. }
 \end{example}
 
 
@@ -1673,7 +1674,7 @@ Expressed in the standard basis~\cE\ this equation is
 \begin{bmatrix} 1\\-2\\0 \end{bmatrix}c_2+
 \begin{bmatrix} 0\\4\\5 \end{bmatrix}c_3\,.
 \end{equation*}
-A small system like this we solve by hand (recall section~\ref{sec:amss}): write in component form as
+A small system like this we solve by hand (recall \autoref{sec:amss}): write in component form as
 \begin{eqnarray*}
 &&\left\{\begin{array}{r@{\ }r@{\ }r@{{}={}}l}  
 -c_1&+c_2&&-1 \\
@@ -2261,7 +2262,7 @@ For each of the following vectors with specified coordinates in basis~\cB, what 
 
 
 \begin{exercise} \label{ex:} 
-Repeat Exercise~\ref{ex:3basisv} but with the three basis vectors \(\bv_1=(6,2,1)\), \(\bv_2=(-2,-1,-2)\) and \(\bv_3=(-3,-1,5)\).
+Repeat \autoref{ex:3basisv} but with the three basis vectors \(\bv_1=(6,2,1)\), \(\bv_2=(-2,-1,-2)\) and \(\bv_3=(-3,-1,5)\).
 % V=0+round(randn(3)*3),sv=svd(V)
 \end{exercise}
 
@@ -2323,7 +2324,7 @@ For each of the following vectors, specified in the standard basis~\cE, what is 
 
 
 \begin{exercise} \label{ex:} 
-Repeat Exercise~\ref{ex:2basev} but with the two basis vectors \(\bv_1=(-2,3,-1)\) and \(\bv_2=(0,-1,3)\).
+Repeat \autoref{ex:2basev} but with the two basis vectors \(\bv_1=(-2,3,-1)\) and \(\bv_2=(0,-1,3)\).
 \end{exercise}
 
 
@@ -2389,7 +2390,7 @@ For each of the following vectors, use \script\ to find the requested coordinate
 
 
 \begin{exercise} \label{ex:} 
-Repeat Exercise~\ref{ex:3base5v} but with basis vectors \(\bv_1=(-3,8,-9,-1,1)\), \(\bv_2=(10,-20,14,-7,2)\) and \(\bv_3=(-1,-2,5,3,-2)\) (specified in the \idx{standard basis}~\cE).
+Repeat \autoref{ex:3base5v} but with basis vectors \(\bv_1=(-3,8,-9,-1,1)\), \(\bv_2=(10,-20,14,-7,2)\) and \(\bv_3=(-1,-2,5,3,-2)\) (specified in the \idx{standard basis}~\cE).
 %for i=1:9999,P=round(randn(3)*2); if abs(det(P))==1, P=P, break, end, end
 \setbox\ajrqrbox\hbox{\qrcode{% basis
 B=[-3 10 -1

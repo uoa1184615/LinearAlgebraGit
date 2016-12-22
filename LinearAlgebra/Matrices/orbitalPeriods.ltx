@@ -1,6 +1,6 @@
 \begin{tikzpicture}
   \begin{loglogaxis}[xlabel={distance (Gigametres)}, ylabel={period (days)}
-  ,grid%,legend pos=outer north east
+  ,grid,legend pos=north west
   ]
   \addplot+[only marks] table [x=dist,y=period]{
       dist      period   
@@ -13,7 +13,9 @@
     2870.671  30687.15
     4498.542  60190.03
   };
-  \addplot+ [blue,samples=3,no marks,domain=50:5000]
+  \addlegendentry{planets}
+  \addplot+ [samples=3,no marks,domain=50:5000]
   {0.2005*x^1.4991};
+  \addlegendentry{power law}
   \end{loglogaxis}
 \end{tikzpicture}

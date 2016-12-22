@@ -13,7 +13,7 @@ Sections~\ref{sec:dmd}, \ref{sec:omr} and~\ref{sec:ilt} introduced that multipli
 Determinants give precisely how much a square matrix transforms such areas and volumes.
 
 \begin{example} \label{eg:detarea1}
-Consider the square matrix \(A=\begin{bmatrix} \frac12&1\\0&1 \end{bmatrix}\).
+Consider the square matrix \(A=\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix}\).
 Use matrix multiplication to find the image of the unit square under the transformation by~\(A\).
 How much is the area of the unit square scaled up/down?  
 Compare with the determinant.
@@ -218,8 +218,8 @@ Basic properties of a determinant follow direct from \autoref{def:detarea}.
 \begin{enumerate}
 \item \label{thm:basicdet:i}  Let \(D\) be an \(n\times n\) \idx{diagonal matrix}.
 The \idx{determinant} of~\(D\) is the product of the diagonal entries: \(\det D=d_{11}d_{22}\cdots d_{nn}\)\,.
-\item \label{thm:basicdet:ii} An \idx{orthogonal matrix}~\(Q\) has  \(\det Q=\pm1\) (only one alternative, not both), and \(\det Q=\det(\tr Q)\).
-\item \label{thm:basicdet:iii}  For an \(n\times n\) matrix~\(A\), \(\det(kA)=k^n\det A\) for every scalar~\(k\).
+\item \label{thm:basicdet:ii}An \idx{orthogonal matrix}~\(Q\) has  \(\det Q=\pm1\) (only one alternative, not both), and \(\det Q=\det(\tr Q)\).
+\item \label{thm:basicdet:iii}For an \(n\times n\) matrix~\(A\), \(\det(kA)=k^n\det A\) for every scalar~\(k\).
 \end{enumerate}
 \end{theorem}
 \begin{proof} Use \autoref{def:detarea}.
@@ -419,7 +419,7 @@ This property of transforming general areas and volumes also establishes the nex
 \begin{example} \label{eg:}
 Recall the two \(2\times2\) matrices of Examples~\ref{eg:detarea1} and~\ref{eg:detarea2}:
 \begin{equation*}
-A=\begin{bmatrix} \frac12&1\\0&1 \end{bmatrix},\quad
+A=\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix},\quad
 B=\begin{bmatrix} -1&1\\1&1 \end{bmatrix}.
 \end{equation*}
 Check that the determinant of their product is the product of their determinants. 
@@ -430,9 +430,9 @@ Thus the product of their determinants is \(\det(A)\det(B)=-1\)\,.
 Secondly, calculate the matrix product
 \marginpar{\TwoD{0.5}{1.5}11}%
 \begin{equation*}
-AB=\begin{bmatrix} \frac12&1\\0&1 \end{bmatrix}
+AB=\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix}
 \begin{bmatrix} -1&1\\1&1 \end{bmatrix}
-=\begin{bmatrix} \frac12&\frac32\\1&1 \end{bmatrix},
+=\begin{bmatrix} \tfrac12&\tfrac32\\1&1 \end{bmatrix},
 \end{equation*}
 whose multiplicative action upon the unit square is illustrated in the margin.
 By~\eqref{eq:dets23b}, \(\det(AB)=\frac12\cdot1-\frac32\cdot1=-1\)\,, as required.
@@ -441,8 +441,8 @@ Thirdly, we should also check the other product (as the question does not specif
 \marginpar{\TwoD{-0.5}{0}{0.5}2}%
 \begin{equation*}
 BA=\begin{bmatrix} -1&1\\1&1 \end{bmatrix}
-\begin{bmatrix} \frac12&1\\0&1 \end{bmatrix}
-=\begin{bmatrix} -\frac12&0\\\frac12&2 \end{bmatrix},
+\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix}
+=\begin{bmatrix} -\tfrac12&0\\\tfrac12&2 \end{bmatrix},
 \end{equation*}
 whose multiplicative action upon the unit square is illustrated in the margin.
 By~\eqref{eq:dets23b}, \(\det(BA)=-\frac12\cdot2-0\cdot\frac12=-1\)\,, as required.
@@ -467,7 +467,7 @@ By associativity, the \(j\)th edge~\(A(B\ev_j)\) of~\(C''\) is the same as~\((AB
 Consequently, the (signed) $n$D-volume of~\(C''\) is alternatively given by~\(\det(AB)\).
 These two expressions for the $n$D-volume of~\(C''\) must be equal: that is, \(\det(AB)=\det(A)\det(B)\).
 
-Exercise~\ref{ex:detprodk} uses induction to then prove the second statement in the theorem that \(\det(A_1A_2\cdots A_\ell)=\det(A_1)\det(A_2)\cdots\det(A_\ell)\).
+\autoref{ex:detprodk} uses induction to then prove the second statement in the theorem that \(\det(A_1A_2\cdots A_\ell)=\det(A_1)\det(A_2)\cdots\det(A_\ell)\).
 \end{proof}
 
 
@@ -565,7 +565,7 @@ The determinants are the same.
 For every \idx{square matrix}~\(A\), \(\det(\tr A)=\det A\).
 \end{theorem}
 \begin{proof} 
-Use an \svd\ of the matrix, say \(A=\usv\).
+Use an \svd\ of the \(n\times n\) matrix, say \(A=\usv\).
 Then 
 \begin{eqnarray*}
 \det A&=&\det(\usv)
@@ -731,7 +731,7 @@ The task is meaningless.
 
 
 One of the main reasons for studying determinants is to establish when solutions to linear equations may exist or not (albeit only applicable to square matrices when there are \(n\)~linear equations in \(n\)~unknowns).
-One example lies in finding eigenvalues by hand (section~\ref{sec:feebh}) where we solve \(\det(A-\lambda I)=0\)\,.
+One example lies in finding eigenvalues by hand (\autoref{sec:feebh}) where we solve \(\det(A-\lambda I)=0\)\,.
 
 Recall that for \(2\times2\) and \(3\times3\) matrices we commented that a matrix is invertible only when its determinant is non-zero.
 \autoref{thm:detinv} establishes this in general.
@@ -833,8 +833,8 @@ For each of the given illustrations of a \idx{linear transformation} of the unit
 
 
 \begin{exercise} \label{ex:} 
-For each of the transformations illustrated in Exercise~\ref{ex:2x2detseye}, estimate the matrix of the linear transformation (to within say~10\%). 
-Then use formula~\eqref{eq:dets23b} to estimate the determinant of your matrix and confirm Exercise~\ref{ex:2x2detseye}.
+For each of the transformations illustrated in \autoref{ex:2x2detseye}, estimate the matrix of the linear transformation (to within say~10\%). 
+Then use formula~\eqref{eq:dets23b} to estimate the determinant of your matrix and confirm \autoref{ex:2x2detseye}.
 \end{exercise}
 
 

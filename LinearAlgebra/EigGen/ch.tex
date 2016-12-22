@@ -31,7 +31,7 @@ Then form these last two equations as the matrix-vector equation
 \begin{equation*}
 \begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}\xv=\lambda\xv\,.
 \end{equation*}
-That is, this substitution \((y,z)=\xv \lambda^{t}\) shows the question about solutions of the population equations reduces to solving \(A\xv=\lambda \xv\)\,, called an \idx{eigen-problem}.
+That is, this substitution \((y,z)=\xv \lambda^{t}\) shows the question about finding solutions of the population equations reduces to solving \(A\xv=\lambda \xv\)\,, called an \idx{eigen-problem}.
 
 The linear algebra of the eigen-problem will empower us to predict that the general solution for the population is, in terms of two constants~\(c_1\) and~\(c_2\), that one species has female population \(y(t)=2c_14^t+2c_2\) whereas the the second species has female population \(z(t)=-c_14^t+c_2\)\,.
 
@@ -61,7 +61,7 @@ The linear algebra of the eigen-problem will empower us to predict that the gene
 
 
 \paragraph{The basic eigen-problem}
-Recall from Section~\ref{sec:iee} that the \idx{eigen-problem} equation \(A\xv=\lambda\xv\) is just asking can we find directions~\xv\ such that matrix~\(A\) acting on~\xv\ is in the same direction as~\xv; that is, when is~\(A\xv\) the same as~\(\lambda\xv\) for some proportionality constant~\(\lambda\).
+Recall from \autoref{sec:iee} that the \idx{eigen-problem} equation \(A\xv=\lambda\xv\) is just asking can we find directions~\xv\ such that matrix~\(A\) acting on~\xv\ is in the same direction as~\xv; that is, when is~\(A\xv\) the same as~\(\lambda\xv\) for some proportionality constant~\(\lambda\).
 Now \(\xv=\ov\) is always a solution of the  equation \(A\xv=\lambda \xv\)\,.
 Consequently, we are only interested in those values of the \idx{eigenvalue}~\(\lambda\) when non-zero solutions for the \idx{eigenvector}~\xv\ exist (as it is the directions which are of interest).
 Rearranging the equation \(A\xv=\lambda\xv\) as the homogeneous system \((A-\lambda I)\xv=\ov\)\,, let's invoke properties of linear equations to solve the eigen-problem.
@@ -78,16 +78,15 @@ Rearranging the equation \(A\xv=\lambda\xv\) as the homogeneous system \((A-\lam
 
 
 \paragraph{Three general difficulties in eigen-problems}
-Recall that Section~\ref{sec:iee} introduced one way to visually estimate eigenvectors and eigenvalues of a given matrix~\(A\) \cite[]{Schonefeld1995}. 
-The method is to plot many unit vectors~\xv, and at the end of each~\xv\ to adjoin the vector~\(A\xv\).
+Recall that \autoref{sec:iee} introduced one way to visually estimate eigenvectors and eigenvalues of a given matrix~\(A\) \cite[]{Schonefeld1995}. 
+The graphical method is to plot many unit vectors~\xv, and at the end of each~\xv\ to adjoin the vector~\(A\xv\).
 Since eigenvectors satisfy \(A\xv=\lambda\xv\) for some scalar eigenvalue~\(\lambda\), we visually identify eigenvectors as those~\xv\ which point in the same (or opposite) direction to~\(A\xv\).
 Let's use this approach to identify three general difficulties.
-
 
 \begin{enumerate}
 \item 
 In this first picture, for matrix
-\( A=\scriptstyle\begin{bmatrix} 1&1\\\tfrac18&1 \end{bmatrix}\),
+\( A=\begin{bmatrix} 1&1\\\tfrac18&1 \end{bmatrix}\),
 \marginpar{\eRose{1}1{0.125}{1}}%
 \begin{aside}
 The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
@@ -95,24 +94,24 @@ The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}
 the eigenvectors appear to be in directions \(\xv_1\approx\pm(0.9,0.3)\) and \(\xv_2\approx\pm(0.9,-0.3)\) corresponding to eigenvalues \(\lambda_1\approx1.4\) and \(\lambda_2\approx 0.6\)\,.
 (Recall that scalar multiples of an eigenvector are always also eigenvectors, \S\ref{sec:iee}, so we always see \(\pm\)~pairs of eigenvectors in these pictures.)
 The eigenvectors \(\pm(0.9,0.3)\) are not orthogonal to the other eigenvectors \(\pm(0.9,-0.3)\), not at right angles---as happens for symmetric matrices (\autoref{thm:orthoevec}).
-This lack of orthogonality in general means we soon generalise the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (Section~\ref{sec:lisb}).
+This lack of orthogonality in general means we soon generalise the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (\autoref{sec:lisb}).
 
 \item 
 In this second case, for
-\( A=\scriptstyle\begin{bmatrix} 0&1\\-1&\tfrac12 \end{bmatrix}\),
-there appear to be no eigenvectors at all.
-\marginpar{\eRose01{-1}{0.5}}%
+\( A=\begin{bmatrix} 0&1\\-1&\tfrac12 \end{bmatrix}\), \marginpar{\eRose01{-1}{0.5}}%
+there appears to be no (red) vector~\(A\xv\) in the same direction as the corresponding (blue) vector~\xv.
+Thus there appears to be no eigenvectors at all.
 No eigenvectors and eigenvalues is the answer if we require real answers.
-However, in most applications we find it sensible to have complex valued eigenvalues and eigenvectors (Section~\ref{sec:eennm}).
+However, in most applications we find it sensible to have complex valued eigenvalues and eigenvectors (\autoref{sec:eennm}).
 So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in \autoref{eg:ccevals}). 
 \footnote{In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
 Such a consistent `rotation' in~\(A\xv\) is characteristic of matrices with complex valued eigenvalues and eigenvectors.}
 
 \item 
 In this third case, for
-\( A=\scriptstyle\begin{bmatrix} 1&1\\0&1 \end{bmatrix}\),
-there appears to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
+\( A=\begin{bmatrix} 1&1\\0&1 \end{bmatrix}\),
 \marginpar{\eRose1101}%
+there appears to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
 Whereas for symmetric matrices there were always two pairs, here we only appear to have one pair of eigenvectors (\autoref{thm:dimee}).
 Such degeneracy occurs for matrices on the border between reality and complexity.
 

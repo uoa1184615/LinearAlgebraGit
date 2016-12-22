@@ -3,6 +3,7 @@
 
 \section{Diagonalisation identifies the transformation}
 \label{sec:dit}
+
 \secttoc
 \begin{comment}
 \pooliv{\S4.4} \layiv{\S5.3} \holti{\S6.4} \cite[\S09]{Davis99a}
@@ -11,7 +12,7 @@
 \index{diagonalisation|(}
 
 \paragraph{Population modelling} \index{population modelling}
-Recall that this Chapter~\ref{ch:gee} started by introducing the dynamics of two interacting species of animals.
+Recall that this \autoref{ch:gee} started by introducing the dynamics of two interacting species of animals.
 Recall we let \(y(t)\) and~\(z(t)\) be the number of female animals in each of the species at time~\(t\) (years). 
 Modelling might deduce the populations interact according to the rule that the population one year later is \(y(t+1)=2y(t)-4z(t)\) and \(z(t+1)=-y(t)+2z(t)\).
 Then seeking solutions proportional to~\(\lambda^t\) led to the eigen-problem
@@ -29,7 +30,7 @@ Start by writing the population model as a system in terms of vector \(\yv(t)=(y
 \yv(t+1)=\begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}\yv(t).
 \end{eqnarray*}
 Now let's ask if there is a basis \(\cP=\{\pv_1,\pv_2\}\) for the \(yz\)-plane that simplifies the system?
-In such a basis every vector may be written as \(\yv=Y_1\pv_1+Y_2\pv_2\) for some components~\(Y_1\) and~\(Y_2\)---where \((Y_1,Y_2)=\Yv=[\yv]_\cP\), but to simplify writing we use the symbol~\Yv\ not~\([\yv]_\cP\).
+In such a basis every vector may be written as \(\yv=Y_1\pv_1+Y_2\pv_2\) for some components~\(Y_1\) and~\(Y_2\)---where \((Y_1,Y_2)=\Yv=[\yv]_\cP\), but to simplify writing we use the symbol~\Yv\ in place of~\([\yv]_\cP\).
 Write this relation as the matrix-vector product \(\yv=P\Yv\) where matrix \(P=\begin{bmatrix} \pv_1&\pv_2 \end{bmatrix}\) and vector \(\Yv=(Y_1,Y_2)\).
 The populations~\(\yv\) depends upon time~\(t\), and hence so does~\(\Yv\); that is, \(\yv(t)=P\Yv(t)\).
 Substitute this into the system of equations:
@@ -46,7 +47,7 @@ The answer is yes: using eigenvalues and eigenvectors, in most cases the product
 
 
 
-Recall that (section~\ref{sec:smod}) for a \idx{symmetric matrix}~\(A\) we could always factor \(A=VD\tr V=VDV^{-1}\) for \idx{orthogonal matrix}~\(V\) and \idx{diagonal matrix}~\(D\): thus a symmetric matrix is always \idx{orthogonally diagonalisable} (\autoref{def:odsble}).
+Recall that (\autoref{sec:smod}) for a \idx{symmetric matrix}~\(A\) we could always factor \(A=VD\tr V=VDV^{-1}\) for \idx{orthogonal matrix}~\(V\) and \idx{diagonal matrix}~\(D\): thus a symmetric matrix is always \idx{orthogonally diagonalisable} (\autoref{def:odsble}).
 For non-symmetric matrices, a \idx{diagonalisation} mostly (although not always) can be done:
 the difference being we need an invertible matrix, typically called~\(P\), instead of the orthogonal matrix~\(V\).
 Such a matrix~\(A\) is termed `diagonalisable' instead of `orthogonally diagonalisable'.
@@ -172,7 +173,7 @@ Lastly, in these arguments, \(P\)~is the matrix of eigenvectors and the diagonal
 
 
 \begin{example} \label{eg:trieigp}
-Recall \autoref{eg:trieig} found the \idx{triangular matrix}
+Recall that \autoref{eg:trieig} found the \idx{triangular matrix}
 \begin{equation*}
 A=\begin{bmatrix}-3&2&0
 \\0&-4&2
@@ -184,7 +185,7 @@ Is matrix~\(A\) diagonalisable?
 These three eigenvectors are linearly independent as they correspond to distinct eigenvalues (\autoref{thm:indepev}).
 Hence the matrix is diagonalisable.
 
-The previous paragraph answer the question. 
+The previous statement answers the question. 
 But further, forming these eigenvectors into the columns of matrix
 \begin{equation*}
 P=\begin{bmatrix} 1&-2&\frac1{14}
@@ -218,7 +219,7 @@ D =
 
 \begin{example} \label{eg:sier2eigp}
 Recall the Sierpinski network of \autoref{eg:sier2eig} (shown in the margin).
-Is the \(9\times9\) matrix encoding the network diagonalisable?
+Is the \(9\times9\) matrix~\(A\) encoding the network diagonalisable?
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=none ]
@@ -370,7 +371,7 @@ The following theorem confirms that matrices with as many \emph{distinct} eigenv
 
 \begin{theorem} \label{thm:dlamd} 
 For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalisable}.
-Consequently, and allowing complex eigenvalues, a \idx{non-diagonalisable matrix} must be non-symmetric and must have at least one \idx{repeated eigenvalue} (an eigenvalue with \idx{multiplicity} two or more).
+Consequently, and allowing complex eigenvalues, a real \idx{non-diagonalisable matrix} must be non-symmetric and must have at least one \idx{repeated eigenvalue} (an eigenvalue with \idx{multiplicity} two or more).
 \end{theorem}
 \begin{proof}  
 First, let \hlist\vv n\ be eigenvectors corresponding to the \(n\)~distinct eigenvalues of matrix~\(A\).
@@ -380,7 +381,7 @@ As the corresponding eigenvalues are distinct, \autoref{thm:indepev} establishes
 
 Second, the converse of the first statement in the theorem then also holds.
 Since an \(n\times n\) matrix has \(n\)~eigenvalues, when counted accordingly to multiplicity and allowing for complex eigenvalues (\autoref{pro:geneig}), a non-diagonalisable matrix must have at least one repeated eigenvalue.  
-But further, by \autoref{thm:symspec} a symmetric matrix is always diagonalisable: hence a non-diagonalisable matrix must also be non-symmetric.
+But further, by \autoref{thm:symspec} a real symmetric matrix is always diagonalisable: hence a non-diagonalisable matrix must also be non-symmetric.
 \end{proof}
 
 
@@ -475,7 +476,7 @@ that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\)\,.
 %Maths I 2014 course omits any proof.
 %\end{comment}
 %\begin{proof} 
-%Suppose \(\lambda_j\) is an eigenvalue of matrix~\(A\) and \(\dim\EE_{\lambda_j}=p<n\) (the case \(p=n\) is proved by Exercise~\ref{ex:dimme}).
+%Suppose \(\lambda_j\) is an eigenvalue of matrix~\(A\) and \(\dim\EE_{\lambda_j}=p<n\) (the case \(p=n\) is proved by \autoref{ex:dimme}).
 %Then to span \(\EE_{\lambda_j}\) there are \(p\) corresponding, linearly independent, eigenvectors \hlist\vv p\,.
 %Let
 %\begin{equation*}
@@ -527,7 +528,7 @@ that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\)\,.
 %(there may be more factors of \((\lambda_j-\lambda)\) hidden within \(\det(CAW -\lambda I_{n-p})\)).
 %\end{proof}
 \begin{proof} 
-Suppose \(\lambda_j\) is an eigenvalue of matrix~\(A\) and \(\dim\EE_{\lambda_j}=p<n\) (the case \(p=n\) is proved by Exercise~\ref{ex:dimme}).
+Suppose \(\lambda_j\) is an eigenvalue of matrix~\(A\) and \(\dim\EE_{\lambda_j}=p<n\) (the case \(p=n\) is proved by \autoref{ex:dimme}).
 Because its dimension is~\(p\) the eigenspace may be spanned by \(p\)~vectors.
 Then choose \(p\)~orthonormal vectors \hlist\vv p\ to span~\(\EE_{\lambda_j}\): these vectors \hlist\vv p\ are eigenvectors as they are in the eigenspace.
 Let
@@ -570,7 +571,7 @@ Then the characteristic polynomial of matrix~\(A\) becomes
 \end{eqnarray*}
 by \(p\)~successive first column expansions of the determinant (\autoref{thm:letdet}).
 Because of the factor \((\lambda_j-\lambda)^p\) in the characteristic polynomial of~\(A\), the eigenvalue~\(\lambda_j\) must have multiplicity of at least~\(p=\dim\EE_{\lambda_j}\)
-(there may be more factors of \((\lambda_j-\lambda)\) hidden within \(\det(\tr WAW -\lambda I_{n-p})\)).
+---there may be more factors of \((\lambda_j-\lambda)\) hidden within \(\det(\tr WAW -\lambda I_{n-p})\).
 \end{proof}
 
 
@@ -664,7 +665,7 @@ D =
       0      0      0      0  -1.00      0
       0      0      0      0      0  -1.00
 \end{verbatim}
-Evidently, the matrix~\(B\) has two eigenvalues, \(\lambda=4\) and \(\lambda=-1\)\,, both of multiplicity three (although due to round-off error \script\ will report these with errors of about~\(10^{-5}\) (section~\ref{sec:reas})---possibly complex errors in which case ignore small complex parts).
+Evidently, the matrix~\(B\) has two eigenvalues, \(\lambda=4\) and \(\lambda=-1\)\,, both of multiplicity three (although due to round-off error \script\ will report these with errors of about~\(10^{-5}\) (\autoref{sec:reas})---possibly complex errors in which case ignore small complex parts).
 For each eigenvalue \script\ reports, the three corresponding columns of~\verb|V| contain corresponding eigenvectors.
 Each set of these three eigenvectors do span the corresponding eigenspace, but are not necessarily linearly independent.
 \begin{itemize}
@@ -690,7 +691,7 @@ Since all three singular values are non-zero, \(\dim\EE_{-1}=3\)\,.
 %for i=1:999999,p=round(randn(6)*3); if min(abs(abs(det(p))-[1 2 5]))<1e-7, a=p*d*inv(p), break, end, end
 %\end{verbatim}
 \script\ may produce for you a quite different matrix~\verb|V| of eigenvectors (possibly with complex parts). 
-As discussed by section~\ref{sec:reas}, repeated eigenvalues are very sensitive and this sensitivity means small variations in the hidden \script\ algorithm may produce quite large changes in the matrix~\verb|V| for repeated eigenvalues.
+As discussed by \autoref{sec:reas}, repeated eigenvalues are very sensitive and this sensitivity means small variations in the hidden \script\ algorithm may produce quite large changes in the matrix~\verb|V| for repeated eigenvalues.
 However, each eigenspace spanned by the appropriate columns of~\verb|V| is robust.
 \end{example}
 
@@ -703,15 +704,16 @@ However, each eigenspace spanned by the appropriate columns of~\verb|V| is robus
 \index{differential equations|(}
 
 \paragraph{Population modelling}
-The population modelling seen so far (section~\ref{sec:ddp}) expressed the changes of the population over discrete intervals in time via discrete time equations such as \(y(t+1)=\cdots\) and \(z(t+1)=\cdots\)\,.
+The population modelling seen so far (\autoref{sec:ddp}) expressed the changes of the population over discrete intervals in time via discrete time equations such as \(y(t+1)=\cdots\) and \(z(t+1)=\cdots\)\,.
 One such example is to describe the population numbers year by year.
 The alternative is to model the changes in the population \emph{continuously} in time.
 This alternative invokes and analyses differential equations.
+Such continuous time, differential equation, models are common for exploring the interaction between different species, such as humans and viruses.
 
-Let's start with a continuous time version of the population modelling discussed at the start of this Chapter~\ref{ch:gee}.
+Let's start with a continuous time version of the population modelling discussed at the start of this \autoref{ch:gee}.
 Let two species interact continuously in time with populations \(y(t)\) and~\(z(t)\) at time~\(t\) (years).
 Suppose they interact according to \idx{differential equation}s \(dy/dt=y-4z\) and \(dz/dt=-y+z\) (instead of the discrete time equations \(y(t+1)=\cdots\) and \(z(t+1)=\cdots\)).
-Analogous to the start of this Section~\ref{sec:dit}, we now ask the following question: is there a matrix transformation to new variables, the vector~\(\Yv(t)\), such that \((y,z)=P\Yv\) for some as yet unknown matrix~\(P\), where the differential equations for~\Yv\ are simple?
+Analogous to the start of this \autoref{sec:dit}, we now ask the following question: is there a matrix transformation to new variables, the vector~\(\Yv(t)\), such that \((y,z)=P\Yv\) for some as yet unknown matrix~\(P\), where the differential equations for~\Yv\ are simple?
 \begin{itemize}
 \item First, form the differential equations into a matrix-vector system:
 \begin{equation*}
@@ -1365,7 +1367,7 @@ x(t)&=&c_1e^{i\sqrt{k/m}t}+c_2e^{-i\sqrt{k/m}t}
 \\&=&C_1\cos(\sqrt{k/m}t)+C_2\sin(\sqrt{k/m}t).
 \end{eqnarray*}
 For all values of the arbitrary constants~\(C_1\) and~\(C_2\), this formula describes the position~\(x(t)\) of the mass as purely real oscillations in time.
-Similarly for the velocity~\(v(t)\) (Exercise~\ref{ex:sprmas}).
+Similarly for the velocity~\(v(t)\) (\autoref{ex:sprmas}).
 \end{solution}
 \end{example}
 
@@ -1377,7 +1379,7 @@ Similarly for the velocity~\(v(t)\) (Exercise~\ref{ex:sprmas}).
 
 
 \begin{comment}
-Probable section includes Cayley--Hamilton theorem: recall section~\ref{sec:mpmev}, compute powers of matrices, then C-H.
+Probable section includes Cayley--Hamilton theorem: recall \autoref{sec:mpmev}, compute powers of matrices, then C-H.
 Other applications include Markov chains.
 
 Possibly develop a little more theory on similarity of matrices and coordinate transform of matrices.  Then Jordan form and solving non-diagonalisable systems of differential equations.
@@ -1441,7 +1443,7 @@ Show your working.
 
 
 \begin{exercise} \label{ex:whichps} 
-Redo Exercise~\ref{ex:whichp} by finding which matrices~\(P_a,\ldots,P_h\) diagonalise each of the following matrices.
+Redo \autoref{ex:whichp} by finding which matrices~\(P_a,\ldots,P_h\) diagonalise each of the following matrices.
 \begin{parts}
 \item \(\eAii=\begin{bmatrix} 5&12\\-2&-5 \end{bmatrix}\)
 \item \(\eAii=\begin{bmatrix} -3&-12\\2&7 \end{bmatrix}\)
@@ -1887,7 +1889,10 @@ Show that substituting \(c_1=(C_1-iC_2)/2\) and \(c_2=(C_1+iC_2)/2\) for real~\(
 
 
 
-\begin{comment}%{ED498555.pdf}
+\begin{comment}
+Add exercises on perhaps simple SIR models, and perhaps mechanical models.
+
+%{ED498555.pdf}
 why, what caused X?
 how did X occur?
 what-if? what-if-not?

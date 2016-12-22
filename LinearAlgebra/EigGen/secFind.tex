@@ -3,6 +3,7 @@
 
 \section{Find eigenvalues and eigenvectors of matrices}
 \label{sec:eennm}
+
 \secttoc
 \begin{comment}
 \pooliv{\S4.3}  \layiv{\S5.2} \holti{\S6.1}  \cite[Ch.~9]{Chartier2015}.
@@ -10,7 +11,7 @@ Need exercises for the fitting exponentials subsection.
 \end{comment}
 
 
-Given the additional determinant methods of Chapter~\ref{ch:ddm}, this section begins exploring the properties and some applications of the eigen-problem \(A\xv=\lambda\xv\) for general matrices~\(A\).
+Given the additional determinant methods of \autoref{ch:ddm}, this section begins exploring the properties and some applications of the eigen-problem \(A\xv=\lambda\xv\) for general matrices~\(A\).
 We establish that there are generally \(n\)~eigenvalues of an \(n\times n\) matrix, albeit possibly complex valued, and that repeated eigenvalues are sensitive to errors.
 Applications include population modelling, connecting to the computation of \svd{}s, and fitting exponentials to real data.
 
@@ -30,12 +31,11 @@ Recall that eigenvalues~\(\lambda\) and non-zero eigenvectors~\xv\ of a square m
 \autoref{thm:detinv} then implies the \idx{eigenvalue}s of a \idx{square matrix} are precisely the solutions of the \bfidx{characteristic equation} \(\det(A-\lambda I)=0\)\,.  
 
 \begin{theorem} \label{thm:geecp}
-For every \(n\times n\) \idx{square matrix}~\(A\):
-\begin{itemize}
-\item we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\);
+For every \(n\times n\) \idx{square matrix}~\(A\) we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\):
 \footnote{Alternatively, many call \(\det(\lambda I-A)\) the characteristic polynomial, as does \script.  
 The distinction is immaterial as,  for an \(n\times n\) matrix~\(A\) and by \autoref{thm:basicdet:iii} with multiplicative factor \(k=-1\)\,, the only difference in the determinant is a factor of~\((-1)^n\).
 In \script, \index{poly()@\texttt{poly()}}\texttt{poly(A)} computes the characteristic polynomial of the matrix,  \(\det(\lambda I-A)\), which might be useful for exercises, but is rarely useful in practice due to poor conditioning.}
+\begin{itemize}
 \item the characteristic polynomial of~\(A\) is a polynomial of \(n\)th~degree in~\(\lambda\);
 \item  there are at most \(n\)~distinct eigenvalues of~\(A\).
 \end{itemize}
@@ -572,7 +572,7 @@ The last three rows appear to be the eigenvalue \(\lambda=-1\) with multiplicity
 
 
 
-To find eigenvalues and eigenvectors, the following restates \autoref{pro:eeh} with a little more information, and now empowered to address larger matrices with the determinant tools from Chapter~\ref{ch:ddm}.
+To find eigenvalues and eigenvectors, the following restates \autoref{pro:eeh} with a little more information, and now empowered to address larger matrices upon using the determinant tools from \autoref{ch:ddm}.
 
 \begin{procedure}[eigenvalues and eigenvectors] \label{pro:geneig}
 To find by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{square matrix}~\(A\):
@@ -585,16 +585,16 @@ To find by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{squar
 Since, for an \(n\times n\) matrix, the \idx{characteristic polynomial} is of \(n\)th~degree in~\(\lambda\) (\autoref{thm:geecp}), there are \(n\)~\idx{eigenvalue}s (when counted according to \idx{multiplicity} and allowing \idx{complex eigenvalue}s).
 \end{procedure}
 
-Correspondingly, the following restates the computational procedure of section~\ref{sec:cee}, but slightly more generally: the extra generality caters for non-symmetric matrices.
+Correspondingly, the following restates the computational procedure of \autoref{sec:cee}, but slightly more generally: the extra generality caters for non-symmetric matrices.
 
 \begin{compute}
 For a given square matrix~\verb|A|, execute \verb|[V,D]=eig(A)|, then the diagonal entries of~\verb|D|, \verb|diag(D)|, are the \idx{eigenvalue}s of~\verb|A|. 
 Corresponding to the eigenvalue~\verb|D(j,j)| is an  \idx{eigenvector} \(\vv_j=\verb|V(:,j)|\), the \(j\)th~column of~\verb|V|.  
 \footnote{Be aware that \script\ does not use the determinant to find the eigenvalues, nor does it solve the linear equations to find eigenvectors.  
 For any but the smallest matrices such a `by hand' approach is far too expensive.  
-Instead, to find eigenvalues and eigenvectors, just as for the \svd, \script\ uses an intriguing iteration based upon what is called the \idx{QR factorisation}\ifcsname ch:qrfuma\endcsname\ (Chapter~\ref{ch:qrfuma})\fi.}
+Instead, to find eigenvalues and eigenvectors, just as for the \svd, \script\ uses an intriguing iteration based upon what is called the \idx{QR factorisation}\ifcsname ch:qrfuma\endcsname\ (\autoref{ch:qrfuma})\fi.}
 If an \idx{eigenvalue} is repeated in the diagonal of~\verb|D| (multiplicity more than one), then the corresponding columns of~\verb|V| span the \idx{eigenspace} 
-(and, as Section~\ref{sec:lisb} discusses, when the column vectors have a property called \idx{linear independence} then they form a so-called \idx{basis} for the eigenspace). 
+(and, as \autoref{sec:lisb} discusses, when the column vectors have a property called \idx{linear independence} then they form a so-called \idx{basis} for the eigenspace). 
 \end{compute}
 
 
@@ -1125,7 +1125,7 @@ What should you expect is the number of different eigenvalues?
 
 \paragraph{But symmetric matrices are OK}
 The \idx{eigenvalue}s of a \idx{symmetric matrix} are not so sensitive.
-This lack of sensitivity is fortunate as many applications give rise to symmetric matrices (Chapter~\ref{ch:eesm}).
+This lack of sensitivity is fortunate as many applications give rise to symmetric matrices (\autoref{ch:eesm}).
 Such symmetry often reflects some symmetry in the natural world such as Newton's law of every action having an equal and opposite reaction.
 For symmetric matrices, the eigenvalues and eigenvectors are robust to both computational perturbations and experimental errors.
 
@@ -1959,7 +1959,7 @@ The kittens are born in dense vegetation or sheltered locations such as abandone
 
 Life expectancy is about 10~years in the wild.
 \end{quote}
-From the information in this extract, create a plausible, \idx{age structure}d,  \idx{population model} of the \idx{serval}: give reasons for estimates of the coefficients in the model.
+From the information in this extract, create a plausible, \idx{age structure}d,  \idx{population model} of \idx{serval}s: give reasons for estimates of the coefficients in the model.
 Choose three age categories of \idx{kitten}s, \idx{juvenile}s, sexually mature \idx{adult}s.
 What does the model predict over long times?
 \begin{solution} 
@@ -2047,7 +2047,7 @@ Predation, disease, and food shortages are just some processes not included in t
 
 
 Crucial in this section---so that we find a solution for all \idx{initial value}s---is that the matrix of eigenvectors is invertible.
-The next Section~\ref{sec:lisb} relates the invertibility of a matrix of eigenvectors to the new concept of `linear independence' (\autoref{thm:ftim3}).
+The next \autoref{sec:lisb} relates the invertibility of a matrix of eigenvectors to the new concept of `linear independence' (\autoref{thm:ftim3}).
 
 
 
@@ -2072,12 +2072,13 @@ The next Section~\ref{sec:lisb} relates the invertibility of a matrix of eigenve
 
 \subsection{Extension: Connect SVDs to eigen-problems}
 
-Recall that Chapter~\ref{ch:eesm} starts by illustrating the close connection between the \svd\ of a symmetric matrix and the eigenvalues and eigenvectors of that symmetric matrix.
+Recall that 
 \begin{aside}
 This optional section connects the \svd\ of a general matrix to a symmetric eigen-problem, in principle.
 \end{aside}%
+\autoref{ch:eesm} starts by illustrating the close connection between the \svd\ of a symmetric matrix and the eigenvalues and eigenvectors of that symmetric matrix.
 This subsection establishes that an \svd\ of a general matrix is closely connected to the eigenvalues and eigenvectors of a specific matrix of double the size.   
-The connection depends upon determinants and solving linear systems and so, in principle, is an approach to compute an \svd\ distinct from the inductive maximisation of section~\ref{sec:psvdt}.
+The connection depends upon determinants and solving linear systems and so, in principle, is an approach to compute an \svd\ distinct from the inductive maximisation of \autoref{sec:psvdt}.
 
 
 
@@ -2140,7 +2141,7 @@ The next \autoref{thm:eigsvd} establishes how these properties relate to an \svd
 
 \autoref{pro:geneig} computes eigenvalues and eigenvectors by hand (in principle no matter how large the matrix). 
 The procedure is independent of the \svd.
-Let's now invoke this procedure to find another method to find an \svd\ distinct from the inductive maximisation of the proof in Section~\ref{sec:psvdt}. 
+Let's now invoke this procedure to find another method to find an \svd\ distinct from the inductive maximisation of the proof in \autoref{sec:psvdt}. 
 The following theorem is a step towards an efficient numerical computation of an \svd\ \cite[p.234]{Trefethen1997}.
 
 % Trefethen has the transpose in the upper right---curses??
@@ -2148,8 +2149,8 @@ The following theorem is a step towards an efficient numerical computation of an
 
 \begin{theorem}[\svd\ as an eigenproblem] \label{thm:eigsvd}
 \index{singular value decomposition}\index{SVD}%??
-For every \(m\times n\) matrix~\(A\), the \idx{singular value}s of~\(A\) are the non-negative \idx{eigenvalue}s of the \((m+n)\times(m+n)\) \idx{symmetric matrix} \(B=\begin{bmatrix} O_m&A\\\tr A&O_n \end{bmatrix}\). 
-A corresponding \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) gives corresponding  singular vectors\index{singular vector} of~\(A\), namely \(\wv=(\uv,\vv)\) for singular vectors \(\uv\in\RR^m\)\ and \(\vv\in\RR^n\). 
+For every real \(m\times n\) matrix~\(A\), the \idx{singular value}s of~\(A\) are the non-negative \idx{eigenvalue}s of the \((m+n)\times(m+n)\) \idx{symmetric matrix} \(B=\begin{bmatrix} O_m&A\\\tr A&O_n \end{bmatrix}\). 
+Each corresponding \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) gives corresponding  singular vectors\index{singular vector} of~\(A\), namely \(\wv=(\uv,\vv)\) for singular vectors \(\uv\in\RR^m\)\ and \(\vv\in\RR^n\). 
 \end{theorem}
 
 \begin{proof} 
@@ -2223,13 +2224,13 @@ Suppose we take two measurements of some process:
 \end{itemize}
 Find an exponential fit to this data of the form \(f(t)=ce^{rt}\) for some as yet unknown coefficients~\(c\) and rate~\(r\).
 \begin{solution} 
-The classic solution is to take logarithms of both sides:
+The classic approach is to take logarithms of both sides:
 \begin{equation*}
 f=ce^{rt} \iff (\ln f)=(\ln c)+rt\,,
 \end{equation*}
 and then determine \(\ln c\) and~\(r\) by fitting a straight line through the two data points \((t,\ln f)=(1,\ln5)\) and~\((3,\ln10)\)
 (recall that \index{ln@\(\ln\)}``\(\ln(x)\)'' denotes the \idx{natural logarithm} of~\(x\),  computed in \script\ with \verb|log(x)|, see \autoref{tbl:mtlbmops}).
-This approach has the great virtue that the approach generalises to fitting of noisy data (Section~\ref{sec:asie}).
+This approach has the great virtue that the approach generalises to fitting of noisy data (\autoref{sec:asie}).
 But here we take a different approach that instead generalises to fitting multiple exponentials to more~data.
 
 The following simple steps correspond to complicated steps in the general procedure developed next for fitting multiple exponentials.
@@ -2243,7 +2244,7 @@ ce^{r}=5\,,\quad ce^{r3}=10\,.
 ce^{r3}=10 \iff ce^re^{r2}=10\iff ce^r\lambda=10
 \end{equation*}
 for some as yet unknown multiplier \(\lambda=e^{2r}\).
-But when we find the multiplier~\(\lambda\), then the rate \(r=\tfrac12\ln\lambda\).
+But when we eventually find the multiplier~\(\lambda\), then the rate \(r=\tfrac12\ln\lambda\).
 \item Third, eliminate the common part involving the constant~\(c\): since the first equation says \(ce^r=5\), the second equation becomes \(5\lambda=10\)\,.
 \item Fourth, no corresponding step in this simple scenario.
 \item Fifth, hence the multiplier \(\lambda=2\)\,, giving rate \(r=\tfrac12\ln 2=0.3466\)\,.
@@ -2287,6 +2288,7 @@ f(1)=1&\iff&c_1e^{r_1}+c_2e^{r_2}=1\,,\\
 f(2)=\tfrac23&\iff&c_1e^{r_12}+c_2e^{r_22}=\tfrac23\,,\\
 f(3)=\tfrac7{18}&\iff&c_1e^{r_13}+c_2e^{r_23}=\tfrac7{18}\,.
 \end{eqnarray*}
+These are nonlinear equations, but some algebraic tricks empower us to use our beautiful linear algebra to find the solution.
 \marginpar{\mytemp1}%
 After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as shown in the margin.
 
@@ -2439,7 +2441,7 @@ The general aim is to fit a function \cite[\S2.6, e.g.]{Cuyt2015}
 f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}.
 %=\sum_{j=1}^n c_je^{r_jt}
 \end{equation}
-for some coefficients~\hlist cn\ and some rates~\hlist rn\ to be determined (possibly complex valued).
+for some coefficients~\hlist cn\ and some rates~\hlist rn\ to be determined (possibly complex valued for oscillations).
 In general, finding the coefficients and rates is a delicate nonlinear task outside the remit of this book.
 However, as the previous two examples illustrate, in these circumstances we instead invoke our powerful linear algebra methods.
 
@@ -3303,7 +3305,7 @@ Show your working.
 
 \begin{exercise} \label{ex:} 
 For each of the following matrices, Use \script\ to find their eigenvalues, with \idx{multiplicity}, and to find eigenvectors corresponding to each eigenvalue \twodp.  
-(The next Section~\ref{sec:lisb} discusses that for \idx{repeated eigenvalue}s we generally want to record the so-called `linearly independent' eigenvectors.)
+(The next \autoref{sec:lisb} discusses that for \idx{repeated eigenvalue}s we generally want to record the so-called `linearly independent' eigenvectors.)
 %\begin{verbatim}
 %lams=round(randn(1,n)*3); lams=lams(ceil(n*rand(1,n)))
 %for j=1:9999,p=round(randn(n)*3);if ismember(abs(det(p)),[1]),break,end,end
@@ -3570,9 +3572,9 @@ For each of the following matrices, predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\
 
 
 \begin{exercise} \label{ex:} 
-For each of the matrices of the previous Exercise~\ref{ex:yay}, find a \idx{general solution} of \(\yv(t+1)=A\yv(t)\), if possible.
+For each of the matrices of the previous \autoref{ex:yay}, find a \idx{general solution} of \(\yv(t+1)=A\yv(t)\), if possible.
 Then use the corresponding given initial~\(\yv(0)\) to find a formula for the specific~\(\yv(t)\).
-Finally, check that the formula reproduces the values of \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\) found in Exercise~\ref{ex:yay}.
+Finally, check that the formula reproduces the values of \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\) found in \autoref{ex:yay}.
 Show your working.
 \end{exercise}
 

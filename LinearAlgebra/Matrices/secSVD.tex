@@ -27,7 +27,7 @@ Let's start seeing what it can do for us.
 \subsection{Introductory examples}
 \label{sec:svdeg}
 
-You are a contestant in a quiz show.
+You are a contestant in a \idx{quiz show}.
 The final million dollar question is: 
 \begin{aside}
 Let's introduce an analogous problem so the \svd\ procedure follows more easily.
@@ -45,14 +45,14 @@ However, recognise \(42=2\cdot3\cdot7\) and so divide 1554 by~2 to get~777, divi
 Given \(154=2\cdot7\cdot11\)\,, solve in your head \(154\,x=8008\) or~\(9856\) or~\(12628\) or~\(13090\) or~\(14322\) (teacher to choose): first to answer wins.
 \end{activity}
 
-Such examples show \idx{factorisation} can turn a hard problem into a sequence of easy problems.  
+Such examples show \idx{factorisation} can turn a hard problem into several easy problems.  
 We adopt an analogous matrix factorisation to solve and understand general linear equations.  
 
 To illustrate the procedure to come, let's write the above solution steps in detail: we solve \(42\,x=1554\)\,.
 \begin{enumerate}
 \item Factorise the coefficient \(42=2\cdot3\cdot7\) so the equation becomes  
 \begin{equation*}
-2\cdot\underbrace{3\cdot\overbrace{7x}^{=y}}_{=z}=1554\,,
+2\cdot\underbrace{3\cdot\overbrace{7\cdot x}^{=y}}_{=z}=1554\,,
 \end{equation*}
 and introduce two intermediate unknowns \(y\) and~\(z\) as shown above.
 \item Solve \(2z=1554\) to get \(z=777\)\,.
@@ -120,7 +120,7 @@ Given the factorisation, the following four steps forms the general procedure.
 =\begin{bmatrix} 1/\sqrt2\\-3/\sqrt2 \end{bmatrix}.
 \end{equation*}
 
-\item Finally solve \(\tr{\begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}\\ \frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}}\xv=\yv=\begin{bmatrix} 1/\sqrt2\\-3/\sqrt2 \end{bmatrix}\)\,: now the matrix appearing here is also orthogonal (this orthogonality is also no accident), so multiplying by itself (the transpose of the transpose) gives the solution
+\item Finally solve \(\tr{\begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}\\ \frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}}\xv=\yv=\begin{bmatrix} 1/\sqrt2\\-3/\sqrt2 \end{bmatrix}\)\,: now the matrix appearing here is also orthogonal (this orthogonality is also no accident), so multiplying by itself (the transpose of the transpose, \autoref{thm:pota}) gives the solution
 \begin{equation*}
 \xv=\begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}\\ \frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}
 \begin{bmatrix} 1/\sqrt2\\-3/\sqrt2 \end{bmatrix}
@@ -270,7 +270,7 @@ And then, since the solution is to be called~\xv, we might inappropriately call 
 \end{enumerate}
 \end{example}
 Avoid this reverse process as it is wrong.
-Matrix multiplicative is \emph{not} commutative (section~\ref{sec:fapmo}).  
+Matrix multiplicative is \emph{not} commutative (\autoref{sec:fapmo}).  
 We must use an \svd\ factorisation in the correct order: to solve linear equations use the matrices in an \svd\ from left to right.
 
 
@@ -304,13 +304,13 @@ The symbol~\idx{$\sigma$} is the Greek letter sigma, and denotes singular values
 \end{theorem}
 
 \begin{proof}
-Detailed in Section~\ref{sec:psvdt}.
+Detailed in \autoref{sec:psvdt}.
 Importantly, the singular values are unique (when ordered), although the orthogonal matrices~\(U\) and~\(V\) are not unique (e.g., one may  change the sign of any column in~\(U\) together with its corresponding column in~\(V\)).
 Nonetheless, although there are many \svd{}s of a matrix, all \svd{}s are equivalent in application.
 \end{proof}
 
 Some may be disturbed by the non-uniqueness of an \svd.  
-But the non-uniqueness is analogous to the non-uniqueness of row reduction upon arbitrary re-ordering of equations, and/or  re-ordering the variables in the equations.
+But the non-uniqueness is analogous to the non-uniqueness of row reduction upon re-ordering of equations, and/or re-ordering the variables in the equations.
 
 
 \begin{example} \label{eg:2and3sv}
@@ -416,7 +416,7 @@ D=\begin{bmatrix} 0&1&0\\-1&0&0\\0 &0 &-1 \end{bmatrix}
 
 \verb|svd(A)| just reports the singular values in a vector.
 
-\item Complementing information of Table~\ref{tbl:mtlbops}, to extract and compute with a subset of rows\slash columns of a matrix, specify the vector of indices.
+\item Complementing information of \autoref{tbl:mtlbops}, to extract and compute with a subset of rows\slash columns of a matrix, specify the vector of indices.
 For examples:
 \begin{itemize}
 \item \verb|V(:,1:r)| selects the first \(r\)~columns of~\(V\);
@@ -433,11 +433,11 @@ For examples:
 
 
 Except for simple cases such as \(2\times 2\) matrices (\autoref{eg:2by2svdx}), constructing an \svd\ is usually far too laborious by hand.  
-\footnote{For those interested advanced students, \cite{Trefethen1997} [p.234] discusses how the standard method of numerically computing an \svd\ is based upon first transforming to bidiagonal form, and then using an iteration based upon a so-called  \idx{QR factorisation}\ifcsname ch:qrfuma\endcsname\ (Chapter~\ref{ch:qrfuma})\fi.}
-Typically, this book either gives an \svd\ (as in the earlier two examples) or asks you to compute an \svd\ in \script\ with \verb|[U,S,V]=svd(A)| (Table~\ref{tbl:mtlbsvd}).
+\footnote{For those interested advanced students, \cite{Trefethen1997} [p.234] discusses how the standard method of numerically computing an \svd\ is based upon first transforming to bidiagonal form, and then using an iteration based upon a so-called  \idx{QR factorisation}\ifcsname ch:qrfuma\endcsname\ (\autoref{ch:qrfuma})\fi.}
+Typically, this book either gives an \svd\ (as in the earlier two examples) or asks you to compute an \svd\ in \script\ with \verb|[U,S,V]=svd(A)| (\autoref{tbl:mtlbsvd}).
 
 The \svd\ theorem asserts that every matrix is the product of two orthogonal matrices and a diagonal matrix.  
-Because the rotations (and/or reflection) by the two orthogonal matrices are so `nice', any `badness' or `trickiness' in a matrix is represented in the diagonal matrix~\(S\) of the singular values in its \svd\ factorisation.
+Because, in a matrix's \svd\ factorisation, the rotations (and/or reflection) by the two orthogonal matrices are so `nice', any `badness' or `trickiness' in the matrix is represented in the diagonal matrix~\(S\) of the singular values.
 
 
 \begin{aside}
@@ -504,7 +504,7 @@ but find \verb|rcond=0| which is extremely terrible so we cannot use \verb|A\b| 
 %\\ \two&\six&\thr \end{bmatrix}}
 
 \begin{enumerate}
-\item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)| (Table~\ref{tbl:mtlbsvd}): here
+\item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)| (\autoref{tbl:mtlbsvd}): here
 %{\small\begin{equation*}
 %A=\um\sm\tr\vtm
 %\end{equation*}}%
@@ -599,7 +599,7 @@ This solution for the ratings indicates Anne is the best player, and Chris the w
 
 
 \begin{compute}
-As seen in the previous example, often we need to compute with a subset of the components of matrices (Table~\ref{tbl:mtlbsvd}):
+As seen in the previous example, often we need to compute with a subset of the components of matrices (\autoref{tbl:mtlbsvd}):
 \begin{itemize}
 \item \verb|b(1:r)| selects the first \(r\)~entries of vector~\(\bv\)
 \item \verb|S(1:r,1:r)| selects the top-left \(r\times r\) submatrix of~\(S\);
@@ -637,7 +637,7 @@ It would appear we cannot assign ratings to the players!
 \end{solution}
 \end{example}
 
-Section~\ref{sec:asie} further explores systems with no solution and uses the \svd\ to determine a good approximate solution (\autoref{eg:rstp3}).
+\autoref{sec:asie} further explores systems with no solution and uses the \svd\ to determine a good approximate solution (\autoref{eg:rstp3}).
 
 
 
@@ -773,7 +773,7 @@ This \autoref{pro:gensol} determines for us that there is either none, one or an
 
 However,  \script's ``\verb|A\|'' gives one `answer' for all of these cases, even when there is no solution or an infinite number of solutions.
 The function \index{rcond}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (\autoref{pro:unisol}).
-Section~\ref{sec:asie} addresses what the `answer' by \script\ means in the other cases no or infinite solutions.
+\autoref{sec:asie} addresses what the `answer' by \script\ means in the other cases no or infinite solutions.
 
 
 
@@ -795,7 +795,7 @@ Avoid introducing \verb|cond()| as it is expensive to compute in practice, and b
 \begin{definition} \label{def:condnum}
 For every \(m\times n\) matrix~\(A\),
 the \bfidx{condition number} of~\(A\) is the the ratio of the largest to smallest of its \idx{singular value}s: \(\cond A:=\sigma_1/\sigma_{\mn}\)\,. 
-By convention: if \(\sigma_{\mn}=0\)\,, then \index{infinity}\(\cond A:=\infty\)\,; 
+By convention: if \(\sigma_{\mn}=0\)\,, then \(\cond A:=\infty\) (\idx{infinity}); 
 also, for zero matrices \(\cond O_{m\times n}:=\infty\)\,.
 \end{definition}
 
@@ -1176,6 +1176,7 @@ The preceding Unique Solution \autoref{thm:ftim1} is `black-and-white': either a
 \begin{aside}
 Optional: this discussion and theorem reinforces why we must check condition numbers in computation.
 \end{aside}%
+This is a great theory.
 But in applications, problems arise in `all shades of grey'.
 Practical issues in applications are better phrased in terms of reliability, uncertainty, and error estimates.
 For example, suppose in an experiment you measure quantities~\bv\ to three significant digits, then solve the linear equations \(A\xv=\bv\) to estimate quantities of interest~\xv: how accurate are your estimates of the interesting quantities~\xv? or are your estimates complete nonsense?
@@ -1194,7 +1195,7 @@ Consider the following innocuous looking system of linear equations
 \end{equation*}
 Solve by hand (\autoref{pro:gje}) to find the unique solution is \((p,q,r)=(2,-1,1)\).
 
-But, and it is a big but in practical applications, what happens if the right-hand side comes from experimental measurements with a relative error of~1\%? 
+But, and it is a big but in practical applications, what happens if the right-hand side comes from experimental measurements with a \idx{relative error} of~1\%? 
 Let's explore by writing the system in matrix-vector form and using \script\ to solve with various example errors.
 \begin{enumerate}
 \item First solve the system as stated.  
@@ -1225,7 +1226,7 @@ b=[3;8;-5]
 \end{enumerate}
 
 \item Now recognise that the right-hand side comes from experimental measurements with a 1\%~error.
-In \script, \verb|norm(b)| computes the length \(|\bv|=9.90\) \twodp.
+In \script, \verb|norm(b)| computes the \idx{length} \(|\bv|=9.90\) \twodp.
 Thus a 1\%~error corresponds to changing~\bv\ by \(0.01\times 9.90\approx 0.1\)\,.
 Let's say the first component of~\bv\ is in error by this amount and see what the new solution would be:
 \setbox\ajrqrbox\hbox{\qrcode{% solve system
@@ -1282,7 +1283,7 @@ At 15\%, the relative error in solution~\(\xv'''\) is still significantly larger
 \end{enumerate}
 This example shows that the apparently innocuous matrix~\(A\) variously multiples measurement errors in~\bv\ by factors of~\(91\), \(41\) or~\(15\) when finding `the solution'~\xv\ to \(A\xv=\bv\)\,.
 The matrix~\(A\) must, after all, be a bad matrix.
-\autoref{thm:erramp} shows this badness is quantified by its  condition number~\(152.27\), and its poor reciprocal \verb|rcond|~\(0.0031\) (estimated). 
+\autoref{thm:erramp} shows this badness is quantified by its  condition number~\(152.27\), and its poor reciprocal \(\verb|rcond(A)|=0.0031\) (estimated). 
 \end{example}
 
 
@@ -1346,7 +1347,7 @@ Here the relative error in solution~\xv\ is exactly the same as the relative err
 \end{itemize}
 In this example, and in contrast to the previous example, throughout the relative error in solution~\xv\ is exactly the same as the relative error in~\bv.
 The reason is that here the matrix~\(Q\) is an \idx{orthogonal matrix}---check by computing \verb|Q'*Q| (\autoref{def:orthog}).
-Being orthogonal, multiplication by~\(Q\) only rotates or reflects, and so it never stretches or distorts (\autoref{thm:orthog:i}).
+Being orthogonal, multiplication by~\(Q\) only rotates or reflects, and never stretches or distorts (\autoref{thm:orthog:i}).
 Consequently errors remain the same size when multiplied by such orthogonal matrices, as seen in this example, and as reflected in the condition number of~\(Q\) being one (as computed via \verb|s=svd(Q)| and then \verb|condQ=s(1)/s(4)|).
 \end{solution}
 \end{example}
@@ -1585,7 +1586,7 @@ Since the columns of~\(U\) are then orthonormal, \(U\)~is an orthogonal matrix (
 
 \paragraph{Outline of the general proof} 
 We use \idx{induction} 
-\ifcsname r@sec:pi\endcsname (section~\ref{sec:pi}) \fi
+\ifcsname r@sec:pi\endcsname (\autoref{sec:pi}) \fi
 on the size \(m\times n\) of the matrix.
 \begin{itemize}
 \item First zero matrices have trivial \svd, and
@@ -1596,7 +1597,7 @@ on the size \(m\times n\) of the matrix.
 \item This rotation transforms the matrix~\(A\) to strip off the leading singular value, and effectively leave an \((m-1)\times(n-1)\) matrix.
 \item  By induction on the size, an \svd\ exists for all sizes.
 \end{itemize}
-This proof corresponds closely to the proof of the spectral theorem~\ref{thm:smevec} for symmetric matrices of section~\ref{sec:sm}. 
+This proof corresponds closely to the proof of the spectral theorem~\ref{thm:smevec} for symmetric matrices of \autoref{sec:sm}. 
 
 
 
@@ -1693,7 +1694,7 @@ Nonetheless, the maximum value of~\(|A\vv|^2\) is unique, and so the following s
 \item \emph{Set the singular value \(\sigma_1:=|A\vv_1|>0\) and unit vector \(\uv_1:=(A\vv_1)/\sigma_1\) in~\(\RR^m\). 
 For every unit vector~\vv\ orthogonal to~\(\vv_1\) we now prove that the vector~\(A\vv\) is orthogonal to~\(\uv_1\).}
 Let \(\uv:=A\vv\) in~\(\RR^m\) and consider \(f(t):=|A(\vv_1\cos t+\vv\sin t)|^2\).
-Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for all~\(t\) (Exercise~\ref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the Calculus of a maximum).
+Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for all~\(t\) (\autoref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the Calculus of a maximum).
 On the other hand, 
 \begin{eqnarray*}
 f(t)&=&|A\vv_1\cos t+A\vv\sin t|^2
@@ -1747,7 +1748,7 @@ U:=U_1\begin{bmatrix} 1&0\\0&\hat U \end{bmatrix},\quad
 V:=V_1\begin{bmatrix} 1&0\\0&\hat V\end{bmatrix},\quad
 S:=\begin{bmatrix} \sigma_1&0\\0&\hat S \end{bmatrix}.
 \end{equation*}
-Matrices \(U\) and~\(V\) are orthogonal as each are the product of two orthogonal matrices (Exercise~\ref{ex:orthoprod}).
+Matrices \(U\) and~\(V\) are orthogonal as each are the product of two orthogonal matrices (\autoref{ex:orthoprod}).
 Also, matrix~\(S\) is diagonal.
 These form an \svd\ for matrix~\(A\) since
 \begin{eqnarray*}
@@ -2491,7 +2492,7 @@ Use \autoref{pro:gensol} to provide an alternative proof to each of these two th
 
 
 \begin{exercise} \label{ex:} 
-Write down the \idx{condition number} and the \idx{rank} of each of the matrices \(A,\ldots,L\) in Exercise~\ref{ex:hsledvs} using the given \svd{}s.
+Write down the \idx{condition number} and the \idx{rank} of each of the matrices \(A,\ldots,L\) in \autoref{ex:hsledvs} using the given \svd{}s.
 \answer{\begin{enumerate}
 \item cond\({}=5/3\),  rank\({}=2\);
 \item cond\({}=1\),  rank\({}=2\);
@@ -2512,7 +2513,7 @@ Write down the \idx{condition number} and the \idx{rank} of each of the matrices
 
 
 \begin{exercise} \label{ex:} 
-Write down the \idx{condition number} and the \idx{rank} of each of the matrices \(A,\ldots,F\) in Exercise~\ref{ex:csledvs} using the given \svd{}s.
+Write down the \idx{condition number} and the \idx{rank} of each of the matrices \(A,\ldots,F\) in \autoref{ex:csledvs} using the given \svd{}s.
 For each square matrix, compute \verb|rcond| and comment on its relation to the condition number.
 \answer{Since the \verb|rcond| function uses heuristics, it may differ depending upon the software version.
 \begin{enumerate}
@@ -2544,9 +2545,9 @@ Derive that the matrix \(A\tr A\) has an \svd\ \(A\tr A=U\tilde S\tr U\), for wh
 
 
 \begin{exercise} \label{ex:} 
-Consider the problems (a)--(l) in Exercise~\ref{ex:hsledvs} and problems (a)--(f) in Exercise~\ref{ex:csledvs}.
+Consider the problems (a)--(l) in \autoref{ex:hsledvs} and problems (a)--(f) in \autoref{ex:csledvs}.
 For each of these problems comment on the applicability of the Unique Solution \autoref{thm:ftim1}, and comment on how the solution(s) illustrate the theorem.
-\answer{The theorem applies to the square matrix systems of Exercise~\ref{ex:hsledvs} (a)--(d), (i)--(l), and of Exercise~\ref{ex:csledvs}~(e) and~(f).
+\answer{The theorem applies to the square matrix systems of \autoref{ex:hsledvs} (a)--(d), (i)--(l), and of \autoref{ex:csledvs}~(e) and~(f).
 The cases with no zero singular value, full rank, have a unique solution.
 The cases with a zero singular value, rank less than~\(n\), either have no solution or an infinite number.}
 \end{exercise}
@@ -2743,7 +2744,7 @@ b=[7
 
 \begin{exercise} \label{ex:ctrAA} 
 For any \(m\times n\) matrix~\(A\), use an \svd\ \(A=\usv\) to prove that \(\rank(\tr AA)=\rank A\) and that \(\cond(\tr AA)=\cond(A)^2\)
-(see Exercise~\ref{ex:svdtrAA}).
+(see \autoref{ex:svdtrAA}).
 \end{exercise}
 
 
@@ -2803,7 +2804,7 @@ For each case:
 
 
 \begin{exercise} \label{ex:univec} 
-Use properties of the dot product to prove that when \(\vv_1\) and~\vv\ are orthogonal unit vectors the vector \(\vv_1\cos t+\vv\sin t\) is also a unit vector for all~\(t\)  (used in the proof of the \svd\ in section~\ref{sec:dpsvdt}).
+Use properties of the dot product to prove that when \(\vv_1\) and~\vv\ are orthogonal unit vectors the vector \(\vv_1\cos t+\vv\sin t\) is also a unit vector for all~\(t\)  (used in the proof of the \svd\ in \autoref{sec:dpsvdt}).
 \end{exercise}
 
 

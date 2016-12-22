@@ -20,7 +20,7 @@ The book is written in the mathematical language, and the symbols are triangles,
 
 
 One of the most fundamental geometric structures in linear algebra are the lines or planes through the origin, and higher dimensional analogues.
-For example, a general solution of linear equations often involve linear combinations such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}) and \(y_3\vv_3+y_4\vv_4\) (\autoref{eg:3x4findc}): such combinations for all values of the free variables forms a plane through the origin (section~\ref{sec:nvep}).
+For example, a general solution of linear equations often involve linear combinations such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}) and \(y_3\vv_3+y_4\vv_4\) (\autoref{eg:3x4findc}): such combinations for all values of the free variables forms a plane through the origin (\autoref{sec:nvep}).
 The aim of this section is to connect geometric structures, such as lines and planes, to the information in a singular value decomposition.
 Each such geometric structure is called a \idx{subspace}.
 
@@ -30,7 +30,7 @@ Each such geometric structure is called a \idx{subspace}.
 \index{subspace|(}
 
 \begin{example} \label{eg:viewsubs}
-The following graphs illustrate the concept of subspaces with structures (and imagined to infinitely extend as appropriate).
+The following graphs illustrate the concept of subspaces through examples (imagine the graphs extend to infinitely as appropriate).
 \begin{parts}
 \item\label{eg:viewsubsa} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -182,7 +182,7 @@ Hereafter, this book uses~``\(\in\)'' extensively.
 
 
 \begin{definition} \label{def:subspace} 
-A \bfidx{subspace}~\WW\ of~\(\RR^n\),  is a set of vectors such that \(\ov\in\WW\) and such that \WW\ is \idx{closed} under addition and scalar multiplication: that is, for all \(c\in\RR\) and \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\).
+A \bfidx{subspace}~\WW\ of~\(\RR^n\),  is a set of vectors with \(\ov\in\WW\) and such that \WW\ is \idx{closed} under addition and scalar multiplication: that is, for all \(c\in\RR\) and \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\).
 \end{definition}
 
 
@@ -320,7 +320,7 @@ The sum of which pair proves that the curve plotted in the margin is not a subsp
 
 In summary:
 \begin{itemize}
-\item in two dimensions~(\(\RR^2\)), subspaces are the origin~\ov, a line, through~\ov, or the entire plane~\(\RR^2\);
+\item in two dimensions~(\(\RR^2\)), subspaces are the origin~\ov, a line through~\ov, or the entire plane~\(\RR^2\);
 \item in three dimensions~(\(\RR^3\)), subspaces are the origin~\ov, a line through~\ov, a plane through~\ov, or the entire space~\(\RR^3\);
 \item and analogously for higher dimensions~(\(\RR^n\)).
 \end{itemize}
@@ -427,7 +427,7 @@ Although sometimes we also use the rows of the matrix to be the vectors in the s
 \begin{definition}\label{def:colsp} 
     \begin{enumerate}
         \item\label{def:colspa} The \bfidx{column space} of any $m\times n$ matrix~$A$ is the \idx{subspace} of~$\RR^m$ \idx{span}ned by the \(n\)~\idx{column vector}s of~$A$.
-        \footnote{Some of you will know that the column space is also called the \idx{range}, but for the moment we just use column space. \ifcsname r@ch:cipvs\endcsname Chapter~\ref{ch:cipvs} establishes and discusses this connection between column space and range.\fi}
+        \footnote{Some of you will know that the column space is also called the \idx{range}, but for the moment we just use the term column space. \ifcsname r@ch:cipvs\endcsname \autoref{ch:cipvs} establishes and discusses this connection between column space and range.\fi}
         
 		\item\label{def:colspb} The \bfidx{row space} of any $m\times n$ matrix~$A$ is the \idx{subspace} of~$\RR^n$ \idx{span}ned by the \(m\)~\idx{row vector}s of~$A$.  
     \end{enumerate}
@@ -645,7 +645,7 @@ is \((u,v,w)=(-\frac34-\frac14t,\frac12+\frac32t,t)
 over all values of parameter~\(t\).
 But there is no value of parameter~\(t\) giving~\ov\ as a solution: for the last component to be zero requires \(t=0\)\,, but when \(t=0\) neither of the other components are zero, so they cannot all be zero.
 Since the origin~\ov\ is not in the set of solutions, the set does not form a subspace. 
-In general, a \emph{non}-homogeneous system does not form a subspace of solutions.
+A \emph{non}-homogeneous system does not form a subspace of solutions.
 \end{itemize}
 \end{example}
 
@@ -695,7 +695,7 @@ Which vector is in the nullspace of the matrix
    
 
 
-\paragraph{Summary} Three ways that subspaces arise from a matrix are as the column space, row space, and nullspace.
+\paragraph{Summary} Three common ways that subspaces arise from a matrix are as the column space, row space, and nullspace.
 
 
 \index{subspace|)}
@@ -719,7 +719,7 @@ The next definition and theorems largely answer this question.
 
 The aim is to mainly use an orthonormal set of vectors to span a subspace.
 The virtue is that orthonormal sets have many practically useful properties.
-For example, orthonormal sets underpin \textsc{jpeg} images, understanding of vibration, and reliable weather forecasting.
+For example, orthonormal sets underpin \textsc{jpeg} images, our understanding of vibrations, and reliable weather forecasting.
 Recall that an orthonormal set is composed of vectors that are both at right-angles to each other (their dot products are zero) and all of unit length (\autoref{def:orthoset}).
 
 
@@ -777,7 +777,7 @@ That is, \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\) is an orthonormal basis for 
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-Another orthonormal basis is the unit vector in the opposite direction,~\(\{(-1/{\sqrt3},-1/{\sqrt3},-1/{\sqrt3})\}\).
+The only other orthonormal basis is the unit vector in the opposite direction,~\(\{(-1/{\sqrt3},-1/{\sqrt3},-1/{\sqrt3})\}\).
 \end{solution}
 \end{example}
 
@@ -803,7 +803,7 @@ Confirm that the plane \(-x+2y-2z=0\) has an orthonormal basis \(\{\uv_1,\uv_2\}
 First, the given set is of unit vectors as the lengths are \(|\uv_1|=\sqrt{\frac49+\frac19+\frac49}=1\) and \(|\uv_2|=\sqrt{\frac49+\frac49+\frac19}=1\)\,.
 Second, the set is orthonormal as their dot product is zero: \(\uv_1\cdot\uv_2=-\frac49+\frac29+\frac29=0\)\,.
 Third, they both lie in the plane as we check by substituting their components in the equation: for~\(\uv_1\), \(-x+2y-2z=\frac23+2(\frac13)-2(\frac23)=\frac23+\frac23-\frac43=0\)\,; and for~\(\uv_2\), \(-x+2y-2z=-\frac23+2(\frac23)-2(\frac23)=-\frac23+\frac43-\frac23=0\)\,.
-Lastly, from the parametric form of an equation for a plane (section~\ref{sec:nvep}) we know that all linear combinations of \(\uv_1\) and~\(\uv_2\) will span the plane.
+Lastly, from the parametric form of an equation for a plane (\autoref{sec:nvep}) we know that all linear combinations of \(\uv_1\) and~\(\uv_2\) will span the plane.
 \end{solution}
 \end{example}
 
@@ -1014,7 +1014,7 @@ The nearly regular behaviour suggests it should be predictable.}
 \label{fig:soiRoundData}
 \end{figure}
 
-Figure~\ref{fig:soiRoundData} plots the yearly average \soi\ each year for fifty years up to 1993.
+\autoref{fig:soiRoundData} plots the yearly average \soi\ each year for fifty years up to 1993.
 A strong regular structure is apparent, but there are significant variations and complexities in the year-to-year signal.
 The challenge of this example is to explore the full details of this signal.
 
@@ -1026,7 +1026,7 @@ The challenge of this example is to explore the full details of this signal.
 %& years relative to start of window
 %\end{tabular}
 \input{Matrices/soiRoundWind.ltx}
-\caption{the first six windows of the \soi\ data of Figure~\ref{fig:soiRoundData}---displaced vertically for clarity. 
+\caption{the first six windows of the \soi\ data of \autoref{fig:soiRoundData}---displaced vertically for clarity. 
 Each window is of length ten years: 
 lowest, the first window is data 1944--1953;
 second lowest, the second is 1945--1954;
@@ -1037,15 +1037,15 @@ and so on to the 41st window is data 1984--1993, not shown.}
 
 Let's use a general technique called a \idx{Singular Spectrum Analysis}.
 Consider a window of ten years of the \soi, and let the window `slide' across the data to give us many `local' pictures of the evolution in time.
-For example, Figure~\ref{fig:soiRoundWind} plots six windows (each displaced vertically for clarity) each of length ten years.
-As the `window' slides across the fifty year data of Figure~\ref{fig:soiRoundData} there are \(41\)~such local views of the data of length ten years.
+For example, \autoref{fig:soiRoundWind} plots six windows (each displaced vertically for clarity) each of length ten years.
+As the `window' slides across the fifty year data of \autoref{fig:soiRoundData} there are \(41\)~such local views of the data of length ten years.
 Let's invoke the concept of subspaces to detect regularity in the data via these windows.
 
 The fundamental property is that if the data has regularities, then it should lie in some subspace.
 We detect such subspaces using the \svd\ of a matrix.
 \begin{itemize}
 \item First form the \(41\)~data windows of length ten into a matrix of size \(10\times 41\).
-The numerical values of the \soi\ data of Figure~\ref{fig:soiRoundData} are the following:
+The numerical values of the \soi\ data of \autoref{fig:soiRoundData} are the following:
 \begin{verbatim}
 year=(1944:1993)'
 soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
@@ -1072,7 +1072,7 @@ A =
 -6.51   0.07  -1.96   1.72   6.49  -5.61  -0.24
  0.07  -1.96   1.72   6.49  -5.61  -0.24  -2.90
 \end{verbatim}
-Figure~\ref{fig:soiRoundWind} plots the first six of these columns.
+\autoref{fig:soiRoundWind} plots the first six of these columns.
 The simplest way to form this matrix in \script---useful for all such shifting windows of data---is to invoke the \index{hankel()@\texttt{hankel()}}\verb|hankel()| function:
 \begin{verbatim}
 A=hankel(soi(1:10),soi(10:50))
@@ -1118,13 +1118,13 @@ Since there are four non-zero singular values, the windows of data lie in a subs
 %& years relative to start of window
 %\end{tabular}
 \input{Matrices/soiRoundSubs.ltx}
-\caption{first four singular vectors of the \soi\ data---displaced vertically for clarity.  The bottom two form a pair to show a five year cycle.  The top two are a pair that show a two--three year cycle.  The combination of these two cycles leads to the structure of the \soi\ in Figure~\ref{fig:soiRoundData}.}
+\caption{first four singular vectors of the \soi\ data---displaced vertically for clarity.  The bottom two form a pair to show a five year cycle.  The top two are a pair that show a two--three year cycle.  The combination of these two cycles leads to the structure of the \soi\ in \autoref{fig:soiRoundData}.}
 \label{fig:soiRoundSubs}
 \end{figure}%
 \end{itemize}
-That is, all the structure seen in the fifty year \soi\ data of Figure~\ref{fig:soiRoundData} can be expressed in terms of the  orthonormal basis of four ten-year vectors plotted in Figure~\ref{fig:soiRoundSubs}.
+That is, all the structure seen in the fifty year \soi\ data of \autoref{fig:soiRoundData} can be expressed in terms of the  orthonormal basis of four ten-year vectors plotted in \autoref{fig:soiRoundSubs}.
 This analysis implies the \soi\ data is composed of two cycles of different frequencies.%
-\footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is considerably noisier.  Also we would use \(600\)~monthly averages not \(50\)~yearly averages: so a ten year window would be a window of \(120\)~months, and the matrix would be considerably larger \(120\times481\).  Nonetheless, the conclusions with the real data, and justified by Chapter~\ref{ch:am}, are much the same.}
+\footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is considerably noisier.  Also we would use \(600\)~monthly averages not \(50\)~yearly averages: so a ten year window would be a window of \(120\)~months, and the matrix would be considerably larger \(120\times481\).  Nonetheless, the conclusions with the real data, and justified by \autoref{ch:am}, are much the same.}
 \end{example}
 
 
@@ -1393,7 +1393,7 @@ There is one non-zero singular value---the matrix has rank one---so an orthonorm
 \end{tikzpicture}}%
 Complementing this, as there is one non-zero singular value---the matrix has rank one---so an orthonormal basis for the row space is the first column of matrix~\(V\), namely \((-0.24,0.97)\).
 As illustrated in the margin, the two subspaces, the row space (red) and the column space (blue), are different but of the same dimension.
-(As in general, the row and column spaces are not orthogonal.)
+(As in general, here the row and column spaces are not orthogonal.)
 \end{solution}
 \end{example}
 
@@ -1782,7 +1782,7 @@ For every \(n\times n\) \idx{square matrix}~\(A\), and extending \autoref{thm:ft
 \item\label{thm:ftim2ii} \(A\xv=\bv\) has a \idx{unique solution} for every \(\bv\in\RR^n\);
 \item\label{thm:ftim2iii} \index{homogeneous}\(A\xv=\ov\) has only the zero solution;
 \item\label{thm:ftim2iv} all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
-\item\label{thm:ftim2ivx} the \idx{condition number} of~\(A\) is finite (\verb|rcond|>0);
+\item\label{thm:ftim2ivx} the \idx{condition number} of~\(A\) is finite (\(\verb|rcond|>0\));
 \item\label{thm:ftim2v} \(\rank A=n\)\,;
 \item\label{thm:ftim2vi} \(\nullity A=0\)\,;
 \item\label{thm:ftim2vii} the \idx{column vector}s of~\(A\) span~\(\RR^n\);
@@ -2265,7 +2265,7 @@ Given any \(m\times n\) matrix~\(A\).
 
 
 \begin{exercise} \label{ex:obcrn} 
-For each of the following matrices, compute an \svd\ with \script, and then use the properties of Exercise~\ref{ex:ospanrcn} to write down an \idx{orthonormal basis} for the \idx{column space}, the \idx{row space}, and the \idx{nullspace} of the matrix.
+For each of the following matrices, compute an \svd\ with \script, and then use the properties of \autoref{ex:ospanrcn} to write down an \idx{orthonormal basis} for the \idx{column space}, the \idx{row space}, and the \idx{nullspace} of the matrix.
 (The bases, especially for the nullspace, may differ in detail depending upon your version of \script.)
 % These are used in the next exercise also.
 % u=round(randn(m,m)*2); v=round(randn(n,n)*2); r=ceil(rand*min(m,n)), A=u*diag(round(randn(r,1)*2),m,n)*v', [U,S,V]=svd(A), col=U(:,1:r)', row=V(:,1:r)', nuls=V(:,r+1:end)'
@@ -2440,7 +2440,7 @@ nullspace \(\{(0.00\clb 0.18\clb 0.13\clb 0.27\clb 0.94)\}\).}
 
 
 \begin{exercise} \label{ex:} 
-For each of the matrices in Exercise~\ref{ex:obcrn}, from your computed bases write down the \idx{dimension} of the column space, the row space and the nullspace.
+For each of the matrices in \autoref{ex:obcrn}, from your computed bases write down the \idx{dimension} of the column space, the row space and the nullspace.
 Comment on how these confirm the \idx{rank theorem}~\ref{thm:rank}.
 \answer{1, 1, 1;
  3, 3, 0;
@@ -2566,7 +2566,7 @@ Use an \svd\ to prove that every vector in the \idx{row space} of~\(A\) is ortho
 \begin{exercise} \label{ex:wgpwpd} 
 Bachlin et al.\ [\emph{IEEE Transactions on Information Technology in Biomedicine}, 14(2), 2010] explored the \idx{walking gait} of people with Parkinson's Disease.
 Among many measurements, they measured the vertical ankle acceleration of the people when they walked.
-Figure~\ref{fig:wgpwpd} shows ten seconds of just one example: use the so-called \idx{Singular Spectrum Analysis} to find the regular structures in this complex data.
+\autoref{fig:wgpwpd} shows ten seconds of just one example: use the so-called \idx{Singular Spectrum Analysis} to find the regular structures in this complex data.
 \begin{figure}
 \centering
 \begin{tikzpicture}
@@ -2626,7 +2626,7 @@ acc=[5.34; 0.85; -1.90; -1.39; -0.99; 5.64;
 -0.90; 5.86; -1.95; -5.95; 4.75; 1.90; -2.06;
 -1.21; -1.61; 5.16]
 \end{verbatim}
-\item use the \index{hankel()@\texttt{hankel()}}\verb|hankel()| function to form a matrix whose 66~columns are 66 `windows' of accelerations, each of length fourteen data points (of length \(1.75\)\,s);
+\item use \index{hankel()@\texttt{hankel()}}\verb|hankel()|  to form a matrix whose 66~columns are 66 `windows' of accelerations, each of length fourteen data points (of length \(1.75\)\,s);
 
 \item compute an \svd\ of the matrix, and explain why the windows of measured accelerations are close to lying in a four dimensional subspace;
 
@@ -2654,7 +2654,7 @@ Given matrix~\(F\) has an \svd, find an \svd\ of matrix~\(E\), and hence prove t
 \end{exercise}
 
 \begin{exercise} \label{ex:} 
-For compatibly sized matrices~\(A\) and~\(B\), use their \svd{}s, and the result of the previous Exercise~\ref{ex:rankobord} (applied to the matrix \(S_A\tr V_AU_BS_B\)), to prove that \(\rank(AB)\leq\rank A\) and that \(\rank(AB)\leq\rank B\)\,.
+For compatibly sized matrices~\(A\) and~\(B\), use their \svd{}s, and the result of the previous \autoref{ex:rankobord} (applied to the matrix \(S_A\tr V_AU_BS_B\)), to prove that \(\rank(AB)\leq\rank A\) and also that \(\rank(AB)\leq\rank B\)\,.
 \end{exercise}
 
 

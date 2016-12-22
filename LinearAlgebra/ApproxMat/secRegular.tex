@@ -44,7 +44,7 @@ Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) whi
 So proceed to compute the solution with~\verb|A\b| to find \((x,y)=(5,-5)\) (as illustrated by the intersection of the lines in the margin).
 
 \item Is this solution reasonable?  No.  Not when the matrix itself has errors.
-Let's perturb the matrix~\(A\) by amounts consistent with its experimental error of~\(\pm0.05\) and explore the predicted solutions (the first two illustrated):
+Let's perturb the matrix~\(A\) by amounts consistent with its experimental error of~\(\pm0.05\) and explore the predicted solutions (the first two illustrated):%
 \marginpar{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle,domain=-5:10
@@ -104,7 +104,7 @@ Thus \twodp
 \(\begin{bmatrix} 1.43 & 0
 \\0 &  0 \end{bmatrix}\yv=\begin{bmatrix} -2.23\\0 \end{bmatrix}\)
 to deduce \(\yv=(-1.56,y_2)\);
-\item consequently, we find reasonable solutions are \(\xv=V\yv=(1.32,0.83)+y_2(-0.53,0.85)\) ---the parametric equation of a line (section~\ref{sec:pel}).
+\item consequently, we find reasonable solutions are \(\xv=V\yv=(1.32,0.83)+y_2(-0.53,0.85)\) ---the parametric equation of a line (\autoref{sec:pel}).
 \end{enumerate}
 The four different `answers' computed above are just four different points on this line.
 
@@ -183,7 +183,7 @@ Usually use the \svd\ \(A_k=US_k\tr V\).
 That is, the procedure is to treat as \idx{zero} every \idx{singular value}s smaller than the expected error in the matrix entries.
 For example, modern computers have nearly sixteen significant decimal digits accuracy, so even in `exact' computation there is a background relative error of about~\(10^{-15}\).
 Consequently, in computation on modern computers, every singular value smaller than \(10^{-15}\sigma_1\) must be treated as \idx{zero}.
-For safety, even in `exact' computation, every \idx{singular value} smaller than say\(10^{-8}\sigma_1\) should be treated as~\idx{zero}.
+For safety, even in `exact' computation, every \idx{singular value} smaller than say~\(10^{-8}\sigma_1\) should be treated as~\idx{zero}.
 
 
 \begin{activity}
@@ -779,7 +779,7 @@ as plotted previously in the margin.
 
 
 \begin{example} \label{eg:ctscan3x3d2}
-Recall that Exercise~\ref{ex:ctscan3x3d} introduced extra `diagonal' measurements into a 2D \index{CT scan}\textsc{ct}-scan.
+Recall that \autoref{ex:ctscan3x3d} introduced extra `diagonal' measurements into a 2D \index{CT scan}\textsc{ct}-scan.
 As shown in the margin, the 2D region is divided into a \(3\times3\) grid of nine blocks.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
@@ -929,7 +929,7 @@ b=log([0.048
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 Implement \autoref{pro:appmat}.
 \begin{enumerate}
-\item Here there is no need to \index{data scaling}scale the vector~\bv\ as all entries are essentially the same.
+\item Here there is no need to \index{data scaling}scale the vector~\bv\ as all entries are roughly the same.
 There is no need to scale the matrix~\(A\) as all entries mean the same, namely simply zero or one depending upon whether  beam passes through the a pixel square.
 However, the entries of~\(A\) are in error in two ways.
 \begin{itemize}
@@ -1114,7 +1114,7 @@ In statistics, the method is known as ridge regression, and with multiple indepe
 \begin{definition} \label{def:Tikreg}
 In seeking to solve the poorly-posed system \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
 \begin{aside}
-\(\alpha\) is the Greek letter `alpha'.
+The greek letter~\(\alpha\) is `alpha' (different to the `proportional to' symbol~\(\propto\)).
 \end{aside}%
 a \bfidx{Tikhonov regularisation} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularisation parameter} value~\(\alpha>0\).
 \footnote{Some will notice that a Tikhonov regularisation is closely connected to the so-called \idx{normal equation} \(\tr AA\xv=\tr A\bv\)\,.  
@@ -1193,7 +1193,7 @@ Do not apply \idx{Tikhonov regularisation} blindly as it does introduce biases.
 The following example illustrates the bias.
 
 \begin{example} \label{eg:}
-Recall the example at the start of Section~\ref{sec:mmctp} where my scales variously reported my weight in kg as~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.  
+Recall the example at the start of \autoref{sec:mmctp} where my scales variously reported my weight in kg as~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.  
 To best estimate my weight~\(x\) we rewrote the problem in matrix-vector form
 \begin{equation*}
 Ax=\bv\,,\quad\text{namely }
@@ -1263,7 +1263,7 @@ However, Tikhonov regularisation gives no hint of the reasonable general solutio
 
 
 
-Although \autoref{def:Tikreg} does not look like it, Tikhonov regularisation relates directly to the \svd\ regularisation of Section~\ref{sec:svdir}.
+Although \autoref{def:Tikreg} does not look like it, Tikhonov regularisation relates directly to the \svd\ regularisation of \autoref{sec:svdir}.
 The next theorem establishes the connection.
 
 
@@ -1559,7 +1559,7 @@ seven,~\(3\times 10^{-9}>e\).}
 
 
 
-% Could do GPS exercises analogous to Exercise~\ref{ex:gps3t}
+% Could do GPS exercises analogous to \autoref{ex:gps3t}
 % or University ranking exercise
 
 
@@ -1567,11 +1567,11 @@ seven,~\(3\times 10^{-9}>e\).}
 
 
 \begin{exercise} \label{ex:orb4Periods2} 
-Recall Exercise~\ref{ex:orb4Periods} considered the inner four planets in the solar system.
+Recall \autoref{ex:orb4Periods} considered the inner four planets in the solar system.
 The exercise fitted fit a quadratic polynomial to the orbital period \(T=c_1+c_2R+c_3R^2\) as a function of distance~\(R\) using the data of \autoref{tbl:orb4Periods}.
 In view of the bad condition number, \(\verb|rcond|=6\cdot10^{-6}\), revisit the task with the more powerful techniques of this section.
 Use the data for Mercury, Venus and Earth to fit the quadratic and predict the period for Mars.
-\index{data scaling}Discuss how the bad condition number is due to the failure in Exercise~\ref{ex:orb4Periods} of scaling the data in the matrix.
+\index{data scaling}Discuss how the bad condition number is due to the failure in \autoref{ex:orb4Periods} of scaling the data in the matrix.
 %\begin{verbatim}
 %t=[87.97;224.70;365.26]
 %r=[57.91;108.21;149.60]
@@ -1587,7 +1587,7 @@ Use the data for Mercury, Venus and Earth to fit the quadratic and predict the p
 
 
 \begin{exercise} \label{ex:} 
-Recall Exercise~\ref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
+Recall \autoref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
 Redo this exercise recognising that the entries in matrix~\(A\) have errors up to roughly~\(0.5\).
 Discuss any change in the prediction.
 \answer{The matrix has effective rank of eleven.  
@@ -1599,7 +1599,7 @@ The corner pixels are the most affected.}
 
 
 \begin{exercise} \label{ex:} 
-Reconsider each of the matrix-vector systems you explored in Exercise~\ref{ex:errmats}.
+Reconsider each of the matrix-vector systems you explored in \autoref{ex:errmats}.
 Also solve each system using \idx{Tikhonov regularisation}; for example, in the first system solve \(A\xv=\bv_1\)\,, \(A'\xv'=\bv_1\) and \(A''\xv''=\bv_1\).
 Discuss why \(\xv\), \(\xv'\) and~\(\xv''\) are all reasonably close to the smallest solution of those obtained via an \svd.
 \end{exercise}
@@ -1626,7 +1626,7 @@ Discuss the relation between the solution of \autoref{eg:ctscan3x3d2} that of \i
 
 
 \begin{exercise} \label{ex:} 
-Recall Exercise~\ref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
+Recall \autoref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
 Redo this exercise with \idx{Tikhonov regularisation} recognising that the entries in matrix~\(A\) have errors up to roughly~\(0.5\).
 Discuss any change in the prediction.
 \end{exercise}

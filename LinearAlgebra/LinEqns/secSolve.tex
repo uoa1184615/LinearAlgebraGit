@@ -11,7 +11,7 @@
 
 
 
-The previous Section~\ref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
+The previous \autoref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
 We  continue to do so for small systems.  
 However, such by-hand solutions are tedious for systems bigger than say four equations in four unknowns.  
 For bigger systems with tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious repetitive calculations.
@@ -48,10 +48,10 @@ is equivalent to \(A\xv=\bv\) for
 The beauty of the form \(A\xv=\bv\) is that the numbers involved in the system are abstracted into the matrix~\(A\) and vector~\bv: \script\ handles such numerical matrices and vectors.
 \begin{aside}
 In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
-Section~\ref{sec:moaa} then defines a crucial multiplicative meaning to this composite symbol. 
+\autoref{sec:moaa} then defines a crucial multiplicative meaning to this composite symbol. 
 \end{aside}%
 For some of you, writing a system in this matrix-vector form \(A\xv=\bv\) (\autoref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
-However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: Section~\ref{sec:moaa} defines and explores such useful operations.
+However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \autoref{sec:moaa} defines and explores such useful operations.
 
 \begin{definition}[matrix-vector form] \label{def:matvecsys}
 For every given \idx{system} of \(m\)~\idx{linear equation}s in \(n\)~variables
@@ -140,7 +140,7 @@ In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square mat
 \end{procedure}
 
 Checking \index{rcond()@\texttt{rcond()}}\verb|rcond()| avoids gross mistakes such as  ``Lies My Computer Told Me'' \pooliv{p.83}.
-Section~\ref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
+\autoref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
 \footnote{Interestingly, there are incredibly rare pathological matrices for which \texttt{rcond()} and~\texttt{A\slosh} fails us \cite[]{Driscoll07}.  For example, among \(32\times32\) matrices the probability is about~\(10^{-22}\) of encountering a matrix for which \texttt{rcond()} misleads us by more than a factor of a hundred in using~\texttt{A\slosh}.}
 In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond()| reflects practical reality.
 
@@ -300,7 +300,7 @@ A =
      1    -3     1
 \end{verbatim}
 Check: find that \verb|rcond(A)| is zero which is classified as terrible.
-Consequently we cannot compute a solution of this second system of linear equations (as in Figure~\ref{fig:3eq3var}(c)).
+Consequently we cannot compute a solution of this second system of linear equations (as in \autoref{fig:3eq3var}(c)).
 \end{enumerate}
 If we were to try~\verb|x=A\b| in this second system, then \script\ would report
 \begin{verbatim}
@@ -398,7 +398,7 @@ As \verb|rcond(A)| does not exist, the procedure cannot give a solution.
 The reason for the procedure not leading to a solution is that a system of three equations in two variables, as here, generally does not have a solution.
 \footnote{If one were to execute \texttt{x=A\slosh b}, then you would find \script\ gives the `answer' \(\xv=(-0.77,-0.73)\) \twodp.
 But this answer is not a solution.
-Instead this answer has another meaning, often sensibly useful, which is explained by Section~\ref{sec:asie}.
+Instead this answer has another meaning, often sensibly useful, which is explained by \autoref{sec:asie}.
 Using \texttt{rcond()} helps us to avoid confusing such an answer with a solution.}
 \end{solution}
 \end{example}
@@ -1110,7 +1110,7 @@ From such a form we then write down a general solution.
 \begin{procedure}[\idx{Gauss--Jordan elimination}] \label{pro:gje}
 \begin{aside}
 Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script. 
-However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singular value decomposition of Section~\ref{sec:fisvd} is a far better choice than this Gauss--Jordan elimination.
+However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singular value decomposition of \autoref{sec:fisvd} is a far better choice than this Gauss--Jordan elimination.
 \end{aside}\ 
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
@@ -1255,13 +1255,13 @@ For every system of linear equations \(A\xv=\bv\)\,, exactly one of the followin
 \end{theorem}
 
 \begin{comment}
-After studying section~\ref{sec:svdsgs}, this theorem could alternatively be proved directly from the use of the so-called \idx{singular value decomposition} in solving the linear equation \(A\xv=\bv\)\,.
+After studying \autoref{sec:svdsgs}, this theorem could alternatively be proved directly from the use of the so-called \idx{singular value decomposition} in solving the linear equation \(A\xv=\bv\)\,.
 \end{comment}
 
 \begin{proof} 
 First, if there is exactly none or one solution to \(A\xv=\bv\), then the theorem holds. 
 Second, suppose there are two distinct solutions; let them be \(\yv\) and~\(\zv\) so \(A\yv=\bv\) and \(A\zv=\bv\).  
-Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, section~\ref{sec:pel}). 
+Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, \autoref{sec:pel}). 
 %By distributivity \(A\xv=A(t\xv_1+(1-t)\xv_2) =tA\xv_1+(1-t)A\xv_2 =t\bv+(1-t)\bv =t\bv+\bv-t\bv =\bv\).  
 Consider the first row of~\(A\xv\): by \autoref{def:matvecsys} it is
 \begin{eqnarray*}&&
@@ -1414,7 +1414,7 @@ Here \(n>m\) and so the number of free variables is at least \(n-m>0\)\,.
 Hence there is at least one free variable and consequently an infinite number of solutions.
 \end{proof}
 
-%After studying section~\ref{sec:svdsgs}, this theorem could also be proved directly from the use of the so-called \idx{singular value decomposition} in solving the homogeneous linear equation \(A\xv=\ov\)\,.
+%After studying \autoref{sec:svdsgs}, this theorem could also be proved directly from the use of the so-called \idx{singular value decomposition} in solving the homogeneous linear equation \(A\xv=\ov\)\,.
 
 
 
@@ -1430,7 +1430,7 @@ But as Higham also comments, we need to work more at a whole matrix level.
 This means we need to discuss and manipulate matrices as a whole, not  get enmeshed in the intricacies of the element operations.
 This has close intellectual parallels in computing where abstract data structures empower us to encode complex tasks: here the analogous abstract data structures are matrices and vectors, and working with matrices and vectors as objects in their own right empowers linear algebra.
 The next chapter proceeds to develop linear algebra at the matrix level.
-But first, the next Section~\ref{sec:lcss} establishes some necessary fundamental aspects at the vector level.
+But first, the next \autoref{sec:lcss} establishes some necessary fundamental aspects at the vector level.
 
 
 
@@ -1491,7 +1491,7 @@ Four: two orderings of rows, and two orderings of the variables.}
 
 
 \begin{exercise} \label{ex:} 
-Use \autoref{pro:unisol} in \script\ to try to solve each of the systems of Exercise~\ref{ex:somsys}.
+Use \autoref{pro:unisol} in \script\ to try to solve each of the systems of \autoref{ex:somsys}.
 % surprisingly the following works, except arabic instead of alph
 \answer{\begin{parts}
 \item \((x,y)=(-0.4,-1.2)\)
@@ -1544,7 +1544,7 @@ u   +3v   +2w=  -1\\
 
 
 \begin{exercise} \label{ex:} 
-Use elementary row operations (\autoref{thm:erowop}) to solve the systems in Exercise~\ref{ex:3lineq}.
+Use elementary row operations (\autoref{thm:erowop}) to solve the systems in \autoref{ex:3lineq}.
 \answer{As before, except \((u,v,w)=(-2+3t,\tfrac13-\tfrac53t,t\) for all~\(t\).}
 \end{exercise}
 
@@ -2137,6 +2137,12 @@ Hence the required rational function is \(y=3/(1+4x)\).
 \answer{\(y=(1+x+3x^2)/(1+x+2x^2)\)}
 \end{enumerate}
 \end{exercise}
+
+
+
+\begin{comment}
+Could include exercise(s) on car traffic flow as discussed by Possani et al. (2010).
+\end{comment}
 
 
 

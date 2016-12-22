@@ -12,7 +12,7 @@
 
 This chapter focuses on some marvellous properties of symmetric matrices.  
 Nonetheless it defines some basic concepts in general.  
-Chapter~\ref{ch:gee} explores analogous properties for general matrices.
+\autoref{ch:gee} explores analogous properties for general matrices.
 The marvellously useful properties developed here result from asking for which vectors does multiplication by a given matrix simply stretch or shrink the vector.
 
 
@@ -107,7 +107,7 @@ Which of the following vectors is an eigenvector of the symmetric matrix \(\begi
 Importantly, eigenvectors tell us key directions of a given matrix: the directions in which the multiplication by a matrix is to simply stretch, shrink, or reverse by a factor: the factor being the corresponding eigenvalue.
 In two dimensional plots we can graphically estimate eigenvectors and eigenvalues.
 For some examples and exercises we plot a given vector~\xv\ and join onto its head the vector~\(A\xv\): \begin{itemize}
-\item if both~\xv\ and~\(A\xv\) are aligned in the same direction (or opposite direction), then \xv~is an eigenvector; 
+\item if both~\xv\ and~\(A\xv\) are aligned in the same direction, or opposite direction, then \xv~is an eigenvector; 
 \item if they form some other angle, then \xv~is not an eigenvector.
 \end{itemize}
   
@@ -250,7 +250,7 @@ Then inspection estimates the eigenvectors and corresponding eigenvalues \cite[]
 \begin{tabular}{@{}cc@{}}
 \def\eRosesize{small}%
 \eRose1{-0.5}{-0.5}1 &
-\parbox[b]{0.45\linewidth}{The plot on the left shows unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
+\parbox[b]{0.45\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.}
 \end{tabular}
 \begin{aside}
@@ -271,7 +271,7 @@ Any multiple of these eigenvectors will also be eigenvectors so we may report th
 \begin{tabular}{@{}cc@{}}
 \def\eRosesize{small}%
 \eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[b]{0.4\linewidth}{The plot on the left shows unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. }
+\parbox[b]{0.4\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. }
 \end{tabular}\\
 Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.
 \begin{solution} 
@@ -322,7 +322,7 @@ The \(3\times 3\) matrix of \autoref{eg:eig3intro} has three eigenvalues.
 The \(2\times2\) matrices underlying Examples~\ref{eg:eig2pic1}--\ref{eg:eig2pic2} both have two eigenvalues.
 An \(n\times n\) diagonal matrix has \(n\)~eigenvalues.
 The next section establishes the general pattern that an \(n\times n\) \emph{symmetric matrix} generally has \(n\)~real eigenvalues.
-However, the eigenvalues of non-symmetric matrices are more complex (in both senses of the word) as explored by Chapter~\ref{ch:gee}.
+However, the eigenvalues of non-symmetric matrices are more complex (in both senses of the word) as explored by \autoref{ch:gee}.
 
 \paragraph{Eigenvectors}
 It is the direction of eigenvectors that is important.
@@ -446,14 +446,14 @@ D=\begin{bmatrix} -\frac13&0&0\\0&\frac32&0\\0&0&\frac32 \end{bmatrix}.
 \begin{equation*}
 (D+\tfrac13I)\xv=\begin{bmatrix} 0&0&0\\0&\frac{11}6&0\\0&0&\frac{11}6 \end{bmatrix}\xv=\ov\,.
 \end{equation*}
-Hence \(\xv=t\ev_1\) are eigenvectors, for nonzero~\(t\).
+Hence \(\xv=t\ev_1\) are eigenvectors, for every nonzero~\(t\).
 The eigenspace \(\EE_{-1/3}=\{t\ev_1 : t\in\RR\}=\Span\{\ev_1\}\).
 
 \item Eigenvectors corresponding to eigenvalue \(\lambda=\frac32\) satisfy
 \begin{equation*}
 (D-\tfrac32I)\xv=\begin{bmatrix} -\frac{11}6&0&0\\0&0&0\\0&0&0 \end{bmatrix}\xv=\ov\,.
 \end{equation*}
-Hence \(\xv=t\ev_2+s\ev_3\) are eigenvectors, for nonzero~\(t\) and~\(s\).
+Hence \(\xv=t\ev_2+s\ev_3\) are eigenvectors, for every nonzero~\(t\) and~\(s\).
 Then the eigenspace \(\EE_{3/2}=\{t\ev_2+s\ev_3 : t,s\in\RR\}=\Span\{\ev_2,\ev_3\}\) is two dimensional.
 
 \end{itemize}
@@ -464,9 +464,9 @@ Then the eigenspace \(\EE_{3/2}=\{t\ev_2+s\ev_3 : t,s\in\RR\}=\Span\{\ev_2,\ev_3
 
 
 \begin{definition} \label{def:eigsymult}
-For every \idx{symmetric matrix}~\(A\), the \bfidx{multiplicity} of an \idx{eigenvalue}~\(\lambda\) of~\(A\) is the \idx{dimension} of the corresponding \idx{eigenspace}~\(\EE_\lambda\).%
-\footnote{Section~\ref{sec:dit} discusses that for non-symmetric matrices the dimension of an eigenspace may be less than the multiplicity of an eigenvalue (\autoref{thm:dimee}). 
-But for symmetric matrices they are the same.}
+For every real \idx{symmetric matrix}~\(A\), the \bfidx{multiplicity} of an \idx{eigenvalue}~\(\lambda\) of~\(A\) is the \idx{dimension} of the corresponding \idx{eigenspace}~\(\EE_\lambda\).%
+\footnote{\autoref{sec:dit} discusses that for non-symmetric matrices the dimension of an eigenspace may be less than the multiplicity of an eigenvalue (\autoref{thm:dimee}). 
+But for real symmetric matrices they are the same.}
 \end{definition}
 
 
@@ -585,7 +585,7 @@ A corresponding eigenvector is the second column of~\verb|V|, namely \(\vv_2=0.7
 \item The third diagonal element of~\verb|D| is three so eigenvalue \(\lambda_3=3\)\,.
 A corresponding eigenvector is the third column of~\verb|V|, namely \(\vv_3=0.4082(1,-2,1)\);  we could also say an eigenvector is \(\vv_3=(1,-2,1)\).
 \end{itemize}
-Confirm \(AV=VD\) simply by computing \verb|A*V-V*D| and seeing it is zero (to numerical error of circa~\(10^{-16}\)):
+Confirm \(AV=VD\) simply by computing \verb|A*V-V*D| and seeing it is zero (to numerical error of circa~\(10^{-16}\) shown by \verb|e-16| in the computer's output):
 \begin{verbatim}
 ans =
    5.7715e-17  -1.1102e-16   4.4409e-16
@@ -853,12 +853,12 @@ For every \(n\times n\) \idx{square matrix}~\(A\) (not just symmetric),
 
 \begin{proof} 
 From \autoref{def:evecval}, \(\lambda_j\)~are eigenvalues and non-zero~\(\vv_j\) are eigenvectors iff \(A\vv_j=\lambda_j\vv_j\)\,.
-Form into the matrix equation
+Form all the cases \(j=1,2,\ldots,m\) into the one matrix equation
 \begin{equation*}
 \begin{bmatrix} A\vv_1&A\vv_2&\cdots&A\vv_m \end{bmatrix}
 =\begin{bmatrix} \lambda_1\vv_1&\lambda_2\vv_2&\cdots&\lambda_m\vv_m \end{bmatrix}
 \end{equation*}
-By the definition of matrix products this equation is identical to
+By the definition of matrix products this matrix equation is identical to
 \begin{equation*}
 A\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}
 =\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}
@@ -942,7 +942,7 @@ ans =
 
 \begin{itemize}
 \item Recall from previous study (\autoref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and that \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
-\item Similarly, although not justified until Chapter~\ref{ch:ddm}, a \(3\times 3\) matrix \(A=\begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
+\item Similarly, although not justified until \autoref{ch:ddm}, a \(3\times 3\) matrix \(A=\begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
 \end{itemize}
 This section shows these two formulas for a determinant are useful for hand calculations on small problems.
 The formulas are best remembered via the following diagrams where products along the red lines are subtracted from the sum of products along the blue lines, respectively:
@@ -951,7 +951,7 @@ The formulas are best remembered via the following diagrams where products along
 \label{eq:dets23}
 \end{equation}
 %(Unfortunately, there is not such a practical pattern for analogous determinants of larger matrices.)
-Chapter~\ref{ch:ddm} extends the determinant to any size matrix, and explores more useful properties, but for now this is the information we need on determinants.
+\autoref{ch:ddm} extends the determinant to any size matrix, and explores more useful properties, but for now this is the information we need on determinants.
 
 
 For hand calculation on small matrices the key is the following.
@@ -973,9 +973,9 @@ To find by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{squar
 \end{procedure}
 %Since, for an \(n\times n\) matrix, the characteristic polynomial is of \(n\)th~degree in~\(\lambda\), there are \(n\)~eigenvalues (when counted according to multiplicity and allowing complex eigenvalues)
 
-This procedure applies to general matrices~\(A\), as fully established in Section~\ref{sec:eennm}, but this chapter uses it only for symmetric matrices.
+This procedure applies to general matrices~\(A\), as fully established in \autoref{sec:eennm}, but this chapter uses it only for symmetric matrices.
 Further, this chapter uses it only as a convenient method to illustrate properties by some hand calculation.
-None of the beautiful theorems of the next Section~\ref{sec:sm} for symmetric matrices are based upon this procedure.
+None of the beautiful theorems of the next \autoref{sec:sm} for symmetric matrices are based upon this procedure.
 
 
 \begin{example} \label{eg:2evals}
@@ -1143,7 +1143,7 @@ that is, the eigenspace \(\EE_{-14}=\Span\{(3,-2,6)\}\).
 
 
 General matrices may have complex valued eigenvalues and eigenvectors, as seen in the next example, and for good reasons in some applications.
-One of the key results of the next Section~\ref{sec:sm} is to prove that real symmetric matrices always have real eigenvalues and eigenvectors.
+One of the key results of the next \autoref{sec:sm} is to prove that real symmetric matrices always have real eigenvalues and eigenvectors.
 There are many applications where this reality is crucial.
 
 
@@ -1180,7 +1180,7 @@ Thus we proceed to find complex valued eigenvectors.
 \end{equation*}
 The first component of this system says \(-ix_1+x_2=0\)\,; that is, \(x_2=ix_1\)\,.  
 The second component of this system says \(-x_1-ix_2=0\)\,; that is, \(x_2=ix_1\) (the same).  
-So a general corresponding eigenvector is \(\xv=(1,i)t\) for any nonzero~\(t\).
+So a general corresponding eigenvector is the complex \(\xv=(1,i)t\) for any nonzero~\(t\).
 \item For eigenvalue \(\lambda=-i\) solve \((A-\lambda I)\xv=\ov\)\,.  That is,
 \begin{equation*}
 (A+iI)\xv
@@ -1190,7 +1190,7 @@ So a general corresponding eigenvector is \(\xv=(1,i)t\) for any nonzero~\(t\).
 \end{equation*}
 The first component of this system says \(ix_1+x_2=0\)\,; that is, \(x_2=-ix_1\)\,.  
 The second component of this system says \(-x_1+ix_2=0\)\,; that is, \(x_2=-ix_1\) (the same).  
-So a general corresponding eigenvector is \(\xv=(1,-i)t\) for any nonzero~\(t\).
+So a general corresponding eigenvector is the complex \(\xv=(1,-i)t\) for any nonzero~\(t\).
 \end{enumerate}
 \end{enumerate}
 \end{solution}

@@ -10,8 +10,9 @@
 \end{comment}
 
 
-The previous Section~\ref{sec:moaa} introduced addition, subtraction, multiplication, and other operations of matrices.  
-Conspicuously missing from the list is `division' by a matrix: this section addresses 'division' by a matrix as multiplication by the inverse of a matrix.
+The previous \autoref{sec:moaa} introduced addition, subtraction, multiplication, and other operations of matrices.  
+Conspicuously missing from the list is `division' by a matrix.
+This section develops `division' by a matrix as multiplication by the inverse of a matrix.
 The analogue in ordinary arithmetic is that division by ten is the same as multiplying by its reciprocal, one-tenth.
 But the inverse of a matrix looks nothing like a reciprocal.
 
@@ -38,7 +39,7 @@ AB=\begin{bmatrix} 1&-1\\4&-3 \end{bmatrix}
 =\begin{bmatrix} 1&0\\0&1 \end{bmatrix}=I_2
 \end{equation*}
 the multiplicative identity.  
-But matrix multiplication is not commutative (section~\ref{sec:fapmo}), so also consider
+But matrix multiplication is not commutative (\autoref{sec:fapmo}), so also consider
 \begin{equation*}
 BA=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 \begin{bmatrix} 1&-1\\4&-3 \end{bmatrix}
@@ -74,7 +75,7 @@ The second picture shows that multiplication by~\(B\) undoes the transform by~\(
 \end{solution}
 \end{example}
 
-The previous example shows at least one case when we can do some sort of matrix `division': that is, multiplying by~\(B\) is equivalent to `dividing' by~\(A\).
+The previous \autoref{eg:a2x2inv} shows at least one case when we can do some sort of matrix `division': that is, multiplying by~\(B\) is equivalent to `dividing' by~\(A\).
 One restriction is that a clearly defined `division' only works for square matrices because we need to be able to compute both~\(AB\) and~\(BA\).
 
 
@@ -156,7 +157,7 @@ What value of~\(b\) makes matrix \(\begin{bmatrix} -1&b\\1&2 \end{bmatrix}\) the
 
 
 But even among square matrices, there are many non-zero matrices which do not have inverses!
-The next Section~\ref{sec:fisvd} further explores why some matrices do not have an inverse: the reason is associated with both \index{rcond()@\texttt{rcond()}}\(\verb|rcond|=0\) (\autoref{pro:unisol}) and the so-called determinant being zero (Chapter~\ref{ch:ddm}).
+The next \autoref{sec:fisvd} further explores why some matrices do not have an inverse: the reason is associated with both \index{rcond()@\texttt{rcond()}}\verb|rcond| being zero (\autoref{pro:unisol}) and/or the so-called determinant being zero (\autoref{ch:ddm}).
 
 \begin{example}[no inverse] \label{eg:no2x2inv}
 Prove that the matrix
@@ -303,7 +304,7 @@ The \idx{inverse} is a crucial theoretical device, rarely a practical computatio
 
 
 The following \autoref{thm:invuniqsol} is an example: for a system of linear equations the theorem connects the existence of a unique solution to the invertibility of the matrix of coefficients.
-Further, section~\ref{sec:svdsgs} connects solutions to the \verb|rcond| invoked by \autoref{pro:unisol}.
+Further, \autoref{sec:svdsgs} connects solutions to the \verb|rcond| invoked by \autoref{pro:unisol}.
 Although in theoretical statements we write expressions like \(\xv=A^{-1}\bv\)\,,
 practically, once we know a solution exists (\verb|rcond| is acceptable), we generally compute the solution without ever constructing~\(A^{-1}\).
 
@@ -380,7 +381,7 @@ Given the following information about solutions of systems of linear equations, 
 \item Since the solution is unique, the matrix in the system must be invertible.
 \item This solution has an apparent free parameter,~\(t\), and so there are many solutions which implies the matrix is not invertible.
 \item Not enough information is given as we do not know whether there are any more solutions.
-\item Since a homogeneous system always has~\ov\ as a solution (section~\ref{sec:3pns}), then we know that there are at least two solutions to the system, and hence the matrix is not invertible.
+\item Since a homogeneous system always has~\ov\ as a solution (\autoref{sec:3pns}), then we know that there are at least two solutions to the system, and hence the matrix is not invertible.
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -388,7 +389,7 @@ Given the following information about solutions of systems of linear equations, 
 
 
 
-Recall from Section~\ref{sec:moaa} the properties of scalar multiplication, matrix powers, transpose, and their computation (Table~\ref{tbl:mtlbops}).
+Recall from \autoref{sec:moaa} the properties of scalar multiplication, matrix powers, transpose, and their computation (\autoref{tbl:mtlbops}).
 The next theorem incorporates the inverse into this suite of properties.
 
 
@@ -681,7 +682,7 @@ The term diagonal matrix does \emph{not} apply to say
 \end{equation*}
 \end{example}
 
-Amazingly, the singular value decomposition of Section~\ref{sec:fisvd} proves that diagonal matrices lie at the very heart of the action of \emph{all} matrices.
+Amazingly, the singular value decomposition of \autoref{sec:fisvd} proves that diagonal matrices lie at the very heart of the action of \emph{every} matrix.
 
 \begin{definition}[diagonal matrix] \label{def:diag} 
 For every \(m\times n\) matrix~\(A\), the \bfidx{diagonal entries} of~\(A\) are \(a_{11},a_{22},\ldots,a_{pp}\) where \(p=\min(m,n)\).
@@ -744,7 +745,7 @@ Which of the following matrices are not diagonal?
 \end{verbatim}
 
 
-\item Section~\ref{sec:asie} also needs to compute the logarithm of data: \index{log10()@\texttt{log10()}}\verb|log10(v)| finds the logarithm to base~\(10\) of each component of~\verb|v| and returns the results in a vector of the same size; \index{log()@\texttt{log()}}\verb|log(v)| does the same but for the natural logarithm (not \verb|ln(v)|).
+\item \autoref{sec:asie} also needs to compute the logarithm of data: \index{log10()@\texttt{log10()}}\verb|log10(v)| finds the logarithm to base~\(10\) of each component of~\verb|v| and returns the results in a vector of the same size; \index{log()@\texttt{log()}}\verb|log(v)| does the same but for the natural logarithm (not \verb|ln(v)|).
 
 \end{itemize}
 \end{minipage}
@@ -930,9 +931,9 @@ b=[1;2;3]
 x=b./d
 \end{verbatim}
 to find the answer \verb|[0.5;3;-3]|.
-Here the \script\ operation~\verb|./| does  element-by-element division (Table~\ref{tbl:mtlbmops}).
+Here the \script\ operation~\verb|./| does  element-by-element division (\autoref{tbl:mtlbmops}).
 
-\item When you have the diagonal matrix in full:  extract the diagonal elements into a column vector with \verb|diag()| (Table~\ref{tbl:mtlbmops});  then execute the element-by-element division; for example,
+\item When you have the diagonal matrix in full:  extract the diagonal elements into a column vector with \verb|diag()| (\autoref{tbl:mtlbmops});  then execute the element-by-element division; for example,
 \setbox\ajrqrbox\hbox{\qrcode{% solve diagonal system
 D=[2 0 0;0 2/3 0;0 0 -1]
 b=[1;2;3]
@@ -1029,7 +1030,7 @@ I attempt to see things in terms of geometry.
 %\end{aside} 
 Multiplication by matrices transforms shapes:
 multiplication by diagonal matrices just stretches or squashes and/or reflects in the direction of the coordinate axes.
-The next section~\ref{sec:omr} introduces matrices that rotate.
+The next \autoref{sec:omr} introduces matrices that rotate.
 
 
 
@@ -1113,7 +1114,7 @@ Which of the following diagrams represents the transformation from the (blue) un
 Now consider the transformation of multiplying by matrix \(\footnotesize\begin{bmatrix} -1&0\\0&-1 \end{bmatrix}\):
 \marginpar{\TwoD{-1}00{-1}}%
 the two reflections of this diagonal matrix, the two~\(-1\)s, have  the same effect as one rotation, here by~\(180^\circ\), as shown to the left.
-Matrices that rotate are incredibly useful and is the topic of the next section~\ref{sec:omr}.
+Matrices that rotate are incredibly useful and is the topic of the next \autoref{sec:omr}.
 
 
 
@@ -1174,7 +1175,7 @@ Hence, coordinate axes that make the transformation the given diagonal matrix ar
 
 
 Finding such coordinate systems in which a given real world transformation is diagonal is important in science, engineering, and computer science.
-Systematic methods for such diagonalisation are developed in Section~\ref{sec:fisvd}, and Chapters~\ref{ch:eesm} and~\ref{ch:gee}.
+Systematic methods for such diagonalisation are developed in \autoref{sec:fisvd}, and Chapters~\ref{ch:eesm} and~\ref{ch:gee}.
 These rely on understanding the algebra and geometry of not only diagonal matrices, but also rotations, which is our next topic.
 
 
@@ -1204,7 +1205,7 @@ To see these and related marvellous properties, we must invoke the geometry of l
 
 \index{dot product|(}
 \paragraph{Recall the dot product determines lengths and angles}
-Section~\ref{sec:dpdal} introduced the \idx{dot product} between two vectors (\autoref{def:dotprod}).
+\autoref{sec:dpdal} introduced the \idx{dot product} between two vectors (\autoref{def:dotprod}).
 For any two vectors in~\(\RR^n\), $\uv=(u_1,\ldots,u_n)$ and $\vv=(v_1,\ldots,v_n)$,
 define the \bfidx{dot product} 
 \begin{eqnarray*}
@@ -1393,7 +1394,7 @@ The \idx{stereo pair} below illustrates the rotation of the unit cube under mult
 \def\unithousesize{footnotesize,height=5.5cm}
 \ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}
 \end{center}
-\begin{solution} In \script\ (recall the single quote (prime) gives the transpose, Table~\ref{tbl:mtlbops}),
+\begin{solution} In \script\ (recall the single quote (prime) gives the transpose, \autoref{tbl:mtlbops}),
 \begin{verbatim}
 Q=[1,-2,2;2,2,1;-2,1,2]/3
 Q'*Q
@@ -1470,7 +1471,7 @@ and so \(Q\)~is approximately orthogonal.
 Because orthogonal matrices represent rotations, they arise frequently in engineering and scientific mechanics of bodies.
 Also, the ease in solving equations with orthogonal matrices puts orthogonal matrices at the heart of coding and decoding photographs (jpeg), videos (mpeg), signals (Fourier transforms), and so on.
 Furthermore, an extension of orthogonal matrices to complex valued matrices, the so-called unitary matrices, is at the core of quantum physics and quantum computing.
-Moreover, the next Section~\ref{sec:fisvd} establishes that orthogonal matrices express the orientation of the action of \emph{every} matrix and hence are a vital component of solving linear equations in general.
+Moreover, the next \autoref{sec:fisvd} establishes that orthogonal matrices express the orientation of the action of \emph{every} matrix and hence are a vital component of solving linear equations in general.
 But to utilise orthogonal matrices across the wide range of applications we need to establish the following properties.
 
 
@@ -1582,7 +1583,7 @@ That is, the columns of~\(Q\) form an orthonormal set.
 \end{proof}
 
 
-Another important property,  proved by Exercise~\ref{ex:orthoprod}, is that the product of orthogonal matrices is also an orthogonal matrix.
+Another important property,  proved by \autoref{ex:orthoprod}, is that the product of orthogonal matrices is also an orthogonal matrix.
 
 \begin{example} \label{eg:}
 Show that these matrices are orthogonal and hence write down their inverses:
@@ -1991,7 +1992,7 @@ Given the following information about solutions of systems of linear equations, 
 
 
 \begin{exercise} \label{ex:} 
-Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalar exponents (see Table~\ref{tbl:mtlbops}).
+Use \script\ to generate some random matrices of a suitable size of your choice, and some random scalar exponents (see \autoref{tbl:mtlbops}).
 Then confirm the properties of \index{inverse matrix}inverse matrices given by \autoref{thm:pasm}.
 For the purposes of this exercise, use the \script\ function \index{inv()@\texttt{inv()}}\verb|inv(A)| that computes the inverse of the matrix~\(A\) if it exists (as commented, computing the inverse of a matrix is generally not appropriate---the inverse is primarily a  theoretical device---this exercise only computes the inverse for educational purposes).
 Record all your commands and the output from \script.
@@ -2004,7 +2005,7 @@ Record all your commands and the output from \script.
 
 
 \begin{exercise} \label{ex:} 
-Consider \autoref{thm:invprop} on the properties of the inverse. Invoking properties of matrix operations from section~\ref{sec:fapmo},
+Consider \autoref{thm:invprop} on the properties of the inverse. Invoking properties of matrix operations from \autoref{sec:fapmo},
 \begin{enumerate}
 \item prove Part~\ref{thm:invpropb} using associativity, and
 \item prove Part~\ref{thm:invpropd} using the transpose.
@@ -2016,7 +2017,7 @@ Consider \autoref{thm:invprop} on the properties of the inverse. Invoking proper
 
 
 \begin{exercise} \label{ex:} 
-Using the inverses identified in Exercise~\ref{ex:abinv}, and matrix multiplication, calculate the following matrix powers.
+Using the inverses identified in \autoref{ex:abinv}, and matrix multiplication, calculate the following matrix powers.
 \begin{parts}
 \item \(\begin{bmatrix} 0&-4\\4&4 \end{bmatrix}^{-2}\)
 \answer{\(\begin{bmatrix} 0&1/16
@@ -2587,7 +2588,7 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 
 
 \begin{exercise} \label{ex:} 
-Using one or other of the orthogonal matrices appearing in Exercise~\ref{ex:preserve}, solve each of the following systems of \idx{linear equation}s by a matrix-vector multiplication.
+Using one or other of the orthogonal matrices appearing in \autoref{ex:preserve}, solve each of the following systems of \idx{linear equation}s by a matrix-vector multiplication.
 \begin{enumerate}
 \item \(\begin{cases}
 \frac35x+\frac45y=5

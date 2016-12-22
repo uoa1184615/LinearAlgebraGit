@@ -1,4 +1,4 @@
-\ifcase1
+\ifcase3
 \or%1=A5 drafting
    \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
@@ -24,7 +24,7 @@
 
 
 \includeonly{
-front,back
+%front,back
 %,Vectors/ch
 %,Vectors/secVecs
 %,Vectors/secVecOps
@@ -58,11 +58,11 @@ front,back
 %,Determinants/secGeometry
 %,Determinants/secExpand
 %,Determinants/summary
-%,EigGen/ch
+,EigGen/ch
 %,EigGen/secFind
 %,EigGen/secLinInd
-%,EigGen/secDiag
-%,EigGen/summary
+,EigGen/secDiag
+,EigGen/summary
 %,ComVecSp/ch %draft
 %,QR/ch %draft
 %,back
@@ -87,18 +87,19 @@ front,back
 }
 
 
-\usepackage{linearAlgebra}[2016/11/25]
-
-
+\usepackage{linearAlgebra}[2016/12/19]
 
 \makeindex
+
+
+\iffalse\usepackage{trackRefs}% optional testing
+\else\usepackage[disable]{trackRefs}\fi
 
 %\usepackage{pdfcomment}
 %\newcommand{\ajr}[1]{\pdfcomment[author=AJR%
 %    ,color={0.8 0.8 0},subject={#1}]{#1}}
 %\AtBeginDocument{\listofpdfcomments}
 %\atBegin{tableofcontents}{\listofpdfcomments}
-
 
 %\excludeversion{proof}
 %\excludeversion{example}

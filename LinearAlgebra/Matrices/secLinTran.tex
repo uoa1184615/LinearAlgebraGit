@@ -27,9 +27,9 @@ We often write \(f:\RR\to\RR\) to denote this functionality: that is, \(f:\RR\to
 
 There is analogous functionality in multiple dimensions with vectors: given any vector 
 \begin{itemize}
-\item multiplication by a diagonal matrix stretches and shrinks the vector (section~\ref{sec:dmd});
-\item multiplication by an orthogonal matrix rotate the vector (section~\ref{sec:omr});
-and \item projection finds a vector's components in a subspace (section~\ref{sec:proj}).
+\item multiplication by a diagonal matrix stretches and shrinks the vector (\autoref{sec:dmd});
+\item multiplication by an orthogonal matrix rotate the vector (\autoref{sec:omr});
+and \item projection finds a vector's components in a subspace (\autoref{sec:proj}).
 \end{itemize}
 Correspondingly, we use the notation \(f:\RR^n\to\RR^m\) to mean function~\(f\) transforms a given vector with \(n\)~components (in~\(\RR^n\)) into another vector with \(m\)~components (in~\(\RR^m\)) according to some rule. 
 For example, suppose the function~\(f(\xv)\) is to denote multiplication by the matrix
@@ -50,6 +50,7 @@ f(\xv)=\begin{bmatrix} 1&-\frac13\\\frac12&-1\\-1&-\frac12 \end{bmatrix}\begin{b
 \end{tikzpicture}}%
 That is, here \(f:\RR^2\to\RR^3\).  
 Given any vector in the 2D-plane, the function~\(f\), also called a \idx{transformation}, returns a vector in 3D-space.  
+Such a function can be evaluated for every vector \(\xv\in\RR^2\), so we ask what is the shape, the structure, of all the possible results of the function.
 The marginal plot illustrates the subspace formed by this~\(f(\xv)\) for all 2D vectors~\xv.
 
 
@@ -476,13 +477,13 @@ and so the projection is not a linear transformation when considered as a functi
 
 One important class of linear transformations are the transformations that can be written as matrix multiplications.
 The reason for the importance is that \autoref{thm:matlintran} establishes all linear transformations may be written as matrix multiplications!
-This in turn justifies why we define matrix multiplication to be as it is (section~\ref{sec:amwm}): \emph{matrix multiplication is defined just so that all linear transformations are encompassed}.
+This in turn justifies why we define matrix multiplication to be as it is (\autoref{sec:amwm}): \emph{matrix multiplication is defined just so that all linear transformations are encompassed}.
 
 \begin{example} \label{eg:}
-But first, the following \autoref{thm:mattranlin} proves, among many other possibilities, that the following are linear transformations:
+But first, the following \autoref{thm:mattranlin} proves, among many other possibilities, that the following transformations we have already met are linear transformations:
 \begin{itemize}
-\item stretching\slash shrinking along coordinate axes as these are multiplication by a diagonal matrix (section~\ref{sec:dmd});
-\item rotations and/or reflections as they arise as multiplications by an orthogonal matrix (section~\ref{sec:omr});
+\item stretching\slash shrinking along coordinate axes as these are multiplication by a diagonal matrix (\autoref{sec:dmd});
+\item rotations and/or reflections as they arise as multiplications by an orthogonal matrix (\autoref{sec:omr});
 \item orthogonal projection onto a subspace as all such projections may be expressed as multiplication by a matrix (the matrix~\(W\tr W\) in \autoref{thm:projmat}).
 \end{itemize}
 \end{example}
@@ -531,7 +532,7 @@ Let \xv\ be any vector in~\(\RR^n\): then \(\xv=(\hlist xn)=\lincomb x\ev n\) fo
 Then
 \begin{eqnarray*}
 T(\xv)&=&T(\lincomb x\ev n)
-\\&&(\text{using the identity of Exercise~\ref{ex:genlintran}})
+\\&&(\text{using the identity of \autoref{ex:genlintran}})
 \\&=&x_1T(\ev_1)+x_2T(\ev_2)+\cdots+x_nT(\ev_n)
 \\&=&\begin{bmatrix} T(\ev_1)& T(\ev_2)&\cdots&T(\ev_n) \end{bmatrix}
 \begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}
@@ -694,10 +695,11 @@ Best to introduce such terms in subsequent abstract vector spaces and a detailed
 
 \index{pseudo-inverse|(}
 
-In solving inconsistent linear equations, \(A\xv=\bv\) for some given~\(A\)\,, \autoref{pro:appsol} finds a solution~\xv\ that depends upon the right-hand side~\bv.
+In solving inconsistent linear equations, 
 \begin{aside}
 This subsection is an optional extension.
-\end{aside}
+\end{aside}%
+\(A\xv=\bv\) for some given~\(A\)\,, \autoref{pro:appsol} finds a solution~\xv\ that depends upon the right-hand side~\bv.
 That is, any given~\bv\ is transformed by the procedure to some result~\xv: the result is a function of the given~\bv.
 This section establishes the resulting solution given by the procedure is a linear transformation of~\bv, and hence there must be a matrix, say~\(A^+\), corresponding to the procedure. 
 This matrix gives the resulting solution \(\xv=A^+\bv\)\,.
@@ -746,15 +748,16 @@ By finding the smallest magnitude, least-square, solution to \(D\xv=\bv\) for ma
 
 
 
-A pseudo-inverse~\(A^+\) of a non-invertible matrix~\(A\) is only an `inverse' because the pseudo-inverse builds in extra information that we \emph{sometimes choose} to be desirable.
+A pseudo-inverse~\(A^+\) of a non-invertible matrix~\(A\) is only an `inverse' because the pseudo-inverse builds in extra information that you may \emph{sometimes choose} to be desirable.
 This extra information rationalises all the contradictions encountered in trying to construct an inverse of a non-invertible matrix.  
-Namely, for some applications we \emph{choose} to desire that the pseudo-inverse solves the \emph{nearest} consistent system to the one specified, and we  \emph{choose} the smallest of all possibilities then allowed.
+Namely, for some applications we \emph{choose} to desire that the pseudo-inverse solves the \emph{nearest} consistent system to the one specified, and we \emph{choose} the smallest of all possibilities then allowed.
 However, although there are many situations where these choices are useful, beware that there are also many situations where such choices are not appropriate.
 That is, although sometimes the pseudo-inverse is useful, beware that often the pseudo-inverse is not appropriate.
 
 
 \begin{theorem}[pseudo-inverse] \label{thm:lsqlt}
-For every system of linear equations \(A\xv=\bv\) with \(m\times n\) matrix~\(A\),, \autoref{pro:appsol} forms a \idx{linear transformation} \(T:\RR^m\to\RR^n\) to find the smallest solution~\xv\ (\autoref{thm:smallsoln}) to the closest consistent system \(A\xv=\tilde\bv\) (\autoref{thm:appsol}).
+Recall that in the context of a system of linear equations \(A\xv=\bv\) with \(m\times n\) matrix~\(A\), for every \(\bv\in\RR^m\) \autoref{pro:appsol} finds the smallest solution~\(\xv\in\RR^m\)\ (\autoref{thm:smallsoln}) to the closest consistent system \(A\xv=\tilde\bv\) (\autoref{thm:appsol}).
+\autoref{pro:appsol} forms a \idx{linear transformation} \(T:\RR^m\to\RR^n\), \(\xv=T(\bv)\)\,.
 This linear transformation has an \(n\times m\) \idx{standard matrix}~\(A^+\) called the \bfidx{pseudo-inverse}, or \bfidx{Moore--Penrose inverse}, of matrix~\(A\).
 \end{theorem}
 
@@ -1162,7 +1165,7 @@ connect to normal equation?  Possibly establish the Penrose conditions, \(AA^+A=
 
 To achieve a complex goal we typically decompose the task of attaining the goal into a set of smaller tasks and achieve those tasks one after another.
 The analogy in linear algebra is that we often apply linear transformations one after another to build up or solve a complex problem.
-This section introduces how applying a sequence of linear transformations is equivalent to one grand overall linear transformation.
+This section certifies how applying a sequence of linear transformations is equivalent to one grand overall linear transformation.
 
 \begin{example}[simple rotation] 
 Recall \autoref{eg:stmatlt:b} on rotation by~\(60^\circ\) (illustrated in the margin) with its standard matrix
@@ -1291,7 +1294,7 @@ Then the standard matrix of the composition (as illustrated in the margin)
 \end{equation*}
 \end{itemize}
 \end{solution}
-As an extension, check that although \(R\circ F\) is defined, it is different to~\(F\circ R\): the difference corresponds to the non-commutativity of matrix multiplication (section~\ref{sec:fapmo}).
+As an extension, check that although \(R\circ F\) is defined, it is different to~\(F\circ R\): the difference corresponds to the non-commutativity of matrix multiplication (\autoref{sec:fapmo}).
 \end{example}
 
 
@@ -1812,7 +1815,7 @@ equivalently \(S^+=\diag_{n\times m}(\hlist{1/\sigma}r,0,\ldots,0)\).
 
 
 \begin{exercise} \label{ex:pisvd} 
-Given any \(m\times n\) matrix~\(A\) with  \svd\ \(A=\usv\), use the result of Exercise~\ref{ex:pidiag} to establish that the \idx{pseudo-inverse} \(A^+=VS^+\tr U\).
+Given any \(m\times n\) matrix~\(A\) with  \svd\ \(A=\usv\), use the result of \autoref{ex:pidiag} to establish that the \idx{pseudo-inverse} \(A^+=VS^+\tr U\).
 \end{exercise}
 
 
@@ -1822,7 +1825,7 @@ Given any \(m\times n\) matrix~\(A\) with  \svd\ \(A=\usv\), use the result of E
 
 
 \begin{exercise} \label{ex:} 
-Use \script\ and the identity of Exercise~\ref{ex:pisvd} to compute the \idx{pseudo-inverse} of each of the following matrices.
+Use \script\ and the identity of \autoref{ex:pisvd} to compute the \idx{pseudo-inverse} of each of the following matrices.
 % m=ceil(1+3*rand), n=ceil(1+3*rand), r=ceil(min(m,n)*rand),  A=round(randn(m,r)*3)*round(randn(r,n)*3)/10; a=num2str(A,"%7.1f"), r=rank(A), [U,S,V]=svd(A); Ap=V(:,1:r)*diag(1./diag(S(1:r,1:r)))*U(:,1:r)'; ap=num2str(Ap,"%8.2f")
 \begin{enumerate}
 \item \(\eAii=\begin{bmatrix} 0.2&0.3
@@ -1970,7 +1973,7 @@ Prove that in the case of an \(m\times n\) matrix~\(A\) with \(\rank A=m\) (so \
 
 
 \begin{exercise} \label{ex:} \index{pseudo-inverse}
-Use \autoref{thm:pseudonormal} and the identity in Exercise~\ref{ex:pirm} to prove that \((A^+)^+=A\) in the case when \(m\times n\) matrix~\(A\) has \(\rank A=n\)\,.
+Use \autoref{thm:pseudonormal} and the identity in \autoref{ex:pirm} to prove that \((A^+)^+=A\) in the case when \(m\times n\) matrix~\(A\) has \(\rank A=n\)\,.
 (Be careful as many plausible looking steps are incorrect.)
 \end{exercise}
 
