@@ -995,7 +995,6 @@ Extension: recalling \autoref{thm:ranktr}, which of the above is an orthonormal 
 
 
 \begin{example}[data reduction] \label{eg:orthbapp}
-\newcommand{\soi}{\textsc{soi}}
 Every four or five years the phenomenon of \idx{El Nino} makes a large impact on the world's weather: from drought in Australia to floods in South America.
 We would like to predict El Nino in advance to save lives and economies.
 El Nino is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
@@ -1003,11 +1002,6 @@ This example seeks patterns in the \soi\ in order to be able to predict the \soi
 
 \begin{figure}
 \centering
-%\begin{tabular}{c@{\ }c}
-%\rotatebox{90}{\hspace{20ex}\soi} &
-%\includegraphics[scale=0.75]{Matrices/soiRoundData}\\
-%& year
-%\end{tabular}
 \input{Matrices/soiRoundData.ltx}
 \caption{yearly average \soi\ over fifty years (`smoothed' somewhat for the purposes of the example).  
 The nearly regular behaviour suggests it should be predictable.}
@@ -1020,11 +1014,6 @@ The challenge of this example is to explore the full details of this signal.
 
 \begin{figure}
 \centering
-%\begin{tabular}{c@{\ }c}
-%\rotatebox{90}{\hspace{15ex}\soi\ windowed} &
-%\includegraphics[scale=0.75]{Matrices/soiRoundWind}\\
-%& years relative to start of window
-%\end{tabular}
 \input{Matrices/soiRoundWind.ltx}
 \caption{the first six windows of the \soi\ data of \autoref{fig:soiRoundData}---displaced vertically for clarity. 
 Each window is of length ten years: 
@@ -1112,11 +1101,6 @@ In practice, treat the six small singular values as zero.
 Since there are four non-zero singular values, the windows of data lie in a subspace spanned by the first four columns of~\(U\).
 \begin{figure}
 \centering
-%\begin{tabular}{c@{\ }c}
-%\rotatebox{90}{\hspace{15ex}\soi\ basis} &
-%\includegraphics[scale=0.75]{Matrices/soiRoundSubs}\\
-%& years relative to start of window
-%\end{tabular}
 \input{Matrices/soiRoundSubs.ltx}
 \caption{first four singular vectors of the \soi\ data---displaced vertically for clarity.  The bottom two form a pair to show a five year cycle.  The top two are a pair that show a two--three year cycle.  The combination of these two cycles leads to the structure of the \soi\ in \autoref{fig:soiRoundData}.}
 \label{fig:soiRoundSubs}
@@ -1124,7 +1108,9 @@ Since there are four non-zero singular values, the windows of data lie in a subs
 \end{itemize}
 That is, all the structure seen in the fifty year \soi\ data of \autoref{fig:soiRoundData} can be expressed in terms of the  orthonormal basis of four ten-year vectors plotted in \autoref{fig:soiRoundSubs}.
 This analysis implies the \soi\ data is composed of two cycles of different frequencies.%
-\footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is considerably noisier.  Also we would use \(600\)~monthly averages not \(50\)~yearly averages: so a ten year window would be a window of \(120\)~months, and the matrix would be considerably larger \(120\times481\).  Nonetheless, the conclusions with the real data, and justified by \autoref{ch:am}, are much the same.}
+\footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is considerably noisier.  
+Also we would use \(600\)~monthly averages not \(50\)~yearly averages: so a ten year window would be a window of \(120\)~months, and the matrix would be considerably larger \(120\times481\).  
+Nonetheless, the conclusions with the real data, and justified by \autoref{ch:am}, are much the same.}
 \end{example}
 
 

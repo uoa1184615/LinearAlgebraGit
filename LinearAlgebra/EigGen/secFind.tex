@@ -2058,10 +2058,10 @@ The next \autoref{sec:lisb} relates the invertibility of a matrix of eigenvector
 
 
 
-%\begin{comment}
-%\subsection{Metastability in Markov chains}
-%Ensure application-like.
-%\end{comment}
+\begin{comment}
+Could have a subsection on Metastability in Markov Chains---probably not.
+Ensure application-like.
+\end{comment}
 
 
 
@@ -2070,7 +2070,7 @@ The next \autoref{sec:lisb} relates the invertibility of a matrix of eigenvector
 
 
 
-\subsection{Extension: Connect SVDs to eigen-problems}
+\subsection{Extension: SVDs connect to eigen-problems}
 
 Recall that 
 \begin{aside}
@@ -2199,15 +2199,14 @@ Extensions of this proof cater for the case when zero is an eigenvalue and/or ei
 
 
 
-\begin{draft}%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application: Exponential interpolation discovers dynamics}
 \label{sec:eidd}
 
 \index{exponential interpolation|(}
 
-Many applications require identification of rates and frequencies:
+Many applications require identification of rates and frequencies \cite[e.g.]{Pereyra2010}:
 \begin{aside}
-This optional subsection develops a method useful in some application areas.
+This optional subsection develops a method useful in some applied disciplines.
 \end{aside}%
 as a played musical note decays, what is its frequency?
 in the observed vibrations of a complicated bridge, what are its natural modes?
@@ -2215,7 +2214,7 @@ in measurements of complicated bio-chemical reactions, what rates can be identif
 All such tasks require fitting a sum of exponential functions to the data.
 
 
-\begin{example} \label{eg:}
+\begin{example} \label{eg:eidd1}
 This example is the simplest case of fitting one exponential to two data points.
 Suppose we take two measurements of some process: 
 \begin{itemize}
@@ -2228,17 +2227,18 @@ The classic approach is to take logarithms of both sides:
 \begin{equation*}
 f=ce^{rt} \iff (\ln f)=(\ln c)+rt\,,
 \end{equation*}
-and then determine \(\ln c\) and~\(r\) by fitting a straight line through the two data points \((t,\ln f)=(1,\ln5)\) and~\((3,\ln10)\)
+and then determine \(\ln c\) and~\(r\) by fitting a straight line through the two data points \((t,\ln f)=(1,\ln5)\) and~\((3,\ln10)\) respectively
 (recall that \index{ln@\(\ln\)}``\(\ln(x)\)'' denotes the \idx{natural logarithm} of~\(x\),  computed in \script\ with \verb|log(x)|, see \autoref{tbl:mtlbmops}).
 This approach has the great virtue that the approach generalises to fitting of noisy data (\autoref{sec:asie}).
 But here we take a different approach that instead generalises to fitting multiple exponentials to more~data.
 
-The following simple steps correspond to complicated steps in the general procedure developed next for fitting multiple exponentials.
+The following basic steps correspond to complicated steps in the general procedure developed next for fitting multiple exponentials.
 \begin{enumerate}
-\item First, write down the equations that have to be satisfied:
+\item First, write down the equations that are to be satisfied:
 \begin{equation*}
 ce^{r}=5\,,\quad ce^{r3}=10\,.
 \end{equation*}
+Turning these nonlinear equations into something that linear algebra  can solve involves some trickery.
 \item Second, recognise that the second equation involves the left-hand side of the first:
 \begin{equation*}
 ce^{r3}=10 \iff ce^re^{r2}=10\iff ce^r\lambda=10
@@ -2246,8 +2246,8 @@ ce^{r3}=10 \iff ce^re^{r2}=10\iff ce^r\lambda=10
 for some as yet unknown multiplier \(\lambda=e^{2r}\).
 But when we eventually find the multiplier~\(\lambda\), then the rate \(r=\tfrac12\ln\lambda\).
 \item Third, eliminate the common part involving the constant~\(c\): since the first equation says \(ce^r=5\), the second equation becomes \(5\lambda=10\)\,.
-\item Fourth, no corresponding step in this simple scenario.
-\item Fifth, hence the multiplier \(\lambda=2\)\,, giving rate \(r=\tfrac12\ln 2=0.3466\)\,.
+\item Fourth, no corresponding step in this basic problem.
+\item Fifth, from \(5\lambda=10\) we deduce the multiplier \(\lambda=2\)\,, giving rate \(r=\tfrac12\ln 2=0.3466\)\,.
 \item Finally, determine the constant~\(c\) from, say, \(ce^r=5\)\,:
 here \(e^r=\sqrt2\) so \(c=5/\sqrt2=3.5255\)\,.
 \end{enumerate}
@@ -2256,16 +2256,26 @@ That is, the exponential fit is \(f(t)=3.5255\,e^{0.3466\,t}\).
 \end{example}
 
 
+\begin{activity}
+Plotted in the margin is some points from a function~\(f(t)\).  
+\marginpar{\begin{tikzpicture}[] 
+\begin{axis}[footnotesize,axis lines=middle,xlabel={$t$},ylabel={$f(t)$}
+  ,ymin=0,xmax=3.6,ymax=4.9,grid,xtick={0,1,2,3}]
+\addplot+[domain=0:3,samples=4,only marks] {4/3^x};
+\end{axis}\end{tikzpicture}}
+Which of the following exponentials best represents the data plotted?
+\actposs{$f\propto1/3^t$}{$f\propto1/2^t$}{$f\propto e^{-3t}$}{$f\propto e^{-t/2}$}
+\end{activity}
 
 
-
+Now let's develop the approach of \autoref{eg:eidd1} to the complicated example of fitting the linear combination of two exponentials to four data points.
 
 
 \begin{example} \label{eg:2expfit}
 \newcommand{\mytemp}[1]{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
-, xlabel={$t$},ylabel={$f$},axis lines=middle
-,ymin=0,ymax=1.3,xmax=3.99 ]
+, xlabel={$t\ $},ylabel={$f$},axis lines=middle
+,ymin=0,ymax=1.3,xmax=3.7,xtick={0,1,2,3} ]
 \addplot+[mark=*,only marks] coordinates { (0,1) (1,1) (2,2/3) (3,7/18)};
 \ifnum1=#1\addplot+[thick,no marks,domain=0:3.99] {-3/3^x+4/2^x};\fi
 \end{axis}
@@ -2273,13 +2283,13 @@ That is, the exponential fit is \(f(t)=3.5255\,e^{0.3466\,t}\).
 Suppose in some chemical or biochemical experiment you measure the concentration of a key chemical at four times (as illustrated): 
 \marginpar{\mytemp0}%
 at the start of the experiment, time \(t_1=0\) you measure concentration \(f_1=1\) (in some units); 
-at time \(t_2=1\) the measurement is \(f_2=1\) (again); at \(t_3=2\) the measurement is \(f_2=\frac23=0.6667\)\,; and at \(t_4=3\) the measurement is \(f_3=\frac7{18}=0.3889\)\,.
+at time \(t_2=1\) the measurement is \(f_2=1\) (again); at \(t_3=2\) the measurement is \(f_2=\frac23=0.6667\)\,; and at \(t_4=3\) the measurement is \(f_3=\frac7{18}=0.3889\) (as plotted in the margin).
 We generally expect chemical reactions to decay exponentially in time. 
 So our task is to find a function of the form
 \begin{equation*}
 f(t)=c_1e^{r_1t}+c_2e^{r_2t}.
 \end{equation*}
-Our aim is for this function to fit the four data points as plotted in the margin.
+Our aim is for this function to fit the four data points, as plotted.
 The unknown coefficients~\(c_1\) and~\(c_2\) and rates~\(r_1\) and~\(r_2\) need to be determined from the four data points.
 That is, let's find these four unknowns from the data that
 \begin{eqnarray*}
@@ -2289,8 +2299,8 @@ f(2)=\tfrac23&\iff&c_1e^{r_12}+c_2e^{r_22}=\tfrac23\,,\\
 f(3)=\tfrac7{18}&\iff&c_1e^{r_13}+c_2e^{r_23}=\tfrac7{18}\,.
 \end{eqnarray*}
 These are nonlinear equations, but some algebraic tricks empower us to use our beautiful linear algebra to find the solution.
-\marginpar{\mytemp1}%
-After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as shown in the margin.
+After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as also shown in the margin. \marginpar{\mytemp1}%
+
 
 \begin{solution} 
 This solution has several twists and several new ideas that turns these four nonlinear equations into two linear algebra problems!
@@ -2306,7 +2316,7 @@ The four equations to solve become (still nonlinear)
 \end{eqnarray*}
 
 \item \label{eg:2expfitb}
-Second, introduce the vector and matrices
+Second, introduce the vector and two matrices
 \begin{equation*}
 \cv=\begin{bmatrix} c_1\\c_2 \end{bmatrix},\quad
 D=\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix},\quad
@@ -2343,13 +2353,13 @@ U=\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}.
 \end{enumerate}
 
 \item \label{eg:2expfitc}
-Third, form two matrices: by adjoining side-by-side the first two of the above equalities,
+Third, form two matrices: by adjoining side-by-side the first two of the above equalities in step~\ref{eg:2expfitb},
 \begin{equation*}
 \begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}
 =\begin{bmatrix} U\cv& UD\cv \end{bmatrix}
 =U\begin{bmatrix} \cv&D\cv \end{bmatrix};
 \end{equation*}
-and by adjoining side-by-side the last two of the previous equalities, 
+and by adjoining side-by-side the last two of the previous equalities in step~\ref{eg:2expfitb}, 
 \begin{equation*}
 \begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}
 =\begin{bmatrix} UD\cv&UD^2\cv \end{bmatrix}
@@ -2392,7 +2402,7 @@ That is, if we can find two distinct solutions to
 \begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv=\lambda\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv\,,
 \end{equation*}
 then one solution gives~\(\lambda_1,\vv_1\) and the other~\(\lambda_2,\vv_2\).
-This looks like an eigenvalue problem, \(A\vv=\lambda\vv\)\,, but with a matrix~\(B\) inserted in the right-hand side as an extra, \(A\vv=\lambda B\vv\)\,.
+This looks like an eigenvalue problem, \(A\vv=\lambda\vv\)\,, but with a matrix~\(B\) inserted in the right-hand side as an extra, \(A\vv=\lambda B\vv\) to form a so-called `generalised eigen-problem'.
 
 \item \label{eg:2expfite}
 Fifth, solve for the `eigenvalues'~\(\lambda\) by rearranging the equation to
@@ -2434,12 +2444,129 @@ f(t)=4(\tfrac12)^t-3(\tfrac13)^t
 \end{example}
 
 
-\paragraph{General aim}
+
+As introduced by the example, let's generalise \autoref{def:evecval} of eigenvalues and eigenvectors.
+Such generalised eigen-problems also occur in the design analysis of complicated structures, such as buildings and bridges, where the second matrix~\(B\) represents the various masses of the various elements making up the structure.
+
+\begin{definition} \label{def:geneig}
+Let \(A\) and~\(B\) be \(n\times n\) square matrices\index{square matrix}. 
+The \bfidx{generalised eigen-problem} is to find scalar \idx{eigenvalue}s~\(\lambda\) and corresponding nonzero \idx{eigenvector}s~\vv\ such that \(A\vv=\lambda B\vv\).
+\end{definition}
+
+\begin{example} \label{eg:}
+Given \(A=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\) and \(B=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\), what eigenvalue corresponds to the eigenvector \(\vv_1=(1,1)\) of the generalised eigen-problem \(A\vv=\lambda B\vv\)\,?  
+Also answer for \(\vv_2=(-3,13)\).
+\begin{solution} 
+\begin{itemize}
+\item To test \(\vv_1=(1,1)\), multiply by the matrices:
+\begin{eqnarray*}
+&&A\vv_1=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}
+=\begin{bmatrix} 0\\4 \end{bmatrix};
+\\&&B\vv_1=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}
+=\begin{bmatrix} 0\\2 \end{bmatrix}.
+\end{eqnarray*}
+Since \(A\vv_1\) is twice \(B\vv_1\) then \(\vv_1\)~is an eigenvector corresponding to eigenvalue \(\lambda_1=2\)\,.
+\item To test \(\vv_1=(-3,13)\), multiply by the matrices:
+\begin{eqnarray*}
+&&A\vv_1=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\begin{bmatrix} -3\\13 \end{bmatrix}
+=\begin{bmatrix} 32\\4 \end{bmatrix};
+\\&&B\vv_1=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\begin{bmatrix} -3\\13 \end{bmatrix}
+=\begin{bmatrix} -48\\-6 \end{bmatrix}.
+\end{eqnarray*}
+Since \(32=-\tfrac23(-48)\) and \(4=-\tfrac23(-6)\), then \(A\vv_2\) is~\(-2/3\) times~\(B\vv_2\), and so \(\vv_2\)~is an eigenvector corresponding to eigenvalue \(\lambda_2=-2/3\)\,.
+\end{itemize}
+\end{solution}
+\end{example}
+
+
+\begin{activity}
+Which of the following vectors is an eigenvector of the generalised eigen-problem
+\begin{equation*}
+\begin{bmatrix} -2&0\\1&0 \end{bmatrix}\vv=\lambda\begin{bmatrix} 3&-1\\-1&1 \end{bmatrix}\vv\,?
+\end{equation*}
+\actposs[4]{$(1,-1)$}{$(0,0)$}{$(0,1)$}{$(2,-1)$}
+\end{activity}
+
+
+The standard eigen-problem is the case when matrix \(B=I\)\,.
+Many of the properties for standard eigenvalues and eigenvectors also hold for generalised cases, although there are some differences.
+Most importantly here, albeit without proof, provided matrix~\(B\) is invertible, then counted according to \idx{multiplicity} there are \(n\)~eigenvalues of a generalised eigen-problem.
+
+\begin{example} \label{eg:}
+Find all eigenvalues and corresponding eigenvectors of the generalised eigen-problem \(A\vv=\lambda B\vv\) for matrices
+\begin{equation*}
+A=\begin{bmatrix} -1&1\\-4&0 \end{bmatrix},\quad
+B=\begin{bmatrix} -1&1\\-1&2 \end{bmatrix}
+\end{equation*}
+\begin{solution} 
+Now solving \(A\vv=\lambda B\vv\) is the same as solving \((A-\lambda B)\vv=\ov\), which requires \(\det(A-\lambda B)=0\) (\autoref{thm:detinv}).
+Hence determine the eigenvalues by finding the zeros of the characteristic polynomial
+\begin{eqnarray*}
+\det(A-\lambda B)
+&=&\det\begin{bmatrix} -1+\lambda&1-\lambda\\-4+\lambda&0-2\lambda \end{bmatrix}
+\\&=&(-1+\lambda)(-2\lambda)-(-4+\lambda)(1-\lambda)
+\\&=&-2\lambda^2+2\lambda+\lambda^2-5\lambda+4
+\\&=&-\lambda^2-3\lambda+4
+\\&=&-(\lambda+4)(\lambda-1).
+\end{eqnarray*}
+Hence the generalised eigenvalues are \(\lambda_1=-4\) and \(\lambda_2=1\)\,.
+\begin{itemize}
+\item For the case \(\lambda_1=-4\) the corresponding eigenvectors satisfy
+\begin{equation*}
+(A+4B)\vv=\begin{bmatrix} -5&5\\-8&8 \end{bmatrix}\vv=\ov.
+\end{equation*}
+That is, the two components of~\vv\ must be the same: corresponding eigenvectors are \(\vv_1\propto(1,1)\).
+
+\item For the case \(\lambda_2=1\) the corresponding eigenvectors satisfy
+\begin{equation*}
+(A-B)\vv=\begin{bmatrix} 0&0\\-3&-2 \end{bmatrix}\vv=\ov.
+\end{equation*}
+That is, \(-3v_1-2v_2=0\) which rearranged is \(v_1=-\tfrac23v_2\): corresponding eigenvectors are \(\vv_2\propto(-\tfrac23,1)\).
+\end{itemize}
+\end{solution}
+\end{example}
+
+
+
+
+\begin{example} \label{eg:}
+Find all eigenvalues and corresponding eigenvectors of the generalised eigen-problem \(A\vv=\lambda B\vv\) for matrices
+\begin{equation*}
+A=\begin{bmatrix} 2&2\\-1&0 \end{bmatrix},\quad
+B=\begin{bmatrix} -1&1\\1&-1 \end{bmatrix}
+\end{equation*}
+\begin{solution} 
+Now solving \(A\vv=\lambda B\vv\) is the same as solving \((A-\lambda B)\vv=\ov\), which requires \(\det(A-\lambda B)=0\) (\autoref{thm:detinv}).
+Hence determine the eigenvalues by finding the zeros of the characteristic polynomial
+\begin{eqnarray*}
+\det(A-\lambda B)
+&=&\det\begin{bmatrix} 2+\lambda&2-\lambda\\-1-\lambda&0+\lambda \end{bmatrix}
+\\&=&(2+\lambda)(\lambda)-(2-\lambda)(-1-\lambda)
+\\&=&\lambda^2+2\lambda-2-\lambda^2+\lambda+2
+\\&=&3\lambda+2\,.
+\end{eqnarray*}
+Hence the only generalised eigenvalue is \(\lambda=-2/3\)\,.
+Here the matrix~\(B\) is not invertible, as its determinant is zero, and consequently in this example we do not get the typical full complement of two eigenvalues.
+
+For the only eigenvalue \(\lambda=-2/3\) the corresponding eigenvectors satisfy
+\begin{equation*}
+(A+\tfrac23B)\vv=\begin{bmatrix} \tfrac43&\tfrac83\\-\tfrac13&-\tfrac23 \end{bmatrix}\vv=\ov.
+\end{equation*}
+That is, the two components of~\vv\ must satisfy \(\tfrac13v_1+\tfrac23v_2=0\) which rearranged is \(v_1=-2v_2\): corresponding eigenvectors are \(\vv\propto(-2,1)\).
+\end{solution}
+\end{example}
+
+
+
+
+
+\paragraph{General fitting of exponentials}
 Suppose that some experiment or other observation has given us \(2n\)~data values \hlist f{2n}\ at equi-spaced `times' \hlist t{2n}, where the spacing \(t_{j+1}-t_j=h\)\,.
 The general aim is to fit a function \cite[\S2.6, e.g.]{Cuyt2015}
 \begin{equation}
 f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}.
 %=\sum_{j=1}^n c_je^{r_jt}
+\label{eq:eiddse}
 \end{equation}
 for some coefficients~\hlist cn\ and some rates~\hlist rn\ to be determined (possibly complex valued for oscillations).
 In general, finding the coefficients and rates is a delicate nonlinear task outside the remit of this book.
@@ -2464,7 +2591,7 @@ B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \end{eqnarray*}
 In \script\ use \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| (this Hankel function is also invoked in exploring El~Nino, \autoref{eg:orthbapp}).
 
-\item Find the eigenvalues of the so-called \bfidx{generalised eigen-problem} \(A\vv=\lambda B\vv\)\,: 
+\item Find the eigenvalues of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\)\,: 
 \begin{itemize}
 \item by hand on small problems solve \(\det(A-\lambda B)=0\)\,;
 \item in \script\ invoke \index{eig()@\texttt{eig()}}\verb|lambda=eig(A,B)|\,, and then \index{log()@\texttt{log()}}\verb|r=log(lambda)/h|\,.
@@ -2544,12 +2671,18 @@ Link to singular spectrum analysis of \S\ref{sec:ssa} when it is written.
 \end{comment}
 
 \begin{proof} 
-In outline, let \(U\) be rows of powers of multipliers~\(\lambda_k\), \(V=\tr{(U^{-1})}\), \(D=\diag(\hlist\lambda n)\), and \(C=\begin{bmatrix} \cv&D\cv&\cdots&D^{n-1}\cv \end{bmatrix}\).
-Then \(B=UC\) and \(A=UDC\).
-Hence \(A=UDU^{-1}B\) so \(U^{-1}A=DU^{-1}B\).
-Take transpose, recalling matrices~\(A\), \(B\) and diagonal~\(D\) are symmetric, gives \(AV=BVD\)\,.
-The \(j\)th~column of this matrix equation is  \(A\vv_j=\lambda_jB\vv_j\)\,.
+I give only a short outline.
+Define four matrices: let \(U\) be rows of powers of multipliers~\(\lambda_k\) and assumed to be invertible; \(D:=\diag(\hlist\lambda n)\); and \(C:=\begin{bmatrix} \cv&D\cv&\cdots&D^{n-1}\cv \end{bmatrix}\).
+Then the two matrices in the procedure are \(B=UC\) and \(A=UDC\).
+From the first \(C=U^{-1}B\), and hence the second becomes \(A=UDU^{-1}B\). 
+Multiply this by~\(U^{-1}\) to require \(U^{-1}A=DU^{-1}B\).
+Taking the transpose, recalling matrices~\(A\), \(B\) and diagonal~\(D\) are symmetric, gives \(A\tr{(U^{-1})}=B\tr{(U^{-1})}D\); that is
+\(AV=BVD\) for matrix \(V:=\tr{(U^{-1})}\).
+The \(j\)th~column of this matrix equation requires \(A\vv_j=\lambda_jB\vv_j\), where \(\vv_j\) is the \(j\)th~column of~\(V\), for \(j=1,2,\ldots,n\).
 Hence finding the eigenvalues and eigenvectors of the generalised eigen-problem \(A\vv=\lambda B\vv\) determines the multipliers~\(\lambda_j\).
+
+Typically there are \(n\)~distinct eigenvalues~\(\lambda_j\) (although not always), hence~\(U\) typically is invertible. 
+So from \(UC=B\) the coefficient vector~\cv, the first column of matrix~\(C\), is computed by solving \(U\cv=\bv_1\) (the first column of~\(B\)).
 \end{proof}
 
 
@@ -2571,8 +2704,8 @@ Hence finding the eigenvalues and eigenvectors of the generalised eigen-problem 
 A damped piano string is struck and the sideways displacement of the string is measured at four times, \(5\)\,ms~apart. 
 \marginpar{\mytemp0}%
 The measurements (in~mm) are \(f_1=1.0000\), \(f_2=-0.3766\), \(f_3=-0.5352\) and \(f_4=0.7114\) (as illustrated).  
-Determine the frequency and damping of the string by hand.
-\footnote{Some of you will know that identification of frequencies is most commonly done by what is called a Fourier transform.  
+Determine, by hand calculation, the frequency and damping of the string.%
+\footnote{Some of you will know that identification of frequencies is most commonly done by what is called a \idx{Fourier transform}.  
 However, with a limited amount of accurate data, or for decaying oscillations, this approach may be better.}
 
 Recall \idx{Euler's formula} that \(e^{i\theta}=\cos\theta+i\sin\theta\) so oscillations are here captured by complex-valued exponentials.
@@ -2581,7 +2714,7 @@ Recall \idx{Euler's formula} that \(e^{i\theta}=\cos\theta+i\sin\theta\) so osci
 Follow \autoref{pro:ei} by hand. 
 \begin{enumerate}
 \item 
-Form the Hankel matrices
+Form the two Hankel matrices from the data values~\hlist f4:
 \begin{eqnarray*}&&
 A=\begin{bmatrix} f_2&f_3\\f_3&f_4 \end{bmatrix}
 =\begin{bmatrix} -0.3766 & -0.5352
@@ -2604,7 +2737,8 @@ With some arithmetic, the determinant
 \\&=& -0.6770\lambda^2  -0.5098\lambda  -0.5544\,.
 \end{eqnarray*}
 More arithmetic with the well known formula for solving quadratic equations finds that this determinant is zero for complex conjugate eigenvalues \(\lambda=-0.3765 \pm 0.8228\,i\)\,.
-The logarithm of these complex values, divided by the time step of \(0.005\,\text{s}=5\,\)ms, gives complex rates \(r=-20\pm400i\) (to two decimal places).
+Such complex eigenvalues are characteristic of oscillations.
+The logarithm of these complex values, divided by the time step of \(0.005\,\text{s}=5\,\)ms, gives the two complex rates \(r=-20\pm400i\) (to two decimal places).
 \item 
 To find the corresponding coefficients, solve the complex linear equations
 \begin{eqnarray*}&&
@@ -2829,14 +2963,13 @@ f(t)&\approx&1.01\cdot1^{t/3}+0\cdot(-0.47)^{t/3}
 \end{example}
 
 
-\begin{comment}
-Need exercises, and to reconsider the discourse, before including this subsection.
-\end{comment}
+As with any data fitting, in practical applications be careful about the reliability of the results.
+Sound statistical analysis needs to supplement \autoref{pro:ei} to inform us about expected errors and sensitivity.
+This problem of fitting exponentials to data is often sensitive to errors (badly conditioned).
 
 
 
 \index{exponential interpolation|)}
-\end{draft}%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -3721,6 +3854,499 @@ Relate these to an \svd\ of the matrix~\(A\).
 
 \end{parts}
 \end{exercise}
+
+
+
+
+\begin{exercise} \label{ex:} 
+Find by hand calculation all eigenvalues and corresponding eigenvectors of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for the following pairs of matrices.
+Check your calculations with \script.
+%\begin{verbatim}
+%n=2,A=0+round(randn(n)*2),B=0+round(randn(n)*2),[v,d]=eig(A,B), v*diag(1./v(1,:))
+%\end{verbatim}
+\begin{enumerate}
+\item \(A=\begin{bmatrix} 1 & 3
+\\ 0 & 0 \end{bmatrix}\),
+\(B=\begin{bmatrix} 0 & 3
+\\ 4 & 4 \end{bmatrix}\)
+\answer{eigenvalues \(0,\tfrac23\); eigenvectors proportional to \((3,-1),(1,-1)\), respectively}
+
+\item \(A=\begin{bmatrix} -1 & 0
+\\ 5 & 1 \end{bmatrix}\),
+\(B=\begin{bmatrix} 1 & 2
+\\ -1 & -2 \end{bmatrix}\)
+\answer{eigenvalue \(\tfrac17\); eigenvectors proportional to \((1,-4)\)}
+
+\item \(A=\begin{bmatrix} 3 & -1
+\\ -1 & -2 \end{bmatrix}\),
+\(B=\begin{bmatrix} -3 & -3
+\\ 1 & -1 \end{bmatrix}\)
+\answer{eigenvalues \(-1,\tfrac76\); eigenvectors proportional to \((1,0),(1,-\tfrac{13}6\), respectively}
+
+\item \(A=\begin{bmatrix} 1 & -1
+\\ 1 & -4 \end{bmatrix}\),
+\(B=\begin{bmatrix} 1 & -0
+\\ 2 & -2 \end{bmatrix}\)
+\answer{eigenvalues \(1\pm i/\sqrt2\), eigenvectors proportional to \((1,\mp i/\sqrt2)\), respectively}
+
+\item \(A=\begin{bmatrix} 0 & 1 & -2
+\\ -2 & -1 & -2
+\\ 1 & 0 & 2 \end{bmatrix}\),
+\(B=\begin{bmatrix} 1 & 0 & 1
+\\ 0 & -2 & 1
+\\ -1 & -3 & -1 \end{bmatrix}\)
+\answer{eigenvalues \(\tfrac73,-2,0\); eigenvectors proportional to \((1,-\tfrac18,-\tfrac{59}{104}),(0,0,1),(1,-1,-\tfrac12)\), respectively}
+
+\item \(A=\begin{bmatrix} 0 & -2 & 1
+\\ -4 & 2 & 3
+\\ 2 & -2 & -1 \end{bmatrix}\),
+\(B=\begin{bmatrix} 0 & 0 & -1
+\\ 0 & 0 & -1
+\\ -2 & 0 & 0 \end{bmatrix}\)
+\answer{eigenvalues \(0,-2\); eigenvectors proportional to \((1,\tfrac12,1),(0,-\tfrac12,1)\), respectively}
+
+\item \(A=\begin{bmatrix} -1 & 1 & -2
+\\ -4 & 0 & 3
+\\ 0 & -3 & 0 \end{bmatrix}\),
+\(B=\begin{bmatrix} -1 & 1 & 1
+\\ 5 & -2 & 1
+\\ 2 & -2 & -2 \end{bmatrix}\)
+\answer{eigenvalue \(-\tfrac{11}2\); eigenvectors proportional to \((15,22,-13)\)}
+
+\item \(A=\begin{bmatrix} -1 & 2 & -1
+\\ 0 & -2 & -1
+\\ 3 & 2 & 1 \end{bmatrix}\),
+\(B=\begin{bmatrix} -1 & 2 & -1
+\\ 0 & 2 & 1
+\\ 3 & 1 & -2 \end{bmatrix}\)
+\answer{eigenvalues \(1,\tfrac{12}{17},-1\); eigenvectors proportional to \((1,0,0),(4,1,-2),(1,-7,-15)\), respectively}
+
+\end{enumerate}
+\end{exercise}
+
+
+%\begin{verbatim}
+%n=4,A=0+round(randn(n)*2),B=0+round(randn(n)),[v,d]=eig(A,B), diag(d)'
+%\end{verbatim}
+\begin{exercise} \label{ex:} 
+Use \script\ to find and describe all eigenvalues and corresponding eigenvectors of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for the following pairs of matrices.
+\begin{enumerate}
+\item \(A=\begin{bmatrix} -2 & 1 & -2 & -2
+\\ -2 & 2 & -1 & 0
+\\ -1 & 1 & 2 & 1
+\\ 1 & -2 & -1 & -1 \end{bmatrix}\),
+\(B=\begin{bmatrix} -1 & 0 & -3 & 1
+\\ -1 & 1 & -1 & 1
+\\ -1 & 1 & 0 & 1
+\\ 3 & 5 & 0 & -2 \end{bmatrix}\)
+\answer{eigenvalues \(21.72, 1.50, -0.08, -2.15\) \twodp}
+
+\item \(A=\begin{bmatrix} 3 & 1 & -2 & -4
+\\ -2 & -3 & -3 & 2
+\\ 1 & 1 & 1 & 2
+\\ 1 & 2 & 0 & 0 \end{bmatrix}\),
+\(B=\begin{bmatrix} -2 & 1 & 1 & 1
+\\ 1 & -1 & 1 & -1
+\\ 2 & 0 & -1 & 0
+\\ 0 & 0 & 1 & 0 \end{bmatrix}\)
+\answer{eigenvalues \(-5.26, 1.53, -0.98\) \twodp}
+
+\item \(A=\begin{bmatrix} 0 & 2 & -1 & -1
+\\ 0 & 0 & -1 & 0
+\\ 3 & -3 & -1 & 1
+\\ 2 & -3 & -2 & -3 \end{bmatrix}\),
+\(B=\begin{bmatrix} 1 & 2 & 1 & 1
+\\ 1 & 0 & 0 & -1
+\\ 0 & 0 & 0 & 0
+\\ 2 & -1 & -1 & 0 \end{bmatrix}\)
+\answer{eigenvalues \(0.73\pm1.13i, -1.37\) \twodp}
+
+\item \(A=\begin{bmatrix} 4 & 4 & 0 & 3
+\\ 1 & -2 & 0 & 1
+\\ 0 & 2 & 4 & 2
+\\ 0 & 2 & -1 & 1 \end{bmatrix}\),
+\(B=\begin{bmatrix} -1 & 2 & -1 & 1
+\\ -2 & 2 & 1 & 1
+\\ -1 & 0 & 1 & -2
+\\ 1 & 1 & 1 & -1 \end{bmatrix}\)
+\answer{eigenvalues \(2.74, -2.20, -0.50\pm0.62i\) \twodp}
+  
+\end{enumerate}
+\end{exercise}
+
+
+\begin{exercise} \label{ex:} 
+Use the properties of determinants (\autoref{ch:ddm}), and that an \(n\)th~degree polynomial has exactly \(n\)~zeros (when counted according to multiplicity), to explain why the generalised eigen-problem \(A\vv=\lambda B\vv\), for real \(n\times n\) matrices~\(A\) and~\(B\), has \(n\)~eigenvalues iff matrix~\(B\) is invertible.
+\end{exercise}
+
+
+%\begin{verbatim}
+%n=2,A=randn(2);A=0+round(A+A'),B=randn(n);B=0+round(B+B'),[v,d]=eig(A,B)
+%\end{verbatim}
+\begin{exercise} \label{ex:} 
+Consider the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) and let \(\lambda_1\neq\lambda_2\) be distinct eigenvalues with corresponding eigenvectors~\(\vv_1\) and~\(\vv_2\), respectively.
+Invent two real \emph{symmetric} matrices~\(A\) and~\(B\) and record your working which demonstrates that although~\(\vv_1\) and~\(\vv_2\) are not orthogonal, nonetheless \(\tr{\vv_1}B\vv_2=0\).
+\answer{one possibility is \(A=\begin{bmatrix} -1&-1\\-1&1 \end{bmatrix}\) and \(B=\begin{bmatrix} 1&1\\1&0 \end{bmatrix}\)} 
+\end{exercise}
+
+
+\begin{exercise} \label{ex:eennmov} 
+Consider the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for real \emph{symmetric} \(n\times n\) matrices~\(A\) and~\(B\). 
+Let \(\lambda_1\neq\lambda_2\) be distinct eigenvalues with corresponding eigenvectors~\(\vv_1\) and~\(\vv_2\), respectively.
+Prove that \(\tr{\vv_1}B\vv_2=0\) always holds.
+\end{exercise}
+
+
+\begin{exercise} \label{ex:eennmre} 
+Prove that if both~\(A\) and~\(B\) are real \emph{symmetric} \(n\times n\) matrices, then the eigenvalues of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) are all real.
+Briefly explain why it is necessary to also have the additional proviso that the eigenvalues of~\(B\) are either all positive or all negative.
+\end{exercise}
+
+
+\begin{exercise} \label{ex:} 
+Explain briefly how the properties established in the the previous two Exercises~\ref{ex:eennmov} and~\ref{ex:eennmre} generalise important properties of the standard eigen-problem \(A\xv=\lambda\xv\) for symmetric~\(A\).
+\end{exercise}
+
+
+
+
+
+
+%\begin{verbatim}
+%n=3,dt=0.5
+%rs=[1 1/2 1/3 2/3 3/2 1/4 3/4 4/3]
+%erat=rs(randperm(length(rs),n))
+%[cn,cd]=rat(randn(1,n),0.2);
+%[r,t]=meshgrid(erat,(0:2*n-1)*dt);
+%f=(r.^t)*(cn./cd)'
+%A=hankel(f(2:n+1),f(n+1:2*n))
+%B=hankel(f(1:n),f(n:2*n-1))
+%lambda=eig(A,B)
+%r=log(lambda)/dt
+%[U,P]=meshgrid(lambda,0:n-1);
+%U=U.^P
+%rcond(U)
+%c=U\f(1:n)
+%expr=exp(r)
+%\end{verbatim}
+\begin{exercise} \label{eg:}
+Consider the specified data values~\fv\ at the specified times, and by hand or \script\ fit a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
+Plot the data and the curve you have fitted.
+\begin{enumerate}
+\item For times \(0,1,2,3\) the data values are \[\fv=(3, 2.75, 2.5625, 2.4219).\]
+\answer{\(f=(3/4)^t+2\)}
+\item For times \(0,1,2,3\) the data values are \[\fv=(1.5833, 1.3333, 1.3056, 1.4954).\]
+\answer{\(f=\tfrac54(2/3)^t+\tfrac13(3/2)^t\)}
+\item For times \(0,2,4,6\) the data values are \[\fv=(-1, 0.222222, 0.172840, 0.085048).\]
+\answer{\(f=-2(1/3)^t+(2/3)^t\)}
+\item For times \(0,0.5,1,1.5\) the data values are \[\fv=(1.3, 0.75355, 0.45, 0.27678).\]
+\answer{\(f=\tfrac45(1/4)^t+\tfrac12(1/2)^t\)}
+
+\item For times \(0,1,2,\ldots,5\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[-1.00000
+  0.12500
+  0.71875
+  1.03906
+  1.21680
+  1.31885]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} -1.00000
+\\ 0.12500
+\\ 0.71875
+\\ 1.03906
+\\ 1.21680
+\\ 1.31885 \end{bmatrix}.\]
+\answer{\(f=-2(1/2)^t-\tfrac12(3/4)^t+\tfrac32\)}
+  
+\item For times \(0,1,2,\ldots,5\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[3.250000
+   2.041667
+   1.225694
+   0.673900
+   0.300178
+   0.046636]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} 3.250000
+\\ 2.041667
+\\ 1.225694
+\\ 0.673900
+\\ 0.300178
+\\ 0.046636 \end{bmatrix}.\]
+\answer{\(f=3.25(2/3)^t+\tfrac12(3/4)^t-\tfrac12\)}
+  
+\item For times \(0,2,4,\ldots,10\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[0.16667
+    1.38889
+    2.72984
+    5.81259
+   12.88104
+   28.87004]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} 0.16667
+\\ 1.38889
+\\ 2.72984
+\\ 5.81259
+\\ 12.88104
+\\ 28.87004 \end{bmatrix}.\]
+\answer{\(f=\tfrac12(3/2)^t-(1/3)^t+\tfrac23(3/4)^t\)}
+  
+\item For times \(0,0.5,1,\ldots,2.5\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[0.75000
+  0.89846
+  1.08333
+  1.30323
+  1.55903
+  1.85343]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} 0.75000
+\\ 0.89846
+\\ 1.08333
+\\ 1.30323
+\\ 1.55903
+\\ 1.85343 \end{bmatrix}.\]
+\answer{\(f=(4/3)^t+\tfrac14(1/2)^t-\tfrac12(3/4)^t\)}
+  
+\end{enumerate}
+\end{exercise}
+
+
+
+%\begin{verbatim}
+%n=4,dt=2
+%ws=1+rand(1,n/2),rs=-rand(1,n/2)
+%ps=pi*rand(1,n/2),cs=randn(1,n/2)
+%ts=(0:2*n-1)'*dt;
+%f=0;for k=1:n/2,f=f+cs(k)*exp(rs(k)*ts).*cos(ws(k)*ts+ps(k));end
+%f=f
+%A=hankel(f(2:n+1),f(n+1:2*n));
+%B=hankel(f(1:n),f(n:2*n-1));
+%lambda=eig(A,B)
+%r=log(lambda)/dt
+%[U,P]=meshgrid(lambda,0:n-1); U=U.^P;
+%rcond(U)
+%c=U\f(1:n);
+%expr=exp(r);
+%\end{verbatim}
+\begin{exercise} \label{ex:} 
+Consider the specified data values~\fv\ of some decaying oscillations at the specified times (in seconds).
+Use \script\ to fit a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
+Confirm your fit reproduces the data values.
+What frequencies do you detect in the fitted constants?
+\begin{enumerate}
+\item  For times \(0,1,2,\ldots,7\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[-0.153161
+   0.484787
+  -0.124780
+  -0.283690
+   0.201896
+   0.174832
+  -0.200418
+  -0.092107]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} -0.153161
+\\  0.484787
+\\ -0.124780
+\\ -0.283690
+\\  0.201896
+\\  0.174832
+\\ -0.200418
+\\ -0.092107 \end{bmatrix}.\]
+\answer{frequencies \(1.20\) and \(1.70\) radians/sec \twodp}
+  
+\item  For times \(0,1,2,\ldots,7\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[1.225432
+   0.499044
+   0.034164
+  -0.093971
+  -0.103784
+  -0.028558
+   0.033825
+   0.026439]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} 1.225432
+\\  0.499044
+\\  0.034164
+\\ -0.093971
+\\ -0.103784
+\\ -0.028558
+\\  0.033825
+\\  0.026439 \end{bmatrix}.\]
+\answer{frequencies \(1.57\) and \(1.16\) radians/sec \twodp}
+  
+\item  For times \(0,0.5,1,\ldots,3.5\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[0.0060901
+   0.1753701
+   0.2385516
+   0.1787653
+   0.0404368
+  -0.0998597
+  -0.1742818
+  -0.1552607]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} 0.0060901
+\\  0.1753701
+\\  0.2385516
+\\  0.1787653
+\\  0.0404368
+\\ -0.0998597
+\\ -0.1742818
+\\ -0.1552607 \end{bmatrix}.\]
+\answer{frequencies \(1.94\) and \(1.46\) radians/sec \twodp}
+  
+\item  For times \(0,2,4,\ldots,14\) the data values are 
+\setbox\ajrqrbox\hbox{\qrcode{% f
+f=[1.297867
+  -0.800035
+   0.487305
+  -0.285714
+   0.161499
+  -0.090411
+   0.051244
+  -0.028936]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\[ \fv=\begin{bmatrix} 1.297867
+\\ -0.800035
+\\  0.487305
+\\ -0.285714
+\\  0.161499
+\\ -0.090411
+\\  0.051244
+\\ -0.028936 \end{bmatrix}.\]
+\answer{frequencies \(1.01\) and \(1.53\) radians/sec \twodp}
+  
+\end{enumerate}
+\end{exercise}
+
+
+
+
+% supernova CN1991T perhaps \cite[p.146, Ch.~8]{Pereyra2010}
+% days from 2448300 and 20-B, digitised from SN1991T.pdf
+%   64.2857    7.2833
+%   65.0794    7.5333
+%   66.6667    7.8500
+%   73.8095    8.2500
+%   81.7460    8.1333
+%   88.0952    7.6000
+%   95.2381    6.8667
+%  104.7619    5.9167
+%  121.4286    5.4500
+%  132.5397    5.2500
+%  146.0317    5.0333
+%  159.5238    4.8667
+% use data 3 to 8, say roughly 8 days apart, and mangle to get real
+%\begin{verbatim}
+%n=3,dt=8
+%f=[0.6543
+%   1.5783
+%   1.6406
+%   0.3678
+%   0.05918
+%   0.008227]
+%A=hankel(f(2:n+1),f(n+1:2*n));
+%B=hankel(f(1:n),f(n:2*n-1));
+%lambda=eig(A,B)
+%r=log(lambda)/dt
+%[U,P]=meshgrid(lambda,0:n-1); U=U.^P;
+%rcond(U)
+%c=U\f(1:n)
+%\end{verbatim}
+\begin{exercise} \label{ex:} 
+In astronomy, Type~Ia supernova explode, peaking in luminosity in a few days, and then their luminosity declines over months. 
+It is conjectured that the decline is powered by the radioactive decay from radioactive Nickel to Cobalt to Iron.
+For the supernova \textsc{sn1991t} six measurements, starting on Julian day 2448366 and taken approximately 8~days apart, give the following luminosity values (in some units) \cite[p.146]{Pereyra2010}:
+\setbox\ajrqrbox\hbox{\qrcode{% lumen
+f=[0.6543
+   1.5783
+   1.6406
+   0.3678
+   0.05918
+   0.008227]
+}}\marginpar{\usebox{\ajrqrbox}}%
+\begin{equation*}
+\fv=\begin{bmatrix} 0.6543
+\\ 1.5783
+\\ 1.6406
+\\ 0.3678
+\\ 0.05918
+\\ 0.008227 \end{bmatrix}
+\end{equation*}
+Detect the exponential decay in this supernova data by fitting a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+c_3e^{r_3t}\).
+Comment on the result.
+\answer{\(f=1459e^{-0.36t}-2044e^{-0.33t}+585e^{-0.27t}\) where \(t\) is days post-2448366; but rcond is very poor!}
+\end{exercise}
+
+
+
+
+%\begin{verbatim}
+%year=(1944:1993)';
+%soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
+%6.42; -6.51; 0.07; -1.96; 1.72; 6.49; -5.61
+%-0.24; -2.90; 1.92; 6.54; -4.61; -0.47; -3.82
+%1.94; 6.56; -3.53; -0.59; -4.69; 1.76; 6.53
+%-2.38; -0.59; -5.48; 1.41; 6.41; -1.18; -0.45
+%-6.19; 0.89; 6.19; 0.03; -0.16; -6.78; 0.21; 5.84
+%1.23; 0.30; -7.22; -0.60; 5.33; 2.36; 0.91 ];
+%n=length(year)/2, dt=1
+%A=hankel(soi(2:n+1),soi(n+1:2*n));
+%B=hankel(soi(1:n),soi(n:2*n-1));
+%lambda=eig(A,B)
+%r=log(lambda)/dt
+%[U,P]=meshgrid(lambda,0:n-1); U=U.^P;
+%rcond(U)
+%c=U\soi(1:n)
+%expr=exp(r);
+%\end{verbatim}
+\begin{exercise} \label{ex:} 
+Recall that \autoref{eg:orthbapp} introduced the phenomenon of \idx{El Nino} which makes a large impact on the world's weather.
+El Nino is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
+\autoref{fig:soiRoundData} plots a (`smoothed') yearly average \soi\ each year for fifty years up to 1993.
+Here detect the cycles in the \soi\ by analysing the plotted data as a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
+\begin{enumerate}
+\item Enter the data into \script:
+\setbox\ajrqrbox\hbox{\qrcode{% soi
+year=(1944:1993)';
+soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
+6.42; -6.51; 0.07; -1.96; 1.72; 6.49; -5.61
+-0.24; -2.90; 1.92; 6.54; -4.61; -0.47; -3.82
+1.94; 6.56; -3.53; -0.59; -4.69; 1.76; 6.53
+-2.38; -0.59; -5.48; 1.41; 6.41; -1.18; -0.45
+-6.19; 0.89; 6.19; 0.03; -0.16; -6.78; 0.21; 5.84
+1.23; 0.30; -7.22; -0.60; 5.33; 2.36; 0.91 ];
+}}\marginpar{\usebox{\ajrqrbox}}%
+\begin{verbatim}
+year=(1944:1993)';
+soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
+6.42; -6.51; 0.07; -1.96; 1.72; 6.49; -5.61
+-0.24; -2.90; 1.92; 6.54; -4.61; -0.47; -3.82
+1.94; 6.56; -3.53; -0.59; -4.69; 1.76; 6.53
+-2.38; -0.59; -5.48; 1.41; 6.41; -1.18; -0.45
+-6.19; 0.89; 6.19; 0.03; -0.16; -6.78; 0.21; 5.84
+1.23; 0.30; -7.22; -0.60; 5.33; 2.36; 0.91 ];
+\end{verbatim}
+
+\item Use \autoref{pro:ei} in \script\ to compute the twenty-five complex rates~\rv\ and twenty-five complex coefficients~\cv\ that fit the data.
+% albeit poor rcond
+
+\item Find the four relatively large coefficients, when compared to the relatively small coefficients of magnitude\({}<0.015\).
+% should really look at size of c*exp(Re(r)t)---but almost the same
+
+\item Explain why these four coefficients indicate that the \soi\ data appears to be dominantly composed of oscillations with periods about \(5.1\)~years and \(2.5\)~years.
+% is the 2.5 year a harmonic of the 5 year oscillation?
+
+\end{enumerate}
+\end{exercise}
+
+
+
 
 
 
