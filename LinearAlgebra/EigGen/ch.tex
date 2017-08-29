@@ -33,7 +33,7 @@ Then form these last two equations as the matrix-vector equation
 \end{equation*}
 That is, this substitution \((y,z)=\xv \lambda^{t}\) shows the question about finding solutions of the population equations reduces to solving \(A\xv=\lambda \xv\)\,, called an \idx{eigen-problem}.
 
-The linear algebra of the eigen-problem will empower us to predict that the general solution for the population is, in terms of two constants~\(c_1\) and~\(c_2\), that one species has female population \(y(t)=2c_14^t+2c_2\) whereas the the second species has female population \(z(t)=-c_14^t+c_2\)\,.
+This chapter develops linear algebra for such eigen-problems that empowers us to predict that the general solution for the population is, in terms of two constants~\(c_1\) and~\(c_2\), that one species has female population \(y(t)=2c_14^t+2c_2\) whereas the the second species has female population \(z(t)=-c_14^t+c_2\)\,.
 
 %Modelling might deduce the populations interact according to the pair  of \idx{differential equation}s \(\dot y=y-4z\) and \(\dot z=-y+z\) (where the overdot denotes~\(d/dt\)); that is, if it was not for the other species the number of females would both grow according to \(\dot y=y\) and \(\dot z=z\)\,, but the other species decreases their growth via the~\(-2z\) and~\(-y\) terms.  
 %
@@ -57,16 +57,19 @@ The linear algebra of the eigen-problem will empower us to predict that the gene
 %That is, this substitution \((y,z)=\xv e^{\lambda t}\) shows the question about solutions of differential equations reduces to solving \(A\xv=\lambda \xv\)\,, called an eigen-problem.
 
 
-
+\index{eigenvalue|(}
+\index{eigenvector|(}
+\index{eigenspace|(}
 
 
 \paragraph{The basic eigen-problem}
-Recall from \autoref{sec:iee} that the \idx{eigen-problem} equation \(A\xv=\lambda\xv\) is just asking can we find directions~\xv\ such that matrix~\(A\) acting on~\xv\ is in the same direction as~\xv; that is, when is~\(A\xv\) the same as~\(\lambda\xv\) for some proportionality constant~\(\lambda\).
+Recall from \autoref{sec:iee} that the \idx{eigen-problem} equation \(A\xv=\lambda\xv\) is just asking can we find directions~\xv\ such that matrix~\(A\) acting on~\xv\ is in the same direction as~\xv. 
+That is, when is~\(A\xv\) the same as~\(\lambda\xv\) for some proportionality constant~\(\lambda\)?
 Now \(\xv=\ov\) is always a solution of the  equation \(A\xv=\lambda \xv\)\,.
 Consequently, we are only interested in those values of the \idx{eigenvalue}~\(\lambda\) when non-zero solutions for the \idx{eigenvector}~\xv\ exist (as it is the directions which are of interest).
 Rearranging the equation \(A\xv=\lambda\xv\) as the homogeneous system \((A-\lambda I)\xv=\ov\)\,, let's invoke properties of linear equations to solve the eigen-problem.
 \begin{itemize}
-\item \autoref{pro:eeh} establishes that one way to find the eigenvalues~\(\lambda\) (suitable for matrices of small size) is to solve the \idx{characteristic equation} \(\det(A-\lambda I)=0\)\,. 
+\item \autoref{pro:eeh} establishes that one way to find the eigenvalues~\(\lambda\) (albeit \emph{only} suitable for matrices of small size) is to solve the \idx{characteristic equation} \(\det(A-\lambda I)=0\)\,. 
 \item Then for each eigenvalue, solving the homogeneous system \((A-\lambda I)\xv=\ov\) gives corresponding eigenvectors~\xv. 
 \item The set of eigenvectors for a given eigenvalue forms a subspace called the \idx{eigenspace}~\(\EE_\lambda\) (\autoref{thm:espacedef}).
 
@@ -102,7 +105,7 @@ In this second case, for
 there appears to be no (red) vector~\(A\xv\) in the same direction as the corresponding (blue) vector~\xv.
 Thus there appears to be no eigenvectors at all.
 No eigenvectors and eigenvalues is the answer if we require real answers.
-However, in most applications we find it sensible to have complex valued eigenvalues and eigenvectors (\autoref{sec:eennm}).
+However, in most applications we find it sensible to have complex valued eigenvalues and eigenvectors (\autoref{sec:eennm})\index{complex eigenvalue}\index{complex eigenvector}.
 So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in \autoref{eg:ccevals}). 
 \footnote{In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
 Such a consistent `rotation' in~\(A\xv\) is characteristic of matrices with complex valued eigenvalues and eigenvectors.}
@@ -122,20 +125,21 @@ The first problem of the general lack of orthogonality of the eigenvectors is mo
 The reason is  linked to \autoref{thm:rpdet:vi} that the determinant of a triangular matrix is simply the product of its diagonal entries.
 
 \begin{example} \label{eg:}
-Find algebraically the eigenvalues and eigenvectors of the triangular matrix \(A=\scriptstyle\begin{bmatrix} 2&1\\0&3 \end{bmatrix}\).
+Find by algebra the eigenvalues and eigenvectors of the \idx{triangular matrix} \(A=\begin{bmatrix} 2&1\\0&3 \end{bmatrix}\).
 \begin{solution} 
 Recall \autoref{pro:eeh}. 
 \begin{enumerate}
 \item Find all eigenvalues by solving the characteristic equation \(\det(A-\lambda I)=0\)\,. 
-Here \(\det(A-\lambda I)=\det\scriptstyle\begin{bmatrix} 2-\lambda&1\\0&3-\lambda \end{bmatrix}\) which being a triangular matrix has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
+Here \(\det(A-\lambda I)=\det\begin{bmatrix} 2-\lambda&1\\0&3-\lambda \end{bmatrix}\) which being a triangular matrix has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
 This determinant is zero only for eigenvalues \(\lambda=2\) or~\(3\).
 These are the diagonal entries in the triangular matrix.
 \item For each eigenvalue, find corresponding eigenvectors by solving the system \((A-\lambda I)\xv=\ov\)\,.
 \begin{itemize}
-\item For \(\lambda=2\), the system is \({\scriptstyle\begin{bmatrix} 0&1\\0&1 \end{bmatrix}}\xv=\ov\) which requires \(x_2=0\)\,.  That is, all eigenvectors are~\(x_1(1,0)\).
-\item For \(\lambda=3\), the system is \({\scriptstyle\begin{bmatrix} -1&1\\0&0 \end{bmatrix}}\xv=\ov\) which requires \(x_1=x_2\)\,.  That is, all eigenvectors are~\(x_2(1,1)\).
+\item For \(\lambda=2\), the system is \(\begin{bmatrix} 0&1\\0&1 \end{bmatrix}\xv=\ov\) which requires \(x_2=0\)\,.  That is, all eigenvectors are~\(x_1(1,0)\).
+\item For \(\lambda=3\), the system is \(\begin{bmatrix} -1&1\\0&0 \end{bmatrix}\xv=\ov\) which requires \(x_1=x_2\)\,.  That is, all eigenvectors are~\(x_2(1,1)\).
 \end{itemize}
-The eigenvectors corresponding to the different eigenvalues are not orthogonal as their dot product \((1,0)\cdot(1,1)=1+0=1\neq 0\)\,: instead they are at~\(45^\circ\) to each other.
+The eigenvectors corresponding to the different eigenvalues are not orthogonal as their dot product \((1,0)\cdot(1,1)=1+0=1\neq 0\)\,. 
+Instead the different eigenvectors are at~\(45^\circ\) to each other.
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -150,7 +154,7 @@ The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{gen
 \begin{proof} 
 We detail only the case of upper triangular matrices as the argument is similar for lower triangular matrices. 
 First establish that the diagonal entries are eigenvalues, and second prove there are no others.
-Let \(\lambda\) be any value in the diagonal of the matrix~\(A\), and let \(k\)~be the smallest index such that \(a_{kk}=\lambda\) (this `smallest' caters for duplicated diagonal values).
+Let \(\lambda\) be any value in the diagonal of the matrix~\(A\), and let \(k\)~be the smallest index such that \(a_{k,k}=\lambda\) (this `smallest' caters for duplicated diagonal values).
 Let's construct an eigenvector in the form \(\xv=(\hlist x{k-1},1,0,\ldots,0)\).  
 Set \(x_k=1\) and \(x_j=0\) for \(j>k\)\,.
 Then set 
@@ -185,11 +189,11 @@ Rearranging the above equations shows that this vector~\xv\ satisfies, for  \(\l
 \end{array}
 \end{equation*}
 that is, \((A-\lambda I)\xv=\ov\)\,.
-Rearranging gives \(A\xv=\lambda\xv\) for non-zero eigenvector~\xv\ and corresponding eigenvalue~\(\lambda=a_{kk}\)\,.
+Rearranging gives \(A\xv=\lambda\xv\) for non-zero eigenvector~\xv\ and corresponding eigenvalue~\(\lambda=a_{k,k}\)\,.
 
 Second, there can be no other eigenvalues.
-Every eigenvalue has to have non-trivial solutions, eigenvectors~\xv, to \((A-\lambda I)\xv=\ov\)\,, which by \autoref{thm:detinv} requires \(\det(A-\lambda I)=0\)\,.
-But matrix \((A-\lambda I)\) is upper triangular, as \(A\)~is upper triangular, so \autoref{thm:rpdet:vi} asserts the determinant
+Every eigenvalue has to have non-trivial solutions, non-zero eigenvectors~\xv, to \((A-\lambda I)\xv=\ov\)\,, which by \autoref{thm:detinv} requires \(\det(A-\lambda I)=0\)\,.
+But as \(A\)~is upper triangular, matrix \((A-\lambda I)\) is upper triangular and so \autoref{thm:rpdet:vi} asserts the determinant
 \begin{equation*}
 \det(A-\lambda I)=(a_{1,1}-\lambda)(a_{2,2}-\lambda)
 \cdots(a_{n,n}-\lambda).
@@ -197,7 +201,7 @@ But matrix \((A-\lambda I)\) is upper triangular, as \(A\)~is upper triangular, 
 This expression is zero iff the eigenvalue~\(\lambda\) is one of the diagonal elements of~\(A\).
 
 As an example of the non-orthogonality of eigenvectors, consider the two eigenvalues \(\lambda_1=a_{1,1}\) and \(\lambda_2=a_{2,2}\) with  corresponding eigenvectors \(\xv_1=(1,0,0,\ldots,0)\) and \(\xv_2=(-a_{1,2}/(a_{1,1}-a_{2,2}),1,0,\ldots,0)\).
-Then the dot product \(\xv_1\cdot\xv_2=-a_{1,2}/(a_{1,1}-a_{2,2})\neq 0\) in general (the dot product is zero only when \(a_{1,2}=0\)).
+Then the dot product \(\xv_1\cdot\xv_2=-a_{1,2}/(a_{1,1}-a_{2,2})\neq 0\) in general (the dot product is zero only in the special case when \(a_{1,2}=0\)).
 Since the dot product is generally non-zero, \(\xv_1\) and~\(\xv_2\) are generally not orthogonal.
 Similarly for other pairs of eigenvectors corresponding to distinct eigenvalues.
 \end{proof}
@@ -205,7 +209,7 @@ Similarly for other pairs of eigenvectors corresponding to distinct eigenvalues.
 
 
 \begin{example} \label{eg:trieig}
-Use \autoref{thm:trieig} to find the eigenvalues, corresponding eigenvectors, and corresponding eigenspaces, of the following triangular matrices.
+Use \autoref{thm:trieig} to find the eigenvalues, corresponding eigenvectors, and corresponding eigenspaces, of the following triangular matrices.\index{triangular matrix}
 \begin{enumerate}
 \item \(\eAii=\begin{bmatrix}-3&2&0
 \\0&-4&2
@@ -334,8 +338,8 @@ What are all the eigenvalues of the matrix
 
 
 
-One consequence of the second part of the proof of \autoref{thm:trieig} is that, when counted according to multiplicity, there are precisely \(n\)~eigenvalues of an \(n\times n\) diagonal matrix.
-Correspondingly, the next section establishes there are precisely \(n\)~eigenvalues of general \(n\times n\) matrices, provided we count the eigenvalues according to multiplicity and allow complex valued eigenvalues.
+One consequence of the second part of the proof of \autoref{thm:trieig} is that, when counted according to multiplicity, there are precisely \(n\)~eigenvalues of an \(n\times n\) \idx{triangular matrix}.
+Correspondingly, the next \autoref{sec:eennm} establishes there are precisely \(n\)~eigenvalues of general \(n\times n\) matrices, provided we count the eigenvalues according to multiplicity and allow \idx{complex eigenvalue}s.
 
 
 
@@ -466,6 +470,10 @@ Show your working.
 \end{parts}
 \end{exercise}
 
+
+\index{eigenvalue|)}
+\index{eigenvector|)}
+\index{eigenspace|)}
 
 
 

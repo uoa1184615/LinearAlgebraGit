@@ -11,17 +11,14 @@
 
 
 This chapter focuses on some marvellous properties of symmetric matrices.  
-Nonetheless it defines some basic concepts in general.  
-\autoref{ch:gee} explores analogous properties for general matrices.
+Nonetheless it defines some basic concepts which also apply to general matrices.  
+\autoref{ch:gee} explores analogous properties for such general matrices.
 The marvellously useful properties developed here result from asking for which vectors does multiplication by a given matrix simply stretch or shrink the vector.
 
 
 \begin{definition} \label{def:evecval}
 Let \(A\) be a \idx{square matrix}.  
-A scalar~\(\lambda\) is called an \bfidx{eigenvalue} of~\(A\) if 
-\begin{aside}
-The symbol~\idx{$\lambda$} is the Greek letter lambda, and denotes eigenvalues.
-\end{aside}%
+A scalar~\(\lambda\) (lambda) is called an \bfidx{eigenvalue} of~\(A\) if 
 there is a nonzero vector~\xv\ such that \(A\xv=\lambda\xv\)\,. 
 Such a vector~\xv\ is called an \bfidx{eigenvector} of~\(A\) corresponding to the eigenvalue~\(\lambda\).   
 \end{definition}
@@ -319,8 +316,8 @@ By \autoref{def:evecval}, each diagonal element~\(d_j\)  is an eigenvalue of the
 
 \paragraph{Eigenvalues}
 The \(3\times 3\) matrix of \autoref{eg:eig3intro} has three eigenvalues.
-The \(2\times2\) matrices underlying Examples~\ref{eg:eig2pic1}--\ref{eg:eig2pic2} both have two eigenvalues.
-An \(n\times n\) diagonal matrix has \(n\)~eigenvalues.
+The \(2\times2\) matrices underlying Examples~\ref{eg:eig2pic1} and~\ref{eg:eig2pic2} both have two eigenvalues.
+\autoref{eg:eigndiag} shows an \(n\times n\) diagonal matrix has \(n\)~eigenvalues.
 The next section establishes the general pattern that an \(n\times n\) \emph{symmetric matrix} generally has \(n\)~real eigenvalues.
 However, the eigenvalues of non-symmetric matrices are more complex (in both senses of the word) as explored by \autoref{ch:gee}.
 
@@ -506,7 +503,7 @@ The multiplicity of the various eigenvalues in earlier examples are the followin
 \subsection{Systematically find eigenvalues and eigenvectors}
 
 Computer packages easily compute eigenvalues and eigenvectors for us.
-Sometimes we need to explicitly see dependence upon a parameter so this subsections also develops how to find by hand the eigenvalues and eigenvectors of small matrices.
+Sometimes we need to explicitly see dependence upon a parameter so this subsection also develops how to find by hand the eigenvalues and eigenvectors of small matrices.
 We start with computation.
 
 
@@ -691,7 +688,7 @@ Consider three triangles formed into a triangle (as shown in the margin)---perha
     ,{sin(\x)-0.347*sin(2*\x)});
 \end{axis}
 \end{tikzpicture}}%
-Form an matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) of ones if node~\(i\) is connected to node~\(j\); and set the diagonal~\(a_{ii}\) to be minus the number of other nodes to which node~\(i\) is connected.
+Form an matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) of ones if node~\(i\) is connected to node~\(j\);  set the diagonal~\(a_{ii}\) to be minus the number of other nodes to which node~\(i\) is connected; and all other components of~\(A\) are zero.
 The symmetry of the matrix~\(A\) follows from the symmetry of the connections: construct the matrix, check it is symmetric, and find the \idx{eigenvalue}s and \idx{eigenspace}s with \script, and their \idx{multiplicity}.
 For the computed matrices~\(V\) and~\(D\), check that \(AV=VD\) and also that \(V\)~is orthogonal.
 \begin{solution} In \script\ use
@@ -957,25 +954,26 @@ The formulas are best remembered via the following diagrams where products along
 For hand calculation on small matrices the key is the following.
 By \autoref{def:evecval} eigenvalues and eigenvectors are determined from \(A\xv=\lambda\xv\)\,.  
 Rearranging, this equation is equivalent to \((A-\lambda I)\xv=\ov\)\,.  
-Recall that \((A-\lambda I)\xv=\ov\) has nonzero solutions~\xv\ iff the determinant \(\det(A-\lambda I)=0\)\,.
+Both \autoref{thm:2x2det} (\(2\times2\) matrices) and \autoref{thm:detinv} (general matrices) establish that \((A-\lambda I)\xv=\ov\) has nonzero solutions~\xv\ iff the determinant \(\det(A-\lambda I)=0\)\,.
 Since eigenvectors must be nonzero, the \idx{eigenvalue}s of a \idx{square matrix} are precisely the solutions of \(\det(A-\lambda I)=0\)\,. 
 This reasoning leads to the following procedure.
 
 
 \begin{procedure}[eigenvalues and eigenvectors] \label{pro:eeh}
-To find by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{square matrix}~\(A\):
+To find by hand \idx{eigenvalue}s and \idx{eigenvector}s of any (small) \idx{square matrix}~\(A\):
 \begin{enumerate}
 %\item determine the \idx{characteristic polynomial} of~\(A\), \(\det(A-\lambda I)\);
 \item find all \idx{eigenvalue}s by solving the \bfidx{characteristic equation} of~\(A\), \(\det(A-\lambda I)=0\)\,;
-\item for each \idx{eigenvalue}~\(\lambda\), solve the \idx{homogeneous} \((A-\lambda I)\xv=\ov\) to find the \idx{eigenspace}~\(\EE_\lambda\);
+\item for each \idx{eigenvalue}~\(\lambda\), solve the \idx{homogeneous} \((A-\lambda I)\xv=\ov\) to find the corresponding \idx{eigenspace}~\(\EE_\lambda\);
 \item write each eigenspace as the \idx{span} of a few chosen \idx{eigenvector}s.
+% could invoke 'basis' but not yet defined, so use vague 'few'
 \end{enumerate}
 \end{procedure}
 %Since, for an \(n\times n\) matrix, the characteristic polynomial is of \(n\)th~degree in~\(\lambda\), there are \(n\)~eigenvalues (when counted according to multiplicity and allowing complex eigenvalues)
 
-This procedure applies to general matrices~\(A\), as fully established in \autoref{sec:eennm}, but this chapter uses it only for symmetric matrices.
-Further, this chapter uses it only as a convenient method to illustrate properties by some hand calculation.
-None of the beautiful theorems of the next \autoref{sec:sm} for symmetric matrices are based upon this procedure.
+This procedure applies to general matrices~\(A\), as fully established in \autoref{sec:eennm}, but this chapter uses it only for small symmetric matrices.
+Further, this chapter uses it only as a convenient method to illustrate some properties by hand calculation.
+None of the beautiful theorems of the next \autoref{sec:sm} for symmetric matrices are based upon this \text{`by-hand' procedure}.
 
 
 \begin{example} \label{eg:2evals}
@@ -1209,7 +1207,7 @@ Forming into a matrix-vector problem these are
 \begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\xv=\lambda\xv\,.
 \end{equation*}
 We need to find the eigenvalues and eigenvectors of the matrix: we derive eigenvalues are \(\lambda=\pm \sqrt{-1}=\pm i\)\,. 
-Such complex eigenvalues represent oscillations in time~\(t\) since, for example, \(e^{\lambda t}=e^{it}=\cos t+i\sin t\) by \idx{Euler's formula}.
+Physically, such complex eigenvalues represent oscillations in time~\(t\) since, for example, \(e^{\lambda t}=e^{it}=\cos t+i\sin t\) by \idx{Euler's formula}.
 
 
 
@@ -1587,7 +1585,7 @@ This abstract graph is famous for its role in founding the theory of such networ
 Number the nodes from~\(1\) to~\(4\).
 Form the \(4\times 4\) symmetric matrix of the number of lines from each node to the other nodes (and zero for the number of lines from a node to itself).
 Use \script\ function \verb|eig()| to find the eigenvalues and eigenvectors for this matrix.
-Analogous to well known web search software, identify the largest eigenvalue and a corresponding eigenvector:  then rank the importance of each node in order of the size of the component in the corresponding eigenvector.
+Analogous to well known web search software, identify the largest eigenvalue and a corresponding eigenvector:  then rank the importance of each node in order of the size of the component in the corresponding~eigenvector.
 \answer{Number the nodes as you like, say 1=top, 2=centre, 3=right, and 4=bottom.
 Then the matrix is \(\begin{bmatrix} 0&2&1&0
 \\2&0&1&2
@@ -1600,7 +1598,7 @@ Thus rank the centre left node as the most important, the right node is least im
 
 
 \begin{exercise} \label{eg:}
-For each of the following networks:\footnote{Although a well known web search engine does much the same thing for web pages, it uses an approximate iterative algorithm more suited to the mind-boggingly vast size of the internet.}
+For each of the following networks:\footnote{Although a well known web search engine computes eigenvectors for all the web pages, it uses an approximate iterative algorithm more suited to the mind-boggingly vast size of the internet.}
 \begin{itemize}
 \item label the nodes; 
 \item construct the symmetric \idx{adjacency matrix}~\(A\) such that \(a_{ij}\)~is one if node~\(i\) is linked to node~\(j\), and \(a_{ij}\)~is zero otherwise (and zero on the diagonal);
@@ -1633,6 +1631,28 @@ For each of the following networks:\footnote{Although a well known web search en
 Could also give some examples dressed as ODEs (leave to the ODEs in EigGen) or internal stresses.
 \end{comment}
 
+
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item In an \svd, \(\usv\), what is important about singular vectors for which \(\uv_j=\pm \vv_j\)?
+
+\item What fundamental geometric question corresponds to seeking eigenvalues and eigenvectors?
+
+\item Why do we require eigenvectors to be non-zero?
+
+\item For a symmetric matrix, how do its singular values compare to its eigenvalues?
+
+\item What geometric reason underlies the simplicity of the eigenvalues and eigenvectors of diagonal matrices?
+
+\item How does the concept of an eigenspace follow from that of eigenvalues and eigenvectors?
+
+\item How did the concept of multiplicity of eigenvalues for symmetric matrices to arise?
+
+\item How is it that complex eigenvalues can arise for real matrices?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?

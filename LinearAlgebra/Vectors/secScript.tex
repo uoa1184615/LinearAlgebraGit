@@ -21,14 +21,14 @@ The aim is to develop some basic confidence with \script\ before later using it 
 \item  \script[1]\ is commercial software available from Mathworks.\footnote{\url{http://mathworks.com}}
 It is also useable over the internet as \script[1]-Online or \script[1]-Mobile.
 \item \script[2]\ is free software, that for our purposes is almost identical to \script[1], and downloadable over the internet.\footnote{\url{https://www.gnu.org/software/octave/}}
-Octave is also freely useable over the internet.\footnote{\url{http://octave-online.net}} 
+Octave is also freely useable over the internet.\footnote{\url{http://octave-online.net} for example} 
 \item Alternatively, your home institution may provide \script\ via a web service that is useable via smart phones, tablets and computers.
 \end{itemize}
 
 
 
 \begin{comment}
-Avoid plotting because I do not want to confuse a vector with a row vector of plot points.  Plotting is also not high priority.
+Avoid plotting because I do not want to confuse a vector with a row vector of plot points.  Plotting is not high priority except for a few application sections.
 \end{comment}
 
 
@@ -63,18 +63,18 @@ If the result of an expression is not explicitly assigned to a variable, then by
 
 \item \index{norm()@\texttt{norm()}}\verb|norm(v)| computes the \idx{length}\slash \idx{magnitude} of the vector~\verb|v| (\autoref{def:veclen}).
 
-\item \index{+,-,*@\texttt{+,-,*}}\verb|+,-,*| is vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of the two vectors are the same.
+\item \index{+,-,*@\texttt{+,-,*}}\verb|+,-,*| is vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of vectors are the same.
 Parentheses \index{()@\texttt{()}}\verb|()| control the order of operations.
 
 \item \index{/@\texttt{/}}\verb|/x| divides a vector\slash scalar by a scalar~\(x\).
-However, be warned that \verb|/v| for a vector~\vv\ typically gives strange results as \script\ interprets it to mean you want to approximately solve some linear equation.
+However, be warned that \verb|/v| for a vector~\vv\ typically gives a strange result as \script\ interprets it to mean you want to approximately solve some linear equation.
 
 \item \index{^@\texttt{\^}}\verb|x^y| for scalars~\(x\) and~\(y\) computes~\(x^y\).
 
 \item \index{dot()@\texttt{dot()}}\verb|dot(u,v)| computes the \idx{dot product} of vectors~\verb|u| and~\verb|v| (\autoref{def:dotprod})---if they have the same size.
 
 \item \index{acos()@\texttt{acos()}}\verb|acos(q)| computes the \idx{arc-cos}, the \idx{inverse cosine}, of the scalar~\verb|q| in radians.  
-To find the angle in degrees use \verb|acos(q)*180/pi|\,.
+To find the angle in degrees use \verb|acos(q)*180/pi| (\script\ knows \(\verb|pi|=\pi=3.14159\cdots\)).\index{pi@\texttt{pi}}
 
 \item \index{quit@\texttt{quit}}\verb|quit| terminates the \script\ session.
 \end{itemize}
@@ -365,7 +365,8 @@ ans =
 \end{tabular}
 
 \index{error:@\texttt{error:}}
-Alternatively, \script[2] gives the following error message in which ``\idx{nonconformant arguments}'' means of wrong sizes.
+Alternatively, \script[2] gives the following error message.
+In such a message, ``\idx{nonconformant arguments}'' means the vectors are of a wrong size.
 \begin{verbatim}
 error: operator +: nonconformant arguments 
 (op1 is 4x1, op2 is 3x1)
@@ -453,7 +454,7 @@ theta=acos(cost)*180/pi
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}% 
 
 \begin{tabular}{@{}p{0.34\linewidth}p{0.6\linewidth}@{}}\raggedright
-Then invoke \verb|dot()| to compute the dot product in the formula for the cosine of the angle.
+Then compute the dot product, via \verb|dot()|, in the formula for the cosine of the angle.
 &\begin{verbatim}
 >> cost=dot(u,v)/norm(u)/norm(v)
 cost =  0.8615
@@ -564,7 +565,7 @@ which of the following expressions could check the identity that \((\uv-2\vv)\cd
 
 
 
-Many other books \cite[\S\S1.1--3, e.g.]{Quarteroni2006} give more details about the basics than the essentials introduced here.
+Many other books \cite[\S\S1.1--3, e.g.]{Quarteroni2006} give more details about the basics than the essentials that are introduced here.
 
 
 
@@ -682,6 +683,18 @@ d=[1.0;2.0;-1.3;-4.4;-2.0]
 
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item Explain the differences between \verb|size(v)| and \verb|norm(v)|?
+
+\item What are the different roles for parentheses,~\verb|()|, and brackets,~\verb|[]|, in \script?
+
+\item Why do computer languages use a symbol for multiplication, namely~\verb|*|?  For example, if \verb|a=3.14| and \verb|v=[2;3;5]|, why do we need to type~\verb|a*v| instead of just~\verb|av|?
+
+\end{enumerate}
+\end{exercise}
+
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
 how did X occur?
@@ -690,6 +703,3 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
-
-
-

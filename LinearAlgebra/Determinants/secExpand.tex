@@ -61,7 +61,7 @@ Using~\eqref{eq:dets23b}, \(\det A =1\cdot\frac12\cdot1 +\frac12\cdot\frac15\cdo
 %\begin{wrapfigure}{r}{0pt} % does not work in a list
 %\ThreeD1{0.5}{0.2}1{0.5}{0.2}{0}{0.5}1
 %\end{wrapfigure}
-Geometrically, consider the image of the unit cube under multiplication by~\(A\) illustrated in stereo below. 
+Geometrically, consider the image of the unit cube under multiplication by this matrix~\(A\) illustrated in stereo below. 
 \begin{center}
 \ThreeD1{0.5}{0.2}1{0.5}{0.2}{0}{0.5}1
 \end{center}
@@ -165,7 +165,7 @@ The above four examples are specific cases of the four general properties establ
 
 
 \begin{theorem}[row and column properties of determinants] \label{thm:ppdet} 
-Let \(A\) be an \(n\times n\) matrix.
+For every \(n\times n\) matrix~\(A\) the following properties hold.
 \begin{enumerate}
 \item\label{thm:ppdet:i} 
 If \(A\) has a \idx{zero row} or \index{zero column}column, then \(\det A=0\)\,.
@@ -174,7 +174,7 @@ If \(A\) has two \idx{identical rows} or \index{identical columns}columns, then 
 \item\label{thm:ppdet:iii} 
 Let \(B\) be obtained by \idx{interchanging two rows} or \index{interchanging two columns}columns of~\(A\), then \(\det B=-\det A\)\,.
 \item\label{thm:ppdet:iv} 
-Let \(B\) be obtained by multiplying any one row or column of~\(A\) by a scalar~\(k\), then \(\det B=k\det A\)\,.
+Let \(B\) be obtained by multiplying any \emph{one} row or column of~\(A\) by a scalar~\(k\), then \(\det B=k\det A\)\,.
 \end{enumerate}
 \end{theorem}
 
@@ -217,7 +217,7 @@ E:=\begin{bmatrix}
 \begin{matrix}\phantom{\cdots}&i&\phantom{\cdots}&j&\phantom{\cdots}  \end{matrix}\quad&
 \end{array}
 \end{equation*}
-where the diagonal dots~\(\ddots\) denote diagonals of ones, and all other entries of~\(E\) are zero.
+where the diagonal dots~\(\ddots\) denote diagonals of ones, and all other unshown entries of~\(E\) are zero.
 Then \(B=EA\) as multiplication by~\(E\) copies row~\(i\) into row~\(j\) and vice versa.
 Equate determinants of both sides and use \autoref{thm:detprod}: \(\det B=\det(EA)=\det(E)\det(A)\).
 
@@ -431,9 +431,9 @@ which has two zeros in its last row.
 -(-1)(-3)0-(-2)(-2)0-(-1)1\cdot2
 \\&=&2\big[(-2)(-3)-(-1)1\big]=2\cdot7=14\,.
 \end{eqnarray*}
-Observe \(\det A=2\times\det\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) which is the expression to be generalised.
+Observe \(\det A=2\cdot7=2\cdot\det\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) which is the expression to be generalised.
 
-\item Alternatively we use the product rule for determinants. Recognise that the matrix~\(A\) may be factored to \(A=FB\) where
+\item Alternatively we use the product rule for determinants. Recognise that the matrix~\(A\) may be written as the product \(A=FB\) where
 \begin{equation*}
 F=\begin{bmatrix} 1&0&-\frac12\\0&1&-1\\0&0&1 \end{bmatrix},
 \quad B=\begin{bmatrix} -2&-1&0\\1&-3&0\\0&0&2 \end{bmatrix};
@@ -446,7 +446,7 @@ Consider the geometry of the two transformations arising from multiplication by~
 \ThreeD10{-0.5}01{-1}001
 \end{center}
 Thus the volume of the unit cube after multiplication by~\(F\) is the square base of area one, times the height of one, which is a volume of one.
-Consequently \(\det F=1\) by \autoref{def:detarea}.
+Consequently, by \autoref{def:detarea}, \(\det F=1\)\,.
 
 \item As illustrated  below, multiplication by~\(B\) has two components.
 \begin{center}
@@ -456,13 +456,15 @@ Firstly,  the \(2\times2\) top-left sub-matrix, being bordered by zeros, maps th
 The shape of the parallelogram is determined by the top-left sub-matrix \(\small\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) (to be called the \(A_{33}\)~minor) acting on the unit square.
 Thus the area of the parallelogram is \(\det A_{33}=(-2)(-3)-(-1)1=7\)\,.
 Secondly, the~\(2\) in the bottom corner of~\(B\) stretches objects vertically by a factor of~\(2\) to form a parallelepiped of height~\(2\).
-Thus the volume of the parallelepiped is \(2\cdot\det A_{33}=2\cdot 7=14\)\,, which is \(\det B\) by \autoref{def:detarea}.
+Thus the volume of the parallelepiped, \(\det B\) by \autoref{def:detarea}, is \(2\cdot\det A_{33}=2\cdot 7=14\)\,.
 
 \end{itemize}
 By the product \autoref{thm:detprod},
 \(\det A=\det(FB)=\det(F)\det(B)=1\cdot14=14\)\,.
 
 \end{itemize}
+The key to this alternative evaluation of the determinant is the last row of matrix~\(A\) which was all zero except for one element.
+The next \autoref{thm:rpdet:vii} addresses this case in general.
 \end{solution}
 \end{example}
 
@@ -713,7 +715,7 @@ Correspondingly, from time-to-time, some people  call a lower triangular matrix 
 \end{definition}
 
 
-Any square \idx{diagonal matrix} is also an upper triangular matrix, and also a lower triangular matrix.
+Any square \idx{diagonal matrix} is also an upper triangular matrix, and is also a lower triangular matrix.
 Thus the following theorem encompasses square diagonal matrices and so generalises \autoref{thm:basicdet:i}.
 
 
@@ -1996,9 +1998,37 @@ generally forms an equation for the \idx{conic section} passing through the five
 
 
 
+\begin{exercise} \label{ex:} 
+Consider the task of computing the determinant of a typical \(n\times n\) matrix~\(A\) (`typical' means all its entries are non-zero).  
+Using the Laplace Expansion \autoref{thm:letdet} to compute the determinant takes approximately~\((e-1)n!\) multiplications.
+On a computer that does about~\(10^9\) multiplications per second, what is the largest sized matrix for which the determinant can be computed by Laplace Expansion in less than an hour?
+Detail your reasons.
+\answer{\(n=15\)}
+\end{exercise}
 
 
 
+
+
+
+
+\begin{exercise} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item What can cause a determinant to be zero?
+
+\item What is the relationship between these statements about every \(n\times n\) matrix~\(A\) and every scalar~\(k\):  \(\det(kA)=k^n\det A\); and let matrix~\(B\) be obtained by multiplying any {one} row or column of~\(A\) by~\(k\), then \(\det B=k\det A\)\,?
+
+\item What properties of the determinant allow us to write the equations of lines, planes, etc, as simple determinants?
+
+\item What is special about a matrix with a row that is zero except for one element, that enables us to simplify its determinant via the geometric definition of a determinant?
+
+\item Why is the determinant of a triangular matrix simply the product of the diagonal entries?
+
+\item What properties of a determinant had to be developed in order to deduce and justify the Laplace Expansion \autoref{thm:letdet}?
+
+\end{enumerate}
+\end{exercise}
 
 
 \begin{comment}%{ED498555.pdf}

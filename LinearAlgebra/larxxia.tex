@@ -1,4 +1,4 @@
-\ifcase1
+\ifcase3
 \or%1=A5 drafting
    \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
@@ -13,15 +13,13 @@
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
-   \def\ajr#1{}% redundant??
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
 \fi
 
 % Specify the version number of the next version.
 % Affects watermark and permutation of activity answers.
-\def\myversion{0.3d}
-
+\def\myversion{0.4a}
 
 \includeonly{
 %front,back
@@ -32,6 +30,7 @@
 %,Vectors/secCross 
 %,Vectors/secScript
 %,Vectors/secLogic %draft
+%,Vectors/secWrite %pre-draft
 %,Vectors/summary
 %,LinEqns/ch
 %,LinEqns/secIntro
@@ -58,8 +57,8 @@
 %,Determinants/secGeometry
 %,Determinants/secExpand
 %,Determinants/summary
-,EigGen/ch
-,EigGen/secFind
+%,EigGen/ch
+%,EigGen/secFind
 %,EigGen/secLinInd
 %,EigGen/secDiag
 %,EigGen/summary
@@ -70,12 +69,11 @@
 
 
 
-\title{Linear Algebra Reformed
+\title{Linear Algebra 
 \\for 21st\,C Application}
 
 \author{A.~J. Roberts
 \thanks{\url{http://orcid.org/0000-0001-8930-1552}}
-%\thanks{\url{http://www.maths.adelaide.edu.au/anthony.roberts}}
 \\University of Adelaide
 \\South Australia, 5005}
 
@@ -91,9 +89,6 @@
 
 \makeindex
 
-
-\iffalse\usepackage{trackRefs}% optional testing
-\else\usepackage[disable]{trackRefs}\fi
 
 %\usepackage{pdfcomment}
 %\newcommand{\ajr}[1]{\pdfcomment[author=AJR%

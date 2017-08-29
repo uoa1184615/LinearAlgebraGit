@@ -22,7 +22,7 @@ The general solution to \autoref{eg:rrefi} is
 \\&=&\underbrace{1\cdot(-2,0,5,0)+s(-1,1,0,0)+t(2,0,-4,1)}_{\text{linear combination}}.
 \end{eqnarray*}
 Such so-called \idx{linear combination}s occur in many other contexts.
-Recall the standard unit vectors in~\(\RR^3\) are \(\ev_1=(1,0,0)\), \(\ev_2=(0,1,0)\) and \(\ev_3=(0,0,1)\) (\autoref{def:stuniv}): any other vector in~\(\RR^3\) may be written as
+Recall the standard unit vectors in~\(\RR^3\) are \(\ev_1=(1,0,0)\), \(\ev_2=(0,1,0)\) and \(\ev_3=(0,0,1)\) (\autoref{def:stuniv}): so any other vector in~\(\RR^3\) may be written as
 \begin{eqnarray*}
 \xv&=&(x_1,x_2,x_3)
 \\&=&x_1(1,0,0)+x_2(0,1,0)+x_3(0,0,1)
@@ -36,7 +36,7 @@ A vector~\vv\ is a \bfidx{linear combination} of vectors \hlist\vv k\ if there a
 
 
 \begin{example} \label{eg:}
-Estimate roughly each of the blue vectors as a \idx{linear combination} of the given red vectors in the following graphs (estimate coefficients to say 10\%~error).
+Estimate roughly each of the blue vectors as a \idx{linear combination} of the given red vectors in the following graphs (estimate coefficients to say roughly 10\%~error).
 \begin{parts}
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize%,domain=-1.5:1.5
@@ -94,10 +94,10 @@ By visualising various combinations:
 \begin{activity}
 Choose any one of these linear combinations:
 \begin{equation*}
-2\vv_1-0.5\vv_2 \qquad
-0\vv_1-\vv_2 \qquad
--0.5\vv_1+0.5\vv_2 \qquad 
-\vv_1+\vv_2 \qquad 
+2\vv_1-0.5\vv_2\,; \qquad
+0\vv_1-\vv_2\,; \qquad
+-0.5\vv_1+0.5\vv_2\,; \qquad 
+\vv_1+\vv_2\,. 
 \end{equation*}
 Then in the plot below, which vector, \av, \bv, \cv\ or~\dv, corresponds to the chosen linear combination?
 \begin{center}
@@ -166,7 +166,7 @@ Over all values of the parameters~\(s\) and~\(t\) it describes the plane illustr
 The expression \(t(-1,2,0)+t^2(0,2,1)\)
 is a linear combination of the two vectors \((-1,2,0)\) and~\((0,2,1)\) as the vectors are multiplied by scalars and then added.  
 That a coefficient is a nonlinear function of some parameter is irrelevant to the property of linear combination.
-This expression is the parametric description of a parabola in~\(\RR^3\), as illustrated below, and very soon we will be able to say it is a parabola in the plane spanned by \((-1,2,0)\) and~\((0,2,1)\).
+This expression is a parametric description of a parabola in~\(\RR^3\), as illustrated below, and very soon we will be able to say it is a parabola in the plane spanned by \((-1,2,0)\) and~\((0,2,1)\).
 \begin{center}
 \qview{37}{40} {\begin{tikzpicture}
 \begin{axis}[footnotesize,view={\q}{30}
@@ -184,8 +184,35 @@ This expression is the parametric description of a parabola in~\(\RR^3\), as ill
 
 
 
-\begin{example} \label{eg:lcmatvec}
 The \idx{matrix-vector form} \(A\xv=\bv\) of a system of linear equations involves a \idx{linear combination} on the left-hand side.
+
+\begin{example} \label{eg:}
+Recall from \autoref{def:matvecsys} that \(\begin{bmatrix} -5&4\\3&2 \end{bmatrix}\begin{bmatrix} x\\y \end{bmatrix}=\begin{bmatrix} 1\\-2 \end{bmatrix}\) is our abstract abbreviation for the system of two equations
+\begin{equation*}
+\begin{matrix} -5x+4y=1\,,\\ 3x+2y=-2\,. \end{matrix}
+\end{equation*}
+Form both sides into a vector so that
+\begin{equation*}
+\begin{bmatrix} -5x+4y\\3x+2y \end{bmatrix}
+=\begin{bmatrix} 1\\-2 \end{bmatrix}.
+\end{equation*}
+Write the left-hand side as the sum of two vectors:
+\begin{equation*}
+\begin{bmatrix} -5x\\3x \end{bmatrix}
++\begin{bmatrix} 4y\\2y \end{bmatrix}
+=\begin{bmatrix} 1\\-2 \end{bmatrix}.
+\end{equation*}
+By scalar multiplication the system becomes
+\begin{equation*}
+\begin{bmatrix} -5\\3 \end{bmatrix}x
++\begin{bmatrix} 4\\2 \end{bmatrix}y
+=\begin{bmatrix} 1\\-2 \end{bmatrix}.
+\end{equation*}
+That is, the left-hand side is a linear combination of~\((-5,3)\) and~\((4,2)\), the two columns of the matrix.
+\end{example}
+
+\begin{example} \label{eg:lcmatvec}
+Let's repeat the previous example in general.
 Recall from \autoref{def:matvecsys} that \(A\xv=\bv\) is our abstract abbreviation for the system of \(m\)~equations
 \begin{eqnarray*}
 &&a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\,,
@@ -218,14 +245,14 @@ That is, the system \(A\xv=\bv\) is identical to the linear combination \(\linco
 \begin{theorem} \label{thm:conlincom} 
 A system of \idx{linear equation}s \(A\xv=\bv\) is \idx{consistent} (\autoref{pro:gje}) 
 \begin{aside}
-Be aware of a subtle twist going on here: this theorem turns a question about the existence of an \(n\)~variable solution~\xv, into a question about vectors with \(m\)~components; and vice-versa.
-\end{aside}
+Be aware of a subtle twist going on here: for the general \autoref{eg:lcmatvec} this theorem turns a question about the existence of an \(n\)~variable solution~\xv, into a question about vectors with \(m\)~components; and vice-versa.
+\end{aside}%
 if and only if the right-hand side vector~\bv\ is a \idx{linear combination} of the columns of~\(A\).
 \end{theorem}
 
 \begin{proof} 
 \autoref{eg:lcmatvec} establishes that if a solution~\xv\ exists, then \bv~is a linear combination of the columns.
-Conversely, if \bv~is a linear combination of the columns, then a solution~\xv\ exists with components of~\xv\ set to the coefficients in the linear combination.
+Conversely, if vector~\bv is a linear combination of the columns, then a solution~\xv\ exists with components of~\xv\ set to the coefficients in the linear combination.
 \end{proof}
 
 
@@ -258,6 +285,7 @@ Also, there is no multiple of \((-1,2)\) that gives the right-hand side \(\bv=(2
 \item \(\begin{bmatrix} 1\\a \end{bmatrix}x
 =\begin{bmatrix} 3\\-6 \end{bmatrix}\) depending upon parameter~\(a\).
 \begin{solution} 
+The first equation requires \(x=3\) whereas the second equation requires \(ax=-6\); that is, \(a\cdot3=-6\)\,, that is, \(a=-2\)\,.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal, axis lines=middle, grid,domain=-1:3
@@ -269,7 +297,6 @@ Also, there is no multiple of \((-1,2)\) that gives the right-hand side \(\bv=(2
      node[above] {\qquad\((3,-6)\)};
 \end{axis}
 \end{tikzpicture}}
-The first equation requires \(x=3\) whereas the second equation requires \(ax=-6\); that is, \(a\cdot3=-6\)\,, that is, \(a=-2\)\,.
 Thus it is only for \(a=-2\) that the system is consistent;
 for \(a\neq-2\) the system is inconsistent.
 Also, plotted in the margin are vectors \((1,a)\) for various~\(a\).
@@ -320,7 +347,8 @@ Let a set of \(k\)~vectors in~\(\RR^n\) be  \(S=\{\hlist\vv k\}\), then the set 
     \addplot[red,quiver={u=-1,v=2},-stealth,thick] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}%
-Then \(\Span S=\Span\{(-1,2)\}\) is the set of all vectors encompassed by the form \(t(-1,2)\): from the parametric equation of a line (\autoref{def:parlin}), \(\Span S\) is all vectors in the line \(y=-2x\) as shown in the margin.
+Then \(\Span S=\Span\{(-1,2)\}\) is the set of all vectors encompassed by the form \(t(-1,2)\).
+From the parametric equation of a line (\autoref{def:parlin}), \(\Span S\) is all vectors in the line \(y=-2x\) as shown in the margin.
 
 \item With two vectors in the set, \(\Span\{(-1,2),(3,4)\}=\RR^2\) is the entire 2D plane.
 To see this, recall that any point in the span must be of the form \(s(-1,2)+t(3,4)\).
@@ -328,16 +356,16 @@ Given any vector \((x_1,x_2)\) in~\(\RR^2\) we choose \(s=(-4x_1+3x_2)/10\) and 
 \begin{eqnarray*}
 s\begin{bmatrix} -1\\2 \end{bmatrix}+t\begin{bmatrix} 3\\4 \end{bmatrix}
 &=&\frac{-4x_1+3x_2}{10}\begin{bmatrix} -1\\2 \end{bmatrix}+\frac{2x_1+x_2}{10}\begin{bmatrix} 3\\4 \end{bmatrix}
-\\&=&\left(\frac{-4}{10}\begin{bmatrix} -1\\2 \end{bmatrix}+\frac{2}{10}\begin{bmatrix} 3\\4 \end{bmatrix}\right)x_1
+\\&=&x_1\left(\frac{-4}{10}\begin{bmatrix} -1\\2 \end{bmatrix}+\frac{2}{10}\begin{bmatrix} 3\\4 \end{bmatrix}\right)
 \\&&{}
-+\left(\frac{3}{10}\begin{bmatrix} -1\\2 \end{bmatrix}+\frac{1}{10}\begin{bmatrix} 3\\4 \end{bmatrix}\right)x_2
-\\&=&\begin{bmatrix} 1\\0 \end{bmatrix}x_1
-+\begin{bmatrix} 0\\1 \end{bmatrix}x_2
++x_2\left(\frac{3}{10}\begin{bmatrix} -1\\2 \end{bmatrix}+\frac{1}{10}\begin{bmatrix} 3\\4 \end{bmatrix}\right)
+\\&=&x_1\begin{bmatrix} 1\\0 \end{bmatrix}
++x_2\begin{bmatrix} 0\\1 \end{bmatrix}
 \\&=&\begin{bmatrix} x_1\\x_2 \end{bmatrix}.
 \end{eqnarray*}
 Since every vector in~\(\RR^2\) can be expressed as \(s(-1,2)+t(3,4)\), then \(\RR^2=\Span\{(-1,2),(3,4)\}\)
 
-\item But if two vectors are proportional to each other then their span is a line: 
+\item But if two vectors are proportional to each other then their span is a line. 
 \marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize
     , axis equal, axis lines=middle,
@@ -348,7 +376,7 @@ Since every vector in~\(\RR^2\) can be expressed as \(s(-1,2)+t(3,4)\), then \(\
     \addplot[red,quiver={u=2,v=-4},-stealth,thick] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}%
-for example, \(\Span\{(-1,2),(2,-4)\}\) is the set of all vectors of the form \(r(-1,2)+s(2,-4)=r(-1,2)+(-2s)(-1,2)=(r-2s)(-1,2)=t(-1,2)\) for \(t=r-2s\).  
+For example, \(\Span\{(-1,2),(2,-4)\}\) is the set of all vectors of the form \(r(-1,2)+s(2,-4)=r(-1,2)+(-2s)(-1,2)=(r-2s)(-1,2)=t(-1,2)\) for \(t=r-2s\).  
 That is, \(\Span\{(-1,2),(2,-4)\}=\Span\{(-1,2)\}\) as illustrated in the margin.
 
 \item  In 3D, \(\Span\{(-1,2,0),(0,2,1)\}\) is the set of all linear combinations \(s(-1,2,0)+t(0,2,1)\) which here is a parametric form of the plane illustrated below (\autoref{def:parpla}).  
@@ -366,7 +394,7 @@ The plane passes through the origin~\ov, obtained when \(s=t=0\)\,.
 One could also check that the vector~\((2,1,-2)\) is orthogonal to these two vectors, hence is a normal to the plane, and so the plane may be also expressed as \(2x+y-2z=0\)\,.
 
 \item For the complete set of \(n\)~\idx{standard unit vector}s in~\(\RR^n\) (\autoref{def:stuniv}), \(\Span\{\hlist\ev n\}=\RR^n\).
-This is because any vector \(\xv=(\hlist xn)\) in~\(\RR^n\) may be written as the linear combination \(\xv=x_1\ev_1+x_2\ev_2+\cdots+x_n\ev_n\) and hence is in \(\Span\{\hlist\ev n\}\).
+This is because every vector \(\xv=(\hlist xn)\) in~\(\RR^n\) may be written as the linear combination \(\xv=x_1\ev_1+x_2\ev_2+\cdots+x_n\ev_n\), and hence every vector is in \(\Span\{\hlist\ev n\}\).
 
 
 \item The homogeneous system (\autoref{def:homosys}) of linear equations from \autoref{eg:homosysiv} has solutions \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) for arbitrary \(s\) and~\(t\).
@@ -379,7 +407,7 @@ For example, the solutions to \autoref{eg:gjeb} are all of the form \((u,v,w)=(-
 =(-\frac34,\frac12,0)+t(-\frac14,\frac32,1)\) for arbitrary~\(t\).
 True, each of these solutions is a linear combination of vectors \((-\frac34,\frac12,0)\) and \((-\frac14,\frac32,1)\). 
 But the multiple of \((-\frac34,\frac12,0)\) is always fixed, whereas the span invokes \emph{all} multiples.
-Consequently, all the possible solutions cannot be the same as the span of some vectors.
+Consequently, all the possible solutions cannot be the same as the span of a set of vectors.
 
 
 \end{enumerate}
@@ -417,7 +445,7 @@ All vectors in \(\Span\{\iv,\kv\}\) are of the form
 \(c_1\iv+c_2\kv
 =c_1(1,0,0)+c_2(0,0,1)
 =(c_1,0,c_2)\).
-Hence the span is all vectors with second component zero---the plane \(y=0\) in \((x,y,z)\) coordinates.
+Hence the span is all vectors with second component zero---it is the plane \(y=0\) in \((x,y,z)\) coordinates.
 \end{solution}
 \end{example}
 
@@ -646,7 +674,7 @@ Give reasons.
 
 
 \begin{exercise} \label{ex:} 
-Show the following identities hold for any given vectors \uv,\vv\ and~\wv:
+Show the following identities hold for any given vectors \uv, \vv\ and~\wv:
 \begin{enumerate}
 \item \(\Span\{\uv,\vv\}=\Span\{\uv-\vv,\uv+\vv\}\);
 \item \(\Span\{\uv,\vv,\wv\}=\Span\{\uv,\uv-\vv,\uv+\vv+\wv\}\).
@@ -662,7 +690,7 @@ Show the following identities hold for any given vectors \uv,\vv\ and~\wv:
 
 \begin{exercise} \label{ex:} 
 Suppose \hlist\uv s\ are any \(s\)~vectors in~\(\RR^n\).
-Let set \(R=\{\hlist\uv r\}\) for some \(r<s\), and set \(S=\{\hlist\uv r,\uv_{r+1},\ldots,\uv_s\}\).
+Let the set \(R=\{\hlist\uv r\}\) for some \(r<s\), and the set \(S=\{\hlist\uv r,\uv_{r+1},\ldots,\uv_s\}\).
 \begin{enumerate}
 \item Prove that \(\Span R\subseteq\Span S\)\,; that is, that every vector in~\(\Span R\) is also in~\(\Span S\).
 \item Hence deduce that if \(\Span R=\RR^n\), then \(\Span S=\RR^n\).
@@ -695,6 +723,22 @@ Prove that \(\Span S=\Span\{\hlist[2]\vv s\}\).
 
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item In what circumstances have you encountered linear combinations of vectors---even though they may not have been identified as linear combinations.
+Justify classifying the circumstances as involving linear combinations. 
+
+\item Why is the zero vector always in the span of a set of vectors?
+
+\item Suppose three nonzero vectors are \(\uv,\vv,\wv\in\RR^3\).  
+Describe all the possibilities for the span of these three vectors.
+
+\item How does the span of a set of vectors arise in linear equations?
+
+\end{enumerate}
+\end{exercise}
+
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
 how did X occur?
@@ -703,6 +747,3 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
-
-
-

@@ -29,13 +29,13 @@ Start by writing the population model as a system in terms of vector \(\yv(t)=(y
 ,\\\text{that is,}&&
 \yv(t+1)=\begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}\yv(t).
 \end{eqnarray*}
-Now let's ask if there is a basis \(\cP=\{\pv_1,\pv_2\}\) for the \(yz\)-plane that simplifies the system?
+Now let's ask if there is a basis \(\cP=\{\pv_1,\pv_2\}\) for the \(yz\)-plane that simplifies this matrix-vector system?
 In such a basis every vector may be written as \(\yv=Y_1\pv_1+Y_2\pv_2\) for some components~\(Y_1\) and~\(Y_2\)---where \((Y_1,Y_2)=\Yv=[\yv]_\cP\), but to simplify writing we use the symbol~\Yv\ in place of~\([\yv]_\cP\).
-Write this relation as the matrix-vector product \(\yv=P\Yv\) where matrix \(P=\begin{bmatrix} \pv_1&\pv_2 \end{bmatrix}\) and vector \(\Yv=(Y_1,Y_2)\).
-The populations~\(\yv\) depends upon time~\(t\), and hence so does~\(\Yv\); that is, \(\yv(t)=P\Yv(t)\).
-Substitute this into the system of equations:
+Write the relation \(\yv=Y_1\pv_1+Y_2\pv_2\) as the matrix-vector product \(\yv=P\Yv\) where matrix \(P=\begin{bmatrix} \pv_1&\pv_2 \end{bmatrix}\) and vector \(\Yv=(Y_1,Y_2)\).
+The populations~\(\yv\) depends upon time~\(t\), and hence so does~\(\Yv\) since \(\Yv=[\yv]_\cP\); that is, \(\yv(t)=P\Yv(t)\).
+Substitute this identity into the system of equations:
 \begin{equation*}
-\yv(t+1)=P\Yv(t+1)=\begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}P\Yv\,.
+\yv(t+1)=P\Yv(t+1)=\begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}P\Yv(t).
 \end{equation*}
 Multiply both sides by~\(P^{-1}\) (which exists by linear independence of the columns, \autoref{thm:ftim3xi}) to give
 \begin{equation*}
@@ -109,12 +109,12 @@ As a prelude to the next \autoref{thm:gendiag}, show that the columns of~\(P\) a
 \begin{solution} Invoke the original \autoref{def:evecval} of an eigenvector for a matrix.
 \begin{itemize}
 \item The first column of~\(P\) is \(\pv_1=(1,1)\).
-Multiplying \(A\pv_1=(0+1,2-1)=(1,1)=1\pv_1\) so vector~\(\pv_1\) is an eigenvector of~\(A\) corresponding to the eigenvalue~\(1\).
-Correspondingly, this eigenvalue is the first entry in the diagonal~\(D\).
+Multiplying \(A\pv_1=(0+1,2-1)=(1,1)=1\pv_1\) so the first column vector~\(\pv_1\) is an eigenvector of~\(A\) corresponding to the eigenvalue~\(1\).
+Correspondingly, this eigenvalue~\(1\) is the first entry in the diagonal~\(D\).
 
 \item The second column of~\(P\) is \(\pv_2=(-1,2)\).
-Multiplying \(A\pv_2=(0+2,-2-2)=(2,-4)=-2\pv_2\) so vector~\(\pv_2\) is an eigenvector of~\(A\) corresponding to the eigenvalue~\(-2\).
-Correspondingly, this eigenvalue is the second entry in the diagonal~\(D\).
+Multiplying \(A\pv_2=(0+2,-2-2)=(2,-4)=-2\pv_2\) so the second column vector~\(\pv_2\) is an eigenvector of~\(A\) corresponding to the eigenvalue~\(-2\).
+Correspondingly, this eigenvalue~\(-2\) is the second entry in the diagonal~\(D\).
 \end{itemize}
 \end{solution}
 \end{example}
@@ -161,7 +161,7 @@ Multiplying the matrix-column products on both sides gives
 \begin{bmatrix} A\pv_1&A\pv_2&\cdots&A\pv_n \end{bmatrix}
 =\begin{bmatrix} \lambda_1\pv_1& \lambda_2\pv_2&\cdots& \lambda_n\pv_n \end{bmatrix}.
 \end{equation*}
-Equating columns implies \(A\pv_1=\lambda_1\pv_1\)\,, \(A\pv_2=\lambda_2\pv_2\)\,, \ldots, \(A\pv_n=\lambda_n\pv_n\)\,.
+Equating corresponding columns implies \(A\pv_1=\lambda_1\pv_1\)\,, \(A\pv_2=\lambda_2\pv_2\)\,, \ldots, \(A\pv_n=\lambda_n\pv_n\)\,.
 As the matrix~\(P\) is invertible, all its columns must be non-zero (\autoref{thm:ppdet:i}).
 Hence \hlist\pv n\ are eigenvectors of matrix~\(A\) corresponding to eigenvalues \hlist\lambda n\,.
 Since matrix~\(P\) is invertible, \autoref{thm:ftim3xi} implies the columns vectors \hlist\pv n\ are linearly independent.
@@ -192,7 +192,7 @@ P=\begin{bmatrix} 1&-2&\frac1{14}
 \\0&1&\frac14
 \\0&0&1 \end{bmatrix},
 \end{equation*}
-we know (\autoref{thm:gendiag}) \(P^{-1}AP=\diag(-3,-4,4)\) where the eigenvalues appear in the same order as that of the eigenvectors in~\(P\).
+we know that (\autoref{thm:gendiag}) \(P^{-1}AP=\diag(-3,-4,4)\) where the eigenvalues appear in the same order as that of the eigenvectors in~\(P\).
 
 One may check this by hand or with \script.
 Enter the matrices with
@@ -300,7 +300,7 @@ Recall \autoref{eg:faespm} found eigenvalues and corresponding eigenspaces for v
 Revisit these cases and show none of the matrices are diagonalisable.
 \begin{enumerate}
 \item Matrix \(A=\begin{bmatrix} 3&1\\0&3 \end{bmatrix}\) had one eigenvalue \(\lambda=3\) with multiplicity two and corresponding eigenspace \(\EE_3=\Span\{(1,0)\}\).
-This matrix is not diagonalisable as it has only one linearly independent eigenvector, such as~\((1,0)\) or any non-zero multiple, and it needs two. 
+This matrix is not diagonalisable as it has only one linearly independent eigenvector, such as~\((1,0)\) or any non-zero multiple, and it needs two to be diagonalisable. 
 
 \item Matrix \(B=\begin{bmatrix}-1&1&-2
 \\-1&0&-1
@@ -370,8 +370,8 @@ The following theorem confirms that matrices with as many \emph{distinct} eigenv
 
 
 \begin{theorem} \label{thm:dlamd} 
-For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalisable}.
-Consequently, and allowing complex eigenvalues, a real \idx{non-diagonalisable matrix} must be non-symmetric and must have at least one \idx{repeated eigenvalue} (an eigenvalue with \idx{multiplicity} two or more).
+For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~\idx{distinct eigenvalues}, then \(A\)~is \idx{diagonalisable}.
+Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalisable matrix} must be non-symmetric and must have at least one \idx{repeated eigenvalue} (an \idx{eigenvalue} with \idx{multiplicity} two or~more).
 \end{theorem}
 \begin{proof}  
 First, let \hlist\vv n\ be eigenvectors corresponding to the \(n\)~distinct eigenvalues of matrix~\(A\).
@@ -381,7 +381,7 @@ As the corresponding eigenvalues are distinct, \autoref{thm:indepev} establishes
 
 Second, the converse of the first statement in the theorem then also holds.
 Since an \(n\times n\) matrix has \(n\)~eigenvalues, when counted accordingly to multiplicity and allowing for complex eigenvalues (\autoref{pro:geneig}), a non-diagonalisable matrix must have at least one repeated eigenvalue.  
-But further, by \autoref{thm:symspec} a real symmetric matrix is always diagonalisable: hence a non-diagonalisable matrix must also be non-symmetric.
+Further, by \autoref{thm:symspec} a real symmetric matrix is always diagonalisable: hence a non-diagonalisable matrix must also be non-symmetric.
 \end{proof}
 
 
@@ -515,9 +515,9 @@ that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\)\,.
 %\quad(\text{as }PP^{-1}=I_n)
 %\\&=&\det[P(P^{-1}AP-\lambda I_n)P^{-1}]
 %\\&=&\det P\det(P^{-1}AP-\lambda I_n)\det(P^{-1})
-%\quad(\text{product Thm.~\ref{thm:detprod}})
+%\quad(\text{product \autoref{thm:detprod}})
 %\\&=&\det P\det(P^{-1}AP-\lambda I_n)\frac1{\det P}
-%\quad(\text{inverse Thm.~\ref{thm:detinv}})
+%\quad(\text{inverse \autoref{thm:detinv}})
 %\\&=&\det(P^{-1}AP-\lambda I_n)
 %\\&=&\det\begin{bmatrix} (\lambda_j-\lambda)I_p&BAW\\O&CAW -\lambda I_{n-p}\end{bmatrix}
 %\quad(\text{by above }PAP^{-1})
@@ -528,7 +528,7 @@ that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\)\,.
 %(there may be more factors of \((\lambda_j-\lambda)\) hidden within \(\det(CAW -\lambda I_{n-p})\)).
 %\end{proof}
 \begin{proof} 
-Suppose \(\lambda_j\) is an eigenvalue of matrix~\(A\) and \(\dim\EE_{\lambda_j}=p<n\) (the case \(p=n\) is proved by \autoref{ex:dimme}).
+Suppose \(\lambda_j\) is an eigenvalue of \(n\times n\) matrix~\(A\) and \(\dim\EE_{\lambda_j}=p<n\) (the case \(p=n\) is proved by \autoref{ex:dimme}).
 Because its dimension is~\(p\) the eigenspace may be spanned by \(p\)~vectors.
 Then choose \(p\)~orthonormal vectors \hlist\vv p\ to span~\(\EE_{\lambda_j}\): these vectors \hlist\vv p\ are eigenvectors as they are in the eigenspace.
 Let
@@ -561,9 +561,9 @@ Then the characteristic polynomial of matrix~\(A\) becomes
 \quad(\text{as }PP^{-1}=I_n)
 \\&=&\det[P(P^{-1}AP-\lambda I_n)P^{-1}]
 \\&=&\det P\det(P^{-1}AP-\lambda I_n)\det(P^{-1})
-\quad(\text{product Thm.~\ref{thm:detprod}})
+\quad(\text{product \autoref{thm:detprod}})
 \\&=&\det P\det(P^{-1}AP-\lambda I_n)\frac1{\det P}
-\quad(\text{inverse Thm.~\ref{thm:detinv}})
+\quad(\text{inverse \autoref{thm:detinv}})
 \\&=&\det(P^{-1}AP-\lambda I_n)
 \\&=&\det\begin{bmatrix} (\lambda_j-\lambda)I_p&\tr VAW\\O&\tr WAW -\lambda I_{n-p}\end{bmatrix}
 \quad(\text{by above }P^{-1}AP)
@@ -665,8 +665,9 @@ D =
       0      0      0      0  -1.00      0
       0      0      0      0      0  -1.00
 \end{verbatim}
-Evidently, the matrix~\(B\) has two eigenvalues, \(\lambda=4\) and \(\lambda=-1\)\,, both of multiplicity three (although due to round-off error \script\ will report these with errors of about~\(10^{-5}\) (\autoref{sec:reas})---possibly complex errors in which case ignore small complex parts).
-For each eigenvalue \script\ reports, the three corresponding columns of~\verb|V| contain corresponding eigenvectors.
+Evidently, the matrix~\(B\) has two eigenvalues, \(\lambda=4\) and \(\lambda=-1\)\,, both of multiplicity three.
+Although due to round-off error \script\ will report these with errors of about~\(10^{-5}\) (\autoref{sec:reas})---possibly complex errors in which case ignore small complex parts.
+For each eigenvalue that \script\ reports, the three corresponding columns of~\verb|V| contain corresponding eigenvectors.
 Each set of these three eigenvectors do span the corresponding eigenspace, but are not necessarily linearly independent.
 \begin{itemize}
 \item For eigenvalue \(\lambda=4\) the first two columns of~\verb|V| are clearly the negative of each other, and so are essentially the same eigenvector.  
@@ -708,7 +709,7 @@ The population modelling seen so far (\autoref{sec:ddp}) expressed the changes o
 One such example is to describe the population numbers year by year.
 The alternative is to model the changes in the population \emph{continuously} in time.
 This alternative invokes and analyses differential equations.
-Such continuous time, differential equation, models are common for exploring the interaction between different species, such as humans and viruses.
+Such continuous time, differential equation, models are common for exploring the interaction between different species, such as between humans and viruses.
 
 Let's start with a continuous time version of the population modelling discussed at the start of this \autoref{ch:gee}.
 Let two species interact continuously in time with populations \(y(t)\) and~\(z(t)\) at time~\(t\) (years).
@@ -874,7 +875,7 @@ for arbitrary constants \hlist cn.
 \begin{proof} 
 First, instead of finding solutions for~\(\xv(t)\) directly, let's write the differential equations in terms of the alternate basis for~\(\RR^n\), basis \(\cP=\{\hlist\pv n\}\) (as \hlist\pv n\ are linearly independent).
 That is, solve for the coordinates \(\Xv(t)=[\xv(t)]_\cP\) with respect to basis~\cP.
-Now recall (\autoref{thm:ssbc}) that  \(\Xv=[\xv]_\cP\) means that \(\xv=\lincomb X\pv n=P\Xv\)\,.
+From \autoref{thm:ssbc} recall that  \(\Xv=[\xv]_\cP\) means that \(\xv=\lincomb X\pv n=P\Xv\)\,.
 Substitute this into the differential equation \(d\xv/dt=A\xv\) requires \(\D t{}(P\Xv)=A(P\Xv)\) which is the same as \(P\D t\Xv=AP\Xv\)\,.
 Since matrix~\(P\) is invertible, this equation is the same as \(\D t\Xv=P^{-1}AP\Xv\)\,.
 Because the columns of matrix~\(P\) are eigenvectors, the product \(P^{-1}AP\) is the diagonal matrix \(D=\diag(\hlist\lambda n)\), hence the system becomes \(\D t\Xv=D\Xv\)\,.
@@ -1009,7 +1010,7 @@ With these three distinct eigenvalues, corresponding eigenvectors are linearly i
 +c_2\begin{bmatrix} 1\\0\\-1 \end{bmatrix}e^{-2t}
 +c_3\begin{bmatrix} -1\\1\\-1 \end{bmatrix}e^{-4t}.
 \end{equation*}
-That is, \(u(t)=c_1+c_2e^{-2t}-c_3e^{-4t}\), \(v(t)=c_1+c_3e^{-4t}\), and \(w(t)=c_1-c_2e^{2t}-c_3e^{-4t}\) for every constants~\(c_1\), \(c_2\) and~\(c_3\).
+That is, \(u(t)=c_1+c_2e^{-2t}-c_3e^{-4t}\), \(v(t)=c_1+c_3e^{-4t}\), and \(w(t)=c_1-c_2e^{-2t}-c_3e^{-4t}\) for every constants~\(c_1\), \(c_2\) and~\(c_3\).
 \end{solution}
 \end{example}
 
@@ -1070,8 +1071,8 @@ Use \script\ to find a general solution to the system of differential equations
 \begin{eqnarray*}
 &&dx_1/dt=-\tfrac12x_1-\tfrac12x_2+x_3+2x_4\,, 
 \\&&dx_2/dt=-\tfrac12x_1-\tfrac12x_2+2x_3+x_4\,, 
-\\&&dx_3/dt=x_1+2x_2-\tfrac12x_3-\tfrac12x_4\,,  
-\\&&dx_4/dt=2x_1+x_2-\tfrac12x_3-\tfrac12x_4\,.
+\\&&dx_3/dt=\phantom{+2} x_1+2x_2-\tfrac12x_3-\tfrac12x_4\,,  
+\\&&dx_4/dt=\phantom{+}2x_1+x_2-\tfrac12x_3-\tfrac12x_4\,.
 \end{eqnarray*}
 What is the \idx{particular solution} that satisfies the \idx{initial condition}s \(x_1(0)=-5\)\,, \(x_2(0)=-1\) and \(x_3(0)=x_4(0)=0\)\,?
 Record your commands and give reasons.
@@ -1124,7 +1125,7 @@ c_1\begin{bmatrix} -\tfrac12\\-\tfrac12\\\tfrac12\\\tfrac12 \end{bmatrix}e^{-4t}
 +c_3\begin{bmatrix} -\tfrac12\\\tfrac12\\\tfrac12\\-\tfrac12 \end{bmatrix}e^{t}
 +c_4\begin{bmatrix} -\tfrac12\\-\tfrac12\\-\tfrac12\\-\tfrac12 \end{bmatrix}e^{2t}.
 \end{equation*}
-Given the specified initial conditions at \(t=0\)\,, when all the above exponentials reduce to \(e^0=1\)\,, we just need to find the linear combination of the eigenvectors that equals the initial vector \(\xv(0)=(-5,-1,0,0)\); that is, we solve \(V\cv=\xv(0)\).
+Given the specified initial conditions at \(t=0\)\,, when all the above exponentials reduce to \(e^0=1\)\,, we just need to find the linear combination of the eigenvectors that equals the initial vector \(\xv(0)=(-5,-1,0,0)\); that is, solve \(V\cv=\xv(0)\).
 In \script\ compute \verb|c=V\[-5;-1;0;0]| to find the vector of coefficients is \(\cv=(3,-2,2,3)\).
 Hence the particular solution is
 \begin{equation*}
@@ -1456,7 +1457,7 @@ Redo \autoref{ex:whichp} by finding which matrices~\(P_a,\ldots,P_h\) diagonalis
 
 
 \begin{exercise} \label{ex:} 
-Following \autoref{eg:diagonaliseb}, prove that the matrix \(\begin{bmatrix} k&1\\0&k \end{bmatrix}\) is not diagonalisable for every scalar~\(k\).
+Following \autoref{eg:diagonaliseb}, prove that for every scalar~\(k\) the matrix \(\begin{bmatrix} k&1\\0&k \end{bmatrix}\) is not diagonalisable.
 \end{exercise}
 
 
@@ -1889,9 +1890,23 @@ Show that substituting \(c_1=(C_1-iC_2)/2\) and \(c_2=(C_1+iC_2)/2\) for real~\(
 
 
 
-\begin{comment}
-Add exercises on perhaps simple SIR models, and perhaps mechanical models.
+\begin{exercise} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item What is the relation between diagonalisation of a matrix and using non-standard basis vectors for a space?
 
+\item  Why is diagonalisation useful in population modelling? and systems of differential equations?
+
+\item Suppose you generate a matrix at random: why would you expect the matrix to be diagonalisable?
+
+\item How does it occur that the dimension of an eigenspace is strictly less than the multiplicity of the corresponding eigenvalue?
+
+\item Why is the possibility of complex valued eigenvalues and eigenvectors important in an otherwise real problem?
+
+\end{enumerate}
+\end{exercise}
+
+\begin{comment}
 %{ED498555.pdf}
 why, what caused X?
 how did X occur?
@@ -1899,6 +1914,8 @@ what-if? what-if-not?
 how does X compare with Y?
 what is the evidence for X?
 why is X important?
+
+Add exercises on perhaps simple SIR models, and perhaps mechanical models.
 \end{comment}
 
 

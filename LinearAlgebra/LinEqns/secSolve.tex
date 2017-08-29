@@ -139,7 +139,8 @@ In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square mat
 \end{enumerate}
 \end{procedure}
 
-Checking \index{rcond()@\texttt{rcond()}}\verb|rcond()| avoids gross mistakes such as  ``Lies My Computer Told Me'' \pooliv{p.83}.
+Checking \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| avoids gross mistakes.
+% such as  ``Lies My Computer Told Me'' \pooliv{p.83}.
 \autoref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
 \footnote{Interestingly, there are incredibly rare pathological matrices for which \texttt{rcond()} and~\texttt{A\slosh} fails us \cite[]{Driscoll07}.  For example, among \(32\times32\) matrices the probability is about~\(10^{-22}\) of encountering a matrix for which \texttt{rcond()} misleads us by more than a factor of a hundred in using~\texttt{A\slosh}.}
 In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond()| reflects practical reality.
@@ -288,9 +289,9 @@ x =
    -0.1429
     1.2143
 \end{verbatim}
-That is, the solution \(\xv=(-0.64,-0.14,1.21)\) to two \idx{decimal places} (\idx{2~d.p.}).\footnote{The four or five significant digits printed by \script\ is effectively exact for most practical purposes.
+That is, the solution \(\xv=(-0.64,-0.14,1.21)\) to two \idx{decimal places} \twodp.\footnote{The four or five significant digits printed by \script\ is effectively exact for most practical purposes.
 This book often reports two significant digits as two is enough for most human readable purposes.
-When a numerical result is reported to two decimal places, the book indicates this truncation with ``\twodp''.}
+When a numerical result is reported to two decimal places, the book indicates this truncation with ``\twodp''.\index{2~d.p.|textbf}}
 
 \item For the second system now execute \verb|A(2,3)=-2| to see the new matrix is the required
 \begin{verbatim}
@@ -302,11 +303,12 @@ A =
 Check: find that \verb|rcond(A)| is zero which is classified as terrible.
 Consequently we cannot compute a solution of this second system of linear equations (as in \autoref{fig:3eq3var}(c)).
 \end{enumerate}
-If we were to try~\verb|x=A\b| in this second system, then \script\ would report
+If we were to try~\verb|x=A\b| in this second system, then \script\ would report\footnote{\autoref{sec:im} introduces that the term \index{singular matrix}`singular' means that the matrix does not have a so-called inverse.  The `working \idx{precision}' is the sixteen \idx{significant digits} mentioned in \autoref{tbl:mtlbpre}.}%
+\index{Warning:@\texttt{Warning:}}
 \begin{verbatim}
 Warning: Matrix is singular to working precision. 
 \end{verbatim}
-However, we cannot rely on \script\ producing such useful messages: we must use \verb|rcond()| to almost always avoid mistakes.
+However, we cannot rely on \script\ producing such useful messages: we must use \verb|rcond()| to avoid mistakes.
 \end{solution}
 \end{example}
 
@@ -388,7 +390,8 @@ rcond(A)
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 
-\item check \verb|rcond(A)|: \script\ gives the message
+\item check \verb|rcond(A)|: \script\ gives the message%
+\index{square matrix}\index{Error using@\texttt{Error using}}
 \begin{verbatim}
 Error using rcond
 Input must be a square matrix. 
@@ -407,7 +410,7 @@ Using \texttt{rcond()} helps us to avoid confusing such an answer with a solutio
 
 
 \begin{example}[\idx{partial fraction} decomposition] \label{eg:}
-Recall that mathematical methods sometimes need to separate a rational function into a sum of simpler `partial' fractions.  
+Recall that mathematical methods sometimes need to separate a \idx{rational function} into a sum of simpler `partial' fractions.  
 For example, for some purposes the fraction \(\frac3{(x-1)(x+2)}\) needs to be written as \(\frac1{x-1}-\frac1{x+2}\)\,.  
 Solving linear equations helps: \begin{itemize}
 \item here  pose that \(\frac3{(x-1)(x+2)} = \frac A{x-1}+\frac B{x+2}\) for some unknown~\(A\) and~\(B\); 
@@ -417,7 +420,7 @@ Solving linear equations helps: \begin{itemize}
 &=&\frac{A(x+2)+B(x-1)}{(x-1)(x+2)}
 \\&=&\frac{(A+B)x+(2A-B)}{(x-1)(x+2)}
 \end{eqnarray*}
-and this equals \(\frac3{(x-1)(x+2)}\) only if \(A+B=0\) and \(2A-B=3\)\,; 
+and this equals \(\frac3{(x-1)(x+2)}\) only if both \(A+B=0\) and \(2A-B=3\)\,; 
 \item solving these two linear equations gives the required \(A=1\) and \(B=-1\) to determine the decomposition \(\frac3{(x-1)(x+2)}=\frac1{x-1}-\frac1{x+2}\)\,.
 \end{itemize}
 
@@ -784,7 +787,7 @@ The first example implicitly chose \(\xv=(r,s,t)\); if instead we choose to orde
 \iff%\leftrightarrow
 \begin{bmatrix} 3&0&-2\V6\\ 1&-4&0\V-\pi \end{bmatrix}
 \end{equation*} 
-Such variations to the augmented matrix are valid, but you must remember the corresponding chosen order of the variables.
+Such variations to the augmented matrix are valid, but you must remember your corresponding chosen order of the variables.
 \end{solution}
 \end{example}
 
@@ -807,7 +810,7 @@ Which of the following \emph{cannot} be an augmented matrix for the system \(p+4
 
 
 
-Recall that Examples~\ref{eg:2eqs2vars} and~\ref{eg:3eq3var} manipulated the linear equations to deduce solution(s) to systems of linear equations.
+Recall that Examples~\ref{eg:2eqs2vars} and~\ref{eg:3eq3var} manipulate the linear equations to deduce solution(s) to systems of linear equations.
 The following theorem validates such manipulations in general, and gives the basic operations a collective name. 
 
 
@@ -821,7 +824,7 @@ The following \bfidx{elementary row operation}s can be performed on either a \id
 \end{theorem}
 
 \begin{comment}
-Interestingly, some other texts omit a proof that row operations preserve the solution(s).  Poole comments on reversibility.  Larson comments that row operations produce `equivalent' systems, but does not prove.  
+Interestingly, some other texts omit a proof that row operations preserve the solution(s).  Poole comments on reversibility.  Larson comments that row operations produce `equivalent' systems, but does not prove.  Beezer proves it.
 \end{comment}
 
 \begin{proof} 
@@ -951,7 +954,7 @@ which is the same as the system on the above-left and tells us the solution \(\x
  A system of \idx{linear equation}s or (augmented) matrix is in \bfidx{reduced row echelon form} (\rref) if:
   \begin{enumerate}
 \item any equations with all zero coefficients, or rows of the matrix consisting entirely of zeros, are at the bottom; 
-\item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), and is in a variable\slash column to the left of any leading ones below it;
+\item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), \emph{and} is in a variable\slash column to the left of any leading ones below it;
 and
 \item each variable\slash column containing a leading one has zero coefficients\slash entries in every other equation\slash row.\end{enumerate}
 A \bfidx{free variable} is any variable which is \emph{not} multiplied by a \idx{leading one} when the row reduced echelon form is translated to its corresponding algebraic equations.
@@ -1110,7 +1113,7 @@ From such a form we then write down a general solution.
 \begin{procedure}[\idx{Gauss--Jordan elimination}] \label{pro:gje}
 \begin{aside}
 Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script. 
-However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singular value decomposition of \autoref{sec:fisvd} is a far better choice than this Gauss--Jordan elimination.
+However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singular value decomposition of \autoref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.
 \end{aside}\ 
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
@@ -1242,7 +1245,7 @@ That is, the solutions are \((u,v,w)=(-\frac34-\frac14t,\frac12+\frac32t,t)\) fo
 \label{sec:3pns}
 
 The number of possible solutions to a system of equations is fundamental.  
-We need to know what are the possibilities.
+We need to know all the possibilities.
 As seen in previous examples, the following theorem says there are only three possibilities for linear equations.
 
 \begin{theorem} \label{thm:fred}
@@ -1278,7 +1281,7 @@ a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
 \\&=&tb_1+(1-t)b_1 \quad(\text{as }A\yv=\bv\text{ and }A\zv=\bv)
 \\&=&b_1\,.
 \end{eqnarray*}
-Similarly for all rows of~\(A\xv\): that is, each row in \(A\xv\) equals the corresponding row of~\bv.
+Similarly for all rows of~\(A\xv\): that is, each row in \(A\xv\) equals the corresponding element of~\bv.
 Consequently, \(A\xv=\bv\). 
 Hence, if there are ever two distinct solutions, then there are an infinite number of solutions: \(\xv=t\yv+(1-t)\zv\) for all~\(t\).
 \end{proof}
@@ -2087,7 +2090,8 @@ How many measures of grain are contained in one bundle of each class?
 
 
 \begin{comment}
-Could have project exercises to introduce sensitivity to small errors in applications (experimental computational maths).  Sensitivity quantified in the section on condition number and rank.
+Could have project exercises to introduce sensitivity to small errors in applications (experimental computational maths).  
+Although sensitivity is quantified in the section on condition number and rank.
 \end{comment}
 
 
@@ -2145,6 +2149,21 @@ Could include exercise(s) on car traffic flow as discussed by Possani et al. (20
 \end{comment}
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item What is the role of the \script\ function \verb|rcond()|?
+
+\item How does the \verb|=|~symbol in \script\ compare with the \(=\)~symbol in mathematics?
+
+\item How can there be several different augmented matrices for a given system of linear equations?  How many different augmented matrices may there be for a system of three linear equations in three unknowns?
+
+\item Why is the row reduced echelon form important?
+
+\item Why cannot there be exactly three solutions to a system of linear equations?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
@@ -2154,8 +2173,3 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
-
-
-
-
-

@@ -10,7 +10,7 @@ Singularity is almost invariably a clue.
 \end{quoted}
 
 
-Often we need to approximate matrices involved in solving linear equations.  
+Often we need to approximate the matrix in a linear equation.  
 This is especially so when the matrix itself comes from experimental measurements and so is subject to errors.
 We do not want such errors to affect results.
 By avoiding division with small \idx{singular value}s, the procedure developed in this section avoids unwarranted magnification of errors.
@@ -100,13 +100,13 @@ The appropriate solution algorithm is then \autoref{pro:appsol} for inconsistent
 Thus \twodp
 \begin{enumerate}
 \item \(\zv=\tr U\bv=(-2.23,-0.10)\);
-\item due to the approximately zero singular value, neglect \(z_2=-0.10\) as an error, and solve
+\item due to the effectively zero singular value, neglect \(z_2=-0.10\) as an error, and solve
 \(\begin{bmatrix} 1.43 & 0
 \\0 &  0 \end{bmatrix}\yv=\begin{bmatrix} -2.23\\0 \end{bmatrix}\)
 to deduce \(\yv=(-1.56,y_2)\);
 \item consequently, we find reasonable solutions are \(\xv=V\yv=(1.32,0.83)+y_2(-0.53,0.85)\) ---the parametric equation of a line (\autoref{sec:pel}).
 \end{enumerate}
-The four different `answers' computed above are just four different points on this line.
+The four different `answers' computed by~\verb|A\b| above are just four different points on this line.
 
 \item To choose between this infinitude of solutions on the line, extra information must be provided by the context\slash application\slash modelling.  
 For example, often one prefers the solution of smallest length\slash magnitude, obtained by setting \(y_2=0\) (\autoref{thm:smallsoln}); that is, \(\xv_{\text{smallest}}=(1.32,0.83)\).
@@ -152,18 +152,21 @@ I think it is much more interesting to live with uncertainty than to live with a
 
 \begin{procedure}[approximate linear equations] \label{pro:appmat}
 Suppose the system of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix entries are of size~\(e\) (here ``\(e\)''~denotes ``error'', not the exponential~\(e\))
+Suppose the expected error in the matrix entries are of size~\(\epsilon\).
+\begin{aside}
+Recall that (\autoref{thm:erramp}) the symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.
+\end{aside}%
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
 \item all \(m\times n\)~components in~\(A\) have the same physical units, and they are of roughly the same size; and
 \item similarly for the \(m\) components of~\bv.
 \end{itemize}
-Estimate the error~\(e\) corresponding to this matrix~\(A\).
+Estimate the error~\(\epsilon\) corresponding to this matrix~\(A\).
  
 \item Compute an \svd\ \(A=\usv\).
 
-\item Choose `\idx{rank}'~\(k\) to be the number of \idx{singular value}s bigger than the error~\(e\); that is, \(\sigma_1\geq \sigma_2\geq\cdots \geq \sigma_k>e>\sigma_{k+1}\geq \cdots\geq 0\)\,.
+\item Choose `\idx{rank}'~\(k\) to be the number of \idx{singular value}s bigger than the error~\(\epsilon\); that is, \(\sigma_1\geq \sigma_2\geq\cdots \geq \sigma_k>\epsilon>\sigma_{k+1}\geq \cdots\geq 0\)\,.
 Then the rank~\(k\) approximation to~\(A\) is
 \begin{eqnarray*}
 A_k&:=&US_k\tr V
@@ -180,7 +183,7 @@ Usually use the \svd\ \(A_k=US_k\tr V\).
 \end{procedure}
 
 
-That is, the procedure is to treat as \idx{zero} every \idx{singular value}s smaller than the expected error in the matrix entries.
+That is, the procedure is to treat as \idx{zero} all \idx{singular value}s smaller than the expected error in the matrix entries.
 For example, modern computers have nearly sixteen significant decimal digits accuracy, so even in `exact' computation there is a background relative error of about~\(10^{-15}\).
 Consequently, in computation on modern computers, every singular value smaller than \(10^{-15}\sigma_1\) must be treated as \idx{zero}.
 For safety, even in `exact' computation, every \idx{singular value} smaller than say~\(10^{-8}\sigma_1\) should be treated as~\idx{zero}.
@@ -211,7 +214,7 @@ The final step in \autoref{pro:appmat} arises because in many cases an infinite 
 The linear algebra cannot presume which is best for your application.
 Consequently, you will have to be aware of the freedom, and make a choice based on extra information from your particular application.
 \begin{itemize}
-\item For example, in a \textsc{ct}scan such as \autoref{eg:ctscan} one would usually prefer the grayest result in order to avoid diagnosing artifices.
+\item For example, in a \textsc{ct}-scan\index{CT scan} such as \autoref{eg:ctscan} one would usually prefer the grayest result in order to avoid diagnosing artifices.
 \item For example, in the data mining task of fitting curves or surfaces to data, one would instead usually prefer a curve or surface with fewest non-zero coefficients.
 \end{itemize}
 Such extra information from the application is essential. 
@@ -235,12 +238,13 @@ Report to two decimal places.
 \\ -0.2
  \end{bmatrix}\)
 \begin{solution} 
-Enter the matrix and vector into \script\ and solve with \verb|x=A\b| to determine \(\xv=(0.06,-0.13,-0.31)\).
+Enter the matrix and vector into \script, note the poor \verb|rcond|, and solve with \verb|x=A\b| to determine \(\xv=(0.06,-0.13,-0.31)\).
 \setbox\ajrqrbox\hbox{\qrcode{% 3x3 approx Ax=b
 A=[-0.2 -0.6 1.8
    0.0 0.2 -0.4
   -0.3 0.7 0.3 ]
 b=[-0.5;0.1;-0.2]
+rcond(A)
 x=A\slosh b
 Ad=A+(rand(3)*9-4.5)/100 
 x=Ad\slosh b
@@ -302,13 +306,14 @@ Then add an arbitrary multiple of the last column of~\verb|V| to determine a gen
 \\0.8
  \end{bmatrix}\)
 \begin{solution} 
-Enter the matrix and vector into \script\ and solve with \verb|x=A\b| to determine \(\xv=(0.61,-0.64,-0.65,-0.93)\).
+Enter the matrix and vector into \script, note the poor \verb|rcond|, and solve with \verb|x=A\b| to determine \(\xv=(0.61,-0.64,-0.65,-0.93)\).
 \setbox\ajrqrbox\hbox{\qrcode{% 4x4 approx Ax=b
 A=[-1.1 0.1 0.7 -0.1
   0.1 -0.1 1.2 -0.6
   0.8 -0.2 0.4 -0.8
   0.8 0.1 -2.0 1.0]
 b=[-1.1;-0.1;1.1;0.8]
+rcond(A)
 x=A\slosh b
 Ad=A+(rand(4)*9-4.5)/100 
 x=Ad\slosh b
@@ -340,7 +345,7 @@ To within experimental error the following matrices approximate~\(A\), and \scri
 \end{itemize}
 There are significant differences, mainly in the second component, between these equally valid solutions~\(\xv\), \(\xv'\) and~\(\xv''\).
 The problem is that, relative to the experimental error, there is a small singular value in the matrix~\(A\).
-We must use an \svd\ to find all solutions consistent with the experimental error: compute \verb|[U,S,V]=svd(A)| to find \twodp
+We must use an \svd\ to find all solutions consistent with the experimental error: compute \verb|[U,S,V]=svd(A)| to find~\twodp
 \begin{verbatim}
 U =
   -0.33   0.59  -0.36   0.64
@@ -366,7 +371,7 @@ Compute the smallest consistent solution with
   y=z./diag(S(1:3,1:3))
   x=V(:,1:3)*y
 \end{verbatim}
-Then add an arbitrary multiple of the last column of~\verb|V| to determine a general solution \twodp
+Then add an arbitrary multiple of the last column of~\verb|V| to determine a general solution~\twodp
 \begin{equation*}
 \xv=(0.65,-0.22,-0.65,-1.00)+t(0.09,0.98,0,-0.16).
 \end{equation*}
@@ -377,7 +382,7 @@ That the second component of \((0.09,0.98,0,-0.16)\) is the largest corresponds 
 \end{enumerate}
 
 Both of these examples gave an infinite number of solutions which are equally valid as far as the linear algebra is concerned.
-In each example, more information from an application would be needed to choose which of the infinity of solutions is preferred.
+In each example, more information from an application would be needed to choose which to \emph{prefer} among the infinity of solutions.
 \end{example}
 
 
@@ -420,7 +425,7 @@ x=V(:,1:k)*y(1:k)
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 
 \item Second suppose the errors in~\(A\) are roughly~\(10^{-5}\).
-This level of error is a concern as \(\verb|rcond|\approx10^{-6}\) so errors would be magnified by~\(10^6\) in a direct solution of \(A\xv=\vec1\)\,.
+This level of error is a concern as \(\verb|rcond|\approx10^{-6}\) so errors would be magnified by~\(10^6\) in a direct solution of \(A\xv=\vec1\) (\autoref{thm:erramp}).
 Here we explore when all errors are in~\(A\) and none in the right-hand side vector~\(\vec 1\).
 To explore, adopt \autoref{pro:appmat}.
 \begin{enumerate}
@@ -687,13 +692,13 @@ The smallest solution would be obtained by setting \(y_4=y_5=0\)\,.
 
 \item Obtain the solution with smallest coefficients by setting \(y_4=y_5=0\)\,.
 This would fit the data with the quartic polynomial
-{\small
-\begin{equation*}
-T_A=35.09+22.50\frac{T_E}{20} 
+\begin{eqnarray*}
+T_A&=&35.09+22.50\frac{T_E}{20} 
 +12.77\left(\frac{T_E}{20}\right)^2
+\\&&{}
 +3.99\left(\frac{T_E}{20}\right)^3
 -5.28\left(\frac{T_E}{20}\right)^4.
-\end{equation*}}%
+\end{eqnarray*}%
 But choosing the polynomial with smallest coefficients has little meaning in this application.
 Surely we prefer a polynomial with fewer terms, fewer non-zero coefficients.
 Surely we would prefer, say, the quadratic
@@ -761,6 +766,9 @@ as plotted previously in the margin.
 \idx{Occam's razor}: Non sunt multiplicanda entia sine necessitate
 [Entities must not be multiplied beyond necessity]
 \end{quoted}
+\begin{comment}
+``We consider it a good principle to explain the phenomena by the simplest hypothesis possible." Ptolemy (c.\textsc{ad}90--168)
+\end{comment}
 
 
 %\begin{example} \label{eg:} 
@@ -1064,7 +1072,7 @@ x y \\
 \end{axis}
 \end{tikzpicture}}%
 \marginpar{\temp{0.22}{0.46}{0.51}{0.31}{0.95}{0.31}{0.31}{0.28}{0.51}}%
-Here use \verb|r=reshape(exp(x),3,3)| to compute and form into the \(3\times3\) array of pixels
+Here use \verb|r=reshape(exp(x),3,3)|\index{reshape()@\texttt{reshape()}} to compute and form into the \(3\times3\) array of pixels
 \begin{equation*}
 \begin{array}{|r|r|r|}
 \hline 0.22&0.31&0.31
@@ -1143,17 +1151,15 @@ Enter into \script\ with
 A=[0.5 0.3;1.1 0.7]
 b=[1.0;2.0]
 AtA=A'*A+0.01*eye(2)
-Atb=A'*b
 rcondAtA=rcond(AtA)
-x=AtA\Atb
+x=AtA\(A'*b)
 \end{verbatim}
 \setbox\ajrqrbox\hbox{\qrcode{% 2x2 Tikhonov
 A=[0.5 0.3;1.1 0.7]
 b=[1.0;2.0]
 AtA=A'*A+0.01*eye(2)
-Atb=A'*b
 rcondAtA=rcond(AtA)
-x=AtA\slosh Atb
+x=AtA\slosh (A'*b)
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 to find the Tikhonov regularised solution is \(\xv=(1.39,0.72)\).%
@@ -1193,7 +1199,7 @@ Do not apply \idx{Tikhonov regularisation} blindly as it does introduce biases.
 The following example illustrates the bias.
 
 \begin{example} \label{eg:}
-Recall the example at the start of \autoref{sec:mmctp} where my scales variously reported my weight in kg as~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.  
+Recall \autoref{eg:fourwts} at the start of \autoref{sec:mmctp} where  scales variously reported my weight in kg as~\(84.8\), \(84.1\), \(84.7\) and~\(84.4\)\,.  
 To best estimate my weight~\(x\) we rewrote the problem in matrix-vector form
 \begin{equation*}
 Ax=\bv\,,\quad\text{namely }
@@ -1240,9 +1246,8 @@ A=[-0.2 -0.6 1.8
   -0.3 0.7 0.3 ]
 b=[-0.5;0.1;-0.2]
 AtA=A'*A+0.01*eye(3)
-Atb=A'*b
 rcondAtA=rcond(AtA)
-x=AtA\Atb
+x=AtA\(A'*b)
 \end{verbatim}
 \setbox\ajrqrbox\hbox{\qrcode{% 3x3 Tikhonov
 A=[-0.2 -0.6 1.8
@@ -1250,9 +1255,8 @@ A=[-0.2 -0.6 1.8
   -0.3 0.7 0.3 ]
 b=[-0.5;0.1;-0.2]
 AtA=A'*A+0.01*eye(3)
-Atb=A'*b
 rcondAtA=rcond(AtA)
-x=AtA\slosh Atb
+x=AtA\slosh (A'*b)
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 which then finds the Tikhonov regularised solution is \(\xv=(0.10,-0.11,-0.30)\).
@@ -1295,6 +1299,7 @@ whereas the right-hand side is
 \end{equation*}
 Corresponding to the variables used in previous procedures, let \(\zv=\tr U\bv\in\RR^m\) and as yet unknown \(\yv=\tr V\xv\in\RR^n\). 
 Then equating the above two sides, and premultiplying by the orthogonal~\(\tr V\), means the Tikhonov regularisation is equivalent to solving \((\tr SS+\alpha^2I_n)\yv=\tr S\zv\) for the as yet unknown~\yv.
+(Beautifully, this equation could be interpreted as the Tikhonov regularisation of the equation \(S\yv=\zv\)\,.)
 
 Second, suppose \(\rank A=r\) so that the singular value matrix
 \begin{equation*}
@@ -1636,6 +1641,22 @@ Discuss any change in the prediction.
 
 
 
+\begin{exercise} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item  How can errors in the components of a matrix get magnified to badly affect the solution of a system of linear equations?
+
+\item Recall that in some example linear equations, we reported on the variety of solutions found upon changing the matrix by a typical error in the components. 
+What is the relation between the variety of solutions found and the solutions predicted by the \svd\ regularisation \autoref{pro:appmat}?
+
+\item Why does the effective rank of a matrix typically depend upon the expected errors in the matrix?
+
+\item What are the advantages and disadvantages of Tikhonov regularisation compared to using an \svd?
+
+\item How is dividing by \(\sigma_i+\alpha^2/\sigma_i\) in Tikhonov regularisation roughly like neglecting equations in the \svd\ regularisation?
+
+\end{enumerate}
+\end{exercise}
 
 
 \begin{comment}%{ED498555.pdf}
@@ -1659,6 +1680,7 @@ see closestOrthogonalMatrix.png
 
 \begin{exercise} \label{ex:} 
 Prove that for every square matrix~\(A\) with \svd\ \(A=\usv\), a closest orthogonal matrix to~\(A\) is~\(U\tr V\) ??
+Related to the Kabsch algorithm??
 \begin{center}
 \TwoD1101
 \TwoD{0.89443}{0.44721}{0.44721}{1.34164}%H or R

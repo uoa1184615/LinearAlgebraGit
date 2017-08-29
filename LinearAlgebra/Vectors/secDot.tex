@@ -6,11 +6,14 @@
 
 The previous \autoref{sec:asv} discussed how to add, subtract and stretch vectors.
 Question: can we multiply two vectors?
-The answer is that `vector multiplication' has major differences to the multiplication of scalars.
-This section introduces the so-called dot product of two vectors that, among other attributes, gives us a way of determining the angle between the two vectors.
+The answer is that `vector multiplication' has major differences to the multiplication of scalar numbers.
+\begin{aside}
+Often the angle between vectors is denoted by the Greek letter theta,~\(\theta\).
+\end{aside}%
+This section introduces the so-called dot product of two vectors that, among other attributes, gives a valuable way to determine the angle between the two vectors.
 
 \begin{example} \label{eg:ezyang}
-Consider the two vectors \(\uv=(7,-1)\) and \(\vv=(2,5)\) as plotted in the margin.
+Consider the two vectors \(\uv=(7,-1)\) and \(\vv=(2,5)\) plotted in the margin.
 \def\vecopsHook{\node[above] at (axis cs:0,0) {$\qquad\theta$};}
 \marginpar{\vecops07{-1}25}
 What is the angle~\(\theta\) between the two vectors?
@@ -29,7 +32,11 @@ Here this rule rearranges to
 \\&=&\tfrac12(50+29-61)
 \\&=&9\,.
 \end{eqnarray*}
-Dividing by the product of the lengths then gives \(\cos\theta=9/(5\sqrt{58})=0.2364\) so the angle \(\theta =\arccos(0.2364) =1.3322 =76.33^\circ\) as is reasonable from the plots.
+\begin{aside}
+Recall that multiplication by~\(180/\pi\) converts an angle from radians to degrees (\(1.3322\cdot180/\pi=76.33^\circ\)).
+\end{aside}%
+Dividing by the product of the lengths then gives \(\cos\theta=9/(5\sqrt{58})=0.2364\) 
+so the angle \(\theta =\arccos(0.2364) =1.3322 =76.33^\circ\) as is reasonable from the plots.
 \end{solution}
 \end{example}
 
@@ -47,7 +54,7 @@ define the \bfidx{dot product} (or \bfidx{inner product}), denoted by a dot betw
 \end{equation*}
 \end{definition}
 
-The dot product of two vectors gives a scalar result, not a vector result.
+The dot product of two vectors gives a scalar result, a number, not a vector result.
 
 When writing the vector dot product, the dot between the two vectors is essential.
 We sometimes also denote the scalar product by such a dot (to clarify a product) and sometimes omit the dot between the scalars, for example \(a\cdot b=ab\) for scalars. 
@@ -59,9 +66,9 @@ Compute the dot product between the following pairs of vectors.
 \begin{enumerate}
 \item \(\uv=(-2,5,-2)\), \(\vv=(3,3,-2)\)
 \begin{solution} 
-\(\uv\cdot\vv=(-2)3+5\cdot3+(-2)(-2)=13\). 
+\(\uv\cdot\vv=(-2)3+5\cdot3+(-2)(-2)=13\)\,. 
 Alternatively, \(\vv\cdot\uv=3(-2)+3\cdot5+(-2)(-2)=13\)\,.
-That these give the same result is a consequence of the general commutative law, \autoref{thm:dotopsa}, and so in the following we compute the dot product only one way around.
+That these give the same result is a consequence of a general commutative law, \autoref{thm:dotopsa}, and so in the following we compute the dot product only one way around.
 \end{solution}
 
 \item \(\uv=(1,-3,0)\), \(\vv=(1,2)\)
@@ -101,9 +108,6 @@ What is the dot product of the two vectors \(\uv=2\iv-\jv\) and \(\vv=3\iv+4\jv\
 
 \begin{theorem} \label{thm:anglev}
 For every two non-zero vectors~\uv\ and~\vv\ in~\(\RR^n\),  
-\begin{aside}
-The symbol~\idx{$\theta$} is the Greek letter theta, and usually denotes angles.
-\end{aside}%
 the \bfidx{angle}~\(\theta\) between the vectors is determined by 
 \begin{equation*}
 \cos\theta=\frac{\uv\cdot\vv}{|\uv||\vv|}\,,
@@ -219,7 +223,7 @@ What is the angle between the two vectors \((1,\sqrt3)\) and \((\sqrt3,1)\)?
 
 \begin{table}
 \caption{when a \idx{cosine} is one of these tabulated special values, then we know the corresponding \idx{angle} exactly.  
-In other cases we usually use a calculator (\(\arccos\) or \(\texttt{cos}^{-1}\)) or computer (\texttt{acos()}) to compute the angle numerically.}
+In other cases we usually use a calculator (\texttt{arccos} or \(\texttt{cos}^{-1}\)) or computer (\texttt{acos()}) to compute the angle numerically.}
 \label{tbl:cosines}
 \index{acos()@\texttt{acos()}}%
 \begin{equation*}\def\arraystretch{1.1}
@@ -300,9 +304,8 @@ Hence  \(\cos\theta=2/(\sqrt2\cdot\sqrt3)=\sqrt{2/3}=0.8165\)\,.
 Then a calculator (or \script, see \autoref{sec:umovc}) gives the angle to be \(\theta =\arccos(0.8165) =0.6155 =35.26^\circ\).
 \end{solution}
 
-
 \item A \idx{body-centered cubic} lattice (such as that formed by caesium chloride crystals) has one lattice point in the center of the unit cell as well as the eight corner points.
-Consider the body-centered cube of atoms drawn in stereo below with the center of the cube at the origin: what is the angle between the center atom and two adjacent corner atoms?
+Consider the body-centered cube of atoms drawn in stereo below with the center of the cube at the origin: what is the angle between the center atom and any two adjacent corner atoms?
 \begin{center}
 \qview{62}{67} {
 \begin{tikzpicture} 
@@ -343,7 +346,7 @@ In the example, a word vector has five components, \((N_{\text{cat}},N_{\text{do
 \item ``The cat scratched the dog'' has word vector \(\bv=(1,1,0,0,1)\).
 \item ``The cat and dog sat on the mat'' has word vector \(\cv=(1,1,1,1,0)\).
 \end{enumerate}
-Use the \idx{angle} between these three \idx{word vector}s to characterise the similarity of sentences: a small angle means the sentences are somehow close; a large angle means the sentences are disparate.
+Use the \idx{angle} between these three \idx{word vector}s to characterise the similarity of the sentences: a small angle means the sentences are somehow close; a large angle means the sentences are disparate.
 \begin{solution} 
 First, these word vectors have lengths \(|\av|=|\bv|=\sqrt3\) and \(|\cv|=2\).
 Second, the `angles' between these sentences are the following.
@@ -433,7 +436,7 @@ Dividing both sides by \(2|\uv||\vv|\) gives \(\cos\theta=\frac{\uv\cdot\vv}{|\u
 
 In physics and engineering, ``work'' has a precise meaning related to energy: when a forces of magnitude~\(F\) acts on a body and that body moves a distance~\(d\), then the \idx{work} done by the force is \(W=Fd\)\,.
 This formula applies only for one dimensional force and displacement, the case when the force and the displacement are all in the same direction.
-For example, if a 5\,kg barbell drops downwards~2\,m under the force of gravity (9.8~newtons/kg), then the work done by gravity on the barbell during the drop is
+For example, if a 5\,kg barbell drops downwards~2\,m under the force of gravity (9.8~newtons/kg), then the work done by gravity on the barbell during the drop is the product
 \begin{equation*}
 W=F\times d=(5\times9.8)\times 2=98\text{ joules}.
 \end{equation*}
@@ -482,7 +485,7 @@ A sailing boat travels a distance of~\(40\)\,m East and~\(10\)\,m North, as draw
   \node[above] at (axis cs:40,10) {$\dv$};
   \addplot[red,thick,quiver={u=20,v=-10},-stealth,mark=empty] coordinates {(0,0)};
   \node[right] at (axis cs:20,-10) {$\Fv$};
-  \addplot[brown,quiver={u=5,v=-20},-stealth,mark=empty] coordinates {(-5,20)};
+  \addplot[brown,quiver={u=4.9,v=-19.6},-stealth,mark=empty] coordinates {(-5,20)};
   \node[right] at (axis cs:-5,20) {wind};
 \end{axis}
 \end{tikzpicture}}%
@@ -589,15 +592,15 @@ At the core of each proof is the definition of the dot product which empowers us
 \begin{itemize}
 \item To prove the commutative law~\ref{thm:dotopsa} consider
 \begin{eqnarray*}
-\uv\cdot\vv&=&\lincomb uvn \quad(\text{by Defn.~\ref{def:dotprod}})
-\\&&\quad(\text{using each scalar mult.\ is commutative})
+\uv\cdot\vv&=&\lincomb uvn \quad(\text{by \autoref{def:dotprod}})
 \\&=&\lincomb vun
-\\&=&\vv\cdot\uv \quad(\text{by Defn.~\ref{def:dotprod}}).
+\\&&\quad(\text{as each scalar multiplication commutes})
+\\&=&\vv\cdot\uv \quad(\text{by \autoref{def:dotprod}}).
 \end{eqnarray*}
 
 \item To prove the inequality~\ref{thm:dotopsg} consider
 \begin{eqnarray*}
-\uv\cdot\uv&=&\lincomb uun\quad(\text{by Defn.~\ref{def:dotprod}})
+\uv\cdot\uv&=&\lincomb uun\quad(\text{by \autoref{def:dotprod}})
 \\&=&u_1^2+u_2^2+\cdots+u_n^2
 \\&\geq&0+0+\cdots+0 \quad(\text{as each scalar term is}\geq0)
 \\&&{}=0\,.
@@ -608,7 +611,7 @@ From \autoref{def:dotprod}, in~\(\RR^n\),
 \ov\cdot\ov={0^2+0^2+\cdots+0^2}=0\,.
 \end{equation*}
 Second, let vector \(\uv=(\hlist un)\) in~\(\RR^n\) satisfy \(\uv\cdot\uv=0\)\,.
-Then we know that
+Expanding the left-hand side gives that
 \begin{equation*}
 \underbrace{u_1^2}_{\geq0}+\underbrace{u_2^2}_{\geq0}
 +\cdots+\underbrace{u_n^2}_{\geq0}=0\,.
@@ -656,7 +659,7 @@ Hence \(|\uv\cdot\vv|=10\leq11.180=|\uv||\vv|\).
 \item Here \(|\uv+\vv|=|(5,5)|=\sqrt{5^2+5^2}=\sqrt{50}=7.071\)\,, whereas \(|\uv|+|\vv|=5+\sqrt5=7.236\)\,.
 Hence \(|\uv+\vv|=7.071\leq7.236=|\uv|+|\vv|\)\,.
 \marginpar{\vecops13421}%
-This is called the triangle inequality because the vectors~\uv, \vv\ and~\(\uv+\vv\) may be viewed as forming a triangle, as illustrated in the margin, and this inequality follows because the length of a side  of a triangle must be less than the sum of the other two sides.
+This is called the triangle inequality because the vectors~\uv, \vv\ and~\(\uv+\vv\) may be viewed as forming a triangle, as illustrated in the margin, and this inequality follows because the length of a side  of a triangle must be less than the sum of the lengths of the other two sides.
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -712,19 +715,19 @@ For all vectors \uv\ and \vv\ in~\(\RR^n\) the following properties hold:
 \end{theorem}
 
 \begin{proof} 
-Each property depends upon the previous.
+Except for the first, each property depends upon the previous.
 \begin{itemize}
 \item[\ref{thm:triscala}]
 \begin{eqnarray*}
-\sqrt{\uv\cdot\uv}&=&\sqrt{\lincomb uun}\quad(\text{by Defn.~\ref{def:dotprod}})
+\sqrt{\uv\cdot\uv}&=&\sqrt{\lincomb uun}\quad(\text{by \autoref{def:dotprod}})
 \\&=&\sqrt{u_1^2+u_2^2+\cdots+u_n^2}
-\\&=&|\uv|\quad(\text{by Defn.~\ref{def:veclen}}).
+\\&=&|\uv|\quad(\text{by \autoref{def:veclen}}).
 \end{eqnarray*}
 
 \item[\ref{thm:triscalb}]  
 To prove the Cauchy--Schwarz inequality between vectors~\uv\ and~\vv\ first consider the trivial case when \(\vv=\ov\): then the left-hand side \(|\uv\cdot\vv|=|\uv\cdot\ov|=|\ov|=0\); whereas the right-hand side \(|\uv||\vv|=|\uv||\ov|=|\uv|0=0\); and so the inequality \(|\uv\cdot\vv|\leq|\uv||\vv|\) is satisfied in this case.
 
-Second, for the case when \(\vv\neq\ov\), consider the line given parametrically by \(\xv=\uv+t\vv\) for (real) scalar parameter~\(t\), as illustrated in the margin.
+Second, for the case when \(\vv\neq\ov\), consider the line given parametrically by \(\xv=\uv+t\vv\) for (real) scalar parameter~\(t\) (\autoref{def:parlin}), as illustrated in the margin.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none, domain=-1.4:2.4 ] 
@@ -832,9 +835,11 @@ We give a special name to vectors at right-angles.
 
 \begin{definition} \label{def:orthovec}
 Two vectors~\uv\ and~\vv\ in~\(\RR^n\) are termed
+\begin{aside}
+The term `orthogonal' derives from the Greek for `right-angled'.
+\end{aside}%
 \bfidx{orthogonal} (or \bfidx{perpendicular})
 if and only if their dot product \(\uv\cdot\vv=0\)\,.
-\marginpar{The term `orthogonal' derives from the Greek for `right-angled'.}
 \end{definition}
 
 By convention the zero vector~\ov\ is orthogonal to all other vectors.
@@ -858,11 +863,11 @@ By \autoref{def:orthovec} these are orthogonal to each other.
 Which pairs of the following vectors, if any, are \idx{perpendicular} to each other?
 \(\uv=(-1,1,-3,0)\), \(\vv=(2,4,2,-6)\) and \(\wv=(-1,6,-2,3)\).
 \begin{solution} 
-Use the dot product.
+Is the dot product is zero? or not?
 \begin{itemize}
 \item \(\uv\cdot\vv =(-1,1,-3,0)\cdot(2,4,2,-6) =-2+4-6+0 =-4 \neq0\) so this pair are not perpendicular. 
 \item \(\uv\cdot\wv =(-1,1,-3,0)\cdot(-1,6,-2,3) =1+6+6+0 =13 \neq0\) so this pair are not perpendicular. 
-\item \(\vv\cdot\wv =(2,4,2,-6)\cdot(-1,6,-2,3) =-2+24-4-18 =0\) so this pair are the only two vectors perpendicular to each other. 
+\item \(\vv\cdot\wv =(2,4,2,-6)\cdot(-1,6,-2,3) =-2+24-4-18 =0\) so this pair of vectors are perpendicular to each other. 
 \end{itemize}
 \end{solution}
 \end{example}
@@ -870,7 +875,7 @@ Use the dot product.
 
 
 \begin{activity}
-Which pair of the following vectors are orthogonal to each other?
+Which pair of the following three vectors are orthogonal to each other?
 \(\xv=\iv-2\kv\)\,, \(\yv=-3\iv-4\jv\)\,, \(\zv=-\iv-2\jv+2\kv\)
 \actposs[4]{no pair}{\(\yv,\zv\)}{\(\xv,\zv\)}{\(\xv,\yv\)}
 %\partswidth=5em
@@ -931,7 +936,8 @@ Let \(\uv=(\hlist un)\) be a vector in~\(\RR^n\) that is orthogonal to all \(n\)
 Then by \autoref{def:orthovec} of orthogonality:
 \begin{itemize}
 \item \(0=\uv\cdot\ev_1=(\hlist un)\cdot(1,0,\ldots,0)=u_1+0+\cdots+0=u_1\), and so the first component must be zero;
-\item \(0=\uv\cdot\ev_2=(\hlist un)\cdot(1,0,\ldots,0)=0+u_2+0+\cdots+0=u_2\), and so the second component must be zero; and so on to
+\item \(0=\uv\cdot\ev_2=(\hlist un)\cdot(1,0,\ldots,0)=0+u_2+0+\cdots+0=u_2\), and so the second component must be zero; 
+\item and so on to
 \item \(0=\uv\cdot\ev_n=(\hlist un)\cdot(0,0,\ldots,1)=0+0+\cdots+u_n=u_n\), and so the last component must be zero.
 \end{itemize}
 Since \(u_1=u_2=\cdots=u_n=0\) the only vector that is orthogonal to all the standard unit vectors is \(\uv=\ov\), the zero vector.
@@ -999,7 +1005,8 @@ To avoid this contradiction the supposition must be wrong; that is, there cannot
 \index{normal vector|(}
 
 This section uses the dot product to find equations of a plane in 3D.
-The key is to write points in the plane as those at right-angles to the direction perpendicular to the plane, called a normal.
+The key is to write points in the plane as all those at right-angles to a certain direction.  
+This direction is perpendicular to the required plane, and is called a normal.
 Let's start with an example of the idea in 2D.
 
 \begin{example} \label{eg:}
@@ -1021,7 +1028,7 @@ Recall that vectors at right-angles have a zero dot product (\autoref{sec:ovra})
 Thus the position vector~\xv\ of every point in the line satisfies the dot product \(\xv\cdot(2,3)=0\)\,.
 For \(\xv=(x,y)\), as illustrated in the margin, \(\xv\cdot(2,3)=2x+3y\) so the equation of the line is \(2x+3y=0\)\,.
 
-When the line goes through \((4,1)\) (instead of the origin), then it is the displacement \(\xv-(4,1)\) that must be orthogonal to~\((2,3)\), as illustrated.
+When the line goes through \((4,1)\) (instead of the origin), then it is the displacement vector \(\xv-(4,1)\) that must be orthogonal to~\((2,3)\), as illustrated.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize, domain=-1:9
   ,axis equal, axis lines=middle, xlabel={$x$}, ylabel={$y$}
@@ -1094,7 +1101,7 @@ Then, as drawn below, the displacement vector \(\ovect{PX}=\xv-\pv=(x-x_0,y-y_0,
 \begin{equation*}
 a(x-x_0)+b(y-y_0)+c(z-z_0)=0\,,
 \end{equation*}
-equivalently, and equation of the plane is
+equivalently, an equation of the plane is
 \begin{equation*}
 ax+by+cz=d
 \quad\text{for constant }d=ax_0+by_0+cz_0\,.
@@ -1225,7 +1232,7 @@ Find a parametric equation of the plane that passes through the three points \(P
 \begin{center}\mytemp0\end{center}
 
 \begin{solution} 
-This plane does not pass through the origin, so we first choose a point and make the description relative to that point: say choose point~\(P\) with position vector \(\pv=\ovect{OP}=-\iv+2\jv+3\kv\).
+This plane does not pass through the origin, so we first choose a point and make the description relative to that point: say we choose the point~\(P\) with position vector \(\pv=\ovect{OP}=-\iv+2\jv+3\kv\).
 Then, as illustrated below, two vectors parallel to the required plane are 
 \begin{eqnarray*}
 \uv&=&\ovect{PQ} =\ovect{OQ}-\ovect{OP} 
@@ -1249,10 +1256,11 @@ That is, a parametric equation of the plane is \(\xv=\pv+s\uv+t\vv\) which here 
 
 
 \begin{definition} \label{def:parpla}
-A \bfidx{parametric equation} of a plane is \(\xv=\pv+s\uv+t\vv\) where \pv~is the \idx{position vector} of some point in the plane,   the two vectors~\uv\ and~\vv\ are parallel to the plane (\(\uv,\vv\neq\ov\) and are at a non-zero \idx{angle} to each other), and the \idx{scalar} \bfidx{parameter}s~\(s\) and~\(t\) vary over all real values to give \idx{position vector}s of all points in the plane.
+A \bfidx{parametric equation} of a plane is \(\xv=\pv+s\uv+t\vv\) where \pv~is the \idx{position vector} of some point in the plane,   the two vectors~\uv\ and~\vv\ are parallel to the plane (\(\uv,\vv\neq\ov\) and are at a non-zero\slash non-\(\pi\) \idx{angle} to each other), and the \idx{scalar} \bfidx{parameter}s~\(s\) and~\(t\) vary over all real values to give \idx{position vector}s of all points in the plane.
 \end{definition}
 
-The beauty of this definition is that it applies for planes in any number of dimensions by using vectors with the corresponding number of components.
+The beauty of this definition is that it applies for planes in any number of dimensions.
+To do so the parametric equations just uses two vectors with the corresponding number of components.
 
 
 
@@ -1314,7 +1322,7 @@ Find a parametric equation of the plane that passes through the three points \(A
 \end{tikzpicture}}}
 \begin{center}\mytemp0\end{center}
 \begin{solution} 
-First choose a point and make the description relative to that point: say choose point~\(A\) with position vector \(\av=\ovect{OA}=-1.2\iv+2.4\jv+0.8\kv\).
+First choose a point and make the description relative to that point: say we choose the point~\(A\) with position vector \(\av=\ovect{OA}=-1.2\iv+2.4\jv+0.8\kv\).
 Then, as illustrated below, two vectors parallel to the required plane are 
 \begin{eqnarray*}
 \uv&=&\ovect{AB} =\ovect{OB}-\ovect{OA} 
@@ -1596,6 +1604,21 @@ For each case of \autoref{ex:thrpp} that you have done, find two other parametri
 
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item When using the dot product to determine the angle between a pair of vectors we only discuss angles between~\(0^\circ\) and~\(180^\circ\) (between~\(0\) and~\(\pi\) radians).  Why do we not discuss larger angles, such as~\(246^\circ\) or~\(315^\circ\)? nor negative angles?
+
+\item What properties of the dot product differ from that of the multiplication of numbers?  
+
+\item Describe a geometric reason for the Cauchy--Schwarz inequality.
+
+\item Why do we phrase an equation for a plane in terms of its perpendicular vector?
+
+\item Given that \(\xv=\pv+t\dv\) parametrises a line, and that \(\xv=\pv+s\cv+t\dv\) parametrises a plane, what would \(\xv=\pv+r\bv+s\cv+t\dv\) describe? why? are there any provisos?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
@@ -1605,7 +1628,3 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
-
-
-
-

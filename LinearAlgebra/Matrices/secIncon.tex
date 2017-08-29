@@ -26,7 +26,7 @@ The scientific method is to infer general laws from data and then validate the l
 This section addresses some aspects of the inference of general laws from data.
 A big challenge is that data is typically corrupted by noise and errors.
 %Another problem is that the `general law' sacrifices accuracy for simplicity.
-So this section shows how the singular value decomposition (\svd) leads to understanding the so-called least square methods.
+So this section shows how the singular value decomposition (\svd) leads to understanding `least square methods' for handling noisy errors.
 
 
 
@@ -65,7 +65,7 @@ Ax=U\underbrace{S\overbrace{\tr Vx}^{=y}}_{=\zv}=\bv\,.
 \end{equation*}
 
 \begin{enumerate}
-\item You are given that this matrix~\(A\) of ones has an \svd\ of (perhaps check the columns of~\(U\) are orthonormal)
+\item You are given that this particular matrix~\(A\) of a column of ones has an \svd\ of
 \def\h{\frac12}
 \begin{equation*}
 A=\begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}
@@ -75,8 +75,9 @@ A=\begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}
 \\\h&-\h&\h&-\h \end{bmatrix}
 \begin{bmatrix} 2\\0\\0\\0 \end{bmatrix}
 \tr{\begin{bmatrix} 1 \end{bmatrix}}
-=\usv.
+=\usv
 \end{equation*}
+(perhaps check the columns of~\(U\) are orthonormal).
 
 \item Solve \(U\zv=\bv\) by computing 
 \begin{equation*}
@@ -110,7 +111,7 @@ Hence we solve a slightly different problem, that of
 =\begin{bmatrix} 169\\0\\0\\0 \end{bmatrix},
 \end{equation*}
 with solution \(y=84.5\)\,.
-We treat this exact solution to a slightly different problem, as an \emph{approximate} solution to the original problem.
+We treat this exact solution to a slightly different problem as an \emph{approximate} solution to the original problem.
 
 \item Lastly, solve \(\tr Vx=y\) by computing \(x=Vy=1y=y=84.5\)\,kg (upon including the physical units).
 That is, this linear algebra procedure gives my weight as \(x=84.5\)\,kg (approximately).
@@ -184,7 +185,7 @@ the stereo picture below illustrates the 2D column space spanned by the three co
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-Now reconsider step~3 in  \autoref{eg:rstp2}.
+Now reconsider Step~3 in  \autoref{eg:rstp2}.
 \begin{enumerate} \addtocounter{enumi}2
 \item We need to interpret and `solve' \(S\yv=\zv\) which here is
 \begin{equation*}
@@ -196,7 +197,7 @@ Now reconsider step~3 in  \autoref{eg:rstp2}.
 \end{equation*}
 The third line of this system says \(0y_3=0.5774\) which is impossible for any~\(y_3\): we cannot have zero on the left-hand side equalling \(0.5774\) on the right-hand side.
 Instead of seeking an \emph{exact} solution, ask what is the \emph{\idx{smallest change}} we can make to~\(\zv=(-2.0412, -2.1213, 0.5774)\)\ so that we can report a solution, albeit to a slightly different problem?
-Answer: we \emph{must} change the last component to zero. 
+Answer: we \emph{must} change the last component of~\zv\ to zero. 
 But any change to the first two components is unnecessary, would make the change bigger than necessary, and so we do not change the first two components.
 Hence find an approximate solution to the player ratings via solving
 \begin{equation*}
@@ -207,7 +208,7 @@ Hence find an approximate solution to the player ratings via solving
 \end{bmatrix}.
 \end{equation*}
 Here a general soution is \(\yv=(-1.1785,-1.2247,y_3)\) from \verb|y=z(1:2)./diag(S(1:2,1:2))|.
-Varying the free variable~\(y_3\) gives equally good solutions as approximations.
+Varying the free variable~\(y_3\) gives equally good approximate solutions.
 
 \item Lastly, solve \(\tr V\xv=\yv\)\,, via computing \verb|x=V(:,1:2)*y|, to determines
 \begin{eqnarray*}
@@ -240,6 +241,92 @@ We focus on the geometry and linear algebra of obtaining the `best' approximate 
         \item \label{as:a4} solve \(\tr V\xv=\yv\) to obtain a general approximate solution as $\xv=V\yv$.
     \end{enumerate}
 \end{procedure}
+
+
+
+
+\begin{example} \label{eg:twotcm} % adapted from Chong 2008, p.215
+You are given the choice of two different types of concrete mix.
+One type contains 40\%~cement, 40\%~gravel, and 20\%~sand; whereas the other type contains 20\%~cement, 10\%~gravel, and 70\%~sand.
+How many kilograms of each type should you mix together to obtain a concrete mix as close as possible to \(3\)\,kg of cement, \(2\)\,kg of gravel, and \(4\)\,kg of sand.
+\begin{solution} 
+Let variables~\(x_1\) and~\(x_2\) be the as yet unknown amounts, in~kg, of each type of concrete mix. 
+Then for the cement component we want \(0.4x_1+0.2x_2=3\), while for the gravel component we want \(0.4x_1+0.1x_2=2\), and for the sand component \(0.2x_1+0.7x_2=4\)\,.
+These form the matrix-vector system \(A\xv=\bv\) for matrix and vector
+\begin{equation*}
+A=\begin{bmatrix} 0.4&0.2\\0.4&0.1\\0.2&0.7 \end{bmatrix},
+\quad \bv=\begin{bmatrix} 3\\2\\4 \end{bmatrix}.
+\end{equation*}
+Apply \autoref{pro:appsol}.
+\begin{enumerate}
+\item Enter the matrix~\(A\) and vector~\bv\ into \script\ with
+\setbox\ajrqrbox\hbox{\qrcode{% round robin tournament
+A=[0.4 0.2; 0.4 0.1; 0.2 0.7]
+b=[3;2;4]
+[U,S,V]=svd(A)
+z=U'*b
+y=z(1:2)./diag(S)
+x=V*y
+}}%
+\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\begin{verbatim}
+A=[0.4 0.2; 0.4 0.1; 0.2 0.7]
+b=[3;2;4]
+\end{verbatim}
+Then factorise matrix \(A=\usv\) with \verb|[U,S,V]=svd(A)|\,:
+\begin{verbatim}
+U =
+  -0.4638  -0.5018  -0.7302
+  -0.3681  -0.6405   0.6740
+  -0.8058   0.5814   0.1123
+S =
+   0.8515        0
+        0   0.4182
+        0        0
+V =
+  -0.5800  -0.8146
+  -0.8146   0.5800
+\end{verbatim}
+The system of equations \(A\xv=\bv\) for the mix becomes
+\begin{equation*}
+U\underbrace{S\overbrace{\tr V\xv}^{=\yv}}_{=\zv}
+=\bv.
+\end{equation*}
+\item Solve \(U\zv=\bv\) by  \(\zv=\tr U\bv\) via computing \verb|z=U'*b| to get
+\begin{verbatim}
+z =
+  -5.3510
+  -0.4608
+  -0.3932
+\end{verbatim}
+
+\item Now solve \(S\yv=\zv\).
+But the last row of the diagonal matrix~\(S\) is zero, whereas the last component of~\zv\ is non-zero: hence there is no exact solution. 
+Instead we approximate by setting the last component of \zv\ to zero.
+This approximation is the \emph{\idx{smallest change}} we can make to the required mix that is possible.
+
+That is, since \(\rank A=2\) from the two non-zero singular values, so we approximately solve the system in \script\ by \verb|y=z(1:2)./diag(S)|\,:
+\begin{verbatim}
+y =
+  -6.284
+  -1.102
+\end{verbatim}
+
+\item Lastly solve \(\tr V\xv=\yv\) as \(\xv=V\yv\) by computing \verb|x=V*y|\,:
+\begin{verbatim}
+x =
+   4.543
+   4.479
+\end{verbatim}
+\end{enumerate}
+Then interpret: from this solution \(\xv\approx(4.5,4.5)\) we need to mix close to 4.5\,kg of both the types of concrete to get as close as possible to the desired mix.
+Multiplication, \(A\xv\) or~\verb|A*x|, tells us that the resultant mix is about \(2.7\)\,kg cement, \(2.3\)\,kg gravel, and \(4.0\)\,kg of sand.
+
+Compute \verb|x=A\b| and find it directly gives exactly the same answer: \autoref{sec:csap} discusses why~\verb|A\b| gives exactly the same `best' approximate solution. 
+\end{solution}
+\end{example}
+
+
 
 
 
@@ -413,7 +500,7 @@ When rating players or teams based upon results, be clear the purpose.
 For example, is the purpose to summarise past performance? or to predict future contests?  
 % should we remove these question marks??
 If the latter, then my limited experience suggests that one should fit the win-loss record instead of the scores.
-Explore the difference for your favourite sport.
+Explore the alternatives for your favourite sport.
 
 
 
@@ -447,8 +534,8 @@ Setting vector \(\tilde\bv=A\xv\) for each, which one minimises the distance bet
 
 \begin{theorem}[\bfidx{smallest change}] \label{thm:appsol} 
 All \idx{approximate solution}s obtained by \autoref{pro:appsol} solve the linear system \(A\xv=\tilde\bv\) for the unique \idx{consistent} right-hand side vector~\(\tilde\bv\) 
+\begin{aside} The over-tilde on~\(\tilde\bv\)\ is to suggest an approximation to~\bv. \end{aside}%
 that minimises the \idx{distance}~\(|\tilde\bv-\bv|\).
-\begin{aside} The over-tilde on~\bv\ is to suggest an approximation. \end{aside}%
 \end{theorem}
 \begin{proof} 
 Find an \svd\ \(A=\usv\) of \(m\times n\) matrix~\(A\).
@@ -574,7 +661,7 @@ x =
     1.55
 \end{verbatim}
 \end{enumerate}
-Compute \verb|x=A\b| to find it gives exactly the same answer: we soon discuss why~\verb|A\b| gives exactly the same `best' approximate solution. 
+Compute \verb|x=A\b| to find it gives exactly the same answer: \autoref{sec:csap} discusses why~\verb|A\b| gives exactly the same `best' approximate solution. 
 
 Lastly, interpret the answer.
 The approximation gives \(x_1=72.61\) and \(x_2=1.55\) \twodp.  
@@ -894,7 +981,7 @@ Matlab and Octave currently differ in that octave returns the smallest solution,
 \end{comment}
 
 \paragraph{The \script\ operation \texttt{A$\backslash$b}}
-Recall that Examples~\ref{eg:lifeExpectancy} and~\ref{eg:orbitalPeriods} observed that \verb|A\b| gives an answer identical to the best approximate solution given by the \svd\ \autoref{pro:appsol}.
+Recall that Examples~\ref{eg:twotcm}, \ref{eg:lifeExpectancy} and~\ref{eg:orbitalPeriods} observed that \verb|A\b| gives an answer identical to the best approximate solution given by the \svd\ \autoref{pro:appsol}.
 But there are just as many circumstances when \verb|A\b| is not `the approximate answer' that you want.
 Beware.
 
@@ -909,7 +996,7 @@ ratings \((\frac12,1,-\frac54,-\frac14)\). %norm=1.70
 \item With \script[1], the computed answers are often different: 
 respectively \(84.5\)\,kg (the same); 
 ratings \((\verb|NaN|,\verb|Inf|,\verb|Inf|)\) with a warning; 
-and ratings \((0.75,1.25,-1,0)\) with a warning. %norm=1.77
+and ratings \((\tfrac34,\tfrac54,-1,0)\) with a warning. %norm=1.77
 \end{itemize}
 How do we make sense of such differences in computed answers?
 \end{example}
@@ -926,13 +1013,12 @@ But \script[2]'s choice of the smallest valid solution is often more appealing.
 \end{itemize}
 
 \begin{theorem}[\bfidx{smallest solution}] \label{thm:smallsoln}
-Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by Procedures~\ref{pro:gensol} or~\ref{pro:appsol}, as appropriate, and setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\).
+Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by invoking Procedures~\ref{pro:gensol} or~\ref{pro:appsol}, respectively, and then setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\).
 \end{theorem}
 \begin{proof} %Direct from \svd\ and that orthogonal matrices are rotations.
 We obtain all possible solutions, whether exact (\autoref{pro:gensol}) or approximate (\autoref{pro:appsol}), from solving \(\xv=V\yv\)\,.
 Since multiplication by orthogonal~\(V\) preserves lengths (\autoref{thm:orthog}), the lengths of~\xv\ and~\yv\ are the same: consequently, \(|\xv|^2=|\yv|^2=y_1^2+\cdots+y_r^2+y_{r+1}^2+\cdots+y_n^2\).  
-Now variables \hlist yr\ are fixed by Procedures~\ref{pro:gensol} and~\ref{pro:appsol},
-but \(y_{r+1},\ldots,y_n\) are free to vary.
+Now, in both Procedures~\ref{pro:gensol} and~\ref{pro:appsol} the variables \hlist yr\ are fixed but \(y_{r+1},\ldots,y_n\) are free to vary.
 Hence the smallest \(|\yv|^2\)~is obtained by setting \(y_{r+1}=\cdots=y_n=0\)\,. 
 Then this gives the particular solution~\(\xv=V\yv\)\ of smallest~\(|\xv|\).
 \end{proof}
@@ -968,8 +1054,9 @@ Verify \(|\xv|\) is a minimum only when the free variable \(y_3=0\) (a disc in t
 +\frac{y_3^2}{3}\begin{bmatrix} 1\\1\\1 \end{bmatrix}
 \cdot\begin{bmatrix} 1\\1\\1 \end{bmatrix}
 \\&=&\tfrac{26}9+0y_3+y_3^2
+=\tfrac{26}9+y_3^2
 \end{eqnarray*}
-Because of the~\(0y_3\) term, this quadratic is minimised for \(y_3=0\)\,.
+This quadratic is minimised for \(y_3=0\)\,.
 Hence the length~\(|\xv|\) is minimised by the free variable \(y_3=0\)\,.
 \end{solution}
 \end{example}
@@ -978,7 +1065,7 @@ Hence the length~\(|\xv|\) is minimised by the free variable \(y_3=0\)\,.
 \begin{example}[closest point to the origin] \label{eg:}
 What is the point on the line \(3x_1+4x_2=25\) that is closest to the origin?
 I am sure you could think of several methods, perhaps inspired by the marginal graph, but here use an \svd\ and \autoref{thm:smallsoln}.
-Confirm the \script[2] computation~\verb|A\b| gives this same closest point, but \script[1] gives a different answer.
+Confirm the \script[2] computation~\verb|A\b| gives this same closest point, but \script[1] gives a different `answer' (one that is not relevant here).
 \marginpar{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
   ,xlabel={$x_1$}, ylabel={$x_2$}
@@ -1008,7 +1095,7 @@ Obtain the smallest solution with free variable \(y_2=0\)\,.
 This is the smallest solution and hence the point on the line closest to the origin (as plotted).
 
 Computing \verb|x=A\b|, which here is simply \verb|x=[3 4]\25|, gives answer \(\xv=(3,4)\) in \script[2]; as determined by the \svd, this point is the closest on the line to the origin.
-In \script[1], \verb|x=[3 4]\25| gives \(\xv=(0,6.25)\) which the marginal graph shows is a valid solutions, but not the smallest solution.
+In \script[1], \verb|x=[3 4]\25| gives \(\xv=(0,6.25)\) which the marginal graph shows is a valid solution, but not the smallest solution.
 \end{solution}
 \end{example}
 
@@ -1016,7 +1103,8 @@ In \script[1], \verb|x=[3 4]\25| gives \(\xv=(0,6.25)\) which the marginal graph
 
 
 \begin{activity}
-What is the closest point to the origin of the plane \(2x+3y+6z=98\)\,? given the \svd\
+What is the closest point to the origin of the plane \(2x+3y+6z=98\)\,? 
+Use the \svd\
 \begin{equation*}
 \begin{bmatrix} 2&3&6 \end{bmatrix}
 =\begin{bmatrix} 1 \end{bmatrix}
@@ -1083,7 +1171,7 @@ This mathematical function is \emph{not} the same as \script's \texttt{exp(A)}, 
 \begin{quoted}{\idx{Wikipedia}, 2015}
 A \index{CT scan}\textsc{ct}-scan, also called X-ray \idx{computed tomography} (X-ray \textsc{ct}) or computerized axial \idx{tomography} scan (\textsc{cat} scan), makes use of computer-processed combinations of many X-ray images taken from different angles to produce cross-sectional (tomographic) images (virtual 'slices') of specific areas of a scanned object, allowing the user to see inside the object without cutting.
 \end{quoted}
-Importantly for medical diagnosis and industrial purposes, the computed answer must not have artificial features.
+Importantly for medical diagnosis and industrial purposes, the computed tomography answer must not have artificial features.
 Artificial features must not be generated because of deficiencies in the measurements.
 If there is any ambiguity about the answer, then the answer computed should be the `greyest'---the `greyest' corresponds to the mathematical smallest solution.
 
@@ -1117,9 +1205,11 @@ Let's analyse a toy example.%
 \footnote{For those interested in reading further, \cite{Kress2015} [\S8] introduces the advanced, highly mathematical, approach to computerized tomography.}
 \marginpar{\temp0}%
 Suppose we divide a cross-section of a body into nine squares (large pixels) in a \(3\times3\) grid.
-Inside each square the body's material has some unknown density represented by transmission factors, \hlist r9\ as shown in the margin, that the \textsc{ct}-scan is to find: the fraction~\(r_j\) of the incident X-ray emerges after passing through the \(j\)th~square.
+Inside each square the body's material has some unknown density represented by transmission factors, \hlist r9\ as shown in the margin.
+The \textsc{ct}-scan is to find these transmission factors.
+The factor~\(r_j\) is the fraction of the incident X-ray that emerges after passing through the \(j\)th~square: typically, smaller~\(r_i\) corresponds to higher density in the body.
 
-As indicated next in the margin, six X-ray measurements are made through the body where \hlist f6\ denote the fraction of energy in the measurements relative to the power of the X-ray beam.
+As indicated next in the margin, six X-ray measurements are made through the body where \hlist f6\ denote the fraction of energy in the measurements relative to the incident power of the X-ray beam.
 \marginpar{\temp1}%
 Thus we need to solve six equations for the nine unknown transmission factors:
 \begin{eqnarray*}
@@ -1159,7 +1249,7 @@ A=\begin{bmatrix}
  0&1&0&0&1&0&0&1&0 \\
  0&0&1&0&0&1&0&0&1 \end{bmatrix}.
 \end{equation*}
-For example, let's find an answer for the densities when the measurements give vector \(\bv=(-0.91\clb -1.04\clb -1.54\clb -1.52\clb -1.43\clb -0.53)\) (all negative as they are the logarithms of fractions~\(f_i\) less than~one)
+For example, let's find an answer for the factors when the measurements give vector \(\bv=(-0.91\clb -1.04\clb -1.54\clb -1.52\clb -1.43\clb -0.53)\) (all negative as they are the logarithms of fractions~\(f_i\) less than~one)
 \setbox\ajrqrbox\hbox{\qrcode{% simple CT scan
 A=[1 1 1 0 0 0 0 0 0 
  0 0 0 1 1 1 0 0 0 
@@ -1249,7 +1339,7 @@ However, the answer from \script[1]'s \verb|A\b| is \twodp
 \xv=\small(-0.91,0,0,-0.61,-1.43,1.01,0,0,-1.54),
 \end{equation*}
 as illustrated below---the leftmost picture---which is quite different!
-\footnote{\script[1] does give a warning in this instance (\texttt{Warning: Rank deficient, \ldots}), but it does not always. 
+\footnote{\script[1] does give a warning in this instance (\index{Warning:@\texttt{Warning:}}\texttt{Warning: Rank deficient, \ldots}), but it does not always. 
 For example, it does not warn of issues when you ask it to solve \(\frac12(x_1+x_2)=3\) via \texttt{[0.5 0.5]\slosh 3}: it simply computes the `answer' \(\xv=(6,0)\).}
 \begin{center}
 \temp{0.40}{1.00}{1.00}{0.54}{0.24}{2.74}{1.00}{1.00}{0.21}
@@ -1384,7 +1474,7 @@ orthogonal projections onto subspace, orthogonal decomposition thm,
 
 Reconsider \begin{aside}
 This optional section does usefully support least square approximation, and provides examples of transformations for the next \autoref{sec:ilt}.
-These orthogonal projections are extensively used in applications.
+Such orthogonal projections are extensively used in applications.
 \end{aside}%
 the task of making a minimal change to the right-hand side of a system of linear equations, and let's connect it to the so-called orthogonal projection.
 This important connection occurs because of the geometry that the closest point on a line or plane to another given point is the one which forms a right-angle; that is, is forms an orthogonal vector.
@@ -1429,7 +1519,7 @@ Question: how may we change the right-hand side vector~\bv\ so that the task is 
 A partial answer is to replace~\bv\ by some vector~\(\tilde\bv\) which is in the \idx{column space} of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\).
 But we could choose any~\(\tilde\bv\) in the column space, so any answer is possible! Surely any answer is not acceptable.
 \marginpar{\temp1}%
-Instead, the preferred answer is to find the vector~\(\tilde\bv\) in the column space of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\) \emph{and which is closest to}~\bv, as illustrated in the margin here.
+Instead, the preferred answer is, out of all vectors in the column space of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\),  find the vector~\(\tilde\bv\)  \emph{which is closest to}~\bv, as illustrated in the margin here.
 
 The \svd\ approach of \autoref{pro:appsol} to find~\(\tilde\bv\) and~\(x\) is the following.
 \begin{enumerate}
@@ -1438,7 +1528,7 @@ The \svd\ approach of \autoref{pro:appsol} to find~\(\tilde\bv\) and~\(x\) is th
 \item Treat the second component of \(Sy=\zv\) as an error---it is the magnitude \(|\bv-\tilde\bv|\)---to deduce \(y=4.47/2.24=2.00\) \twodp\ from the first component.
 \item Then  \(x=Vy=1y=2\) solves the changed problem.
 \end{enumerate}
-From this solution, vector \(\tilde\bv=\av x=(2,1)2=(4,2)\), as is recognisable in the graphs.
+From this solution, the vector \(\tilde\bv=\av x=(2,1)2=(4,2)\), as is recognisable in the graphs.
 \end{example}
 
 Now let's derive the same result but with two differences:
@@ -1687,7 +1777,7 @@ That is, just set the third component of~\((3,-4,2)\) to zero.
 \begin{center}\temp1\end{center}
 \begin{solution} 
 Although the two vectors in the span are orthogonal (blue in the stereo picture above), they are not unit vectors.  
-Normalise the vectors by dividing by their length \(\sqrt{2^2+(-2)^2+1^2}=\sqrt{2^2+1^2+(-2)^2}=3\) to find the vectors \(\wv_1=(\frac23,-\frac23,\frac13)\) and  \(\wv_2=(\frac23,\frac13,-\frac23)\) are an orthonormal basis for~\WW\ (plane).
+Normalise the vectors by dividing by their length \(\sqrt{2^2+(-2)^2+1^2}=\sqrt{2^2+1^2+(-2)^2}=3\) to find the vectors \(\wv_1=(\frac23,-\frac23,\frac13)\) and  \(\wv_2=(\frac23,\frac13,-\frac23)\) are an orthonormal basis for~\WW\ (a plane).
 Hence 
 \begin{eqnarray*}
 &&\proj_\WW(3,2,1)
@@ -1886,7 +1976,7 @@ The following theorem confirms this is no accident: orthogonally projecting the 
 
 
 \begin{theorem}[] \label{thm:lsqproj}
-The `\idx{least square}' solution(s) of the system \(A\xv=\bv\) determined by \autoref{pro:appsol} is(are) the solution(s) of \(A\xv=\proj_{\AA}(\bv)\) where \AA~denotes the \idx{column space} of~\(A\).
+The `\idx{least square}' solution/s of the system \(A\xv=\bv\) determined by \autoref{pro:appsol} is/are the solution/s of \(A\xv=\proj_{\AA}(\bv)\) where \AA~denotes the \idx{column space} of~\(A\).
 \end{theorem}
 
 \begin{proof} 
@@ -2004,7 +2094,8 @@ Combining these two steps into one (using associativity) gives
 \begin{equation*}
 \proj_\WW(\bv)=W\cv=W(\tr W)\bv=(W\tr W)\bv\,.
 \end{equation*}
-The useful feature is that the orthogonal projection formula of \autoref{def:orthproj} is equivalent to the multiplication by matrix~\((W\tr W)\) for an appropriate matrix~\(W\).
+The interesting feature is that the orthogonal projection formula of \autoref{def:orthproj} is equivalent to the multiplication by matrix~\((W\tr W)\) for an appropriate matrix~\(W\).
+\footnote{However, to minimise computation time compute \(\proj_\WW(\vv)\) via the two matrix-vector products in~\(W(\tr W\vv)\) because computing the projection matrix~\(W\tr W\) and then the product~\((W\tr W)\vv\) involves many more computations.  Like the inverse~\(A^{-1}\), a projection matrix~\(W\tr W\) is crucial theoretically  rather than practically.}
 
 
 
@@ -2319,7 +2410,7 @@ Such a set forms a subspace, called~\(\WW^\perp\)  (read as ``W~perp''), as illu
 
 
 \begin{activity}
-Given the above qualitative description of an orthogonal complement, which of the following red lines is the orthogonal complement to the shown subspace~\WW?
+Given the above qualitative description of an orthogonal complement, which of the following red lines is the orthogonal complement to the shown (blue) subspace~\WW?
 \def\temp#1{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize,ymin=-1.1,ymax=1.1
   ,axis equal ,axis lines=middle,samples=2, domain=-1:1]
@@ -2510,7 +2601,7 @@ Thus \((\RR^n)^\perp=\{\ov\}\).
 %The preceding proof used that the orthogonal complement is the nullspace of~\(W\tr W\).
 %But it is often more useful to know the simpler property that the orthogonal complement is the nullspace of~\(\tr W\).
 
-These examples find orthogonal complements that are lines, planes, or the entire space.  
+These examples find that orthogonal complements are lines, planes, or the entire space.  
 These indicate that an orthogonal complement is generally a subspace as proved next.
 
 \begin{theorem}[orthogonal complement is subspace] \label{thm:perpnull}
@@ -2812,13 +2903,13 @@ Let the columns of a matrix~\(W\) form an orthonormal basis for the subspace~\WW
 Equating dimensions of both sides, 
 \begin{eqnarray*}
 \dim\WW^\perp&=&\nullity(\tr W) 
-\quad(\text{from Defn.~\ref{def:nullity}})
+\quad(\text{from \autoref{def:nullity}})
 \\&=&n-\rank(\tr W)
-\quad(\text{from Rank Thm.~\ref{thm:rank}})
+\quad(\text{from Rank \autoref{thm:rank}})
 \\&=&n-\rank(W)
-\quad(\text{from Thm.~\ref{thm:ranktr}})
+\quad(\text{from \autoref{thm:ranktr}})
 \\&=&n-\dim\WW
-\quad(\text{from Proc.~\ref{pro:ospan}}),
+\quad(\text{from \autoref{pro:ospan}}),
 \end{eqnarray*}
 as required.
 \end{proof}
@@ -3046,9 +3137,9 @@ Consider
 \begin{eqnarray*}
 \tr W\Perp_\WW(\vv)
 &=&\tr W\left[\vv-\proj_\WW(\vv)\right]
-\quad(\text{from Defn.~\ref{def:perpn}})
+\quad(\text{from \autoref{def:perpn}})
 \\&=&\tr W\left[\vv-(W\tr W)\vv\right]
-\quad(\text{from Thm.~\ref{thm:projmat}})
+\quad(\text{from \autoref{thm:projmat}})
 \\&=&\tr W\vv-\tr W(W\tr W)\vv
 \quad(\text{by distributivity})
 \\&=&\tr W\vv-(\tr WW)\tr W\vv 
@@ -3075,7 +3166,7 @@ To establish this identity, use the same argument as in the proof of \autoref{th
 \\ \wv_k\cdot\wv_1&\wv_k\cdot\wv_2&\cdots&\wv_k\cdot\wv_k \end{bmatrix}
 \\&=&I_k
 \end{eqnarray*}
-as vectors \hlist\wv k\ are an orthonormal set (from \autoref{def:orthoset}, \(\wv_i\cdot\wv_j=0\) for \(i\neq j\) and \(|\wv_i|^2=\wv_i\cdot\wv_i=1\)).
+as vectors \hlist\wv k\ are an orthonormal set (from \autoref{def:orthoset}, the dot product \(\wv_i\cdot\wv_j=0\) for \(i\neq j\) and \(|\wv_i|^2=\wv_i\cdot\wv_i=1\)).
 %First show \(\Perp_\WW(\vv)\) is orthogonal to each basis vector.
 %Let \(\wv_j\)~be any of the \(k\)~vectors in the orthonormal basis, then the dot product
 %\begin{eqnarray*}
@@ -3277,12 +3368,72 @@ B=\begin{bmatrix} \frac1{\sqrt3}&-\frac1{\sqrt2}&\frac1{\sqrt6}
 
 
 \begin{comment}
-Chong, Ch.~12 has some basic data fitting exercises.
+Some of the following adapted from Chong, Ch.~12.
 \end{comment}
 
 
+\begin{exercise} \label{ex:} 
+An astro-geologist wants to measure the mass of a space rock.
+The lander accelerates the rock by applying different forces, and the astro-geologist measures the resulting acceleration.
+For the three forces of~\(1\), \(2\) and~\(3\)\,N the measured accelerations are~\(0.0027\), \(0.0062\) and~\(0.0086\,\text{m}/\text{s}^2\), respectively. 
+Using Newton's law that \(F=ma\)\,, formulate a system of three equations for the unknown mass~\(m\), and solve using \autoref{pro:appsol} to best estimate the mass of the space rock.
+\answer{\(341.7\)\,kg}
+\end{exercise}
 
-%The script roundRobin.m generates more scenarios for a round robin of any number of players.
+
+\begin{exercise} \label{ex:} 
+A school experiment aims to measure the acceleration of gravity~\(g\).
+Dropping a ball from a height, a camera takes a burst of photographs of the falling ball, one every \(0.2\)~seconds.
+From the photographs the ball falls~\(0.21\), \(0.79\) and~\(1.77\)\,m after times~\(0.2\), \(0.4\) and~\(0.6\)\,s, respectively.
+Physical laws say that the distance fallen \(s=\tfrac12gt^2\) at time~\(t\).
+Use this law to formulate a system of three equations for gravity~\(g\), and solve using \autoref{pro:appsol} to best estimate~\(g\).
+\answer{\(9.847\,\text{m}/\text{s}^2\)}
+\end{exercise}
+
+
+\begin{exercise} \label{ex:} 
+A spring under different loads stretches to different lengths according to Hooke's law that the length \(L=a+bF\) where \(F\)~is the applied load (force), \(a\)~is the unknown rest length of the spring, and \(b\)~is the unknown stiffness of the spring.
+An experiment applies the load forces~\(15\), \(30\) and~\(40\)\,N, and measures that the resultant spring length is \(3.5\), \(4.8\) and~\(6.1\)\,cm.
+Formulate this as a system of three equations, and solve using \autoref{pro:appsol} to best estimate the spring parameters~\(a\) and~\(b\).
+\answer{\(a=1.892\)\,cm and \(b=0.1026\)\,cm/N}
+\end{exercise}
+
+
+\begin{exercise} \label{ex:} 
+\begin{table}
+\caption{stock prices (in~\$) of three banks, each a week apart.}
+\label{tbl:threebanks}
+\begin{equation*}
+\begin{array}{rrrr}
+\hline
+\text{week}&\textsc{anz}&\textsc{wbc}&\textsc{cba}
+\\\hline
+1&29.86&32.22&81.05\\
+2&30.88&32.86&82.95\\
+3&31.32&33.37&83.99\\
+4&31.16&33.45&85.34\\
+\hline
+\end{array}
+\end{equation*}
+\end{table}
+\autoref{tbl:threebanks} lists the share price of three banks. 
+The prices fluctuate in time as shown.
+Suspecting that these three prices \emph{tend} to move up and down together according to the rule \(\textsc{cba}\approx a\cdot\textsc{wbc}+b\cdot\textsc{anz}\), use the share prices to formulate a system of four equations, and solve using \autoref{pro:appsol} to best estimate the coefficients~\(a\) and~\(b\).
+%\begin{verbatim}
+%p=[1 29.86 32.22 81.05
+%2 30.88 32.86 82.95
+%3 31.32 33.37 83.99
+%4 31.16 33.45 85.34]
+%cs=p(:,2:3)\p(:,4)
+%\end{verbatim}
+\answer{\(\textsc{cba}\approx 2.9\textsc{wbc}-0.4\textsc{anz}\)}
+\end{exercise}
+
+
+
+
+
+% roundRobin.m generates more scenarios for a round robin of any number of players.
 
 \begin{exercise} \label{ex:} 
 Consider three sporting teams that play each other in a round robin  event: Newark, Yonkers, and Edison:
@@ -3970,7 +4121,7 @@ Take logarithms to form a system of linear equations.
 
 \begin{exercise} \label{ex:} 
 This exercise is for those who, in Calculus courses, have studied constrained optimisation with \idx{Lagrange multiplier}s. 
-The aim is to derive how to use the \svd\ to find the vector~\xv\ that minimises \(|A\xv-\bv|\) such that the length \(|\xv|\leq\alpha\) for some given magnitude~\(\alpha\).
+The aim is to derive how to use the \svd\ to find the vector~\xv\ that minimises \(|A\xv-\bv|\) such that the length \(|\xv|\leq\alpha\) for some given prescribed magnitude~\(\alpha\).
 \begin{itemize}
 \item Given vector \(\zv\in\RR^n\) and \(n\times n\) diagonal matrix \(S=\diag(\hlist\sigma n)\), with \(\hlist\sigma n>0\)\,.
 In one of two cases, use a Lagrange multiplier~\(\lambda\) to find the vector~\yv\ (as a function of~\(\lambda\) and~\zv) that minimises \(|S\yv-\zv|^2\) such that \(|\yv|^2\leq\alpha^2\) for some given magnitude~\(\alpha\): show that the multiplier~\(\lambda\) satisfies a polynomial equation of degree~\(n\).
@@ -4653,6 +4804,33 @@ Describe the possibilities for the subspace~\WW\ and its \idx{orthogonal complem
 
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item How does rating sports teams often lead to an inconsistent system of linear equations?
+
+\item For an inconsistent system of equations, \(A\xv=\bv\), why does solving \(A\xv=\tilde\bv\) for a slightly different right-hand side~\(\tilde\bv\) give a reasonable approximate solution?
+
+\item How does \autoref{pro:appsol} ensure that we approximate an inconsistent system, \(A\xv=\bv\), by making the smallest change to the right-hand side~\bv?
+
+\item Why does attempting to solve an inconsistent system of equations have so many applications in science and engineering?
+
+\item In solving systems of equations, \(A\xv=\bv\), that have many possible solutions, the command~\verb|A\b| in \script\ computes one answer for you: how is it that \script[0]\ and \script[1]\ often give different answers?  Search for information about what `answers' they each compute.
+
+\item What causes Procedures~\ref{pro:gensol} or~\ref{pro:appsol} to give the smallest solution when all free variables are set to zero?
+
+\item Why should the smallest solution be the `best' answer for computed tomography?
+
+\item What causes an orthogonal projection to be relevant to approximately solving an inconsistent system of equations?
+
+% not appropriate as we do not count ops
+%\item In calculating an orthogonal projection onto the space~\WW\ with an {orthonormal basis} \(\{\hlist\wv k\}\) one can form the \(n\times k\) matrix \(W=\begin{bmatrix} \wv_1&\wv_2&\cdots&\wv_k \end{bmatrix}\) and compute either \(\proj_\WW(\vv)=W(\tr W\vv)\) or \(\proj_\WW(\vv)=(W\tr W)\vv\).  Count the number of multiplications needed for each alternative: which is preferable?  why?
+
+\item Why is the concept of orthogonal complement relevant to matrices?  and to linear equations?
+
+\end{enumerate}
+\end{exercise}
+
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
 how did X occur?
@@ -4663,9 +4841,4 @@ why is X important?
 \end{comment}
 
 
-
-
-
 \index{inconsistent equations|)}
-
-

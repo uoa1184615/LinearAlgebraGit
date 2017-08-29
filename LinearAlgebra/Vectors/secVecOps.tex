@@ -9,7 +9,7 @@ We want to be able to make sense of statements such as ``king --~man +~women =~q
 To do so we need to define operations on vectors.
 Useful operations on vectors are those which are physically meaningful.
 Then our algebraic manipulations will derive powerful results in applications.
-The first two basic operations are addition and scalar multiplication.
+The first two vector operations are addition and scalar multiplication.
 
 
 \subsection{Basic operations}
@@ -85,7 +85,7 @@ As below, find the same result by drawing the vector~\((3,2,0)\) from the end of
 \begin{center}
 \temp1{50}\temp1{55}%draw stereo pair
 \end{center}
-\begin{aside}I implement cross-eyed stereo so that such stereo images are useful when projected on a large screen.\end{aside}
+\begin{aside}I implement such cross-eyed stereo so that these stereo images are useful when projected on a large screen.\end{aside}
 As drawn above, many of the three-D plots in this book are \bfidx{stereo pair}s drawing the plot from two slightly different viewpoints: cross your eyes to merge two of the images, and then focus on the pair of plots to see the three-D effect.
 With practice viewing such three-D stereo pairs becomes less difficult.
 
@@ -97,8 +97,8 @@ With practice viewing such three-D stereo pairs becomes less difficult.
 
 
 \begin{example} \label{eg:}
-To multiply a vector by a scalar, multiply each component by the scalar. 
-Equivalently, obtain the result through stretching the vector by a factor of the scalar.
+To multiply a vector by a scalar, a number, multiply each component by the scalar. 
+Equivalently, visualise the result through stretching the vector by a factor of the scalar.
 \begin{enumerate}
 \item Let the vector \(\uv=(3,2)\) then, as illustrated in the margin,
 \marginpar{\begin{tikzpicture} 
@@ -426,7 +426,7 @@ Consider the line drawn in the margin in some chosen coordinate system.
 \addplot+[thick,no marks] {2-x/2};
 \end{axis}
 \end{tikzpicture}}%
-Recall one way to find an equation of the line is to find the intercepts with the axes, here at \(x=4\) and \(y=2\)\,, then write down \(\frac x4+\frac y2=1\) as an equation of the line.
+Recall one way to find an equation of the line is to find the intercepts with the axes, here at \(x=4\) and at \(y=2\)\,, then write down \(\frac x4+\frac y2=1\) as an equation of the line.
 Algebraic rearrangement gives various other forms, such as \(x+2y=4\) or \(y=2-x/2\)\,.
 
 The alternative is to describe the line with vectors.
@@ -509,7 +509,7 @@ Which one of the following is \emph{not} a valid vector equation for the line pl
 
 
 \begin{definition} \label{def:parlin}
-A \bfidx{parametric equation} of a line is \(\xv=\pv+t\dv\) where \pv~is the \idx{position vector} of some point on the line,  the so-called \bfidx{direction vector}~\dv\ is parallel to the line (\(\dv\neq\ov\)), and the \idx{scalar} \bfidx{parameter}~\(t\) varies over all real values to give all position vectors on the line.
+A \bfidx{parametric equation} of a line is \(\xv=\pv+t\dv\) where \pv~is the \idx{position vector} of some point on the line,  the so-called \bfidx{direction vector}~\dv\ is parallel to the line (\(\dv\neq\ov\)), and the \idx{scalar} \bfidx{parameter}~\(t\) varies over all real values to give all position vectors~\xv\ on the line.
 \end{definition}
 
 Beautifully, this definition applies for lines in any number of dimensions by using vectors with the corresponding number of components.
@@ -555,7 +555,7 @@ A parametric equation of the line is then \(\xv=\pv+t\dv\)\,, specifically
 
 
 \begin{example} \label{eg:}
-Given the \idx{parametric equation} of a line in space is \(\xv=(-4+2t,3-t,-1-4t)\), find the value of the parameter~\(t\) that gives each of the following points on the line: \((-1.6,1.8,-5.8)\), \((-3,2.5,-3)\), and \((-6,4,4)\).
+Given the \idx{parametric equation} of a line in space (in stereo) is \(\xv=(-4+2t,3-t,-1-4t)\), find the value of the parameter~\(t\) that gives each of the following points on the line: \((-1.6,1.8,-5.8)\), \((-3,2.5,-3)\), and \((-6,4,4)\).
 \begin{solution} 
 \begin{itemize}
 \item For the point \((-1.6,1.8,-5.8)\) we need to find the parameter value~\(t\) such that \(-4+2t=-1.6\), \(3-t=1.8\) and \(-1-4t=-5.8\)\,.
@@ -653,9 +653,12 @@ Consequently, \(|a\uv| =|(-\tfrac12)(1,2)| =|(-\tfrac12,-1)| =\sqrt{(-\tfrac12)^
 \end{example}
 
 
+Now let's state and prove these properties in general.
+
+
 \begin{theorem} \label{thm:vecops}
-Let \uv, \vv\ and~\wv\ be vectors with \(n\)~components (in~\(\RR^n\)), and let \(a\) and~\(b\) be \idx{scalar}s.
-Then the following properties hold:
+For all vectors~\uv, \vv\ and~\wv\  with \(n\)~components (that is, in~\(\RR^n\)), and for all scalars~\(a\) and~\(b\),
+the following properties hold:
 \begin{enumerate}
 \item\label{thm:vecopsa} \(\uv+\vv=\vv+\uv\) \quad(\idx{commutative law});
 \item\label{thm:vecopsb} \((\uv+\vv)+\wv=\uv+(\vv+\wv)\) \quad(\idx{associative law});
@@ -675,7 +678,7 @@ We prove property~\ref{thm:vecopsa}, and leave the proof of other properties as 
 The approach is to establish the properties of vector operations using the known properties of scalar operations.
  
 Property~\ref{thm:vecopsa} is the commutativity of vector addition.
-\autoref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in one case, and the margin here shows another case.
+\autoref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in just one case, and the margin here shows another case.
 In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \newcommand{\twov}[5]{%
   \pgfmathparse{#2*0.9+#4}\let\h\pgfmathresult
@@ -703,11 +706,11 @@ In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 &&{\uv+\vv}
 \\&=&(\hlist un)+(\hlist vn)
 \\&=&(u_1+v_1,u_2+v_2,\ldots,u_n+v_n)
-\quad(\text{by Defn.~\ref{def:vecops}})
+\quad(\text{by \autoref{def:vecops}})
 \\&=&(v_1+u_1,v_2+u_2,\ldots,v_n+u_n)
 \quad(\text{commutative scalar add})
 \\&=&(\hlist vn)+(\hlist un)
-\quad(\text{by Defn.~\ref{def:vecops}})
+\quad(\text{by \autoref{def:vecops}})
 \\&=&\vv+\uv\,.
 \end{eqnarray*}
 \end{proof}
@@ -792,7 +795,7 @@ That these are equal, the brown vector, requires both the commutative and associ
 \end{example}
 
 
-We frequently use these algebraic properties in rearranging and solving vector equations. 
+We frequently use the algebraic properties of \autoref{thm:vecops} in rearranging and solving vector equations. 
 
 \begin{example} \label{eg:}
 Find the vector~\xv\ such that \(3\xv-2\uv=6\vv\)\,.
@@ -1059,6 +1062,27 @@ For each of the following vectors equations, rearrange the equations to get vect
 
 
 
+
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item What empowers us to write every vector in terms of the standard unit vectors?
+
+\item We use the distance~\(|\uv-\vv|\) to measure how close the two vectors are to each other.  Invent an alternative way to measure closeness of two vectors, and comment on why your invented alternative measures closeness.
+% Could be any in q-norm family, or a weighted q-norm, but not the angle between vectors.
+
+\item What is it about the parametric equation of a line that means it does indeed describe a line in space?
+
+\item Comment on why many of the properties (\autoref{thm:vecops}) of vector operations appear the same as those for operations with real numbers. 
+
+
+\end{enumerate}
+\end{exercise}
+
+
+
+
+
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
 how did X occur?
@@ -1067,6 +1091,3 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
-
-
-

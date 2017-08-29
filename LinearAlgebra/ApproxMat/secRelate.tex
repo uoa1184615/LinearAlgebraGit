@@ -6,20 +6,17 @@
 
 
 
-
 \subsection{Compress images optimally}
 \label{sec:ciio}
 
 \index{image compression|(}
 
 Photographs and other images take a lot of storage.
-Reducing the amount of storage for an image, both for storage and for transmission, is essential.
+Reducing the amount of storage for an image is essential, both for storage and for transmission.
 The well-known \idx{jpeg} format for compressing photographs is incredibly useful: the \svd\ provides a related effective method of compression.
 
 \begin{comment} 
 Introduce digital {image compression} by \svd{}s \pooliv{p.607--8} \holti{p.336--7}  \cite[\S07]{Davis99a}  \cite[Ch.~9, 11]{Chartier2015}.
-
-As an exercise or an application should introduce the Kabsch algorithm (Wikipedia) for calculating the optimal rotation matrix that minimizes the root mean squared deviation between two paired sets of points. It is useful in graphics, cheminformatics to compare molecular structures, and also bioinformatics for comparing protein structures.
 \end{comment}
 
 
@@ -35,16 +32,16 @@ A&=&\usv
 O_{k\times (n-k)}\\\,\\
 O_{(m-k)\times k}&O_{(m-k)\times (n-k)}\end{bmatrix}
 \tr V
-\\&&(\text{upon multiplying the form of the first two matrices})
+\\&&(\text{then multiplying the form of the first two matrices})
 \\&=&
 \begin{bmatrix} \sigma_1\uv_1&\cdots&\sigma_k\uv_k&O_{m\times(n-k)} \end{bmatrix}
 \begin{bmatrix} \tr\vv_1\\\vdots\\\tr\vv_k\\\vdots\\\tr\vv_n \end{bmatrix}
-\\&&(\text{upon multiplying the form of these two matrices})
+\\&&(\text{then multiplying the form of these two matrices})
 \\&=&
 \sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k\,.
 \end{eqnarray*}
 This last form constructs matrix~\(A\).
-Further, this last form \emph{has relatively few components when the rank~\(k\) is low} compared to~\(m\) and~\(n\).
+Further, when the rank~\(k\) is low compared to size~\(m\) and~\(n\), this last form \emph{has relatively few components}.
 
 
 
@@ -60,7 +57,7 @@ A=\begin{bmatrix} 0&1&1&1&0
 \\0&1&1&1&0 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vectors set the magnitude (here these are not singular vectors and \(\sigma_j\)~are not singular values---but subsequently such a meaning will be restored).
+Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vectors set the magnitude (for the moment, here these are not singular vectors and \(\sigma_j\)~are not singular values---but subsequently such a meaning will be restored).
 \begin{enumerate}
 \item Arbitrarily start by addressing together the first and last rows of the image (as illustrated): they are computed by choosing  \(\uv_1=(1,0,0,0,1)\) and \(\vv_1=(0,1,1,1,0)\), and using the rank one matrix
 \marginpar{\input{ApproxMat/bulls1.ltx}}
@@ -75,7 +72,7 @@ Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vector
 \\0&1&1&1&0 \end{bmatrix}.
 \end{equation*}
 
-\item Next choose to address adding in the first and last columns of the image (as illustrated): they are computed by choosing  \(\uv_2=(0,1,1,1,0)\) and \(\vv_2=(1,0,0,0,1)\), and using the rank two matrix
+\item Next choose to add in the first and last columns of the image (as illustrated): they are computed by choosing  \(\uv_2=(0,1,1,1,0)\) and \(\vv_2=(1,0,0,0,1)\), and using the rank two matrix
 \marginpar{\input{ApproxMat/bulls2.ltx}}
 \begin{eqnarray*}
 \uv_1\tr\vv_1+\uv_2\vv_2
@@ -93,7 +90,7 @@ Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vector
 \\0&1&1&1&0 \end{bmatrix}.
 \end{eqnarray*}
 
-\item Lastly put the dot in the middle of the image (to form the original): choose  \(\uv_3=\vv_3=(0,0,1,0,0)\), and compute the rank three matrix
+\item Lastly put the dot in the middle of the image (to form the original image): choose  \(\uv_3=\vv_3=(0,0,1,0,0)\), and compute the rank three matrix
 \begin{eqnarray*}
 &&\uv_1\tr\vv_1+\uv_2\vv_2+\uv_3\vv_3
 \\&=&\uv_1\tr\vv_1+\uv_2\vv_2
@@ -144,7 +141,9 @@ Which pair of vectors gives a rank one representation,~\(\uv\tr\vv\) of the matr
 
 
 \begin{procedure}[approximate images] \label{pro:ai} 
-For an image stored as scalars in an \(m\times n\) matrix~\(A\).
+Given an image stored as scalars in an \(m\times n\) matrix~\(A\).
+\footnote{Some of you may wonder about compressing three dimensional (3D) images such as the details in 3D space found by \textsc{ct}-scans of your body, or such as a movie (2D in space  and 1D in time). 
+As yet there is no one outstanding, clear and efficient generalisation of the \svd\ to represent a 3D array of numbers, nor for \(n\)D with \(n\geq3\) (search for Tensor Rank Decomposition).}
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
 \item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\autoref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and the rest are `small'.
@@ -218,7 +217,7 @@ A3 =
    1.00   0.00   0.00   0.00   1.00
   -0.00   1.00   1.00   1.00  -0.00
 \end{verbatim}
-The rank~3 matrix~\(A_3\) exactly reproduces the image matrix~\(A\). 
+The rank three matrix~\(A_3\) exactly reproduces the image matrix~\(A\). 
 This exactness is due to the  fourth and fifth singular values being precisely zero (to numerical error).
 
 \item Alternatively, in the context of some application, we could subjectively decide that there are two `large' singular values of~\(2.68\) and~\(2.32\), and three `small' singular values of~\(0.64\) and~\(0.00\).
@@ -366,7 +365,6 @@ The \svd\ provides an effective flexible data compression.
 
 
 
-
 \begin{table}
 \caption{As well as the \script\ commands and operations listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics}, \ref{tbl:mtlbops}, \ref{tbl:mtlbmops}, \ref{tbl:mtlbsvd}, and~\ref{tbl:mtlbimag}  we may invoke these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbnorm}
 \hrule
@@ -440,7 +438,8 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 
 We need to define what `best' means in the approximation \autoref{pro:ai} and then show the procedure achieves this best.
 %Recall diagonal matrices, orthogonal matrices and properties, rank, \svd\ factorisation, and how to approximate \idx{inconsistent} right-hand side vectors.
-To proceed to understand \idx{image compression}, we need a measure of the magnitude of matrices and distances between matrices.
+%To proceed to understand \idx{image compression}, 
+We need a measure of the magnitude of matrices and distances between matrices.
 
 In linear algebra we use the double vertical bars,~\(\norm{\cdot}\), to  denote the magnitude of a matrix in order to avoid a notational clash with the well-established use of~\(|\cdot|\) for the determinant of a matrix (\autoref{ch:ddm}).
 
@@ -464,6 +463,7 @@ The equivalence, that \(\max_{|\xv|=1}|A\xv|=\sigma_1\)\,, is due to the definit
 \begin{example} \label{eg:}
 The two following \(2\times2\) matrices have the product~\(A\xv\) plotted~(red), adjoined to~\xv~(blue), for a complete range of unit vectors~\xv\ (as in \autoref{sec:iee} for eigenvectors).
 From \autoref{def:norm}, the norm of the matrix~\(A\) is then the length of the longest such plotted~\(A\xv\).
+As such, this norm is a measure of the magnitude of the matrix.
 \begin{aside}
 The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to such static views.
 \end{aside}%
@@ -491,7 +491,9 @@ So estimate \(\norm{\eAii}\approx 0.9\)\,.
 
 \begin{example} \label{eg:}
 Consider the \(2\times2\) matrix \(A=\begin{bmatrix} 1&1\\0&1 \end{bmatrix}\).
-Explore products \(A\xv\) for unit vectors~\xv, and then find the \idx{matrix norm}~\(\norm{A}\).
+Algebraically explore products \(A\xv\) for unit vectors~\xv, as illustrated in the margin, 
+\marginpar{\eRose1101}
+and then find the \idx{matrix norm}~\(\norm{A}\).
 \begin{itemize}
 \item The standard unit vector \(\ev_2=(0,1)\) has \(|\ev_2|=1\) and \(A\ev_2=(1,1)\) has length \(|A\ev_2|=\sqrt2\)\,.
 Since the matrix norm is the maximum of all possible~\(|A\xv|\), so \(\norm{A}\geq|A\ev_2|=\sqrt2\approx 1.41\)\,.
@@ -641,7 +643,8 @@ Alternatively, executing \index{norm()@\texttt{norm()}}\verb|norm(B)| directly g
 
 
 
-The \autoref{def:norm} of the magnitude\slash norm of a matrix may appear a little strange, but, in addition to some marvellously useful properties, it nonetheless has all the familiar properties of a magnitude\slash length.
+The \autoref{def:norm} of the magnitude\slash norm of a matrix may appear a little strange. 
+But, in addition to some marvellously useful properties, it nonetheless has all the familiar properties of a magnitude\slash length.
 Recall from \autoref{ch:v} that for vectors:
 \begin{itemize}
 \item \(|\vv|=0\) if and only if \(\vv=\ov\) (\autoref{thm:veclen0});
@@ -1258,9 +1261,22 @@ Could introduce the Frobenius norm here, but would confuse some, and there is no
 %Then the closest rank~\(k\) matrix is \(A_k=UB\tr V\). 
 %\end{proof}
 
-
-
 \index{image compression|)}
+
+
+
+
+
+\begin{draft}
+\subsubsection {Application: identify similar protein structures}
+\label{sec:aicps}
+
+\begin{comment}
+As an exercise or an application could introduce the Kabsch algorithm (Wikipedia) for calculating the optimal rotation matrix that minimizes the root mean squared deviation between two paired sets of points.  It is useful in graphics, cheminformatics to compare molecular structures, and also bioinformatics for comparing protein structures.
+\end{comment}
+
+\end{draft}
+
 
 
 
@@ -1537,7 +1553,7 @@ table[x=SeL,y=SeW, meta=S] {
 \addplot[black,mark=+,mark size=4,thick] coordinates {(5.81,3.09)};
 \end{axis}
 \end{tikzpicture}
-\caption{scatter plot of sepal widths versus lengths for Edgar Anderson's iris data of \autoref{tbl:eaid}: blue,~Setosa; brown,~Versicolor; red,~Virginia.  
+\caption{scatter plot of sepal widths versus lengths for Edgar Anderson's Iris data of \autoref{tbl:eaid}: blue,~Setosa; brown,~Versicolor; red,~Virginia.  
 The black~``+'' marks the mean sepal width and length.}
 \label{fig:eaid}
 \end{figure}
@@ -1598,7 +1614,8 @@ The above command \index{scatter()@\texttt{scatter()}}\verb|scatter(x,y,[],s)|  
 
 \item If we were on a walk to a scenic lookout to get a view of the countryside, then the scenic lookout would be in the countryside: it is no good going to a lookout a long way away from the scene we wish to view.
 Correspondingly, to best view a dataset we typically look it at from the very centre of the data, namely its mean.
-That is, here we use an \svd\ of the data matrix only after subtracting the mean of each attribute so that the \svd\ analyses the variations from the mean.
+That is, here we use an \svd\ of the data matrix only after subtracting the mean of each attribute.
+Then the \svd\ analyses the variations from the mean.
 Here the mean Iris sepal length and width is \(5.81\)\,cm and~\(3.09\)\,cm (the black~``+'' in \autoref{fig:eaid}), and the mean petal length and width is \(3.69\)\,cm and~\(1.22\)\,cm.
 In \script\ execute the following to form a matrix~\(A\) of the variations from the mean, and compute an \svd:
 \begin{verbatim}
@@ -2430,7 +2447,7 @@ Use each plot to roughly estimate the norm of the underlying matrix for that plo
 
 
 \begin{exercise} \label{eg:}
-For the following matrices, use few unit vectors~\xv\ to determine how the matrix-vector product varies with~\xv.
+For the following matrices, use a few unit vectors~\xv\ to determine how the matrix-vector product varies with~\xv.
 Using calculus to find the appropriate maximum, find from definition the norm of the matrices (hint: all norms here are integers).
 \begin{parts}
 \item \(\begin{bmatrix} 2&-3\\0&2 \end{bmatrix}\)
@@ -2577,7 +2594,7 @@ The Sierpinski carpet is another \idx{fractal} which is easily generated by recu
 
 
 \begin{exercise}[another fractal] \label{ex:} 
-Illustrated in the margin is another \idx{fractal} which is easily generated by recursion.
+Illustrated in the margin is another \idx{fractal} generated by recursion.
 \marginpar{\input{ApproxMat/SpikeyFrac.ltx}}
 \begin{enumerate}
 \item Modify the recursive \script\ code of \autoref{ex:siertri} to generate such an image.
@@ -2608,7 +2625,7 @@ Ada Lovelace (1815--52)
 &
 This is an image of Countess \index{Lovelace, Ada}Ada Lovelace: the first computer programmer, she invented, developed and wrote programs for \index{Babbage, Charles}Charles Babbage's analytical engine.
 Download the \(249\times178\) image.
-Using an \svd\ draw various rank approximations to the image.
+Using an \svd, draw various rank approximations to the image.
 Using the matrix norm to measures errors, what is the smallest rank to reproduce the image to an error of~5\%? and of~1\%?
 \end{tabular}\\
 \url{http://www.maa.org/sites/default/files/images/upload_library/46/Portraits/Lovelace_Ada.jpg} 
@@ -2777,6 +2794,26 @@ Discuss any patterns in the results.
 
 
 
+
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item What is it about an \svd\ that makes it useful in compressing images?
+
+\item Why does the matrix norm behave like a measure of the magnitude of a matrix?  What else might be used as a measure?
+
+\item Why is principal component analysis important?
+
+\item In a principal component analysis, via the \svd\ \(A=\usv\), why are the principal vectors the columns of~\(V\) and not the columns of~\(U\)?
+
+\item What causes the first few principal components of some data to often form the basis for a good view of the data?
+
+\item How is it that we can discuss and analyse the ``angle between books''?
+
+\item When searching for books with a specified keyword, what is it that enables latent semantic indexing to return book-titles that do not have the keyword? 
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?

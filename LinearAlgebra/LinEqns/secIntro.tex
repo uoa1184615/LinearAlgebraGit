@@ -30,7 +30,8 @@ Algebra discovers that~\(-40^\circ\)C is the same temperature as~\(-40^\circ\)F.
 Linear equations are characterised by each unknown never being multiplied or divided by another unknown, or itself, nor inside `curvaceous' functions.  
 \autoref{tbl:linnonlin} lists examples of both.
 The power of linear algebra is especially important for large numbers of unknown variables: thousands or millions of variables are common in modern applications.
-Generally we say there are \(n\)~variables.
+Generally we say there are \(n\)~unknown variables.
+The value of~\(n\) maybe two or three as in many examples, or may be thousands or millions in many modern applications.
 \begin{table}
 \caption{examples of linear equations, and equations that are not linear (called \idx{nonlinear equation}s).}
 \label{tbl:linnonlin}
@@ -79,7 +80,7 @@ To draw the graphs seen in the marginal plot, rearrange  the linear equations as
     \addplot{x/2};
 \end{axis}
 \end{tikzpicture}}%
-They intersect at the point \((2,1)\) so \(x=2\) and \(y=1\) is the unique solution.
+From the graph, they intersect at the point \((2,1)\) so \(x=2\) and \(y=1\) is the unique solution.
 
 Algebraically, one could add twice the first equation to half of the second equation: \(2(x+y)+\frac12(2x-4y)=2\cdot3+\frac12\cdot0\) which simplifies to \(3x=6\) as the \(y\)~terms cancel; hence \(x=2\)\,.  
 Then say consider the second equation, \(2x-4y=0\)\,, which now becomes \(2\cdot2-4y=0\)\,, that is, \(y=1\)\,.  
@@ -177,7 +178,7 @@ Find your location~\((x,y)\).
 
 
 \begin{solution} 
-From these three sources of information, Pythagoras and the length of displacement vectors gives the three equations
+From these three sources of information, Pythagoras and the length of displacement vectors (\autoref{def:veclen}) gives the three equations
 \begin{eqnarray*}
 &&(x-29)^2+(y-10)^2=25^2\,,
 \\&&(x-17)^2+(y-19)^2=20^2\,,
@@ -190,12 +191,12 @@ Expanding the squares in these equations gives the equivalent system
 \\&&x^2-34x+289+y^2-38y+361=400\,,
 \\&&x^2-26x+169+y^2-36y+324=289\,.
 \end{eqnarray*}
-Involving squares of the unknowns, these are a nonlinear system of equations and so appear to lie outside the remit of this book.  
-However, straightforward algebra transforms these three \idx{nonlinear equation}s into a system of two linear equations which we solve.
+Involving squares of the unknowns, \(x^2\)~and~\(y^2\), these are a nonlinear system of equations and so appear to lie outside the remit of this book.  
+However, straightforward algebra transforms these three \idx{nonlinear equation}s into a system of two linear equations which we~solve.
 
 Let's subtract the third equation from each of the other two, then the nonlinear squared terms cancel giving a system of two linear equations in two variables:
 \begin{eqnarray*}
--32x+672+16y-224=336&\iff&-2x+y=-7\,,
+-32x+672+16y-224=336&\iff&-2x+y=-7\,;
 \\-8x+120-2y+37=111&\iff&-4x-y=-23\,.
 \end{eqnarray*}%
 \marginpar{\begin{tikzpicture}[]
@@ -221,7 +222,7 @@ Then either equation, say the first, determines~\(y=-7+2x=-7+2\cdot 5=3\)\,.
 That is, your location is \((x,y)=(5,3)\) (in~Mm), as drawn.
 \end{solution}
 If the \(x\)-axis is a line through the equator, and the \(y\)-axis goes through the North pole, then trigonometry gives that your location would be at latitude
-\(\tan^{-1}\frac35=30.96^\circ\)N.
+\(\tan^{-1}\frac35=0.5404=30.96^\circ\)N.
 \end{example}
 
 
@@ -749,6 +750,16 @@ In which of these cases: are you at the `North Pole'?  flying high above the Ear
 \end{exercise}
 
 
+
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item Is the equation \(x=5/(3+4y/x)\) linear? or nonlinear? Explain.
+
+\item Recall that \autoref{eg:gps2} determined your position in 2D from the \gps\ readings of three satellites.  Can you determine your position in 2D from just two \gps\ satellites?  Using linear algebra?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?

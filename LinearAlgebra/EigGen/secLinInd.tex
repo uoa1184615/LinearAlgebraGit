@@ -14,14 +14,15 @@
 \index{linear independence|(}
 
 
-In \autoref{ch:eesm} on symmetric matrices, the \idx{eigenvector}s from distinct \idx{eigenvalue}s are proved to be always \idx{orthogonal}.  
+In \autoref{ch:eesm} on symmetric matrices, the \idx{eigenvector}s from \idx{distinct eigenvalues} are proved to be always \idx{orthogonal}---because of the symmetry.  
 For general matrices the eigenvectors are not orthogonal---as introduced at the start of this \autoref{ch:gee}.  
 But the orthogonal property is extremely useful.
 Question: is there some analogue of orthogonality that is similarly useful?
-Answer: yes; we now extend ``orthogonal'' to the more general concept of ``linear independence'' which for general matrices replaces orthonormality.
+Answer: yes. 
+We now extend ``orthogonal'' to the more general concept of ``linear independence'' which for general matrices replaces orthonormality.
 
 One reason that orthogonal vectors are useful is that they can form an \idx{orthonormal basis} and hence act as the unit vectors of an orthogonal coordinate systems.
-The concept of linear independence is closely connected to \idx{coordinate system}s that are not orthogonal.
+Analogously, the concept of linear independence is closely connected to \idx{coordinate system}s that are not orthogonal.
 
 
 
@@ -35,7 +36,7 @@ You might find \(y=3e^x+2e^{-x}\), whereas I find \(y=5\cosh x+\sinh x\), and a 
 By looking at these disparate algebraic forms it is apparent that we all disagree.
 Should we all go and search for errors in the solution process?  No.
 The reason is that all these solutions are the same.
-The apparent differences arise only because you choose exponentials to represent the solution, whereas I choose hyperbolic functions: the solutions are the same, it is only the algebraic representation that appears different. 
+The apparent differences arise only because you choose exponentials to represent the solution, whereas I choose hyperbolic functions, and the friend a mixture: the solutions are the same, it is only the algebraic representation that appears different. 
 In general, when we cannot immediately distinguish identical solutions, all algebraic manipulation becomes immensely more difficult due to algebraic ambiguity.
 To avoid such immense difficulties, in both calculus and linear algebra, we need to introduce the concept of linear independence.
 
@@ -237,7 +238,7 @@ As one example, consider the vector~\((1,0,-1)\):
 \\(1,0,-1)&=&(-1+t)\vv_1+t\vv_2+(1+t)\vv_3\,,\quad\text{for every }t.
 \end{eqnarray*}
 This last combination shows there an infinite number of ways to write \((1,0,-1)\) as a linear combination of~\(\vv_1\), \(\vv_2\) and~\(\vv_3\).
-Such an infinity of linear combinations means that~\(\vv_1\), \(\vv_2\) and~\(\vv_3\) do not form a useful `coordinate system' because we cannot easily distinguish between the different combinations all describing the same vector.
+Such an infinity of linear combinations means that~\(\vv_1\), \(\vv_2\) and~\(\vv_3\) cannot form the basis for a useful `coordinate system' because we cannot easily distinguish between the different combinations all describing the same vector.
 The reason for the infinity of combinations is that there is a nontrivial linear combination of~\(\vv_1\), \(\vv_2\) and~\(\vv_3\) which is zero, namely \(\vv_1+\vv_2+\vv_3=\ov\)\,.
 It is this last statement that leads to the \autoref{def:lindep} of \idx{linear dependence}.
 \end{solution}
@@ -509,7 +510,7 @@ The following \autoref{thm:indepev} generalises this property to non-symmetric m
 
 
 \begin{theorem} \label{thm:indepev}
-For every \(n\times n\) matrix~\(A\), let \hlist\lambda m\ be distinct \idx{eigenvalue}s of~\(A\) with corresponding \idx{eigenvector}s \hlist\vv m.
+For every \(n\times n\) matrix~\(A\), let \hlist\lambda m\ be \idx{distinct eigenvalues} of~\(A\) with corresponding \idx{eigenvector}s \hlist\vv m.
 Then the set \(\{\hlist \vv m\}\) is \idx{linearly independent}.
 \end{theorem}
 \begin{proof} 
@@ -569,11 +570,11 @@ For what value of~\(a\) does the matrix have a repeated eigenvalue?
 
 
 \begin{example} \label{eg:indepev}
-For each of the following matrices, show the eigenvectors from distinct eigenvalues form linearly independent sets.
+For each of the following matrices, show the eigenvectors from \idx{distinct eigenvalues} form linearly independent sets.
 \begin{enumerate}
-\item  Recall from \autoref{eg:faespm} the matrix \(B=\begin{bmatrix}-1&1&-2
+\item  Consider the matrix \(B=\begin{bmatrix}-1&1&-2
 \\-1&0&-1
-\\0&-3&1 \end{bmatrix}\)
+\\0&-3&1 \end{bmatrix}\) from \autoref{eg:faespm}.
 \begin{solution} 
 In \script, executing 
 \begin{verbatim}
@@ -606,7 +607,7 @@ The theorem only applies to eigenvectors of distinct eigenvalues.
 
 Here the two distinct eigenvalues are \(\lambda=-2\) and \(\lambda=1\)\,.
 Recognising \(0.5774=1/\sqrt3\)\,, two corresponding eigenvectors are \((-1/\sqrt3,-1/\sqrt3,-1/\sqrt3)\) and \((1/\sqrt2,0,-1/\sqrt2)\).
-Because of the zero component in the second, these cannot be proportional to each other, and so the pair form a linearly independent set.
+Because the zero component in the second corresponds to a non-zero component in the first, these cannot be proportional to each other, and so the pair form a linearly independent set.
 \end{solution}
 
 
@@ -672,7 +673,7 @@ Hence, by \autoref{def:lindep} the set of eigenvectors in the columns of~\(V\) a
 \end{example}
 
 
-This last case of \autoref{eg:indepeva} connects the concept of linear (in)dependence to the existence or otherwise of non-zero solutions to a homogeneous system of linear equations, \(V\cv=\ov\)\,.
+This last case of \autoref{eg:indepeva} connects the concept of linear in/dependence to the existence or otherwise of non-zero solutions to a homogeneous system of linear equations, \(V\cv=\ov\)\,.
 So does \autoref{eg:lindepb}.
 The great utility of this connection is that we understand a lot about homogeneous systems of linear equations.
 The next \autoref{thm:linhomo} establishes this connection in general.
@@ -860,7 +861,7 @@ In the context of such errors, this set of five vectors would be  linearly depen
 \subsection{Form a basis for subspaces}
 
 
-Recall, from Sections~\ref{sec:lcss} and~\ref{sec:sbd}, the definition of \idx{subspace}s and the \idx{span}: namely that a subspace is a set of vectors closed under addition and scalar multiplication; and a span gives a subspace as all linear combinations of a set of vectors.
+Recall the definition of \idx{subspace}s and the \idx{span}, from Sections~\ref{sec:lcss} and~\ref{sec:sbd}: namely that a subspace is a set of vectors closed under addition and scalar multiplication; and a span gives a subspace as all linear combinations of a set of vectors.
 Also, \autoref{def:orthobasis} defined an ``\idx{orthonormal basis}'' for a subspace to be a set of orthonormal vectors that span a subspace.
 This section generalises the concept of an ``orthonormal basis'' by relaxing the requirement of orthonormality to result in the concept of a ``basis''.
 
@@ -996,7 +997,7 @@ Any two bases for a given \idx{subspace} have the same number of vectors.
 \end{theorem}
 \begin{proof} 
 Let \(\cU=\{\hlist\uv r\}\) and \(\cV=\{\hlist\vv s\}\) be any two  bases for a subspace in~\(\RR^n\).
-Prove the number of vectors \(r=s\) by contradiction.
+We prove the number of vectors \(r=s\) by contradiction.
 In the first case, assume \(r<s\)\,.
 Since \cU\ is a basis for the subspace every vector in the set~\cV\ can be written as a linear combination of vectors in~\cU\ with some coefficients~\(a_{ij}\):
 \begin{eqnarray*}
@@ -1047,14 +1048,15 @@ Each of the following are a basis for the plane:
 \end{itemize}
 The reasons are that all three vectors involved are in the plane, and that each pair are linearly independent (as, in each pair, one is not proportional to the other).
 
-Although, in the set \(\{(-1,1,0),\ (1,-2,1),\ (0,1,-1)\}\), each of the three vectors is in the plane, this set is not a basis because it is not linearly independent (\autoref{eg:lindepa}).
+However, consider the set \(\{(-1,1,0),\ (1,-2,1),\ (0,1,-1)\}\).
+Although each of the three vectors is in the plane \(x+y+z=0\), this set is not a basis because it is not linearly independent (\autoref{eg:lindepa}).
 Each individual vector, say \((-1,1,0)\), cannot form a basis for the plane because the span of one vector, such as \(\Span\{(-1,1,0)\}\), is a line not the whole plane.
 
-The orthonormal basis \(\big\{(1,0,-1)/\sqrt2,\ (1,-2,1)/\sqrt6\big\}\) is another basis for the plane: both vectors satisfy \(x+y+z=0\) and are orthogonal and so linearly independent (\autoref{thm:ortholi}).  
+The orthonormal basis \(\big\{(1,0,-1)/\sqrt2,\ (1,-2,1)/\sqrt6\big\}\) is another basis for the plane \(x+y+z=0\): both vectors satisfy \(x+y+z=0\) and are orthogonal and so linearly independent (\autoref{thm:ortholi}).  
 All these bases possess two vectors.
 \end{example}
 
-That all bases for a given subspace, including orthonormal bases, have the same number of vectors leads to the following theorem about the dimensionality.
+That all bases for a given subspace, including orthonormal bases, have the same number of vectors (\autoref{thm:sameDii}) leads to the following theorem about the dimensionality.
 
 \begin{theorem} \label{thm:dimii} 
 For every \idx{subspace}~\WW\ of~\(\RR^n\),  
@@ -1092,7 +1094,7 @@ Find a \idx{basis} for the \idx{subspace} \(\AA=\Span\{\hlist\av n\}\) given $\{
 Recall \autoref{pro:ospan} underpins finding an \idx{orthonormal basis} by the following.
 \begin{enumerate}
 \item Form \(m\times n\) matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
-\item Factorise~\(A\) into its \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors, \autoref{sec:rle}).
+\item Factorise~\(A\) into its \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has \idx{experimental error}s, \autoref{sec:rle}).
 \item The set \(\{\hlist\uv r\}\)  (where \(\uv_j\)~denotes the columns of~$U$) is a \idx{basis}, specifically an \idx{orthonormal basis}, for the \(r\)-dimensional subspace~\AA.
 \end{enumerate}
 Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{linearly independent} and span the subspace~\AA, and so is also a \idx{basis} for the \(n\)-dimensional subspace~\AA.
@@ -1282,8 +1284,8 @@ Suppose we seek a \idx{basis} for a \idx{subspace}~\WW\ specified as the solutio
 \begin{enumerate}
 \item Rewrite the system of equations as the \idx{homogeneous} system \(A\xv=\ov\)\,. 
 Then the subspace~\WW\ is the \idx{nullspace} of \(m\times n\) matrix~\(A\).
-\item  Adapting \autoref{pro:gensol} for the specific case of homogeneous systems, first find an \svd\ factorisation \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors, \autoref{sec:rle}).
-\item A \idx{general solution} of \(S\yv=\zv=\ov\) is \(\yv=(0,\ldots,0,y_{r+1},\ldots,y_n)\).
+\item  Adapting \autoref{pro:gensol} for the specific case of homogeneous systems, first find an \svd\ factorisation \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has \idx{experimental error}s, \autoref{sec:rle}).
+\item Then \(\yv=(0,\ldots,0,y_{r+1},\ldots,y_n)\) is a \idx{general solution} of \(S\yv=\zv=\ov\)\,.
 Consequently, all possible solutions \(\xv=V\yv\) are spanned by the last \(n-r\) columns of~\(V\), which thus form an \idx{orthonormal basis} for the subspace~\WW.
 \end{enumerate}
 \end{procedure}
@@ -1365,7 +1367,7 @@ That is, an orthonormal basis for the subspace of all solutions is \(\{(0.09,-0.
 Recall this \autoref{sec:lisb} started by discussing the need to have a unique representation of solutions to problems.
 If we do not have uniqueness, then the ambiguity in algebraic representation ruins basic algebra.
 The forthcoming theorem assures us that the linear independence of a basis ensures the unique representation that we need.
-In essence it says that every basis, whether orthogonal or not, can be used to form a \idx{coordinate system}.
+In essence it says that every basis, whether orthogonal or not, can be used to form a \text{\idx{coordinate system}}.
 
 
 
@@ -1471,7 +1473,8 @@ Similarly, \([\bv]_\cE=(0,-5)\) and \([\bv]_\cB=(1,-3)\);
 and \([\cv]_\cE=(-3,4)\) and \([\cv]_\cB=(-2,3)\).
 
 The endemic practice of just writing \(\av=(2,1)\), \(\bv=(1,-3)\) and \(\cv=(-2,3)\) is rationalised in this new notation by the convention that if no basis is explicitly specified, then the \idx{standard basis}~\cE\ is assumed.
-\footnote{Given that the numbers in the components of a vector changes with the coordinate basis, some of you will wonder whether the same thing happens for matrices.  The answer is yes:  for a given transformation, the numbers in the components of its matrix also depend upon the coordinate basis. }
+\footnote{Given that the numbers in the components of a vector changes with the coordinate basis, some of you will wonder whether the same thing happens for matrices.  
+The answer is yes:  for a given \idx{linear transform}ation (\autoref{sec:ilt}), the numbers in the components of its matrix also depend upon the coordinate basis. }
 \end{example}
 
 
@@ -1649,7 +1652,7 @@ For the vector~\xv\ shown in the margin, estimate the coordinates of~\xv\ in the
 
 
 \begin{example} \label{eg:}
-Let the basis \(\cB=\{\vv_1,\vv_2,\vv_3\}\) for the three given vectors \(\vv_1=(-1,1,-1)\), \(\vv_2=(1,-2,0)\) and \(\vv_3=(0,4,5)\) (specified in the \idx{standard basis}~\cE\ of the \idx{standard unit vector}s~\(\ev_1\), \(\ev_2\) and~\(\ev_3\)).
+Let the basis \(\cB=\{\vv_1,\vv_2,\vv_3\}\) for the three given vectors \(\vv_1=(-1,1,-1)\), \(\vv_2=(1,-2,0)\) and \(\vv_3=(0,4,5)\) (each of these are specified in the \idx{standard basis}~\cE\ of the \idx{standard unit vector}s~\(\ev_1\), \(\ev_2\) and~\(\ev_3\)).
 \begin{enumerate}
 \item What is the vector with coordinates \([\av]_\cB=(3,-2,1)\)?
 \begin{solution} 
@@ -1674,7 +1677,7 @@ Expressed in the standard basis~\cE\ this equation is
 \begin{bmatrix} 1\\-2\\0 \end{bmatrix}c_2+
 \begin{bmatrix} 0\\4\\5 \end{bmatrix}c_3\,.
 \end{equation*}
-A small system like this we solve by hand (recall \autoref{sec:amss}): write in component form as
+A small system like this we solve by hand (\autoref{sec:amss}): write in component form as
 \begin{eqnarray*}
 &&\left\{\begin{array}{r@{\ }r@{\ }r@{{}={}}l}  
 -c_1&+c_2&&-1 \\
@@ -1709,7 +1712,7 @@ Expressed in the standard basis~\cE\ this equation is
 \begin{bmatrix} 1\\-2\\0 \end{bmatrix}d_2+
 \begin{bmatrix} 0\\4\\5 \end{bmatrix}d_3\,.
 \end{equation*}
-To solve this system with \script\ (procedure~\ref{pro:unisol}), enter the matrix (easiest by transposing rows of~\(\vv_1\), \(\vv_2\) and~\(\vv_3\)) and the standard coordinates of~\dv:
+To solve this system in \script\ (\autoref{pro:unisol}), enter the matrix (easiest by transposing rows of~\(\vv_1\), \(\vv_2\) and~\(\vv_3\)) and the standard coordinates of~\dv:
 \begin{verbatim}
 A=[-1 1 -1
  1 -2 0
@@ -2015,6 +2018,11 @@ Compute an \svd\ to decide whether the following sets of vectors are linearly de
 \answer{lin.\ dep.}
 
 \end{parts}
+\end{exercise}
+
+
+\begin{exercise} 
+Prove that every orthogonal set of vectors is also a linearly independent set.
 \end{exercise}
 
 
@@ -2403,6 +2411,30 @@ B=[-3 10 -1
 
 
 
+
+\begin{exercise} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item  Why is it important to establish a mathematical framework in which solutions have a unique algebraic form?
+
+\item How is \autoref{def:lindep} of linear independence linked to a unique algebraic form?
+
+\item How does linear independence compare to orthogonality of a set of vectors?
+
+\item For distinct eigenvalues of a matrix~\(A\), how does the linear independence of the corresponding eigenvectors arise?
+
+\item How can an \svd\ be useful in testing whether a set of vectors is linearly dependent, or not?
+
+\item How does a ``basis'' compare to an ``orthonormal basis''?
+
+\item What problems might arise if, for a given subspace, there were bases for the subspace with different numbers of vectors?
+
+\item How does an \svd\ help us find bases for subspaces?
+
+\item Why is new notation needed for vectors when we invoke the possibility of different bases?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?

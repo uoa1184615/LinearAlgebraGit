@@ -6,11 +6,11 @@
 
 \begin{comment}
 \pooliv{\S3.1--3.2, p.138--62} \layiv{\S2.1} \holti{\S3.3} \cite[\S3.1]{Nakos1998} \cite[Ch.~3, 5]{Chartier2015}
+Is the design here inconsistent with previous chapters??
 \end{comment}
 
 This section introduces basic matrix concepts, operations and algebra.
 Many of you will have met some of it in previous study.
-%%%{Is the design here inconsistent with previous chapters??}
 
 
 \subsection{Basic matrix terminology}
@@ -18,8 +18,8 @@ Many of you will have met some of it in previous study.
 
 Let's start with some basic definitions of terminology.
 \begin{itemize}
-\item A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\), such as these six examples:
-\footnote{\autoref{ch:gee} starts using complex numbers in a matrix, but until then we stay within the realm of real numbers.  Some books use parentheses,~\((\cdot)\), around matrices: we do not as here parentheses denote a vector (most often used when written in text).}
+\item As already introduced by \autoref{sec:dmsls}, a \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\), such as these six examples:
+\footnote{\autoref{ch:gee} starts using complex numbers in a matrix, but until then we stay within the realm of real numbers.  Some books use parentheses,~\((\cdot)\), around matrices: we do not as here parentheses denote a vector when we write the components horizontally on the page (most often used when written in text).}
 \begin{eqnarray}&&
 \begin{bmatrix}   -2 & -5 & 4
 \\ 1 & -3 & 0
@@ -71,14 +71,14 @@ then entries \(a_{12}=-5\)\,, \(a_{22}=-3\) and \(a_{31}=2\)\,.
 Maybe we should use an accent to denote the minor?? and then capitals for the entries to be more consistent with computing.  But then column vectors of a matrix should also use capital letters, which would be ugly.
 \end{comment}
 
-\item The first of two special matrices is a \bfidx{zero matrix} of all zeros and of any size: \(O_{m\times n}\)~denotes the \(m\times n\) zero matrix, such as
+\item The first of two special matrices is a \bfidx{zero matrix} of all zeros and of any size: the symbol~\(O_{m\times n}\) denotes the \(m\times n\) zero matrix, such as
 \begin{equation*}
 O_{2\times 4}=\begin{bmatrix} 0&0&0&0\\0&0&0&0 \end{bmatrix}.
 \end{equation*}
 The symbol~\(O_n\) denotes the square zero matrix of size \(n\times n\), whereas the plain symbol~\(O\) denotes a zero matrix whose size is apparent from the context.
 
-\item Arising from the nature of matrix multiplication (\autoref{sec:amwm}), the second special matrix is the \bfidx{identity matrix}: \(I_n\)~denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones.
-Occasionally we invoke non-square `identity' matrices denoted \(I_{m\times n}\).
+\item Arising from the nature of matrix multiplication (\autoref{sec:amwm}), the second special matrix is the \bfidx{identity matrix}: the symbol~\(I_n\) denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones.
+Occasionally we invoke non-square `identity' matrices denoted by~\(I_{m\times n}\).
 For examples,
 \begin{equation*}
 I_3=\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix},\quad
@@ -107,7 +107,7 @@ for the three column vectors
 \bv_2=\begin{bmatrix} -\sqrt3 \\ \sqrt5 \end{bmatrix},\quad
 \bv_3=\begin{bmatrix} \pi \\ -1 \end{bmatrix}.
 \end{equation*}
-Alternatively we could write these column vectors as 
+Alternatively these column vectors are written as 
 \(\bv_1=(  1,-5/3)\),
 \(\bv_2=(-\sqrt3,\sqrt5)\) and
 \(\bv_3=(\pi,-1)\).
@@ -167,7 +167,7 @@ We start with addition and multiplication: `division' is addressed by \autoref{s
 An analogue in computing science is the concept of object orientated programming.
 In object oriented programming one defines not just data structures, but also the functions that operate on those structures.
 Analogously, an array is just a group of numbers, but a matrix is an array together with many operations explicitly available. 
-The power and beauty of matrices results from the implications of its associated operations.
+The power and beauty of matrices results from the ramifications of its associated~operations.
 
 
 \subsubsection{Matrix addition and subtraction}
@@ -212,7 +212,7 @@ A-B=\begin{bmatrix} a_{11}-b_{11}&a_{12}-b_{12}&\cdots&a_{1n}-b_{1n}
 \\\vdots&\vdots&\ddots&\vdots
 \\a_{m1}-b_{m1}&a_{m2}-b_{m2}&\cdots&a_{mn}-b_{mn} \end{bmatrix}.
 \end{eqnarray*}
-For example, letting \(O\)~denote the zero matrix of the appropriate size, then 
+Consequently, letting \(O\)~denote the zero matrix of the appropriate size,  
 \begin{equation*}
 A\pm O=A\,,\quad
 O+A=A\,,\quad\text{and}\quad
@@ -222,7 +222,7 @@ A-A=O\,.
 
 
 \begin{activity}
-Given matrices \(A=\begin{bmatrix} 3&-2\\1&-1 \end{bmatrix}\) and \(B=\begin{bmatrix} 2&1\\3&2 \end{bmatrix}\), which of the following is the matrix \(\begin{bmatrix} 5&-1\\-2&-3 \end{bmatrix}\)?
+Given the two matrices \(A=\begin{bmatrix} 3&-2\\1&-1 \end{bmatrix}\) and \(B=\begin{bmatrix} 2&1\\3&2 \end{bmatrix}\), which of the following is the matrix \(\begin{bmatrix} 5&-1\\-2&-3 \end{bmatrix}\)?
 \actposs[4]{none of the others}{\(A+B\)}{\(A-B\)}{\(B-A\)}
 %\partswidth=5em
 %\begin{parts}
@@ -241,7 +241,7 @@ Given matrices \(A=\begin{bmatrix} 3&-2\\1&-1 \end{bmatrix}\) and \(B=\begin{bma
 Corresponding to multiplication of a vector by a scalar (\autoref{def:vecops}), multiplication of a matrix by a scalar means that every entry of the matrix is multiplied by the scalar.
 
 \begin{example} \label{eg:}
-Let matrices
+Let the three matrices
 \begin{equation*}
 A=\begin{bmatrix} 5 & 2\\ -2 & 3 \end{bmatrix},\quad
 B=\begin{bmatrix} 1\\ 0\\ -6 \end{bmatrix},\quad
@@ -323,7 +323,7 @@ B\bv&=&\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix}
 \end{eqnarray*}
 The combinations \(A\bv\) and~\(B\xv\) are not defined as the number of columns of the matrices are not equal to the number of components in the vectors.
 
-Further, we do not here define products such as~\(\xv A\) or~\(\bv B\): the order of multiplication matters with matrices and so these are not in the scope of the definition.
+Further, we do not here define vector-matrix products such as~\(\xv A\) or~\(\bv B\): the order of multiplication matters with matrices and so these are not in the scope of the definition.
 \end{example}
 
 
@@ -348,7 +348,8 @@ Which of the following is the result of the matrix-vector product
 
 
 \paragraph{Geometric interpretation}
-Multiplication of a vector by a square matrix transforms the vector into another in the same space as shown in the margin for \(A\xv\) from \autoref{eg:matvecmul}.
+Multiplication of a vector by a \emph{\idx{square matrix}} transforms the vector into another in the same space. 
+The margin shows the example of~\(A\xv\) from \autoref{eg:matvecmul}.
 \marginpar{%
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=12em
@@ -431,10 +432,11 @@ Multiplication by the identity matrix leaves the vector unchanged (\autoref{thm:
 \begin{example}[\idx{rabbit}s multiply]
 In 1202 
 \marginpar{\includegraphics[width=\marginparwidth]{Matrices/rabbit}}%
-\idx{Fibonacci} famously considered the breeding of \idx{rabbit}s.
+\idx{Fibonacci} famously considered the breeding of \idx{rabbit}s---such as the following question.
 One pair of rabbits can give birth to another pair of rabbits (called kittens) every month, say.
 \begin{aside}
-Fibonacci's real name is Leonardo Bonacci, lived circa 1175 to 1250, travelled extensively from Pisa, and is considered to be one of the most talented Western mathematician of the Middle Ages.
+Fibonacci's real name is Leonardo Bonacci. 
+He lived circa 1175 to 1250, travelled extensively from Pisa, and is considered to be one of the most talented Western mathematician of the Middle Ages.
 \end{aside}%
 Each kitten becomes fertile after it has aged a month, when it becomes adult and is called a buck (male) or doe (female).
 The new bucks and does then also start breeding.
@@ -444,8 +446,8 @@ Let's just count the females, the does, and the female kittens.
 At the start of any month let there be \(x_1\)~kittens (female) and \(x_2\)~does.
 Then at the end of the month:
 \begin{itemize}
-\item because all the kittens grow up to be does, the number of does is now \(x_2'=x_2+x_1\)\,;
-\item and because all the does at the start month have breed another pair of kittens, of which we expect one to be female, the new number of female kittens just born is \(x_1'=x_2\)\,.
+\item because all the female kittens grow up to be does, the number of does is now \(x_2'=x_2+x_1\)\,;
+\item and because all the does at the start month have bred another pair of kittens, of which we expect one to be female, the new number of female kittens just born is \(x_1'=x_2\), on average.
 \end{itemize}
 Then \(x_1'\) and~\(x_2'\) is the number of kittens and does at the start of the next month.
 Write this as a matrix vector system.
@@ -541,7 +543,7 @@ Matrix-vector multiplication explicitly uses the vector in its equivalent form a
 Such multiplication immediately generalises to the case of a right-hand matrix with multiple columns.
 
 \begin{example} \label{eg:}
-Let matrices
+Let two matrices
 \begin{equation*}
 A=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix},\quad
 B=\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix},
@@ -608,7 +610,7 @@ D\begin{bmatrix} -1\\-1\\4 \end{bmatrix}
 \\&=&\begin{bmatrix} 9&-9\\-16&-4 \end{bmatrix}.
 \end{eqnarray*}
 \end{itemize}
-Interestingly, \(CD\neq DC\)---they are not even of the same size!
+Interestingly, \(CD\neq DC\)\,---they are not even of the same size!
 \end{solution}
 \end{example}
 
@@ -707,7 +709,7 @@ Hence the number in each age category two years later (indicated here by two das
 \begin{equation*}
 \xv''=L\xv'=L(L\xv)=(LL)\xv=L^2\xv\,,
 \end{equation*}
-provided that matrix multiplication is associative (\autoref{thm:pmma}) to enable us to write \(L(L\xv)=(LL)\xv\)\,.
+provided that matrix multiplication is associative (established by \autoref{thm:pmma}) to enable us to write \(L(L\xv)=(LL)\xv\)\,.
 Then the matrix square
 \begin{equation*}
 L^2=\begin{bmatrix} 0&0&4\\\frac12&0&0\\0&\frac13&\frac13 \end{bmatrix}\begin{bmatrix} 0&0&4\\\frac12&0&0\\0&\frac13&\frac13 \end{bmatrix}
@@ -808,14 +810,14 @@ Consider two vectors in~\(\RR^n\), say \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)
 \end{equation*}
 Then the dot product between the two vectors
 \begin{eqnarray*}
-\uv\cdot\vv&=&u_1v_1+u_2v_2+\cdots+u_nv_n \quad(\text{Defn.~\ref{def:dotprod} of dot})
+\uv\cdot\vv&=&u_1v_1+u_2v_2+\cdots+u_nv_n \quad(\text{\autoref{def:dotprod} of dot})
 \\&=&\begin{bmatrix} u_1&u_2&\cdots&u_n \end{bmatrix}
-\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{Defn.~\ref{def:matprod} of mult.})
+\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{\autoref{def:matprod} of mult.})
 \\&=&\tr{\begin{bmatrix} u_1\\u_2\\\vdots\\u_n \end{bmatrix}}
-\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{transpose Defn.~\ref{def:mattran}})
+\begin{bmatrix} v_1\\v_2\\\vdots\\v_n \end{bmatrix}\quad(\text{transpose \autoref{def:mattran}})
 \\&=&\tr{\uv}\vv\,.
 \end{eqnarray*}
-Subsequent sections and chapters often use this identity, that \(\uv\cdot\vv=\tr{\uv}\vv\)\,.
+Subsequent sections and chapters often use this identity, that the dot product \(\uv\cdot\vv=\tr{\uv}\vv\)\,.
 \end{example}
 
 
@@ -1041,7 +1043,9 @@ ans =
    1.31  -0.71   0.53  -0.35
 \end{verbatim}
 You could check that \verb|B+A| gives the same matrix as \verb|A+B| (\autoref{thm:pasma}) by seeing that their difference is the \(3\times5\) zero matrix: execute \verb|(A+B)-(B+A)| (the parentheses control the order of evaluation).
-However, expressions such as \verb|B+C| and \verb|A-C| give an error, because the matrices are of incompatible sizes, reported by \script[1]\ as\index{Error using}
+However, expressions such as \verb|B+C| and \verb|A-C| give an error, because the matrices are of incompatible sizes, reported by \script[1]\ as\index{Error using@\texttt{Error using}}%
+\index{nonconformant arguments@\texttt{nonconformant arguments}}%
+\index{dimensions must agree@\texttt{dimensions must agree}}%
 \begin{verbatim}
 Error using  + 
 Matrix dimensions must agree. 
@@ -1156,7 +1160,10 @@ However, we can check several things such as \(c_{11}\) comes from the first row
 Also check that the two columns of~\(C\) may be viewed as the two matrix-vector products \(A\bv_1\) and~\(A\bv_2\) by comparing~\(C\) with \verb|[A*B(:,1) A*B(:,2)]| and seeing they are the same.
 
 Recall that in a matrix product the number of columns of the left matrix have to be the same as the number of rows of the right matrix.
-\script\ gives an error message if this is not the case, such as occurs  upon asking it to compute~\verb|B*A| when \script[1] reports\index{Error using}
+\script\ gives an error message if this is not the case, such as occurs  upon asking it to compute~\verb|B*A| when \script[1] reports
+\index{Error using@\texttt{Error using}}%
+\index{nonconformant arguments@\texttt{nonconformant arguments}}%
+\index{dimensions must agree@\texttt{dimensions must agree}}%
 \begin{verbatim}
 Error using  * 
 Inner matrix dimensions must agree.
@@ -1166,7 +1173,9 @@ and \script[2] reports\index{error: operator}
 error: operator *: nonconformant arguments
 \end{verbatim}
 
-The caret symbol computes matrix powers in \script, such as the cube~\verb|A^3|, but it only makes sense and works for square matrices~\(A\).\footnote{We define matrix powers for only integer power. \script\ will compute the power of a square matrix for any real\slash complex exponent, but its meaning involves matrix exponentials and logarithms that we do not explore here.}
+The caret symbol,~\verb|^|, computes matrix powers in \script, such as the cube~\verb|A^3|. 
+But such matrix powers only makes sense and works for square matrices~\(A\).
+\footnote{Here we define matrix powers for only integer power. \script\ will compute the power of a square matrix for any real\slash complex exponent, but its meaning involves matrix exponentials and logarithms that we do not explore here.}
 For example, if matrix~\(A\) was \(3\times4\)\,, then \(A^2=AA\) would involve multiplying a \(3\times4\) matrix by a \(3\times4\) matrix: since the number of columns of the left~\(A\) is not the same as the number of rows of the right~\(A\) such a multiplication is not allowed.
 
 
@@ -1215,7 +1224,7 @@ ans =
   -0.71  -0.33   1.11   0.41
   -0.34  -0.73  -0.21   0.33
 \end{verbatim}
-One can do further operations after the transposition, such as checking the multiplication rule that \(\tr{(AB)}=\tr B\tr A\) (\autoref{thm:potd}) by verifying \verb|(A*B)'-B'*A'| is the zero matrix, here~\(O_{2\times3}\).
+One can do further operations after the transposition, such as checking the multiplication rule that \(\tr{(AB)}=\tr B\tr A\) (\autoref{thm:potd}) by verifying the result of \verb|(A*B)'-B'*A'| is the zero matrix, here~\(O_{2\times3}\).
 
 You can generate a symmetric matrix by adding a square matrix to its transpose (\autoref{thm:potf}): for example, generate a random square matrix by first \verb|C=randn(3)| then \verb|C=C+C'| makes a random symmetric matrix such as the following \twodp
 \begin{verbatim}
@@ -1238,6 +1247,7 @@ ans =
    0.00   0.00   0.00
 \end{verbatim}
 That the resulting matrix~\(C\) is symmetric is checked by this last step which computes the difference between~\(C\) and~\(\tr C\) and confirming the difference is zero. 
+Hence \(C\) and~\(\tr C\) must be equal.
 
 
 
@@ -1250,7 +1260,7 @@ That the resulting matrix~\(C\) is symmetric is checked by this last step which 
 Almost all of the familiar algebraic properties of scalar addition, subtraction and multiplication---namely commutativity, associativity and distributivity---hold for matrix addition, subtraction and multiplication.
 
 The one outstanding exception is that matrix multiplication is \emph{not} commutative: for matrices~\(A\) and~\(B\) the products~\(AB\) and~\(BA\) are usually not equal.
-We are used to non-commutativity in life.
+We are used to such non-commutativity in life.
 For example, when you go home, to enter your house you first open the door, second walk in, and third close the door. 
 You cannot swap the order and try to walk in before opening the door---these operations do not commute.
 Similarly, for another example, I often teach classes on the third floor of a building next to my office: after finishing classes, first I walk downstairs to ground level, and second I cross the road to my office.
@@ -1333,7 +1343,8 @@ Let matrices \(A\), \(B\) and~\(C\) be of sizes such that the following expressi
 \item\label{thm:pmmc} \(c(AB)=(cA)B=A(cB)\);
 \item\label{thm:pmmd} \(I_mA=A=AI_n\) for \(m\times n\) matrix~\(A\) (multiplicative identity);
 \item\label{thm:pmme} \(O_mA=O_{m\times n}=AO_n\)  for \(m\times n\) matrix~\(A\);
-\item\label{thm:pmmg} \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square~\(A\) and for positive integers~\(p\) and~\(q\).\index{matrix power}\footnote{Generically, these exponent properties hold for all scalar~\(p\) and~\(q\), although we have to be very careful with non-integer exponents.}
+\item\label{thm:pmmg} \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square~\(A\) and for positive integers~\(p\) and~\(q\).\index{matrix power}
+\footnote{Generally these exponent properties hold for all scalar~\(p\) and~\(q\), although one has to be very careful with non-integer exponents.}
 \end{enumerate}
 \end{theorem}
 
@@ -1396,9 +1407,9 @@ Since this identity holds for all indices~\(i\) and~\(j\), the matrix identity \
 Other proofs develop from previous parts of the theorem.
 For example, to establish \(A^pA^q=A^{p+q}\) start from the definition of matrix powers:
 \begin{eqnarray*}
-A^pA^q&=&\underbrace{AA\cdots A}_{p\text{ times}}
-\underbrace{AA\cdots A}_{q\text{ times}}
-\\&&\quad(\text{using associativity, Thm.~\ref{thm:pmma}})
+A^pA^q&=&(\underbrace{AA\cdots A}_{p\text{ times}})
+(\underbrace{AA\cdots A}_{q\text{ times}})
+\\&&\quad(\text{using associativity, \autoref{thm:pmma}})
 \\&=&\underbrace{AA\cdots A}_{p+q\text{ times}}
 \\&=&A^{p+q}.
 \end{eqnarray*}
@@ -1414,8 +1425,8 @@ Show that \((A+B)^2\neq A^2+2AB+B^2\)  in general.
 Consider
 \begin{eqnarray*}
 (A+B)^2&=& (A+B)(A+B) \quad(\text{matrix power})
-\\&=&A(A+B)+B(A+B) \quad(\text{Thm.~\ref{thm:pmmbb}})
-\\&=&AA+AB+BA+BB \quad(\text{Thm.~\ref{thm:pmmb}})
+\\&=&A(A+B)+B(A+B) \quad(\text{\autoref{thm:pmmbb}})
+\\&=&AA+AB+BA+BB \quad(\text{\autoref{thm:pmmb}})
 \\&=&A^2+AB+BA+B^2 \quad(\text{matrix power}).
 \end{eqnarray*}
 This expression is only equal to \(A^2+2AB+B^2\) if we can replace \(BA\) by~\(AB\).  
@@ -1458,9 +1469,10 @@ Let matrices \(A\) and~\(B\) be of sizes such that the following expressions are
 \item\label{thm:potc} \(\tr{(cA)}=c(\tr A)\) for any scalar~\(c\);
 \item\label{thm:potd} \(\tr{(AB)}=\tr B\tr A\);
 \begin{aside}
-The reversed order is important in the identity \(\tr{(AB)}=\tr B\tr A\).
+Remember the reversed order in the identity \(\tr{(AB)}=\tr B\tr A\).
 \end{aside}
-\item\label{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for all positive integer exponents~\(p\);\index{matrix power}\footnote{With care, this property also holds for all scalar exponents~\(p\).}
+\item\label{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for all positive integer exponents~\(p\);\index{matrix power}
+\footnote{With care, this property also holds for all scalar exponents~\(p\).}
 \item\label{thm:potf} \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are symmetric matrices.\index{symmetric matrix}
 \end{enumerate}
 \end{theorem}
@@ -1476,7 +1488,7 @@ Recall from \autoref{def:mattran} of the transpose that
 &=&(A\pm B)_{ji}
 \\&&\quad(\text{by definition of addition})
 \\&=&a_{ji}\pm b_{ji}
-\\&&\quad(\text{by Defn.~\ref{def:mattran} of transpose})
+\\&&\quad(\text{by \autoref{def:mattran} of transpose})
 \\&=&(\tr A)_{ij}\pm(\tr B)_{ij}\,.
 \end{eqnarray*}
 Since this identity holds for all indices~\(i\) and~\(j\), then \(\tr{(A\pm B)}=\tr A\pm \tr B\) .
@@ -1486,13 +1498,13 @@ The transpose of matrix multiplication is more involved.
 Let matrices~\(A\) and~\(B\) be of sizes \(m\times n\) and \(n\times p\) respectively.  Then from \autoref{def:mattran} of the transpose
 \begin{align*}
 &(\tr{(AB)})_{ij}=(AB)_{ji}
-\\&\qquad(\text{by Defn.~\ref{def:matprod} of multiplication})
+\\&\qquad(\text{by \autoref{def:matprod} of multiplication})
 \\&=a_{j1}b_{1i}+a_{j2}b_{2i}+\cdots+a_{jn}b_{ni}
 \\&\qquad(\text{commuting the products})
 \\&=b_{1i}a_{j1}+b_{2i}a_{j2}+\cdots+b_{ni}a_{jn}
-\\&\qquad(\text{by Defn.~\ref{def:mattran} of  transpose})
+\\&\qquad(\text{by \autoref{def:mattran} of  transpose})
 \\&=(\tr B)_{i1}(\tr A)_{1j}+(\tr B)_{i2}(\tr A)_{2j}+\cdots+(\tr B)_{in}(\tr A)_{nj}
-\\&\qquad(\text{by Defn.~\ref{def:matprod} of multiplication})
+\\&\qquad(\text{by \autoref{def:matprod} of multiplication})
 \\&=(\tr B\tr A)_{ij}\,.
 \end{align*}
 Since this identity holds for all indices~\(i\) and~\(j\), then \(\tr{(AB)}=\tr B\tr A\).
@@ -1500,8 +1512,8 @@ Since this identity holds for all indices~\(i\) and~\(j\), then \(\tr{(AB)}=\tr 
 \item[\ref{thm:potf}] To prove the second, that \(\tr AA\) is equal to its transpose, we invoke earlier parts.
 Consider the transpose 
 \begin{eqnarray*}
-\tr{(\tr AA)}&=& \tr{(A)}\tr{(\tr A)}\quad(\text{by~\ref{thm:potd}})
-\\&=&\tr AA\quad(\text{by~\ref{thm:pota}}).
+\tr{(\tr AA)}&=& \tr{(A)}\tr{(\tr A)}\quad(\text{by~\autoref{thm:potd}})
+\\&=&\tr AA\quad(\text{by~\autoref{thm:pota}}).
 \end{eqnarray*}
 Since \(\tr AA\) equals its transpose, it is symmetric.
 \end{description}
@@ -2112,7 +2124,7 @@ Which of the following matrices are a \idx{symmetric matrix}?
 \end{exercise}
 
 \begin{exercise} \label{ex:} 
-Are the following matrices symmetric? 
+Are each of the following matrices symmetric? 
 \(I_4\), \(I_{3\times4}\), \(O_3\), and~\(O_{3\times1}\).
 \answer{yes, no, yes, no.}
 \end{exercise}
@@ -2136,6 +2148,36 @@ Use \autoref{def:mattran} of the matrix \idx{transpose} to prove properties~\ref
 Use the other parts of \autoref{thm:pot} to prove parts~\ref{thm:pote} and~\ref{thm:potf}.
 \end{exercise}
 
+
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item Why is the size of a matrix important?
+
+\item What causes these identities to hold? \(A\pm O=A\) and \(A-A=O\).
+
+\item In the matrix product~\(AB\), why do the number of columns of~\(A\) have to be the same as the number of rows of~\(B\)?
+
+\item What can you say about the sizes of matrices~\(A\) and~\(B\) if both products~\(AB\) and~\(BA\) are computable?
+
+\item What causes multiplication of a vector by a square matrix to be viewed as a transformation?
+
+\item What causes the identity matrix to be zero except for ones along the diagonal from the top-left to the bottom-right?
+
+\item How does multiplication by a square matrix arise in studying the age structure of populations?
+
+\item Why is it impossible to compute powers of a non-square matrix?
+
+\item Why did we invoke random matrices?
+
+\item Among all the properties for matrix addition and multiplication operations, which ones are different to the analogous properties for scalars?  why?
+
+\item What constraint must be put on matrix~\(A\) in order for \(A+\tr A\) to be defined?  
+What constraint must be put on matrix~\(B\) in order for \(B\tr B\) to be defined?  
+Give reasons.
+
+\end{enumerate}
+\end{exercise}
 
 
 \begin{comment}%{ED498555.pdf}

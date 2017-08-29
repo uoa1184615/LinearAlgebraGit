@@ -6,13 +6,13 @@
 \index{cross product|(}
 
 
-In the three dimensions of the world we live in, 
+The dot product is not the only way to multiply vectors.
 \begin{aside}
 This section is optional for us, 
 but is vital in many topics of science and engineering.
-\end{aside}
-as well as the dot product there is another way to multiply vectors, called the cross product.
-For more than three dimensions, qualitatively different techniques are developed in subsequent chapters.
+\end{aside}%
+In the three dimensions of the world we live in there is another way to multiply vectors, called the cross product.
+But for more than three dimensions, qualitatively different techniques are developed in subsequent chapters.
 
 
 \subsubsection{Area of a parallelogram}
@@ -42,7 +42,8 @@ For more than three dimensions, qualitatively different techniques are developed
 \end{wrapfigure}
 Consider the parallelogram drawn in blue.
 It has sides given by vectors \(\vv=(v_1,v_2)\) and \(\wv=(w_1,w_2)\) as shown.
-Let's determine the area of the parallelogram by that of the containing rectangle less the two small rectangles and the four small triangles.
+Let's determine the area of the parallelogram. 
+Its area is the containing rectangle less the two small rectangles and the four small triangles.
 The two small rectangles have the same area, namely~\(w_1v_2\).
 The two small triangles on the left and the right also have the same area, namely~\(\frac12w_1w_2\).
 The two small triangles on the top and the bottom similarly have the same area, namely~\(\frac12v_1v_2\).
@@ -132,7 +133,8 @@ Derive that the plane described parametrically by \(\xv=(1,1,2)+(1,1,0)s+(0,3,1)
 \begin{solution} 
 They key to deriving the normal equation is to find that a \idx{normal vector} to the plane is~\((1,-1,3)\).
 This normal vector comes from the two vectors that multiply the parameters in the parametric form, \((1,1,0)\) and~\((0,3,1)\).
-(Those who have seen \(3\times3\) determinants will recognise the following has the same pattern---see \autoref{ch:ddm}.)
+The following mysterious looking procedure may be a convenient way for you to remember an otherwise involved formula: if you prefer to remember the formula of \autoref{def:cp} then use that instead.
+(Those who have computed \(3\times3\) determinants will recognise the following has the same pattern---see \autoref{ch:ddm}.)
 Write the vectors as two consecutive columns, following a first column of the \emph{symbols} of the standard unit vectors~\iv, \jv\ and~\kv, in
 \setlength{\unitlength}{1.2ex}
 \def\abc#1{\begin{vmatrix}\begin{picture}(5.3,6)
@@ -273,7 +275,7 @@ Among the \idx{standard unit vector}s, derive that
 \end{eqnarray*}
 \autoref{ex:cpijk} asks you to correspondingly establish the other six identities.
 \end{solution}
-These example cross products most clearly demonstrate the orthogonality of a cross product to its two argument vectors (\autoref{thm:cpga}) and that the direction is in the right-hand sense (\autoref{thm:cpgb}).
+The cross products of this \autoref{eg:cpijk} most clearly demonstrate the orthogonality of a cross product to its two argument vectors (\autoref{thm:cpga}), and that the direction is in the so-called \idx{right-hand sense} (\autoref{thm:cpgb}).
 \end{example}
 
 
@@ -346,8 +348,7 @@ Let \vv\ and~\wv\ be two vectors in~\(\RR^3\):
 \begin{enumerate}
 \item\label{thm:cpga} the vector~\(\vv\times\wv\) is \idx{orthogonal} to both~\vv\ and~\wv;
 
-\item\label{thm:cpgb} the \index{cross product direction}direction of~\(\vv\times\wv\) is in the right-hand sense%
-%\marginpar{\includegraphics[width=7em]{Vectors/right-hand-rule}}
+\item\label{thm:cpgb} the \index{cross product direction}direction of~\(\vv\times\wv\) is in the \bfidx{right-hand sense}%
 \marginpar{\begin{tikzpicture}
   \begin{axis}[small,thick, axis lines=none,ymax=1.3,ymin=-0.3,xmin=-0.3,xmax=1.3]
     \addplot graphics [xmin=0,xmax=1,ymin=0,ymax=1]
@@ -626,7 +627,7 @@ Since the only vector of length zero is the zero vector (\autoref{thm:veclen0}),
 
 
 \begin{example} \label{eg:}
-As an example of \autoref{thm:cppa}, \autoref{eg:cpijk} showed that \(\iv\times\jv=\kv\)\,, whereas reversing the order of the cross product gives the negative \(\jv\times\iv=-\kv\)\,.  
+As an example of \autoref{thm:cppa}, \autoref{eg:cpijk} shows that \(\iv\times\jv=\kv\)\,, whereas reversing the order of the cross product gives the negative \(\jv\times\iv=-\kv\)\,.  
 Given \autoref{eg:cpnvp} derived \(\vv\times\wv=5\iv+10\jv-10\kv\) in the case when \(\vv=-2\iv+3\jv+2\kv\) and \(\wv=2\iv+2\jv+3\kv\)\,, what is \(\wv\times\vv\)?
 \begin{solution} 
 By \autoref{thm:cppa},
@@ -742,7 +743,7 @@ Our challenge is to derive that the volume of the parallelepiped is~\(|\uv\cdot(
 \end{center}
 
 \index{volume, parallelepiped}%
-The volume of the parallelepiped is the area of its base times its height.
+Let's use that we know the volume of the parallelepiped is the area of its base times its height.
 \begin{itemize}
 \item The base of the parallelepiped is the parallelogram formed with edges~\vv\ and~\wv.
 Hence the base has area~\(|\vv\times\wv|\) (\autoref{thm:cpgd}).
@@ -893,6 +894,7 @@ Here the volume follows from the above manipulations of the matrix of numbers fo
 \index{parallelepiped volume|)}
 
 
+\index{cross product|)}
 
 
 
@@ -1170,8 +1172,25 @@ then use the \idx{scalar triple product} to estimate the volume of the parallele
 
 
 
-\index{cross product|)}
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item What properties of the cross product differ from that of the multiplication of numbers?  
 
+\item How is the cross product useful in changing from a parametric equation of a plane to a normal equation of the plane?
 
+\item Given the properties \(\uv\cdot\vv=|\uv||\vv|\cos\theta\) and \(|\uv\times\vv|=|\uv||\vv|\sin\theta\)\,, why is the dot product more useful for determining the angle~\(\theta\) between the vectors~\uv\ and~\vv?
+
+\end{enumerate}
+\end{exercise}
+
+\begin{comment}%{ED498555.pdf}
+why, what caused X?
+how did X occur?
+what-if? what-if-not?
+how does X compare with Y?
+what is the evidence for X?
+why is X important?
+\end{comment}

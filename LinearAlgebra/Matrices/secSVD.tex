@@ -38,7 +38,7 @@ in your head, without a calculator, solve \(42\,x=1554\) within twenty seconds,
 your time starts now \dotfill
 \begin{solution} 
 Long division is hopeless in the time available.  
-However, recognise \(42=2\cdot3\cdot7\) and so divide 1554 by~2 to get~777, divide 777 by~3 to get~259, and divide 259 by~7 to get~37, and win the prize.
+However, recognise \(42=2\cdot3\cdot7\) and so divide 1554 by~2 to get~777, divide 777 by~3 to get~259, and divide 259 by~7 to get the answer~\(x=37\), and win the prize.
 \end{solution}
 
 \begin{activity} \label{eg:}
@@ -54,13 +54,14 @@ To illustrate the procedure to come, let's write the above solution steps in det
 \begin{equation*}
 2\cdot\underbrace{3\cdot\overbrace{7\cdot x}^{=y}}_{=z}=1554\,,
 \end{equation*}
-and introduce two intermediate unknowns \(y\) and~\(z\) as shown above.
+and introduce two intermediate unknowns \(y\) and~\(z\) as indicated above.
 \item Solve \(2z=1554\) to get \(z=777\)\,.
 \item Solve \(3y=z=777\) to get \(y=259\)\,.
 \item Solve \(7x=y=259\) to get \(x=37\)\ ---the answer.
 \end{enumerate}
 
-Now let's proceed to small matrix examples to introduce the general matrix procedure empowered by the factorisation of a matrix to its singular value decomposition (\svd).
+Now let's proceed to small matrix examples.
+These introduce the general matrix procedure empowered by the factorisation of a matrix to its singular value decomposition (\svd).
 %\begin{comment}
 %Other possible similar matrices are (transposes)
 %[5,5;1,7]
@@ -99,7 +100,7 @@ Optionally check the factorisation if you like:
 \end{eqnarray*}
 Given the factorisation, the following four steps forms the general procedure. 
 \begin{enumerate}
-\item Write the system using the factorisation, and with two intermediate unknowns~\yv\ and~\zv:
+\item Write the system using the factorisation, and with two intermediate unknowns~\yv\ and~\zv\ as indicated below:
 \begin{equation*}
 \begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}
 \underbrace{\begin{bmatrix} 10\sqrt2&0\\0&5\sqrt2 \end{bmatrix}
@@ -300,14 +301,15 @@ The symbol~\idx{$\sigma$} is the Greek letter sigma, and denotes singular values
 \hlist\sigma\mn, which are unique when ordered from largest to smallest so that $\sigma_1\geq \sigma_2 \geq \cdots \geq \sigma_{\mn}\geq 0$\,.
     \end{itemize}
     The \idx{orthonormal} vectors \(\uv_j\) and~\(\vv_j\) are called \bfidx{singular vector}s.
-    \footnote{This enormously useful theorem also generalises from \(m\times n\) matrices to analogues in `infinite' dimensions: an \svd\ exists for all compact linear operators \cite[\S7]{Kress2015}.}
+    \footnote{This enormously useful theorem also generalises from \(m\times n\) real matrices to complex matrices and to analogues in `infinite' dimensions: an \svd\ exists for all compact linear operators \cite[\S7]{Kress2015}.}
 \end{theorem}
 
 \begin{proof}
 Detailed in \autoref{sec:psvdt}.
+\end{proof}
+
 Importantly, the singular values are unique (when ordered), although the orthogonal matrices~\(U\) and~\(V\) are not unique (e.g., one may  change the sign of any column in~\(U\) together with its corresponding column in~\(V\)).
 Nonetheless, although there are many \svd{}s of a matrix, all \svd{}s are equivalent in application.
-\end{proof}
 
 Some may be disturbed by the non-uniqueness of an \svd.  
 But the non-uniqueness is analogous to the non-uniqueness of row reduction upon re-ordering of equations, and/or re-ordering the variables in the equations.
@@ -351,11 +353,11 @@ Hence every \(n\times n\) orthogonal matrix has singular values \(\sigma_1=\sigm
 \begin{example}[some non-uniqueness] \label{eg:svdnonuniq}
 \begin{itemize}
 \item An identity matrix, say~\(I_n\), has an \svd\ \(I_n=I_nI_n\tr{I_n}\).  
-\item Additionally, for \emph{any} \(n\times n\) orthogonal matrix~\(Q\), the identity~\(I_n\) also has the \svd\ \(I_n=QI_n\tr Q\)---as this right-hand side \(QI_n\tr Q=Q\tr Q=I_n\).
-\item Further, any constant multiple of an identity, say \(sI_n=\diag(s,s,\ldots,s)\), has the same non-uniqueness: an \svd\ is \(sI_n=\usv\) for matrices \(U=Q\)\,, \(S=sI_n\) and \(V=Q\) for any \(n\times n\) orthogonal~\(Q\) (provided \(s\geq0\)).
+\item Additionally, for \emph{every} \(n\times n\) orthogonal matrix~\(Q\), the identity~\(I_n\) also has the \svd\ \(I_n=QI_n\tr Q\)---as this right-hand side \(QI_n\tr Q=Q\tr Q=I_n\).
+\item Further, any constant multiple of an identity, say \(sI_n=\diag(s,s,\ldots,s)\), has the same non-uniqueness: an \svd\ is \(sI_n=\usv\) for matrices \(U=Q\)\,, \(S=sI_n\) and \(V=Q\) for every \(n\times n\) orthogonal~\(Q\) (provided \(s\geq0\)).
 \end{itemize}
 The matrices in this example are characterised by all their singular values having an identical value. 
-In general, analogous non-uniqueness occurs whenever two or more singular values are identical in value.
+In general, analogous non-uniqueness in~\(U\) and~\(V\) occurs whenever two or more singular values are identical in value.
 \end{example}
 
 
@@ -363,7 +365,7 @@ In general, analogous non-uniqueness occurs whenever two or more singular values
 
 \begin{activity}
 \autoref{eg:svdorthog} commented that \(QI_n\tr I_n\) is an \svd\ of an orthogonal matrix~\(Q\).  
-Which of the following is also an \svd\ of an orthogonal matrix~\(Q\)?
+Which of the following is also an \svd\ of an \(n\times n\) orthogonal matrix~\(Q\)?
 \actposs{\(I_nI_n\tr{(\tr Q)}\)}
 {\(Q(-I_n)\tr{(-I_n)}\)}
 {\(I_nQ\tr I_n\)}
@@ -773,13 +775,13 @@ This \autoref{pro:gensol} determines for us that there is either none, one or an
 
 However,  \script's ``\verb|A\|'' gives one `answer' for all of these cases, even when there is no solution or an infinite number of solutions.
 The function \index{rcond}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (\autoref{pro:unisol}).
-\autoref{sec:asie} addresses what the `answer' by \script\ means in the other cases no or infinite solutions.
+\autoref{sec:asie} addresses what the `answer' by \script\ means in the other cases of no or infinite solutions.
 
 
 
 
 
-\subsubsection{Condition number and rank determine possibilities}
+\subsubsection{Condition number and rank determine the possibilities}
 
 \begin{quoted}{Alan Turing, 1934 \cite[p.131]{Higham1996}}
 The expression `ill-conditioned' is sometimes used merely as a term of abuse \ldots\ 
@@ -801,11 +803,11 @@ also, for zero matrices \(\cond O_{m\times n}:=\infty\)\,.
 
 \begin{example} \label{eg:condnum}
 \autoref{eg:2and3sv} gives the singular values of two matrices:
-for the \(2\times 2\) matrix the condition number  \(\sigma_1/\sigma_2=(10\sqrt2)/(5\sqrt2)=2\) (\(\verb|rcond|=0.5\)); for the \(3\times 3\) matrix the condition number \(\sigma_1/\sigma_3=12/3=4\) (\(\verb|rcond|=0.25\)).
+for the \(2\times 2\) matrix the condition number  \(\sigma_1/\sigma_2=(10\sqrt2)/(5\sqrt2)=2\) (for which \(\verb|rcond|=0.5\)); for the \(3\times 3\) matrix the condition number \(\sigma_1/\sigma_3=12/3=4\) (for which \(\verb|rcond|=0.25\)).
 \autoref{eg:svdorthog} comments that every \(n\times n\) orthogonal matrix has singular values \(\sigma_1=\cdots=\sigma_n=1\)\,; hence an orthogonal matrix has condition number one (\(\verb|rcond|=1\)).  
 Such small condition numbers (non-small \verb|rcond|) indicate all orthogonal matrices are ``good'' matrices (as classified by \autoref{pro:unisol}).
 
-However, the matrix in the sports ranking \autoref{eg:rstp} has singular values \(\sigma_1=\sigma_2=\sqrt3\) and \(\sigma_3=0\) so its condition number \(\sigma_1/\sigma_3=\sqrt3/0=\infty\) which suggests the equations are likely to be unsolvable.
+However, the matrix in the sports ranking \autoref{eg:rstp} has singular values \(\sigma_1=\sigma_2=\sqrt3\) and \(\sigma_3=0\) so its condition number \(\sigma_1/\sigma_3=\sqrt3/0=\infty\) (correspondingly, \(\verb|rcond|=0\)) which indicates that the equations are likely to be unsolvable.
 (In \script, see that \(\sigma_3=2\cdot10^{-17}\) so a numerical calculation would give condition number \(1.7321/\sigma_3=7\cdot10^{16}\) which is effectively infinite.)
 \end{example}
 
@@ -874,7 +876,7 @@ equivalently \(S=\diag_{m\times n}(\hlist\sigma r,0,\ldots,0)\).
 In the four matrices of \autoref{eg:condnum}, the respective ranks are~\(2\), \(3\), \(n\) and~\(2\).
 \end{example}
 
-\autoref{thm:svd} asserts the singular values are unique for a given matrix, so the rank of a matrix is independent of its different \svd{}s.
+\autoref{thm:svd} asserts the singular values are unique for a given matrix, so the rank of a matrix is independent of its different~\svd{}s.
 
 \begin{activity}
 What is the rank of the matrix of \autoref{eg:3x4findc}, 
@@ -1139,7 +1141,7 @@ For every \(n\times n\) \idx{square matrix}~\(A\), the following statements are 
 \item\label{thm:ftim1ii} \(A\xv=\bv\) has a \idx{unique solution} for every \(\bv\) in~\(\RR^n\);
 \item\label{thm:ftim1iii} \index{homogeneous}\(A\xv=\ov\) has \emph{only} the zero solution;
 \item\label{thm:ftim1iv} all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
-\item\label{thm:ftim1ivx} the \idx{condition number} of~\(A\) is finite (\verb|rcond|>0);
+\item\label{thm:ftim1ivx} the \idx{condition number} of~\(A\) is finite (\(\verb|rcond|>0\));
 \item\label{thm:ftim1v} \(\rank A=n\)\,.
 \end{enumerate}
 \end{theorem}
@@ -1164,7 +1166,8 @@ Property~\ref{thm:ftim1v} is direct from \autoref{def:rank}.
 Find an \svd\ \(A=\usv\).  
 The inverse of the \(n\times n\) diagonal matrix~\(S\) exists as its diagonal elements are the \(n\)~non-zero singular values (\autoref{thm:idm}). 
 Let \(B=VS^{-1}\tr U\).
-Then \(AB=\usv VS^{-1}\tr U=USS^{-1}\tr U=U\tr U=I_n\)\,.  Similarly \(BA=I_n\)\,.  
+Then \(AB=\usv VS^{-1}\tr U=USS^{-1}\tr U=U\tr U=I_n\)\,.  
+Similarly \(BA=I_n\)\,.  
 From \autoref{def:invertible}, \(A\)~is invertible (with \(B=VS^{-1}\tr U\) as its inverse).
 \end{description}
 \end{proof}
@@ -1221,11 +1224,11 @@ x=A\slosh b
 A=[0 -2 1; 1 -5 1; -3 2 3]
 b=[3;8;-5]
 \end{verbatim}
-\item find \verb|rcond(A)| is \(0.0031\) which is poor;
+\item find \verb|rcond(A)| is \(0.0031\) which is poor, but we proceed anyway;
 \item then \verb|x=A\b| gives the solution \(\xv=(2,-1,1)\) as before.
 \end{enumerate}
 
-\item Now recognise that the right-hand side comes from experimental measurements with a 1\%~error.
+\item Now let's recognise that the right-hand side comes from experimental measurements with a 1\%~error.
 In \script, \verb|norm(b)| computes the \idx{length} \(|\bv|=9.90\) \twodp.
 Thus a 1\%~error corresponds to changing~\bv\ by \(0.01\times 9.90\approx 0.1\)\,.
 Let's say the first component of~\bv\ is in error by this amount and see what the new solution would be:
@@ -1238,8 +1241,9 @@ condA=s(1)/s(3)
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 \begin{enumerate}
-\item executing \verb|x1=A\(b+[0.1;0;0])| adds the  1\%~error \((0.1,0,0)\) to~\bv\ and then solves the new system to find \(\xv'=(3.7,-0.4,2.3)\)---this solution is very different to the original solution \(\xv=(2,-1,1)\).
-\item \verb|relerr1=norm(x-x1)/norm(x)| computes its relative error \(|\xv-\xv'|/|\xv|\) to be~\(0.91\)---rather large.
+\item executing \verb|x1=A\(b+[0.1;0;0])| adds the  1\%~error \((0.1,0,0)\) to~\bv\ and then solves the new system to find \(\xv'=(3.7,-0.4,2.3)\).
+This solution is very different to the original solution \(\xv=(2,-1,1)\)\,!
+\item \verb|relerr1=norm(x-x1)/norm(x)| computes its relative error \(|\xv-\xv'|/|\xv|\) to be~\(0.91\), that is,~\(91\%\)---rather large.
 \end{enumerate}
 As illustrated below, the large difference between~\xv\ and~\(\xv'\) indicates `the solution'~\xv\ is almost complete nonsense.
 How can a 1\%~error in~\bv\ turn into the astonishingly large 91\%~error in solution~\xv?  
@@ -1260,7 +1264,7 @@ How can a 1\%~error in~\bv\ turn into the astonishingly large 91\%~error in solu
 \item To explore further, let's say the second component of~\bv\ is in error by~1\% of~\bv, that is, by~\(0.1\).
 As in the previous case, add \((0,0.1,0)\) to the right-hand side and solve to find now \(\xv''=(1.2,-1.3,0.4)\) which is quite different to both~\xv\ and~\(\xv'\), as illustrated below.
 Compute its relative error \(|\xv-\xv''|/|\xv|=0.43\)\,.
-At 43\%, the relative error in solution~\(\xv''\) is still much larger than the 1\%~error in~\bv.
+At 43\%, the relative error in solution~\(\xv''\) is also much larger than the 1\%~error in~\bv.
 \begin{center}
 \qview{-52}{-48}{\begin{tikzpicture} 
 \begin{axis}[view={\q}{20},axis equal,footnotesize,font=\footnotesize
@@ -1278,7 +1282,7 @@ At 43\%, the relative error in solution~\(\xv''\) is still much larger than the 
 \item Lastly, let's say the third component of~\bv\ is in error by~1\% of~\bv, that is, by~\(0.1\).
 As in the previous cases, add \((0,0,0.1)\) to the right-hand side and solve to find now \(\xv'''=(1.7,-1.1,0.8)\) which, as illustrated above, is at least is roughly~\xv.
 Compute its relative error \(|\xv-\xv'''|/|\xv|=0.15\)\,.
-At 15\%, the relative error in solution~\(\xv'''\) is still significantly larger than the 1\%~error in~\bv.
+At 15\%, the relative error in solution~\(\xv'''\) is significantly larger than the 1\%~error in~\bv.
 
 \end{enumerate}
 This example shows that the apparently innocuous matrix~\(A\) variously multiples measurement errors in~\bv\ by factors of~\(91\), \(41\) or~\(15\) when finding `the solution'~\xv\ to \(A\xv=\bv\)\,.
@@ -1364,7 +1368,7 @@ Hence solving a system of linear equations with a large condition number (small 
 \begin{theorem}[error magnification] \label{thm:erramp}
 Consider solving \(A\xv=\bv\) for \(n\times n\) matrix~\(A\) with full \(\rank A=n\)\,.  
 \begin{aside}
-The greek letter~\(\epsilon\) (epsilon) often denotes errors.
+The symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.
 \end{aside}%
 Suppose the right-hand side \bv~has relative error of size~\(\epsilon\), then the solution~\xv\ has relative error\({}\leq\epsilon\cond A\)\,, with equality in the worst case.
 \end{theorem}
@@ -1397,7 +1401,7 @@ From the given information estimate the maximum relative error in~\xv,  if  poss
 \item The relative error in~\xv\ could be as big as \(0.001\times10=0.01\)\,.
 \item Measuring to three significant digits means the relative error is~\(0.0005\), while with \(\verb|rcond(A)|=0.025\)\,, matrix~\(A\) has condition number of roughly~\(40\), so the relative error of~\xv\ is less than \(0.0005\times40=0.02\)\,; that is, up to~2\%.
 \item There is not enough information as we cannot determine the \emph{relative} error in measurements~\bv.
-\item Two significant digits means the relative error is~\(0.005\), while matrix~\(A\) has condition number of roughly \(1/0.002=500\) so the relative error of~\xv\ could be as big as \(0.005\times500=2.5\)\,; that is, the estimate~\xv\ is possibly complete rubbish.
+\item Two significant digits means the relative error is~\(0.005\), while matrix~\(A\) has condition number of roughly \(1/0.002=500\) so the relative error of~\xv\ could be as big as \(0.005\times500=2.5\)\,; that is, the estimated solution~\xv\ is likely to be complete rubbish.
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -1597,7 +1601,7 @@ on the size \(m\times n\) of the matrix.
 \item This rotation transforms the matrix~\(A\) to strip off the leading singular value, and effectively leave an \((m-1)\times(n-1)\) matrix.
 \item  By induction on the size, an \svd\ exists for all sizes.
 \end{itemize}
-This proof corresponds closely to the proof of the spectral theorem~\ref{thm:smevec} for symmetric matrices of \autoref{sec:sm}. 
+This proof corresponds closely to the proof of the spectral \autoref{thm:smevec} for symmetric matrices of \autoref{sec:sm}. 
 
 
 
@@ -1662,7 +1666,7 @@ Consider any \(m\times n\) nonzero matrix~\(A\) for \(m,n\geq2\)\,.
 Set vector~\(\vv_1\) in~\(\RR^n\) to be a \emph{unit vector} that maximises~\(|A\vv|^2\) for unit vectors \(\vv\) in~\(\RR^n\); that is, vector~\(\vv_1\) achieves the \idx{maximum} in \(\max_{|\vv|=1}|A\vv|^2\).
 \begin{enumerate}
 \item \emph{Such a maximum exists by the Extreme Value Theorem in Calculus.}
-Proved in higher level analysis.
+This theorem is proved in higher level analysis.
 
 %Optional (omit as no real need): confirm that a maximum exists by bounding it.
 %Let \(\uv:=A\vv\) so \(u_i=\sum_{n=1}^na_{ij}v_j\)\,.
@@ -2812,18 +2816,37 @@ Use properties of the dot product to prove that when \(\vv_1\) and~\vv\ are orth
 
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item Why can factorisation be useful in solving equations?
+
+\item What is it about the matrices in an \svd\ that makes the factorisation useful?
+
+\item In solving linear equations, how does the \svd\ show that non-unique solutions arise in two ways?
+
+\item Why is every condition number greater than or equal to one?
+
+\item When using a computer, why do we often treat computed numbers of size about~\(10^{-16}\) as effectively zero? and computed numbers of size about~\(10^{16}\) as effectively infinity?
+
+\item In estimating the relative error in the solution~\xv\ of \(A\xv=\bv\) in terms of the relative error of~\bv, how does the worst case error arise?
+
+\item Why does \autoref{pro:unisol} check the value of~\verb|rcond(A)| before computing a solution to \(A\xv=\bv\)?
+
+\end{enumerate}
+\end{exercise}
 
 
 \begin{comment}%{ED498555.pdf}
-Exercise Project on searching web pages \cite[pp.4--5]{Higham2015a} with authorities and hubs leads to SVD 
-%(I referred to this topic somewhen at USQ??)
-
 why, what caused X?
 how did X occur?
 what-if? what-if-not?
 how does X compare with Y?
 what is the evidence for X?
 why is X important?
+
+Exercise Project on searching web pages (Higham, 2015a, pp.4--5) with authorities and hubs leads to SVD 
+%(I referred to this topic somewhen at USQ??)
 \end{comment}
 
 

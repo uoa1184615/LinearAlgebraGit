@@ -1,5 +1,5 @@
-Linear Algebra Reformed for 21st C Application
-==============================================
+Linear Algebra for 21st C Application
+=====================================
 
 This textbook provides a new exciting introduction and
 development of the power of linear algebra in modern

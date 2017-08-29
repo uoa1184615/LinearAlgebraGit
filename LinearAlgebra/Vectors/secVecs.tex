@@ -32,10 +32,10 @@ Given two points in space, say~\(A\) and~\(B\), the displacement vector~\(\ovect
 \end{axis}
 \end{tikzpicture}}
 \marginpar{\temp0}
-For example, if your home is at position~\(A\) and your school at position~\(B\), then travelling from home to school is moving by the amount of the displacement vector~\(\ovect{AB}\).
+For example, if your home is at position~\(A\) and your school at position~\(B\), then travelling from home to school is to move by the amount of the displacement vector~\(\ovect{AB}\).
 
 To be able to manipulate vectors we describe them with numbers.
-For such numbers to have meaning they must be defined via a \idx{coordinate system}.
+For such numbers to have meaning they must be set in the context of a \idx{coordinate system}.
 So choose an origin for the coordinate system, usually denoted~\(O\), and draw coordinate axes in the plane (or space), as illustrated for the above two \idx{displacement vector}s.
 Here the displacement vector~\(\ovect{AB}\) goes three units to the right and one unit up, so we denote it by the ordered pair of numbers~\(\ovect{AB}=(3,1)\).
 \marginpar{\temp1}
@@ -169,9 +169,11 @@ Given a \idx{standard coordinate system} with \(n\)~coordinate axes, all at \idx
 (they mean the same, it is just more convenient to usually use a row in parentheses in text, and a column in brackets in displayed mathematics).
 The real numbers \hlist xn\ are called the \bfidx{components} of the vector, and the number of components is termed its \bfidx{size} (here~\(n\)).
 The components are determined such that letting~\(X\) be the point with coordinates \((\hlist xn)\) then the \idx{position vector}~\(\ovect{OX}\) has the same magnitude and direction as the vector denoted \((\hlist xn)\).
-\marginpar{\index{Recorde, Robert}Robert Recorde invented the equal sign circa 1557 ``bicause noe~2 thynges can be moare equalle''.  
+\begin{aside}
+\includegraphics[width=\linewidth]{Vectors/RobertRecorde}
+\index{Recorde, Robert}Robert Recorde invented the equal sign circa 1557 ``bicause noe~2 thynges can be moare equalle''.  
 %He also invented the term ``sine'' and the method of extracting the square root by hand.
-}
+\end{aside}%
 Two vectors of the same \idx{size} are \bfidx{equal},~\(=\), if all their corresponding components are equal (vectors with different sizes are never equal).
 \end{definition}
 
@@ -319,7 +321,7 @@ define the \bfidx{length} (or \bfidx{magnitude}) of vector~\vv\  to be the real 
 |\vv|:=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\,.
 \end{equation*}
 A vector of length one is called a \bfidx{unit vector}.
-(Be aware that many books denote the length of a vector with a pair of double lines, as in~\(\|\vv\|\).)
+(Many people and books denote the length of a vector with a pair of double lines, as in~\(\|\vv\|\).  Either notation is good.)
 \end{definition}
 
 
@@ -444,25 +446,28 @@ For each case: on the plot draw the \idx{displacement vector}s \(\ovect{AB}\) an
 
 \begin{exercise} \label{ex:fourvec} 
 For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{components} of the four \idx{position vector}s of the points~\(A\), \(B\), \(C\) and~\(D\).
-\newcommand{\mytemp}{%\edef\myans{begin}% fails to provide answers
-\begin{tikzpicture} 
+\newcommand{\mytemp}{\edef\mytempans{}%
+\begin{tikzpicture}
+\pgfkeys{/pgf/number format/precision=1,/pgf/number format/fixed}
 \begin{axis}[small,font=\small
   ,axis equal, xlabel={$x$}, ylabel={$y$}
   ,axis lines=middle, grid  ] 
   \foreach \q in {A,B,C,D} {
     \pgfmathparse{rand*4}\let\h\pgfmathresult
+    \pgfmathprintnumberto{\pgfmathresult}{\twoh}
     \pgfmathparse{rand*3}\let\v\pgfmathresult
-%    \edef\myans{\myans next $(\h,\v)$}
+    \pgfmathprintnumberto{\pgfmathresult}{\twov}
+    \global\edef\mytempans{\mytempans \q(\twoh,\twov)\ }
     \edef\myytmp{\noexpand
     \addplot+[quiver={u=\h,v=\v},-stealth,thick] 
     coordinates {(0,0)};
     \noexpand \node[blue,right] at (axis cs:\h,\v) {$\q$};
     \noexpand \addplot[blue,no marks,forget plot] coordinates {(0.5+\h,1.2*\v)};
     }\myytmp
-%    \savebox{\ajrqrbox}{\myans}
     };
 \end{axis}
-\end{tikzpicture}%\answer{\noexpand\usebox{\ajrqrbox}}
+\end{tikzpicture}%
+\answer{\mytempans}
 }
 \begin{enumerate}
 \pgfmathsetseed{3034}
@@ -518,15 +523,27 @@ Being consistent about the order of words, represent each of the eight titles by
 
 
 \begin{exercise} \label{ex:} 
-Recall that a vectors has both a magnitude and a direction.  
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item Why is a coordinate system important for a vector?
+
+\item Describe the distinction between a displacement vector and a position vector.
+
+\item Why do two vectors have to be the same size in order to be equal?
+
+\item What is the connection between the length of a vector and Pythagoras' theorem for triangles?
+
+\item Describe a problem that would occur if the ordering of the components in a vector was not significant?
+
+\item Recall that a vector has both a magnitude and a direction.  
 Comment on why the zero vector is the only vector with zero magnitude.
+
+\item In what other courses have you seen vectors?  What was the same and what was different?
+
+\end{enumerate}
 \end{exercise}
 
 
-
-\begin{exercise} \label{ex:} 
-Why is a coordinate system important for a vector?
-\end{exercise}
 
 
 

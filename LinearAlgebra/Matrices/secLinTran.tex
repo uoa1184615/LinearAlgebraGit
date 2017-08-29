@@ -28,10 +28,10 @@ We often write \(f:\RR\to\RR\) to denote this functionality: that is, \(f:\RR\to
 There is analogous functionality in multiple dimensions with vectors: given any vector 
 \begin{itemize}
 \item multiplication by a diagonal matrix stretches and shrinks the vector (\autoref{sec:dmd});
-\item multiplication by an orthogonal matrix rotate the vector (\autoref{sec:omr});
+\item multiplication by an orthogonal matrix rotates the vector (\autoref{sec:omr});
 and \item projection finds a vector's components in a subspace (\autoref{sec:proj}).
 \end{itemize}
-Correspondingly, we use the notation \(f:\RR^n\to\RR^m\) to mean function~\(f\) transforms a given vector with \(n\)~components (in~\(\RR^n\)) into another vector with \(m\)~components (in~\(\RR^m\)) according to some rule. 
+Correspondingly, we use the notation \(f:\RR^n\to\RR^m\) to mean that the function~\(f\) transforms a given vector with \(n\)~components (in~\(\RR^n\)) into another vector with \(m\)~components (in~\(\RR^m\)) according to some rule. 
 For example, suppose the function~\(f(\xv)\) is to denote multiplication by the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac13\\\frac12&-1\\-1&-\frac12 \end{bmatrix}.
@@ -72,7 +72,7 @@ A \idx{transformation}\slash function \(T:\RR^n\to\RR^m\) is called a \bfidx{lin
 \begin{enumerate}
 \item Show that the parabolic function \(f:\RR\to\RR\) where \(f(x)=x^2\) is not a linear transformation.
 \begin{solution} 
-To test Property~\ref{def:lintran:i}, consider \(f(x+y)=(x+y)^2=x^2+2xy+y^2=f(x)+2xy+f(y)\neq f(x)+f(y)\) for all~\(x\) and~\(y\) (it is equal if either are zero, but the test requires equality to hold for all~\(x\) and~\(y\)).  
+To test Property~\ref{def:lintran:i},  for any real~\(x\) and~\(y\) consider \(f(x+y)=(x+y)^2=x^2+2xy+y^2=f(x)+2xy+f(y)\neq f(x)+f(y)\) in general (it is equal if either are zero, but the test requires equality to hold for all~\(x\) and~\(y\)).  
 Alternatively one could test Property~\ref{def:lintran:ii} and consider \(f(cx)=(cx)^2=c^2x^2=c^2f(x)\neq cf(x)\) for all~\(c\).
 Either of these prove that \(f\)~is not a linear transformation.
 \end{solution}
@@ -257,8 +257,8 @@ In each illustration of a transformation~\(T\), the four corners of the blue \id
 \end{parts}
 \begin{solution} 
 To \emph{test} we check the addition property~\ref{def:lintran:i}.
-First, with \(\uv=\vv=\ov\) \autoref{def:lintran:i} requires \(T(\ov+\ov)=T(\ov)+T(\ov)\), but the left-hand side is just~\(T(\ov)\) which cancels with one on the right-hand side to leave that a linear transformation has to satisfy \(T(\ov)=\ov\)\,: all the shown transformations satisfy \(T(\ov)=\ov\) as the (blue) origin point is transformed to the (red) origin point.
-Second, with \(\uv=(1,0)\), \(\vv=(1,0)\) and \(\uv+\vv=(1,1)\) \autoref{def:lintran:i} requires \(T(1,1)=T(1,0)+T(0,1)\): let's see which do not pass this test.
+First, with \(\uv=\vv=\ov\) property~\ref{def:lintran:i} requires \(T(\ov+\ov)=T(\ov)+T(\ov)\), but the left-hand side is just~\(T(\ov)\) which cancels with one on the right-hand side to leave that a linear transformation has to satisfy \(T(\ov)=\ov\)\,: all the shown transformations satisfy \(T(\ov)=\ov\) as the (blue) origin point is transformed to the (red) origin point.
+Second, with \(\uv=(1,0)\), \(\vv=(1,0)\) and \(\uv+\vv=(1,1)\) property~\ref{def:lintran:i} requires \(T(1,1)=T(1,0)+T(0,1)\): let's see which do not pass this test.
 \begin{enumerate}
 \item Here \(T(1,1)\approx(-0.3,1.4)\), whereas
 \(T(1,0)+T(0,1)\approx (-1.4,-0.5)+(1.1,1.9)
@@ -432,9 +432,9 @@ For any given nonzero vector \(\wv\in\RR^n\), prove that the projection \(P:\RR^
 But, for any given nonzero vector \(\uv\in\RR^n\), prove that the projection \(Q:\RR^n\to\RR^n\) by \(Q(\wv)=\proj_\wv(\uv)\) is not a linear transformation (as a function of~\wv).
 \begin{solution} 
 \begin{itemize}
-\item Consider the two properties of \autoref{def:lintran} for the function~\(P\).
+\item For the function~\(P\) consider the two properties of \autoref{def:lintran}.
 \begin{description}
-\item[\ref{def:lintran:i}] for all \(\uv,\vv\in\RR^n\), from Defintion~\ref{def:orthproj1} for a projection, 
+\item[\ref{def:lintran:i}] for all \(\uv,\vv\in\RR^n\), from \autoref{def:orthproj1} for a projection, 
 \(P(\uv+\vv)
 =\proj_\wv(\uv+\vv)
 =\wv[\wv\cdot(\uv+\vv)]/|\wv|^2
@@ -516,7 +516,7 @@ Hence when the shift~\bv\ is nonzero, there are vectors for which \(S(\uv+\vv)\n
 
 
 
-Now let's establish the important converse to \autoref{thm:mattranlin}: every linear transformation can be written as a matrix multiplication.
+Now let's establish the important converse to \autoref{thm:mattranlin}: that every linear transformation can be written as a matrix multiplication.
 
 \begin{theorem} \label{thm:matlintran} 
 Let \(T:\RR^n\to\RR^m\) be a \idx{linear transformation}.
@@ -637,13 +637,15 @@ To find the standard matrix consider
 \\&&\qquad\vdots
 \\&&H(\ev_n)=a\ev_n=(0,0,\ldots,0,a).
 \end{eqnarray*}
-Hence the standard matrix \([H]=\diag(a,a,\ldots,a)=aI_n\).
+Hence the standard matrix 
+%\([H]=\diag(a,a,\ldots,a)=aI_n\).
 \begin{eqnarray*}
 [H]&=&\begin{bmatrix} H(\ev_1)&H(\ev_2)&\cdots&H(\ev_n) \end{bmatrix}
 \\&=&\begin{bmatrix} a&0&\cdots&0
 \\0&a&&0
 \\\vdots&&\ddots&\vdots
 \\0&0&\cdots&a \end{bmatrix}
+=\diag(a,a,\ldots,a)
 =aI_n\,.
 \end{eqnarray*}
 
@@ -701,7 +703,7 @@ This subsection is an optional extension.
 \end{aside}%
 \(A\xv=\bv\) for some given~\(A\)\,, \autoref{pro:appsol} finds a solution~\xv\ that depends upon the right-hand side~\bv.
 That is, any given~\bv\ is transformed by the procedure to some result~\xv: the result is a function of the given~\bv.
-This section establishes the resulting solution given by the procedure is a linear transformation of~\bv, and hence there must be a matrix, say~\(A^+\), corresponding to the procedure. 
+This section establishes that the resulting solution given by the procedure is a linear transformation of~\bv, and hence there must be a matrix, say~\(A^+\), corresponding to the procedure. 
 This matrix gives the resulting solution \(\xv=A^+\bv\)\,.
 We call the matrix~\(A^+\) the \idx{pseudo-inverse} of~\(A\).
 
@@ -719,10 +721,11 @@ A=\begin{bmatrix} 3\\4 \end{bmatrix}
 \end{equation*}
 
 \item Hence \(\zv=\tr U\bv=\begin{bmatrix} \tfrac35b_1+\tfrac45b_2\\-\tfrac45b_1+\tfrac35b_2 \end{bmatrix}\).
-\item Then the diagonal system \(Sy=\zv\) is \(\begin{bmatrix} 5\\0 \end{bmatrix}y=\begin{bmatrix} \tfrac35b_1+\tfrac45b_2\\-\tfrac45b_1+\tfrac35b_2 \end{bmatrix}\): approximately solve by neglecting the second component in the equations, and so from the first component just set \(y=\tfrac3{25}b_1+\tfrac4{25}b_2\)\,.
+\item Then the diagonal system \(Sy=\zv\) is \(\begin{bmatrix} 5\\0 \end{bmatrix}y=\begin{bmatrix} \tfrac35b_1+\tfrac45b_2\\-\tfrac45b_1+\tfrac35b_2 \end{bmatrix}\). 
+Approximately solve this system by neglecting the second component in the equations, and so from the first component just set \(y=\tfrac3{25}b_1+\tfrac4{25}b_2\)\,.
 \item Then the procedure's solution is \(x=Vy=1(\tfrac3{25}b_1+\tfrac4{25}b_2)=\tfrac3{25}b_1+\tfrac4{25}b_2\)\,.
 \end{enumerate}
-That is, for all right-hand side vectors~\bv, this \idx{least square} solution
+That is, for all right-hand side vectors~\bv, this \idx{least square} solution is
 \begin{equation*}
 x=A^+\bv\quad\text{for pseudo-inverse }A^+=\begin{bmatrix} \tfrac3{25}& \tfrac4{25} \end{bmatrix}.
 \end{equation*}
@@ -1815,7 +1818,19 @@ equivalently \(S^+=\diag_{n\times m}(\hlist{1/\sigma}r,0,\ldots,0)\).
 
 
 \begin{exercise} \label{ex:pisvd} 
-Given any \(m\times n\) matrix~\(A\) with  \svd\ \(A=\usv\), use the result of \autoref{ex:pidiag} to establish that the \idx{pseudo-inverse} \(A^+=VS^+\tr U\).
+For every \(m\times n\) matrix~\(A\), let \(A=\usv\) be its \svd, and use the result of \autoref{ex:pidiag} to establish that the \idx{pseudo-inverse} \(A^+=VS^+\tr U\).
+\end{exercise}
+
+
+
+\begin{exercise} \label{ex:} 
+Use the results of Exercises~\ref{ex:pidiag} and~\ref{ex:pisvd} to prove the following properties of the \idx{pseudo-inverse} hold for every matrix~\(A\):
+\begin{enumerate}
+\item \(AA^+A=A\)\,;
+\item \(A^+AA^+=A^+\)\,;
+\item \(AA^+\) is symmetric;
+\item \(A^+A\) is symmetric.
+\end{enumerate}
 \end{exercise}
 
 
@@ -1959,6 +1974,9 @@ Use \script\ and the identity of \autoref{ex:pisvd} to compute the \idx{pseudo-i
 
 
 
+\begin{exercise} \label{ex:} 
+Invent matrices~\(A\) and~\(B\) such that \((AB)^+\neq B^+A^+\).
+\end{exercise}
 
 
 
@@ -2092,6 +2110,25 @@ Hence sketch how the inverse transforms the unit square and write a sentence or 
 
 
 
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item How does \autoref{def:lintran} compare with the definition of a subspace?
+
+\item Why should the linear transformation of a square\slash cube be a parallelogram\slash parallelepiped?
+
+\item What causes multiplication by a matrix to be a linear transformation?
+
+\item What causes the transform of the standard unit vectors to form the matrix of the linear transformation?
+
+\item How does the concept of a pseudo-inverse of a matrix compare with that of the inverse of a matrix?
+
+\item For an \(m\times n\) matrix~\(A\) with \(\rank A<n\leq m\), what is it that fails in the formula for the pseudo-inverse \(A^+=(\tr AA)^{-1}\tr A\)?
+
+\item How does the composition of linear transformations connect to the inverse of a matrix?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?

@@ -19,58 +19,58 @@ The book is written in the mathematical language, and the symbols are triangles,
 \end{quoted}
 
 
-One of the most fundamental geometric structures in linear algebra are the lines or planes through the origin, and higher dimensional analogues.
+Some of the most fundamental geometric structures in mathematics, especially linear algebra, are the lines or planes through the origin, and higher dimensional analogues.
 For example, a general solution of linear equations often involve linear combinations such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}) and \(y_3\vv_3+y_4\vv_4\) (\autoref{eg:3x4findc}): such combinations for all values of the free variables forms a plane through the origin (\autoref{sec:nvep}).
 The aim of this section is to connect geometric structures, such as lines and planes, to the information in a singular value decomposition.
-Each such geometric structure is called a \idx{subspace}.
+The structures are called~\idx{subspace}s.
 
 
 \subsection{Subspaces are lines, planes, and so on}
 
 \index{subspace|(}
-
 \begin{example} \label{eg:viewsubs}
 The following graphs illustrate the concept of subspaces through examples (imagine the graphs extend to infinitely as appropriate).
-\begin{parts}
+\begin{enumerate}
+\newcommand{\PB}[1]{\quad\parbox[b]{11em}{\raggedright #1}}
 \item\label{eg:viewsubsa} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
     \addplot[blue,thick] {x/2};
 \end{axis}
-\end{tikzpicture}\\
-is a subspace as it is a straight line through the origin.
+\end{tikzpicture}
+\PB{is a subspace as it is a straight line through the origin.}
 
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {1-0.4*x};
 \end{axis}
-\end{tikzpicture}\\
-is \emph{not} a subspace as it does not include the origin.
+\end{tikzpicture}
+\PB{is \emph{not} a subspace as it does not include the origin.}
 
 \item\label{eg:viewsubsc} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {x-x^2/20};
 \end{axis}
-\end{tikzpicture}\\
-is \emph{not} a subspace as it curves.
+\end{tikzpicture}
+\PB{is \emph{not} a subspace as it curves.}
 
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,xmin=-2.2,xmax=2.2
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,smooth,samples=30,domain=0:360,thick] ({2*cos(x)},{2*sin(3*x)});
 \end{axis}
-\end{tikzpicture}\\
-is \emph{not} a subspace as it not only curves, but does not include the origin.
+\end{tikzpicture}
+\PB{is \emph{not} a subspace as it not only curves, but does not include the origin.}
 
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {-1.5*x};
 \end{axis}
-\end{tikzpicture}\\
-is a subspace.
+\end{tikzpicture}
+\PB{is a subspace.}
 
 \item\label{eg:viewsubsf} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,xmin=-4,ymin=-2
@@ -78,8 +78,8 @@ is a subspace.
     \addplot[blue,thick,domain=0:5] {x/2};
     \addplot[only marks,blue] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}\\
-where the disc indicates an end to the line, is \emph{not} a subspace as it does not extend infinitely in both directions.
+\end{tikzpicture}
+\PB{where the disc indicates an end to the line, is \emph{not} a subspace as it does not extend infinitely in both directions.}
 
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -87,8 +87,8 @@ where the disc indicates an end to the line, is \emph{not} a subspace as it does
     \addplot3[blue,samples y=0,thick] ({x},{x},{x/2});
     \addplot3[only marks,black] coordinates {(0,0,0)};
 \end{axis}
-\end{tikzpicture}\\
-is a subspace as it is a line through the origin (marked in these 3D plots).
+\end{tikzpicture}
+\PB{is a subspace as it is a line through the origin (marked in these 3D plots).}
 
 \item\label{eg:viewsubsh} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -96,8 +96,8 @@ is a subspace as it is a line through the origin (marked in these 3D plots).
     \addplot3[surf,shader=interp,samples=2,opacity=0.5] {-x/6+y/3};
     \addplot3[only marks,black] coordinates {(0,0,0)};
 \end{axis}
-\end{tikzpicture}\\
-is a subspace as it is a plane through the origin.
+\end{tikzpicture}
+\PB{is a subspace as it is a plane through the origin.}
 
 \item\label{eg:viewsubsi} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -105,8 +105,8 @@ is a subspace as it is a plane through the origin.
     \addplot3[only marks,black] coordinates {(0,0,0)};
     \addplot3[surf,shader=interp,samples=2,opacity=0.5] {5+x/6+y/3};
 \end{axis}
-\end{tikzpicture}\\
-is \emph{not} a subspace as it does not go through the origin.
+\end{tikzpicture}
+\PB{is \emph{not} a subspace as it does not go through the origin.}
 
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -114,10 +114,10 @@ is \emph{not} a subspace as it does not go through the origin.
     \addplot3[only marks,black] coordinates {(0,0,0)};
     \addplot3[surf,opacity=0.5] {x^2/10-y^2/20};
 \end{axis}
-\end{tikzpicture}\\
-is \emph{not} a subspace as it curves.
+\end{tikzpicture}
+\PB{is \emph{not} a subspace as it curves.}
 
-\end{parts}
+\end{enumerate}
 \end{example}
 
 
@@ -177,12 +177,12 @@ This book uses the `blackboard bold' font, such as \WW\ and~\RR, for names of sp
 
 % I think we need to use \in by now, if not already invoked
 Recall that the mathematical symbol~``\(\in\)''\index{in, $\in$}\index{$\in$} means~``in'' or ``in the set'' or ``is an element of the set''.
-For two examples: ``\(c\in\RR\)'' means ``\(c\)~is a real number''; whereas ``\(\vv\in\RR^n\)'' means ``\(\vv\)~is a vector in~\(\RR^n\)''.
+For two examples: ``\(c\in\RR\)'' means ``\(c\)~is a real number''; whereas ``\(\vv\in\RR^3\)'' means ``\(\vv\)~is a vector with three components.
 Hereafter, this book uses~``\(\in\)'' extensively.
 
 
 \begin{definition} \label{def:subspace} 
-A \bfidx{subspace}~\WW\ of~\(\RR^n\),  is a set of vectors with \(\ov\in\WW\) and such that \WW\ is \idx{closed} under addition and scalar multiplication: that is, for all \(c\in\RR\) and \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\).
+A \bfidx{subspace}~\WW\ of~\(\RR^n\),  is a set of vectors with \(\ov\in\WW\) and such that \WW\ is \idx{closed} under addition and scalar multiplication: that is, for all \(c\in\RR\) and for all \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\).
 \end{definition}
 
 
@@ -616,7 +616,7 @@ The set~\(\Null(A)\) is a \idx{subspace} of~$\RR^n$ called the \bfidx{nullspace}
 First, \(A\ov=\ov\) so \(\ov\in\Null A\)\,.
 Let \(\uv,\vv\in\Null A\)\,; that is, \(A\uv=\ov\) and \(A\vv=\ov\)\,.
 Second, by the distributivity of matrix-vector multiplication (\autoref{thm:pmm}), \(A(\uv+\vv)=A\uv+A\vv=\ov+\ov=\ov\) and so \(\uv+\vv\in\Null A\)\,.
-Third, by the associativity and commutativity of \emph{scalar} multiplication (\autoref{thm:pasm}), for any \(c\in\RR\)\,, \(A(c\uv)=Ac\uv=cA\uv=c(A\uv)=c\ov=\ov\) and so \(c\uv\in\Null A\). 
+Third, by the associativity and commutativity of \emph{scalar} multiplication (\autoref{thm:pasm}), for every \(c\in\RR\)\,, \(A(c\uv)=Ac\uv=cA\uv=c(A\uv)=c\ov=\ov\) and so \(c\uv\in\Null A\). 
 Hence \(\Null A\) is a subspace (\autoref{def:subspace}).
 \end{proof}
 
@@ -717,7 +717,7 @@ The importance of orthogonal basis functions in interpolation and approximation 
 Given that subspaces arise frequently in linear algebra, and that there are many ways of representing the same subspace (as seen in some previous examples), is there a `best' way of representing subspaces?
 The next definition and theorems largely answer this question.
 
-The aim is to mainly use an orthonormal set of vectors to span a subspace.
+We prefer to use an orthonormal set of vectors to span a subspace.
 The virtue is that orthonormal sets have many practically useful properties.
 For example, orthonormal sets underpin \textsc{jpeg} images, our understanding of vibrations, and reliable weather forecasting.
 Recall that an orthonormal set is composed of vectors that are both at right-angles to each other (their dot products are zero) and all of unit length (\autoref{def:orthoset}).
@@ -728,7 +728,7 @@ An \bfidx{orthonormal basis} for a \idx{subspace}~\WW\ of~\(\RR^n\) is an \idx{o
 \end{definition}
 
 \begin{example} \label{eg:}
-Recall that \(\RR^n\) is itself a subspace of~\(\RR^n\) (Example~\ref{eg:somsubsg}).
+Recall that \(\RR^n\) is itself a subspace of~\(\RR^n\) (\autoref{eg:somsubsg}).
 \begin{enumerate}
 \item The \(n\)~standard unit vectors \hlist\ev n\ in~\(\RR^n\) form a set of \(n\)~orthonormal vectors.
 They span the subspace~\(\RR^n\) as every vector in~\(\RR^n\) can be written as a linear combination \(\xv=(\hlist xn)=\lincomb x\ev n\)\,.
@@ -826,7 +826,7 @@ Consider any point \(\bv\in\Span\{\hlist\av n\}\).
 Because~\bv\ is in the span, there exist coefficients \hlist xn\ such that
 \begin{eqnarray*}
 \bv&=&\lincomb \av xn
-\\&=&A\xv \quad(\text{by matrix-vector product \S\ref{sec:amwm}})
+\\&=&A\xv \quad(\text{by matrix-vector product \autoref{sec:amwm}})
 \\&=&\usv \xv \quad(\text{by the \svd\ of }A)
 \\&=&US \yv \quad(\text{for }\yv=\tr V\xv)
 \\&=&U\zv \quad(\text{for }\zv=(\hlist zr,0,\ldots,0)=S\yv)
@@ -875,7 +875,7 @@ That is, every vector in \(\Span\{(1,\frac12),(-2,-1)\}\) can be written as \((-
 
 \begin{example} \label{eg:orthospan}
 Recall that \autoref{eg:plsubs} found the plane \(z=-x/6+y/3\) could be written as \(\Span\{(3,3,1/2),(0,3,1)\}\) or as \(\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\).
-Use each of these spans to find two different orthonormal bases for the plane.
+Use each of these spans to find two different orthonormal bases for the~plane.
 \begin{solution} 
 \begin{itemize}
 \item Form the matrix whose columns are the given vectors
@@ -1098,17 +1098,20 @@ plot(U(:,1:4))
 \marginpar{\usebox{\ajrqrbox}}%
 The computed singular values are $44.63,$ $43.01,$ $39.37,$ $36.69,$ $0.03,$ $0.03,$ $0.02,$ $0.02,$ $0.02,$ $0.01$.
 In practice, treat the six small singular values as zero.
-Since there are four non-zero singular values, the windows of data lie in a subspace spanned by the first four columns of~\(U\).
+Since there are four `non-zero' singular values, the windows of data lie in a subspace spanned by the first four columns of~\(U\).
 \begin{figure}
 \centering
 \input{Matrices/soiRoundSubs.ltx}
-\caption{first four singular vectors of the \soi\ data---displaced vertically for clarity.  The bottom two form a pair to show a five year cycle.  The top two are a pair that show a two--three year cycle.  The combination of these two cycles leads to the structure of the \soi\ in \autoref{fig:soiRoundData}.}
+\caption{first four singular vectors of the \soi\ data---displaced vertically for clarity.  
+The bottom two form a pair to show a five year cycle.  
+The top two are a pair that show a two--three year cycle.  
+The combination of these two cycles leads to the structure of the \soi\ in \autoref{fig:soiRoundData}.}
 \label{fig:soiRoundSubs}
 \end{figure}%
 \end{itemize}
-That is, all the structure seen in the fifty year \soi\ data of \autoref{fig:soiRoundData} can be expressed in terms of the  orthonormal basis of four ten-year vectors plotted in \autoref{fig:soiRoundSubs}.
-This analysis implies the \soi\ data is composed of two cycles of different frequencies.%
-\footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is considerably noisier.  
+That is, all the structure seen in the fifty year \soi\ data of \autoref{fig:soiRoundData} can be expressed in terms of the  orthonormal basis of the four ten-year vectors plotted in \autoref{fig:soiRoundSubs}.
+This analysis implies the \soi\ data is composed of two cycles of two different frequencies.
+\footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is much noisier.  
 Also we would use \(600\)~monthly averages not \(50\)~yearly averages: so a ten year window would be a window of \(120\)~months, and the matrix would be considerably larger \(120\times481\).  
 Nonetheless, the conclusions with the real data, and justified by \autoref{ch:am}, are much the same.}
 \end{example}
@@ -1120,10 +1123,10 @@ Although the bases are different, they both had the same number of vectors.
 The next theorem establishes that this same number always occurs.
 
 \begin{theorem} \label{thm:sameD} 
-Any two \index{orthonormal basis}orthonormal bases for a given \idx{subspace} have the same number of vectors.
+For every given \idx{subspace}, any two \index{orthonormal basis}orthonormal bases have the same number of vectors.
 \end{theorem}
 \begin{proof} 
-Let \(\cU=\{\hlist\uv r\}\), with \(r\)~vectors, and \(\cV=\{\hlist\vv s\}\), with \(s\)~vectors, be any two orthonormal bases for a subspace in~\(\RR^n\).
+Let \(\cU=\{\hlist\uv r\}\), with \(r\)~vectors, and \(\cV=\{\hlist\vv s\}\), with \(s\)~vectors, be any two orthonormal bases for a given subspace in~\(\RR^n\).
 Prove the number of vectors \(r=s\) by contradiction.
 First assume \(r<s\) (\cU\ has less vectors than~\cV).
 Since \cU\ is an orthonormal basis for the subspace every vector in~\cV\ can be written as a linear combination of vectors in~\cU\ with some coefficients~\(a_{ij}\):
@@ -1191,7 +1194,7 @@ Let \WW\ be a subspace of~\(\RR^n\), then there exists an orthonormal basis for~
 \begin{proof} 
 If the subspace is \(\WW=\{\ov\}\), then \(\WW=\Span\emptyset\) gives a basis and this trivial case is done.
 
-For other subspaces \(\WW\neq\{\ov\}\) there exists a non-zero vector \(\wv\in\WW\).
+For every other subspace \(\WW\neq\{\ov\}\) there exists a non-zero vector \(\wv\in\WW\).
 Normalise the vector by setting \(\uv_1=\wv/|\wv|\).
 Then all scalar multiples \(c\uv_1=c\wv/|\wv|=(c/|\wv|)\wv\in\WW\) by closure of~\WW\ under scalar multiplication (\autoref{def:subspace}). 
 Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated below for an example).
@@ -1302,7 +1305,7 @@ By convention, \(\dim\{\ov\}=0\)\,.
 \item \autoref{eg:orthbas1} finds that the linear subspace \(x=y=z\) is spanned by the orthonormal basis \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\).  
 With one vector in the basis, the line is one dimensional.
 
-\item \autoref{eg:orthbas2} finds that the planar subspace \(-x+2y-2z=0\) is spanned by the orthonormal basis \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\}\).  
+\item \autoref{eg:orthbas2} finds that the planar subspace \(-x+2y-2z=0\) is spanned by the orthonormal basis \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\).  
 With two vectors in the basis, the plane is two dimensional.
 
 \item  Subspace \(\WW=\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) of \autoref{eg:orthospan} is found to have an orthonormal basis of the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
@@ -1327,7 +1330,7 @@ Hence,
 &\text{dimension of the row space of }A
 \\&=\text{dimension of the column space of }\tr A
 \\&=\rank(\tr A) \quad(\text{by Proc.~\ref{pro:ospan}})
-\\&=\rank A \quad(\text{by Thm.~\ref{thm:ranktr}})
+\\&=\rank A \quad(\text{by \autoref{thm:ranktr}})
 \\&=\text{dimension of the column space of }A
 \quad(\text{by Proc.~\ref{pro:ospan}}).
 \end{align*}
@@ -2645,6 +2648,22 @@ For compatibly sized matrices~\(A\) and~\(B\), use their \svd{}s, and the result
 
 
 
+
+\begin{exercise} \label{ex:} 
+In a few sentences, answer\slash discuss each of the the following.
+\begin{enumerate}
+\item In \autoref{def:subspace} what causes a subspace to be a line, plane, \ldots, through the origin?
+
+\item What is the key feature of the concept of the span of a set that causes the span to always be a subspace?
+
+\item How does the column space of a matrix relate to its row space?
+
+\item Why is an orthonormal basis important?
+
+\item How does the concept of the dimension occur?
+
+\end{enumerate}
+\end{exercise}
 
 \begin{comment}%{ED498555.pdf}
 why, what caused X?
