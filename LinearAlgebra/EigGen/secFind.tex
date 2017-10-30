@@ -434,9 +434,9 @@ This quadratic equation does not factor easily so use the formula
 \lambda=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 =\frac{1\pm\sqrt{1-4}}{2}
 %=\tfrac12(1\pm\sqrt{-3})
-=\frac12\pm\frac{\sqrt3}2i\,,
+=\frac12\pm\frac{\sqrt3}2\i\,,
 \end{equation*}
-for \(i=\sqrt{-1}\), are two eigenvalues (complex valued) each of multiplicity one.
+for \(\i=\sqrt{-1}\), are two eigenvalues (complex valued) each of multiplicity one.
 \end{solution}
 
 \end{enumerate}
@@ -497,7 +497,7 @@ ans =
    1.0000 + 1.4142i
    1.0000 - 1.4142i
 \end{verbatim}
-There are two complex-valued eigenvalues, evidently \(1\pm\sqrt2i\), each of multiplicity one, and also the (real) eigenvalue \(\lambda=-3\) which has multiplicity two.
+There are two complex-valued eigenvalues, evidently \(1\pm\sqrt2\i\), each of multiplicity one, and also the (real) eigenvalue \(\lambda=-3\) which has multiplicity two.
 \end{solution}
 
 \item \(\begin{bmatrix}3&-1&-2&1&-2
@@ -531,7 +531,7 @@ ans =
   -0.0000 + 0.0000i
   -0.0000 - 0.0000i
 \end{verbatim}
-There are three eigenvalues of multiplicity one, namely \(4\) and \(2\pm\sqrt8i\)\,.  
+There are three eigenvalues of multiplicity one, namely \(4\) and \(2\pm\sqrt8\i\)\,.  
 The last two rows appear to be the eigenvalue \(\lambda=0\) with multiplicity two.
 \end{solution}
 
@@ -882,7 +882,7 @@ A=[0 3 0 0 0
  0 0 1 0 3
  0 0 0 1 0]
 [V,D]=eig(A)
-V*diag(1./V(5,:))
+bsxfun(@rdivide,V,V(5,:))
 }}%
 \marginpar{\usebox{\ajrqrbox}}%
 to obtain the report \twodp
@@ -901,7 +901,7 @@ D =
       0      0      0      0   1.73
 \end{verbatim}
 The eigenvalues in~\verb|D| agree with the hand calculations of \(\lambda=0,\pm\sqrt3,\pm3\).
-To confirm the hand calculation of eigenvectors in \autoref{eg:fiveev}, here divide each column of~\verb|V| by its last element,~\verb|V(5,:)|, via the post-multiplication by the diagonal matrix in \verb|V*diag(1./V(5,:))| which gives the more appealing matrix of eigenvectors \twodp
+To confirm the hand calculation of eigenvectors in \autoref{eg:fiveev}, here divide each column of~\verb|V| by its last element,~\verb|V(5,:)|, via \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun(@rdivide,V,V(5,:))| which gives the more appealing matrix of eigenvectors \twodp
 \begin{verbatim}
 ans =
    9.00   9.00   9.00  -9.00  -9.00
@@ -1043,7 +1043,7 @@ ans =
    4.9993 + 0.0000i
    3.5860 + 0.0000i
 \end{verbatim}
-where the repeated eigenvalue of zero splits to be a pair of complex valued eigenvalues of roughly \(\pm i\sqrt{0.0001}=\pm i0.01\)\,.
+where the repeated eigenvalue of zero splits to be a pair of complex valued eigenvalues of roughly \(\pm \i\sqrt{0.0001}=\pm \i0.01\)\,.
 \end{solution}
 
 
@@ -1152,13 +1152,13 @@ Because a perturbation to the \idx{symmetric matrix} of size~\(10^{-4}\) only ch
 
 \begin{activity}
 What are the eigenvalues of matrix \(\begin{bmatrix} a&0.01\\-0.01&a \end{bmatrix}\)?
-\actposs[4]{\(a\pm 0.01i\)}{\(a\pm 0.01\)}{\(a\pm 0.1\)}{\(a\pm 0.1i\)}
+\actposs[4]{\(a\pm 0.01\i\)}{\(a\pm 0.01\)}{\(a\pm 0.1\)}{\(a\pm 0.1\i\)}
 %\partswidth=5em
 %\begin{parts}
 %\item \(a\pm 0.01\)
 %\item \(a\pm 0.1\)
-%\item \(a\pm 0.01i\)\actans
-%\item \(a\pm 0.1i\)
+%\item \(a\pm 0.01\i\)\actans
+%\item \(a\pm 0.1\i\)
 %\end{parts}
 \end{activity}
 
@@ -1542,13 +1542,13 @@ To find the eigenvalues here solve the characteristic equation
 \end{equation*}
 Rearrange to \((\lambda-1)^2=4\) and take square roots to give \(\lambda-1=\pm2\)\,, that is, eigenvalues \(\lambda=1\pm2=-1,3\)\,.
 \begin{itemize}
-\item For eigenvalue \(\lambda_1=-1\) the corresponding eigenvector has to satisfy
+\item For eigenvalue \(\lambda_1=-1\) a corresponding eigenvector has to satisfy
 \begin{equation*}
 (A+I)\vv_1=\begin{bmatrix} 2&-1\\-4&2 \end{bmatrix}\vv_1=\ov\,.
 \end{equation*}
 That is, \(\vv_1\propto (1,2)\); let's take \(\vv_1=(1,2)\).
 
-\item For eigenvalue \(\lambda_2=3\) the corresponding eigenvector has to satisfy
+\item For eigenvalue \(\lambda_2=3\) a corresponding eigenvector has to satisfy
 \begin{equation*}
 (A-3I)\vv_2=\begin{bmatrix} -2&-1\\-4&-2 \end{bmatrix}\vv_2=\ov\,.
 \end{equation*}
@@ -1719,50 +1719,50 @@ Its characteristic equation is
 \det(A-\lambda I)=\begin{vmatrix} 1-\lambda&3\\-1&1-\lambda \end{vmatrix}
 =(1-\lambda)^2+3=0\,.
 \end{equation*}
-That is, \((\lambda-1)^2=-3\) which upon taking square roots gives the complex conjugate pair of eigenvalues \(\lambda=1\pm i\sqrt3\).
+That is, \((\lambda-1)^2=-3\) which upon taking square roots gives the complex conjugate pair of eigenvalues \(\lambda=1\pm \i\sqrt3\).
 \autoref{thm:dynsol} applies for \idx{complex eigenvalue}s and eigenvectors so we proceed.
 \begin{itemize}
-\item For eigenvalue \(\lambda_1=1+i\sqrt3\) the corresponding eigenvectors~\(\vv_1\) satisfy
+\item For eigenvalue \(\lambda_1=1+\i\sqrt3\) the corresponding eigenvectors~\(\vv_1\) satisfy
 \begin{equation*}
-\big(A-(1+i\sqrt3)I\big)\vv_1=\begin{bmatrix} -i\sqrt3&3\\-1&-i\sqrt3 \end{bmatrix}\vv_1=\ov\,.
+\big(A-(1+\i\sqrt3)I\big)\vv_1=\begin{bmatrix} -\i\sqrt3&3\\-1&-\i\sqrt3 \end{bmatrix}\vv_1=\ov\,.
 \end{equation*}
-Solutions are proportional to \(\vv_1=(-i\sqrt3,1)\).
+Solutions are proportional to \(\vv_1=(-\i\sqrt3,1)\).
 
-\item For eigenvalue \(\lambda_2=1-i\sqrt3\) the corresponding eigenvectors~\(\vv_2\) satisfy
+\item For eigenvalue \(\lambda_2=1-\i\sqrt3\) the corresponding eigenvectors~\(\vv_2\) satisfy
 \begin{equation*}
-\big(A-(1-i\sqrt3)I\big)\vv_2=\begin{bmatrix} i\sqrt3&3\\-1&i\sqrt3 \end{bmatrix}\vv_2=\ov\,.
+\big(A-(1-\i\sqrt3)I\big)\vv_2=\begin{bmatrix} \i\sqrt3&3\\-1&\i\sqrt3 \end{bmatrix}\vv_2=\ov\,.
 \end{equation*}
-Solutions are proportional to \(\vv_2=(+i\sqrt3,1)\).
+Solutions are proportional to \(\vv_2=(+\i\sqrt3,1)\).
 \end{itemize}
 \autoref{thm:dynsol} then establishes that a solution to \(\yv(t+1)=A\yv(t)\) is
 \begin{equation*}
-\yv(t)=c_1(1+i\sqrt3)^t\begin{bmatrix} -i\sqrt3\\1 \end{bmatrix}
-+c_2(1-i\sqrt3)^t\begin{bmatrix} +i\sqrt3\\1 \end{bmatrix}.
+\yv(t)=c_1(1+\i\sqrt3)^t\begin{bmatrix} -\i\sqrt3\\1 \end{bmatrix}
++c_2(1-\i\sqrt3)^t\begin{bmatrix} +\i\sqrt3\\1 \end{bmatrix}.
 \end{equation*}
 This is a general solution since the matrix of the two eigenvectors (albeit complex valued) is invertible:
 \begin{equation*}
 P=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
-=\begin{bmatrix} -i\sqrt3&i\sqrt3\\1&1 \end{bmatrix}
+=\begin{bmatrix} -\i\sqrt3&\i\sqrt3\\1&1 \end{bmatrix}
 \quad\text{has }
-P^{-1}=\begin{bmatrix} \frac i{2\sqrt3}&\frac12\\\frac{-i}{2\sqrt3}&\frac12 \end{bmatrix}
+P^{-1}=\begin{bmatrix} \frac \i{2\sqrt3}&\frac12\\\frac{-\i}{2\sqrt3}&\frac12 \end{bmatrix}
 \end{equation*}
 as its inverse (\autoref{thm:2x2det}).
 
-For example, if \(\yv(0)=(1,0)\), then the coefficient constants are \((c_1,c_2)=P^{-1}(1,0)=(i,-i)/(2\sqrt3)\).
+For example, if \(\yv(0)=(1,0)\), then the coefficient constants are \((c_1,c_2)=P^{-1}(1,0)=(\i,-\i)/(2\sqrt3)\).
 Then the solution becomes
 \begin{eqnarray*}
-\yv(t)&=&\frac i{2\sqrt3}(1+i\sqrt3)^t\begin{bmatrix} -i\sqrt3\\1 \end{bmatrix}
--\frac{i}{2\sqrt3}(1-i\sqrt3)^t\begin{bmatrix} +i\sqrt3\\1 \end{bmatrix}
-\\&=&\tfrac 12(1+i\sqrt3)^t\begin{bmatrix} 1\\\frac i{\sqrt3} \end{bmatrix}
-+\tfrac12(1-i\sqrt3)^t\begin{bmatrix} 1\\-\frac i{\sqrt3} \end{bmatrix}.
+\yv(t)&=&\frac \i{2\sqrt3}(1+\i\sqrt3)^t\begin{bmatrix} -\i\sqrt3\\1 \end{bmatrix}
+-\frac{\i}{2\sqrt3}(1-\i\sqrt3)^t\begin{bmatrix} +\i\sqrt3\\1 \end{bmatrix}
+\\&=&\tfrac 12(1+\i\sqrt3)^t\begin{bmatrix} 1\\\frac \i{\sqrt3} \end{bmatrix}
++\tfrac12(1-\i\sqrt3)^t\begin{bmatrix} 1\\-\frac \i{\sqrt3} \end{bmatrix}.
 \end{eqnarray*}
 Through the magic of the complex conjugate form of the two terms in this expression, the complex parts cancel to always give a real result.
 For example, this complex formula predicts at time step \(t=1\)
 \begin{eqnarray*}
-\yv(1)&=&\tfrac 12(1+i\sqrt3)\begin{bmatrix} 1\\\frac i{\sqrt3} \end{bmatrix}
-+\tfrac12(1-i\sqrt3)\begin{bmatrix} 1\\-\frac i{\sqrt3} \end{bmatrix}
-\\&=&\frac12\begin{bmatrix} 1+i\sqrt3+1-i\sqrt3\\
-\frac i{\sqrt3}-1-\frac i{\sqrt3}-1 \end{bmatrix}
+\yv(1)&=&\tfrac 12(1+\i\sqrt3)\begin{bmatrix} 1\\\frac \i{\sqrt3} \end{bmatrix}
++\tfrac12(1-\i\sqrt3)\begin{bmatrix} 1\\-\frac \i{\sqrt3} \end{bmatrix}
+\\&=&\frac12\begin{bmatrix} 1+\i\sqrt3+1-\i\sqrt3\\
+\frac \i{\sqrt3}-1-\frac \i{\sqrt3}-1 \end{bmatrix}
 \\&=&\begin{bmatrix} 1\\-1 \end{bmatrix},
 \end{eqnarray*}
 as computed directly at the start of this example.
@@ -1779,22 +1779,22 @@ Thus for long times, large~\(t\), we know that the term involving the factor~\(3
 
 \item In \autoref{eg:2x2ccgrow} with complex conjugate eigenvalues the situation is more complicated.
 Let's write every given \idx{complex eigenvalue} in \idx{polar form} 
-\(\lambda=r(\cos\theta+i\sin\theta)\) where \idx{magnitude} \(r=|\lambda|\) and \idx{angle}~\(\theta\) is such that \(\tan\theta=(\Im\lambda)/(\Re\lambda)\).
-For example, \(1-i\) has magnitude \(r=|1-1i|=\sqrt{1^2+(-1)^2}=\sqrt2\) and angle \(\theta=-\frac\pi4\) since \(\tan(-\frac\pi4)=-1/1\)\,.
+\(\lambda=r(\cos\theta+\i\sin\theta)\) where \idx{magnitude} \(r=|\lambda|\) and \idx{angle}~\(\theta\) is such that \(\tan\theta=(\Im\lambda)/(\Re\lambda)\).
+For example, \(1-\i\) has magnitude \(r=|1-1\i|=\sqrt{1^2+(-1)^2}=\sqrt2\) and angle \(\theta=-\frac\pi4\) since \(\tan(-\frac\pi4)=-1/1\)\,.
 
 Question: how does this help understand the solution which has \(\lambda_j^t\) in it?
-Answer: \idx{De Moivre's theorem} says that if \(\lambda=r[\cos\theta+i\sin\theta]\), then \(\lambda^t=r^t\big[\cos(\theta t)+i\sin(\theta t)\big]\).
-Since the magnitude \(|\cos(\theta t)+i\sin(\theta t)|=\sqrt{\cos^2(\theta t)+\sin^2(\theta t)}=\sqrt1=1\)\,, the magnitude \(|\lambda^t|=r^t\).
-For example, the magnitude \(|(1-i)^2|=(\sqrt2)^2=2\) which we check by computing \((1-i)^2=1^2-2i+i^2=-2i\) and \(|-2i|=2\)\,.
+Answer: \idx{De Moivre's theorem} says that if \(\lambda=r[\cos\theta+\i\sin\theta]\), then \(\lambda^t=r^t\big[\cos(\theta t)+\i\sin(\theta t)\big]\).
+Since the magnitude \(|\cos(\theta t)+\i\sin(\theta t)|=\sqrt{\cos^2(\theta t)+\sin^2(\theta t)}=\sqrt1=1\)\,, the magnitude \(|\lambda^t|=r^t\).
+For example, the magnitude \(|(1-\i)^2|=(\sqrt2)^2=2\) which we check by computing \((1-\i)^2=1^2-2\i+\i^2=-2\i\) and \(|-2\i|=2\)\,.
 
-In \autoref{eg:2x2ccgrow}, the eigenvalue \(\lambda_1=1+i\sqrt3\) so its magnitude is \(r_1=|\lambda_1|=|1+i\sqrt3|=\sqrt{1+3}=2\)\,.
+In \autoref{eg:2x2ccgrow}, the eigenvalue \(\lambda_1=1+\i\sqrt3\) so its magnitude is \(r_1=|\lambda_1|=|1+\i\sqrt3|=\sqrt{1+3}=2\)\,.
 %Its angle \(\theta_1=\frac\pi3\) because \(\tan\frac\pi3=\sqrt3=\sqrt3/1\)\,.
 Hence the magnitude \(|\lambda_1^t|=2^t\) at every time step~\(t\).
 Similarly, the magnitude \(|\lambda_2^t|=2^t\) at every time step~\(t\).
 Consequently, the general solution
 \begin{equation*}
-\yv(t)=c_1\lambda_1^t\begin{bmatrix} -i\sqrt3\\1 \end{bmatrix}
-+c_2\lambda_2^t\begin{bmatrix} +i\sqrt3\\1 \end{bmatrix}
+\yv(t)=c_1\lambda_1^t\begin{bmatrix} -\i\sqrt3\\1 \end{bmatrix}
++c_2\lambda_2^t\begin{bmatrix} +\i\sqrt3\\1 \end{bmatrix}
 \end{equation*}
 will grow in magnitude roughly like~\(2^t\) as both components grow like~\(2^t\).
 It is a `rough' growth because the components \(\cos(\theta t)\) and~\(\sin(\theta t)\)  cause `oscillations' in time~\(t\).
@@ -1824,16 +1824,16 @@ xlabel={time $t$},ylabel={$|\lambda|^t$},axis lines=middle
 
 \begin{activity}
 For which of the following values of~\(\lambda\), as time~\(t\) increases, will \(\lambda^t\) grow in an oscillatory fashion?
-\actposs[4]{\(\lambda=-\frac45+i\frac45\)}
+\actposs[4]{\(\lambda=-\frac45+\i\frac45\)}
 {\(\lambda=-0.8\)}
 {\(\lambda=1.5\)}
-{\(\lambda=\frac35+i\frac45\)}
+{\(\lambda=\frac35+\i\frac45\)}
 %\partswidth=5em
 %\begin{parts}
 %\item \(\lambda=-0.8\)
 %\item \(\lambda=1.5\)
-%\item \(\lambda=\frac35+i\frac45\)
-%\item \(\lambda=-\frac45+i\frac45\) \actans
+%\item \(\lambda=\frac35+\i\frac45\)
+%\item \(\lambda=-\frac45+\i\frac45\) \actans
 %\end{parts}
 \end{activity}
 
@@ -1874,7 +1874,7 @@ D =
   0.0000+0.0000i  0.8167-0.0799i  0.0000+0.0000i
   0.0000+0.0000i  0.0000+0.0000i  1.0000+0.0000i
 \end{verbatim}
-Evidently there is one real eigenvalue of \(\lambda_3=1\) and two complex conjugate eigenvalues \(\lambda_{1,2}=0.8167\pm i0.0799\)\,.
+Evidently there is one real eigenvalue of \(\lambda_3=1\) and two complex conjugate eigenvalues \(\lambda_{1,2}=0.8167\pm \i0.0799\)\,.
 Corresponding eigenvectors are the columns~\(\vv_j\) of~\(V\).
 Thus a solution for the orangutan population is
 \begin{equation*}
@@ -1901,11 +1901,11 @@ The \verb|rcond| value of~\(0.1963\) indicates that matrix~\(V\) is invertible.
 Then the backslash operator computes the above coefficients~\cv.
 Via the magic of complex conjugates cancelling, the real population of orangutans is for all times predicted to be \twodp
 \begin{eqnarray*}
-\yv(t)&=&(10.16+2.12i)(0.82+0.08i)^t\begin{bmatrix} -0.31+0.30i   \\0.74
-\\-0.43-0.30i \end{bmatrix}
+\yv(t)&=&(10.16+2.12\i)(0.82+0.08\i)^t\begin{bmatrix} -0.31+0.30\i   \\0.74
+\\-0.43-0.30\i \end{bmatrix}
 \\&&{}
-+(10.16-2.12i)(0.82-0.08i)^t\begin{bmatrix} -0.31-0.30i   \\0.74
-\\-0.43+0.30i \end{bmatrix}
++(10.16-2.12\i)(0.82-0.08\i)^t\begin{bmatrix} -0.31-0.30\i   \\0.74
+\\-0.43+0.30\i \end{bmatrix}
 \\&&{}
 +28.06\begin{bmatrix} 0.27
 \\0.53
@@ -2036,7 +2036,7 @@ D =
   0.0000+0.0000i  0.1088-0.4387i  0.0000+0.0000i
   0.0000+0.0000i  0.0000+0.0000i  1.2236+0.0000i
 \end{verbatim}
-Evidently there is one real eigenvalue of \(\lambda_3=1.2236\) and two complex conjugate eigenvalues \(\lambda_{1,2}=0.1088\pm i0.4387\)\,.
+Evidently there is one real eigenvalue of \(\lambda_3=1.2236\) and two complex conjugate eigenvalues \(\lambda_{1,2}=0.1088\pm \i0.4387\)\,.
 Corresponding eigenvectors are the columns~\(\vv_j\) of~\(V\).
 Thus a general solution for the serval population is (\autoref{thm:dynsol})
 \begin{equation*}
@@ -2044,7 +2044,7 @@ Thus a general solution for the serval population is (\autoref{thm:dynsol})
 \end{equation*}
 
 In this general solution, the first two terms decay in time to zero.
-The reason is that the magnitudes \(|\lambda_1|=|\lambda_2|=|0.1088\pm i0.4387|=\sqrt{0.1088^2+0.4387^2}=0.4520\), and since this magnitude is less than one, then \(\lambda_1^t\) and~\(\lambda_2^t\) will decay to zero with increasing time~\(t\).
+The reason is that the magnitudes \(|\lambda_1|=|\lambda_2|=|0.1088\pm \i0.4387|=\sqrt{0.1088^2+0.4387^2}=0.4520\), and since this magnitude is less than one, then \(\lambda_1^t\) and~\(\lambda_2^t\) will decay to zero with increasing time~\(t\).
 However, the third term increases in time as \(\lambda_3=1.2236>1\)\,.
 The model predicts the serval population increases by about~22\% per half-year (about~50\% per year).
 \end{solution} 
@@ -2229,12 +2229,13 @@ Extensions of this proof cater for the case when zero is an eigenvalue and/or ei
 
 Many applications require identification of rates and frequencies \cite[e.g.]{Pereyra2010}:
 \begin{aside}
-This optional subsection develops a method useful in some applied disciplines.
+This optional subsection develops a method useful in many modern applied disciplines.
 \end{aside}%
 as a played musical note decays, what is its frequency?
 in the observed vibrations of a complicated bridge, what are its natural modes?
 in measurements of complicated bio-chemical reactions, what rates can be identified?
 All such tasks require fitting a sum of exponential functions to the data.
+
 
 
 \begin{example} \label{eg:eidd1}
@@ -2251,30 +2252,27 @@ The classic approach is to take logarithms of both sides:
 f=ce^{rt} \iff (\ln f)=(\ln c)+rt\,,
 \end{equation*}
 and then determine \(\ln c\) and~\(r\) by fitting a straight line through the two data points \((t,\ln f)=(1,\ln5)\) and~\((3,\ln10)\) respectively
-(recall that \index{ln@\(\ln\)}``\(\ln(x)\)'' denotes the \idx{natural logarithm} of~\(x\),  computed in \script\ with \verb|log(x)|, see \autoref{tbl:mtlbmops}).
-This approach has the great virtue that the approach generalises to fitting of more noisy data (\autoref{sec:asie}).
-But here we take a different approach that instead generalises to fitting multiple exponentials to more clean~data.
+(recall that \index{ln@\(\ln\)}``\(\ln(x)\)'' denotes the \idx{natural logarithm} of~\(x\),  computed in \script\ with \index{log()@\texttt{log()}}\verb|log(x)|, see \autoref{tbl:mtlbmops}).
+This approach has the great virtue that the approach generalises to fitting lots more noisy data (\autoref{sec:asie}).
+But here we take a different approach---an approach that generalises to fitting multiple exponentials.
+
 
 The following basic steps correspond to complicated steps in the general procedure developed next for fitting multiple exponentials.
 \begin{enumerate}
-\item First, write down the equations that are to be satisfied:
-\begin{equation*}
-ce^{r}=5\,,\quad ce^{r3}=10\,.
-\end{equation*}
-Turning these nonlinear equations into something that linear algebra  can solve involves some trickery.
-\item Second, recognise that the second equation involves the left-hand side of the first:
-\begin{equation*}
-ce^{r3}=10 \iff ce^re^{r2}=10\iff ce^r\lambda=10
-\end{equation*}
-for some as yet unknown multiplier \(\lambda=e^{2r}\).
-But when we eventually find the multiplier~\(\lambda\), then the rate \(r=\tfrac12\ln\lambda\).
-\item Third, eliminate the common part involving the constant~\(c\): since the first equation says \(ce^r=5\), the second equation becomes \(5\lambda=10\)\,.
-\item Fourth, no corresponding step in this basic problem.
-\item Fifth, from \(5\lambda=10\) we deduce the multiplier \(\lambda=2\)\,, giving rate \(r=\tfrac12\ln 2=0.3466\)\,.
-\item Finally, determine the constant~\(c\) from, say, \(ce^r=5\)\,:
-here \(e^r=\sqrt2\) so \(c=5/\sqrt2=3.5255\)\,.
+\item We start with the question: is there a transformation that gives~\(f_2\) as a linear function of~\(f_1\)?  That is, can we write \(f_2=\lambda f_1\) for some constant~\(\lambda\)?
+Answer: yes; since \(f_1=5\) and \(f_2=10\) we need \(10=\lambda5\) with solution \(\lambda=2\)\,.
+\item  Since \(f_2=2f_1\) we presume extrapolation to future values is reasonable via \(f_3=2f_2=2\cdot2f_1=2^2f_1\), and \(f_4=2f_3=2\cdot2^2f_1=2^3f_1\), and so on.   
+That is, \(f_n=2^{j-1}f_1\) for \(j=1,2,3,\ldots\)\,.
+\item But we are given that \(f_1=5\), so the exponential fit is \(f_j=5\cdot2^{j-1}\).
+\item Now these values occur at times \(t_1=1\), \(t_2=3\), and so on; that is, \(t_j=2j-1\)\,.
+Rearranging, for any time~\(t\) the corresponding index \(j=(t+1)/2\)\,.
+The corresponding~\(f_j\) then gives~\(f\) as a function of~\(t\), namely \(f(t) =5\cdot 2^{(t+1)/2-1} =5\cdot 2^{(t-1)/2} \).
+
 \end{enumerate}
-That is, the exponential fit is \(f(t)=3.5255\,e^{0.3466\,t}\).
+Equivalently, we write this~\(f(t)\) in terms of the exponential function.
+Recall the rule \(2^x=e^{x\ln 2}\).
+Hence the fitted function \(f=5\cdot 2^{t/2-1/2} =(5/\sqrt2)e^{(t/2)\ln2}\). 
+Since \(5/\sqrt2=3.5255\) and \(\frac12\ln 2=0.3466\), the exponential fit is \(f(t)=3.5255\,e^{0.3466\,t}\).
 \end{solution}
 \end{example}
 
@@ -2291,7 +2289,7 @@ Which of the following exponentials best represents the data plotted?
 \end{activity}
 
 
-Now let's develop the approach of \autoref{eg:eidd1} to the musch more complicated example of fitting the linear combination of two exponentials to four data points.
+Now let's develop the approach of \autoref{eg:eidd1} to the more complicated and interesting example of fitting the linear combination of two exponentials to four data points.
 
 
 \begin{example} \label{eg:2expfit}
@@ -2313,7 +2311,7 @@ So our task is to find a function of the form
 f(t)=c_1e^{r_1t}+c_2e^{r_2t}.
 \end{equation*}
 Our aim is for this function to fit the four data points, as plotted.
-The unknown coefficients~\(c_1\) and~\(c_2\) and rates~\(r_1\) and~\(r_2\) need to be determined from the four data points.
+The four unknown coefficients~\(c_1\) and~\(c_2\) and rates~\(r_1\) and~\(r_2\) need to be determined from the four data points.
 That is, let's find these four unknowns from the data that
 \begin{eqnarray*}
 f(0)=1&\iff&c_1+c_2=1\,,\\
@@ -2322,120 +2320,292 @@ f(2)=\tfrac23&\iff&c_1e^{r_12}+c_2e^{r_22}=\tfrac23\,,\\
 f(3)=\tfrac7{18}&\iff&c_1e^{r_13}+c_2e^{r_23}=\tfrac7{18}\,.
 \end{eqnarray*}
 These are nonlinear equations, but some algebraic tricks empower us to use our beautiful linear algebra to find the solution.
-After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as also shown in the margin. \marginpar{\mytemp1}%
+\marginpar{\mytemp1}%
+After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as also shown in the margin. 
 
 
 \begin{solution} 
 This solution has several twists and several new ideas that turns these four nonlinear equations into two linear algebra problems!
 \begin{enumerate}
-\item \label{eg:2expfita}
-First, rather than finding the rates directly, find the multipliers \(\lambda_1=e^{r_1}\) and \(\lambda_2=e^{r_2}\) instead (then the rates \(r_1=\ln\lambda_1\) and \(r_2=\ln\lambda_2\)).
-The four equations to solve become (still nonlinear)
-\begin{eqnarray*}
-&&c_1+c_2=1\,,\\
-&&c_1\lambda_1+c_2\lambda_2=1\,,\\
-&&c_1\lambda_1^2+c_2\lambda_2^2=\tfrac23\,,\\
-&&c_1\lambda_1^3+c_2\lambda_2^3=\tfrac7{18}\,.
-\end{eqnarray*}
-
-\item \label{eg:2expfitb}
-Second, introduce the vector and two matrices
+\item First form the data into vectors of consecutive values:
 \begin{equation*}
-\cv=\begin{bmatrix} c_1\\c_2 \end{bmatrix},\quad
-D=\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix},\quad
-U=\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}.
+\fv_1=\begin{bmatrix} f_1\\f_2 \end{bmatrix}
+=\begin{bmatrix} 1\\1 \end{bmatrix},\ 
+\fv_2=\begin{bmatrix} f_2\\f_3 \end{bmatrix}
+=\begin{bmatrix} 1\\\frac23 \end{bmatrix},\ 
+\fv_3=\begin{bmatrix} f_3\\f_4 \end{bmatrix}
+=\begin{bmatrix} \frac23\\\frac7{18} \end{bmatrix},\ 
 \end{equation*}
+and, if only we had more data, notionally on to~\(\fv_4,\fv_5,\ldots\)\,.
+\item\label{eg:2expfitb}
+Question: is there a \idx{linear transformation} (\autoref{sec:ilt}) that gives both \(\fv_2\) as a function of~\(\fv_1\) and \(\fv_3\) as a function of~\(\fv_2\)?  
+That is, is there a \(2\times2\) matrix~\(K\) such that both \(\fv_2=K\fv_1\) and \(\fv_3=K\fv_2\)?
+
+Answer: if there is such a matrix~\(K\), then these two equations require both
+\begin{eqnarray*}
+\begin{bmatrix} f_2\\f_3 \end{bmatrix}
+=K\begin{bmatrix} f_1\\f_2 \end{bmatrix}
+&\leftrightarrow& \begin{bmatrix} 1\\\frac23 \end{bmatrix}
+=K\begin{bmatrix} 1\\1 \end{bmatrix},
+\\
+\begin{bmatrix} f_3\\f_4 \end{bmatrix}
+=K\begin{bmatrix} f_2\\f_3 \end{bmatrix}
+&\leftrightarrow& \begin{bmatrix} \frac23\\\frac7{18} \end{bmatrix}
+=K\begin{bmatrix} 1\\\frac23 \end{bmatrix}.
+\end{eqnarray*}
+Put the two columns of these two equations side-by-side, we require the following combined equation to hold:
+\begin{equation*}
+\begin{bmatrix} f_2&f_3\\f_3&f_4 \end{bmatrix}
+=K\begin{bmatrix} f_1&f_2\\f_2&f_3 \end{bmatrix}
+\leftrightarrow 
+\underbrace{\begin{bmatrix} 1&\frac23\\\frac23&\frac7{18} \end{bmatrix}}_A
+=K\underbrace{\begin{bmatrix} 1&1\\1&\frac23 \end{bmatrix}}_B.
+\end{equation*}
+This last equation has the form \(A=KB\) for known matrices~\(A\) and~\(B\) (named~\(A\) for `After' values, and~\(B\) for `Before' values).
+
+Post-multiplying \(A=KB\) by the inverse of matrix~\(B\) gives the matrix of the transformation as \(K=AB^{-1}\).
+Here one readily calculates (\autoref{thm:2x2det})
+\begin{equation*}
+B^{-1}=\begin{bmatrix} -2&3\\3&-3 \end{bmatrix},
+\quad\text{so}\quad
+K=AB^{-1}=\begin{bmatrix} 0&1\\-\frac16& \frac56\end{bmatrix}.
+\end{equation*}
+
+\item\label{eg:2expfitc}
+Since, for this matrix~\(K\), we know that \(\fv_2=K\fv_1\)\,, \(\fv_3=K\fv_2\)\,, we extrapolate into the future to predict \(\fv_4=K\fv_3\)\,, \(\fv_5=K\gv_4\)\,, and so on, where the vectors \(\fv_j=(f_j,f_{j+1})\).
+That is, our model through the four data points is summarised by \(\fv_{j+1}=K\fv_j\) for \(j=1,2,3,\ldots\,\).
+This is the same class of dynamic models as explored by \autoref{sec:ddp}, albeit here not for populations.
+Consequently, \autoref{thm:dynsol} gives us a general algebraic solution of the model \(\fv_{j+1}=K\fv_j\) in terms of the eigenvalues and eigenvectors of matrix~\(K\).
+Such an algebraic solution interpolates and extrapolates (with caution) the data.
+
+Let's find the general solution here.
 \begin{enumerate}
-\item Then write the first pair of the four equations as
+\item The eigenvalues of matrix~\(K\) satisfy the characteristic equation
+\begin{eqnarray*}
+\det(K-\lambda I)&=&\begin{vmatrix} -\lambda&1\\-\frac16& \frac56-\lambda\end{vmatrix}
+=\lambda^2-\tfrac56\lambda+\tfrac16
+\\&
+=&(\lambda-\tfrac12)(\lambda-\tfrac13)
+=0\,.
+\end{eqnarray*}
+So the eigenvalues are \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\)\,.
+\item For eigenvalue \(\lambda_1=\tfrac12\) every corresponding eigenvector satisfies
+\begin{equation*}
+(K-\tfrac12I)\vv_1=\begin{bmatrix} -\frac12&1\\-\frac16&\frac13 \end{bmatrix}\vv_1=\ov\,.
+\end{equation*}
+That is, \(\vv_1\propto (2,1)\); let's take \(\vv_1=(2,1)\).
+\item For eigenvalue \(\lambda_2=\tfrac13\) every corresponding eigenvector satisfies
+\begin{equation*}
+(K-\tfrac13I)\vv_2=\begin{bmatrix} -\frac13&1\\-\frac16&\frac12 \end{bmatrix}\vv_2=\ov\,.
+\end{equation*}
+That is, \(\vv_2\propto (3,1)\); let's take \(\vv_2=(3,1)\).
+\end{enumerate}
+By \autoref{thm:dynsol}, a general solution of \(\fv_{j+1}=K\fv_j\) is 
+\begin{equation*}
+\fv_j=c_1\vv_1\lambda_1^j+c_2\vv_2\lambda_2^j
+=c_1\begin{bmatrix} 2\\1 \end{bmatrix}\frac1{2^j} +c_2\begin{bmatrix} 3\\1 \end{bmatrix}\frac1{3^j}\,.
+\end{equation*}
+
+
+\item\label{eg:2expfitd}
+The data values also determine the constants~\(c_1\) and~\(c_2\).
+Recall that \(\fv_1=(1,1)\) so substituting \(j=1\) in the above general solution gives
 \begin{equation*}
 \begin{bmatrix} 1\\1 \end{bmatrix}
-=\begin{bmatrix} c_1+c_2\\ c_1\lambda_1+c_2\lambda_2\end{bmatrix}
-=\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}
-=U\cv\,.
+=c_1\begin{bmatrix} 1\\\tfrac12 \end{bmatrix}
++c_2\begin{bmatrix} 1\\\tfrac13 \end{bmatrix}
+=\begin{bmatrix} 1&1\\\tfrac12&\tfrac13 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}.
+\end{equation*}
+Solving this system of equations (for example, by subtracting twice the second row from the first, and subtracting three times the second row from the first) gives solution \(c_1=4\) and \(c_2=-3\).
+Substitute these coefficients into the general solution to obtain the specific model
+\begin{equation*}
+\fv_j =\begin{bmatrix} 8\\4 \end{bmatrix}\frac1{2^j} +\begin{bmatrix} -9\\-3 \end{bmatrix}\frac1{3^j}\,.
 \end{equation*}
 
-\item Also write the second pair of the four equations, the second and third equations, as
-\begin{eqnarray*}
-\begin{bmatrix} 1\\\frac23 \end{bmatrix}
-&=&\begin{bmatrix} c_1\lambda_1+c_2\lambda_2\\c_1\lambda_1^2+c_2\lambda_2^2\end{bmatrix}
-=\begin{bmatrix} \lambda_1&\lambda_2\\\lambda_1^2&\lambda_2^2 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}
-\\&=&\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}
-\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix}\cv
-=UD\cv\,.
-\end{eqnarray*}
-
-\item And write the third pair of the four equations, the third and fourth equations, as
-\begin{eqnarray*}
-\begin{bmatrix} \frac23\\\frac7{18} \end{bmatrix}
-&=&\begin{bmatrix} c_1\lambda_1^2+c_2\lambda_2^2\\ c_1\lambda_1^3+c_2\lambda_2^3\end{bmatrix}
-=\begin{bmatrix} \lambda_1^2&\lambda_2^2\\\lambda_1^3&\lambda_2^3 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}
-\\&=&\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}
-\begin{bmatrix} \lambda_1^2&0\\0&\lambda_2^2 \end{bmatrix}\cv
-=UD^2\cv\,.
-\end{eqnarray*}
+\item\label{eg:2expfite}
+Recall that this example's quest is to fit a function~\(f(t)\) to the data.
+Here \(\fv_j=(f_j,f_{j+1})\) and so the first component of the above specific model gives \(f_j=8(\frac12)^j -9(\frac13)^j\)\,.
+Then recall that \(t_1=0\)\,, \(t_2=1\)\,, \(t_3=2\)\,, and so on; 
+that is, \(t_j=j-1\)\,.
+Reverting this relation gives the index \(j=t+1\) and so in terms of time~\(t\) the model is \(f(t)=8(\frac12)^{t+1} -9(\frac13)^{t+1}\)\,.
 \end{enumerate}
-
-\item \label{eg:2expfitc}
-Third, form two matrices: by adjoining side-by-side the first two of the above equalities in step~\ref{eg:2expfitb},
-\begin{equation*}
-\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}
-=\begin{bmatrix} U\cv& UD\cv \end{bmatrix}
-=U\begin{bmatrix} \cv&D\cv \end{bmatrix};
-\end{equation*}
-and by adjoining side-by-side the last two of the previous equalities in step~\ref{eg:2expfitb}, 
-\begin{equation*}
-\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}
-=\begin{bmatrix} UD\cv&UD^2\cv \end{bmatrix}
-=UD\begin{bmatrix} \cv&D\cv \end{bmatrix}.
-\end{equation*}
-Common to both of these last two equations is the matrix \(\begin{bmatrix} \cv&D\cv \end{bmatrix}\) involving the coefficients~\cv: eliminate the matrix by writing the first equation as \(\begin{bmatrix} \cv&D\cv \end{bmatrix}=U^{-1}\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\) and substituting into \(U^{-1}\)~times the second to get 
-\begin{equation*}
-U^{-1}\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}
-=DU^{-1}\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}.
-\end{equation*}
-This matrix equation only involves the unknown multipliers~\(\lambda_1\) and~\(\lambda_2\)  (withinin \(U\) and~\(D\)), the coefficients~\(c_1\) and~\(c_2\) are eliminated.
-
-\item \label{eg:2expfitd}
-Fourth, discover a new eigenvalue problem by taking the transpose of the above equation. 
-Since all matrices except~\(U^{-1}\) are symmetric the transposition gives
-\begin{equation*}
-\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\tr{(U^{-1})}
-=\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\tr{(U^{-1})}D.
-\end{equation*}
-Denote the two columns of~\(\tr{(U^{-1})}\) by \(\vv_1\) and~\(\vv_2\), that is, \(\tr{(U^{-1})}=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}\).
-Then, recalling \(D=\diag(\lambda_1,\lambda_2)\), the equation becomes
-\begin{eqnarray*}
-&&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
-=\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
-\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix}
-\\\iff&&
-\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
-=\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\begin{bmatrix} \lambda_1\vv_1&\lambda_2\vv_2 \end{bmatrix}
+%\begin{comment}%%%%%%%%%%%%%%
+%\begin{enumerate}
+%\item \label{eg:2expfita}
+%First, rather than finding the rates directly, find the multipliers \(\lambda_1=e^{r_1}\) and \(\lambda_2=e^{r_2}\) instead (then the rates \(r_1=\ln\lambda_1\) and \(r_2=\ln\lambda_2\)).
+%The four equations to solve become (still nonlinear)
+%\begin{eqnarray*}
+%&&c_1+c_2=1\,,\\
+%&&c_1\lambda_1+c_2\lambda_2=1\,,\\
+%&&c_1\lambda_1^2+c_2\lambda_2^2=\tfrac23\,,\\
+%&&c_1\lambda_1^3+c_2\lambda_2^3=\tfrac7{18}\,.
+%\end{eqnarray*}
+%
+%\item \label{eg:2expfitb}
+%Second, introduce the vector and two matrices
+%\begin{equation*}
+%\cv=\begin{bmatrix} c_1\\c_2 \end{bmatrix},\quad
+%D=\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix},\quad
+%U=\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}.
+%\end{equation*}
+%\begin{enumerate}
+%\item Then write the first pair of the four equations as
+%\begin{equation*}
+%\begin{bmatrix} 1\\1 \end{bmatrix}
+%=\begin{bmatrix} c_1+c_2\\ c_1\lambda_1+c_2\lambda_2\end{bmatrix}
+%=\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}
+%=U\cv\,.
+%\end{equation*}
+%
+%\item Also write the second pair of the four equations, the second and third equations, as
+%\begin{eqnarray*}
+%\begin{bmatrix} 1\\\frac23 \end{bmatrix}
+%&=&\begin{bmatrix} c_1\lambda_1+c_2\lambda_2\\c_1\lambda_1^2+c_2\lambda_2^2\end{bmatrix}
+%=\begin{bmatrix} \lambda_1&\lambda_2\\\lambda_1^2&\lambda_2^2 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}
+%\\&=&\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}
+%\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix}\cv
+%=UD\cv\,.
+%\end{eqnarray*}
+%
+%\item And write the third pair of the four equations, the third and fourth equations, as
+%\begin{eqnarray*}
+%\begin{bmatrix} \frac23\\\frac7{18} \end{bmatrix}
+%&=&\begin{bmatrix} c_1\lambda_1^2+c_2\lambda_2^2\\ c_1\lambda_1^3+c_2\lambda_2^3\end{bmatrix}
+%=\begin{bmatrix} \lambda_1^2&\lambda_2^2\\\lambda_1^3&\lambda_2^3 \end{bmatrix}\begin{bmatrix} c_1\\c_2 \end{bmatrix}
+%\\&=&\begin{bmatrix} 1&1\\\lambda_1&\lambda_2 \end{bmatrix}
+%\begin{bmatrix} \lambda_1^2&0\\0&\lambda_2^2 \end{bmatrix}\cv
+%=UD^2\cv\,.
+%\end{eqnarray*}
+%\end{enumerate}
+%
+%\item \label{eg:2expfitc}
+%Third, form two matrices: by adjoining side-by-side the first two of the above equalities in step~\ref{eg:2expfitb},
+%\begin{equation*}
+%\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}
+%=\begin{bmatrix} U\cv& UD\cv \end{bmatrix}
+%=U\begin{bmatrix} \cv&D\cv \end{bmatrix};
+%\end{equation*}
+%and by adjoining side-by-side the last two of the previous equalities in step~\ref{eg:2expfitb}, 
+%\begin{equation*}
+%\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}
+%=\begin{bmatrix} UD\cv&UD^2\cv \end{bmatrix}
+%=UD\begin{bmatrix} \cv&D\cv \end{bmatrix}.
+%\end{equation*}
+%Common to both of these last two equations is the matrix \(\begin{bmatrix} \cv&D\cv \end{bmatrix}\) involving the coefficients~\cv: eliminate the matrix by writing the first equation as \(\begin{bmatrix} \cv&D\cv \end{bmatrix}=U^{-1}\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\) and substituting into \(U^{-1}\)~times the second to get 
+%\begin{equation*}
+%U^{-1}\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}
+%=DU^{-1}\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}.
+%\end{equation*}
+%This matrix equation only involves the unknown multipliers~\(\lambda_1\) and~\(\lambda_2\)  (withinin \(U\) and~\(D\)), the coefficients~\(c_1\) and~\(c_2\) are eliminated.
+%
+%\item \label{eg:2expfitd}
+%Fourth, discover a new eigenvalue problem by taking the transpose of the above equation. 
+%Since all matrices except~\(U^{-1}\) are symmetric the transposition gives
+%\begin{equation*}
+%\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\tr{(U^{-1})}
+%=\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\tr{(U^{-1})}D.
+%\end{equation*}
+%Denote the two columns of~\(\tr{(U^{-1})}\) by \(\vv_1\) and~\(\vv_2\), that is, \(\tr{(U^{-1})}=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}\).
+%Then, recalling \(D=\diag(\lambda_1,\lambda_2)\), the equation becomes
+%\begin{eqnarray*}
+%&&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
+%=\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
+%\begin{bmatrix} \lambda_1&0\\0&\lambda_2 \end{bmatrix}
 %\\\iff&&
-%\begin{bmatrix} \begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_1&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_2 \end{bmatrix}
-%\\&&{}
-%=\begin{bmatrix} \begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\lambda_1\vv_1&\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\lambda_2\vv_2 \end{bmatrix}
-\\&&(\text{then equate the columns from either side})
-\\\iff&&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_1=\lambda_1\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv_1
-\\\text{and}&&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_2=\lambda_2\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv_2.
-\end{eqnarray*}
-These last two equations have the same form.
-That is, if we can find two distinct solutions to
+%\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
+%=\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\begin{bmatrix} \lambda_1\vv_1&\lambda_2\vv_2 \end{bmatrix}
+%%\\\iff&&
+%%\begin{bmatrix} \begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_1&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_2 \end{bmatrix}
+%%\\&&{}
+%%=\begin{bmatrix} \begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\lambda_1\vv_1&\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\lambda_2\vv_2 \end{bmatrix}
+%\\&&(\text{then equate the columns from either side})
+%\\\iff&&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_1=\lambda_1\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv_1
+%\\\text{and}&&\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv_2=\lambda_2\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv_2.
+%\end{eqnarray*}
+%These last two equations have the same form.
+%That is, if we can find two distinct solutions to
+%\begin{equation*}
+%\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv=\lambda\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv\,,
+%\end{equation*}
+%then one solution gives~\(\lambda_1,\vv_1\) and the other~\(\lambda_2,\vv_2\).
+%This looks like an eigenvalue problem, \(A\vv=\lambda\vv\)\,, but with a matrix~\(B\) inserted in the right-hand side as an extra.
+%The form \(A\vv=\lambda B\vv\) is called a `\idx{generalised eigen-problem}'.
+%
+%\item \label{eg:2expfite}
+%Fifth, solve for the `eigenvalues'~\(\lambda\) by rearranging the equation to
+%\begin{equation*}
+%\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv-\lambda\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv=\ov
+%\iff
+%\begin{bmatrix} 1-\lambda&\tfrac23-\lambda\\\tfrac23-\lambda&\frac7{18}-\tfrac23\lambda\end{bmatrix}\vv=\ov\,.
+%\end{equation*}
+%Being a homogeneous linear equation, this only has nontrivial solutions~\vv\ when the determinant is zero:
+%\begin{eqnarray*}
+%\det\begin{bmatrix} 1-\lambda&\tfrac23-\lambda\\\tfrac23-\lambda&\frac7{18}-\tfrac23\lambda\end{bmatrix}
+%&=&(1-\lambda)(\tfrac7{18}-\tfrac23\lambda)-(\tfrac23-\lambda)^2
+%\\&=&\tfrac23\lambda^2-\tfrac{19}{18}\lambda+\tfrac7{18}
+%-\lambda^2+\tfrac43\lambda-\tfrac49
+%\\&=&-\tfrac13\lambda^2+\tfrac5{18}\lambda-\tfrac1{18}
+%\\&=&-\tfrac1{18}(6\lambda^2-5\lambda+1)
+%\\&=&-\tfrac1{18}(2\lambda-1)(3\lambda-1).
+%\end{eqnarray*}
+%This determinant is zero only for multipliers \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\)\,. 
+%Consequently, the corresponding rates \(r_1=\ln\tfrac12=-0.6932\) and \(r_2=\ln\tfrac13=-1.0986\)\,.
+%We now know two of the four unknowns in the exponential~fit.
+%
+%\item \label{eg:2expfitf}
+%Finally, to solve for the corresponding coefficients, just use any pair of data points.
+%For example, using the first two data points we know
+%\begin{equation*}
+%c_1+c_2=1,\quad\text{and}\quad
+%c_1\lambda_1+c_2\lambda_2=\tfrac12c_1+\tfrac13c_2=1\,.
+%\end{equation*}
+%Subtracting three times the second from the first gives \(-\tfrac12c_1=-2\)\,, that is \(c_1=4\).
+%Then the first equation gives \(c_2=1-c_1=1-4=-3\)\,.
+%\end{enumerate}
+%\end{comment}%%%%%%%%%%%%%%%%%%%
+Consequently, the ultimate exponential fit to the data is (as previously plotted)
 \begin{equation*}
-\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv=\lambda\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv\,,
+f(t)=4(\tfrac12)^t-3(\tfrac13)^t
+=4e^{-0.6932\,t}-3e^{-1.0986\,t}
 \end{equation*}
-then one solution gives~\(\lambda_1,\vv_1\) and the other~\(\lambda_2,\vv_2\).
-This looks like an eigenvalue problem, \(A\vv=\lambda\vv\)\,, but with a matrix~\(B\) inserted in the right-hand side as an extra.
-The form \(A\vv=\lambda B\vv\) is called a `\idx{generalised eigen-problem}'.
+as \(\ln\frac12=-0.6932\) and \(\ln \frac13=-1.0986\)\,.
+\end{solution}
+\end{example}
 
-\item \label{eg:2expfite}
-Fifth, solve for the `eigenvalues'~\(\lambda\) by rearranging the equation to
+
+
+\autoref{eg:2expfit} shows one way that fitting exponentials to data can be done with eigenvalues and eigenvectors.
+But one undesirable attribute of the example is the need to invert the matrix~\(B\) to form matrix \(K=AB^{-1}\).
+We avoid this inversion by generalising \idx{eigen-problem}s as introduced by the following reworking of parts of \autoref{eg:2expfit}.
+
+\begin{example}[two short-cuts] \label{eg:2expfit2}
+Recall that \autoref{sec:ddp} derived general solutions of dynamic equations such as \(\fv_{j+1}=K\fv_j\) by seeking solutions of the form \(\fv_j=\vv\lambda^j\).
+For the previous \autoref{eg:2expfit} let's instead seek solutions of the form \(\fv_j=B\wv\lambda^j\).
+Substituting this form, the dynamic equation \(\fv_{j+1}=K\fv_j\) becomes \(B\wv\lambda^{j+1}=KB\wv\lambda^j\); then factoring~\(\lambda^j\), recognising that \(KB=A\), and swapping sides, this equation becomes \(A\wv=\lambda B\wv\)\,.
+This \(A\wv=\lambda B\wv\) forms a \idx{generalised eigen-problem} because it reduces to the standard eigen-problem in cases when the matrix \(B=I\).
+Rework parts of \autoref{eg:2expfit} via this generalised eigen-problem.
+
+\begin{solution} 
+Restart the analysis in \autoref{eg:2expfitc}: instead of the eigen-problem \(K\vv=\lambda\vv\), let's solve the generalised eigen-problem \(A\wv=\lambda B\wv\)\,.
+Here matrices
 \begin{equation*}
-\begin{bmatrix} 1&\tfrac23\\\tfrac23&\frac7{18} \end{bmatrix}\vv-\lambda\begin{bmatrix} 1&1\\1&\tfrac23 \end{bmatrix}\vv=\ov
-\iff
-\begin{bmatrix} 1-\lambda&\tfrac23-\lambda\\\tfrac23-\lambda&\frac7{18}-\tfrac23\lambda\end{bmatrix}\vv=\ov\,.
+A=\begin{bmatrix} 1&\frac23\\\frac23&\frac7{18} \end{bmatrix},\quad
+B=\begin{bmatrix} 1&1\\1&\frac23 \end{bmatrix}.
 \end{equation*}
-Being a homogeneous linear equation, this only has nontrivial solutions~\vv\ when the determinant is zero:
+So the equation \(A\wv=\lambda B\wv\) becomes
+\begin{equation*}
+\begin{bmatrix} 1&\frac23\\\frac23&\frac7{18} \end{bmatrix}\wv
+=\lambda \begin{bmatrix} 1&1\\1&\frac23 \end{bmatrix}\wv
+= \begin{bmatrix} \lambda&\lambda\\\lambda&\frac23\lambda \end{bmatrix}\wv\,.
+\end{equation*}
+Subtract the matrix on the right-hand side from both sides to obtain
+\begin{equation*}
+\begin{bmatrix} 1&\frac23\\\frac23&\frac7{18} \end{bmatrix}\wv
+- \begin{bmatrix} \lambda&\lambda\\\lambda&\frac23\lambda \end{bmatrix}\wv 
+=\begin{bmatrix} 1-\lambda&\frac23-\lambda\\\frac23-\lambda&\frac7{18}-\frac23\lambda \end{bmatrix}\wv
+=\ov
+\end{equation*}
+Being a homogeneous linear equation, this last equation only has nontrivial solutions~\wv\ when the determinant is zero:
 \begin{eqnarray*}
 \det\begin{bmatrix} 1-\lambda&\tfrac23-\lambda\\\tfrac23-\lambda&\frac7{18}-\tfrac23\lambda\end{bmatrix}
 &=&(1-\lambda)(\tfrac7{18}-\tfrac23\lambda)-(\tfrac23-\lambda)^2
@@ -2446,36 +2616,37 @@ Being a homogeneous linear equation, this only has nontrivial solutions~\vv\ whe
 \\&=&-\tfrac1{18}(2\lambda-1)(3\lambda-1).
 \end{eqnarray*}
 This determinant is zero only for multipliers \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\)\,. 
-Consequently, the corresponding rates \(r_1=\ln\tfrac12=-0.6932\) and \(r_2=\ln\tfrac13=-1.0986\)\,.
-We now know two of the four unknowns in the exponential~fit.
+These are precisely the same eigenvalues as in \autoref{eg:2expfitc}.
 
-\item \label{eg:2expfitf}
-Finally, to solve for the corresponding coefficients, just use any pair of data points.
-For example, using the first two data points we know
-\begin{equation*}
-c_1+c_2=1,\quad\text{and}\quad
-c_1\lambda_1+c_2\lambda_2=\tfrac12c_1+\tfrac13c_2=1\,.
-\end{equation*}
-Subtracting three times the second from the first gives \(-\tfrac12c_1=-2\)\,, that is \(c_1=4\).
-Then the first equation gives \(c_2=1-c_1=1-4=-3\)\,.
-\end{enumerate}
-Consequently, the ultimate exponential fit to the data is (as previously plotted)
-\begin{equation*}
-f(t)=4(\tfrac12)^t-3(\tfrac13)^t
-=4e^{-0.6932\,t}-3e^{-1.0986\,t}.
-\end{equation*}
+Another simplification is to avoid forming the full vector solution (\autoref{eg:2expfitd}--\ref{eg:2expfite}):
+we only use just the first vector-component in the final answer for~\(f(t)\), so the full vector is redundant.
+Instead, given the multipliers \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\), just seek the penultimate form \(f_j=c_1(\tfrac12)^j+c_2(\tfrac13)^j\).
+Given the data values, evaluating this form of solution at \(j=1,2\) gives two equations:
+\begin{eqnarray*}
+j=1,&&c_1\tfrac12+c_2\tfrac13=f_1=f(0)=1\,;
+\\
+j=2,&&c_1\tfrac14+c_2\tfrac19=f_2=f(1)=1\,.
+\end{eqnarray*}
+Subtracting twice the second from the first, and subtracting three times the second from the first gives the coefficients \(c_1=8\) and \(c_2=-9\).
+Hence the fit to the data is \(f_j=8(\frac12)^j -9(\frac13)^j\) as in \autoref{eg:2expfite}.
+Then, as before, index \(j=t+1\) so the function fit becomes \(f(t)=4(\frac12)^{t} -3(\frac13)^{t}\) to match the conclusion of the previous \autoref{eg:2expfit}.
 \end{solution}
 \end{example}
 
 
 
-As introduced by the example, let's generalise \autoref{def:evecval} of eigenvalues and eigenvectors.
-Such generalised eigen-problems also occur in the design analysis of complicated structures, such as buildings and bridges, where the second matrix~\(B\) represents the various masses of the various elements making up the structure.
+
+\subsubsection{Generalised eigen-problem}
+
+As introduced by \autoref{eg:2expfit2}, let's generalise the \autoref{def:evecval} of eigenvalues and eigenvectors.
+Such generalised eigen-problems also occur in the design analysis of complicated structures, such as buildings and bridges, where the second matrix~\(B\) represents the various masses of the various elements making up a structure.
 
 \begin{definition} \label{def:geneig}
 Let \(A\) and~\(B\) be \(n\times n\) square matrices\index{square matrix}. 
 The \bfidx{generalised eigen-problem} is to find scalar \idx{eigenvalue}s~\(\lambda\) and corresponding nonzero \idx{eigenvector}s~\vv\ such that \(A\vv=\lambda B\vv\).
 \end{definition}
+
+\index{generalised eigen-problem|(}
 
 \begin{example} \label{eg:}
 Given \(A=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\) and \(B=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\), what eigenvalue corresponds to the eigenvector \(\vv_1=(1,1)\) of the generalised eigen-problem \(A\vv=\lambda B\vv\)\,?  
@@ -2514,10 +2685,10 @@ Which of the following vectors is an eigenvector of the generalised eigen-proble
 
 The standard eigen-problem is the case when matrix \(B=I\)\,.
 Many of the properties for standard eigenvalues and eigenvectors also hold for generalised eigen-problems, although there are some differences.
-Most importantly here, albeit without proof, provided matrix~\(B\) is invertible, then counted according to \idx{multiplicity} there are \(n\)~eigenvalues of a \idx{generalised eigen-problem}.
+Most importantly here, albeit without proof, provided matrix~\(B\) is invertible, then counted according to \idx{multiplicity} there are \(n\)~eigenvalues of a \idx{generalised eigen-problem} in \(n\times n\) matrices.
 
 \begin{example} \label{eg:}
-Find all eigenvalues and corresponding eigenvectors of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for matrices
+Find all \idx{eigenvalue}s and corresponding \idx{eigenvector}s of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for matrices
 \begin{equation*}
 A=\begin{bmatrix} -1&1\\-4&0 \end{bmatrix},\quad
 B=\begin{bmatrix} -1&1\\-1&2 \end{bmatrix}
@@ -2554,7 +2725,7 @@ That is, \(-3v_1-2v_2=0\) which rearranged is \(v_1=-\tfrac23v_2\): correspondin
 
 
 \begin{example} \label{eg:}
-Find all eigenvalues and corresponding eigenvectors of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for matrices
+Find all \idx{eigenvalue}s and corresponding \idx{eigenvector}s of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for matrices
 \begin{equation*}
 A=\begin{bmatrix} 2&2\\-1&0 \end{bmatrix},\quad
 B=\begin{bmatrix} -1&1\\1&-1 \end{bmatrix}
@@ -2569,7 +2740,7 @@ Hence determine the eigenvalues by finding the zeros of the characteristic polyn
 \\&=&\lambda^2+2\lambda-2-\lambda^2+\lambda+2
 \\&=&3\lambda+2\,.
 \end{eqnarray*}
-Hence the only generalised eigenvalue is \(\lambda=-2/3\)\,.
+Hence the only eigenvalue is \(\lambda=-2/3\)\,.
 Here the matrix~\(B\) is not invertible---its determinant is zero---and consequently in this example we do not get the typical full complement of two eigenvalues.
 
 For the only eigenvalue \(\lambda=-2/3\) the corresponding eigenvectors satisfy
@@ -2581,27 +2752,31 @@ That is, the two components of~\vv\ must satisfy \(\tfrac13v_1+\tfrac23v_2=0\) w
 \end{example}
 
 
+\index{generalised eigen-problem|)}
 
 
 
-\paragraph{General fitting of exponentials}
+
+
+\subsubsection{General fitting of exponentials}
+
 Suppose that some experiment or other observation has given us \(2n\)~data values \hlist f{2n}\ at equi-spaced `times' \hlist t{2n}, where the spacing \(t_{j+1}-t_j=h\)\,.
-The general aim is to fit a multi-exponential function \cite[\S2.6, e.g.]{Cuyt2015}
+The general aim is to fit the multi-exponential function \cite[\S2.6, e.g.]{Cuyt2015}
 \begin{equation}
 f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}.
 %=\sum_{j=1}^n c_je^{r_jt}
 \label{eq:eiddse}
 \end{equation}
-for some coefficients~\hlist cn\ and some rates~\hlist rn\ to be determined (possibly complex valued for oscillations).
+for some coefficients~\hlist cn\ and some rates~\hlist rn\ to be determined (possibly \idx{complex valued} for \idx{oscillation}s).
 In general, finding the coefficients and rates is a delicate nonlinear task outside the remit of this book.
 However, as the previous two examples illustrate, in these circumstances we instead invoke our powerful linear algebra methods.
 
 Because the data is sampled at equi-spaced times, \(h\)~apart, then instead of seeking~\(r_k\) we seek multipliers \(\lambda_k=e^{r_kh}\).
 
-\begin{procedure}[exponential interpolation] \label{pro:ei}
-Given measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=jh\) for time-spacing~\(h\) (and starting from time \(t_1=0\) without loss of applicability).
+\begin{procedure}[\bfidx{exponential interpolation}] \label{pro:ei}
+Given measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=(j-1)h\) for time-spacing~\(h\) (and starting from time \(t_1=0\) without loss of applicability), we seek to fit the data with a sum of exponentials~\eqref{eq:eiddse}.
 \begin{enumerate}
-\item From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
+\item\label{pro:eia} From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
 \begin{eqnarray*}&&
 A=\begin{bmatrix} f_2&f_3&\cdots&f_{n+1}
 \\f_3&f_4&\cdots&f_{n+2}
@@ -2613,16 +2788,16 @@ B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \\\vdots&\vdots&&\vdots
 \\f_{n}&f_{n+1}&\cdots&f_{2n-1} \end{bmatrix}.
 \end{eqnarray*}
-In \script\ use \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| (this Hankel function is also invoked in exploring El~Nino, \autoref{eg:orthbapp}).
+In \script\ \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| forms these two matrices (this Hankel function is also invoked in exploring El~Nino, \autoref{eg:orthbapp}).
 
-\item Find the eigenvalues of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\)\,: 
+\item\label{pro:eib} Find the \idx{eigenvalue}s of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\)\,: 
 \begin{itemize}
 \item by hand on small problems solve \(\det(A-\lambda B)=0\)\,;
 \item in \script\ invoke \index{eig()@\texttt{eig()}}\verb|lambda=eig(A,B)|\,, and then \index{log()@\texttt{log()}}\verb|r=log(lambda)/h|\,.
 \end{itemize}
 This eigen-problem typically determines \(n\)~multipliers \hlist\lambda n, and thence the \(n\)~rates \(r_k=(\ln\lambda_k)/h\)\,.
 
-\item Determine the corresponding \(n\)~coefficients \hlist cn\ from any \(n\)~point subset of the \(2n\)~data points.
+\item\label{pro:eic} Determine the corresponding \(n\)~coefficients \hlist cn\ from any \(n\)~point subset of the \(2n\)~data points.
 For example, the first \(n\)~data points give the linear system 
 \begin{equation*}
 \begin{bmatrix} 1&1&\cdots&1
@@ -2633,14 +2808,11 @@ For example, the first \(n\)~data points give the linear system
  \end{bmatrix}\begin{bmatrix} c_1\\c_2\\\vdots\\c_n \end{bmatrix}
  =\begin{bmatrix} f_1\\f_2\\f_3\\\vdots\\f_n \end{bmatrix}
 \end{equation*}
-In \script\ one may construct the matrix~\(U\) appearing here with \index{meshgrid()@\texttt{meshgrid()}}\verb|[U,P]=meshgrid(lambda,0:n-1)| and then \verb|U=U.^P|\,.
+In \script\ one may construct the matrix~\(U\) appearing here with \index{bsxfun()@\texttt{bsxfun()}}\verb|U=bsxfun(@power,lambda,0:n-1).'| when \verb|lambda| is a column vector of the eigenvalues.
+Since the eigenvalues~\(\lambda\) may be \idx{complex valued} we need the transpose~``\verb|.'|'' not the complex conjugate transpose~``\verb|'|'' (\autoref{tbl:mtlbops}).
 \end{enumerate}
 \end{procedure}
 
-\begin{comment}
-Is vander() better to use than meshgrid? as can be used for fitting polynomials, albeit not multinomials.  
-Also one has to here transpose and flipud(), so probably best not.
-\end{comment}
 
 
 
@@ -2650,7 +2822,7 @@ Also one has to here transpose and flipud(), so probably best not.
 \begin{minipage}{\linewidth}
 %\parbox{\linewidth}{
 \begin{itemize}
-\item \index{hankel()@\texttt{hankel()}}\verb|hankel(x,y)| for vectors of the same length, \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist yn)\), forms the \(n\times n\) matrix
+\item \index{hankel()@\texttt{hankel()}}\verb|hankel(x,y)| for two vectors of the same length, \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist yn)\), forms the \(n\times n\) matrix
 \def\adots{\reflectbox{$\ddots$}}
 \begin{equation*}
 \begin{bmatrix} 
@@ -2662,24 +2834,23 @@ x_n&y_2&\cdots&y_{n-1}&y_n
 \end{bmatrix}.
 \end{equation*}
 
-\item \index{eig()@\texttt{eig()}}\verb|eig(A,B)| for \(n\times n\) matrices~\(A\) and~\(B\) computes a vector in~\(\RR^n\) of \idx{generalised eigenvalues}~\(\lambda\) such that \(\det(A-\lambda B)=0\)\,.
+\item \index{eig()@\texttt{eig()}}\verb|eig(A,B)| for \(n\times n\) matrices~\(A\) and~\(B\) computes a vector in~\(\RR^n\) of \idx{eigenvalue}s~\(\lambda\) such that \(\det(A-\lambda B)=0\)\,.
 Some of the computed eigenvalues in the vector may be \(\pm\verb|Inf|\)\index{Inf@\texttt{Inf}} (depending upon the nature of~\(B\)) which denotes that a corresponding eigenvalue does \text{not exist}.
 
-The command \verb|[V,D]=eig(A,B)| solves the \idx{generalised eigen-problem} \(A\xv=\lambda B\xv\) for eigenvalues~\(\lambda\) returned in the diagonal of matrix~\(D\) (some may be~\(\pm\verb|Inf|\)), and corresponding eigenvectors returned in the corresponding column of~\(V\).
+The command \verb|[V,D]=eig(A,B)| solves the \idx{generalised eigen-problem} \(A\xv=\lambda B\xv\) for eigenvalues~\(\lambda\) returned in the diagonal of matrix~\(D\) (some may be~\(\pm\verb|Inf|\)), and corresponding \idx{eigenvector}s returned in the corresponding column of~\(V\).
 
-\item \index{meshgrid()@\texttt{meshgrid()}}\verb|[X,Y]=meshgrid(x,y)|  for vectors \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist ym)\) forms two \(m\times n\) matrices:
-\begin{equation*}
-\verb|X|=\begin{bmatrix} x_1&x_2&\cdots&x_n\\
- x_1&x_2&\cdots&x_n\\
- \vdots&\vdots&&\vdots\\
- x_1&x_2&\cdots&x_n \end{bmatrix},
- \quad
-\verb|Y|=\begin{bmatrix} y_1&y_1&\cdots&y_1\\
- y_2&y_2&\cdots&y_2\\
- \vdots&\vdots&&\vdots\\
- y_m&y_m&\cdots&y_m \end{bmatrix}.
-\end{equation*}
-
+%\item \index{meshgrid()@\texttt{meshgrid()}}\verb|[X,Y]=meshgrid(x,y)|  for vectors \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist ym)\) forms two \(m\times n\) matrices:
+%\begin{equation*}
+%\verb|X|=\begin{bmatrix} x_1&x_2&\cdots&x_n\\
+% x_1&x_2&\cdots&x_n\\
+% \vdots&\vdots&&\vdots\\
+% x_1&x_2&\cdots&x_n \end{bmatrix},
+% \quad
+%\verb|Y|=\begin{bmatrix} y_1&y_1&\cdots&y_1\\
+% y_2&y_2&\cdots&y_2\\
+% \vdots&\vdots&&\vdots\\
+% y_m&y_m&\cdots&y_m \end{bmatrix}.
+%\end{equation*}
 \end{itemize}
 \end{minipage}
 %}
@@ -2695,18 +2866,41 @@ Link to singular spectrum analysis of \S\ref{sec:ssa} when it is written.
 \end{comment}
 
 \begin{proof} 
-I give only a short outline.
-Define four matrices: let \(U\) be rows of powers of multipliers~\(\lambda_k\) and assumed to be invertible; \(D:=\diag(\hlist\lambda n)\); and \(C:=\begin{bmatrix} \cv&D\cv&\cdots&D^{n-1}\cv \end{bmatrix}\).
-Then the two matrices in the procedure are \(B=UC\) and \(A=UDC\).
-From the first \(C=U^{-1}B\), and hence the second becomes \(A=UDU^{-1}B\). 
-Multiply this by~\(U^{-1}\) to require \(U^{-1}A=DU^{-1}B\).
-Taking the transpose, recalling matrices~\(A\), \(B\) and diagonal~\(D\) are symmetric, gives \(A\tr{(U^{-1})}=B\tr{(U^{-1})}D\); that is
-\(AV=BVD\) for matrix \(V:=\tr{(U^{-1})}\).
-The \(j\)th~column of this matrix equation requires \(A\vv_j=\lambda_jB\vv_j\), where \(\vv_j\) is the \(j\)th~column of~\(V\), for \(j=1,2,\ldots,n\).
-Hence finding the eigenvalues and eigenvectors of the generalised eigen-problem \(A\vv=\lambda B\vv\) determines the multipliers~\(\lambda_j\).
+This proof establishes the generic case.
+Denote the columns of matrices~\(A\) and~\(B\) by vectors of consecutive data values \(\fv_j=(f_j, f_{j+1},\ldots,f_{j+n-1})\in\RR^n\) for \(j=1,2,\ldots,n+1\) (\autoref{pro:eia} in \autoref{pro:ei}).
+\begin{itemize}
+\item First seek a linear transformation, by some \(n\times n\) matrix~\(K\), from one data vector to the next in the form \(\fv_{j+1}=K\fv_j\) for \(j=1,2,\ldots,n\)\,.
+Arrange these \(n\)~equations \(\fv_{j+1}=K\fv_j\) into the one matrix equation
+\begin{eqnarray*}
+\begin{bmatrix} \fv_2&\fv_3&\cdots&\fv_4 \end{bmatrix}
+&=&\begin{bmatrix} K\fv_1&K\fv_2&\cdots&K\fv_3 \end{bmatrix}
+\\&=&K\begin{bmatrix} \fv_1&\fv_2&\cdots&\fv_3 \end{bmatrix},
+\end{eqnarray*}
+after factoring the matrix~\(K\).
+That is, matrix~\(K\) satisfies \(A=KB\) (which in principle we could typically solve to obtain \(K=AB^{-1}\)).
 
-Typically there are \(n\)~distinct eigenvalues~\(\lambda_j\) (although not always), hence~\(U\) typically is invertible. 
-So from \(UC=B\) the coefficient vector~\cv, the first column of matrix~\(C\), is computed by solving \(U\cv=\bv_1\) (the first column of~\(B\)).
+\item Second, view \(\fv_{j+1}=K\fv_j\) as a dynamic system in~\(j\) and modify the approach of \autoref{sec:ddp}.
+Seek solutions in the form \(\fv_j=B\vv \lambda^j\) for some non-zero vector~\vv\ and multiplier~\(\lambda\).
+Then \(\fv_{j+1}=K\fv_j\) becomes \(B\vv \lambda^{j+1}=KB\vv \lambda^j\).
+This equation becomes the generalised eigen-problem \(A\vv=\lambda B\vv\) after factoring out~\(\lambda^j\) (provided non-zero), and recalling that \(A=KB\)\,.
+
+\item Typically, \autoref{pro:eib} in \autoref{pro:ei}, the eigen-problem \(A\vv=\lambda B\vv\) has \(n\)~distinct eigenvalues \hlist\lambda n\ (possibly complex valued) with some corresponding eigenvectors \hlist\vv n.
+By the linearity of \(\fv_{j+1}=K\fv_j\)\,, a general solution is then the linear combination \(\fv_j=C_1B\vv_1\lambda_1^{j} +C_2B\vv_2\lambda_2^{j} +\cdots +C_nB\vv_n\lambda_n^{j}\).
+We only need one component of this general solution, say the first, and so the data values \(f_j=\lincomb c{\lambda^{j-1}}n\) for some constants \hlist cn\ to be found (\(c_i=C_i\lambda_i(B\vv_i)_1\) in terms of~\(C_i\)).
+
+\item Determine the constants \hlist cn\ by matching the general solution to \(n\)~data values.
+Using the first~\(n\) data values gives the \(n\)~equations:
+\begin{eqnarray*}
+f_1&=&c_1+c_2+\cdots+c_n\,,
+\\f_2&=&\lincomb c{\lambda^{1}}n,
+\\f_3&=&\lincomb c{\lambda^{2}}n,
+\\&\vdots&
+\\f_n&=&\lincomb c{\lambda^{n-1}}n.
+\end{eqnarray*}
+Form as a matrix-vector system for the unknown vector \((\hlist cn)\) to give the system solved by \autoref{pro:eic}.
+\end{itemize}
+Lastly, rearrange \(t_j=(j-1)h\) to \(j-1=t_j/h\), then \(\lambda_k^{j-1}=e^{(\log \lambda_k)t_j/h}=e^{r_kt_j}\) for rates \(r_k=(\log\lambda_k)/h\) (\autoref{pro:eib}).
+So the solution \(f_j=\lincomb c{\lambda^{j-1}}n\) becomes the exponential interpolation \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\) as required.
 \end{proof}
 
 
@@ -2725,14 +2919,14 @@ So from \(UC=B\) the coefficient vector~\cv, the first column of matrix~\(C\), i
 \ifnum0<\aone\addplot+[smooth,thick,no marks] {cos(deg(2*x/5))*exp(-x/50)};\fi
 \end{axis}
 \end{tikzpicture}}%
-A damped piano string is struck and the sideways displacement of the string is measured at four times, \(5\)\,ms~apart. 
+A damped \idx{piano string} is struck and the sideways displacement of the string is measured at four times, \(5\)\,ms~apart. 
 \marginpar{\mytemp0}%
 The measurements (in~mm) are \(f_1=1.0000\), \(f_2=-0.3766\), \(f_3=-0.5352\) and \(f_4=0.7114\) (as illustrated).  
-Determine, by hand calculation, the frequency and damping of the string.%
+Determine, by hand calculation, the \idx{frequency} and damping of the string.%
 \footnote{Some of you will know that identification of frequencies is most commonly done by what is called a \idx{Fourier transform}.  
-However, with a limited amount of accurate data, or for decaying oscillations, this approach may be better.}
+However, with a limited amount of good data, or for decaying oscillations, this approach may be better.}
 
-Recall \idx{Euler's formula} that \(e^{i\theta}=\cos\theta+i\sin\theta\) so oscillations are here captured by complex-valued exponentials.
+Recall \idx{Euler's formula} that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) so \idx{oscillation}s are here captured by \idx{complex valued} exponentials.
 
 \begin{solution} 
 Follow \autoref{pro:ei} by hand. 
@@ -2760,23 +2954,25 @@ With some arithmetic, the determinant
 \\&\vdots& 
 \\&=& -0.6770\lambda^2  -0.5098\lambda  -0.5544\,.
 \end{eqnarray*}
-More arithmetic with the well known formula for solving quadratic equations finds that this determinant is zero for complex conjugate eigenvalues \(\lambda=-0.3765 \pm 0.8228\,i\)\,.
+More arithmetic with the well known formula for solving quadratic equations finds that this determinant is zero for complex conjugate eigenvalues \(\lambda=-0.3765 \pm 0.8228\i\)\,.
 Such \idx{complex eigenvalue}s are characteristic of oscillations.
-The logarithm of these complex values, divided by the time step of \(0.005\,\text{s}=5\,\)ms, gives the two complex rates \(r=-20\pm400i\) (to two decimal places).
+The complex logarithm of these complex values, divided by the time step of \(0.005\,\text{s}=5\,\)ms, gives the two complex rates \(r=-20\pm400\i\) (to two decimal places).
 \item 
 To find the corresponding coefficients, solve the complex linear equations
 \begin{eqnarray*}&&
 c_1+c_2=1\,, 
 \\&&
-(-0.3765 + 0.8228i)c_1+(-0.3765 - 0.8228i)c_2=-0.3766\,.
+(-0.3765 + 0.8228\i)c_1+(-0.3765 - 0.8228\i)c_2
+\\&&{}
+=-0.3766\,.
 \end{eqnarray*}
 By inspection the solution is \(c_1=c_2=\tfrac12\) (to three decimal places).
 \end{enumerate}
 \marginpar{\mytemp1}%
 We conclude the exponential fit is, as plotted in the margin,
 \begin{eqnarray*}
-f(t)&=&\tfrac12e^{-20t+400it}+\tfrac12e^{-20t-400it}
-\\&=&\left(\tfrac12e^{400it}+\tfrac12e^{-400it}\right)e^{-20t}
+f(t)&=&\tfrac12e^{-20t+400\i t}+\tfrac12e^{-20t-400\i t}
+\\&=&\left(\tfrac12e^{400\i t}+\tfrac12e^{-400\i t}\right)e^{-20t}
 \\&=&\cos(400t)e^{-20t}.
 \end{eqnarray*}
 Interpreting, the cosine factor indicates the piano string oscillates at \(400\)~radians per second which is \(400/(2\pi)=63.66\)~cycles/sec.
@@ -2789,7 +2985,7 @@ However, the piano string is damped by the factor~\(e^{-20t}\) so that in just a
 
 
 \begin{example} \label{eg:eipianu}
-For the data of the previous \autoref{eg:eipiano}, determine the frequency and damping of the string using \script.
+For the data of the previous \autoref{eg:eipiano}, determine the \idx{frequency} and damping of the \idx{piano string} using \script.
 
 \begin{solution} 
 Follow \autoref{pro:ei} using \script. 
@@ -2853,8 +3049,9 @@ c =
 \end{enumerate}
 This gives the same answer as by hand, namely 
 \begin{equation*}
-f(t)=\tfrac12e^{-20t+400it}+\tfrac12e^{-20t-400it}.
+f(t)=\tfrac12e^{-20t+400\i t}+\tfrac12e^{-20t-400\i t}.
 \end{equation*}
+As before, Euler's formula transforms this to a real form.
 \end{solution}
 \end{example}
 
@@ -2878,7 +3075,7 @@ f(t)=\tfrac12e^{-20t+400it}+\tfrac12e^{-20t-400it}.
 \ifnum0<\aone\addplot+[smooth,thick,no marks] {1.01-2.28*exp(-0.13*x) +1.26*exp(-0.24*x)};\fi
 \end{axis}
 \end{tikzpicture}}%
-In a biochemical experiment every three seconds we measure the concentration of an output chemical as tabulated below (and illustrated in the margin).
+In a \idx{biochemical experiment} every three seconds we measure the concentration of an output chemical as tabulated below (and illustrated in the margin).
 Fit a sum of four exponentials to this data.
 \marginpar{\mytemp0}%
 \begin{equation*}
@@ -2925,14 +3122,13 @@ A=hankel(f(2:5),f(5:8))
 B=hankel(f(1:4),f(4:7))
 lambda=eig(A,B)
 r=log(lambda)/3
-[U,P]=meshgrid(lambda,0:3)
-U=U.^P
+U=bsxfun(@power,lambda,0:3).'
 rcond(U)
 c=U\slosh f(1:4)
 }}%
 \marginpar{\usebox{\ajrqrbox}}%
 
-\item Compute the multipliers as the eigenvalues of the generalised problem, and then determine the rates with
+\item Compute the multipliers as the eigenvalues of the generalised eigen-problem, and then determine the rates with
 \begin{verbatim}
 lambda=eig(A,B)
 r=log(lambda)/3
@@ -2951,10 +3147,9 @@ r =
   -0.2363 + 0.0000i
 \end{verbatim}
 
-\item Compute the coefficients in the exponential fit with the following
+\item Compute the coefficients in the exponential fit with the following (\autoref{tbl:mtlbnorm} introduces \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun()|)
 \begin{verbatim}
-[U,P]=meshgrid(lambda,0:3)
-U=U.^P
+U=bsxfun(@power,lambda,0:3).'
 rcond(U)
 c=U\f(1:4)
 \end{verbatim}
@@ -2989,7 +3184,10 @@ f(t)&\approx&1.01\cdot1^{t/3}+0\cdot(-0.47)^{t/3}
 
 As with any data fitting, in practical applications be careful about the reliability of the results.
 Sound statistical analysis needs to supplement \autoref{pro:ei} to inform us about expected errors and sensitivity.
-This problem of fitting exponentials to data is often sensitive to errors (badly conditioned).
+This problem of fitting exponentials to data is often sensitive to errors.
+
+The techniques and theory of this subsection generalise to cater for noisy data and for complex system interactions with vast amounts of data.
+The generalisation, \emph{Dynamic Mode Decomposition} \cite[e.g.]{Kutz2016}, is applied across many areas such as fluid mechanics, video processing, epidemiology, neuroscience, and financial trading.
 
 
 
@@ -3002,7 +3200,7 @@ This problem of fitting exponentials to data is often sensitive to errors (badly
 
 
 
-\subsection{Exercises}
+\sectionExercises
 
 
 
@@ -3021,10 +3219,10 @@ Justify your answer.
 \item \(0,3,\pm5,8\)
 \answer{no}
 
-\item \(0,3\pm5i,8\)
+\item \(0,3\pm5\i,8\)
 \answer{yes}
 
-\item \(-1.4\pm\sqrt7i,-4,3\pm2i\)
+\item \(-1.4\pm\sqrt7\i,-4,3\pm2\i\)
 \answer{no}
 
 \end{parts}
@@ -3219,7 +3417,7 @@ Show your working.
 
 \item \(\begin{bmatrix} 0 & 5
 \\-2 & 2 \end{bmatrix}\)
-\answer{\(1\pm 3i\) once}
+\answer{\(1\pm 3\i\) once}
 
 \item \(\begin{bmatrix} 0 & -3
 \\3 & 6 \end{bmatrix}\)
@@ -3236,7 +3434,7 @@ Show your working.
 \item \(\begin{bmatrix} -1 & 1 & -1
 \\-6 & -6 & 2
 \\-5 & -3 & -3 \end{bmatrix}\)
-\answer{\(-4\) once, \(-3\pm i\) once}
+\answer{\(-4\) once, \(-3\pm \i\) once}
 
 \item \(\begin{bmatrix} -2 & -5 & -1
 \\0 & 3 & 1
@@ -3251,7 +3449,7 @@ Show your working.
 \item \(\begin{bmatrix} -14 & 24 & 52
 \\-4 & 8 & 18
 \\-2 & 3 & 6 \end{bmatrix}\)
-\answer{\(2\) once, \(-1\pm i\) once}
+\answer{\(2\) once, \(-1\pm \i\) once}
 
 \item \(\begin{bmatrix} -1 & -2 & 2
 \\7 & 18 & -12
@@ -3266,7 +3464,7 @@ Show your working.
 \item \(\begin{bmatrix} 1 & -15 & 7
 \\-1 & -1 & -1
 \\-5 & -15 & -1 \end{bmatrix}\)
-\answer{\(-1\) once, \(\pm2i\) once}
+\answer{\(-1\) once, \(\pm2\i\) once}
 
 \end{parts}
 \end{exercise}
@@ -3333,7 +3531,7 @@ A=[11 17.9 -33.4 46.4
 -12.3 -19.7 33.7 -51.3]
 }}%
 \marginpar{\usebox{\ajrqrbox}}%
-\answer{\(-0.7\pm1.8i\) once, \(-1.2\) once, \(0.4\) once}
+\answer{\(-0.7\pm1.8\i\) once, \(-1.2\) once, \(0.4\) once}
 
 \item \(\begin{bmatrix} 0.6 & 0 & 0 & 0
 \\9.6 & -1 & 33.6 & 17.6
@@ -3376,7 +3574,7 @@ A=[-356.4 264.6 -880.8 -689.9 455.5
 -58.5 45.6 -142.8 -111.4 73.1]
 }}%
 \marginpar{\usebox{\ajrqrbox}}%
-\answer{\(1.7\pm1.3i\) once, \(-3.9\) thrice}
+\answer{\(1.7\pm1.3\i\) once, \(-3.9\) thrice}
 
 \item \(\begin{bmatrix} 309.4 & -29.7 & 451.3 & 337.3 & 305.9
 \\-217.6 & 20.3 & -313.5 & -236.1 & -215.9
@@ -3517,7 +3715,7 @@ A=[-50 30 46 -62
 -39 24 42 -58]
 }}\marginpar{\usebox{\ajrqrbox}}%
 \answer{\(\lambda=2\), twice, \((0.19,0,0.86,0.48)\), \((0.37,0.92,-0.15,0.018)\);
-\(\lambda=-3\pm i\), once, \((0.14\mp0.28i,0,-0.69,-0.62\pm0.21i)\).}
+\(\lambda=-3\pm \i\), once, \((0.14\mp0.28\i,0,-0.69,-0.62\pm0.21\i)\).}
 
 \item \(\begin{bmatrix} 4 & -11 & -12 & 9 & -19
 \\0 & 0 & 0 & 3 & -2
@@ -3533,7 +3731,7 @@ A=[4 -11 -12 9 -19
 }}\marginpar{\usebox{\ajrqrbox}}%
 \answer{\(\lambda=-3.94\), once, \((-0.33,-0.41,0.72,0.44,-0.15)\);
 \(\lambda=1\), once, \((0,0.8,-0.53,0.27,0)\);
-\(\lambda=7.49\pm0.39i\), once, \((-0.24\pm0.55i,0.23\pm0.02i,0.043\pm0.01i,0.72,0.24\mp0.11i)\);
+\(\lambda=7.49\pm0.39\i\), once, \((-0.24\pm0.55\i,0.23\pm0.02\i,0.043\pm0.01\i,0.72,0.24\mp0.11\i)\);
 \(\lambda=4.95\), once, \((-0.14,0.45,0.62,0.46,-0.43)\).}
 
 \item \(\begin{bmatrix} 75 & 7 & -13 & -51 & -129
@@ -3912,7 +4110,7 @@ Check your calculations with \script.
 \\ 1 & -4 \end{bmatrix}\),
 \(B=\begin{bmatrix} 1 & -0
 \\ 2 & -2 \end{bmatrix}\)
-\answer{eigenvalues \(1\pm i/\sqrt2\), eigenvectors proportional to \((1,\mp i/\sqrt2)\), respectively}
+\answer{eigenvalues \(1\pm \i/\sqrt2\), eigenvectors proportional to \((1,\mp \i/\sqrt2)\), respectively}
 
 \item \(A=\begin{bmatrix} 0 & 1 & -2
 \\ -2 & -1 & -2
@@ -3984,7 +4182,7 @@ Use \script\ to find and describe all eigenvalues and corresponding eigenvectors
 \\ 1 & 0 & 0 & -1
 \\ 0 & 0 & 0 & 0
 \\ 2 & -1 & -1 & 0 \end{bmatrix}\)
-\answer{eigenvalues \(0.73\pm1.13i, -1.37\) \twodp}
+\answer{eigenvalues \(0.73\pm1.13\i, -1.37\) \twodp}
 
 \item \(A=\begin{bmatrix} 4 & 4 & 0 & 3
 \\ 1 & -2 & 0 & 1
@@ -3994,7 +4192,7 @@ Use \script\ to find and describe all eigenvalues and corresponding eigenvectors
 \\ -2 & 2 & 1 & 1
 \\ -1 & 0 & 1 & -2
 \\ 1 & 1 & 1 & -1 \end{bmatrix}\)
-\answer{eigenvalues \(2.74, -2.20, -0.50\pm0.62i\) \twodp}
+\answer{eigenvalues \(2.74, -2.20, -0.50\pm0.62\i\) \twodp}
   
 \end{enumerate}
 \end{exercise}
@@ -4162,7 +4360,7 @@ f=[0.75000
 %B=hankel(f(1:n),f(n:2*n-1));
 %lambda=eig(A,B)
 %r=log(lambda)/dt
-%[U,P]=meshgrid(lambda,0:n-1); U=U.^P;
+%U=bsxfun(@power,lambda,0:n-1).';
 %rcond(U)
 %c=U\f(1:n);
 %expr=exp(r);
@@ -4290,7 +4488,7 @@ f=[1.297867
 %B=hankel(f(1:n),f(n:2*n-1));
 %lambda=eig(A,B)
 %r=log(lambda)/dt
-%[U,P]=meshgrid(lambda,0:n-1); U=U.^P;
+%U=bsxfun(@power,lambda,0:n-1).';
 %rcond(U)
 %c=U\f(1:n)
 %\end{verbatim}
@@ -4336,7 +4534,7 @@ Comment on the result.
 %B=hankel(soi(1:n),soi(n:2*n-1));
 %lambda=eig(A,B)
 %r=log(lambda)/dt
-%[U,P]=meshgrid(lambda,0:n-1); U=U.^P;
+%U=bsxfun(@power,lambda,0:n-1).';
 %rcond(U)
 %c=U\soi(1:n)
 %expr=exp(r);

@@ -78,8 +78,7 @@ Writing an \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) as \(\wv=(\uv,\vv)\) 
 \ifcsname r@sec:eidd\endcsname%%%%%%%%%%%%%%%%%%%%%%%%
 \item After measuring musical notes, vibrations of complicated buildings, or bio-chemical reactions, we often need to fit exponential functions to the data.
 
-\item \autoref{pro:ei} fits exponentials to data.
-Given measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=jh\) for time-spacing~\(h\).
+\item \autoref{pro:ei} fits the exponential interpolation \(c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\) to the measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=jh\) for time-spacing~\(h\).
 \begin{enumerate}
 \item From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
 \begin{eqnarray*}&&
@@ -113,7 +112,7 @@ For example, the first \(n\)~data points give the linear system
  \end{bmatrix}\begin{bmatrix} c_1\\c_2\\\vdots\\c_n \end{bmatrix}
  =\begin{bmatrix} f_1\\f_2\\f_3\\\vdots\\f_n \end{bmatrix}
 \end{equation*}
-In \script, construct the matrix~\(U\) with \index{meshgrid()@\texttt{meshgrid()}}\verb|[U,P]=meshgrid(lambda,0:n-1)| and then \verb|U=U.^P|\,.
+In \script, construct this matrix with \index{bsxfun()@\texttt{bsxfun()}}\verb|U=bsxfun(@power,lambda,0:n-1).'|.
 \end{enumerate}
 \fi%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

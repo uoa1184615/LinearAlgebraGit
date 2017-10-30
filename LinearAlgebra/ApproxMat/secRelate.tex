@@ -372,7 +372,7 @@ The \svd\ provides an effective flexible data compression.
 \begin{itemize}
 \item \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm} of \autoref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
 
-Also, and consistent with the matrix norm, recall that \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
+Also recall that (\autoref{tbl:mtlbpre}) \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
 
 %Whereas, \verb|norm(A,'fro')| computes the \idx{Frobenius norm}~\(\norm A_F\) defined such that \(\norm A_F^2=\sum_{i,j}a_{ij}^2\).
 
@@ -390,14 +390,18 @@ Similarly for \index{scatter3()@\texttt{scatter3()}}\verb|scatter3(x,y,z,[],c)| 
 \item  \index{imread()@\texttt{imread()}}\verb|imread('|filename\verb|')| typically reads an image from a file into an \(m\times n\times 3\) array of red-green-blue values. 
 The values are all `integers' in the range~\([0,255]\).
 
+\item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
+When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
+
 \item \index{mean()@\texttt{mean()}}\verb|mean(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of \idx{average}s (the arithmetic mean) over each column of~\(A\).
 
 Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the mean over the \verb|p|th~index to give an array of size \(m_1\times\cdots\times m_{p-1}\times m_{p+1}\times\cdots\times m_\ell\).
 
 \item \index{std()@\texttt{std()}}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of the \idx{standard deviation} over each column of~\(A\) (close to the root-mean-square from the mean).
 
-\item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
-When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
+\item \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun(@op,A,B)| for \(m\times n\) arrays~\(A\) and~\(B\) computes the \(m\times n\) array \(\begin{bmatrix} a_{ij}\operatorname{op}b_{ij} \end{bmatrix}\), where ``\verb|@op|'' is one of the operations~\verb|@plus|, \verb|@minus|, \verb|@times|, \verb|@rdivide|, \verb|@power|, \ldots.
+Where \verb|bsxfun()| becomes useful is that if either of the matrices is \(m\times1\) or \(1\times n\) then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
+
 
 %\item \index{double@\texttt{double}}\verb|double(a)| converts the integers (or other data-types) in array~\verb|a| into the same size array of integer-valued real numbers that we normally use.
 %\footnote{The term \emph{double} refers to the 15-digit precision of real numbers we use by default, compared to the \emph{single} precision of 7-digit real numbers used for simple purposes in, for example, graphics video cards for computers.}
@@ -1458,7 +1462,8 @@ The next example takes the next step in complexity by introducing how to automat
 
 \begin{example}[Iris flower data set] \label{eg:eaid}
 \begin{table}
-\caption{part of Edgar Anderson's Iris data, lengths in cm.  The measurements come from the flowers of ten each of three different species of Iris.}
+\caption{part of Edgar Anderson's Iris data, lengths in centimetres~(cm).  
+The measurements come from the flowers of ten each of three different species of Iris.}
 \label{tbl:eaid}
 \begin{equation*}
 \begin{array}{rrrrl}
@@ -1561,7 +1566,7 @@ The black~``+'' marks the mean sepal width and length.}
 \begin{solution} 
 Use an \svd\ to find a best low-rank view of the data.
 \begin{enumerate}
-\item Enter the \(30\times5\) matrix of Iris data into \script\  with a complete version of
+\item Enter the \(30\times5\) matrix of Iris data (\autoref{tbl:eaid}) into \script\  with a complete version of
 \begin{verbatim}
 iris=[
 4.9 3.0 1.4 0.2 1
@@ -1613,19 +1618,23 @@ scatter(iris(:,1),iris(:,2),[],iris(:,5))
 The above command \index{scatter()@\texttt{scatter()}}\verb|scatter(x,y,[],s)|  plots a scatter plot of points with colour depending upon~\verb|s| which here corresponds to each different species.
 
 \item If we were on a walk to a scenic lookout to get a view of the countryside, then the scenic lookout would be in the countryside: it is no good going to a lookout a long way away from the scene we wish to view.
-Correspondingly, to best view a dataset we typically look it at from the very centre of the data, namely its mean.
+Correspondingly, to best view a dataset we typically look it at from the very centre of the data, namely from its mean.
 That is, here we use an \svd\ of the data matrix only after subtracting the mean of each attribute.
 Then the \svd\ analyses the variations from the mean.
+
 Here the mean Iris sepal length and width is \(5.81\)\,cm and~\(3.09\)\,cm (the black~``+'' in \autoref{fig:eaid}), and the mean petal length and width is \(3.69\)\,cm and~\(1.22\)\,cm.
-In \script\ execute the following to form a matrix~\(A\) of the variations from the mean, and compute an \svd:
+The row vector of these means are computed in \script\ by \verb|mean(iris(:,1:4))|, giving \(\begin{bmatrix} 5.81&3.09&3.69&1.22 \end{bmatrix}\).
+Thus we subtract~\(5.81\)\,cm from the first column of data, \(3.09\)\,cm~from the second column, and so on.
+The \verb|bsxfun()|\index{bsxfun()@\texttt{bsxfun()}} in \script\ (\autoref{tbl:mtlbnorm}) provides a convenient method to do this subtraction as it replicates the row vector of means to suit the number of rows in the data (\autoref{tbl:eaid}).
+In \script\ execute the following to form a matrix~\(A\) of the variations from the mean, and then compute an \svd:%
+%meaniris=mean(iris(:,1:4))
+%A=iris(:,1:4)-ones(30,1)*meaniris
 \begin{verbatim}
-meaniris=mean(iris(:,1:4))
-A=iris(:,1:4)-ones(30,1)*meaniris
+A=bsxfun(@minus,iris(:,1:4),mean(iris(:,1:4)))
 [U,S,V]=svd(A)
 \end{verbatim}
 \setbox\ajrqrbox\hbox{\qrcode{% view Iris
-meaniris=mean(iris(:,1:4))
-A=iris(:,1:4)-ones(30,1)*meaniris
+A=bsxfun(@minus,iris(:,1:4),mean(iris(:,1:4)))
 [U,S,V]=svd(A)
 scatter(A*V(:,1),A*V(:,2),[],iris(:,5))
 }}%
@@ -1716,6 +1725,7 @@ The reason for this mathematical transposition is that throughout science and en
 \autoref{tbl:eaid} has this most common structure.
 Thus in this sort of application, the mathematics we do needs to reflect this most common structure.
 Hence many vectors in this subsection appear as row vectors.
+When they do appear, they are called row vectors: the term vector on its own still means a column vector.
 
 
 
@@ -1803,13 +1813,15 @@ wine=csvread('wine.data')
 [m,n]=size(wine)
 scatter(wine(:,2),wine(:,3),[],wine(:,1))
 \end{verbatim}
+%meanw=mean(wine(:,2:14))
+%stdw=std(wine(:,2:14))
+%A=(wine(:,2:14)-ones(m,1)*meanw)*diag(1./stdw);
 \setbox\ajrqrbox\hbox{\qrcode{% view wine
 wine=csvread('wine.data')
 [m,n]=size(wine)
 scatter(wine(:,2),wine(:,3),[],wine(:,1))
-meanw=mean(wine(:,2:14))
-stdw=std(wine(:,2:14))
-A=(wine(:,2:14)-ones(m,1)*meanw)*diag(1./stdw);
+A=bsxfun(@minus,wine(:,2:14),mean(wine(:,2:14)));
+A=bsxfun(@rdivide,A,std(A));
 [U,S,V]=svds(A,4)
 scatter(A*V(:,1),A*V(:,2),[],wine(:,1))
 }}%
@@ -1824,33 +1836,34 @@ Our aim is to automatically draw \autoref{fig:winepca} in which the three cultiv
 \end{figure}
 
 
-\item To find the principal components of the wine chemicals it is best to remove the mean with
+\item To find the principal components of the wine chemicals it is best to subtract the mean.
+In \script, recall that \index{mean()@\texttt{mean()}}\verb|mean(X)| computes the row vector of the \idx{mean}\slash \idx{average} of each column of~\verb|X| (\autoref{tbl:mtlbnorm}).
+Then \verb|bsxfun()|\index{bsxfun()@\texttt{bsxfun()}} (\autoref{tbl:mtlbnorm}) provides a convenient method to do this subtraction as it replicates the row vector of means to suit the number of rows in the data: thus invoke
 \begin{verbatim}
-meanw=mean(wine(:,2:14))
-A=wine(:,2:14)-ones(m,1)*meanw;
+A=bsxfun(@minus,wine(:,2:14),mean(wine(:,2:14)));
 \end{verbatim}
-where the \index{mean()@\texttt{mean()}}\verb|mean(X)| computes the \idx{mean}\slash \idx{average} of each column of~\verb|X|.
 
 But now a further issue arises: the values in the columns are of widely different magnitudes; moreover, each column has different physical units (in contrast, the Iris flower measurements were all cm).
 In practice we \emph{must not} mix together quantities with different physical units. 
-The general rule, after making each column zero mean, is to \index{data scaling}scale each column by dividing by its \idx{standard deviation},  equivalently by its root-mean-square.
+The general rule, after making each column zero mean, is to \index{data scaling}scale each column by dividing by its \idx{standard deviation}, equivalently by its root-mean-square.
 This scaling does two practically useful things: 
 \begin{itemize}
 \item since the standard deviation measures the spread of data in a column, it has the same physical units as the column of data, so dividing by it renders the results dimensionless, and so suitable for mixing with other scaled columns;
 \item also the spread of data in each column is now comparable to each other, namely around about size one, instead of some columns being of the order of one-tenths and other columns being in the hundreds.
 \end{itemize}
-Consequently, form the \(178\times13\) matrix to analyse by commands
+In \script\ (\autoref{tbl:mtlbnorm}), \index{std()@\texttt{std()}}\verb|std(X)| computes the row vector of the \idx{standard deviation} of each column of~\verb|X|.
+Then the function \verb|bsxfun()|\index{bsxfun()@\texttt{bsxfun()}}  provides a convenient method to do the division by these standard deviations as it replicates the row vector to suit the number of rows in the data.
+Consequently, form the \(178\times13\) matrix to analyse by the commands
 \begin{verbatim}
-meanw=mean(wine(:,2:14))
-stdw=std(wine(:,2:14))
-A=(wine(:,2:14)-ones(m,1)*meanw)*diag(1./stdw);
+A=bsxfun(@minus,wine(:,2:14),mean(wine(:,2:14)));
+A=bsxfun(@rdivide,A,std(A));
 \end{verbatim}
-where the \index{std()@\texttt{std()}}\verb|std(X)| computes the \idx{standard deviation} of each column of~\verb|X|.
 
 \item Now compute and use an \svd\ \(A=\usv\).
 But for low rank approximations we only ever use the first few singular values and first few singular vectors.
-Thus it is pointless computing a full \svd\ which here has \(178\times178\) matrix~\(U\) and \(13\times13\) matrix~\(V\).\footnote{Yes, on modern computers this is here done within a millisecond.  But for modern datasets with thousands to billions of rows a full \svd\ is infeasible so let's see how to analyse such modern large datasets.}
-Consequently, use \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,4)| to economically compute only the first four singular values and singular vectors (change the four to suit your purpose) to find \twodp
+Thus it is pointless computing a full \svd\ which here has \(178\times178\) matrix~\(U\) and \(13\times13\) matrix~\(V\).\footnote{Yes, on modern computers this is here done within a millisecond.  
+But for modern datasets with thousands to billions of rows a full \svd\ is infeasible so let's see how to analyse such modern large datasets.}
+Consequently, use \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,4)| to economically compute only the first four singular values and singular vectors (change the number four to suit your purpose) to find \twodp
 \begin{verbatim}
 U = ...
 S =
@@ -1906,7 +1919,13 @@ Consider the case when you have data values consisting of \(n\)~attributes for e
 \item usually make each column have zero mean by subtracting its mean~\(\bar b_j\), algebraically \(\av_j=\bv_j-\bar b_j\)\,;
 \item but ensure each column has the same `physical dimensions', often by dividing by the \idx{standard deviation}~\(s_j\) of each column, algebraically \(\av_j=(\bv_j-\bar b_j)/s_j\)\,.
 \end{enumerate}
-Compute \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| in \script.
+Compute in \script\ with\index{bsxfun()@\texttt{bsxfun()}}
+{\small
+\begin{verbatim}
+A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B))
+\end{verbatim}
+}
+
 \item  Economically compute an \svd\ for the best rank~\(k\) approximation to the scaled data matrix with \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)|.
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
 \end{enumerate}
@@ -1918,6 +1937,7 @@ Compute \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| in \script.
 Courses on multivariate statistics prove that, for every (usually zero mean) data matrix~\(A\), the first~\(k\) principal vectors \hlist\vv k\ are orthogonal unit vectors that \emph{maximise the total \idx{variance}} in the principal components \(\xv_j=A\vv_j\)\,; that is, that maximise \(|\xv_1|^2+|\xv_2|^2+\cdots+|\xv_k|^2\).
 Indeed, this maximisation of the variance corresponds closely to the constructive proof of the existence of \svd{}s (\autoref{sec:psvdt}) which successively maximises~\(|A\vv|\) subject to~\vv\ being orthonormal to the singular\slash principal vectors already determined.
 Consequently, when data is approximated in the space of the first~\(k\) principal vectors, then the data is the most spread out it can be in \(k\)-dimensions.
+When the data is most spread out in~\(k\)D, then (roughly) it retains the most information possible in~\(k\)D.
 
 
 \index{principal vector|)}
@@ -1968,7 +1988,7 @@ Ignoring pluralisation, they are:
 Application, Introduction, Method, System, Theory.
 The corresponding \idx{word vector} for each book title is then the following:
 \begin{itemize}
-\item \(\wv_1=(0,1,1,0,0)\) \emph{Introduction} to Finite and Spectral Element \emph{Method}s using \textsc{matlab}
+\item \(\wv_1=(0,1,1,0,0)\) \emph{Introduction} to Finite and Spectral Element \emph{Method}s using \textsc{Matlab}
 \item \(\wv_2=(1,0,1,1,1)\) Iterative \emph{Method}s for Linear \emph{System}s: \emph{Theory} and \emph{Application}s 
 \item \(\wv_3=(1,1,1,1,0)\) Singular Perturbations: \emph{Introduction} to \emph{System} Order Reduction \emph{Method}s with \emph{Application}s 
 \item \(\wv_4=(0,0,1,0,0)\) Risk and Portfolio Analysis: Principles and \emph{Method}s 
@@ -2053,7 +2073,7 @@ We plot the six books on a 2D~plane with the \script\ command
 scatter(A*V(:,1),A*V(:,2),[],1:6)
 \end{verbatim}
 to produce a picture like that in the margin.
-The \svd\ analysis nicely distributes the books in this plane.
+The \svd\ analysis nicely distributes the six books in this plane.
 \end{enumerate}
 
 The above procedure would approximate the original word vector data, formed into a matrix, by the following rank two matrix \twodp
@@ -2078,7 +2098,7 @@ However, we know that the 2D~view just plotted is the `best' 2D~summary of the b
 \begin{example} \label{eg:}
 What is the `angle' between the first two listed books?
 \begin{itemize}
-\item Introduction to Finite and Spectral Element Methods using \textsc{matlab}
+\item Introduction to Finite and Spectral Element Methods using \textsc{Matlab}
 \item Iterative Methods for Linear Systems: Theory and Applications 
 \end{itemize}
 \begin{solution} 
@@ -2423,7 +2443,7 @@ Follow up \autoref{eg:orthbapp} on the \textsc{soi} to introduce the use of sing
 
 
 
-\subsection{Exercises}
+\sectionExercises
 
 
 \begin{exercise} \label{ex:} 

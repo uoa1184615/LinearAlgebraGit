@@ -59,7 +59,7 @@ A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix},
 \end{equation*}
 as matrix multiplication confirms.
 
-\item The \(2\times2\) non-symmetric matrix of \autoref{eg:ccevals} is invertible because zero is not among its eigenvalues of \(\lambda=\pm i\)\,.
+\item The \(2\times2\) non-symmetric matrix of \autoref{eg:ccevals} is invertible because zero is not among its eigenvalues of \(\lambda=\pm \i\)\,.
 Indeed, the matrix
 \begin{equation*}
 A=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix},
@@ -76,13 +76,13 @@ as matrix multiplication confirms.
 The next theorem considers eigenvalues and eigenvectors of powers of a matrix.  
 Two examples are the following.
 \begin{itemize}
-\item Recall the matrix \(A=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\) has eigenvalues \(\lambda=\pm i\)\,.  The square of this matrix
+\item Recall the matrix \(A=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\) has eigenvalues \(\lambda=\pm \i\)\,.  The square of this matrix
 \begin{equation*}
 A^2=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}
 =\begin{bmatrix} -1&0\\0&-1 \end{bmatrix}
 \end{equation*}
 is diagonal so its eigenvalues are the diagonal elements (\autoref{eg:eigndiag}), namely the only eigenvalue is~\(-1\).
-Observe that \(A^2\)s eigenvalue, \(-1=(\pm i)^2\), is the square of the eigenvalues of~\(A\).
+Observe that \(A^2\)s eigenvalue, \(-1=(\pm \i)^2\), is the square of the eigenvalues of~\(A\).
 That the eigenvalues of~\(A^2\) are the square of those of~\(A\) holds generally.
 
 \item Also recall matrix 
@@ -275,14 +275,14 @@ By hand (\autoref{pro:eeh}), the characteristic equation of~\(L\) is
 \\&=&\lambda^2(\tfrac13-\lambda)+0+\tfrac23-0-0-0
 \\&=&(1-\lambda)(\lambda^2 +\tfrac23\lambda+\tfrac23)
 \\&=&(1-\lambda)\big[(\lambda+\tfrac13)^2+\tfrac59\big]=0
-\\\implies&&\lambda=1,(-1\pm i\sqrt5)/3\,.
+\\\implies&&\lambda=1,(-1\pm \i\sqrt5)/3\,.
 \end{eqnarray*}
 Such complex valued eigenvalues may arise in real applications when the matrix is not symmetric, as here---the next \autoref{thm:realeigsym} proves such complexities do not arise for symmetric matrices.
 
 But the algebra still works with \idx{complex eigenvalue}s (\autoref{ch:gee}).
-Here, the eigenvalues of~\(L^n\) are~\(\lambda^n\) (\autoref{thm:ematpow}) namely \(1^n=1\) for all~\(n\) and \([(-1\pm i\sqrt5)/3]^n\).
-Because the absolute value \(|(-1\pm i\sqrt5)/3|
-=|-1\pm i\sqrt5|/3=\sqrt{1+5}/3=\sqrt{6}/3=\sqrt{2/3}=0.8165\), then the absolute value of \([(-1\pm i\sqrt5)/3]^n\) is~\(0.8165^n\) which becomes negligibly small for large~\(n\); for example, \(0.8165^{34}\approx 0.001\).
+Here, the eigenvalues of~\(L^n\) are~\(\lambda^n\) (\autoref{thm:ematpow}) namely \(1^n=1\) for all~\(n\) and \([(-1\pm \i\sqrt5)/3]^n\).
+Because the absolute value \(|(-1\pm \i\sqrt5)/3|
+=|-1\pm \i\sqrt5|/3=\sqrt{1+5}/3=\sqrt{6}/3=\sqrt{2/3}=0.8165\), then the absolute value of \([(-1\pm \i\sqrt5)/3]^n\) is~\(0.8165^n\) which becomes negligibly small for large~\(n\); for example, \(0.8165^{34}\approx 0.001\).
 Since the eigenvectors of~\(L^n\) are the same as those of~\(L\) (\autoref{thm:ematpow}), these negligibly small eigenvalues of~\(L^n\) imply that any component in the initial population in the direction of the corresponding eigenvectors is shrunk to zero by~\(L^n\).
 For large~\(n\), it is only the component in the eigenvector corresponding to eigenvalue \(\lambda=1\) that remains.
 Find the eigenvector by solving \((L-I)\xv=\ov\), namely
@@ -360,15 +360,15 @@ Consequently, the eigenvalue~\(\lambda\) must be real---it cannot be complex.
 Lastly confirm \(\tr\xv\bar\xv\neq0\)\,.  
 The nonzero eigenvector~\xv\ will be generally complex, say 
 \begin{eqnarray*}
-&&\xv=(a_1+b_1i,a_2+b_2i,\ldots,a_n+b_ni)
-\\&\implies&\bar\xv=(a_1-b_1i,a_2-b_2i,\ldots,a_n-b_ni).
+&&\xv=(a_1+b_1\i,a_2+b_2\i,\ldots,a_n+b_ni)
+\\&\implies&\bar\xv=(a_1-b_1\i,a_2-b_2\i,\ldots,a_n-b_ni).
 \end{eqnarray*}
 Then the product
 \begin{eqnarray*}
 \tr\xv\bar\xv&=&
-\begin{bmatrix} a_1+b_1i&a_2+b_2i&\cdots&a_n+b_ni \end{bmatrix}
-\begin{bmatrix} a_1-b_1i\\a_2-b_2i\\\vdots\\a_n-b_ni \end{bmatrix}
-\\&=&(a_1+b_1i)(a_1-b_1i)+(a_2+b_2i)(a_2-b_2i)
+\begin{bmatrix} a_1+b_1\i&a_2+b_2\i&\cdots&a_n+b_ni \end{bmatrix}
+\begin{bmatrix} a_1-b_1\i\\a_2-b_2\i\\\vdots\\a_n-b_ni \end{bmatrix}
+\\&=&(a_1+b_1\i)(a_1-b_1\i)+(a_2+b_2\i)(a_2-b_2\i)
 \\&&{}+\cdots+(a_n+b_ni)(a_n-b_ni)
 \\&=&(a_1^2+b_1^2)+(a_2^2+b_2^2)+\cdots+(a_n^2+b_n^2)
 \\&>&0
@@ -1478,7 +1478,7 @@ See \verb|multiDscaling.m|
 
 
 
-\subsection{Exercises}
+\sectionExercises
 
 
 \begin{exercise} \label{ex:} 

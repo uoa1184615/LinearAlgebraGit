@@ -593,7 +593,7 @@ Find eigenvalues via the characteristic polynomial
 \\6&-15&-16-\lambda \end{vmatrix}
 \\&=&-\lambda(22-\lambda)(-16-\lambda)+5\cdot24\cdot6+6(-8)(-15)
 \\&&{}-6(22-\lambda)6+\lambda24(-15)-5(-8)(-16-\lambda)
-\\&=&\cdots
+\\&\vdots&
 \\&=&-\lambda^3+6\lambda^2-12\lambda+8
 \\&=&-(\lambda-2)^3.
 \end{eqnarray*}
@@ -1163,35 +1163,35 @@ Here the characteristic polynomial of~\(A\) is
 \det(A-\lambda I)=\det\begin{bmatrix} -\lambda&1\\-4&-\lambda \end{bmatrix}
 =\lambda^2+4\,.
 \end{equation*}
-This determinant is only zero for \(\lambda^2=-4\), that is, \(\lambda=\pm2i\) (where \(i=\sqrt{-1}\))---a pair of complex conjugate eigenvalues.
+This determinant is only zero for \(\lambda^2=-4\), that is, \(\lambda=\pm2\i\) (where \(\i=\sqrt{-1}\))---a pair of complex conjugate eigenvalues.
 \begin{itemize}
-\item For eigenvalue \(\lambda=+2i\) the corresponding eigenvectors~\(\pv\) satisfy
+\item For eigenvalue \(\lambda=+2\i\) the corresponding eigenvectors~\(\pv\) satisfy
 \begin{equation*}
-(A-\lambda I)\pv=\begin{bmatrix} -2i&1\\-4&-2i \end{bmatrix}\pv
+(A-\lambda I)\pv=\begin{bmatrix} -2\i&1\\-4&-2\i \end{bmatrix}\pv
 =\ov.
 \end{equation*}
-The second row of this matrix is \(-2i\)~times the first row so we just need to satisfy the first row equation \(\begin{bmatrix} -2i&1 \end{bmatrix}\pv=0\)\,.
+The second row of this matrix is \(-2\i\)~times the first row so we just need to satisfy the first row equation \(\begin{bmatrix} -2\i&1 \end{bmatrix}\pv=0\)\,.
 This equation is \(-2ip_1+p_2=0\), that is, \(p_2=2ip_1\).
-Hence all eigenvectors are of the form \(\pv=(1,2i)p_1\)\,.
-Choose any one, say \(\pv=(1,2i)\).
+Hence all eigenvectors are of the form \(\pv=(1,2\i)p_1\)\,.
+Choose any one, say \(\pv=(1,2\i)\).
 
-\item Similarly, for eigenvalue \(\lambda=-2i\) the corresponding eigenvectors~\(\pv\) satisfy
+\item Similarly, for eigenvalue \(\lambda=-2\i\) the corresponding eigenvectors~\(\pv\) satisfy
 \begin{equation*}
-(A-\lambda I)\pv=\begin{bmatrix} 2i&1\\-4&2i \end{bmatrix}\pv
+(A-\lambda I)\pv=\begin{bmatrix} 2\i&1\\-4&2\i \end{bmatrix}\pv
 =\ov.
 \end{equation*}
-The second row of this matrix is \(2i\)~times the first row so we just need to satisfy the first row equation \(\begin{bmatrix} 2i&1 \end{bmatrix}\pv=0\)\,.
+The second row of this matrix is \(2\i\)~times the first row so we just need to satisfy the first row equation \(\begin{bmatrix} 2\i&1 \end{bmatrix}\pv=0\)\,.
 This equation is \(2ip_1+p_2=0\), that is, \(p_2=-2ip_1\).
-Hence all eigenvectors are of the form \(\pv=(1,-2i)p_1\)\,.
-Choose any one, say \(\pv=(1,-2i)\).
+Hence all eigenvectors are of the form \(\pv=(1,-2\i)p_1\)\,.
+Choose any one, say \(\pv=(1,-2\i)\).
 \end{itemize}
 With these two distinct eigenvalues, corresponding eigenvectors are linearly independent, and so \autoref{thm:ddtsol} gives a general solution of the differential equations as
 \begin{equation*}
 \begin{bmatrix} y\\z \end{bmatrix}
-=c_1\begin{bmatrix} 1\\2i \end{bmatrix}e^{i2t}
-+c_2\begin{bmatrix} 1\\-2i \end{bmatrix}e^{-i2t}.
+=c_1\begin{bmatrix} 1\\2\i \end{bmatrix}e^{\i2t}
++c_2\begin{bmatrix} 1\\-2\i \end{bmatrix}e^{-\i2t}.
 \end{equation*}
-That is, \(y(t)=c_1e^{i2t}+c_2e^{-i2t}\) and \(z(t)=2ic_1e^{i2t}-2ic_2e^{-i2t}\) for every constants~\(c_1\) and~\(c_2\).
+That is, \(y(t)=c_1e^{\i2t}+c_2e^{-\i2t}\) and \(z(t)=2\i c_1e^{\i2t}-2\i c_2e^{-\i2t}\) for every constants~\(c_1\) and~\(c_2\).
 These formulas answer the exercise.
 The next examples show that because of the complex exponentials, this solution describes oscillations in time~\(t\).
 \end{solution}
@@ -1205,22 +1205,22 @@ Further consider \autoref{eg:decis2t}.
 Suppose we additionally know that \(y(0)=3\) and \(z(0)=0\)\,.  
 Find the \idx{particular solution} that satisfies these two \idx{initial condition}s.
 \begin{solution} 
-Use the derived general solution that \(y(t)=c_1e^{i2t}+c_2e^{-i2t}\) and \(z(t)=2ic_1e^{i2t}-2ic_2e^{-i2t}\).
+Use the derived general solution that \(y(t)=c_1e^{\i2t}+c_2e^{-\i2t}\) and \(z(t)=2\i c_1e^{\i2t}-2\i c_2e^{-\i2t}\).
 We find the constants~\(c_1\) and~\(c_2\) so that these satisfy the  conditions \(y(0)=3\) and \(z(0)=0\)\,.
 Substitute \(t=0\) into the general solution to require, using \(e^0=1\)\,,
 \begin{eqnarray*}
-&&y(0)=3=c_1e^{i2\cdot0}+c_2e^{-i2\cdot0}=c_1+c_2\,,
-\\&&z(0)=0=2ic_1e^{i2\cdot0}-2ic_2e^{-i2\cdot0}=2ic_1-2ic_2\,,
+&&y(0)=3=c_1e^{\i2\cdot0}+c_2e^{-\i2\cdot0}=c_1+c_2\,,
+\\&&z(0)=0=2\i c_1e^{\i2\cdot0}-2\i c_2e^{-\i2\cdot0}=2\i c_1-2\i c_2\,,
 \end{eqnarray*}
-The second of these equations requires \(2ic_1=2ic_2\)\,, that is, \(c_1=c_2\)\,.
+The second of these equations requires \(2\i c_1=2\i c_2\)\,, that is, \(c_1=c_2\)\,.
 The first, \(c_1+c_2=3\)\,, then requires that \(2c_1=3\)\,, that is, \(c_1=3/2\) and so \(c_2=3/2\)\,.
 Hence the particular solution is
 \begin{equation*}
-y(t)=\frac32e^{i2t}+\frac32e^{-i2t} 
+y(t)=\frac32e^{\i2t}+\frac32e^{-\i2t} 
 \quad\text{and}\quad
-z(t)=3ie^{i2t}-3ie^{-i2t}.
+z(t)=3ie^{\i2t}-3ie^{-\i2t}.
 \end{equation*}
-But recall \idx{Euler's formula} that \(e^{i\theta}=\cos\theta+i\sin\theta\) for any~\(\theta\).
+But recall \idx{Euler's formula} that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for any~\(\theta\).
 Invoking Euler's formula the above particular solution simplifies:
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
@@ -1233,11 +1233,11 @@ Invoking Euler's formula the above particular solution simplifies:
 \end{axis}
 \end{tikzpicture}}%
 \begin{eqnarray*}
-y(t)&=&\frac32[\cos2t+i\sin2t]+\frac32[\cos(-2t)+i\sin(-2t)]
-\\&=&\frac32\cos2t+\frac32i\sin2t+\frac32\cos2t-\frac32i\sin2t
+y(t)&=&\frac32[\cos2t+\i\sin2t]+\frac32[\cos(-2t)+\i\sin(-2t)]
+\\&=&\frac32\cos2t+\frac32\i\sin2t+\frac32\cos2t-\frac32\i\sin2t
 \\&=&3\cos2t\,,
-\\z(t)&=&3i[\cos2t+i\sin2t]-3i[\cos(-2t)+i\sin(-2t)]
-\\&=&3i\cos2t-3\sin2t-3i\cos2t-3\sin2t
+\\z(t)&=&3\i[\cos2t+\i\sin2t]-3\i[\cos(-2t)+\i\sin(-2t)]
+\\&=&3\i\cos2t-3\sin2t-3\i\cos2t-3\sin2t
 \\&=&-6\sin2t\,.
 \end{eqnarray*}
 Because \(y(t)\) and~\(z(t)\) are just trigonometric functions of~\(t\), they oscillate in time~\(t\), as illustrated in the margin.
@@ -1249,35 +1249,35 @@ Because \(y(t)\) and~\(z(t)\) are just trigonometric functions of~\(t\), they os
 \begin{example} \label{eg:realcis}
 In a real application the complex numbers of the general solution to \autoref{eg:decis2t} are usually inconvenient.  
 Instead we often express the solution solely in terms of real quantities as just done in the previous \autoref{eg:decis2tb}.
-Use \idx{Euler's formula}, that \(e^{i\theta}=\cos\theta+i\sin\theta\) for any~\(\theta\), to rewrite the general solution of \autoref{eg:decis2t} in terms of real functions.
+Use \idx{Euler's formula}, that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for any~\(\theta\), to rewrite the general solution of \autoref{eg:decis2t} in terms of real functions.
 \begin{solution}
 Here use Euler's formula in the expression for
 \begin{eqnarray*}
-y(t)&=&c_1e^{i2t}+c_2e^{-i2t}
-\\&=&c_1[\cos 2t+i\sin2t]+c_2[\cos(-2t)+i\sin(-2t)]
-\\&=&c_1\cos2t+ic_1\sin2t +c_2\cos2t-ic_2\sin2t
-\\&=&(c_1+c_2)\cos2t +(ic_1-ic_2)\sin2t
+y(t)&=&c_1e^{\i2t}+c_2e^{-\i2t}
+\\&=&c_1[\cos 2t+\i\sin2t]+c_2[\cos(-2t)+\i\sin(-2t)]
+\\&=&c_1\cos2t+\i c_1\sin2t +c_2\cos2t-\i c_2\sin2t
+\\&=&(c_1+c_2)\cos2t +(\i c_1-\i c_2)\sin2t
 \\&=&C_1\cos2t+C_2\sin2t
 \end{eqnarray*}
-for constants \(C_1=c_1+c_2\) and \(C_2=i(c_1-c_2)\).
+for constants \(C_1=c_1+c_2\) and \(C_2=\i(c_1-c_2)\).
 Let's view the arbitrariness in~\(c_1\) and~\(c_2\) as being `transferred' to~\(C_1\) and~\(C_2\), then \(y(t)=C_1\cos2t+C_2\sin2t\) is a general solution to the differential equations, and is expressed purely in real factors.
 In such a real form we explicitly see the oscillations in time~\(t\) through the trigonometric functions \(\cos 2t\) and~\(\sin2t\)\,.
 
-The function \(z(t)=2ic_1e^{i2t}-2ic_2e^{-i2t}\) has a corresponding form found by replacing~\(c_1\) and~\(c_2\) in terms of the same~\(C_1\) and~\(C_2\).
-From above, the constants \(C_1=c_1+c_2\) and \(C_2=i(c_1-c_2)\).
-Adding the first to \(\pm i\)~times the second determines \(C_1-iC_2=2c_1\) and \(C_1+iC_2=2c_2\)\,, so that \(c_1=(C_1-iC_2)/2\) and \(c_2=(C_1+iC_2)/2\)\,.  
+The function \(z(t)=2\i c_1e^{\i2t}-2\i c_2e^{-\i2t}\) has a corresponding form found by replacing~\(c_1\) and~\(c_2\) in terms of the same~\(C_1\) and~\(C_2\).
+From above, the constants \(C_1=c_1+c_2\) and \(C_2=\i(c_1-c_2)\).
+Adding the first to \(\pm \i\)~times the second determines \(C_1-\i C_2=2c_1\) and \(C_1+\i C_2=2c_2\)\,, so that \(c_1=(C_1-\i C_2)/2\) and \(c_2=(C_1+\i C_2)/2\)\,.  
 Then the expression for
 \begin{eqnarray*}
-z(t)&=&2ic_1e^{i2t}-2ic_2e^{-i2t}
-\\&=&2i\frac{C_1-iC_2}2[\cos2t+i\sin2t]
+z(t)&=&2\i c_1e^{\i2t}-2\i c_2e^{-\i2t}
+\\&=&2\i\frac{C_1-\i C_2}2[\cos2t+\i\sin2t]
 \\&&{}
--2i\frac{C_1+iC_2}2[\cos2t-i\sin2t]
-\\&=&(iC_1+C_2)[\cos2t+i\sin2t]
+-2\i\frac{C_1+\i C_2}2[\cos2t-\i\sin2t]
+\\&=&(\i C_1+C_2)[\cos2t+\i\sin2t]
 \\&&{}
-+(-iC_1+C_2)[\cos2t-i\sin2t]
-\\&=&iC_1\cos2t-C_1\sin2t+C_2\cos2t+iC_2\sin2t
++(-\i C_1+C_2)[\cos2t-\i\sin2t]
+\\&=&\i C_1\cos2t-C_1\sin2t+C_2\cos2t+\i C_2\sin2t
 \\&&{}
--iC_1\cos2t-C_1\sin2t+C_2\cos2t-iC_2\sin2t
+-\i C_1\cos2t-C_1\sin2t+C_2\cos2t-\i C_2\sin2t
 \\&=&-2C_1\sin2t+2C_2\cos2t\,.
 \end{eqnarray*}
 That is, the corresponding general solution \(z(t)=-2C_1\sin2t+2C_2\cos2t\) is now also expressed in real factors.
@@ -1332,39 +1332,39 @@ Write these two differential equations together as a matrix-vector system:
 \det\begin{bmatrix} -\lambda&1\\-\frac km&-\lambda \end{bmatrix}
 =\lambda^2+\frac km\,.
 \end{equation*}
-This polynomial is zero only when the eigenvalues \(\lambda=\pm\sqrt{-k/m}=\pm i\sqrt{k/m}\)\,: these are a complex conjugate pair of pure imaginary eigenvalues.
+This polynomial is zero only when the eigenvalues \(\lambda=\pm\sqrt{-k/m}=\pm \i\sqrt{k/m}\)\,: these are a complex conjugate pair of pure imaginary eigenvalues.
 
 \item  The corresponding eigenvectors~\pv\ satisfy
 \begin{equation*}
-\begin{bmatrix} \mp i\sqrt{k/m}&1\\- k/m&\mp i\sqrt{k/m} \end{bmatrix}
+\begin{bmatrix} \mp \i\sqrt{k/m}&1\\- k/m&\mp \i\sqrt{k/m} \end{bmatrix}
 \pv=\ov.
 \end{equation*}
-The two rows of this equation are satisfied by the corresponding eigenvectors \(\pv\propto (1,\pm i\sqrt{k/m})\).
+The two rows of this equation are satisfied by the corresponding eigenvectors \(\pv\propto (1,\pm \i\sqrt{k/m})\).
 \end{itemize}
 Then a general solution to the system of differential equations is
 \begin{equation*}
 \begin{bmatrix} x\\v \end{bmatrix}
-=c_1\begin{bmatrix} 1\\i\sqrt{k/m} \end{bmatrix}e^{i\sqrt{k/m}t}
-+c_2\begin{bmatrix} 1\\-i\sqrt{k/m} \end{bmatrix}e^{-i\sqrt{k/m}t}.
+=c_1\begin{bmatrix} 1\\\i\sqrt{k/m} \end{bmatrix}e^{\i\sqrt{k/m}t}
++c_2\begin{bmatrix} 1\\-\i\sqrt{k/m} \end{bmatrix}e^{-\i\sqrt{k/m}t}.
 \end{equation*}
 This formula shows that the mass on the spring generally oscillates as the complex exponentials are oscillatory.
 
 However, in real applications we usually prefer a real algebraic expression.
-Just as in \autoref{eg:realcis}, we make the above formula real by changing from (complex) arbitrary constants~\(c_1\) and~\(c_2\) to new (real) arbitrary constants~\(C_1\) and~\(C_2\) where \(c_1=(C_1-iC_2)/2\) and \(c_2=(C_1+iC_2)/2\).
+Just as in \autoref{eg:realcis}, we make the above formula real by changing from (complex) arbitrary constants~\(c_1\) and~\(c_2\) to new (real) arbitrary constants~\(C_1\) and~\(C_2\) where \(c_1=(C_1-\i C_2)/2\) and \(c_2=(C_1+\i C_2)/2\).
 Substitute these relations into the above general solution, and using Euler's formula, gives the position
 \begin{eqnarray*}
-x(t)&=&c_1e^{i\sqrt{k/m}t}+c_2e^{-i\sqrt{k/m}t}
-\\&=&\frac{C_1-iC_2}2\big[\cos(\sqrt{k/m}t)+i\sin(\sqrt{k/m}t)\big]
+x(t)&=&c_1e^{\i\sqrt{k/m}t}+c_2e^{-\i\sqrt{k/m}t}
+\\&=&\frac{C_1-\i C_2}2\big[\cos(\sqrt{k/m}t)+\i\sin(\sqrt{k/m}t)\big]
 \\&&{}
-+\frac{C_1+iC_2}2\big[\cos(\sqrt{k/m}t)-i\sin(\sqrt{k/m}t)\big]
++\frac{C_1+\i C_2}2\big[\cos(\sqrt{k/m}t)-\i\sin(\sqrt{k/m}t)\big]
 \\&=&
-\frac{C_1}2\cos(\sqrt{k/m}t)+i\frac{C_1}2\sin(\sqrt{k/m}t)
+\frac{C_1}2\cos(\sqrt{k/m}t)+\i\frac{C_1}2\sin(\sqrt{k/m}t)
 \\&&{}
--i\frac{C_2}2\cos(\sqrt{k/m}t)+\frac{C_2}2\sin(\sqrt{k/m}t)
+-\i\frac{C_2}2\cos(\sqrt{k/m}t)+\frac{C_2}2\sin(\sqrt{k/m}t)
 \\&&{}
-+\frac{C_1}2\cos(\sqrt{k/m}t)-i\frac{C_1}2\sin(\sqrt{k/m}t)
++\frac{C_1}2\cos(\sqrt{k/m}t)-\i\frac{C_1}2\sin(\sqrt{k/m}t)
 \\&&{}
-+i\frac{C_2}2\cos(\sqrt{k/m}t)+\frac{C_2}2\sin(\sqrt{k/m}t)
++\i\frac{C_2}2\cos(\sqrt{k/m}t)+\frac{C_2}2\sin(\sqrt{k/m}t)
 \\&=&C_1\cos(\sqrt{k/m}t)+C_2\sin(\sqrt{k/m}t).
 \end{eqnarray*}
 For all values of the arbitrary constants~\(C_1\) and~\(C_2\), this formula describes the position~\(x(t)\) of the mass as purely real oscillations in time.
@@ -1402,7 +1402,7 @@ Possibly something on {Emergent quasi-stationary dynamics of metastable states} 
 
 
 
-\subsection{Exercises}
+\sectionExercises
 
 
 \begin{exercise} \label{ex:whichp} 
@@ -1705,7 +1705,7 @@ A=[-208 420 -518 82 264
  -171 348 -428 66 218
  -703 1431 -1760 279 896]
 }}\marginpar{\usebox{\ajrqrbox}}%
-\answer{\(\lambda=-1\pm i\) once each, \(\dim\EE_{-1\pm i}=1\); \(\lambda=-2\) thrice, \(\dim\EE_{-2}=2\)}
+\answer{\(\lambda=-1\pm \i\) once each, \(\dim\EE_{-1\pm \i}=1\); \(\lambda=-2\) thrice, \(\dim\EE_{-2}=2\)}
 
 \end{enumerate}
 \end{exercise}
@@ -1852,8 +1852,8 @@ A=[ 1.0 29.4 -3.2 -12.9
 \answer{\twodp\ \(\xv
 =c_1(-0.63,0.32,0.32,0.63)e^{0.8t} 
 +c_2(0.8,0.27,0,0.53)e^{2.2t} 
-+c_3(0.76,0,-0.49-0.4i,0.091+0.12i)e^{(1.5-0.4i)t} 
-+c_4(0.76,0,-0.49+0.4i,0.091-0.12i)e^{(1.5+0.4i)t}\)}
++c_3(0.76,0,-0.49-0.4\i,0.091+0.12\i)e^{(1.5-0.4\i)t} 
++c_4(0.76,0,-0.49+0.4\i,0.091-0.12\i)e^{(1.5+0.4\i)t}\)}
 
 \item \(\begin{array}{l}
 \D t{x_1}= -50.2x_1 -39.5x_2 -20.2x_3 +68.9x_4\,,\\
@@ -1868,8 +1868,8 @@ A=[-50.2 -39.5 -20.2 68.9
  -6.4 -4.6 -1.4 9 ]
 }}\marginpar{\usebox{\ajrqrbox}}%
 \answer{\twodp\ \(\xv
-=c_1(-0.78,0.38+0.3i,0.095+0.076i,-0.32+0.21i)e^{(0.1-1.1i)t} 
-+c_2(-0.78,0.38-0.3i,0.095-0.076i,-0.32-0.21i)e^{(0.1+1.1i)t} 
+=c_1(-0.78,0.38+0.3\i,0.095+0.076\i,-0.32+0.21\i)e^{(0.1-1.1\i)t} 
++c_2(-0.78,0.38-0.3\i,0.095-0.076\i,-0.32-0.21\i)e^{(0.1+1.1\i)t} 
 +c_3(0,-0.87,0.22,-0.44)e^{0.5t} 
 +c_4(-0.5,-0.5,0.5,-0.5)e^{-0.6t}\)}
 
@@ -1882,7 +1882,7 @@ A=[-50.2 -39.5 -20.2 68.9
 
 \begin{exercise} \label{ex:sprmas} 
 Recall the general complex solution that \autoref{eg:sprmas} derives for the oscillations of a mass on a spring.
-Show that substituting \(c_1=(C_1-iC_2)/2\) and \(c_2=(C_1+iC_2)/2\) for real~\(C_1\) and~\(C_2\) results in the velocity~\(v(t)\) being expressed algebraically in purely real terms.
+Show that substituting \(c_1=(C_1-\i C_2)/2\) and \(c_2=(C_1+\i C_2)/2\) for real~\(C_1\) and~\(C_2\) results in the velocity~\(v(t)\) being expressed algebraically in purely real terms.
 \end{exercise}
 
 

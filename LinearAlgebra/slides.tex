@@ -1,0 +1,170 @@
+\documentclass[11pt,smallborder]{refrep}
+\usepackage[% for 11pt
+ paperwidth=169mm,paperheight=120mm % sqrt2:1 ratio??
+,margin=7ex]{geometry}
+\settextfraction{0.71}
+\def\includeonly#1{} % do all by disabling includeonly
+\def\thmIndent{-0.5\marginparwidth} % indent into margin ??
+\renewcommand{\footnote}[1]{} % omit all footnotes
+\AtBeginDocument{%
+   \excludeversion{comment}
+   \excludeversion{draft}
+   \excludeversion{proof}
+   \excludeversion{solution}
+   \excludeversion{exercise}
+   \def\sectionExercises{}% omit exercise section headers
+   \atBegin{section}{\newpage}
+   \atBegin{subsection}{\newpage}
+   \atBegin{subsubsection}{\newpage}
+%   \def\titlePageInfo{...}
+   }%end of AtBeginDocument
+
+
+%% What do we do about long tables??
+%% What to do about x-ref to Exercises??
+
+
+% Specify the version number of the next version.
+% Affects watermark and permutation of activity answers.
+\def\myversion{0.4b}
+
+\includeonly{
+,Vectors/ch
+%,Vectors/secVecs
+%,Vectors/secVecOps
+%,Vectors/secDot
+%,Vectors/secCross 
+,Vectors/secScript
+%,Vectors/secLogic %draft
+%,Vectors/secWrite %pre-draft
+%,Vectors/summary
+%,LinEqns/ch
+%,LinEqns/secIntro
+%,LinEqns/secSolve
+%,LinEqns/secSpan
+%,LinEqns/summary
+%,Matrices/ch
+%,Matrices/secOps
+%,Matrices/secInverse
+%,Matrices/secSVD
+%,Matrices/secSubsp
+%,Matrices/secIncon
+%,Matrices/secLinTran
+%,Matrices/summary
+%,EigSym/ch
+%,EigSym/secIntro
+%,EigSym/secProps
+%,EigSym/summary
+%,ApproxMat/ch
+%,ApproxMat/secRelate
+%,ApproxMat/secRegular
+%,ApproxMat/summary
+%,Determinants/ch
+%,Determinants/secGeometry
+%,Determinants/secExpand
+%,Determinants/summary
+%,EigGen/ch
+%,EigGen/secFind
+%,EigGen/secLinInd
+%,EigGen/secDiag
+%,EigGen/summary
+%,ComVecSp/ch %draft
+%,QR/ch %draft
+,back
+}
+
+
+
+\title{\vspace*{-8ex}%
+Linear Algebra 
+for 21st\,C Application}
+
+\author{A.~J. Roberts
+\thanks{\url{http://orcid.org/0000-0001-8930-1552}}
+\\University of Adelaide,
+South Australia, 5005
+}
+
+\date{\today\footnotetext[0]{\titlePageInfo}
+}
+
+
+\usepackage{linearAlgebra}[2016/12/19]
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\tableofcontents
+
+\include{Vectors/ch}
+\include{Vectors/secVecs}
+\include{Vectors/secVecOps}
+\include{Vectors/secDot}
+\include{Vectors/secCross}
+\include{Vectors/secScript}
+\include{Vectors/secLogic}
+%%\include{Vectors/summary}
+
+
+\include{LinEqns/ch}
+\include{LinEqns/secIntro}
+\include{LinEqns/secSolve}
+\include{LinEqns/secSpan}
+%%\include{LinEqns/summary}
+
+
+\include{Matrices/ch}
+\include{Matrices/secOps}
+\include{Matrices/secInverse}
+\include{Matrices/secSVD}
+\include{Matrices/secSubsp}
+\include{Matrices/secIncon}
+\include{Matrices/secLinTran}
+%%\include{Matrices/summary}
+
+
+\include{EigSym/ch}
+\include{EigSym/secIntro}
+\include{EigSym/secProps}
+%%\include{EigSym/summary}
+
+
+\include{ApproxMat/ch}
+\include{ApproxMat/secRelate}
+\include{ApproxMat/secRegular}
+%%\include{ApproxMat/summary}
+
+
+\include{Determinants/ch}
+\include{Determinants/secGeometry}
+\include{Determinants/secExpand}
+%%\include{Determinants/summary}
+
+
+\include{EigGen/ch}
+\include{EigGen/secFind}
+\include{EigGen/secLinInd}
+\include{EigGen/secDiag}
+%%\include{EigGen/summary}
+%
+%
+%\include{ComVecSp/ch}
+%%\include{ComVecSp/summary}
+%
+%\include{QR/ch}
+%%\include{QR/summary}
+
+\include{back}
+
+
+% This catches any answers not yet typeset, 
+% to check all OK while drafting
+%\begin{draft}
+%\makeanswers
+%\end{draft}
+
+\end{document}

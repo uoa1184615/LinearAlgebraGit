@@ -24,8 +24,7 @@ A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
 
 \item In \script:
 \begin{itemize}
-\itemme \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm} of \autoref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
-
+\itemme \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm}, \autoref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
 Also, \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
 
 \item \index{scatter()@\texttt{scatter()}}\verb|scatter(x,y,[],c)| draws a 2D scatter plot of points with coordinates in vectors~\verb|x| and~\verb|y|, each point with a colour determined by the corresponding entry of vector~\verb|c|.  
@@ -42,6 +41,9 @@ The values are all `integers' in the range~\([0,255]\).
 Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the mean over the \verb|p|th~index to give an array of size \(m_1\times\cdots\times m_{p-1}\times m_{p+1}\times\cdots\times m_\ell\).
 
 \itemme \index{std()@\texttt{std()}}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of the \idx{standard deviation} over each column of~\(A\).
+
+\item \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun(@op,A,B)| for \(m\times n\) arrays~\(A\) and~\(B\) computes the \(m\times n\) array \(\begin{bmatrix} a_{ij}\operatorname{op}b_{ij} \end{bmatrix}\), where ``\verb|@op|'' is one of the operations~\verb|@plus|, \verb|@minus|, \verb|@times|, \verb|@rdivide|, \ldots.
+Where this \verb|bsxfun()| becomes useful is that if either  of the matrices is \(m\times1\) or \(1\times n\) then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
 
 \item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
 When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
@@ -99,7 +101,11 @@ The distance between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 \item usually make each column have zero mean by subtracting its mean~\(\bar b_j\), algebraically \(\av_j=\bv_j-\bar b_j\)\,;
 \item but ensure each column has the same `physical dimensions', often by dividing by the \idx{standard deviation}~\(s_j\) of each column, algebraically \(\av_j=(\bv_j-\bar b_j)/s_j\)\,.
 \end{enumerate}
-Use \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| to compute in \script.
+To compute in \script\ use
+\begin{verbatim}
+A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B));
+\end{verbatim}
+%Use \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| to compute in \script.
 \item  Economically compute an \svd\ for the best rank~\(k\) approximation to the scaled data matrix with \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)|.
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
 \end{enumerate}
