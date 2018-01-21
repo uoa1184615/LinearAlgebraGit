@@ -4,6 +4,10 @@
 \label{sec:dpdal}
 \secttoc
 
+\index{dot product|(}
+\index{length|(}
+\index{angle|(}
+
 The previous \autoref{sec:asv} discussed how to add, subtract and stretch vectors.
 Question: can we multiply two vectors?
 The answer is that `vector multiplication' has major differences to the multiplication of scalar numbers.
@@ -107,7 +111,7 @@ What is the dot product of the two vectors \(\uv=2\iv-\jv\) and \(\vv=3\iv+4\jv\
 
 
 \begin{theorem} \label{thm:anglev}
-For every two non-zero vectors~\uv\ and~\vv\ in~\(\RR^n\),  
+For every two nonzero vectors~\uv\ and~\vv\ in~\(\RR^n\),  
 the \bfidx{angle}~\(\theta\) between the vectors is determined by 
 \begin{equation*}
 \cos\theta=\frac{\uv\cdot\vv}{|\uv||\vv|}\,,
@@ -225,7 +229,7 @@ What is the angle between the two vectors \((1,\sqrt3)\) and \((\sqrt3,1)\)?
 \caption{when a \idx{cosine} is one of these tabulated special values, then we know the corresponding \idx{angle} exactly.  
 In other cases we usually use a calculator (\texttt{arccos} or \(\texttt{cos}^{-1}\)) or computer (\texttt{acos()}) to compute the angle numerically.}
 \label{tbl:cosines}
-\index{acos()@\texttt{acos()}}%
+\index{arc-cos}\index{acos()@\texttt{acos()}}%
 \begin{equation*}\def\arraystretch{1.1}
 \begin{array}{crcr@.l}
 \hline
@@ -342,7 +346,7 @@ Then a calculator (or \script, see \autoref{sec:umovc}) gives the angle \(\theta
 
 \begin{example}[semantic similarity] \label{eg:lsidot}
 Recall that \autoref{eg:deflsv} introduced the encoding of sentences and documents as word count vectors.
-In the example, a word vector has five components, \((N_{\text{cat}},N_{\text{dog}},N_{\text{mat}},N_{\text{sat}},N_{\text{scratched}})\) where the various~\(N\) are the counts of each word in any sentence or document. For example,
+In the example, a \idx{word vector} has five components, \((N_{\text{cat}},N_{\text{dog}},N_{\text{mat}},N_{\text{sat}},N_{\text{scratched}})\) where the various~\(N\) are the counts of each word in any sentence or document. For example,
 \begin{enumerate}
 \item ``The dog sat on the mat'' has word vector \(\av=(0,1,1,1,0)\).
 \item ``The cat scratched the dog'' has word vector \(\bv=(1,1,0,0,1)\).
@@ -435,8 +439,9 @@ Dividing both sides by \(2|\uv||\vv|\) gives \(\cos\theta=\frac{\uv\cdot\vv}{|\u
 
 \subsection{Work done involves the dot product}
 \label{sec:wdidp}
+\index{work done|(}
 
-In physics and engineering, ``work'' has a precise meaning related to energy: when a forces of magnitude~\(F\) acts on a body and that body moves a distance~\(d\), then the \idx{work} done by the force is \(W=Fd\)\,.
+In physics and engineering, ``work'' has a precise meaning related to energy: when a forces of magnitude~\(F\) acts on a body and that body moves a distance~\(d\), then the \idx{work done} by the force is \(W=Fd\)\,.
 This formula applies only for one dimensional force and displacement, the case when the force and the displacement are all in the same direction.
 For example, if a 5\,kg barbell drops downwards~2\,m under the force of gravity (9.8~newtons/kg), then the work done by gravity on the barbell during the drop is the product
 \begin{equation*}
@@ -463,7 +468,7 @@ The kinetic energy dissipates when the barbell hits the floor.
 \end{axis}
 \end{tikzpicture}}
 In general, the applied force and the displacement are not in the same direction (as illustrated in the margin).
-Consider the general case when a vector force~\Fv\ acts on a body which moves a displacement vector~\dv.
+Consider the general case when a vector force~\Fv\ acts on a body which moves a \idx{displacement vector}~\dv.
 \marginpar{\mytemp0}%
 Then the work done by the force on the body is the length of the displacement times the component of the force in the direction of the displacement---the component of the force at \idx{right-angles} to the displacement does no work.
 
@@ -518,6 +523,7 @@ A 3\,kg~ball is thrown horizontally from a height of~2\,m and lands~10\,m away o
 Finding components of vectors in various directions is called projection. 
 Such projection is surprisingly common in applications and is developed much further by \autoref{sec:proj}.
 
+\index{work done|)}
 
 
 
@@ -535,7 +541,7 @@ The following rules of \autoref{thm:dotops} are analogous to well known rules fo
 Given vectors \(\uv=(-2,5,-2)\), \(\vv=(3,3,-2)\) and \(\wv=(2,0,-5)\), and  scalar \(a=2\), verify that (properties~\ref{thm:dotopse} and~\ref{thm:dotopsf})
 \begin{itemize}
 \item \(a(\uv\cdot\vv)=(a\uv)\cdot\vv=\uv\cdot(a\vv)\) (a form of associativity);
-\item \((\uv+\vv)\cdot\wv=\uv\cdot\wv+\vv\cdot\wv\) (distributivity).
+\item \((\uv+\vv)\cdot\wv=\uv\cdot\wv+\vv\cdot\wv\) (\idx{distributivity}).
 \end{itemize}
 \begin{solution} 
 \begin{itemize}
@@ -627,7 +633,7 @@ Hence, the vector~\uv\ must be the zero vector~\ov.
 
 
 \begin{activity}
-For vectors \(\uv,\vv,\wv\in\RR^n\), which of the following statements is not generally true?
+For vectors \(\uv,\vv,\wv\) in~\(\RR^n\), which of the following statements is not generally true?
 \actposs[1]{\((2\uv)\cdot(2\vv)=2(\uv\cdot\vv)\)}
 {\(\uv\cdot(\vv+\wv)=\uv\cdot\vv+\uv\cdot\wv\)}
 {\(\uv\cdot\vv-\vv\cdot\uv=0\)}
@@ -667,11 +673,11 @@ This is called the triangle inequality because the vectors~\uv, \vv\ and~\(\uv+\
 \end{example}
 
 
-The \idx{Cauchy--Schwarz inequality} inequality is one point of distinction between this `vector multiplication' and scalar multiplication: for scalars \(|ab|=|a||b|\), but the dot product of vectors is typically less, \(|\uv\cdot\vv|\leq|\uv||\vv|\).
+The \idx{Cauchy--Schwarz inequality} inequality is one point of distinction between this `vector multiplication' and \idx{scalar multiplication}: for scalars \(|ab|=|a||b|\), but the dot product of vectors is typically less, \(|\uv\cdot\vv|\leq|\uv||\vv|\).
 
 \begin{example} \label{eg:}
 The general proof of the \idx{Cauchy--Schwarz inequality} involves a trick, so let's introduce the trick using the vectors of \autoref{eg:triscal}.
-Let vectors \(\uv=(3,4)\) and \(\vv=(2,1)\) and consider the line given parametrically \index{parametric equation}(\autoref{def:parlin}) as the position vectors \(\xv=\uv+t\vv=(3+2t,4+t)\) for scalar parameter~\(t\)---illustrated in the margin.
+Let vectors \(\uv=(3,4)\) and \(\vv=(2,1)\) and consider the line given parametrically \index{parametric equation}(\autoref{def:parlin}) as the \idx{position vector}s \(\xv=\uv+t\vv=(3+2t,4+t)\) for scalar parameter~\(t\)---illustrated in the margin.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, domain=-2.9:1.9
@@ -685,7 +691,7 @@ Let vectors \(\uv=(3,4)\) and \(\vv=(2,1)\) and consider the line given parametr
 \node[below] at (axis cs:5,5) {$\vv$};
 \end{axis}
 \end{tikzpicture}}%
-The position vector~\xv\ of any point on the line has length~\(\ell\) (\autoref{def:veclen}) where
+The \idx{position vector}~\xv\ of any point on the line has length~\(\ell\) (\autoref{def:veclen}) where
 \begin{eqnarray*}
 \ell^2&=&(3+2t)^2+(4+t)^2
 \\&=&9+12t+4t^2+16+8t+t^2
@@ -694,7 +700,7 @@ The position vector~\xv\ of any point on the line has length~\(\ell\) (\autoref{
 a quadratic polynomial in~\(t\).
 We know that the length~\(\ell>0\)  (the line does not pass through the origin so no~\xv\ is zero).
 Hence the quadratic in~\(t\) cannot have any zeros.
-By the known properties of quadratic equations it follows that the \idx{discriminant} \(b^2-4ac<0\)\,.
+By the known properties of \idx{quadratic equation}s it follows that the \idx{discriminant} \(b^2-4ac<0\)\,.
 Indeed it is: here \(b^2-4ac=20^2-4\cdot5\cdot25=400-500=-100<0\)\,.
 Usefully, here \(a=5=|\vv|^2\), \(c=25=|\uv|^2\) and \(b=20=2\cdot10=2(\uv\cdot\vv)\).
 So \(b^2-4ac<0\), written as \(\tfrac14b^2<ac\)\,, becomes the statement that \(\tfrac14[2(\uv\cdot\vv)]^2=(\uv\cdot\vv)^2<|\vv|^2|\uv|^2\).
@@ -828,10 +834,11 @@ Hence, here \(|\av+\bv|\leq|\av|+|\bv|\) which verifies the triangle inequality.
 \label{sec:ovra}
 
 \index{orthogonal vectors|(}
+\index{right-angles|(}
 
 Of all the angles that vectors can make with each other, the two most important angles are, firstly, when the vectors are aligned with each other, and secondly, when the vectors are at right-angles to each other.
 Recall \autoref{thm:anglev} gives the angle~\(\theta\) between two vectors via \(\cos\theta=\frac{\uv\cdot\vv}{|\uv||\vv|}\).
-For vectors at \idx{right-angles} \(\theta=90^\circ\) and so \(\cos\theta=0\) and hence non-zero vectors are at right-angles only when the dot product \(\uv\cdot\vv=0\)\,.
+For vectors at \idx{right-angles} \(\theta=90^\circ\) and so \(\cos\theta=0\) and hence nonzero vectors are at right-angles only when the dot product \(\uv\cdot\vv=0\)\,.
 We give a special name to vectors at right-angles.
 
 
@@ -844,14 +851,15 @@ The term `orthogonal' derives from the Greek for `right-angled'.
 \end{aside}%
 \end{definition}
 
-By convention the zero vector~\ov\ is orthogonal to all other vectors.
-However, in practice, we almost always use the notion of orthogonality only in connection with \emph{non-zero} vectors.
-Often the requirement that the orthogonal vectors are non-zero is explicitly made, but beware that sometimes the requirement may be implicit in the problem.
+By convention the \idx{zero vector}~\ov\ is orthogonal to all other vectors.
+However, in practice, we almost always use the notion of orthogonality only in connection with \emph{nonzero} vectors.
+Often the requirement that the orthogonal vectors are nonzero is explicitly made, but beware that sometimes the requirement may be implicit in the problem.
 
 
 \begin{example} \label{eg:}
 The \idx{standard unit vector}s (\autoref{def:stuniv}) are orthogonal to each other.
 For example, consider the standard unit vectors~\iv, \jv\ and~\kv\ in~\(\RR^3\):
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 \begin{itemize}
 \item \(\iv\cdot\jv=(1,0,0)\cdot(0,1,0)=0+0+0=0\);
 \item \(\jv\cdot\kv=(0,1,0)\cdot(0,0,1)=0+0+0=0\);
@@ -910,7 +918,8 @@ That is, \(\iv+\tfrac54\jv-3\kv\) is at right-angles to \(\iv+4\jv+2\kv\).
 \paragraph{Key properties}
 The next couple of innocuous looking theorems are vital keys to important results in subsequent chapters.
 
-To introduce the first theorem, consider the 2D plane and try to draw a non-zero vector at \idx{right-angles} to both the two standard unit vectors~\iv\ and~\jv.
+\index{i@$\iv$}\index{j@$\jv$}%
+To introduce the first theorem, consider the 2D plane and try to draw a nonzero vector at \idx{right-angles} to both the two \idx{standard unit vector}s~\iv\ and~\jv.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
@@ -926,11 +935,11 @@ To introduce the first theorem, consider the 2D plane and try to draw a non-zero
 \end{tikzpicture}}%
 The red vectors in the margin illustrate three failed attempts to draw a vector at right-angles to both~\iv\ and~\jv.
 It cannot be done. 
-No vector in the plane can be at right angles to both the standard unit vectors in the plane.
+No vector in the plane can be at right-angles to both the standard unit vectors in the plane.
 
 
 \begin{theorem} \label{thm:nononz}
-There is no non-zero vector \idx{orthogonal} to all \(n\)~\idx{standard unit vector}s in~\(\RR^n\).
+There is no nonzero vector \idx{orthogonal} to all \(n\)~\idx{standard unit vector}s in~\(\RR^n\).
 \end{theorem}
 
 \begin{proof} 
@@ -971,7 +980,7 @@ The representation of a vector in~\(\RR^n\) by \(n\)~components (here \autoref{d
 
 
 \begin{proof} 
-Use contradiction%
+Use \idx{contradiction}%
 \ifcsname r@sec:pc\endcsname\ (\autoref{sec:pc})\fi.
 Suppose there are more than \(n\)~orthogonal unit vectors in the set.
 \marginpar{\rotatebox{53.10}{\begin{tikzpicture} 
@@ -988,13 +997,14 @@ Suppose there are more than \(n\)~orthogonal unit vectors in the set.
 \end{tikzpicture}}}%
 Define a coordinate system for~\(\RR^n\) using the first~\(n\) of the given unit vectors as the \(n\)~standard unit vectors 
 (as illustrated for~\(\RR^2\) in the margin).
-\autoref{thm:nononz} then says there cannot be any more non-zero vectors orthogonal than these \(n\)~standard unit vectors.
+\autoref{thm:nononz} then says there cannot be any more nonzero vectors orthogonal than these \(n\)~standard unit vectors.
 This contradicts there being more than~\(n\) orthogonal unit vectors.
 To avoid this contradiction the supposition must be wrong; that is, there cannot be more than~\(n\) orthogonal unit vectors in~\(\RR^n\).
 \end{proof}
 
 
 \index{orthogonal vectors|)}
+\index{right-angles|)}
 
 
 
@@ -1007,8 +1017,8 @@ To avoid this contradiction the supposition must be wrong; that is, there cannot
 \index{normal vector|(}
 
 This section uses the dot product to find equations of a plane in 3D.
-The key is to write points in the plane as all those at right-angles to a certain direction.  
-This direction is perpendicular to the required plane, and is called a normal.
+The key is to write points in the plane as all those at \idx{right-angles} to a certain direction.  
+This direction is \idx{perpendicular} to the required plane, and is called a normal.
 Let's start with an example of the idea in 2D.
 
 \begin{example} \label{eg:}
@@ -1057,7 +1067,7 @@ Evaluating the dot product gives \(2(x-4)+3(y-1)=0\); that is, \(2x+3y=2\cdot4+3
 
 
 \begin{activity}
-What is an equation of the line through the point~\((4,2)\) and that is a right-angles to the vector~\((1,3)\)?
+What is an equation of the line through the point~\((4,2)\) and that is a \idx{right-angles} to the vector~\((1,3)\)?
 \actposs{\(x+3y=10\)}{\(4x+2y=10\)}{\(4x+y=11\)}{\(2x+3y=11\)}
 %\begin{parts}
 %\item \(4x+2y=10\)
@@ -1095,15 +1105,15 @@ What is an equation of the line through the point~\((4,2)\) and that is a right-
 \end{axis}
 \end{tikzpicture}}}
 Now use the same approach to finding an equation of a plane in 3D.
-The problem is to find the equation of the plane that goes through a given point~\(P\) and is perpendicular to a given vector~\nv, called a \bfidx{normal vector}.
+The problem is to find the \idx{equation of the plane} that goes through a given point~\(P\) and is \idx{perpendicular} to a given vector~\nv, called a \bfidx{normal vector}.
 As illustrated in stereo below, that means to find all points~\(X\) such that~\(\ovect{PX}\) is orthogonal to~\nv.
 \begin{center}\mytmp0\end{center}
 Denote the position vector of~\(P\) by~\(\pv=(x_0,y_0,z_0)\),  the position vector of~\(X\) by \(\xv=(x,y,z)\), and let the \idx{normal vector} be \(\nv=(a,b,c)\).
-Then, as drawn below, the displacement vector \(\ovect{PX}=\xv-\pv=(x-x_0,y-y_0,z-z_0)\) and so for \(\ovect{PX}\) to be orthogonal to~\nv\ requires \(\nv\cdot(\xv-\pv)=0\); that is, an \bfidx{equation of the plane} is
+Then, as drawn below, the \idx{displacement vector} \(\ovect{PX}=\xv-\pv=(x-x_0,y-y_0,z-z_0)\) and so for \(\ovect{PX}\) to be orthogonal to~\nv\ requires \(\nv\cdot(\xv-\pv)=0\); that is, an \bfidx{equation of the plane} is
 \begin{equation*}
 a(x-x_0)+b(y-y_0)+c(z-z_0)=0\,,
 \end{equation*}
-equivalently, an equation of the plane is
+equivalently, an \idx{equation of the plane} is
 \begin{equation*}
 ax+by+cz=d
 \quad\text{for constant }d=ax_0+by_0+cz_0\,.
@@ -1173,7 +1183,7 @@ Which of the following is a normal vector to the plane \(x_2+2x_3+4=x_1\)\,?
 An alternative way of describing a plane is via a parametric equation analogous to the parametric equation of a line (\autoref{sec:pel}).
 Such a parametric representation generalises to every dimension (\autoref{sec:lcss}).
 
-The basic idea, as illustrated in the margin, is that given any plane (through the origin for the moment), then choosing almost any two vectors in the plane allows us to write all points in the plane as a sum of multiples of the two vectors.
+The basic idea, as illustrated in the margin, is that given any plane (through the origin for the moment), then choosing almost any two vectors in the plane allows us to write all points in the plane as a \idx{sum} of multiples of the two vectors.
 With the given vectors~\uv\ and~\vv\ shown in the margin, illustrated are the points \(\uv+2\vv\), \(\tfrac12\uv-2\vv\) and \(-2\uv+3\vv\).
 \marginpar{\begin{tikzpicture}
 \newcommand{\ppoint}[2]{
@@ -1202,15 +1212,15 @@ With the given vectors~\uv\ and~\vv\ shown in the margin, illustrated are the po
 \ppoint{-2}{+3}
 \end{axis}
 \end{tikzpicture}}%
-Similarly, all points in the plane have a position vector in the form \(s\uv+t\vv\) for some scalar parameters~\(s\) and~\(t\).
+Similarly, all points in the plane have a \idx{position vector} in the form \(s\uv+t\vv\) for some scalar parameters~\(s\) and~\(t\).
 The grid shown in the margin illustrates the sum of integral and half-integral multiples.
-The formula \(\xv=s\uv+t\vv\) for parameters~\(s\) and~\(t\) is called a parametric equation of the plane.
+The formula \(\xv=s\uv+t\vv\) for parameters~\(s\) and~\(t\) is called a parametric \idx{equation of the plane}.
 
 
 
 
 \begin{example} \label{eg:}
-Find a parametric equation of the plane that passes through the three points \(P=(-1,2,3)\), \(Q=(2,3,2)\) and \(R=(0,4,5)\), drawn below in stereo.
+Find a parametric \idx{equation of the plane} that passes through the three points \(P=(-1,2,3)\), \(Q=(2,3,2)\) and \(R=(0,4,5)\), drawn below in stereo.
 \newcommand{\mytemp}[1]{%
 \qview{50}{55} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
@@ -1258,16 +1268,16 @@ That is, a parametric equation of the plane is \(\xv=\pv+s\uv+t\vv\) which here 
 
 
 \begin{definition} \label{def:parpla}
-A \bfidx{parametric equation} of a plane is \(\xv=\pv+s\uv+t\vv\) where \pv~is the \idx{position vector} of some point in the plane,   the two vectors~\uv\ and~\vv\ are parallel to the plane (\(\uv,\vv\neq\ov\) and are at a non-zero\slash non-\(\pi\) \idx{angle} to each other), and the \idx{scalar} \bfidx{parameter}s~\(s\) and~\(t\) vary over all real values to give \idx{position vector}s of all points in the plane.
+A \bfidx{parametric equation} of a plane is \(\xv=\pv+s\uv+t\vv\) where \pv~is the \idx{position vector} of some point in the plane,   the two vectors~\uv\ and~\vv\ are parallel to the plane (\(\uv,\vv\neq\ov\) and are at a nonzero\slash non-\(\pi\) \idx{angle} to each other), and the scalar \bfidx{parameter}s~\(s\) and~\(t\) vary over all real values to give \idx{position vector}s of all points in the plane.
 \end{definition}
 
 The beauty of this definition is that it applies for planes in any number of dimensions.
-To do so the parametric equations just uses two vectors with the corresponding number of components.
+To do so the \idx{parametric equation}s just uses two vectors with the corresponding number of components.
 
 
 
 \begin{example} \label{eg:}
-Find a parametric equation of the plane that passes through the three points \(P=(6,-4,3)\), \(Q=(-4,-18,7)\) and \(R=(11,3,1)\), drawn below in stereo.
+Find a parametric \idx{equation of the plane} that passes through the three points \(P=(6,-4,3)\), \(Q=(-4,-18,7)\) and \(R=(11,3,1)\), drawn below in stereo.
 \begin{center}
 \qview{50}{55} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
@@ -1300,7 +1310,7 @@ Hence we cannot answer the question which requires ``the plane''.
 
 
 \begin{example} \label{eg:}
-Find a parametric equation of the plane that passes through the three points \(A=(-1.2,2.4,0.8)\), \(B=(1.6,1.4,2.4)\) and \(C=(0.2,-0.4,-2.5)\), drawn below in stereo.
+Find a parametric \idx{equation of the plane} that passes through the three points \(A=(-1.2,2.4,0.8)\), \(B=(1.6,1.4,2.4)\) and \(C=(0.2,-0.4,-2.5)\), drawn below in stereo.
 %Hence determine if the point \(D=(6.7,1.5,2.3)\) is in the plane, or not.
 \newcommand{\mytemp}[1]{%
 \qview{10}{15} {\begin{tikzpicture}
@@ -1350,7 +1360,7 @@ That is, a parametric equation of the plane is \(\xv=\av+s\uv+t\vv\) which here 
 
 
 \begin{activity}
-Which of the following is \emph{not} a parametric equation of a plane?
+Which of the following is \emph{not} a \idx{parametric equation} of a plane?
 \actposs[1]{\((4,1,4)+(3,6,3)s+(2,4,2)t\)}{\(\iv+s\jv+t\kv\)}{\((-1,1,-1)s+(4,2,-1)t\)}{\((3s+2t,4+2s+t,4+3t)\)}
 %\begin{enumerate}
 %\item \(\iv+s\jv+t\kv\)
@@ -1452,7 +1462,7 @@ What is the most similar pair of sentences?
 
 
 \begin{exercise} \label{ex:} 
-Recall \autoref{ex:8siambks} found word vectors in~\(\RR^7\) for the titles of eight books that The Society of Industrial and Applied Mathematics (\textsc{siam}) reviewed recently.
+Recall \autoref{ex:8siambks} found \idx{word vector}s in~\(\RR^7\) for the titles of eight books that The Society of Industrial and Applied Mathematics (\textsc{siam}) reviewed recently.
 The following four titles have more than one word counted in the word vectors.
 \begin{enumerate}
 \item Introduction to Finite and Spectral Element Methods using \textsc{matlab}
@@ -1482,7 +1492,7 @@ So the pair \av~and~\cv, and the pair \bv~and~\dv\ are both closest pairs.  The 
 
 
 \begin{exercise} \label{ex:} 
-Suppose two non-zero word vectors are orthogonal.  
+Suppose two nonzero \idx{word vector}s are orthogonal.  
 Explain what such orthogonality means in terms of the words of the original sentences.
 \end{exercise}
 
@@ -1513,7 +1523,7 @@ Verify the \idx{Cauchy--Schwarz inequality} (\(+\)~case) and also the \idx{trian
 
 
 \begin{exercise} \label{ex:} 
-Find an equation of the plane with the given \idx{normal vector}~\nv\ and through the given point~\(P\).
+Find an \idx{equation of the plane} with the given \idx{normal vector}~\nv\ and through the given point~\(P\).
 \begin{parts}
 \item \(P=(1,2,-3)\), \(\nv=(2,-5,-2)\).
 \item \(P=(5,-4,-13)\), \(\nv=(-1,0,-1)\).
@@ -1543,7 +1553,7 @@ Write down a \idx{normal vector} to the plane described by each of the following
 
 
 \begin{exercise} \label{ex:thrpp} 
-For each case, find a parametric equation of the plane through the three given points.
+For each case, find a parametric \idx{equation of the plane} through the three given points.
 \begin{parts}
 \item 
 \((0,5,-4)\),
@@ -1598,7 +1608,7 @@ For each case, find a parametric equation of the plane through the three given p
 
 
 \begin{exercise} \label{ex:} 
-For each case of \autoref{ex:thrpp} that you have done, find two other parametric equations of the plane.
+For each case of \autoref{ex:thrpp} that you have done, find two other \idx{parametric equation}s of the plane.
 \end{exercise}
 
 
@@ -1628,3 +1638,7 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
+
+\index{dot product|)}
+\index{length|)}
+\index{angle|)}

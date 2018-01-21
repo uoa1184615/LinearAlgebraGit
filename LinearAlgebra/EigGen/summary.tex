@@ -6,9 +6,9 @@
 \begin{itemize}
 \def\index#1{}% turn off indexing
 
-\item In the case of non-symmetric matrices, eigenvectors are usually not orthogonal, eigenvalues and eigenvectors are sometimes complex valued, and sometimes there are not as many eigenvectors as we expect.
+\item In the case of non-symmetric matrices, eigenvectors are usually not orthogonal, \idx{eigenvalue}s and eigenvectors are sometimes \idx{complex valued}, and sometimes there are not as many eigenvectors as we expect.
 
-\itemme The diagonal entries of a \idx{triangular matrix} are the only \idx{eigenvalue}s of the matrix (\autoref{thm:trieig}).  
+\itemme The \idx{diagonal entries} of a \idx{triangular matrix} are the only \idx{eigenvalue}s of the matrix (\autoref{thm:trieig}).  
 The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{generally} not \idx{orthogonal}.
 
 
@@ -19,8 +19,8 @@ The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{gen
 
 \itemme For every \(n\times n\) \idx{square matrix}~\(A\) we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\) (\autoref{thm:geecp}):
 \begin{itemize}
-\item the characteristic polynomial of~\(A\) is a polynomial of \(n\)th~degree in~\(\lambda\);
-\item  there are at most \(n\)~distinct eigenvalues of~\(A\).
+\item the \idx{characteristic polynomial} of~\(A\) is a polynomial of \(n\)th~degree in~\(\lambda\);
+\item  there are at most \(n\)~\idx{distinct eigenvalues} of~\(A\).
 \end{itemize}
 
 \item For every \(n\times n\) matrix~\(A\) (\autoref{thm:charpolyc}): \begin{itemize}
@@ -34,14 +34,16 @@ Every eigenvalue of multiplicity \(m\geq2\) may also be called a \bfidx{repeated
 \itemme \autoref{pro:geneig} finds by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{square matrix}~\(A\):
 \begin{enumerate}
 \item find all \idx{eigenvalue}s (possibly complex) by solving the \bfidx{characteristic equation}, \(\det(A-\lambda I)=0\) ---for an \(n\times n\) matrix there are \(n\)~\idx{eigenvalue}s when counted according to \idx{multiplicity} and allowing \idx{complex eigenvalue}s;
-\item for each \idx{eigenvalue}~\(\lambda\), solve the homogeneous linear equation \((A-\lambda I)\xv=\ov\) to find the \idx{eigenspace}~\(\EE_\lambda\);
-\item write each eigenspace as the \idx{span} of a few chosen \idx{eigenvector}s.
+\item for each \idx{eigenvalue}~\(\lambda\), solve the \idx{homogeneous} \idx{linear equation} \((A-\lambda I)\xv=\ov\) to find the \idx{eigenspace}~\(\EE_\lambda\);
+\item write each \idx{eigenspace} as the \idx{span} of a few chosen \idx{eigenvector}s.
 \end{enumerate}
 
-In \script, for a given square matrix~\verb|A|, execute \verb|[V,D]=eig(A)|, then the diagonal entries of~\verb|D|, \verb|diag(D)|, are the \idx{eigenvalue}s of~\verb|A|. 
+In \script, for a given square matrix~\verb|A|, execute 
+\index{eig()@\texttt{eig()}}\verb|[V,D]=eig(A)|, then the \idx{diagonal entries} of~\verb|D|, 
+\index{diag()@\texttt{diag()}}\verb|diag(D)|, are the \idx{eigenvalue}s of~\verb|A|. 
 Corresponding to the eigenvalue~\verb|D(j,j)| is an  \idx{eigenvector} \(\vv_j=\verb|V(:,j)|\), the \(j\)th~column of~\verb|V|.  
 
-\itemme If a non-symmetric matrix or computation has an error~\(e\), then expect a repeated eigenvalue of multiplicity~\(m\) to appear as \(m\)~eigenvalues all within about~\(e^{1/m}\) of each other.
+\itemme If a \idx{non-symmetric matrix} or computation has an error~\(e\), then expect a repeated eigenvalue of multiplicity~\(m\) to appear as \(m\)~eigenvalues all within about~\(e^{1/m}\) of each other.
 Thus when we find or compute \(m\)~eigenvalues all within about~\(e^{1/m}\), then suspect them to actually be one eigenvalue of multiplicity~\(m\).
 
 \itemhi In modelling populations one often seeks the number of animals of various ages as a function of time.
@@ -59,12 +61,12 @@ This model empowers predictions.
 for all constants \hlist cm.
 
 \sloppy
-\item Further, if the number of eigenvectors \(m=n\) (the size of~\(A\)), and the matrix of eigenvectors \(P=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\) is \idx{invertible}, then the general linear combination is a \bfidx{general solution} in that unique constants \hlist cn\ may be found for every given \idx{initial value}~\(\yv(0)\).
+\item Further, if the number of eigenvectors \(m=n\) (the size of~\(A\)), and the matrix of eigenvectors \(P=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\) is \idx{invertible}, then the general \idx{linear combination} is a \bfidx{general solution} in that unique constants \hlist cn\ may be found for every given \idx{initial value}~\(\yv(0)\).
 \end{itemize}
 
-\item In applications, to population models for example, and for both real and complex eigenvalues~\(\lambda\), the \(j\)th~term in the solution \(\yv(t)=c_1\lambda_1^t\vv_1+c_2\lambda_2^t\vv_2+\cdots+c_m\lambda_m^t\vv_m\) will, as time~\(t\) increases,
+\item In applications, to population models for example, and for both real and \idx{complex eigenvalue}s~\(\lambda\), the \(j\)th~term in the solution \(\yv(t)=c_1\lambda_1^t\vv_1+c_2\lambda_2^t\vv_2+\cdots+c_m\lambda_m^t\vv_m\) will, as time~\(t\) increases,
 \begin{itemize}
-\item grow to infinity if \(|\lambda_j|>1\)\,,
+\item grow to \idx{infinity} if \(|\lambda_j|>1\)\,,
 \item decay to zero if \(|\lambda_j|<1\)\,, and
 \item remain the same \idx{magnitude} if \(|\lambda_j|=1\)\,.
 \end{itemize}
@@ -101,7 +103,7 @@ B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \end{itemize}
 This eigen-problem typically determines \(n\)~multipliers \hlist\lambda n, and thence the \(n\)~rates \(r_k=(\ln\lambda_k)/h\)\,.
 
-\item Determine the corresponding \(n\)~coefficients \hlist cn\ from any \(n\)~point subset of the \(2n\)~data points.
+\item Determine the corresponding \(n\)~\idx{coefficient}s \hlist cn\ from any \(n\)~point subset of the \(2n\)~data points.
 For example, the first \(n\)~data points give the linear system 
 \begin{equation*}
 \begin{bmatrix} 1&1&\cdots&1
@@ -150,7 +152,7 @@ the \bfidx{dimension} of~\WW\ is the number of vectors in any \idx{basis} for~\W
 \begin{enumerate}
 \item Form \(m\times n\) matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
 \item Factorise~\(A\) into a \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
-\item The first \(r\)~columns of~\(U\) form a \idx{basis}, specifically an \idx{orthonormal basis}, for the \(r\)-dimensional subspace~\AA.
+\item The first \(r\)~columns of~\(U\) form a \idx{basis}, specifically an \idx{orthonormal basis}, for the \(r\)-\idx{dimension}al subspace~\AA.
 \end{enumerate}
 Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{linearly independent} and span the subspace~\AA, and so is also a \idx{basis} for the \(n\)-dimensional subspace~\AA.
 
@@ -164,7 +166,7 @@ Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{l
 
 \item For every \idx{subspace}~\WW\ of~\(\RR^n\) let \(\cB=\{\hlist\vv k\}\) be a \idx{basis} for~\WW.  
 Then there is exactly one way to write each and every vector \(\wv\in\WW\) as a \idx{linear combination} of the \idx{basis} vectors: \(\wv=\lincomb c\vv k\)\,.
-The coefficients \(\hlist ck\) are called the \textbf{\bfidx{coordinates} of~\wv\ with respect to~\cB}, and the column vector \([\wv]_{\cB}=(\hlist ck)\) is called the \textbf{\bfidx{coordinate vector} of~\wv\ with respect to~\cB}.
+The coefficients \(\hlist ck\) are called the \textbf{\bfidx{coordinates} of~\wv\ with respect to~\cB}, and the \idx{column vector} \([\wv]_{\cB}=(\hlist ck)\) is called the \textbf{\bfidx{coordinate vector} of~\wv\ with respect to~\cB}.
 
 \itemme For every \(n\times n\) \idx{square matrix}~\(A\), and  
 extending Theorems~\ref{thm:ftim1} and~\ref{thm:ftim2}, the following statements are equivalent (\autoref{thm:ftim3}):
@@ -174,8 +176,8 @@ extending Theorems~\ref{thm:ftim1} and~\ref{thm:ftim2}, the following statements
 \item \(A\xv=\ov\) has only the zero solution;
 \item all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
 \item the \idx{condition number} of~\(A\) is finite (\(\verb|rcond|>0\));
-\item \(\rank A=n\)\,;
-\item \(\nullity A=0\)\,;
+\item \index{rank}\(\rank A=n\)\,;
+\item \index{nullity}\(\nullity A=0\)\,;
 \item the \idx{column vector}s of~\(A\) span~\(\RR^n\);
 \item the \idx{row vector}s of~\(A\) span~\(\RR^n\).
 \item \(\det A\neq 0\)\,;
@@ -195,15 +197,15 @@ extending Theorems~\ref{thm:ftim1} and~\ref{thm:ftim2}, the following statements
 \item An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalisable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\) (\autoref{def:diagonalise}).
 
 \itemhi For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalisable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s (\autoref{thm:gendiag}).  
-If \(A\)~is \idx{diagonalisable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the diagonal entries of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
+If \(A\)~is \idx{diagonalisable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the \idx{diagonal entries} of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
 
 \itemme For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalisable} (\autoref{thm:dlamd}).
-Consequently, and allowing complex eigenvalues, a real \idx{non-diagonalisable matrix} must be non-symmetric and must have at least one \idx{repeated eigenvalue}.
+Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalisable} matrix must be non-symmetric and must have at least one \idx{repeated eigenvalue}.
 
 \itemme For every square matrix~\(A\), and for each \idx{eigenvalue}~\(\lambda_j\) of~\(A\), the corresponding \idx{eigenspace}~\(\EE_{\lambda_j}\) has \idx{dimension} less than or equal to the \idx{multiplicity} of~\(\lambda_j\);
 that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\) (\autoref{thm:dimee}).  
 
-\item Mathematical models of interaction populations of animals, plants and diseases are often written as differential equations in continuous time.  Letting \(\yv(t)\) be the vector of numbers of each species at time~\(t\), the basic model is a linear system of differential equations \(d\yv/dt=A\yv\)\,. 
+\item Mathematical models of interaction populations of animals, plants and diseases are often written as \idx{differential equation}s in continuous time.  Letting \(\yv(t)\) be the vector of numbers of each species at time~\(t\), the basic model is a linear system of differential equations \(d\yv/dt=A\yv\)\,. 
 
 Using Newton's Second Law, that mass\({}\times{}\)\text{acceleration}\({}={}\)force, many mechanical systems may be modelled by differential equations also in the form of the linear system \(d\yv/dt=A\yv\)\,.
 

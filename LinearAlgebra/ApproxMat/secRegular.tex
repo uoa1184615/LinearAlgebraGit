@@ -4,6 +4,8 @@
 \section{Regularise linear equations}
 \label{sec:rle}
 \secttoc
+\index{linear equation|(}
+\index{regularisation|(}
 
 \begin{quoted}{\parbox{15em}{Sherlock Holmes, in The Boscombe Valley Mystery, by Sir Arthur Conan Doyle, 1892}}
 Singularity is almost invariably a clue.
@@ -21,8 +23,8 @@ Suppose from measurements in some experiment we want to solve the linear equatio
 \begin{equation*}
 0.5x+0.3y=1\quad\text{and}\quad 1.1x+0.7y=2\,,
 \end{equation*}
-where all the coefficients on \emph{both} the left-hand sides and the right-hand sides are determined from experimental measurements.
-In particular, suppose they are measured to errors~\(\pm0.05\)\,.
+where all the \idx{coefficient}s on \emph{both} the left-hand sides and the right-hand sides are determined from experimental measurements.
+In particular, suppose they are measured to \idx{experimental error}s~\(\pm0.05\)\,.
 Solve the equations.
 \begin{solution} 
 \begin{itemize}
@@ -104,7 +106,7 @@ Thus \twodp
 \(\begin{bmatrix} 1.43 & 0
 \\0 &  0 \end{bmatrix}\yv=\begin{bmatrix} -2.23\\0 \end{bmatrix}\)
 to deduce \(\yv=(-1.56,y_2)\);
-\item consequently, we find reasonable solutions are \(\xv=V\yv=(1.32,0.83)+y_2(-0.53,0.85)\) ---the parametric equation of a line (\autoref{sec:pel}).
+\item consequently, we find reasonable solutions are \(\xv=V\yv=(1.32,0.83)+y_2(-0.53,0.85)\) ---the \idx{parametric equation} of a line (\autoref{sec:pel}).
 \end{enumerate}
 The four different `answers' computed by~\verb|A\b| above are just four different points on this line.
 
@@ -118,7 +120,7 @@ For example, often one prefers the solution of smallest length\slash magnitude, 
 
 
 \begin{activity}
-The coefficients in the following pair of linear equations are obtained from an experiment and so the coefficients have errors of roughly~\(\pm0.05\):
+The \idx{coefficient}s in the following pair of linear equations are obtained from an experiment and so the coefficients have errors of roughly~\(\pm0.05\):
 \begin{equation*}
 0.8x+1.1y=4,\quad 0.6x+0.8y=3\,.
 \end{equation*}
@@ -144,22 +146,21 @@ By checking how well the equations are satisfied, which of the following \emph{c
 \subsection{The SVD illuminates regularisation}
 \label{sec:svdir}
 
-\index{regularisation|(}
 
 \begin{quoted}{\index{Feynman, Richard}Richard Feynman}
 I think it is much more interesting to live with uncertainty than to live with answers that might be wrong.
 \end{quoted}
 
 \begin{procedure}[approximate linear equations] \label{pro:appmat}
-Suppose the system of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix entries are of size~\(\epsilon\).
+Suppose the \idx{system} of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
+Suppose the expected error in the matrix \idx{entries} are of size~\(\epsilon\).
 \begin{aside}
 Recall that (\autoref{thm:erramp}) the symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.
 \end{aside}%
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
-\item all \(m\times n\)~components in~\(A\) have the same physical units, and they are of roughly the same size; and
+\item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same size; and
 \item similarly for the \(m\) components of~\bv.
 \end{itemize}
 Estimate the error~\(\epsilon\) corresponding to this matrix~\(A\).
@@ -175,22 +176,24 @@ A_k&:=&US_k\tr V
 \end{eqnarray*}
 We usually do not construct~\(A_k\) as we only need its \svd\ to solve the system.
 
-\item Solve the approximating \idx{linear equation} \(A_k\xv=\bv\) as in Theorems~\ref{thm:appsol}--\ref{thm:smallsoln} (often as an \idx{inconsistent} set of equations).
+\item Solve the approximating \idx{linear equation} \(A_k\xv=\bv\) as 
+in Theorems~\ref{thm:appsol}--\ref{thm:smallsoln} (often as an 
+\index{inconsistent equations}\idx{inconsistent} set of equations).
 Usually use the \svd\ \(A_k=US_k\tr V\).
 
-\item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application: often the smallest solution overall; or just as often a solution with the most zero components.
+\item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application: often the \idx{smallest solution} overall; or just as often a solution with the most zero \idx{components}.
 \end{enumerate}
 \end{procedure}
 
 
-That is, the procedure is to treat as \idx{zero} all \idx{singular value}s smaller than the expected error in the matrix entries.
-For example, modern computers have nearly sixteen significant decimal digits accuracy, so even in `exact' computation there is a background relative error of about~\(10^{-15}\).
+That is, the procedure is to treat as \idx{zero} all \idx{singular value}s smaller than the expected error in the matrix \idx{entries}.
+For example, modern computers have nearly sixteen significant decimal digits accuracy, so even in `exact' computation there is a background \idx{relative error} of about~\(10^{-15}\).
 Consequently, in computation on modern computers, every singular value smaller than \(10^{-15}\sigma_1\) must be treated as \idx{zero}.
 For safety, even in `exact' computation, every \idx{singular value} smaller than say~\(10^{-8}\sigma_1\) should be treated as~\idx{zero}.
 
 
 \begin{activity}
-In some system of linear equations the five singular values of the matrix are
+In some system of linear equations the five \idx{singular value}s of the matrix are
 %svd(hilb(5)+0.01*randn(5))
 \begin{equation*}
 1.5665,\quad
@@ -215,7 +218,7 @@ The linear algebra cannot presume which is best for your application.
 Consequently, you will have to be aware of the freedom, and make a choice based on extra information from your particular application.
 \begin{itemize}
 \item For example, in a \textsc{ct}-scan\index{CT scan} such as \autoref{eg:ctscan} one would usually prefer the grayest result in order to avoid diagnosing artifices.
-\item For example, in the data mining task of fitting curves or surfaces to data, one would instead usually prefer a curve or surface with fewest non-zero coefficients.
+\item For example, in the \idx{data mining} task of fitting curves or surfaces to data, one would instead usually prefer a curve or surface with fewest nonzero \idx{coefficient}s.
 \end{itemize}
 Such extra information from the application is essential. 
 
@@ -227,7 +230,7 @@ Such extra information from the application is essential.
 For the following matrices~\(A\) and right-hand side vectors~\(\bv\),
 solve \(A\xv=\bv\)\,.
 But suppose the matrix entries come from experiments and are only known to within errors~\(\pm0.05\),  solve \(A'\xv'=\bv\) for some specific matrices~\(A'\) which approximate~\(A\) to this error.
-Finally, use an \svd\ to find a general solution consistent with the error in matrix~\(A\).
+Finally, use an \svd\ to find a \idx{general solution} consistent with the error in matrix~\(A\).
 Report to two decimal places.
 \begin{enumerate}
 \item\label{eg:3regmata} \(A=\begin{bmatrix} -0.2&-0.6&1.8
@@ -292,7 +295,6 @@ Then add an arbitrary multiple of the last column of~\verb|V| to determine a gen
 \begin{equation*}
 \xv=(0.10,-0.11,-0.30)+t(0.93,0.31,0.20).
 \end{equation*}
-
 \end{solution}
 
 
@@ -381,12 +383,12 @@ That the second component of \((0.09,0.98,0,-0.16)\) is the largest corresponds 
 \end{solution}
 \end{enumerate}
 
-Both of these examples gave an infinite number of solutions which are equally valid as far as the linear algebra is concerned.
+Both of these examples gave \idx{infinitely many solutions} which are equally valid as far as the linear algebra is concerned.
 In each example, more information from an application would be needed to choose which to \emph{prefer} among the infinity of solutions.
 \end{example}
 
 
-Most often the singular values are spread over a wide range of orders of magnitude.
+Most often the \idx{singular value}s are spread over a wide range of orders of magnitude.
 In such cases an assessment of the errors in the matrix is crucial in what one reports as a solution.
 The following artificial example illustrates the range.
 
@@ -406,7 +408,7 @@ Explore the effects of various assumptions about possible errors in~\(A\) upon t
 Enter the matrix~\(A\) into \script\ with \index{hilb()@\texttt{hilb()}}\verb|A=hilb(5)| for the above \(5\times5\) Hilbert matrix, and enter the right-hand side with \verb|b=ones(5,1)|.
 \begin{itemize}
 \item First assume there is insignificant error in~\(A\) (there is always the base error of~\(10^{-15}\) in computation).
-Then \autoref{pro:unisol} finds that although the reciprocal of the condition number \(\verb|rcond(A)|\approx10^{-6}\) is bad, the unique solution to \(A\xv=\vec1\)\,, obtained via \verb|x=A\b|, is
+Then \autoref{pro:unisol} finds that although the reciprocal of the condition number \(\verb|rcond(A)|\approx10^{-6}\) is bad, the \idx{unique solution} to \(A\xv=\vec1\)\,, obtained via \verb|x=A\b|, is
 \begin{equation*}
 \xv=(5,-120,630,-1120,630).
 \end{equation*}
@@ -595,7 +597,7 @@ which gives the following system for the coefficients \twodp
 \end{equation*}
 Now all the components of the matrix are roughly the same size, as required.
 
-There is no need to scale the right-hand side vector as all components are all roughly the same size, they are all simply `American temperatures'. 
+There is no need to \index{data scaling}scale the right-hand side vector as all components are all roughly the same size, they are all simply `American temperatures'. 
 
 In script\ construct the scaled matrix and right-hand side vector with 
 \begin{verbatim}
@@ -671,7 +673,7 @@ That the last two components in~\zv\ are small compared to the others indicates 
 \begin{equation*}
 \yv=(-20.19,39.15,1.95,y_4,y_5).
 \end{equation*}
-The smallest solution would be obtained by setting \(y_4=y_5=0\)\,.
+The \idx{smallest solution} would be obtained by setting \(y_4=y_5=0\)\,.
 
 \item Finally determine the coefficients \(\cv=V\yv\) with command \verb|c=V(:,1:3)*y| and then add arbitrary multiples of the remaining columns of~\(V\) to obtain the general solution \twodp
 \begin{equation*}
@@ -700,7 +702,7 @@ T_A&=&35.09+22.50\frac{T_E}{20}
 -5.28\left(\frac{T_E}{20}\right)^4.
 \end{eqnarray*}%
 But choosing the polynomial with smallest coefficients has little meaning in this application.
-Surely we prefer a polynomial with fewer terms, fewer non-zero coefficients.
+Surely we prefer a polynomial with fewer terms, fewer nonzero coefficients.
 Surely we would prefer, say, the quadratic
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,axis lines=middle
@@ -820,7 +822,7 @@ As shown in the margin, the 2D region is divided into a \(3\times3\) grid of nin
 \end{tikzpicture}}%
 Then measurements taken of the \idx{X-ray}s not absorbed along the shown nine paths: three horizontal, three vertical, and three diagonal.
 Suppose the measured fractions of X-ray energy are \(\fv=(0.048\clb 0.081\clb 0.042\clb 0.020\clb 0.106\clb 0.075\clb 0.177\clb 0.181\clb 0.105)\).
-Use an \svd\ to find the `grayest' transmission factors consistent with the measurements and likely errors.
+Use an \svd\ to find the `grayest' transmission factors \idx{consistent} with the measurements and likely errors.
 %\begin{verbatim}
 %A=[1 1 1 0 0 0 0 0 0 
 % 0 0 0 1 1 1 0 0 0 
@@ -865,7 +867,8 @@ r_2r_4=f_7\,,\qquad
 r_3r_5r_7=f_8\,,\quad
 r_6r_8=f_9\,.\quad
 \end{eqnarray*}
-Turn such nonlinear equations into linear equations by taking the logarithm (to any base, but here say the natural logarithm to base~\(e\)) of both sides of all equations:
+Turn such \idx{nonlinear equation}s into linear equations by taking the 
+\idx{logarithm} (to any base, but here say the \index{log}\idx{natural logarithm} to base~\(e\)) of both sides of all equations:
 \begin{equation*}
 r_ir_jr_k=f_l \iff (\ln r_i)+(\ln r_j)+(\ln r_k)=(\ln f_l).
 \end{equation*}
@@ -1015,7 +1018,7 @@ y =
 \end{verbatim}
 The last two components of~\yv, \(y_8\) and~\(y_9\), are free variables.
 
-\item Obtain a particular solution to \(\tr V\xv=\yv\), the one of smallest magnitude, by setting \(y_8=y_9=0\) and determining~\xv\ from \verb|x=V(:,1:7)*y| to get the smallest solution
+\item Obtain a \idx{particular solution} to \(\tr V\xv=\yv\), the one of smallest magnitude, by setting \(y_8=y_9=0\) and determining~\xv\ from \verb|x=V(:,1:7)*y| to get the smallest solution
 \begin{verbatim}
 x =
   -1.53
@@ -1031,7 +1034,7 @@ x =
 Obtain other equally valid solutions, in the context of the identified error in matrix~\(A\), by adding arbitrary multiples of the last two columns of~\(V\).
 \end{enumerate}
 
-\item Here we aim to make predictions from the \textsc{ct}-scan. 
+\item Here we aim to make predictions from the \textsc{ct}-scan\index{CT scan}. 
 The `best' solution in this application is the one with least artificial features.
 The smallest magnitude~\xv\ seems to reasonably implement this criteria.
 Thus use the above particular~\xv\ to determine the transmission factors, \(r_i=\exp(x_i)\).
@@ -1081,7 +1084,7 @@ Here use \verb|r=reshape(exp(x),3,3)|\index{reshape()@\texttt{reshape()}} to com
 \\\hline
 \end{array}
 \end{equation*}
-as illustrated  with \verb|colormap(gray),imagesc(r)|
+as illustrated  with \index{colormap()@\texttt{colormap()}}\verb|colormap(gray),imagesc(r)|
 \end{enumerate}
 The \textsc{ct}-scan identifies that there is a significant `hole' in the middle of the body being scanned.
 \end{solution}
@@ -1120,13 +1123,13 @@ In statistics, the method is known as ridge regression, and with multiple indepe
 
 
 \begin{definition} \label{def:Tikreg}
-In seeking to solve the poorly-posed system \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
+In seeking to solve the poorly-posed \idx{system} \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
 \begin{aside}
 The greek letter~\(\alpha\) is `alpha' (different to the `proportional to' symbol~\(\propto\)).
 \end{aside}%
 a \bfidx{Tikhonov regularisation} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularisation parameter} value~\(\alpha>0\).
 \footnote{Some will notice that a Tikhonov regularisation is closely connected to the so-called \idx{normal equation} \(\tr AA\xv=\tr A\bv\)\,.  
-Tikhonov regularisation shares with the normal equation some practical limitations as well as some strengths.}
+Tikhonov regularisation shares with the \idx{normal equation} some practical limitations as well as some strengths.}
 \end{definition}
 
 
@@ -1179,7 +1182,7 @@ In the linear system for \(\xv=(x,y)\),
 \begin{equation*}
 4x-y=-4\,,\quad-2x+y=3\,,
 \end{equation*}
-the coefficients on the left-hand side are in error by about~\(\pm0.3\).  
+the \idx{coefficient}s on the left-hand side are in error by about~\(\pm0.3\).  
 Tikhonov regularisation should solve which one of the following systems?
 \actposs{\(\begin{bmatrix} 20.1&-6\\-6&2.1 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)}
 {\(\begin{bmatrix} 20.3&-6\\-6&2.3 \end{bmatrix}\xv=\begin{bmatrix} -22\\7 \end{bmatrix}\)}
@@ -1206,13 +1209,13 @@ Ax=\bv\,,\quad\text{namely }
 \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}x
 =\begin{bmatrix} 84.8\\84.1\\84.7\\84.4 \end{bmatrix}.
 \end{equation*}
-A Tikhonov regularisation of this inconsistent system is
+A Tikhonov regularisation of this \idx{inconsistent system} is
 \begin{equation*}
 \left(\begin{bmatrix} 1&1&1&1 \end{bmatrix}\begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}+\alpha^2\right)x
 =\begin{bmatrix} 1&1&1&1 \end{bmatrix}\begin{bmatrix} 84.8\\84.1\\84.7\\84.4 \end{bmatrix}.
 \end{equation*}
 That is, \((4+\alpha^2)x=338\)\,kg with solution \(x=338/(4+\alpha^2)=84.5/(1+\alpha^2/4)\)\,kg.
-Because of the division by \(1+\alpha^2/4\), this Tikhonov answer is biased as it is systematically below the average~\(84.5\)\,kg.
+Because of the division by \(1+\alpha^2/4\), this Tikhonov answer is biased as it is systematically below the \idx{average}~\(84.5\)\,kg.
 For small Tikhonov parameter~\(\alpha\) the bias is small, but even so such a bias is unpleasant.
 \end{example}
 
@@ -1273,10 +1276,10 @@ The next theorem establishes the connection.
 
 
 \begin{theorem}[Tikhonov regularisation] \label{thm:Tikreg}
-Solving the \idx{Tikhonov regularisation}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the system \(\tilde A\xv=\bv\) where  
+Solving the \idx{Tikhonov regularisation}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the \idx{system} \(\tilde A\xv=\bv\) where  
 %\begin{itemize}
 %\item 
-the matrix~\(\tilde A\) is obtained from~\(A\) by replacing each of its non-zero \idx{singular value}s~\(\sigma_i\) by \(\tilde\sigma_i:=\sigma_i+\alpha^2/\sigma_i\)\,.
+the matrix~\(\tilde A\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\tilde\sigma_i:=\sigma_i+\alpha^2/\sigma_i\)\,.
 %, and
 %\item the vector~\(\tilde\bv\) is the orthogonal projection of~\(\bv\) onto the column space~\AA\ of~\(A\),  \(\tilde\bv=\proj_\AA\bv\)\,.
 %\end{itemize}
@@ -1319,7 +1322,7 @@ O_{r\times (n-r)}\\\,\\
 O_{(n-r)\times r}&\alpha^2I_{n-r}\end{bmatrix}\yv
 =\begin{bmatrix} \sigma_1z_1\\\vdots\\\sigma_rz_r\\\,\\\ov_{n-r} \end{bmatrix}.
 \end{equation*}
-Dividing each of the first \(r\)~rows by the corresponding non-zero singular value, \hlist\sigma r, the equivalent system is
+Dividing each of the first \(r\)~rows by the corresponding nonzero singular value, \hlist\sigma r, the equivalent system is
 \begin{equation*}
 \begin{bmatrix} \begin{matrix} \sigma_1+\alpha^2/\sigma_1&\cdots&0\\
 \vdots&\ddots&\vdots\\
@@ -1342,8 +1345,9 @@ Thus \idx{Tikhonov regularisation} of \(A\xv=\bv\) is equivalent to finding the 
 \end{proof}
 
 
+
 There is another reason to be careful when using Tikhonov regularisation. 
-Yes, it gives a nice, neat, unique solution.
+Yes, it gives a nice, neat, \idx{unique solution}.
 However, it does not hint that there may be an infinite number of equally good nearby solutions (as found through \autoref{pro:appmat}).
 Among those equally good nearby solutions may be ones that you prefer in your application.
 
@@ -1364,7 +1368,7 @@ Since changes in the matrix are largely measured by the \idx{singular value}s we
 \addplot[red,dashed,domain=0:4.8] {x};
 \end{axis}
 \end{tikzpicture}}
-From the marginal graph the small singular values are changed by a lot, but these are the ones for which we want~\(\tilde\sigma\) large in order give a `least square' approximation.
+From the marginal graph the small \idx{singular value}s are changed by a lot, but these are the ones for which we want~\(\tilde\sigma\) large in order give a `\idx{least square}' approximation.
 Significantly, the marginal graph also shows that singular values larger than~\(\alpha\) change by less than~\(\alpha\).
 Thus the parameter~\(\alpha\) should not be much larger than the expected error in the elements of the matrix~\(A\).
 
@@ -1372,14 +1376,13 @@ Thus the parameter~\(\alpha\) should not be much larger than the expected error 
 The condition number of~\(A\) may be very bad.
 However, as the marginal graph shows the smallest~\(\tilde\sigma\geq2\alpha\).
 Thus, in the regularised system the \idx{condition number} of the effective matrix~\(\tilde A\) is approximately~\(\sigma_1/(2\alpha)\).
-We need to choose the regularisation parameter~\(\alpha\) large enough so that \(\frac{\sigma_1}{2\alpha}\times\)(relative error in~\bv) is an acceptable \idx{relative error} in the solution~\xv\ (\autoref{thm:erramp}).
+We need to choose the regularisation parameter~\(\alpha\) large enough so that \(\frac{\sigma_1}{2\alpha}\times\)(\idx{relative error} in~\bv) is an acceptable \idx{relative error} in the solution~\xv\ (\autoref{thm:erramp}).
 It is only when the \idx{regularisation parameter}~\(\alpha\) is big enough that the regularisation will be effective in finding a \idx{least square} approximation. 
 
 \end{itemize}
 
 
 \index{Tikhonov regularisation|)}
-\index{regularisation|)}
 
 
 
@@ -1394,9 +1397,9 @@ It is only when the \idx{regularisation parameter}~\(\alpha\) is big enough that
 For each of the following matrices, say~\(A\), and right-hand side vectors, say~\(\bv_1\),
 solve \(A\xv=\bv_1\)\,.
 But suppose the matrix entries come from experiments and are only known to within errors~\(\pm0.05\).
-Thus within experimental error the given matrices~\(A'\) and~\(A''\) may be the `true' matrix~\(A\).
+Thus within \idx{experimental error} the given matrices~\(A'\) and~\(A''\) may be the `true' matrix~\(A\).
 Solve \(A'\xv'=\bv_1\) and \(A''\xv''=\bv_1\) and comment on the results.
-Finally, use an \svd\ to find a general solution consistent with the error in the matrix.
+Finally, use an \svd\ to find a \idx{general solution} consistent with the error in the matrix.
 %\begin{verbatim} A brutal search for such problems
 %format bank
 %n=2
@@ -1572,9 +1575,9 @@ seven,~\(3\times 10^{-9}>e\).}
 
 
 \begin{exercise} \label{ex:orb4Periods2} 
-Recall \autoref{ex:orb4Periods} considered the inner four planets in the solar system.
-The exercise fitted fit a quadratic polynomial to the orbital period \(T=c_1+c_2R+c_3R^2\) as a function of distance~\(R\) using the data of \autoref{tbl:orb4Periods}.
-In view of the bad condition number, \(\verb|rcond|=6\cdot10^{-6}\), revisit the task with the more powerful techniques of this section.
+Recall \autoref{ex:orb4Periods} considered the inner four \idx{planets} in the \idx{solar system}.
+The exercise fitted fit a quadratic polynomial to the \idx{orbital period} \(T=c_1+c_2R+c_3R^2\) as a function of distance~\(R\) using the data of \autoref{tbl:orb4Periods}.
+In view of the bad \idx{condition number}, \(\verb|rcond|=6\cdot10^{-6}\), revisit the task with the more powerful techniques of this section.
 Use the data for Mercury, Venus and Earth to fit the quadratic and predict the period for Mars.
 \index{data scaling}Discuss how the bad condition number is due to the failure in \autoref{ex:orb4Periods} of scaling the data in the matrix.
 %\begin{verbatim}
@@ -1592,7 +1595,7 @@ Use the data for Mercury, Venus and Earth to fit the quadratic and predict the p
 
 
 \begin{exercise} \label{ex:} 
-Recall \autoref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
+Recall \autoref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan\index{CT scan}.
 Redo this exercise recognising that the entries in matrix~\(A\) have errors up to roughly~\(0.5\).
 Discuss any change in the prediction.
 \answer{The matrix has effective rank of eleven.  
@@ -1604,9 +1607,9 @@ The corner pixels are the most affected.}
 
 
 \begin{exercise} \label{ex:} 
-Reconsider each of the matrix-vector systems you explored in \autoref{ex:errmats}.
+Reconsider each of the matrix-vector \idx{system}s you explored in \autoref{ex:errmats}.
 Also solve each system using \idx{Tikhonov regularisation}; for example, in the first system solve \(A\xv=\bv_1\)\,, \(A'\xv'=\bv_1\) and \(A''\xv''=\bv_1\).
-Discuss why \(\xv\), \(\xv'\) and~\(\xv''\) are all reasonably close to the smallest solution of those obtained via an \svd.
+Discuss why \(\xv\), \(\xv'\) and~\(\xv''\) are all reasonably close to the \idx{smallest solution} of those obtained via an \svd.
 \end{exercise}
 
 
@@ -1614,15 +1617,15 @@ Discuss why \(\xv\), \(\xv'\) and~\(\xv''\) are all reasonably close to the smal
 
 \begin{exercise} \label{ex:} 
 Recall that \autoref{eg:hilb5} explores the effective rank of the \(5\times5\) \idx{Hilbert matrix} depending upon a supposed level of error.
-Here do the alternative and solve the system \(A\xv=\vec 1\) via \idx{Tikhonov regularisation} using a wide range of various regularisation parameters~\(\alpha\).
-Comment on the relation between the solutions obtained for various~\(\alpha\) and those obtained in the example for the various presumed error---perhaps plot the components of~\xv\ versus parameter~\(\alpha\) (on a log-log plot).
+Here do the alternative and solve the system \(A\xv=\vec 1\) via \idx{Tikhonov regularisation} using a wide range of various \idx{regularisation parameter}s~\(\alpha\).
+Comment on the relation between the solutions obtained for various~\(\alpha\) and those obtained in the example for the various presumed error---perhaps plot the components of~\xv\ versus parameter~\(\alpha\) (on a \idx{log-log plot}).
 \end{exercise}
 
 
 
 
 \begin{exercise} \label{ex:} 
-Recall \autoref{eg:ctscan3x3d2} used a \(3\times3\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
+Recall \autoref{eg:ctscan3x3d2} used a \(3\times3\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan\index{CT scan}.
 Redo this example with \idx{Tikhonov regularisation} recognising that the entries in matrix~\(A\) have errors up to roughly~\(0.5\).
 Discuss the relation between the solution of \autoref{eg:ctscan3x3d2} that of \idx{Tikhonov regularisation}.
 \end{exercise}
@@ -1631,7 +1634,7 @@ Discuss the relation between the solution of \autoref{eg:ctscan3x3d2} that of \i
 
 
 \begin{exercise} \label{ex:} 
-Recall \autoref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan.
+Recall \autoref{ex:ctscan4x4d} used a \(4\times4\) grid of pixels in the \idx{computed tomography} of a \textsc{ct}-scan\index{CT scan}.
 Redo this exercise with \idx{Tikhonov regularisation} recognising that the entries in matrix~\(A\) have errors up to roughly~\(0.5\).
 Discuss any change in the prediction.
 \end{exercise}
@@ -1679,7 +1682,7 @@ Possibly link to polar decomposition (Higham86)
 see closestOrthogonalMatrix.png
 
 \begin{exercise} \label{ex:} 
-Prove that for every square matrix~\(A\) with \svd\ \(A=\usv\), a closest orthogonal matrix to~\(A\) is~\(U\tr V\) ??
+Prove that for every square matrix~\(A\) with \svd\ \(A=\usv\), a closest \idx{orthogonal matrix} to~\(A\) is~\(U\tr V\) ??
 Related to the Kabsch algorithm??
 \begin{center}
 \TwoD1101
@@ -1690,3 +1693,5 @@ Related to the Kabsch algorithm??
 \end{comment}
 
 
+\index{linear equation|)}
+\index{regularisation|)}

@@ -5,6 +5,7 @@
 \label{sec:apd}
 \secttoc
 
+\index{determinant|(}
 
 This section develops a so-called row\slash column algebraic expansion for determinants. 
 This expansion is useful for many theoretical purposes.
@@ -174,7 +175,7 @@ If \(A\) has two \idx{identical rows} or \index{identical columns}columns, then 
 \item\label{thm:ppdet:iii} 
 Let \(B\) be obtained by \idx{interchanging two rows} or \index{interchanging two columns}columns of~\(A\), then \(\det B=-\det A\)\,.
 \item\label{thm:ppdet:iv} 
-Let \(B\) be obtained by multiplying any \emph{one} row or column of~\(A\) by a scalar~\(k\), then \(\det B=k\det A\)\,.
+Let \(B\) be obtained by multiplying any \emph{one} row or column of~\(A\) by a \idx{scalar}~\(k\), then \(\det B=k\det A\)\,.
 \end{enumerate}
 \end{theorem}
 
@@ -387,7 +388,7 @@ Without evaluating the determinant, use \autoref{thm:ppdet} to establish that th
 \begin{equation*}
 \begin{vmatrix} x&y&z\\-1&-2&2\\3&5&2 \end{vmatrix}=0
 \end{equation*}
-is, in \(xyz\)-space, the equation of the plane that passes through the origin and the two points \((-1,-2,2)\) and~\((3,5,2)\).
+is, in \(xyz\)-space, the \idx{equation of the plane} that passes through the origin and the two points \((-1,-2,2)\) and~\((3,5,2)\).
 \begin{solution} 
 As in the previous example, the determinant is linear in~\(x\), \(y\) and~\(z\), so the solutions must be those of a single linear equation, namely a plane (\autoref{sec:nvep}).
 \begin{itemize}
@@ -441,20 +442,20 @@ F=\begin{bmatrix} 1&0&-\frac12\\0&1&-1\\0&0&1 \end{bmatrix},
 just multiply out and see that the last column of~\(F\) `fills in' the last column of~\(A\) from that of~\(B\).
 Consider the geometry of the two transformations arising from multiplication by~\(F\) and by~\(B\).
 \begin{itemize}
-\item Multiplication by~\(F\) shears the unit cube as illustrated below.
+\item Multiplication by~\(F\) shears the \idx{unit cube} as illustrated below.
 \begin{center}
 \ThreeD10{-0.5}01{-1}001
 \end{center}
-Thus the volume of the unit cube after multiplication by~\(F\) is the square base of area one, times the height of one, which is a volume of one.
+Thus the volume of the unit cube after multiplication by~\(F\) is the square base of \idx{area} one, times the height of one, which is a volume of one.
 Consequently, by \autoref{def:detarea}, \(\det F=1\)\,.
 
 \item As illustrated  below, multiplication by~\(B\) has two components.
 \begin{center}
 \ThreeD{-2}{-1}01{-3}000{2}
 \end{center}
-Firstly,  the \(2\times2\) top-left sub-matrix, being bordered by zeros, maps the unit square in the \(x_1x_2\)-plane into the base parallelogram in the \(x_1x_2\)-plane.
-The shape of the parallelogram is determined by the top-left sub-matrix \(\small\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) (to be called the \(A_{33}\)~minor) acting on the unit square.
-Thus the area of the parallelogram is \(\det A_{33}=(-2)(-3)-(-1)1=7\)\,.
+Firstly,  the \(2\times2\) top-left sub-matrix, being bordered by zeros, maps the \idx{unit square} in the \(x_1x_2\)-plane into the base parallelogram in the \(x_1x_2\)-plane.
+The shape of the parallelogram is determined by the top-left sub-matrix \(\small\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) (to be called the \(A_{33}\)~minor) acting on the \idx{unit square}.
+Thus the \idx{area} of the parallelogram is \(\det A_{33}=(-2)(-3)-(-1)1=7\)\,.
 Secondly, the~\(2\) in the bottom corner of~\(B\) stretches objects vertically by a factor of~\(2\) to form a parallelepiped of height~\(2\).
 Thus the volume of the parallelepiped, \(\det B\) by \autoref{def:detarea}, is \(2\cdot\det A_{33}=2\cdot 7=14\)\,.
 
@@ -479,6 +480,7 @@ The next \autoref{thm:rpdet:vii} addresses this case in general.
 
 
 \begin{theorem}[almost zero row/column] \label{thm:rpdet:vii} 
+\index{zero row}\index{zero column}%
 For every \(n\times n\) matrix~\(A\),
 define the \((i,j)\)th~\bfidx{minor} \(A_{ij}\)~to be the \((n-1)\times(n-1)\) square matrix obtained from~\(A\) by omitting the \(i\)th~row and \(j\)th~column.  
 If, except for the entry~\(a_{ij}\), the \(i\)th~row (or \(j\)th~column) of~\(A\) is all zero, then 
@@ -690,9 +692,9 @@ There is, as expressed by the following definition and theorem.
 
 
 \begin{definition} \label{def:trim}
-A \bfidx{triangular matrix} is a \idx{square matrix} where all entries are zero either to the lower-left of the diagonal or to the upper-right:
-\footnote{From time-to-time, some people call an upper triangular matrix either a \idx{right triangular} or an \idx{upper-right triangular} matrix.  
-Correspondingly, from time-to-time, some people  call a lower triangular matrix either a \idx{left triangular} or a \idx{lower-left triangular} matrix.}
+A \bfidx{triangular matrix} is a \idx{square matrix} where all \idx{entries} are zero either to the lower-left of the diagonal or to the upper-right:
+\footnote{From time-to-time, some people call an \idx{upper triangular} matrix either a \idx{right triangular} or an \idx{upper-right triangular} matrix.  
+Correspondingly, from time-to-time, some people  call a \idx{lower triangular} matrix either a \idx{left triangular} or a \idx{lower-left triangular} matrix.}
 \begin{itemize}
 \item an \idx{upper triangular} matrix has the form (although any of the~\(a_{ij}\) may also be zero)
 \begin{equation*}
@@ -715,14 +717,14 @@ Correspondingly, from time-to-time, some people  call a lower triangular matrix 
 \end{definition}
 
 
-Any square \idx{diagonal matrix} is also an upper triangular matrix, and is also a lower triangular matrix.
+Any square \idx{diagonal matrix} is also an upper \idx{triangular matrix}, and is also a \idx{lower triangular} matrix.
 Thus the following theorem encompasses square diagonal matrices and so generalises \autoref{thm:basicdet:i}.
 
 
 
 \begin{theorem}[triangular matrix]\label{thm:rpdet:vi} 
 For every \(n\times n\) \idx{triangular matrix}~\(A\),
-the \idx{determinant} of~\(A\) is the product of the diagonal entries, \(\det A=a_{11}a_{22}\cdots a_{nn}\).
+the \idx{determinant} of~\(A\) is the product of the \idx{diagonal entries}, \(\det A=a_{11}a_{22}\cdots a_{nn}\).
 \end{theorem}
 \begin{proof} 
 A little induction proves the determinant of a triangular matrix is the product of its diagonal entries: only consider upper triangular matrices as transposing the matrix caters for lower triangular matrices.
@@ -751,7 +753,7 @@ Induction then establishes the theorem for all~\(n\).
 
 
 \begin{activity}
-Which of the following matrices is \emph{not} a triangular matrix?
+Which of the following matrices is \emph{not} a \idx{triangular matrix}?
 \actposs{\(\begin{bmatrix} 0&0&0&-2
 \\0&0&-1&-1
 \\0&1&1&4
@@ -903,7 +905,7 @@ This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\b
 That is, the original determinant is the same as the sum of three determinants, each with two zeros in the first row and the other rows unchanged.
 This identity decomposes the first row as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), while the other rows are unchanged.
 \end{itemize}
-This sort of rearrangement of a determinant makes progress because then \autoref{thm:rpdet:vii} helps by finding the determinant of the resultant matrices that have an almost all zero row.
+This sort of rearrangement of a determinant makes progress because then \autoref{thm:rpdet:vii} helps by finding the determinant of the resultant matrices that have an almost all \idx{zero row}.
 \end{example}
 
 \begin{example} \label{eg:cpdet2}
@@ -925,7 +927,7 @@ where matrices~\(B\) and~\(C\) have the same first column as~\(A\), and their se
 
 \begin{theorem}[sum formula] \label{thm:rpdet:v} 
 Let \(A\), \(B\) and~\(C\) be \(n\times n\) matrices.
-If matrices~\(A\), \(B\) and~\(C\) are identical except for their \(i\)th~column, and that the \(i\)th~column of~\(A\) is the sum of the \(i\)th~columns of \(B\) and~\(C\), then \(\det A=\det B+\det C\)\,.
+If matrices~\(A\), \(B\) and~\(C\) are identical except for their \(i\)th~column, and that the \(i\)th~column of~\(A\) is the \idx{sum} of the \(i\)th~columns of \(B\) and~\(C\), then \(\det A=\det B+\det C\)\,.
 Further, the same sum property holds when ``column'' is replaced by ``row'' throughout.
 \end{theorem}
 
@@ -1068,7 +1070,7 @@ The above proof for the last column case then assures us \((-\det A)=(-\det B)+(
 \end{proof}
 
 
-The sum formula \autoref{thm:rpdet:v} leads to the common way to compute determinants by hand for matrices larger than \(3\times3\)\,, albeit not generally practical for matrices significantly larger.
+The \idx{sum} formula \autoref{thm:rpdet:v} leads to the common way to compute determinants by hand for matrices larger than \(3\times3\)\,, albeit not generally practical for matrices significantly larger.
 
 \begin{example} \label{eg:}
 Use Theorems~\ref{thm:rpdet:v} and~\ref{thm:rpdet:vii} to evaluate the determinant of matrix
@@ -1168,7 +1170,7 @@ We could compute the determinant of the matrix
 \(\begin{bmatrix} -3&6&-4
 \\7&4&6
 \\1&6&-3 \end{bmatrix}\)  
-as a particular sum involving three of the following four determinants.  
+as a particular \idx{sum} involving three of the following four determinants.  
 Which one of the following would not be used in the sum?
 \actposs[4]{\(\begin{vmatrix} 7&6\\1&-3 \end{vmatrix}\)}
 {\(\begin{vmatrix} 4&6\\6&-3 \end{vmatrix}\)}
@@ -1395,7 +1397,7 @@ Similarly, \(f\)~never appears in a term with the entries~\(d\), \(e\), \(c\) or
 
 
 \begin{theorem} \label{thm:detnfac}
-The determinant of every \(n\times n\) matrix expands to the sum of \index{factorial}\(n!\)~terms, where each term is~\(\pm1\) times a product of \(n\)~factors such that each factor comes from different rows and columns of the matrix.
+The determinant of every \(n\times n\) matrix expands to the \idx{sum} of \index{factorial}\(n!\)~terms, where each term is~\(\pm1\) times a product of \(n\)~factors such that each factor comes from different rows and columns of the matrix.
 \end{theorem}
 
 \begin{proof} 
@@ -1664,8 +1666,8 @@ Prove Theorems~\ref{thm:ppdet:i}, \ref{thm:ppdet:iv} and~\ref{thm:ppdet:ii} usin
 
 
 \begin{exercise} \label{ex:} 
-Use \autoref{thm:ppdet} to prove that if a square matrix~\(A\) has two non-zero rows proportional to each other, then \(\det A=0\)\,.
-Why does it immediately follow that (instead of rows) if the matrix has two non-zero columns proportional to each other, then \(\det A=0\)\,.
+Use \autoref{thm:ppdet} to prove that if a square matrix~\(A\) has two nonzero rows proportional to each other, then \(\det A=0\)\,.
+Why does it immediately follow that (instead of rows) if the matrix has two nonzero columns proportional to each other, then \(\det A=0\)\,.
 \end{exercise}
 
 
@@ -1727,7 +1729,7 @@ Show your working.
 
 
 \begin{exercise} \label{ex:} 
-Use the triangular matrix \autoref{thm:rpdet:vi}, as well as the row\slash column properties of \autoref{thm:ppdet}, to find the determinants of each of the following matrices.
+Use the \idx{triangular matrix} \autoref{thm:rpdet:vi}, as well as the row\slash column properties of \autoref{thm:ppdet}, to find the determinants of each of the following matrices.
 Show your argument.
 % A=triu(0+round(randn(n)*4));A=A(randperm(n),randperm(n)), if rand>0.5, A=A',end, detA=det(A)
 \begin{parts}
@@ -1899,7 +1901,7 @@ Show your working.
 
 
 \begin{exercise} \label{ex:} 
-For each of the following matrices, use the Laplace expansion (\autoref{thm:letdet}) to find all the values of~\(k\) for which the matrix is \emph{not} invertible.
+For each of the following matrices, use the Laplace expansion (\autoref{thm:letdet}) to find all the values of~\(k\) for which the matrix is \emph{not} \idx{invertible}.
 Show your working.
 %\begin{verbatim}
 %n=4
@@ -1967,7 +1969,7 @@ Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an
 
 
 \begin{exercise} \label{ex:} 
-Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an argument that the following determinant equation generally forms an equation for the parabola passing through the three given points \((x_1,y_1)\), \((x_2,y_2)\) and~\((x_3,y_3)\):
+Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an argument that the following determinant equation generally forms an equation for the \idx{parabola} passing through the three given points \((x_1,y_1)\), \((x_2,y_2)\) and~\((x_3,y_3)\):
 \begin{equation*}
 \det\begin{bmatrix} 1&x&x^2&y
 \\1&x_1&x_1^2&y_1
@@ -1999,7 +2001,7 @@ generally forms an equation for the \idx{conic section} passing through the five
 
 
 \begin{exercise} \label{ex:} 
-Consider the task of computing the determinant of a typical \(n\times n\) matrix~\(A\) (`typical' means all its entries are non-zero).  
+Consider the task of computing the determinant of a typical \(n\times n\) matrix~\(A\) (`typical' means all its entries are nonzero).  
 Using the Laplace Expansion \autoref{thm:letdet} to compute the determinant takes approximately~\((e-1)n!\) multiplications.
 On a computer that does about~\(10^9\) multiplications per second, what is the largest sized matrix for which the determinant can be computed by Laplace Expansion in less than an hour?
 Detail your reasons.
@@ -2040,4 +2042,5 @@ what is the evidence for X?
 why is X important?
 \end{comment}
 
+\index{determinant|)}
 

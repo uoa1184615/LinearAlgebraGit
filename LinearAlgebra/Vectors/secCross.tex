@@ -16,7 +16,7 @@ But for more than three dimensions, qualitatively different techniques are devel
 
 
 \subsubsection{Area of a parallelogram}
-
+\index{parallelogram area|(}
 
 \begin{wrapfigure}{r}{0pt} 
 \begin{tikzpicture} 
@@ -42,7 +42,7 @@ But for more than three dimensions, qualitatively different techniques are devel
 \end{wrapfigure}
 Consider the parallelogram drawn in blue.
 It has sides given by vectors \(\vv=(v_1,v_2)\) and \(\wv=(w_1,w_2)\) as shown.
-Let's determine the area of the parallelogram. 
+Let's determine the \idx{area} of the parallelogram. 
 Its area is the containing rectangle less the two small rectangles and the four small triangles.
 The two small rectangles have the same area, namely~\(w_1v_2\).
 The two small triangles on the left and the right also have the same area, namely~\(\frac12w_1w_2\).
@@ -61,7 +61,7 @@ Thus in general the \idx{parallelogram area}\({}=|v_1w_2-v_2w_1|\).
 
 
 \begin{example} \label{eg:}
-What is the area of the parallelogram (illustrated in the margin) whose edges are formed by the vectors~\((3,2)\) and~\((-1,4)\)?
+What is the \idx{area} of the parallelogram (illustrated in the margin) whose edges are formed by the vectors~\((3,2)\) and~\((-1,4)\)?
 \marginpar{\begin{tikzpicture} 
 \def\a{3} \def\b{-1} 
 \def\c{2} \def\d{4} 
@@ -85,7 +85,7 @@ The illustration indicates that this area must be about right as with imaginatio
 
 
 \begin{activity} \label{ex:} 
-What is the area of the parallelogram (illustrated in the margin) whose edges are formed by the vectors~\((5,3)\) and~\((2,-2)\)?
+What is the \idx{area} of the parallelogram (illustrated in the margin) whose edges are formed by the vectors~\((5,3)\) and~\((2,-2)\)?
 \marginpar{\begin{tikzpicture} 
 \def\a{5} \def\b{2} \def\ab{7}
 \def\c{3} \def\d{-2} \def\cd{1}
@@ -114,7 +114,9 @@ What is the area of the parallelogram (illustrated in the margin) whose edges ar
 \end{activity}
 
 
-Interestingly, we meet this expression for area, \(v_1w_2-v_2w_1\), in another context: that of equations for a plane and its normal vector.
+Interestingly, we meet this expression for \idx{area}, \(v_1w_2-v_2w_1\), in another context: that of equations for a plane and its normal vector.
+
+\index{parallelogram area|)}
 
 
 
@@ -135,7 +137,7 @@ They key to deriving the normal equation is to find that a \idx{normal vector} t
 This normal vector comes from the two vectors that multiply the parameters in the parametric form, \((1,1,0)\) and~\((0,3,1)\).
 The following mysterious looking procedure may be a convenient way for you to remember an otherwise involved formula: if you prefer to remember the formula of \autoref{def:cp} then use that instead.
 (Those who have computed \(3\times3\) determinants will recognise the following has the same pattern---see \autoref{ch:ddm}.)
-Write the vectors as two consecutive columns, following a first column of the \emph{symbols} of the standard unit vectors~\iv, \jv\ and~\kv, in
+Write the vectors as two consecutive columns, following a first column of the \emph{symbols} of the \idx{standard unit vector}s~\iv, \jv\ and~\kv, in
 \setlength{\unitlength}{1.2ex}
 \def\abc#1{\begin{vmatrix}\begin{picture}(5.3,6)
 %\put(0,0){\framebox(5,5){}}
@@ -238,6 +240,7 @@ We use this formula to define the cross product algebraically, and then see what
 \begin{definition} \label{def:cp}
 Let \(\vv=(v_1,v_2,v_3)\) and \(\wv=(w_1,w_2,w_3)\) be two vectors in~\(\RR^3\).
 The \bfidx{cross product}  (or \bfidx{vector product}) \(\vv\times\wv\) is defined algebraically as
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 \begin{equation*}
 \vv\times\wv:=\iv(v_2w_3-v_3w_2)
 +\jv(v_3w_1-v_1w_3)
@@ -249,6 +252,7 @@ The \bfidx{cross product}  (or \bfidx{vector product}) \(\vv\times\wv\) is defin
 
 \begin{example} \label{eg:cpijk}
 Among the \idx{standard unit vector}s, derive that 
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 \begin{parts}
 \item \(\iv\times\jv=\kv\)\,, \item \(\jv\times\iv=-\kv\)\,,
 \item \(\jv\times\kv=\iv\)\,, \item \(\kv\times\jv=-\iv\)\,,
@@ -301,7 +305,7 @@ Use \autoref{def:cp} to find the cross product of \((-4,1,-1)\) and \((-2,2,1)\)
 \begin{example}[\idx{parallelogram area}] \label{eg:cppara}
 Let's revisit the introduction to this section.
 Consider the parallelogram in the \(x_1x_2\)-plane with edges formed by the \(\RR^3\)~vectors \(\vv=(v_1,v_2,0)\) and \(\wv=(w_1,w_2,0)\).
-At the start of this \autoref{sec:cp} we derived that the parallelogram formed by these vectors has area\({}=|v_1w_2-v_2w_1|\).
+At the start of this \autoref{sec:cp} we derived that the parallelogram formed by these vectors has \idx{area}\({}=|v_1w_2-v_2w_1|\).
 Compare this area with the cross product
 \begin{eqnarray*}
 \vv\times\wv&=&\iv(v_2\cdot0-0\cdot w_2)
@@ -310,7 +314,7 @@ Compare this area with the cross product
 \\&=&\iv0+\jv0+\kv(v_1w_2-v_2w_1)
 \\&=&\kv(v_1w_2-v_2w_1).
 \end{eqnarray*}
-Consequently, the length of this cross product equals the area of the parallelogram formed by~\vv\ and~\wv\ (\autoref{thm:cpgd}).
+Consequently, the \idx{length} of this cross product equals the area of the parallelogram formed by~\vv\ and~\wv\ (\autoref{thm:cpgd}).
 (Also the direction of the cross product,~\(\pm\kv\), is orthogonal to the \(x_1x_2\)-plane containing the two vectors---\autoref{thm:cpga}).
 \end{example}
 
@@ -398,7 +402,7 @@ Since the dot product is zero, the cross product \(\vv\times\wv\) is orthogonal 
 
 Similarly, \(\vv\times\wv\) is orthogonal to~\wv\  (\autoref{ex:cpga}).
 
-\item[\ref{thm:cpgb}] This right-handed property follows from the convention that the standard unit vectors~\iv, \jv\ and~\kv\ are right-handed: that if \iv~is in the direction of your thumb, and \jv~is in the direction of your straight index finger, then \kv~is in the direction of your bent second\slash longest finger---all on your right-hand.
+\item[\ref{thm:cpgb}] This right-handed property follows from the convention that the \idx{standard unit vector}s~\iv, \jv\ and~\kv\ are right-handed: that if \iv~is in the direction of your thumb, and \jv~is in the direction of your straight index finger, then \kv~is in the direction of your bent second\slash longest finger---all on your right-hand.
 
 We prove only for the case of vectors in the \(x_1x_2\)-plane, in which case \(\vv=(v_1,v_2,0)\) and \(\wv=(w_1,w_2,0)\), and when both \(v_1,w_1>0\)\,.
 One example is in stereo below.
@@ -469,7 +473,7 @@ Hence the area of the parallelogram is the product
 
 
 \begin{example} \label{eg:apvw}
-Find the area of the parallelogram with edges formed by vectors
+Find the \idx{area} of the parallelogram\index{parallelogram area} with edges formed by vectors
 \(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as in stereo below.
 \begin{center}
 \qview{30}{34}{\begin{tikzpicture} 
@@ -508,7 +512,7 @@ Then the parallelogram area \(|\vv\times\wv|=\sqrt{(-2)^2+4^2+(-4)^2}
 
 \begin{activity}
 % u=0+round(randn(1,3)*3), v=0+round(randn(1,3)*3), uv=cross(u,v), area=norm(uv)
-What is the area of the parallelogram (in stereo below) with edges formed by vectors
+What is the \idx{area} of the parallelogram\index{parallelogram area} (in stereo below) with edges formed by vectors
 \(\vv=(-2,1,0)\) and \(\wv=(2,0,-1)\)?
 \begin{center}
 \qview{30}{34}{\begin{tikzpicture} 
@@ -546,7 +550,8 @@ What is the area of the parallelogram (in stereo below) with edges formed by vec
 
 \begin{example} \label{eg:cpnvp}
 Find a \idx{normal vector} to the plane containing the two vectors \(\vv=-2\iv+3\jv+2\kv\) and \(\wv=2\iv+2\jv+3\kv\) ---illustrated below.
-Hence find an equation of the plane given parametrically as \(\xv=-2\iv-\jv+3\kv+(-2\iv+3\jv+2\kv)s+(2\iv+2\jv+3\kv)t\)\,.
+Hence find an \idx{equation of the plane} given parametrically as \(\xv=-2\iv-\jv+3\kv+(-2\iv+3\jv+2\kv)s+(2\iv+2\jv+3\kv)t\)\,.
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 \begin{center}
 \qview{26}{31}{\begin{tikzpicture} 
 \def\a{-2} \def\b{2} 
@@ -592,7 +597,7 @@ is the required normal equation of the plane.
 Exercises~\ref{ex:cppa}--\ref{ex:cppc} establish three of the following four useful algebraic properties of the cross product.
 
 \begin{theorem}[cross product properties] \label{thm:cpp}
-Let \uv, \vv\ and~\wv\ be vectors in~\(\RR^3\), and \(c\)~be a scalar:
+Let \uv, \vv\ and~\wv\ be vectors in~\(\RR^3\), and \(c\)~be a \idx{scalar}:
 \begin{enumerate}
 \item\label{thm:cppz} \(\vv\times\vv=\ov\);
 \item\label{thm:cppa} \(\wv\times\vv=-(\vv\times\wv)\) \quad(not commutative);\index{commutative law}
@@ -736,7 +741,7 @@ Use such algebraic manipulation, and the identities among \idx{standard unit vec
 \end{tikzpicture}
 }}
 
-Consider the parallelepiped with edges formed by three vectors~\uv, \vv\ and~\wv\ in~\(\RR^3\), as illustrated in stereo below.
+Consider the \idx{parallelepiped} with edges formed by three vectors~\uv, \vv\ and~\wv\ in~\(\RR^3\), as illustrated in stereo below.
 Our challenge is to derive that the volume of the parallelepiped is~\(|\uv\cdot(\vv\times\wv)|\).
 \begin{center}
 \pppd0
@@ -745,7 +750,7 @@ Our challenge is to derive that the volume of the parallelepiped is~\(|\uv\cdot(
 \index{volume, parallelepiped}%
 Let's use that we know the volume of the parallelepiped is the area of its base times its height.
 \begin{itemize}
-\item The base of the parallelepiped is the parallelogram formed with edges~\vv\ and~\wv.
+\item The base of the parallelepiped is the \idx{parallelogram} formed with edges~\vv\ and~\wv.
 Hence the base has area~\(|\vv\times\wv|\) (\autoref{thm:cpgd}).
 
 \item The height of the parallelepiped is then that part of~\uv\ in the direction of a \idx{normal vector} to~\vv\ and~\wv.
@@ -754,7 +759,7 @@ We know that \(\vv\times\wv\) is orthogonal to both~\vv\ and~\wv\ (\autoref{thm:
 \pppd1
 \end{center}
 To cater for cases where \(\vv\times\wv\) points in the opposite direction to that shown, the height is~\(|\uv||\cos\theta|\).
-The dot product  determines this cosine (\autoref{thm:anglev}):
+The \idx{dot product}  determines this \idx{cosine} (\autoref{thm:anglev}):
 \begin{equation*}
 \cos\theta=\frac{\uv\cdot(\vv\times\wv)}{|\uv||\vv\times\wv|}\,.
 \end{equation*}
@@ -781,7 +786,7 @@ For every three vectors \uv, \vv\ and~\wv\ in~\(\RR^3\), the \bfidx{scalar tripl
 
 
 \begin{example} \label{eg:stppv}
-Use the scalar triple product to find the area of the parallelepiped formed by vectors \(\uv=(0,2,1)\), \(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as illustrated in stereo below.
+Use the \idx{scalar triple product} to find the volume of the parallelepiped formed by vectors \(\uv=(0,2,1)\), \(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as illustrated in stereo below.
 \begin{center}
 \qview{30}{34}{\begin{tikzpicture} 
 \def\ua{0}\def\ub{2}\def\uc{1}
@@ -850,6 +855,7 @@ Hence the volume of the parallelepiped is~\(|-4|=4\) as before.
 
 
 Using the procedure of \autoref{eg:nviax} to find a \idx{scalar triple product} establishes a strong connection to the \idx{determinant}s of \autoref{ch:ddm}.
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 In the second solution to the previous \autoref{eg:stppv}, in finding \(\uv\times\wv\), the unit vectors~\iv, \jv\ and~\kv\  just acted as place holding symbols to eventually ensure a multiplication by the correct component of~\vv\ in the dot product.
 We could seamlessly combine the two products by replacing the symbols~\iv, \jv\ and~\kv\ directly with the corresponding component of~\vv:
 {%%%%%%
@@ -904,6 +910,7 @@ Here the volume follows from the above manipulations of the matrix of numbers fo
 
 \begin{exercise} \label{ex:cpijk} 
 Use \autoref{def:cp} to establish some of the \idx{standard unit vector} identities in \autoref{eg:cpijk}: 
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 \begin{enumerate}
 \item \(\jv\times\kv=\iv\)\,, \(\kv\times\jv=-\iv\)\,, \(\jv\times\jv=\ov\)\,;
 \item \(\kv\times\iv=\jv\)\,, \(\iv\times\kv=-\jv\)\,, \(\kv\times\kv=\ov\)\,.
@@ -944,7 +951,7 @@ Show your details.
 
 
 \begin{exercise} \label{ex:} 
-For each of the stereo pictures below, estimate the area of the pictured \index{parallelogram area}parallelogram by estimating the edge vectors~\vv\ and~\wv\ (all components are integers), then computing their cross product.
+For each of the stereo pictures below, estimate the \idx{area} of the pictured \index{parallelogram area}parallelogram by estimating the edge vectors~\vv\ and~\wv\ (all components are integers), then computing their cross product.
 % u=0+round(randn(1,3)*2), v=0+round(randn(1,3)*2), uv=cross(u,v), norm(uv)
 \newcommand{\temp}[6]{\qview{30}{34}{
 \begin{tikzpicture} 
@@ -1025,14 +1032,14 @@ Find a \idx{normal vector} to each of the planes.
 
 
 \begin{exercise} \label{ex:cpga} 
-Use \autoref{def:cp} to prove that for all vectors \(\vv,\wv\in\RR^3\), the cross product~\(\vv\times\wv\)~is orthogonal to~\wv.
+Use \autoref{def:cp} to prove that for all vectors \(\vv,\wv\) in~\(\RR^3\), the cross product~\(\vv\times\wv\)~is orthogonal to~\wv.
 \end{exercise}
 
 
 
 
 \begin{exercise} \label{ex:cpgc} 
-For all vectors \(\vv,\wv\in\RR^3\) prove the identity \(|\vv\times\wv|^2=|\vv|^2|\wv|^2-(\vv\cdot\wv)^2\) (an identity invoked in the proof of \autoref{thm:cpgc}). 
+For all vectors \(\vv,\wv\) in~\(\RR^3\) prove the identity \(|\vv\times\wv|^2=|\vv|^2|\wv|^2-(\vv\cdot\wv)^2\) (an identity invoked in the proof of \autoref{thm:cpgc}). 
 Use the algebraic Definitions~\ref{def:dotprod} and~\ref{def:cp} of the dot and cross products to expand both sides of the identity and show both sides expand to the same complicated expression.
 \end{exercise}
 
@@ -1124,7 +1131,7 @@ Use \autoref{def:cp} to algebraically prove \autoref{thm:cppc}---the distributiv
 
 
 \begin{exercise} \label{ex:} 
-For each of the following illustrated parallelepipeds:
+For each of the following illustrated \idx{parallelepiped}s:
 estimate the edge vectors~\uv, \vv\ and~\wv\ (all components are integers);
 then use the \idx{scalar triple product} to estimate the volume of the parallelepiped\index{volume, parallelepiped}.
 % uvw=0+round(randn(3)+1),printf('{%i}',uvw),vol=det(uvw)

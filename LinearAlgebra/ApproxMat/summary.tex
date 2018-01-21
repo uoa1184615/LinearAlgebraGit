@@ -34,9 +34,9 @@ Similarly for \index{scatter3()@\texttt{scatter3()}}\verb|scatter3(x,y,z,[],c)| 
 \itemme \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)| computes the \(k\)~largest singular values of the matrix~\(A\) in the diagonal of \(k\times k\) matrix~\(S\), and the  \(k\)~columns of~\(U\) and~\(V\) are the corresponding singular vectors.
 
 \item  \index{imread()@\texttt{imread()}}\verb|imread('|filename\verb|')| typically reads an image from a file into an \(m\times n\times 3\) array of red-green-blue values. 
-The values are all `integers' in the range~\([0,255]\).
+The values are all \idx{integer}s in the range~\([0,255]\).
 
-\itemme \index{mean()@\texttt{mean()}}\verb|mean(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of \idx{average}s (the arithmetic mean) over each column of~\(A\).
+\itemme \index{mean()@\texttt{mean()}}\verb|mean(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of \idx{average}s (the arithmetic \idx{mean}) over each column of~\(A\).
 
 Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the mean over the \verb|p|th~index to give an array of size \(m_1\times\cdots\times m_{p-1}\times m_{p+1}\times\cdots\times m_\ell\).
 
@@ -48,7 +48,7 @@ Where this \verb|bsxfun()| becomes useful is that if either  of the matrices is 
 \item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
 When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
 
-\item \index{semilogy()@\texttt{semilogy()}}\verb|semilogy(x,y,'o')| draws a point plot of~\(y\) versus~\(x\) with the vertical axis being logarithmic.
+%\item \index{semilogy()@\texttt{semilogy()}}\verb|semilogy(x,y,'o')| draws a point plot of~\(y\) versus~\(x\) with the vertical axis being logarithmic.
 
 \item \index{axis@\texttt{axis}}\verb|axis| sets some properties of a drawn figure:
 \begin{itemize}
@@ -66,7 +66,7 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 \quad\text{equivalently }\norm A=\sigma_1
 \end{equation*}
 the largest \idx{singular value} of the matrix~\(A\) (\autoref{def:norm}).
-This norm usefully measures the `length' or `magnitude' of a matrix, and hence also the `distance' between two matrices as~\(\norm{A-B}\).
+This norm usefully measures the `length' or `\idx{magnitude}' of a matrix, and hence also the `\idx{distance}' between two matrices as~\(\norm{A-B}\).
 
 \itemme For every \(m\times n\) real matrix~\(A\) (\autoref{thm:norm}):
 \begin{itemize}
@@ -86,7 +86,7 @@ Then for every \(k< r\) the matrix
 A_k:=US_k\tr V =\sigma_1\uv_1\tr\vv_1 +\sigma_2\uv_2\tr\vv_2+\cdots +\sigma_k\uv_k\tr\vv_k
 \end{equation*}
 where \(S_k:=\diag(\hlist\sigma k,0,\ldots,0)\), is a \emph{closest} \idx{rank}~\(k\) matrix approximating~\(A\) (\autoref{thm:am}).
-The distance between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
+The \idx{distance} between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 
 \item Given a \(m\times n\) data matrix~\(A\) (usually with zero mean when averaged over all rows) with  \svd\ \(A=\usv\), then the \(j\)th column~\(\vv_j\) of~\(V\) is called the \(j\)th~\bfidx{principal vector} and the vector \(\xv_j:=A\vv_j\) is called the \(j\)th~\bfidx{principal components} of the data matrix~\(A\) (\autoref{def:pc}).
 
@@ -106,7 +106,7 @@ To compute in \script\ use
 A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B));
 \end{verbatim}
 %Use \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| to compute in \script.
-\item  Economically compute an \svd\ for the best rank~\(k\) approximation to the scaled data matrix with \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)|.
+\item  Economically compute an \svd\ for the best rank~\(k\) approximation to the \index{data scaling}scaled data matrix with \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)|.
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
 \end{enumerate}
 
@@ -116,13 +116,13 @@ A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B));
 
 \subsubsection*{Regularise linear equations}
 
-\itemhi \autoref{pro:appmat} approximates linear equations.
+\itemhi \autoref{pro:appmat} approximates \idx{linear equation}s.
 Suppose the system of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix entries are of size~\(e\) (here ``\(e\)''~denotes ``error'', not the exponential~\(e\))
+Suppose the expected error in the matrix entries are of size~\(e\) (here ``\(e\)''~denotes ``error'', not the \idx{exponential}~\(e\))
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
-\item all \(m\times n\)~components in~\(A\) have the same physical units, and they are of roughly the same size; and
+\item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same size; and
 \item similarly for the \(m\) components of~\bv.
 \end{itemize}
 Estimate the error~\(e\) corresponding to this matrix~\(A\).
@@ -140,7 +140,7 @@ A_k&=&US_k\tr V
 \item Solve the approximating \idx{linear equation} \(A_k\xv=\bv\) as in Theorems~\ref{thm:appsol}--\ref{thm:smallsoln} (often as an \idx{inconsistent} set of equations).
 Use the \svd\ \(A_k=US_k\tr V\).
 
-\item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application: often the smallest solution overall; or just as often a solution with the most zero components.
+\item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application: often the smallest solution overall; or just as often a solution with the most zero \idx{components}.
 \end{enumerate}
 
 
@@ -148,7 +148,7 @@ Use the \svd\ \(A_k=US_k\tr V\).
 a \bfidx{Tikhonov regularisation} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularisation parameter} value~\(\alpha>0\) (\autoref{def:Tikreg}).
 
 \item Solving the \idx{Tikhonov regularisation}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the system \(\tilde A\xv=\bv\) where  
-the matrix~\(\tilde A\) is obtained from~\(A\) by replacing each of its non-zero \idx{singular value}s~\(\sigma_i\) by \(\tilde\sigma_i:=\sigma_i+\alpha^2/\sigma_i\) (\autoref{thm:Tikreg}).
+the matrix~\(\tilde A\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\tilde\sigma_i:=\sigma_i+\alpha^2/\sigma_i\) (\autoref{thm:Tikreg}).
 
 
 

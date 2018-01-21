@@ -5,7 +5,7 @@
 \label{sec:umovc}
 \secttoc
 
-\index{Matlab|(}
+\index{Matlab@\textsc{Matlab}|(}
 \index{Octave|(}
 
 \begin{quoted}{\index{Babbage, Charles}Charles Babbage, 1832}
@@ -41,42 +41,42 @@ This and subsequent tables throughout the book summarise \script\ for our use.
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item Real numbers are limited to being zero or of magnitude from \(10^{-323}\)  to~\(10^{+308}\), both positive and negative (called the \bfidx{floating point} numbers).
-Real numbers are computed and stored to a maximum \idx{precision} of nearly sixteen \idx{significant digits}.%
-\footnote{If desired, `\idx{computer algebra}' software provides us with an arbitrary level of precision, even exact.
+Real numbers are computed and stored to a maximum \idx{precision} of nearly sixteen \idx{significant digits}.
+\footnote{If desired, `\idx{computer algebra}' software provides us with an arbitrary level of \idx{precision}, even exact.
 Current computer algebra software includes the free Sage, Maxima and Reduce, and the commercial Maple, Mathematica and (via Matlab) MuPad.}
 
-\item \script\ potentially uses complex numbers~(\CC), but mostly we stay within real numbers~(\RR).
+\item \script\ potentially uses \idx{complex number}s~(\index{C@\CC}\CC), but mostly we stay within real numbers~(\index{R@\RR}\RR).
 
 \item Each \script\ command is usually typed on one line by itself.
 
-\item \index{[\ldots]@\texttt{[\ldots]}}\verb|[ . ; . ; . ]| where each dot denotes a number, forms vectors in~\(\RR^3\) (or use newlines instead of the semi-colons).  
+\item \index{[\ldots]@\texttt{[\ldots]}|textbf}\verb|[ . ; . ; . ]| where each dot denotes a number, forms vectors in~\(\RR^3\) (or use newlines instead of the semi-colons).  
 Use \(n\)~numbers separated by semi-colons for vectors in~\(\RR^n\).
 
-\item \index{=@\texttt{=}}\verb|=| assigns the result of the expression to the right of the~\verb|=| to the variable name on the left.
+\item \index{=@\texttt{=}|textbf}\verb|=| assigns the result of the expression to the right of the~\verb|=| to the variable name on the left.
 
-If the result of an expression is not explicitly assigned to a variable, then by default it is assigned to the variable~\verb|ans|.
+If the result of an expression is not explicitly assigned to a variable, then by default it is assigned to the variable~\index{ans@\texttt{ans}|textbf}\verb|ans|.
 %(denoted by ``\index{ans@\texttt{ans}}\verb|ans =|'' in \script).
 
 \item Variable names are alphanumeric starting with a letter.
 
-\item \index{size()@\texttt{size()}}\verb|size(v)| returns the number of components of the vector (\autoref{def:vecs}): if the vector~\vv\ is in~\(\RR^m\), then \verb|size(v)| returns \(\begin{bmatrix} m&1 \end{bmatrix}\).
+\item \index{size()@\texttt{size()}|textbf}\verb|size(v)| returns the number of \idx{components} of the vector (\autoref{def:vecs}): if the vector~\vv\ is in~\(\RR^m\), then \verb|size(v)| returns \(\begin{bmatrix} m&1 \end{bmatrix}\).
 
-\item \index{norm()@\texttt{norm()}}\verb|norm(v)| computes the \idx{length}\slash \idx{magnitude} of the vector~\verb|v| (\autoref{def:veclen}).
+\item \index{norm()@\texttt{norm()}|textbf}\verb|norm(v)| computes the \idx{length}\slash \idx{magnitude} of the vector~\verb|v| (\autoref{def:veclen}).
 
-\item \index{+,-,*@\texttt{+,-,*}}\verb|+,-,*| is vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of vectors are the same.
+\item \index{+,-,*@\texttt{+,-,*}|textbf}\verb|+,-,*| is vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of vectors are the same.
 Parentheses \index{()@\texttt{()}}\verb|()| control the order of operations.
 
-\item \index{/@\texttt{/}}\verb|/x| divides a vector\slash scalar by a scalar~\(x\).
-However, be warned that \verb|/v| for a vector~\vv\ typically gives a strange result as \script\ interprets it to mean you want to approximately solve some linear equation.
+\item \index{/@\texttt{/}|textbf}\verb|/x| divides a vector\slash scalar by a scalar~\(x\).
+However, be warned that \verb|/v| for a vector~\vv\ typically gives a strange result as \script\ interprets it to mean you want to approximately solve some \idx{linear equation}.
 
-\item \index{^@\texttt{\^}}\verb|x^y| for scalars~\(x\) and~\(y\) computes~\(x^y\).
+\item \index{^@\texttt{\^}|textbf}\verb|x^y| for scalars~\(x\) and~\(y\) computes~\(x^y\).
 
-\item \index{dot()@\texttt{dot()}}\verb|dot(u,v)| computes the \idx{dot product} of vectors~\verb|u| and~\verb|v| (\autoref{def:dotprod})---if they have the same size.
+\item \index{dot()@\texttt{dot()}|textbf}\verb|dot(u,v)| computes the \idx{dot product} of vectors~\verb|u| and~\verb|v| (\autoref{def:dotprod})---if they have the same size.
 
-\item \index{acos()@\texttt{acos()}}\verb|acos(q)| computes the \idx{arc-cos}, the \idx{inverse cosine}, of the scalar~\verb|q| in radians.  
+\item \index{acos()@\texttt{acos()}|textbf}\verb|acos(q)| computes the \idx{arc-cos}, the \idx{inverse cosine}, of the scalar~\verb|q| in radians.  
 To find the angle in degrees use \verb|acos(q)*180/pi| (\script\ knows \(\verb|pi|=\pi=3.14159\cdots\)).\index{pi@\texttt{pi}}
 
-\item \index{quit@\texttt{quit}}\verb|quit| terminates the \script\ session.
+\item \index{quit@\texttt{quit}|textbf}\verb|quit| terminates the \script\ session.
 \end{itemize}
 \end{minipage}
 \hrule
@@ -86,12 +86,12 @@ To find the angle in degrees use \verb|acos(q)*180/pi| (\script\ knows \(\verb|p
 
 
 \begin{example} \label{eg:}
-Use the \script\ command \index{norm()@\texttt{norm()}}\verb|norm()| to compute the length\slash magnitude of the following vectors (\autoref{def:veclen}).
+Use the \script\ command \index{norm()@\texttt{norm()}}\verb|norm()| to compute the \idx{length}\slash \idx{magnitude} of the following vectors (\autoref{def:veclen}).
 \begin{enumerate}
 \item \((2,-1)\)
 \begin{solution} 
 Start \script.  After a prompt, ``\verb|>>|'' in \script[1] or ``\verb|octave:1>|'' in \script[2], type a command, followed by the Return\slash Enter key to get it executed.
-As indicated by \autoref{tbl:mtlbpre} the numbers with brackets separated by semi-colons forms a vector, and the \verb|=|~character assigns the result to variable for subsequent use.
+As indicated by \autoref{tbl:mtlbpre} the numbers with \idx{brackets} separated by semi-colons forms a vector, and the \verb|=|~character assigns the result to variable for subsequent use.
 
 \begin{tabular}{@{}*2{p{0.45\linewidth}}@{}}\raggedright
 Assign the vector to a variable~\verb|a| by the command \verb|a=[2;-1]|.
@@ -114,8 +114,8 @@ a=[2;-1]
 norm(a)
 }}%
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-You may scan such qr-codes with your favourite app\footnote{At the time of writing, qr-code scanning applications for smart-phones include \emph{WaspScan} and \emph{QRReader}---but I have no expertise to assess their quality.}, and then copy and paste the code direct into a \script\ client.
-Alternatively, if reading an electronic version of this book, then you may copy and paste the commands (although often the quote character~\verb|'| needs correcting).
+You may scan such \idx{qr-code}s with your favourite app\footnote{At the time of writing, qr-code scanning applications for smart-phones include \emph{WaspScan} and \emph{QRReader}---but I have no expertise to assess their quality.}, and then copy and paste the code direct into a \script\ client.
+Alternatively, if reading an electronic version of this book, then you may copy and paste the commands (although often the \idx{quote} character~\verb|'| needs correcting).
 Although in this example the saving in typing is negligible, later you can save considerable typing via such qr-codes.
 \end{solution}
 
@@ -199,7 +199,7 @@ v =
 \end{tabular}
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
-Execute \verb|u+v| to find from the dialogue on the right that the sum \(\uv+\vv=(-1.2,2.6,1.7)\).
+Execute \verb|u+v| to find from the dialogue on the right that the \idx{sum} \(\uv+\vv=(-1.2,2.6,1.7)\).
 &\begin{verbatim}
 >> u+v
 ans =
@@ -304,7 +304,7 @@ ans =
 
 
 \begin{example} \label{eg:}
-Use \script\ to confirm the commutative law (\autoref{thm:vecopsa}) \(\uv+\vv=\vv+\uv\) for vectors
+Use \script\ to confirm the \idx{commutative law} (\autoref{thm:vecopsa}) \(\uv+\vv=\vv+\uv\) for vectors
 \(\uv=(8,-6,-4,-2)\) and \(\vv=(4,3,-1)\).
 \begin{solution} 
 In \script\
@@ -340,7 +340,8 @@ v =
 \end{verbatim}
 \end{tabular}
 
-\index{Error using@\texttt{Error using}}
+\index{Error using@\texttt{Error using}}%
+\index{dimensions must agree@\texttt{dimensions must agree}}%
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
 Compute \(\uv+\vv\) with the command \verb|u+v| as shown to the right.
 \script[1] prints an error message because the vectors~\uv\ and~\vv\ are of different sizes and so cannot be added together.
@@ -366,7 +367,8 @@ ans =
 
 \index{error:@\texttt{error:}}
 Alternatively, \script[2] gives the following error message.
-In such a message, ``\idx{nonconformant arguments}'' means the vectors are of a wrong size.
+In such a message, ``\index{nonconformant 
+arguments@\texttt{nonconformant arguments}}\texttt{nonconformant arguments}'' means the vectors are of a wrong size.
 \begin{verbatim}
 error: operator +: nonconformant arguments 
 (op1 is 4x1, op2 is 3x1)
@@ -476,7 +478,7 @@ theta =  30.510
 
 
 \begin{example} \label{eg:}
-Verify the distributive law for the dot product \((\uv+\vv)\cdot\wv=\uv\cdot\wv+\vv\cdot\wv\) (\autoref{thm:dotopsf}) for vectors
+Verify the \idx{distributive law} for the \idx{dot product} \((\uv+\vv)\cdot\wv=\uv\cdot\wv+\vv\cdot\wv\) (\autoref{thm:dotopsf}) for vectors
 \(\uv=(-0.1,-3.1,-2.9,-1.3)\), \(\vv=(-3,0.5,6.4,-0.9)\) and \(\wv=(-1.5,-0.2,0.4,-3.1)\).
 \begin{solution} 
 In \script\
@@ -578,14 +580,12 @@ I am not able rightly to apprehend the kind of confusion of ideas that could pro
 \end{quoted}
 
 
-\index{Matlab|)}
-\index{Octave|)}
 
 
 \sectionExercises
 
 \begin{exercise} \label{ex:} 
-Use \script\ to compute the length of each of the following vectors (the first five have integer lengths).
+Use \script\ to compute the \idx{length} of each of the following vectors (the first five have integer lengths).
 \begin{parts}[6em]
 \item \(\begin{bmatrix} 2\\3\\6 \end{bmatrix}\)
 \answer{\(7\)}
@@ -685,7 +685,7 @@ d=[1.0;2.0;-1.3;-4.4;-2.0]
 \begin{exercise} \label{ex:} 
 In a few sentences, answer\slash discuss each of the the following.
 \begin{enumerate}
-\item Explain the differences between \verb|size(v)| and \verb|norm(v)|?
+\item Explain the differences between \index{size()@\texttt{size()}}\verb|size(v)| and \index{norm()@\texttt{norm()}}\verb|norm(v)|?
 
 \item What are the different roles for parentheses,~\verb|()|, and brackets,~\verb|[]|, in \script?
 
@@ -702,3 +702,7 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
+
+\index{Matlab@\textsc{Matlab}|)}
+\index{Octave|)}
+

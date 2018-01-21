@@ -16,18 +16,18 @@
 If \(m=n\)\,, then it is called a \bfidx{square matrix}.
 
 \item A \bfidx{column vector} means a matrix of size \(m\times 1\) for some~\(m\).
-We often write a column vector horizontally within \bfidx{parentheses}~\((\cdots )\).
+We often write a \idx{column vector} horizontally within \bfidx{parentheses}~\((\cdots )\).
 
 \item The numbers appearing in a matrix are called the \bfidx{entries}, \bfidx{elements} or \bfidx{components} of the matrix.
 For a matrix~\(A\), the entry in row~\(i\) and column~\(j\) is denoted by~\(a_{ij}\) ---compute with~\verb|A(i,j)|.
 
 \itemme \(O_{m\times n}\)~denotes the \(m\times n\) zero matrix, \(O_n\)~denotes the square zero matrix of size \(n\times n\)---compute with \verb|zeros(m,n)| and \verb|zeros(n)|, respectively---whereas \(O\)~denotes a zero matrix whose size is apparent from the context.
 
-\itemme The \bfidx{identity matrix}~\(I_n\) denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones---compute with~\verb|eye(n)|.
+\itemme The \bfidx{identity matrix}~\(I_n\) denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones---compute with~\index{eye()@\texttt{eye()}}\verb|eye(n)|.
 Non-square `identity' matrices are denoted \(I_{m\times n}\)---compute with~\verb|eye(m,n)|.
 The symbol~\(I\) denotes an identity matrix whose size is apparent from the context.
 
-\item In \script, \verb|randn(m,n)|~computes a \(m\times n\) matrix with random entries (distributed Normally, mean zero, standard deviation one).
+\item In \script, \verb|randn(m,n)|~computes a \(m\times n\) matrix with \idx{random entries} (distributed Normally, mean zero, standard deviation one).
 
 \item Two matrices are \bfidx{equal}~(\(=\)) if they both have the same size \emph{and} their corresponding entries are equal.
 Otherwise the two matrices are not equal.
@@ -53,7 +53,7 @@ A\xv:=
 \end{equation*}
 Multiplication of a vector by a square matrix transforms the vector into another vector in the same space.
 
-\itemme In modelling the age structure of populations, the so-called Leslie matrix encodes the birth, ageing, and death (of females) in the population to empower predictions of the future population.
+\itemme In modelling the age structure of populations, the so-called \idx{Leslie matrix} encodes the birth, ageing, and death (of females) in the population to empower predictions of the future population.
 Such prediction often involves repeated matrix-matrix multiplication, that is, computing the powers of a matrix.
 
 \itemhi For \(m\times n\) matrix~\(A\), and \(n\times p\) matrix~\(B\), the \bfidx{matrix product} \(C=AB\)\,---compute by \verb|C=A*B|---is the \(m\times p\) matrix whose \((i,j)\)th~entry is
@@ -64,18 +64,18 @@ c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}\,.
 \end{itemize}
 
 \itemme Matrix addition and scalar multiplication satisfy familiar properties (\autoref{thm:pasm}): 
- \(A+B=B+A\) (commutativity);
+ \(A+B=B+A\) (\idx{commutativity});
  \((A+B)+C=A+(B+C)\) (associativity);
  \(A\pm O=A=O+A\);
- \(c(A\pm B)=cA\pm cB\) (distributivity);
- \((c\pm d)A=cA\pm dA\) (distributivity);
+ \(c(A\pm B)=cA\pm cB\) (\idx{distributivity});
+ \((c\pm d)A=cA\pm dA\) (\idx{distributivity});
  \(c(dA)=(cd)A\) (associativity);
  \(1A=A\)\,; and 
  \(0A=O\)\,.
  
 \itemme Matrix multiplication also satisfies familiar properties (\autoref{thm:pmm}):
- \(A(B\pm C)=AB\pm AC\) (distributivity);
- \((A\pm B)C=AC\pm BC\) (distributivity);
+ \(A(B\pm C)=AB\pm AC\) (\idx{distributivity});
+ \((A\pm B)C=AC\pm BC\) (\idx{distributivity});
  \(A(BC)=(AB)C\) (associativity);
  \(c(AB)=(cA)B=A(cB)\);
  \(I_mA=A=AI_n\) for \(m\times n\) matrix~\(A\) (multiplicative identity);
@@ -127,33 +127,38 @@ A^{-1}=\frac1{ad-bc}\begin{bmatrix} d&-b\\-c&a \end{bmatrix}.
 \item For every {invertible} matrix~\(A\), define \(A^0=I\) and for every positive integer~\(p\) define \(A^{-p}:=(A^{-1})^p=(A^p)^{-1}\)) (\autoref{def:invpow}).
 
 \itemhi The \bfidx{diagonal entries} of an \(m\times n\) matrix~\(A\) are  \(a_{11}\clb a_{22}\clb \ldots\clb a_{pp}\) where \(p=\min(m,n)\).
-A matrix whose non-diagonal entries are all zero is called a \bfidx{diagonal matrix}: \(\diag(\hlist vn)\) denotes the \(n\times n\) square matrix with diagonal entries \hlist vn\,; whereas \(\diag_{m\times n}(\hlist vp)\) denotes an \(m\times n\) matrix with diagonal entries \hlist vp\ (\autoref{def:diag}).
+A matrix whose \idx{off-diagonal entries} are all zero is called a \bfidx{diagonal matrix}: \(\diag(\hlist vn)\) denotes the \(n\times n\) square matrix with diagonal entries \hlist vn\,; whereas \(\diag_{m\times n}(\hlist vp)\) denotes an \(m\times n\) matrix with diagonal entries \hlist vp\ (\autoref{def:diag}).
 
-\item For every \(n\times n\) {diagonal matrix}  \(D=\diag(\hlist dn)\), 
+\item For every \(n\times n\) \idx{diagonal matrix}  \(D=\diag(\hlist dn)\), 
 if  \(d_{i}\neq 0\) for \(i=1,2,\ldots,n\)\,, then \(D\)~is {invertible} and the inverse \(D^{-1}=\diag(1/d_{1},1/d_{2},\ldots,1/d_{n})\) (\autoref{thm:idm}).
 
-\item Multiplication by a diagonal matrix just stretches or squashes and/or reflects in the directions of the coordinate axes.
-Consequently, in applications we often choose coordinate systems such that the matrices which appear are diagonal.
+\item Multiplication by a diagonal matrix just stretches or squashes and/or reflects in the directions of the \idx{coordinate axes}.
+Consequently, in applications we often choose \idx{coordinate system}s such that the matrices which appear are diagonal.
 
 \item In \script:
 \begin{itemize}
-\item \index{diag()@\texttt{diag()}}\verb|diag(v)| where \verb|v| is a row/column vector of length~\(p\) generates the \(p\times p\) matrix 
+\item \index{diag()@\texttt{diag()}}\verb|diag(v)| where \verb|v| is 
+a row/column vector of size~\(p\) generates the \(p\times p\) matrix 
 \begin{equation*}
 \diag(\hlist vp)=\begin{bmatrix} v_1&0&\cdots&0\\
 0&v_2&&\vdots\\ \vdots&&\ddots\\ 0&\cdots&&v_p \end{bmatrix}.
 \end{equation*}
 
-\itemhi In \script\ (but not in algebra), \verb|diag| also does the opposite: for an \(m\times n\) matrix~\(A\) such that both \(m,n\geq2\)\,,  \verb|diag(A)| returns the (column) vector \((a_{11},a_{22},\ldots,a_{pp})\) of diagonal entries where the result vector length \(p=\min(m,n)\).
+\itemhi In \script\ (but not in algebra), \verb|diag| also does the 
+opposite: for an \(m\times n\) matrix~\(A\) such that both 
+\(m,n\geq2\)\,,  \index{diag()@\texttt{diag()}}\verb|diag(A)| returns 
+the (column) vector \((a_{11},a_{22},\ldots,a_{pp})\) of 
+\idx{diagonal entries} where the result vector size \(p=\min(m,n)\).
 
 \itemhi The dot operators \index{./@\texttt{./}}\verb|./| and~\index{.*@\texttt{.*}}\verb|.*| perform element-by-element division and multiplication of two matrices\slash vectors of the same size.
 
-\item \verb|log10(v)| finds the logarithm to base~\(10\) of each component of~\verb|v| and returns the results in a vector of the same size; \index{log()@\texttt{log()}}\verb|log(v)| does the same but for the natural logarithm (not \verb|ln(v)|).
+\item \verb|log10(v)| finds the \idx{logarithm} to base~\(10\) of each component of~\verb|v| and returns the results in a vector of the same size; \index{log()@\texttt{log()}}\verb|log(v)| does the same but for the \idx{natural logarithm} (not \verb|ln(v)|).
 
 \end{itemize}
 
 
 
-\itemhi A set of non-zero vectors \(\{\hlist\qv k\}\) is called an \bfidx{orthogonal set} if all pairs of distinct vectors in the set are {orthogonal}: that is, \(\qv_i\cdot\qv_j=0\) whenever \(i\neq j\) for \(i,j=1,2,\ldots,k\) (\autoref{def:orthoset}).
+\itemhi A set of nonzero vectors \(\{\hlist\qv k\}\) is called an \bfidx{orthogonal set} if all pairs of distinct vectors in the set are {orthogonal}: that is, \(\qv_i\cdot\qv_j=0\) whenever \(i\neq j\) for \(i,j=1,2,\ldots,k\) (\autoref{def:orthoset}).
 A set of vectors is called an \bfidx{orthonormal set} if it is an {orthogonal set} of {unit vector}s.
 
 \itemhi A square matrix~\(Q\) is called an \bfidx{orthogonal matrix} if \(\tr QQ=I\) (\autoref{def:orthog}).
@@ -166,7 +171,7 @@ Multiplication by an orthogonal matrix is called a \bfidx{rotation and/or reflec
 \item \(Q\)~is {invertible} and \(Q^{-1}=\tr Q\);
 \item \(\tr Q\) is an {orthogonal matrix};
 \item the {row vector}s of~\(Q\) form an {orthonormal set};
-\item multiplication by~\(Q\) preserves all lengths and angles (and hence corresponds to our intuition of a {rotation and/or reflection}).
+\item multiplication by~\(Q\) preserves all \idx{length}s and angles (and hence corresponds to our intuition of a {rotation and/or reflection}).
 \end{itemize}
 
 
@@ -182,18 +187,18 @@ called a \bfidx{singular value decomposition} (\svd), where
 \begin{itemize}
 		\item $m\times m$ matrix $U=\begin{bmatrix} \uv _1 &\uv_2&\cdots&\uv _m \end{bmatrix}$ is orthogonal, 
 		\item $n\times n$ matrix $V=\begin{bmatrix} \vv_1 &\vv_2&\cdots&\vv_n \end{bmatrix}$ is orthogonal, and      
-        \item  $m\times n$ diagonal matrix~$S$ is zero except for unique non-negative diagonal elements called \bfidx{singular value}s
+        \item  $m\times n$ \idx{diagonal matrix}~$S$ is zero except for unique non-negative \idx{diagonal elements} called \bfidx{singular value}s
 $\sigma_1\geq \sigma_2 \geq \cdots \geq \sigma_{\mn}\geq 0$\,.
 \end{itemize}
-The {orthonormal} vectors \(\uv_j\) and~\(\vv_j\) are called \bfidx{singular vector}s.
+The orthonormal sets of vectors \(\{\uv_j\}\) and~\(\{\vv_j\}\) are called \bfidx{singular vector}s.
 
 Almost always use \script\ to find an \svd\ of a given matrix.
 
-\itemhi \autoref{pro:gensol} derives a general solution of the system $A\xv=\bv$ using an \svd.
+\itemhi \autoref{pro:gensol} derives a \idx{general solution} of the system $A\xv=\bv$ using an \svd.
 \begin{enumerate}
 \item Obtain an \svd\ factorisation \(A=\usv\).
 \item Solve \(U\zv=\bv\) by $\zv=\tr U\bv$ (unique given~\(U\)).
-\itemme To solve \(S\yv=\zv\), identify the non-zero and the zero \idx{singular value}s: suppose \(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0\) and \(\sigma_{r+1}=\cdots=\sigma_{\min(m,n)}=0\):
+\itemme To solve \(S\yv=\zv\), identify the nonzero and the zero \idx{singular value}s: suppose \(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0\) and \(\sigma_{r+1}=\cdots=\sigma_{\min(m,n)}=0\):
 \begin{itemize}
 \item if $z_i\neq0$ for any \(i=r+1,\ldots,m\)\,, then there is {no solution} (the equations are \bfidx{inconsistent});
 \item otherwise determine the $i$th~component of~$\yv$ by
@@ -229,7 +234,7 @@ Further, \(\rank(\tr A)=\rank A\)\,.
 \item \(A\xv=\bv\) has a {unique solution} for every \(\bv\) in~\(\RR^n\);
 \item \(A\xv=\ov\) has \emph{only} the zero solution;
 \item all \(n\)~{singular value}s of~\(A\) are nonzero;
-\item the {condition number} of~\(A\) is finite (\verb|rcond|>0);
+\item the \idx{condition number} of~\(A\) is finite (\verb|rcond|>0);
 \item \(\rank A=n\)\,.
 \end{itemize}
 
@@ -311,7 +316,7 @@ Further, given an \svd\ of the matrix, say \(A=\usv\), an \idx{orthonormal basis
 
 \item A robust way to use the results of pairwise competitions to rate a group of players or teams is to approximately solve the set of equations \(x_i-x_j=\text{result}_{ij}\) where \(x_i\) and~\(x_j\) denote the unknown ratings of the players\slash teams to be determined, and \(\text{result}_{ij}\) is the result or score (to~\(i\) over~\(j\)) when the two compete against each other.
 
-Beware of Arrow's Impossibility Theorem that all 1D ranking systems are flawed!
+Beware of Arrow's \idx{Impossibility Theorem} that all 1D ranking systems are flawed!
 
 \itemme All \idx{approximate solution}s obtained by \autoref{pro:appsol} solve the linear system \(A\xv=\tilde\bv\) for the unique \idx{consistent} right-hand side vector~\(\tilde\bv\) that minimises the \idx{distance}~\(|\tilde\bv-\bv|\) (\autoref{thm:appsol}).
 
@@ -320,7 +325,7 @@ Say the task is to find the linear relation between~\(v\) (`vertical' values) an
 Form the system of linear equations from all data points~\((h,v)\) by \(x_1+x_2h=v\), and solve the system via \autoref{pro:appsol}.
 
 In science and engineering one often seeks power laws \(v=c_1h^{c_2}\) in which case take logarithms and use the data to find \(x_1=\log c_1\) and \(x_2=c_2\) via \autoref{pro:appsol}.
-Taking logarithms of equations also empowers forming linear equations to be approximately solved in the computed tomography of medical and industrial \textsc{ct}-scans.
+Taking logarithms of equations also empowers forming linear equations to be approximately solved in the \idx{computed tomography} of medical and industrial \textsc{ct}-scans\index{CT scan}.
 
 
 \itemhi Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by Procedures~\ref{pro:gensol} or~\ref{pro:appsol}, as appropriate, and setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\) (\autoref{thm:smallsoln}).
@@ -409,7 +414,7 @@ A=\begin{bmatrix} T(\ev_1)& T(\ev_2)&\cdots&T(\ev_n) \end{bmatrix}.
 \end{equation*}
 This matrix~\(A\), often denoted~\([T]\), is called the \bfidx{standard matrix} of the \idx{linear transformation}~\(T\).
 
-\itemme Recall that in the context of a system of linear equations \(A\xv=\bv\) with \(m\times n\) matrix~\(A\), for every \(\bv\in\RR^m\) \autoref{pro:appsol} finds the smallest solution~\(\xv\in\RR^m\)\ (\autoref{thm:smallsoln}) to the closest consistent system \(A\xv=\tilde\bv\) (\autoref{thm:appsol}).
+\itemme Recall that in the context of a system of linear equations \(A\xv=\bv\) with \(m\times n\) matrix~\(A\), for every \(\bv\in\RR^m\) \autoref{pro:appsol} finds the smallest solution~\(\xv\in\RR^m\)\ (\autoref{thm:smallsoln}) to the closest \idx{consistent} system \(A\xv=\tilde\bv\) (\autoref{thm:appsol}).
 \autoref{pro:appsol} forms a \idx{linear transformation} \(T:\RR^m\to\RR^n\), \(\xv=T(\bv)\)\,.
 This linear transformation has an \(n\times m\) \idx{standard matrix}~\(A^+\) called the \bfidx{pseudo-inverse}, or \bfidx{Moore--Penrose inverse}, of matrix~\(A\) (\autoref{thm:lsqlt}).
 
@@ -418,7 +423,7 @@ This linear transformation has an \(n\times m\) \idx{standard matrix}~\(A^+\) ca
 \item For every invertible matrix~\(A\), the pseudo-inverse \(A^+=A^{-1}\), the inverse (\autoref{thm:pinvinv}).
 
 \item Let \(T:\RR^n\to\RR^m\) and \(S:\RR^m\to\RR^p\) be \idx{linear transformation}s.  
-Then the composition \(S\circ T:\RR^n\to\RR^p\) is a \idx{linear transformation} with \idx{standard matrix} \([S\circ T]=[S][T]\) (\autoref{thm:stmatcomp}).
+Then the \idx{composition} \(S\circ T:\RR^n\to\RR^p\) is a \idx{linear transformation} with \idx{standard matrix} \([S\circ T]=[S][T]\) (\autoref{thm:stmatcomp}).
 
 \item Let \(S\) and \(T\) be linear transformations from \(\RR^n\) to~\(\RR^n\) (the same dimension).
 If \(S\circ T=T\circ S=I\)\,, the \idx{identity transformation}, then \(S\) and~\(T\) are \bfidx{inverse transformation}s of each other (\autoref{def:invLT}).  

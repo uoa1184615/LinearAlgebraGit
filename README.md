@@ -9,6 +9,7 @@ venture.
 
 In this directory: 
 * larxxia-newest.pdf is the current draft version (download with "Save Link As...")
+* slides-newest.pdf is a version for projection in class to talk around
 * Videos is a folder of short videos of examples, proofs, etc
 * LinearAlgebra is the folder of the source of the text
 

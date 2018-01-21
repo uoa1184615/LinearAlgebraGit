@@ -3,6 +3,8 @@
 \section{Directly solve linear systems}
 \label{sec:dmsls}
 \secttoc
+\index{linear equation|(}
+\index{system|(}
 
 \begin{comment}
 \pooliv{p.64--82}  \layiv{\S1.2} \holti{\S1.2}
@@ -19,7 +21,7 @@ For bigger systems with tens to millions of equations---which are typical in app
 
 \subsection{Compute a system's solution}
 
-\begin{quoted}{Gottfried Wilhelm von Leibniz\index{Leibnitz, Gottfried}}
+\begin{quoted}{Gottfried Wilhelm von Leibniz\index{Leibniz, Gottfried}}
 It is unworthy of excellent persons to lose hours like slaves in the labour of calculation.
 \end{quoted}
 
@@ -50,7 +52,7 @@ The beauty of the form \(A\xv=\bv\) is that the numbers involved in the system a
 In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
 \autoref{sec:moaa} then defines a crucial multiplicative meaning to this composite symbol. 
 \end{aside}%
-For some of you, writing a system in this matrix-vector form \(A\xv=\bv\) (\autoref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
+For some of you, writing a system in this \idx{matrix-vector form} \(A\xv=\bv\) (\autoref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
 However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \autoref{sec:moaa} defines and explores such useful operations.
 
 \begin{definition}[matrix-vector form] \label{def:matvecsys}
@@ -73,7 +75,7 @@ If \(m=n\) (the number of equations is the same as the number of variables), the
 \end{definition}
 
 
-\begin{example}[matrix-vector form] \label{eg:matvecsys}
+\begin{example}[\idx{matrix-vector form}] \label{eg:matvecsys}
 Write the following systems in matrix-vector form.
 \begin{parts}
 \item \(\begin{array}{l}
@@ -130,12 +132,12 @@ Which of the following systems corresponds to the matrix-vector equation
 
 
 
-\begin{procedure}[\idx{unique solution}] \label{pro:unisol}
+\begin{procedure}[\bfidx{unique solution}] \label{pro:unisol}
 In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), use commands listed in \autoref{tbl:mtlbpre} and~\ref{tbl:mtlbbasics} to:
 \begin{enumerate}
 \item form matrix~\(A\) and \idx{column vector}~\(\bv\);
 \item check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| exists and is not too small, \(1\geq\text{good} >10^{-2} >\text{poor} >10^{-4} >\text{bad} >10^{-8} >\text{terrible}\), (\verb|rcond(A)| is always between zero and one inclusive);
-\item if \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| both exists and is acceptable, then execute \verb|x=A\b| to compute the solution vector~\(\xv\). 
+\item if \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| both exists and is acceptable, then execute \verb|x=A\b|\index{A\slosh@\texttt{A\slosh}} to compute the solution vector~\(\xv\). 
 \end{enumerate}
 \end{procedure}
 
@@ -157,13 +159,13 @@ But, in practice, there is.
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
-\item The floating point numbers are extended by \index{Inf@\texttt{Inf}}\verb|Inf|, denoting `\idx{infinity}', and \index{NaN@\texttt{NaN}}\verb|NaN|, denoting `\idx{not a number}' such as the indeterminate~\(0/0\).
-\item \index{[\ldots]@\texttt{[\ldots]}}\verb|[ ... ; ... ; ... ]| forms both matrices and vectors, or use newlines instead of the semi-colons.
-\item \index{rcond()@\texttt{rcond()}}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} (defined precisely by \autoref{def:condnum}).
-\item \index{A\slosh@\texttt{A\slosh}}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
-\item \index{=@\texttt{=}}Change an element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
-\item \index{.^@\texttt{.\^}}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| results in \verb|[1;4;9;16;25]|.
-\item The function \index{ones()@\texttt{ones()}}\verb|ones(m,1)| gives a (column) vector of \(m\)~ones, \((1,1,\ldots,1)\).
+\item The \idx{floating point} numbers are extended by \index{Inf@\texttt{Inf}|textbf}\verb|Inf|, denoting `\idx{infinity}', and \index{NaN@\texttt{NaN}|textbf}\verb|NaN|, denoting `\idx{not a number}' such as the indeterminate~\(0/0\).
+\item \index{[\ldots]@\texttt{[\ldots]}|textbf}\verb|[ ... ; ... ; ... ]| forms both matrices and vectors, or use newlines instead of the semi-colons.
+\item \index{rcond()@\texttt{rcond()}|textbf}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} (defined precisely by \autoref{def:condnum}).
+\item \index{A\slosh@\texttt{A\slosh}|textbf}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
+\item \index{=@\texttt{=}|textbf}Change an element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
+\item \index{.^@\texttt{.\^}|textbf}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| results in \verb|[1;4;9;16;25]|.
+\item The function \index{ones()@\texttt{ones()}|textbf}\verb|ones(m,1)| gives a (column) vector of \(m\)~ones, \((1,1,\ldots,1)\).
 \item Lastly, always remember that `the answer' by a computer is not necessarily `the solution' of your problem.
 \end{itemize}
 \end{minipage}
@@ -191,7 +193,9 @@ Then the three steps of \autoref{pro:unisol} are the following.
 \begin{enumerate}
 \item Form matrix~\(A\) and {column vector}~\(\bv\) with the \script\ assignments
 \begin{aside}
-Beware that the symbol~``\texttt{=}'' in \script\ is a procedural assignment of a value---quite different in nature to the~``\(=\)'' in algebra which denotes equality.
+Beware that the symbol~``\texttt{=}'' in \script\ is a procedural 
+assignment of a value---very different in nature to the~``\(=\)'' in 
+algebra which denotes \idx{equal}ity.
 \end{aside}%
 \begin{verbatim}
 A=[1 1 -1; 1 3 5; 1 2 1]
@@ -289,7 +293,7 @@ x =
    -0.1429
     1.2143
 \end{verbatim}
-That is, the solution \(\xv=(-0.64,-0.14,1.21)\) to two \idx{decimal places} \twodp.\footnote{The four or five significant digits printed by \script\ is effectively exact for most practical purposes.
+That is, the solution \(\xv=(-0.64,-0.14,1.21)\) to two \idx{decimal places} \twodp.\footnote{The four or five \idx{significant digits} printed by \script\ is effectively exact for most practical purposes.
 This book often reports two significant digits as two is enough for most human readable purposes.
 When a numerical result is reported to two decimal places, the book indicates this truncation with ``\twodp''.\index{2~d.p.|textbf}}
 
@@ -391,7 +395,7 @@ rcond(A)
 \marginpar{\usebox{\ajrqrbox\\[2ex]}}%
 
 \item check \verb|rcond(A)|: \script\ gives the message%
-\index{square matrix}\index{Error using@\texttt{Error using}}
+\index{square matrix}\index{Error using@\texttt{Error using}}%
 \begin{verbatim}
 Error using rcond
 Input must be a square matrix. 
@@ -425,7 +429,7 @@ and this equals \(\frac3{(x-1)(x+2)}\) only if both \(A+B=0\) and \(2A-B=3\)\,;
 \end{itemize}
 
 
-Now find the partial fraction decomposition of \(\frac{-4x^3+8x^2-5x+2}{x^2(x-1)^2}\).
+Now find the \idx{partial fraction} decomposition of \(\frac{-4x^3+8x^2-5x+2}{x^2(x-1)^2}\).
 \begin{solution} 
 Recalling that repeated factors require extra terms in the decomposition, seek a decomposition of the form
 \begin{eqnarray*}&&
@@ -596,7 +600,7 @@ The previous \autoref{eg:infertemp2} also illustrates one of the `rules of thumb
 \begin{example}[{Global Positioning System} in space-time] \label{eg:gps3t}
 Recall the \autoref{eg:gps2}.
 Consider the \gps\ receiver in your smart-phone.
-The phone's clock is generally in error, it may only be by a second but the \gps\ needs micro-second precision. 
+The phone's clock is generally in error, it may only be by a second but the \gps\ needs micro-second \idx{precision}. 
 Because of such a timing unknown, five satellites determine our precise position in space \emph{and} time.
 % From following code
 %[x,y,z]=ndgrid(1:20,1:20,1:20);
@@ -664,7 +668,7 @@ Expand all the squares in these equations:
 \\&&x^2-16x+64+y^2-42y+441+z^2-20z+100\\&&{}=w^2+20w+100\,,
 \\&&x^2-44x+484+y^2-18y+81+z^2-16z+64\\&&{}=w^2+24w+144\,.
 \end{eqnarray*}
-These are a system of nonlinear equations and so outside the remit of the course, but a little algebra brings them within.
+These are a system of \idx{nonlinear equation}s and so outside the remit of the course, but a little algebra brings them within.
 Subtract the last equation, say, from each of the first four equations: then \emph{all} of the nonlinear squares of variables cancel leaving a linear system.
 Combining the constants on the right-hand side, and moving the \(w\)~terms to the left gives the system of four linear equations
 \begin{eqnarray*}
@@ -742,7 +746,7 @@ x_1+3x_2+5x_3=8\,,\\
 x_1+2x_2+x_3=1\,.
 \end{array}
 \end{equation*}
-The first crucial level of abstraction is to write this in the matrix-vector form, \autoref{eg:matvecsys},
+The first crucial level of abstraction is to write this in the \idx{matrix-vector form}, \autoref{eg:matvecsys},
 \begin{equation*}
 \underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
@@ -780,7 +784,7 @@ Write down augmented matrices for the two following systems:
 &\iff&%\leftrightarrow&
 \begin{bmatrix} -7&3\V3\\ 7&-5\V-2\\1&-2\V1 \end{bmatrix}
 \end{eqnarray*} 
-An augmented matrix is not unique: it depends upon the order of the equations, and also upon the order you choose for the variables in~\xv.  
+An \idx{augmented matrix} is not unique: it depends upon the order of the equations, and also upon the order you choose for the variables in~\xv.  
 The first example implicitly chose \(\xv=(r,s,t)\); if instead we choose to order the variables as \(\xv=(s,t,r)\), then  
 \begin{equation*}
 \begin{cases} 3s-2r=6\\s-4t=-\pi \end{cases}
@@ -793,7 +797,7 @@ Such variations to the augmented matrix are valid, but you must remember your co
 
 
 \begin{activity}
-Which of the following \emph{cannot} be an augmented matrix for the system \(p+4q=3\) and \(-p+2q=-2\)\,?
+Which of the following \emph{cannot} be an \idx{augmented matrix} for the system \(p+4q=3\) and \(-p+2q=-2\)\,?
 \actposs{\(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 1&4\V3\\-1&2\V-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} -1&2\V-2\\1&4\V3 \end{bmatrix}\)}
@@ -833,8 +837,8 @@ We just address the system of equations form as the augmented matrix form is equ
 \item Swapping the order of two equations does not change the system of equations, the set of relations between the variables, so does not change the solution.
 \item Let vector~\xv\ satisfy \(\lincomb axn=b\)\,.
 Then \(\lincomb{ca}xn=c(\lincomb axn)=cb\) and so~\xv\ satisfies \(c\)~times the equation.
-When the constant~\(c\) is non-zero, the above can be reversed through dividing by~\(c\).
-Hence multiplying an equation by a non-zero constant~\(c\) does not change the possible solutions.
+When the constant~\(c\) is nonzero, the above can be reversed through dividing by~\(c\).
+Hence multiplying an equation by a nonzero constant~\(c\) does not change the possible solutions.
 \item 
 Let vector~\xv\ satisfy both \(\lincomb axn=b\) and \(\lincomb{a'}xn=b'\).
 Then
@@ -853,7 +857,7 @@ Hence adding a multiple of an equation to another does not change the possible s
 
 
 \begin{example} \label{eg:erowops}
-Use elementary row operations to find the only solution of the following system of linear equations:
+Use \idx{elementary row operation}s to find the only solution of the following system of linear equations:
 \begin{equation*}
 \begin{array}{l}
 x+2y+z=1\,,\\ 2x-3y=2\,,\\ -3y-z=2\,.
@@ -951,19 +955,19 @@ which is the same as the system on the above-left and tells us the solution \(\x
 
 
 \begin{definition} \label{def:rref} 
- A system of \idx{linear equation}s or (augmented) matrix is in \bfidx{reduced row echelon form} (\rref) if:
+ A system of \idx{linear equation}s or \index{augmented matrix}(augmented) matrix is in \bfidx{reduced row echelon form} (\rref) if:
   \begin{enumerate}
 \item any equations with all zero coefficients, or rows of the matrix consisting entirely of zeros, are at the bottom; 
-\item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), \emph{and} is in a variable\slash column to the left of any leading ones below it;
+\item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), \emph{and} is in a variable\slash column to the left of any \idx{leading one}s below it;
 and
-\item each variable\slash column containing a leading one has zero coefficients\slash entries in every other equation\slash row.\end{enumerate}
+\item each variable\slash column containing a leading one has zero coefficients\slash \idx{entries} in every other equation\slash row.\end{enumerate}
 A \bfidx{free variable} is any variable which is \emph{not} multiplied by a \idx{leading one} when the row reduced echelon form is translated to its corresponding algebraic equations.
 \end{definition}
 
 
 \begin{example}[reduced row echelon form] \label{eg:rref}
 Which of the following are in \idx{reduced row echelon form} (\rref)?  
-For those that are, identify the leading ones, and treating other variables as \idx{free variable}s write down the most general solution of the system of linear equations.
+For those that are, identify the \idx{leading one}s, and treating other variables as \idx{free variable}s write down the most \idx{general solution} of the system of linear equations.
 % generate examples with
 % A=round(2*randn(ceil([1 2]+3*rand(1,2)))),rref(A)
 \begin{enumerate}
@@ -1057,7 +1061,7 @@ This augmented matrix is not in \rref\ as there are no leading ones.
 
 
 \begin{activity}
-Which one of the following augmented matrices is \emph{not} in reduced row echelon form?
+Which one of the following augmented matrices is \emph{not} in \idx{reduced row echelon form}?
 \actposs{\(\begin{bmatrix} 1&1&0\V0
 \\0&-1&1\V-1 \end{bmatrix}\)}
 {\(\begin{bmatrix} 1&0&1\V2
@@ -1083,7 +1087,7 @@ Which one of the following augmented matrices is \emph{not} in reduced row echel
 
 
 \begin{activity}
-Which one of the following is a general solution to the system with augmented matrix in reduced row echelon form of
+Which one of the following is a \idx{general solution} to the system with \idx{augmented matrix} in \idx{reduced row echelon form} of
 \begin{equation*}
 \begin{bmatrix} 1&0&-0.2\V0.4
 \\0&1&-1.2\V-0.6 \end{bmatrix}?
@@ -1103,7 +1107,7 @@ Which one of the following is a general solution to the system with augmented ma
 
 
 The previous \autoref{eg:rref} showed that given a system of linear equations in \idx{reduced row echelon form} we can either immediately write down all solutions, or immediately determine if none exists.
-Generalising \autoref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (\autoref{thm:erowop}) to find an equivalent system of equations in reduced row echelon form. 
+Generalising \autoref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (\autoref{thm:erowop}) to find an equivalent system of equations in \idx{reduced row echelon form}. 
 From such a form we then write down a general solution.
 
 
@@ -1111,14 +1115,14 @@ From such a form we then write down a general solution.
 
 \needspace{7\baselineskip}
 \begin{procedure}[\idx{Gauss--Jordan elimination}] \label{pro:gje}
-\begin{aside}
+\ \begin{aside}
 Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script. 
-However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the singular value decomposition of \autoref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.
+However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the \idx{singular value decomposition} of \autoref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.
 \end{aside}\ 
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
 \item Use \idx{elementary row operation}s to reduce the \idx{system}\slash\idx{augmented matrix} to \idx{reduced row echelon form}.
-\item If the resulting system is \idx{consistent}, then solve for the leading variables in terms of any remaining \idx{free variable}s.
+\item If the resulting system is \idx{consistent}, then solve for the leading variables in terms of any remaining \idx{free variable}s to obtain a \bfidx{general solution}.
 \end{enumerate}
 \end{procedure}
 
@@ -1199,7 +1203,7 @@ Here write both the full symbolic equations and the augmented matrix form---you 
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 0&-2&3\V-1\\2&1&1\V-1 \end{bmatrix}
 \\
-\parbox{0.5\linewidth}{Swap the two rows to get a non-zero top-left entry.}
+\parbox{0.5\linewidth}{Swap the two rows to get a nonzero top-left entry.}
 \\
 \begin{cases}
 2u+v-w=-1\\0u-2v+3w=-1
@@ -1316,18 +1320,18 @@ It must have \(\xv=\ov\) as a solution as the system is homogeneous.
  
 \item \(\begin{cases}
 2r+s-t=0\\ r+s+2t=0\\-2r+s=3\\2r+4s-t=0
-\end{cases}\) is not homogeneous because there is a non-zero constant on the right-hand side.
+\end{cases}\) is not homogeneous because there is a nonzero constant on the right-hand side.
  
 \item \(\begin{cases}
 -2+y+3z=0\\2x+y+2z=0
-\end{cases}\) is not homogeneous because there is a non-zero constant in the first equation, the~\((-2)\), even though it is here sneakily written on the left-hand side.
+\end{cases}\) is not homogeneous because there is a nonzero constant in the first equation, the~\((-2)\), even though it is here sneakily written on the left-hand side.
  
 \item \label{eg:homosysiv} 
 \(\begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
 x_1+2x_2-3x_3+6x_4=0
 \end{cases}\) is homogeneous.  
-Use Gauss--Jordan elimination, \autoref{pro:gje}, to solve: 
+Use \idx{Gauss--Jordan elimination}, \autoref{pro:gje}, to solve: 
 \begin{eqnarray*}
 \begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
@@ -1372,7 +1376,7 @@ x_1+2x_2+0x_3+\frac{15}7x_4=0\\
  \end{bmatrix}
 \end{eqnarray*}
 The system is now in reduced row echelon form.  
-The second and fourth columns are those of free variables so set the second and fourth component \(x_2=s\) and \(x_4=t\) for arbitrary \(s\) and~\(t\).
+The second and fourth columns are those of \idx{free variable}s so set the second and fourth component \(x_2=s\) and \(x_4=t\) for arbitrary \(s\) and~\(t\).
 Then the first row gives \(x_1=-2s-\frac{15}7t\)\,, and the second row gives \(x_3=\frac97t\)\,.
 That is, the solutions are \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) for arbitrary \(s\) and~\(t\).
 These solutions include \(\xv=\ov\) via the choice \(s=t=0\).
@@ -1383,7 +1387,7 @@ These solutions include \(\xv=\ov\) via the choice \(s=t=0\).
 
 
 \begin{activity}
-Which one of the following systems of equations for \(x\) and~\(y\) is homogeneous?
+Which one of the following systems of equations for \(x\) and~\(y\) is \idx{homogeneous}?
 \actposs{\(5y=3x\) and \(4x=2y\)}
 {\(-3x-y=0\) and \(7x+5y=3\)}
 {\(3x+1=0\) and \(-x-y=0\)}
@@ -1442,7 +1446,7 @@ But first, the next \autoref{sec:lcss} establishes some necessary fundamental as
 
 
 \begin{exercise} \label{ex:somsys} 
-For each of the following systems, write down two different matrix-vector forms of the equations.  
+For each of the following systems, write down two different \idx{matrix-vector form}s of the equations.  
 For each system: how many different possible matrix-vector forms could be written down?
 % Do not reorder or change without changing the next exercise
 \begin{parts}
@@ -1547,7 +1551,7 @@ u   +3v   +2w=  -1\\
 
 
 \begin{exercise} \label{ex:} 
-Use elementary row operations (\autoref{thm:erowop}) to solve the systems in \autoref{ex:3lineq}.
+Use \idx{elementary row operation}s (\autoref{thm:erowop}) to solve the systems in \autoref{ex:3lineq}.
 \answer{As before, except \((u,v,w)=(-2+3t,\tfrac13-\tfrac53t,t\) for all~\(t\).}
 \end{exercise}
 
@@ -1640,7 +1644,7 @@ x =
 Since \verb|rcond| is good, the solution is \(x_1=-0.39\), \(x_2=0.63\) and \(x_3=-0.68\) \twodp.}
 
 
-\item
+\item \index{error:@\texttt{error:}}
 \begin{verbatim}
 >> A=[0.7 1.4; -0.5 -0.9; 1.9 0.7]
 A =
@@ -1743,7 +1747,7 @@ x =
 \(1.2x_1 +0.8x_2 -1.1x_3 -0.9x_4=1.2\).
 Since \verb|rcond| is good, the solution is \(x_1=-0.34\), \(x_2=-0.38\), \(x_3=-0.87\) and \(x_4=-1.05\) \twodp.}
 
-\item
+\item \index{error:@\texttt{error:}}
 \begin{verbatim}
 >> A=[1.4 0.9 1.9; -0.9 -0.2 0.4]
 A =
@@ -1817,7 +1821,7 @@ x=A\b
 
 
 \begin{exercise} \label{ex:} 
-Which of the following systems are in reduced row echelon form?
+Which of the following systems are in \idx{reduced row echelon form}?
 For those that are, determine all solutions, if any.
 \begin{enumerate}
 \item \(\begin{array}{l}
@@ -1874,7 +1878,7 @@ c-\frac14d=-\frac72
 
 
 \begin{exercise} \label{ex:} 
-For the following rational expressions, express the task of finding the partial fraction decomposition as a system of linear equations.
+For the following rational expressions, express the task of finding the \idx{partial fraction} decomposition as a system of linear equations.
 Solve the system to find the decomposition.  
 Record your working.
 \begin{parts}
@@ -1982,7 +1986,7 @@ To keep the coefficients manageable, write the quadratic in terms of the number 
 
 \begin{exercise} \label{ex:orb4Periods} 
 \begin{table}
-\caption{orbital periods for four planets of the solar system: the periods are in (Earth) days; the distance is the length of the semi-major axis of the orbits [\idx{Wikipedia}, 2014].}
+\caption{\idx{orbital period}s for four \idx{planets} of the \idx{solar system}: the periods are in (Earth) days; the distance is the length of the semi-major axis of the orbits [\idx{Wikipedia}, 2014].}
 \label{tbl:orb4Periods}
 \begin{equation*}
 \begin{array}{p{12ex}rr} \hline
@@ -2003,7 +2007,7 @@ Mars& 227.94& 686.97\\\hline
 Analogous to \autoref{eg:infertemp2}, fit a quadratic polynomial \(T=c_1+c_2R+c_3R^2\) for the period~\(T\) as a function of distance~\(R\).
 Use the data for Mercury, Venus and Earth.
 Then use the quadratic to predict the period of Mars: what is the error in your prediction?
-(\autoref{eg:orbitalPeriods} shows a power law fit is better, and that the power law agrees with Kepler's law.)
+(\autoref{eg:orbitalPeriods} shows a power law fit is better, and that the power law agrees with \idx{Kepler's law}.)
 %\begin{verbatim}
 %t=[87.97;224.70;365.26]
 %r=[57.91;108.21;149.60]
@@ -2173,3 +2177,7 @@ how does X compare with Y?
 what is the evidence for X?
 why is X important?
 \end{comment}
+
+\index{linear equation|)}
+\index{system|)}
+

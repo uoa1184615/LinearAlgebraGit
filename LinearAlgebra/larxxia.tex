@@ -1,8 +1,9 @@
-\ifcase1
+\ifcase3
 \or%1=A5 drafting
    \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
 %   \def\includeonly#1{}\usepackage{showkeys}%% iff whole book draft
+   
 \or%2=A4 drafting
    \documentclass[11pt,a4paper,twoside]{refrep}
    \def\includeonly#1{}%\usepackage{showkeys}%% iff whole book draft
@@ -13,6 +14,8 @@
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
+   \excludeversion{reduce}% invoke this for a shortened version
+%   \def\qrcode{}% invoke to omit QR-codes, although still ghost
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
 \fi
@@ -57,12 +60,13 @@
 %,Determinants/secGeometry
 %,Determinants/secExpand
 %,Determinants/summary
-,EigGen/ch
+%,EigGen/ch
 %,EigGen/secFind
 %,EigGen/secLinInd
 %,EigGen/secDiag
 %,EigGen/summary
-%,ComVecSp/ch %draft
+,ComVecSp/ch %draft
+,ComVecSp/secVecs %draft
 %,QR/ch %draft
 %,back
 }
@@ -86,6 +90,8 @@
 
 
 \usepackage{linearAlgebra}[2017/10/31]
+% an environment to control/show a reduced/shortened version
+\newenvironment{reduce}{\color{gray}}{}
 
 \makeindex
 
@@ -146,8 +152,9 @@
 \include{EigGen/secDiag}
 \include{EigGen/summary}
 
-
+% Exclude the next two back for first appendix editing
 %\include{ComVecSp/ch}
+%\include{ComVecSp/secVecs}
 %\include{ComVecSp/summary}
 
 %\include{QR/ch}

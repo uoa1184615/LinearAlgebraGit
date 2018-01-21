@@ -14,14 +14,14 @@
 %It is written in the language of mathematics.  
 %Its characters are triangles, circles and other geometrical figures without which it is humanly impossible to understand a single word of it; without these, one is wandering about in a dark labyrinth.
 [Nature] is written in that great book which ever lies before our eyes---I mean the universe---but we cannot understand it if we do not first learn the language and grasp the symbols in which it is written. 
-The book is written in the mathematical language, and the symbols are triangles, circles, and other geometric figures, without whose help it is impossible to comprehend a single word of it; without which one wanders in vain through a dark labyrinth.
+The book is written in the mathematical language, and the symbols are triangles, \idx{circle}s, and other geometric figures, without whose help it is impossible to comprehend a single word of it; without which one wanders in vain through a dark labyrinth.
 %(as quoted by Kline, 1972, pp. 328--329. See also Machamer 1998a, pp. 64--65 for a slightly different translation.)
 \end{quoted}
 
 
 Some of the most fundamental geometric structures in mathematics, especially linear algebra, are the lines or planes through the origin, and higher dimensional analogues.
 For example, a general solution of linear equations often involve linear combinations such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}) and \(y_3\vv_3+y_4\vv_4\) (\autoref{eg:3x4findc}): such combinations for all values of the free variables forms a plane through the origin (\autoref{sec:nvep}).
-The aim of this section is to connect geometric structures, such as lines and planes, to the information in a singular value decomposition.
+The aim of this section is to connect geometric structures, such as lines and planes, to the information in a \idx{singular value decomposition}.
 The structures are called~\idx{subspace}s.
 
 
@@ -175,14 +175,15 @@ which of the following is a subspace?
 The following definition expresses precisely in algebra the concept of a subspace.
 This book uses the `blackboard bold' font, such as \WW\ and~\RR, for names of spaces and subspaces.
 
-% I think we need to use \in by now, if not already invoked
-Recall that the mathematical symbol~``\(\in\)''\index{in, $\in$}\index{$\in$} means~``in'' or ``in the set'' or ``is an element of the set''.
-For two examples: ``\(c\in\RR\)'' means ``\(c\)~is a real number''; whereas ``\(\vv\in\RR^3\)'' means ``\(\vv\)~is a vector with three components.
+% I think we need to use \in by now
+Recall that the mathematical symbol~``\bfidx{$\in$}''\index{in, $\in$|textbf} means~``in'' or ``in the set'' or ``is an element of the set''.
+For two examples: ``\(c\in\RR\)\index{R@\RR}'' means ``\(c\)~is a real number''; whereas ``\(\vv\in\RR^3\)'' means ``\(\vv\)~is a vector with three components.
 Hereafter, this book uses~``\(\in\)'' extensively.
 
 
 \begin{definition} \label{def:subspace} 
-A \bfidx{subspace}~\WW\ of~\(\RR^n\),  is a set of vectors with \(\ov\in\WW\) and such that \WW\ is \idx{closed} under addition and scalar multiplication: that is, for all \(c\in\RR\) and for all \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\).
+A \bfidx{subspace}~\WW\ of~\(\RR^n\) is a set of vectors with \(\ov\in\WW\), and such that for every \(c\in\RR\) and for every \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\). 
+(When these properties hold we often say that~\WW\ is \bfidx{closed} under addition and \idx{scalar multiplication}.) 
 \end{definition}
 
 
@@ -371,7 +372,7 @@ That is, the \(y\)-component is half the \(x\)-component and hence it lies on th
 
 
 \begin{example} \label{eg:plsubs}
-The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2),(0,3,1)\}\), as illustrated in stereo below, since every linear combination of these two vectors fills out the plane: \(a_1(3,3,1/2)+a_2(0,3,1) =(3a_1,3a_1+3a_2,a_1/2+a_2)\) and so lies in the plane as \(-x/6+y/3-z=-\frac163a_1+\frac13(3a_1+3a_2)-(a_1/2+a_2) =-\frac12a_1+a_1+a_2-\frac12a_1-a_2=0\) for all \(a_1\) and~\(a_2\) (although such arguments do not establish that the linear combinations cover the whole plane---we need \autoref{thm:homosubsp}).
+The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2),(0,3,1)\}\), as illustrated in stereo below, since every \idx{linear combination} of these two vectors fills out the plane: \(a_1(3,3,1/2)+a_2(0,3,1) =(3a_1,3a_1+3a_2,a_1/2+a_2)\) and so lies in the plane as \(-x/6+y/3-z=-\frac163a_1+\frac13(3a_1+3a_2)-(a_1/2+a_2) =-\frac12a_1+a_1+a_2-\frac12a_1-a_2=0\) for all \(a_1\) and~\(a_2\) (although such arguments do not establish that the linear combinations cover the whole plane---we need \autoref{thm:homosubsp}).
 \begin{center}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -384,7 +385,7 @@ The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2),(0,3,1)\}\), as il
 \end{center}
 
 Also,  \(\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) is the  plane \(z=-x/6+y/3\), as illustrated below. 
-The reason is that every linear combination of these three vectors fills out the plane: \(a_1(5,1,-1/2)+a_2(0,-3,-1)+a_3(-4,1,1) =(5a_1-4a_3, a_1-3a_2+a_3, -a_1/2-a_2+a_3)\) and so lies in the plane as \(-x/6+y/3-z=-\frac16(5a_1-4a_3)+\frac13(a_1-3a_2+a_3)-(-a_1/2-a_2+a_3) =-\frac56a_1+\frac23a_3+\frac13a_1-a_2+\frac13a_3+\frac12a_1+a_2-a_3 =0\) for all \(a_1\), \(a_2\) and~\(a_3\).
+The reason is that every \idx{linear combination} of these three vectors fills out the plane: \(a_1(5,1,-1/2)+a_2(0,-3,-1)+a_3(-4,1,1) =(5a_1-4a_3, a_1-3a_2+a_3, -a_1/2-a_2+a_3)\) and so lies in the plane as \(-x/6+y/3-z=-\frac16(5a_1-4a_3)+\frac13(a_1-3a_2+a_3)-(-a_1/2-a_2+a_3) =-\frac56a_1+\frac23a_3+\frac13a_1-a_2+\frac13a_3+\frac12a_1+a_2-a_3 =0\) for all \(a_1\), \(a_2\) and~\(a_3\).
 \begin{center}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
@@ -437,9 +438,9 @@ Although sometimes we also use the rows of the matrix to be the vectors in the s
 \begin{example} \label{eg:}
 Examples~\ref{eg:1x2subs}--\ref{eg:planesubs} provide some cases.
 \begin{itemize}
-\item From \autoref{eg:1x2subs}, the column space of \(A=\footnotesize\begin{bmatrix} 1&-2\\\frac12&-1 \end{bmatrix}\) is the line \(y=x/2\)\,.
+\item From \autoref{eg:1x2subs}, the \idx{column space} of \(A=\footnotesize\begin{bmatrix} 1&-2\\\frac12&-1 \end{bmatrix}\) is the line \(y=x/2\)\,.
 
-The row space of this matrix~\(A\) is \(\Span\{(1,-2),(\frac12,-1)\}\).
+The \idx{row space} of this matrix~\(A\) is \(\Span\{(1,-2),(\frac12,-1)\}\).
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
@@ -449,13 +450,13 @@ The row space of this matrix~\(A\) is \(\Span\{(1,-2),(\frac12,-1)\}\).
 This row space is the set of all vectors of the form \((1,-2)s+(\frac12,-1)t=(s+t/2,-2s-t)=(1,-2)(s+t/2)=(1,-2)t'\) is the line \(y=-2x\) as illustrated in the margin.
 That the row space and the column space are both lines, albeit different lines, is not a coincidence (\autoref{thm:rowcolD}).
 
-\item \autoref{eg:plsubs} shows that the column space of matrix
+\item \autoref{eg:plsubs} shows that the \idx{column space} of matrix
 \begin{equation*}
 B=\begin{bmatrix} 3&0\\3&3\\\frac12&1 \end{bmatrix}
 \end{equation*}
 is the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 
-The row space of matrix~\(B\) is \(\Span\{(3,0),(3,3),(\frac12,1)\}\) which is a subspace of~\(\RR^2\), whereas the column space is a subspace of~\(\RR^3\).
+The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0),(3,3),(\frac12,1)\}\) which is a subspace of~\(\RR^2\), whereas the column space is a subspace of~\(\RR^3\).
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,ymin=-1.5,ymax=3.5
     ,axis equal, axis lines=middle ] 
@@ -473,7 +474,7 @@ C=\begin{bmatrix} 5&0&-4\\1&-3&1\\-\frac12&-1&1 \end{bmatrix}
 \end{equation*}
 is also the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 
-Now, \(\Span\{(5,0,-4),(1,-3,1),(-\frac12,-1,1)\}\) is the row space of matrix~\(C\).
+Now, \(\Span\{(5,0,-4),(1,-3,1),(-\frac12,-1,1)\}\) is the \idx{row space} of matrix~\(C\).
 It is not readily apparent but we can check that this space is the plane \(4x+3y+5z=0\) as illustrated below in stereo.
 To see this, consider all linear combinations \(a_1(5,0,-4)+a_2(1,-3,1)+a_3(-\frac12,-1,1)
 =(5a_1+a_2-a_3/2, -3a_2-a_3, -4a_1+a_2+a_3)\) satisfy
@@ -501,7 +502,7 @@ Again, it is no coincidence that the row and column spaces of~\(C\) are both pla
 
 
 \begin{activity}
-Which one of the following vectors is in the column space of the matrix
+Which one of the following vectors is in the \idx{column space} of the matrix
 \begin{equation*}
 \begin{bmatrix} 6 &  2
 \\  -3 &  5
@@ -580,7 +581,7 @@ V = ...
 
 \item Then solve \(U\zv=\bv\) with \verb|z=U'*[-0.6;0;-2.1;1.9;1.2]| to find \twodp\ \(\zv=(2.55,0.92,-0.29,-0.15,1.54)\).
 
-\item Now the diagonal matrix~\(S\) has three non-zero singular values, and the last two rows are zero.
+\item Now the diagonal matrix~\(S\) has three nonzero singular values, and the last two rows are zero.
 So to be able to solve \(S\yv=\zv\) we need the last two components of~\zv\ to be zero. 
 But, at \(-0.15\) and~\(1.54\), they are not zero, so the system is not solvable.
 Hence there is no linear combination of the columns of~\(A\) that gives us vector~\bv.
@@ -609,7 +610,7 @@ Another subspace associated with matrices is the set of possible solutions to a 
 
 
 \begin{theorem}\label{thm:homosubsp} 
-For any $m\times n$ matrix~$A$, define the set~$\Null(A)$ to be all the solutions~$\xv$ of the \idx{homogeneous} system $A\xv=\ov$\,. 
+For any $m\times n$ matrix~$A$, define the set~$\Null(A)$ to be all the solutions~$\xv$ of the \idx{homogeneous} \idx{system} $A\xv=\ov$\,. 
 The set~\(\Null(A)\) is a \idx{subspace} of~$\RR^n$ called the \bfidx{nullspace} of~$A$.
 \end{theorem}
 \begin{proof} 
@@ -625,16 +626,16 @@ Hence \(\Null A\) is a subspace (\autoref{def:subspace}).
 
 \begin{example} \label{eg:nullsp}
 \begin{itemize}
-\item  \autoref{eg:homosysi} showed that the only solution of the homogeneous system \(\footnotesize\begin{cases}
+\item  \autoref{eg:homosysi} showed that the only solution of the \idx{homogeneous} system \(\footnotesize\begin{cases}
 3x_1-3x_2=0\\-x_1-7x_2=0
 \end{cases}\) is \(\xv=\ov\)\,.
 Thus its set of solutions is~\(\{\ov\}\) which is a subspace (\autoref{eg:somsubsf}).
-Thus \(\{\ov\}\) is the nullspace of matrix \(\footnotesize\begin{bmatrix} 3&-3\\-1&-7 \end{bmatrix}\).
+Thus \(\{\ov\}\) is the \idx{nullspace} of matrix \(\footnotesize\begin{bmatrix} 3&-3\\-1&-7 \end{bmatrix}\).
 
-\item Recall the homogeneous system of linear equations from \autoref{eg:homosysiv} has solutions \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) for arbitrary \(s\) and~\(t\).
+\item Recall the \idx{homogeneous} system of linear equations from \autoref{eg:homosysiv} has solutions \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) for arbitrary \(s\) and~\(t\).
 That is, the set of solutions is \(\Span\{(-2,1,0,0),(-\frac{15}7,0,\frac97,1)\}\).
 Since the set is a span (\autoref{thm:spansubs}), the set of solutions is a subspace of~\(\RR^4\).
-Thus this set of solutions is the nullspace of the matrix \(\footnotesize\begin{bmatrix} 1&2&4&-3\\
+Thus this set of solutions is the \idx{nullspace} of the matrix \(\footnotesize\begin{bmatrix} 1&2&4&-3\\
 1&2&-3&6 \end{bmatrix}\).
 
 \item In contrast, \autoref{eg:gjeb} shows that the set of solutions of the \emph{non}-homogeneous system \(\footnotesize\begin{cases}
@@ -674,7 +675,7 @@ To test a given vector, just multiply by the matrix and see if the result is zer
 
 
 \begin{activity}
-Which vector is in the nullspace of the matrix
+Which vector is in the \idx{nullspace} of the matrix
 \begin{equation*}
 \begin{bmatrix} 4&5&1
 \\4&3&-1
@@ -695,7 +696,7 @@ Which vector is in the nullspace of the matrix
    
 
 
-\paragraph{Summary} Three common ways that subspaces arise from a matrix are as the column space, row space, and nullspace.
+\paragraph{Summary} Three common ways that subspaces arise from a matrix are as the \idx{column space}, \idx{row space}, and \idx{nullspace}.
 
 
 \index{subspace|)}
@@ -708,19 +709,22 @@ Which vector is in the nullspace of the matrix
 \subsection{Orthonormal bases form a foundation}
 
 \index{orthonormal basis|(}
+\index{basis!orthonormal|(}
 
 \begin{quoted}{\cite[\S5.3]{Cuyt2015}}
-The importance of orthogonal basis functions in interpolation and approximation cannot be overstated.  
+The importance of \idx{orthogonal basis} functions in interpolation and approximation cannot be overstated.  
 %Problems become numerically better conditioned and formulas simplify.
 \end{quoted}
 
-Given that subspaces arise frequently in linear algebra, and that there are many ways of representing the same subspace (as seen in some previous examples), is there a `best' way of representing subspaces?
+Given that \idx{subspace}s arise frequently in linear algebra, and that there are many ways of representing the same subspace (as seen in some previous examples), is there a `best' way of representing subspaces?
 The next definition and theorems largely answer this question.
 
-We prefer to use an orthonormal set of vectors to span a subspace.
+We prefer to use an \idx{orthonormal set} of vectors to span a \idx{subspace}.
 The virtue is that orthonormal sets have many practically useful properties.
-For example, orthonormal sets underpin \textsc{jpeg} images, our understanding of vibrations, and reliable weather forecasting.
-Recall that an orthonormal set is composed of vectors that are both at right-angles to each other (their dot products are zero) and all of unit length (\autoref{def:orthoset}).
+For example, orthonormal sets underpin \textsc{\idx{jpeg}} images, our understanding of vibrations, and reliable \idx{weather forecast}ing.
+Recall that an orthonormal set is composed of vectors that are both 
+at \idx{right-angles} to each other (their dot products are zero) and all 
+of \idx{unit length} (\autoref{def:orthoset}).
 
 
 \begin{definition} \label{def:orthobasis} 
@@ -730,12 +734,12 @@ An \bfidx{orthonormal basis} for a \idx{subspace}~\WW\ of~\(\RR^n\) is an \idx{o
 \begin{example} \label{eg:}
 Recall that \(\RR^n\) is itself a subspace of~\(\RR^n\) (\autoref{eg:somsubsg}).
 \begin{enumerate}
-\item The \(n\)~standard unit vectors \hlist\ev n\ in~\(\RR^n\) form a set of \(n\)~orthonormal vectors.
+\item The \(n\)~\idx{standard unit vector}s \index{e@$\ev_j$}\hlist\ev n\ in~\(\RR^n\) form a set of \(n\)~orthonormal vectors.
 They span the subspace~\(\RR^n\) as every vector in~\(\RR^n\) can be written as a linear combination \(\xv=(\hlist xn)=\lincomb x\ev n\)\,.
 Hence the set of standard unit vectors in~\(\RR^n\) are an orthonormal basis for the subspace~\(\RR^n\).
 
-\item The \(n\)~columns \hlist\qv n\ of an \(n\times n\) orthogonal matrix~\(Q\) also form an orthonormal basis for the subspace~\(\RR^n\).
-The reasons are: first, \autoref{thm:orthog:ii} establishes the column vectors of~\(Q\) are orthonormal; and second they span the subspace~\(\RR^n\) as for every vector \(\xv\in\RR^n\) there exists a linear combination \(\xv=\lincomb c\qv n\) obtained by solving \(Q\cv=\xv\) through calculating \(\cv=\tr Q\xv\) since \(\tr Q\)~is the inverse of an orthogonal matrix~\(Q\) (\autoref{thm:orthog:i}).
+\item The \(n\)~columns \hlist\qv n\ of an \(n\times n\) \idx{orthogonal matrix}~\(Q\) also form an orthonormal basis for the subspace~\(\RR^n\).
+The reasons are: first, \autoref{thm:orthog:ii} establishes the \idx{column vector}s of~\(Q\) are orthonormal; and second they span the subspace~\(\RR^n\) as for every vector \(\xv\in\RR^n\) there exists a linear combination \(\xv=\lincomb c\qv n\) obtained by solving \(Q\cv=\xv\) through calculating \(\cv=\tr Q\xv\) since \(\tr Q\)~is the inverse of an orthogonal matrix~\(Q\) (\autoref{thm:orthog:i}).
 \end{enumerate}
 This example also illustrates that generally there are many different orthonormal bases for a given subspace.
 \end{example}
@@ -782,7 +786,7 @@ The only other orthonormal basis is the unit vector in the opposite direction,~\
 \end{example}
 
 
-For subspaces that are planes in~\(\RR^n\), orthonormal bases have more details to confirm as in the next example.
+For \idx{subspace}s that are planes in~\(\RR^n\), orthonormal bases have more details to confirm as in the next example.
 The \svd\ then empowers us to find such bases as in the next \autoref{pro:ospan}.
 
 
@@ -812,7 +816,7 @@ Lastly, from the parametric form of an equation for a plane (\autoref{sec:nvep})
 
 
 \begin{procedure}[orthonormal basis for a span]\label{pro:ospan}
-	Let $\{\hlist\av n\}$ be a set of $n$~vectors in~\(\RR^m\), then the following procedure finds an \idx{orthonormal basis} for the subspace \(\Span\{\hlist\av n\}\). 
+	Let $\{\hlist\av n\}$ be a set of $n$~vectors in~\(\RR^m\), then the following procedure finds an \idx{orthonormal basis} for the \idx{subspace} \(\Span\{\hlist\av n\}\). 
 \begin{enumerate}
 \item Form matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
 \item Factorise~\(A\) into an \svd, $A=\usv$\,, let \(\uv_j\)~denote the columns of~$U$ (\idx{singular vector}s), and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (\autoref{def:rank}).  
@@ -867,7 +871,7 @@ S =
          0    0.0000
 V = ...
 \end{verbatim}
-There is one non-zero singular value---the matrix has rank one---so an orthonormal basis for the span is the first column of matrix~\(U\), namely the set \(\{(-0.89,-0.45)\}\) \twodp.
+There is one nonzero singular value---the matrix has rank one---so an orthonormal basis for the span is the first column of matrix~\(U\), namely the set \(\{(-0.89,-0.45)\}\) \twodp.
 That is, every vector in \(\Span\{(1,\frac12),(-2,-1)\}\) can be written as \((-0.89,-0.45)t\) for some~\(t\): hence the span is a line.
 \end{solution}
 \end{example}
@@ -905,7 +909,7 @@ S =
       0      0
 V = ...
 \end{verbatim}
-There are two non-zero singular values---the matrix has rank two---so an orthonormal basis for the plane is the set of the first two columns of matrix~\(U\), namely  \((-0.51,-0.84,-0.20)\) and \((0.85,-0.44,-0.29)\).
+There are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the plane is the set of the first two columns of matrix~\(U\), namely  \((-0.51,-0.84,-0.20)\) and \((0.85,-0.44,-0.29)\).
 These basis vectors are illustrated as the pair of red vectors in stereo below.
 \begin{center}
 \qview{28}{32} {\begin{tikzpicture} 
@@ -947,7 +951,7 @@ S =
       0      0   0.00
 V = ...
 \end{verbatim}
-There are two non-zero singular values---the matrix has rank two---so an orthonormal basis for the plane spanned by the three vectors is the set of the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
+There are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the plane spanned by the three vectors is the set of the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
 These are the pair of brown vectors in the above stereo illustration.
 \end{itemize} 
 \end{solution}
@@ -994,7 +998,7 @@ Extension: recalling \autoref{thm:ranktr}, which of the above is an orthonormal 
 
 
 
-\begin{example}[data reduction] \label{eg:orthbapp}
+\begin{example}[\idx{data reduction}] \label{eg:orthbapp}
 Every four or five years the phenomenon of \idx{El Nino} makes a large impact on the world's weather: from drought in Australia to floods in South America.
 We would like to predict El Nino in advance to save lives and economies.
 El Nino is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
@@ -1028,9 +1032,9 @@ Let's use a general technique called a \idx{Singular Spectrum Analysis}.
 Consider a window of ten years of the \soi, and let the window `slide' across the data to give us many `local' pictures of the evolution in time.
 For example, \autoref{fig:soiRoundWind} plots six windows (each displaced vertically for clarity) each of length ten years.
 As the `window' slides across the fifty year data of \autoref{fig:soiRoundData} there are \(41\)~such local views of the data of length ten years.
-Let's invoke the concept of subspaces to detect regularity in the data via these windows.
+Let's invoke the concept of \idx{subspace}s to detect regularity in the data via these windows.
 
-The fundamental property is that if the data has regularities, then it should lie in some subspace.
+The fundamental property is that if the data has regularities, then it should lie in some \idx{subspace}.
 We detect such subspaces using the \svd\ of a matrix.
 \begin{itemize}
 \item First form the \(41\)~data windows of length ten into a matrix of size \(10\times 41\).
@@ -1066,7 +1070,7 @@ The simplest way to form this matrix in \script---useful for all such shifting w
 \begin{verbatim}
 A=hankel(soi(1:10),soi(10:50))
 \end{verbatim}
-In \script\ the command \verb|hankel(s(1:w),s(w:n))| forms the \(w\times(n-w+1)\) so-called \idx{Hankel matrix}
+In \script\ the command \index{hankel()@\texttt{hankel()}}\verb|hankel(s(1:w),s(w:n))| forms the \(w\times(n-w+1)\) so-called \idx{Hankel matrix}
 \begin{equation*}
 \begin{bmatrix} s_1&s_2&s_3&\cdots&s_{n-w}&s_{n-w+1}
 \\s_2&s_3&\vdots&&s_{n-w+1}&\vdots
@@ -1098,7 +1102,7 @@ plot(U(:,1:4))
 \marginpar{\usebox{\ajrqrbox}}%
 The computed singular values are $44.63,$ $43.01,$ $39.37,$ $36.69,$ $0.03,$ $0.03,$ $0.02,$ $0.02,$ $0.02,$ $0.01$.
 In practice, treat the six small singular values as zero.
-Since there are four `non-zero' singular values, the windows of data lie in a subspace spanned by the first four columns of~\(U\).
+Since there are four `nonzero' singular values, the windows of data lie in a subspace spanned by the first four columns of~\(U\).
 \begin{figure}
 \centering
 \input{Matrices/soiRoundSubs.ltx}
@@ -1127,7 +1131,7 @@ For every given \idx{subspace}, any two \index{orthonormal basis}orthonormal bas
 \end{theorem}
 \begin{proof} 
 Let \(\cU=\{\hlist\uv r\}\), with \(r\)~vectors, and \(\cV=\{\hlist\vv s\}\), with \(s\)~vectors, be any two orthonormal bases for a given subspace in~\(\RR^n\).
-Prove the number of vectors \(r=s\) by contradiction.
+Prove the number of vectors \(r=s\) by \idx{contradiction}.
 First assume \(r<s\) (\cU\ has less vectors than~\cV).
 Since \cU\ is an orthonormal basis for the subspace every vector in~\cV\ can be written as a linear combination of vectors in~\cU\ with some coefficients~\(a_{ij}\):
 \begin{eqnarray*}
@@ -1177,7 +1181,7 @@ Some books do not appear to establish that every subspace is a span of something
 \end{comment}
 
 \paragraph{An existential issue} 
-How do we know that every subspace has an orthonormal basis? 
+How do we know that every \idx{subspace} has an orthonormal basis? 
 \begin{aside}
 The following optional theorem and proof settles an existential issue.
 \end{aside}%
@@ -1188,13 +1192,13 @@ The following theorem certifies that they do.
 
 
 \begin{theorem}[existence of basis] \label{thm:obaseexists}
-Let \WW\ be a subspace of~\(\RR^n\), then there exists an orthonormal basis for~\WW.
+Let \WW\ be a \idx{subspace} of~\(\RR^n\), then there exists an orthonormal basis for~\WW.
 \end{theorem}
 
 \begin{proof} 
 If the subspace is \(\WW=\{\ov\}\), then \(\WW=\Span\emptyset\) gives a basis and this trivial case is done.
 
-For every other subspace \(\WW\neq\{\ov\}\) there exists a non-zero vector \(\wv\in\WW\).
+For every other subspace \(\WW\neq\{\ov\}\) there exists a nonzero vector \(\wv\in\WW\).
 Normalise the vector by setting \(\uv_1=\wv/|\wv|\).
 Then all scalar multiples \(c\uv_1=c\wv/|\wv|=(c/|\wv|)\wv\in\WW\) by closure of~\WW\ under scalar multiplication (\autoref{def:subspace}). 
 Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated below for an example).
@@ -1245,19 +1249,20 @@ If the process ever repeats until \(k=n\)\,, then we know \(\WW=\RR^n\) and we a
 
 
 \paragraph{Ensemble simulation makes better weather forecasts}
-Near the end of the twentieth century \idx{weather forecasts} were becoming amazingly good at predicting the chaotic weather days in advance.
+Near the end of the twentieth century \idx{weather forecast}s were becoming amazingly good at predicting the chaotic weather days in advance.
 However, there were notable failures: occasionally the weather forecast would give no hint of storms that developed (such as the severe 1999 storm in Sydney\footnote{\url{http://en.wikipedia.org/wiki/1999_Sydney_hailstorm} [April 2015]})
 Why?
 
 Occasionally the weather is both near a `\idx{tipping point}' where small changes may cause a storm, and where the errors in measuring the current weather are of the size of the necessary changes.
 Then the storm would be within the possibilities, but it would not be forecast if the measurements were, by chance error, the `other side' of the tipping point.
 Meteorologists now mostly overcome this problem by executing on their computers an \idx{ensemble of simulations}, perhaps an ensemble of a hundred different forecast simulations \cite[pp.274--80, e.g.]{Roulstone2013}.
-Such a set of \(100\)~simulations essentially lie in a subspace spanned by \(100\)~vectors in the vastly larger space, say~\(\RR^{1000,000,000}\), of the maybe billion variables in the weather model.
-But what happens in the computational simulations is that the ensemble of simulations degenerate in time: so the meteorologists continuously `renormalise' the ensemble of simulations by rewriting the ensemble in terms of an \emph{orthonormal basis} of \(100\)~vectors.
+Such a set of \(100\)~simulations essentially lie in a \idx{subspace} spanned by \(100\)~vectors in the vastly larger space, say~\(\RR^{1000,000,000}\), of the maybe billion variables in the weather model.
+But what happens in the computational simulations is that the ensemble of simulations degenerate in time: so the meteorologists continuously `renormalise' the \idx{ensemble of simulations} by rewriting the ensemble in terms of an \emph{orthonormal basis} of \(100\)~vectors.
 Such an orthonormal basis for the ensemble reasonably ensures unusual storms are retained in the range of possibilities explored by the ensemble forecast.
 
 
 \index{orthonormal basis|)}
+\index{basis!orthonormal|)}
 
 
 
@@ -1269,8 +1274,8 @@ Such an orthonormal basis for the ensemble reasonably ensures unusual storms are
 \emph{physical dimension.} It is an intuitive notion that appears to go back to an archaic state before Greek geometry, yet deserves to be taken up again.
 \end{quoted}
 
-One of the beauties of an orthonormal basis is that, being orthonormal, they look just like a rotated version of the \idx{standard unit vector}s.
-That is, the two orthonormal basis of a plane could form the two `standard unit vectors' of a coordinate system in that plane.
+One of the beauties of an \idx{orthonormal basis} is that, being orthonormal, they look just like a rotated version of the \idx{standard unit vector}s.
+That is, the two orthonormal basis of a plane could form the two `\idx{standard unit vector}s' of a coordinate system in that plane.
 \autoref{eg:orthospan} found the plane \(z=-x/6+y/3\) could have the following two orthonormal bases: either of these orthonormal bases, or indeed any other pair of orthonormal vectors, could act as a pair of `standard unit vectors' of the given planar subspace.
 \begin{center}
 \begin{tikzpicture} 
@@ -1292,7 +1297,7 @@ That is, the two orthonormal basis of a plane could form the two `standard unit 
 \end{tikzpicture} 
 \end{center}
 Similarly in other dimensions for other subspaces.
-Just as~\(\RR^n\) is called \(n\)-dimensional and has \(n\)~standard unit vectors, so we analogously define the dimension of any subspace.
+Just as~\(\RR^n\) is called \(n\)-dimensional and has \(n\)~\idx{standard unit vector}s, so we analogously define the dimension of any subspace.
 
 \begin{definition} \label{def:dim} 
 Let \WW\ be a \idx{subspace} of~\(\RR^n\). 
@@ -1302,16 +1307,16 @@ By convention, \(\dim\{\ov\}=0\)\,.
 
 \begin{example} \label{eg:}
 \begin{itemize}
-\item \autoref{eg:orthbas1} finds that the linear subspace \(x=y=z\) is spanned by the orthonormal basis \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\).  
+\item \autoref{eg:orthbas1} finds that the linear subspace \(x=y=z\) is spanned by the \idx{orthonormal basis} \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\).  
 With one vector in the basis, the line is one dimensional.
 
-\item \autoref{eg:orthbas2} finds that the planar subspace \(-x+2y-2z=0\) is spanned by the orthonormal basis \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\).  
+\item \autoref{eg:orthbas2} finds that the planar subspace \(-x+2y-2z=0\) is spanned by the \idx{orthonormal basis} \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\).  
 With two vectors in the basis, the plane is two dimensional.
 
-\item  Subspace \(\WW=\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) of \autoref{eg:orthospan} is found to have an orthonormal basis of the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
+\item  Subspace \(\WW=\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) of \autoref{eg:orthospan} is found to have an \idx{orthonormal basis} of the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
 With two vectors in the basis, the subspace is two dimensional; that is, \(\dim\WW=2\)\,.
 
-\item Since the subspace~\(\RR^n\) (\autoref{eg:somsubsg}) has an orthonormal basis of the \(n\)~standard unit vectors, \(\{\hlist\ev n\}\), then  \(\dim\RR^n=n\)\,.
+\item Since the subspace~\(\RR^n\) (\autoref{eg:somsubsg}) has an \idx{orthonormal basis} of the \(n\)~\idx{standard unit vector}s, \index{e@$\ev_j$}\(\{\hlist\ev n\}\), then  \(\dim\RR^n=n\)\,.
 
 \item The \idx{El Nino} windowed data of \autoref{eg:orthbapp} is effectively spanned by four orthonormal vectors.  Despite the apparent complexity of the signal, the data effectively lies in a subspace of dimension four (that of two oscillators).
 \end{itemize}
@@ -1320,7 +1325,7 @@ With two vectors in the basis, the subspace is two dimensional; that is, \(\dim\
 
 \begin{theorem} \label{thm:rowcolD} 
 The \idx{row space} and \idx{column space} of a matrix~\(A\) have the same \idx{dimension}.
-Further, given an \svd\ of the matrix, say \(A=\usv\), an \idx{orthonormal basis} for the column space is the first \(\rank A\)~columns of~\(U\), and that for the row space is the first \(\rank A\)~columns of~\(V\).
+Further, given an \svd\ of the matrix, say \(A=\usv\), an \idx{orthonormal basis} for the column space is the first \(\rank A\)~columns of~\(U\), and that for the \idx{row space} is the first \(\rank A\)~columns of~\(V\).
 \end{theorem}
 
 \begin{proof} 
@@ -1344,7 +1349,7 @@ Since the row space of~\(A\) is the column space of~\(\tr A\), an orthonormal ba
 
 
 \begin{example} \label{eg:2x2rcsp}
-Find an \svd\ of the matrix~\(A=\begin{bmatrix} 1&-4\\1/2&-2 \end{bmatrix}\) and compare the column space and the row space of the matrix.
+Find an \svd\ of the matrix~\(A=\begin{bmatrix} 1&-4\\1/2&-2 \end{bmatrix}\) and compare the \idx{column space} and the \idx{row space} of the matrix.
 \begin{solution} 
 Ask \script\ for an \svd\ and interpret:
 \begin{verbatim}
@@ -1368,7 +1373,7 @@ V =
   -0.2425   0.9701
    0.9701   0.2425
 \end{verbatim}
-There is one non-zero singular value---the matrix has rank one---so an orthonormal basis for the column space is the first column of matrix~\(U\), namely \((-0.89,-0.45)\) \twodp.
+There is one nonzero singular value---the matrix has rank one---so an orthonormal basis for the column space is the first column of matrix~\(U\), namely \((-0.89,-0.45)\) \twodp.
 
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-1.5:1.5
@@ -1380,7 +1385,7 @@ There is one non-zero singular value---the matrix has rank one---so an orthonorm
     \addplot[red,thick,quiver={u=-0.24,v=0.97},-stealth] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}%
-Complementing this, as there is one non-zero singular value---the matrix has rank one---so an orthonormal basis for the row space is the first column of matrix~\(V\), namely \((-0.24,0.97)\).
+Complementing this, as there is one nonzero singular value---the matrix has rank one---so an orthonormal basis for the row space is the first column of matrix~\(V\), namely \((-0.24,0.97)\).
 As illustrated in the margin, the two subspaces, the row space (red) and the column space (blue), are different but of the same dimension.
 (As in general, here the row and column spaces are not orthogonal.)
 \end{solution}
@@ -1402,11 +1407,11 @@ Using the \svd\ of \autoref{eg:2x2rcsp}, what is the dimension of the \idx{nulls
 
 
 \begin{example} \label{eg:}
-Use the \svd\ of the matrix~\(B\) in \autoref{eg:orthospan} to compare the column space and the row space of matrix~\(B\).
+Use the \svd\ of the matrix~\(B\) in \autoref{eg:orthospan} to compare the \idx{column space} and the \idx{row space} of matrix~\(B\).
 \begin{solution} 
-Recall that there are two non-zero singular values---the matrix has rank two---so an orthonormal basis for the column space is  the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
+Recall that there are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the column space is  the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
 
-Complementing this, as there are two non-zero singular values---the matrix has rank two---so an orthonormal basis for the row space is the set of the first two columns of matrix~\(V\), namely the vectors  \((-0.78,-0.02, 0.63)\) and \((-0.28, 0.91,-0.32)\).
+Complementing this, as there are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the row space is the set of the first two columns of matrix~\(V\), namely the vectors  \((-0.78,-0.02, 0.63)\) and \((-0.28, 0.91,-0.32)\).
 As illustrated below in stereo, the two subspaces, the row space~(red) and the column space~(blue), are different but of the same dimension.
 \begin{center}
 \qview{58}{62}{\begin{tikzpicture} 
@@ -1432,7 +1437,7 @@ The \bfidx{nullity} of a matrix~\(A\) is the \idx{dimension} of its \idx{nullspa
 \end{definition}
 
 \begin{example} \label{eg:}
-\autoref{eg:nullsp} finds the nullspace of the two matrices
+\autoref{eg:nullsp} finds the \idx{nullspace} of the two matrices
 \begin{equation*}
 \begin{bmatrix} 3&-3\\-1&-7 \end{bmatrix}
 \quad\text{and}\quad
@@ -1440,7 +1445,7 @@ The \bfidx{nullity} of a matrix~\(A\) is the \idx{dimension} of its \idx{nullspa
 1&2&-3&6 \end{bmatrix}.
 \end{equation*}
 \begin{itemize}
-\item The first matrix has nullspace~\(\{\ov\}\) which has dimension zero and hence the nullity of the matrix is zero.
+\item The first matrix has nullspace~\(\{\ov\}\) which has dimension zero and hence the \idx{nullity} of the matrix is zero.
 \item The second matrix, \(2\times4\), has nullspace written as \(\Span\{(-2,1,0,0)\clb(-\frac{15}7,0,\frac97,1)\}\).
 Being spanned by two vectors not proportional to each other, we expect the dimension of the nullspace, the nullity, to be two.
 To check, compute the singular values of the matrix whose columns are these vectors: calling the matrix~\(N\) for nullspace,
@@ -1458,7 +1463,7 @@ which computes the singular values
    3.2485
    1.3008
 \end{verbatim}
-Since there are two non-zero singular values, there are two orthonormal vectors spanning the subspace, the nullspace, hence its dimension, the nullity, is two.
+Since there are two nonzero singular values, there are two orthonormal vectors spanning the subspace, the nullspace, hence its dimension, the nullity, is two.
 \end{itemize}
 \end{example}
 
@@ -1471,7 +1476,7 @@ C=\begin{bmatrix} -1&-2&2&1
 \\-3&3&1&0
 \\2&-5&1&1 \end{bmatrix},
 \end{equation*}
-find an orthonormal basis for its nullspace and hence determine its nullity.
+find an \idx{orthonormal basis} for its \idx{nullspace} and hence determine its \idx{nullity}.
 \begin{solution} 
 To find the nullspace construct a general solution to the homogeneous system \(C\xv=\ov\) with \autoref{pro:gensol}.
 \begin{enumerate}
@@ -1511,8 +1516,8 @@ Hence \(\nullity C=2\)\,.
 
 
 
-This \autoref{eg:nullitysvd} indicates that the nullity is determined by the number of zero columns in the diagonal matrix~\(S\) of an \svd.
-Conversely, the rank of a matrix is determined by the number of non-zero columns in the diagonal matrix~\(S\) of an \svd.
+This \autoref{eg:nullitysvd} indicates that the \idx{nullity} is determined by the number of \idx{zero column}s in the \idx{diagonal matrix}~\(S\) of an \svd.
+Conversely, the rank of a matrix is determined by the number of nonzero columns in the diagonal matrix~\(S\) of an \svd.
 Put these two facts together in general and we get the following theorem that helps characterise solutions of linear equations.
 
 
@@ -1524,7 +1529,7 @@ For every \(m\times n\) matrix~\(A\),  \(\rank A+\nullity A=n\)\,, the number of
 \end{theorem}
 \begin{proof} 
 Set \(r=\rank A\)\,.
-By \autoref{pro:gensol} a general solution to the homogeneous system \(A\xv=\ov\) involves \(n-r\) free variables \(y_{r+1},\ldots,y_n\) in the linear combination form \(\vv_{r+1}y_{r+1}+\cdots +\vv_ny_n\)\,.  
+By \autoref{pro:gensol} a {general solution} to the homogeneous system \(A\xv=\ov\) involves \(n-r\) free variables \(y_{r+1},\ldots,y_n\) in the linear combination form \(\vv_{r+1}y_{r+1}+\cdots +\vv_ny_n\)\,.  
 Hence the nullspace is \(\Span\{\vv_{r+1},\ldots,\vv_n\}\).
 Because matrix~\(V\) is orthogonal, the vectors \(\vv_{r+1},\ldots,\vv_n\) are orthonormal; that is, they form an orthonormal basis for the nullspace, and so the nullspace is of dimension~\(n-r\)\,.
 Consequently, \(\rank A+\nullity A=r+(n-r)=n\)\,.
@@ -1532,7 +1537,7 @@ Consequently, \(\rank A+\nullity A=r+(n-r)=n\)\,.
 
 
 \begin{example} \label{eg:}
-Compute \svd{}s to determine the rank and nullity of each of the given matrices.
+Compute \svd{}s to determine the rank and \idx{nullity} of each of the given matrices.
 %for i=1:999,a=round(randn(ceil(1+4*rand(1,2)))*2);if rank(a)<min(size(a)), A=a, svd(A), break, end,end
 \begin{enumerate}
 \item \(\begin{bmatrix} 1&-1&2
@@ -1556,7 +1561,7 @@ The resultant singular values are
    5.4772
    0.0000
 \end{verbatim}
-The one non-zero singular value indicates \(\rank A=1\)\,.
+The one nonzero singular value indicates \(\rank A=1\)\,.
 Since the matrix has three columns, the nullity---the dimension of the nullspace---is \(3-1=2\)\,. 
 \end{solution}
  
@@ -1584,7 +1589,7 @@ The resultant singular values are
    1.4142
    0.0000
 \end{verbatim}
-The two non-zero singular values indicate  \(\rank B=2\)\,.
+The two nonzero singular values indicate  \(\rank B=2\)\,.
 Since the matrix has three columns, the nullity---the dimension of the nullspace---is \(3-2=1\)\,. 
 \end{solution}
 
@@ -1621,7 +1626,7 @@ The resultant singular values are
     0.0000
     0.0000
 \end{verbatim}
-Three non-zero singular values indicate \(\rank C=3\)\,.
+Three nonzero singular values indicate \(\rank C=3\)\,.
 Since the matrix has five columns, the nullity---the dimension of the nullspace---is \(5-3=2\)\,. 
 \end{solution}
 
@@ -1643,7 +1648,7 @@ The matrix
 \\-1&1&0&-2&0
 \\-3&1&3&2&-3
 \\0&0&1&0&-1 \end{bmatrix}
-\text{ has singular values}\quad
+\text{ has \idx{singular value}s}\quad
 \begin{matrix}\tt 8.1975
 \\\tt 2.6561
 \\\tt 1.6572
@@ -1666,7 +1671,7 @@ What is its nullity?
 
 
 \begin{example} \label{eg:}
-Each of the following graphs plot all the column vectors of a matrix. What is the nullity of each of the matrices?  Give reasons.
+Each of the following graphs plot all the column vectors of a matrix. What is the \idx{nullity} of each of the matrices?  Give reasons.
 \begin{enumerate}
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -1762,13 +1767,13 @@ The rank theorem gives \(\nullity D=n-\rank D=4-2=2\)\,.
 \end{example}
 
 
-The recognition of these new concepts associated with matrices and linear equations, then empowers us to extend the list of exact properties that ensure a system of linear equations has a unique solution. 
+The recognition of these new concepts associated with matrices and \idx{linear equation}s, then empowers us to extend the list of exact properties that ensure a system of linear equations has a unique solution. 
 
 \begin{theorem}[Unique Solutions: version~2]  \label{thm:ftim2} 
 For every \(n\times n\) \idx{square matrix}~\(A\), and extending \autoref{thm:ftim1}, the following statements are equivalent:
 \begin{enumerate}
 \item\label{thm:ftim2i} \(A\) is \idx{invertible};
-\item\label{thm:ftim2ii} \(A\xv=\bv\) has a \idx{unique solution} for every \(\bv\in\RR^n\);
+\item\label{thm:ftim2ii} \(A\xv=\bv\) has a \bfidx{unique solution} for every \(\bv\in\RR^n\);
 \item\label{thm:ftim2iii} \index{homogeneous}\(A\xv=\ov\) has only the zero solution;
 \item\label{thm:ftim2iv} all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
 \item\label{thm:ftim2ivx} the \idx{condition number} of~\(A\) is finite (\(\verb|rcond|>0\));
@@ -1788,7 +1793,7 @@ The Rank \autoref{thm:rank} assures us that \(\nullity A=0\) if and only if \(\r
 By~\ref{thm:ftim2ii} every \(\bv\in\RR^n\) can be written as \(\bv=A\xv\)\,. But \(A\xv\)~is a linear combination of the columns of~\(A\) and so \(\bv\)~is in the span of the columns.  
 Hence the column vectors of~\(A\) span~\(\RR^n\).
 \item[\ref{thm:ftim2vii}$\implies$\ref{thm:ftim2v}] 
-Suppose \(\rank A=r\) reflecting \(r\)~non-zero singular values in an \svd\ \(A=\usv\).
+Suppose \(\rank A=r\) reflecting \(r\)~nonzero singular values in an \svd\ \(A=\usv\).
 \autoref{pro:ospan} assures us the column space of~\(A\) has  orthonormal basis~\(\{\hlist\uv r\}\).
 But the column space is~\(\RR^n\) (statement~\ref{thm:ftim2vii}) which also has the orthonormal basis of the \(n\)~standard unit vectors.
 \autoref{thm:sameD} assures us that the number of basis vectors must be the same; that is, \(\rank A=r=n\)\,.
@@ -2029,7 +2034,7 @@ Use \autoref{def:subspace} to decide whether each of the following is a \idx{sub
 \begin{exercise} \label{ex:} 
 Let \(\WW_1\)\ and~\(\WW_2\) be any two \idx{subspace}s of~\(\RR^n\) (\autoref{def:subspace}).  
 \begin{enumerate}
-\item Use the definition to prove that the intersection of \(\WW_1\)\ and~\(\WW_2\) is also a subspace of~\(\RR^n\).
+\item Use the definition to prove that the \idx{intersection} of \(\WW_1\)\ and~\(\WW_2\) is also a subspace of~\(\RR^n\).
 \item Give an example to prove that the union of \(\WW_1\)\ and~\(\WW_2\) is not necessarily a subspace of~\(\RR^n\).
 \end{enumerate}
 \end{exercise}
@@ -2039,7 +2044,7 @@ Let \(\WW_1\)\ and~\(\WW_2\) be any two \idx{subspace}s of~\(\RR^n\) (\autoref{d
 
 
 \begin{exercise} \label{ex:} 
-For each of the following matrices, partially solve linear equations to determine whether the given vector~\(\bv_j\) is in the \idx{column space}, and to determine if the given vector~\(\rv_j\) is in the \idx{row space} of the matrix.
+For each of the following matrices, partially solve \idx{linear equation}s to determine whether the given vector~\(\bv_j\) is in the \idx{column space}, and to determine if the given vector~\(\rv_j\) is in the \idx{row space} of the matrix.
 Work small problems by hand, and address larger problems with \script.
 Record your working or \script\ commands and output.
 % A=round(randn(m,n)*3)+0, b=round(randn(m,1)*3)+0, c=round(randn(n,1)*3)+0, rref([A b]), rref([A' c])
@@ -2156,7 +2161,7 @@ Record your working or \script\ commands and output.
 
 
 \begin{exercise} \label{ex:} 
-In each of the following, is the given vector in the nullspace of the given matrix?
+In each of the following, is the given vector in the \idx{nullspace} of the given matrix?
 % A=round(randn(m,n)*3)+0, v=null(A);v=v/max(abs(v));[~,d]=rat(v);v=v*max(d(:)), w=round(randn(n,1)*3)+0,A*w
 \begin{enumerate}
 \item \(\eAii=\begin{bmatrix} -11&-2&5
@@ -2429,7 +2434,7 @@ nullspace \(\{(0.00\clb 0.18\clb 0.13\clb 0.27\clb 0.94)\}\).}
 
 
 \begin{exercise} \label{ex:} 
-For each of the matrices in \autoref{ex:obcrn}, from your computed bases write down the \idx{dimension} of the column space, the row space and the nullspace.
+For each of the matrices in \autoref{ex:obcrn}, from your computed bases write down the \idx{dimension} of the \idx{column space}, the \idx{row space} and the \idx{nullspace}.
 Comment on how these confirm the \idx{rank theorem}~\ref{thm:rank}.
 \answer{1, 1, 1;
  3, 3, 0;
@@ -2619,7 +2624,7 @@ acc=[5.34; 0.85; -1.90; -1.39; -0.99; 5.64;
 
 \item compute an \svd\ of the matrix, and explain why the windows of measured accelerations are close to lying in a four dimensional subspace;
 
-\item plot orthonormal basis vectors for the four dimensional subspace of the windowed accelerations.
+\item plot \idx{orthonormal basis} vectors for the four dimensional subspace of the windowed accelerations.
 \end{enumerate}
 \end{exercise}
 

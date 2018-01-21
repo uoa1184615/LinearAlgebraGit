@@ -15,7 +15,7 @@ The first two vector operations are addition and scalar multiplication.
 \subsection{Basic operations}
 
 \begin{example} \label{eg:vecadd} 
-Vectors of the same size are added component-wise.
+Vectors of the same \idx{size} are added component-wise.
 Equivalently, obtain the same result by geometrically joining the two vectors `head-to-tail' and drawing the vector from the start to the finish.
 \begin{enumerate}
 \newcommand{\tmp}[3]{
@@ -97,7 +97,7 @@ With practice viewing such three-D stereo pairs becomes less difficult.
 
 
 \begin{example} \label{eg:}
-To multiply a vector by a scalar, a number, multiply each component by the scalar. 
+To multiply a vector by a \index{scalar multiplication}scalar, a number, multiply each component by the scalar. 
 Equivalently, visualise the result through stretching the vector by a factor of the scalar.
 \begin{enumerate}
 \item Let the vector \(\uv=(3,2)\) then, as illustrated in the margin,
@@ -174,11 +174,11 @@ Then the \bfidx{sum} or \bfidx{addition} of~\uv\ and~\vv, denoted \(\uv+\vv\), i
 \begin{equation*}
 \uv+\vv:=(u_1+v_1,u_2+v_2,\ldots,u_n+v_n).
 \end{equation*}
-The \bfidx{scalar multiplication} of~\uv\ by~\(c\), denoted~\(c\uv\),  is the vector of length~\(|c||\uv|\) in the direction of~\uv\ when \(c>0\) but in the opposite direction when \(c<0\), and is computed as
+The \bfidx{scalar multiplication} of~\uv\ by~\(c\), denoted~\(c\uv\),  is the vector of \idx{length}~\(|c||\uv|\) in the direction of~\uv\ when \(c>0\) but in the opposite direction when \(c<0\), and is computed as
 \begin{equation*}
 c\uv:=(cu_1,cu_2,\ldots,cu_n).
 \end{equation*}
-The \bfidx{negative} of~\uv\, denoted~\(-\uv\), is defined as the scalar multiple \(-\uv=(-1)\uv\), and is a vector of the same length as~\uv\ but in exactly the opposite direction.
+The \bfidx{negative} of~\uv\, denoted~\(-\uv\), is defined as the scalar multiple \(-\uv=(-1)\uv\), and is a vector of the same \idx{length} as~\uv\ but in exactly the opposite direction.
 The \bfidx{difference} \(\uv-\vv\) is defined as \(\uv+(-\vv)\) and is equivalently the vector drawn from the end of~\vv\ to the end of~\uv.
 \end{definition}
 
@@ -219,8 +219,9 @@ For the vectors~\uv\ and~\vv\ shown in the margin, what is the result vector tha
 
 
 
-Using vector addition and scalar multiplication we often write vectors in terms of so-called \idx{standard unit vector}s.
-In the plane and drawn in the margin are the two unit vectors~\iv\ and~\jv\ (length one) in the direction of the two coordinate axes.
+Using vector addition and \idx{scalar multiplication} we often write vectors in terms of so-called \idx{standard unit vector}s.
+In the plane and drawn in the margin are the two \idx{unit vector}s~\iv\ and~\jv\ (length one) in the direction of the two \idx{coordinate axes}.
+\index{i@$\iv$}\index{j@$\jv$}%
 \marginpar{\begin{tikzpicture} 
 \newcommand{\tmp}[4]{
   \addplot[#4,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
@@ -243,7 +244,8 @@ Then, for example,
 \\&=&3(1,0)+2(0,1)\quad(\text{by scalar mult})
 \\&=&3\iv+2\jv \quad(\text{by definition of \iv\ and \jv}).
 \end{eqnarray*}
-Similarly, in three dimensional space we often write vectors in terms of the three vectors~\iv, \jv\ and~\kv, each of length one, aligned along the three coordinate axes.
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
+Similarly, in three dimensional space we often write vectors in terms of the three vectors~\iv, \jv\ and~\kv, each of \idx{length} one, aligned along the three \idx{coordinate axes}.
 For example,
 \begin{eqnarray*}
 (2,3,-1)&=&(2,0,0)+(0,3,0)+(0,0,-1)\quad(\text{by addition})
@@ -254,7 +256,7 @@ The next definition generalises these standard unit vectors to vectors in~\(\RR^
 
 
 \begin{definition} \label{def:stuniv}
-Given a standard coordinate system with \(n\)~coordinate axes, all at \idx{right-angles} to each other, the \bfidx{standard unit vector}s \index{e@$\ev_j$|textbf}\(\hlist\ev n\) are the vectors of length one in the direction of the corresponding coordinate axis (as illustrated in the margin for~\(\RR^2\) and below for~\(\RR^3\)).
+Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all at \idx{right-angles} to each other, the \bfidx{standard unit vector}s \index{e@$\ev_j$|textbf}\(\hlist\ev n\) are the vectors of \idx{length} one in the direction of the corresponding coordinate axis (as illustrated in the margin for~\(\RR^2\) and below for~\(\RR^3\)).
 \marginpar{\begin{tikzpicture} 
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
@@ -323,11 +325,12 @@ Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
 
 
 \subsubsection{Distance}
+\index{distance|(}
 Defining a `distance' between vectors empowers us to compare vectors concisely.
 
 \begin{example} \label{eg:}
 We would like to say that \((1.2,3.4)\approx(1.5,3)\) to an error~\(0.5\) (as illustrated in the margin).
-Why~\(0.5\)?  Because the difference between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
+Why~\(0.5\)?  Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal,axis lines=none,thick]
@@ -347,7 +350,7 @@ Why is there a large `distance'?  Because the difference between the vectors \((
 This concept of distance between two vectors~\uv\ and~\vv, directly corresponding to the distance between two points, is the length \(|\uv-\vv|\).
 
 \begin{definition} \label{def:vecdist}
-The \bfidx{distance} between vectors~\uv\ and~\vv\ in~\(\RR^n\) is the \idx{length} of their difference, \(|\uv-\vv|\).
+The \bfidx{distance} between vectors~\uv\ and~\vv\ in~\(\RR^n\) is the \idx{length} of their \idx{difference}, \(|\uv-\vv|\).
 \end{definition}
 
 
@@ -402,6 +405,7 @@ Which pair of the following vectors are closest---have the smallest distance bet
 
 
 
+\index{distance|)}
 
 
 
@@ -447,7 +451,7 @@ Choose any point~\(P\) on the line, such as~\((2,1)\) as drawn in the margin.
 \node[above] at (axis cs:3,0.3) {$\quad-\tfrac12\dv$};
 \end{axis}
 \end{tikzpicture}}%
-Then view every other point on the line as having position vector that is the vector sum of~\(\ovect{OP}\) and a vector aligned along the line.
+Then view every other point on the line as having \idx{position vector} that is the vector \idx{sum} of~\(\ovect{OP}\) and a vector aligned along the line.
 Denote~\(\ovect{OP}\) by~\pv\ as drawn.
 Then, for example, the point~\((0,2)\) on the line has position vector  \(\pv+\dv\) for vector \(\dv=(-2,1)\) because \(\pv+\dv=(2,1)+(-2,1)=(0,2)\).
 Other points on the line are also given using the same vectors, \pv\ and~\dv: for example, the point~\((3,\tfrac12)\) has position vector \(\pv-\tfrac12\dv\) (as drawn) because \(\pv-\tfrac12\dv=(2,1)-\tfrac12(-2,1)=(3,\tfrac12)\); and the point~\((-2,3)\) has position vector \(\pv+2\dv=(2,1)+2(-2,1)\).
@@ -657,7 +661,7 @@ Now let's state and prove these properties in general.
 
 
 \begin{theorem} \label{thm:vecops}
-For all vectors~\uv, \vv\ and~\wv\  with \(n\)~components (that is, in~\(\RR^n\)), and for all scalars~\(a\) and~\(b\),
+For all vectors~\uv, \vv\ and~\wv\  with \(n\)~components (that is, in~\(\RR^n\)), and for all \idx{scalar}s~\(a\) and~\(b\),
 the following properties hold:
 \begin{enumerate}
 \item\label{thm:vecopsa} \(\uv+\vv=\vv+\uv\) \quad(\idx{commutative law});
@@ -716,7 +720,7 @@ In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \end{proof}
 
 \begin{example} \label{eg:}
-Which of the following two diagrams best illustrates the associative law~\ref{thm:vecopsb}?  Give reasons.
+Which of the following two diagrams best illustrates the \idx{associative law}~\ref{thm:vecopsb}?  Give reasons.
 \begin{center}
 \def\ux{3}\def\uy{-1}\def\vx{2}\def\vy{2}\def\wx{-1}\def\wy{2}
 \begin{tikzpicture} 
@@ -905,7 +909,7 @@ For each of the pairs of vectors~\uv\ and~\vv\ shown below, draw the vectors \(\
 
 
 \begin{exercise} \label{ex:} 
-For each of the following pairs of vectors shown below, use a ruler (or other measuring stick) to directly measure the distance between the pair of vectors.
+For each of the following pairs of vectors shown below, use a ruler (or other measuring stick) to directly measure the \idx{distance} between the pair of vectors.
 \newcommand{\mytmp}[4]{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal,axis lines=middle]
@@ -931,7 +935,7 @@ For each of the following pairs of vectors shown below, use a ruler (or other me
 
 
 \begin{exercise} \label{ex:} 
-For each of the following groups of vectors, use the distance between vectors to find which pair in the group are closest to each other, and which pair in the group are furthest from each other. 
+For each of the following groups of vectors, use the \idx{distance} between vectors to find which pair in the group are closest to each other, and which pair in the group are furthest from each other. 
 \begin{enumerate} \sloppy
 \item \(\uv=(-5,0,3)\), \(\vv=(1,-6,10)\), \(\wv=(-4,4,11)\)
 \answer{\uv~and~\wv\ are closest; \vv~and~\wv\ are furthest.}
@@ -998,7 +1002,7 @@ For each of the following groups of vectors, use the distance between vectors to
 
 
 \begin{exercise} \label{ex:} 
-Find a parametric equation of the line through the given two points.
+Find a \idx{parametric equation} of the line through the given two points.
 \begin{parts}
 \item \((-11,0,3)\),
    \((-3,-2,2)\)
@@ -1043,7 +1047,7 @@ Verify the algebraic properties of \autoref{thm:vecops} for each of the followin
 
 
 \begin{exercise} \label{ex:} 
-Prove in detail some algebraic properties chosen from \autoref{thm:vecopsb}--\ref{thm:vecopsj} on vector addition and scalar multiplication.
+Prove in detail some algebraic properties chosen from \autoref{thm:vecopsb}--\ref{thm:vecopsj} on vector addition and \idx{scalar multiplication}.
 \end{exercise}
 
 

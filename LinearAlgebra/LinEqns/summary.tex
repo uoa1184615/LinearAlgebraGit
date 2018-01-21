@@ -50,7 +50,7 @@ Checking \verb|rcond()| avoids many mistakes in applications.
 \itemhi \verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
 \item Change an element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
 \item For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector.
-\itemme The function \verb|ones(m,1)| gives a (column) vector of \(m\)~ones, \((1,1,\ldots,1)\).
+\itemme The function \index{ones()@\texttt{ones()}}\verb|ones(m,1)| gives a (column) vector of \(m\)~ones, \((1,1,\ldots,1)\).
 \end{itemize}
 
 \item For fitting data, generally avoid using polynomials of degree higher than cubic.
@@ -69,12 +69,12 @@ The \bfidx{augmented matrix} of the \idx{system} \(A\xv=\bv\) is the matrix \(\b
 \item A system of \idx{linear equation}s or (augmented) matrix is in \bfidx{reduced row echelon form} (\rref) when (\autoref{def:rref}) all the following hold:
   \begin{itemize}
 \item any equations with all zero coefficients, or rows of the matrix consisting entirely of zeros, are at the bottom; 
-\item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), and is in a variable\slash column to the left of any leading ones below it;
+\item in each nonzero equation\slash row, the first nonzero coefficient\slash entry is a one (called the \bfidx{leading one}), and is in a variable\slash column to the left of any \idx{leading one}s below it;
 and
 \item each variable\slash column containing a leading one has zero coefficients\slash entries in every other equation\slash row.\end{itemize}
 A \bfidx{free variable} is any variable which is \emph{not} multiplied by a \idx{leading one} in the algebraic equations.
 
-\itemme Gauss--Jordan elimination solves systems by hand (\autoref{pro:gje}):
+\itemme \idx{Gauss--Jordan elimination} solves systems by hand (\autoref{pro:gje}):
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
 \item Use \idx{elementary row operation}s to reduce the \idx{system}\slash{augmented matrix} to \idx{reduced row echelon form}.
