@@ -3,37 +3,44 @@
    \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
 %   \def\includeonly#1{}\usepackage{showkeys}%% iff whole book draft
-   
+   \AtBeginDocument{%
+%   \inQRcodesfalse % invoke to omit QR-codes
+%   \excludeversion{reduce} % invoke for short version
+   }%end of AtBeginDocument
 \or%2=A4 drafting
-   \documentclass[11pt,a4paper,twoside]{refrep}
-   \def\includeonly#1{}%\usepackage{showkeys}%% iff whole book draft
+   \documentclass[10pt,a4paper,twoside]{refrep}
+%   \def\includeonly#1{}%\usepackage{showkeys}%% iff whole book draft
+   \AtBeginDocument{%
+   \inQRcodesfalse % invoke to omit QR-codes
+   \excludeversion{reduce} % invoke for short version
+   }%end of AtBeginDocument
 \or%3= version on A4
-   \documentclass[11pt,a4paper,twoside]{refrep}
+   \documentclass[10pt,a4paper,twoside]{refrep}
    \def\includeonly#1{} % do all by disabling includeonly
-   \def\thmIndent{-0.5\marginparwidth} % indent into margin ??
+%   \def\thmIndent{-0.5\marginparwidth} % indent into margin ??
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
-   \excludeversion{reduce}% invoke this for a shortened version
-%   \def\qrcode{}% invoke to omit QR-codes, although still ghost
+%   \excludeversion{reduce} % invoke for short version
+%   \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
 \fi
 
 % Specify the version number of the next version.
 % Affects watermark and permutation of activity answers.
-\def\myversion{0.4c}
+\def\myversion{0.5b}
 
 \includeonly{
-%front,back
-%,Vectors/ch
+%front%,back
+,Vectors/ch
 %,Vectors/secVecs
 %,Vectors/secVecOps
 %,Vectors/secDot
 %,Vectors/secCross 
 %,Vectors/secScript
-%,Vectors/secLogic %draft
-%,Vectors/secWrite %pre-draft
+%%%,Vectors/secLogic %draft
+%%%,Vectors/secWrite %pre-draft
 %,Vectors/summary
 %,LinEqns/ch
 %,LinEqns/secIntro
@@ -44,7 +51,7 @@
 %,Matrices/secOps
 %,Matrices/secInverse
 %,Matrices/secSVD
-%,Matrices/secSubsp
+%,Matrices/secSubsp 
 %,Matrices/secIncon
 %,Matrices/secLinTran
 %,Matrices/summary
@@ -65,11 +72,13 @@
 %,EigGen/secLinInd
 %,EigGen/secDiag
 %,EigGen/summary
-,ComVecSp/ch %draft
-,ComVecSp/secVecs %draft
+%,ComVecSp/ch %draft
+%,ComVecSp/secVecs %draft
 %,QR/ch %draft
 %,back
 }
+
+
 
 
 
@@ -83,15 +92,20 @@
 
 \date{\today\footnotetext[0]{\titlePageInfo}
 \\[8ex]
-\includegraphics{EigGen/P1040280}\phantom{xxxxxxxxx}\\[-4ex]
+\includegraphics{EigGen/P1040280}%AJR's photo
+\phantom{xxxxxxxxx}\\[-4ex]
 \def\unithousesize{footnotesize,height=5.5cm}%
 \ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}
 }
 
 
-\usepackage{linearAlgebra}[2017/10/31]
-% an environment to control/show a reduced/shortened version
-\newenvironment{reduce}{\color{gray}}{}
+
+\usepackage{linearAlgebra}[2019/08/20]
+\def\aNsMod{2}% typeset every second answer to exercises
+%% An environment to control/show a reduced/shortened version
+%\newenvironment{reduce}{\color{gray}}{}% grey planned omissions
+\newenvironment{reduce}{}{}% do not show what is omitted
+
 
 \makeindex
 
@@ -166,7 +180,9 @@
 % This catches any answers not yet typeset, 
 % to check all OK while drafting
 \begin{draft}
-\makeanswers
+%\makeanswers
+\closeAaNsout\actanssname\input{\jobname.aas}
+\closeaNsout\answersname\input{\jobname.ans}
 \end{draft}
 
 \end{document}

@@ -42,8 +42,8 @@ Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(
 
 \itemme \index{std()@\texttt{std()}}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of the \idx{standard deviation} over each column of~\(A\).
 
-\item \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun(@op,A,B)| for \(m\times n\) arrays~\(A\) and~\(B\) computes the \(m\times n\) array \(\begin{bmatrix} a_{ij}\operatorname{op}b_{ij} \end{bmatrix}\), where ``\verb|@op|'' is one of the operations~\verb|@plus|, \verb|@minus|, \verb|@times|, \verb|@rdivide|, \ldots.
-Where this \verb|bsxfun()| becomes useful is that if either  of the matrices is \(m\times1\) or \(1\times n\) then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
+\item For the element-by-element operations of \verb|+|, \verb|-|, \verb|.*|, \verb|./|, \verb|.^|, and so on, \emph{\script\ automatically replicates scalars and vectors as appropriate}.
+Where this functionality becomes extremely useful is that if either  of the matrices is \(m\times1\) or \(1\times n\) or one of each, then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
 
 \item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
 When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
@@ -101,20 +101,21 @@ The \idx{distance} between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 \item usually make each column have zero mean by subtracting its mean~\(\bar b_j\), algebraically \(\av_j=\bv_j-\bar b_j\)\,;
 \item but ensure each column has the same `physical dimensions', often by dividing by the \idx{standard deviation}~\(s_j\) of each column, algebraically \(\av_j=(\bv_j-\bar b_j)/s_j\)\,.
 \end{enumerate}
-To compute in \script\ use
+Compute in \script\ via the \idx{auto-replication} of
 \begin{verbatim}
-A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B));
+A=(B-mean(B))./std(B);
 \end{verbatim}
-%Use \verb|A=(B-ones(m,1)*mean(B))*diag(1./std(B))| to compute in \script.
 \item  Economically compute an \svd\ for the best rank~\(k\) approximation to the \index{data scaling}scaled data matrix with \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)|.
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
 \end{enumerate}
 
+\begin{reduce}
 \item Latent Semantic Indexing uses \svd{}s to form useful low-rank approximations to word data and queries.
+\end{reduce}
 
 
 
-\subsubsection*{Regularise linear equations}
+\subsubsection*{Regularize linear equations}
 
 \itemhi \autoref{pro:appmat} approximates \idx{linear equation}s.
 Suppose the system of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
@@ -137,7 +138,8 @@ A_k&=&US_k\tr V
 \\&=&\verb|U(:,1:k)*S(1:k,1:k)*V(:,1:k)'|\,.
 \end{eqnarray*}
 
-\item Solve the approximating \idx{linear equation} \(A_k\xv=\bv\) as in Theorems~\ref{thm:appsol}--\ref{thm:smallsoln} (often as an \idx{inconsistent} set of equations).
+\item Solve the approximating \idx{linear equation} \(A_k\xv=\bv\) as 
+in \cref{thm:appsol,thm:smallsoln} (often as an \idx{inconsistent} set of equations).
 Use the \svd\ \(A_k=US_k\tr V\).
 
 \item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application: often the smallest solution overall; or just as often a solution with the most zero \idx{components}.
@@ -145,10 +147,10 @@ Use the \svd\ \(A_k=US_k\tr V\).
 
 
 \item In seeking to solve the poorly-posed system \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
-a \bfidx{Tikhonov regularisation} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularisation parameter} value~\(\alpha>0\) (\autoref{def:Tikreg}).
+a \bfidx{Tikhonov regularization} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularization parameter} value~\(\alpha>0\) (\autoref{def:Tikreg}).
 
-\item Solving the \idx{Tikhonov regularisation}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the system \(\tilde A\xv=\bv\) where  
-the matrix~\(\tilde A\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\tilde\sigma_i:=\sigma_i+\alpha^2/\sigma_i\) (\autoref{thm:Tikreg}).
+\item Solving the \idx{Tikhonov regularization}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the system \(A'\xv=\bv\) where  
+the matrix~\(A'\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\sigma'_i:=\sigma_i+\alpha^2/\sigma_i\) (\autoref{thm:Tikreg}).
 
 
 

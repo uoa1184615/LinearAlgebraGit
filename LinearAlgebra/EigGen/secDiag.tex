@@ -1,7 +1,7 @@
 %!TEX root = ../larxxia.tex
 
 
-\section{Diagonalisation identifies the transformation}
+\section{Diagonalization identifies the transformation}
 \label{sec:dit}
 
 \secttoc
@@ -9,8 +9,8 @@
 \pooliv{\S4.4} \layiv{\S5.3} \holti{\S6.4} \cite[\S09]{Davis99a}
 \end{comment}
 
-\index{diagonalisation|(}
-\index{diagonalisable|(}
+\index{diagonalization|(}
+\index{diagonalizable|(}
 
 \paragraph{Population modelling} \index{population modelling}
 Recall that this \autoref{ch:gee} started by introducing the dynamics of two interacting \idx{species} of animals.
@@ -31,7 +31,9 @@ Start by writing the \idx{population model} as a \idx{system} in terms of vector
 \yv(t+1)=\begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}\yv(t).
 \end{eqnarray*}
 Now let's ask if there is a basis \(\cP=\{\pv_1,\pv_2\}\) for the \(yz\)-plane that simplifies this matrix-vector system?
-In such a basis every vector may be written as \(\yv=Y_1\pv_1+Y_2\pv_2\) for some components~\(Y_1\) and~\(Y_2\)---where \((Y_1,Y_2)=\Yv=[\yv]_\cP\), but to simplify writing we use the symbol~\Yv\ in place of~\([\yv]_\cP\).
+In such a basis every vector may be written as \(\yv=Y_1\pv_1+Y_2\pv_2\) for some components~\(Y_1\) and~\(Y_2\).
+That is,  \([\yv]_\cP=(Y_1,Y_2)\),
+but to simplify writing we use the vector symbol~\(\Yv=(Y_1,Y_2)\)\ in place of~\([\yv]_\cP\).
 Write the relation \(\yv=Y_1\pv_1+Y_2\pv_2\) as the \idx{matrix-vector product} \(\yv=P\Yv\) where matrix \(P=\begin{bmatrix} \pv_1&\pv_2 \end{bmatrix}\) and vector \(\Yv=(Y_1,Y_2)\).
 The populations~\(\yv\) depends upon time~\(t\), and hence so does~\(\Yv\) since \(\Yv=[\yv]_\cP\); that is, \(\yv(t)=P\Yv(t)\).
 Substitute this identity into the system of equations:
@@ -43,26 +45,29 @@ Multiply both sides by~\(P^{-1}\) (which exists by linear independence of the co
 \Yv(t+1)=\underbrace{P^{-1}\begin{bmatrix} 1&-4\\-1&1 \end{bmatrix}P}_{P^{-1}AP}\Yv\,.
 \end{equation*}
 The question then becomes, for a given \idx{square matrix}~\(A\), such as this, can we find a matrix~\(P\) such that \(P^{-1}AP\) is somehow simple?
-The answer is yes: using \idx{eigenvalue}s and \idx{eigenvector}s, in most cases the product~\(P^{-1}AP\) can be made into a simple \idx{diagonal matrix}.
+The answer in most cases is yes: using \idx{eigenvalue}s and \idx{eigenvector}s the product~\(P^{-1}AP\) usually can be made into a simple \idx{diagonal matrix}.
 
 
 
+\subsection{Eigenvectors achieve diagonalization}
+\label{sec:ditead}
 
-Recall that (\autoref{sec:smod}) for a \idx{symmetric matrix}~\(A\) we could always factor \(A=VD\tr V=VDV^{-1}\) for \idx{orthogonal matrix}~\(V\) and \idx{diagonal matrix}~\(D\): thus a symmetric matrix is always \idx{orthogonally diagonalisable} (\autoref{def:odsble}).
-For non-symmetric matrices, a \idx{diagonalisation} mostly (although not always) can be done:
+
+Recall that (\autoref{sec:smod}) for a \idx{symmetric matrix}~\(A\) we could always factor \(A=VD\tr V=VDV^{-1}\) for \idx{orthogonal matrix}~\(V\) and \idx{diagonal matrix}~\(D\): thus a symmetric matrix is always \idx{orthogonally diagonalizable} (\autoref{def:odsble}).
+For non-symmetric matrices, a \idx{diagonalization} mostly (although not always) can be done:
 the difference being we need an invertible matrix, typically called~\(P\), instead of the orthogonal matrix~\(V\).
-Such a matrix~\(A\) is termed `diagonalisable' instead of `\idx{orthogonally diagonalisable}'.
+Such a matrix~\(A\) is termed `diagonalizable' instead of `\idx{orthogonally diagonalizable}'.
 
 
 \begin{definition} \label{def:diagonalise} 
-An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalisable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\)\,.
+An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalizable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\)\,.
 \end{definition}
 
 
 \begin{example} \label{eg:diagonalise}
-\begin{enumerate}
-\item\label{eg:diagonalisea} 
-Show that \(A=\begin{bmatrix} 0&1\\2&-1 \end{bmatrix}\) is diagonalisable by matrix \(P=\begin{bmatrix} 1&-1\\1&2 \end{bmatrix}\).
+\begin{enumerate}[ref=\ref{eg:diagonalise}(\alph*)]
+\item\label[example]{eg:diagonalisea} 
+Show that \(A=\begin{bmat} 0&1\\2&-1 \end{bmat}\) is diagonalizable by matrix \(P=\begin{bmat} 1&-1\\1&2 \end{bmat}\).
 \begin{solution} 
 First find the \(2\times2\) inverse (\autoref{thm:2x2det})
 \begin{equation*}
@@ -75,14 +80,14 @@ P^{-1}AP
 =\frac13\begin{bmatrix} 3&0\\0&-6 \end{bmatrix}
 =\begin{bmatrix} 1&0\\0&-2 \end{bmatrix}.
 \end{equation*}
-Since this product is diagonal, \(\diag(1,-2)\), the matrix~\(A\) is diagonalisable.
+Since this product is diagonal, \(\diag(1,-2)\), the matrix~\(A\) is diagonalizable.
 \end{solution}
 
 
-\item \label{eg:diagonaliseb}\(B=\begin{bmatrix} 0&1\\0&0 \end{bmatrix}\) is not diagonalisable.
+\item\label[example]{eg:diagonaliseb}\(B=\begin{bmat} 0&1\\0&0 \end{bmat}\) is not diagonalizable.
 \begin{solution} 
-Assume \(B\) is diagonalisable by the invertible matrix \(P=\begin{bmatrix} a&b\\c&d \end{bmatrix}\).
-Being invertible, \(P\)~has inverse \(P^{-1}=\frac1{ad-bc}\begin{bmatrix} d&-b\\-c&a \end{bmatrix}\)  (\autoref{thm:2x2det}).
+Assume \(B\) is diagonalizable by the invertible matrix \(P=\begin{bmat} a&b\\c&d \end{bmat}\).
+Being invertible, \(P\)~has inverse \(P^{-1}=\frac1{ad-bc}\begin{bmat} d&-b\\-c&a \end{bmat}\)  (\autoref{thm:2x2det}).
 Then the product
 \begin{equation*}
 P^{-1}BP=P^{-1}\begin{bmatrix} c&d\\0&0 \end{bmatrix}
@@ -90,11 +95,11 @@ P^{-1}BP=P^{-1}\begin{bmatrix} c&d\\0&0 \end{bmatrix}
 \end{equation*}
 For the matrix~\(P^{-1}BP\) to be diagonal requires the off-diagonal elements to be zero: \(d^2=-c^2=0\)\,.
 This requires both \(c=d=0\)\,, but then the determinant \(ad-bc=0-0=0\) and so matrix~\(P\) is not invertible (\autoref{thm:2x2det}).
-This \idx{contradiction} means that matrix~\(B\) is not diagonalisable.
+This \idx{contradiction} means that matrix~\(B\) is not diagonalizable.
 \end{solution}
 
-\item Is matrix \(C=\begin{bmatrix}1.2& 3.2& 2.3
-\\   2.2&-0.5&-2.2\end{bmatrix}\) diagonalisable?
+\item Is matrix \(C=\begin{bmat}1.2& 3.2& 2.3
+\\   2.2&-0.5&-2.2\end{bmat}\) diagonalizable?
 \begin{solution} 
 No, as it is not a square matrix.
 (Perhaps an \svd\ could answer the needs of whatever problem led to this question.) 
@@ -104,9 +109,9 @@ No, as it is not a square matrix.
 \end{example}
 
 
-\begin{example} \label{eg:}
-\autoref{eg:diagonalisea} showed that matrix \(P=\begin{bmatrix} 1&-1\\1&2 \end{bmatrix}\) diagonalises matrix \(A=\begin{bmatrix} 0&1\\2&-1 \end{bmatrix}\) to matrix \(D=\diag(1,-2)\). 
-As a prelude to the next \autoref{thm:gendiag}, show that the columns of~\(P\) are \idx{eigenvector}s of~\(A\).
+\begin{example} 
+\autoref{eg:diagonalisea} showed that matrix \(P=\begin{bmat} 1&-1\\1&2 \end{bmat}\) diagonalizes matrix \(A=\begin{bmat} 0&1\\2&-1 \end{bmat}\) to matrix \(D=\diag(1,-2)\). 
+As a prelude to the next \autoref{thm:gendiag}, here show that the columns of~\(P\) are \idx{eigenvector}s of~\(A\).
 \begin{solution} Invoke the original \autoref{def:evecval} of an eigenvector for a matrix.
 \begin{itemize}
 \item The first column of~\(P\) is \(\pv_1=(1,1)\).
@@ -125,28 +130,22 @@ Correspondingly, this eigenvalue~\(-2\) is the second entry in the diagonal~\(D\
 
 \begin{activity}
 %for it=1:999, p=0+round(randn(2)*3); if abs(det(p))==1,break,end, end, p=p, d=diag(0+round(randn(1,2)*3)), a=p*d*inv(p)
-Given matrix~\(F=\begin{bmatrix} 5&8\\-4&-7 \end{bmatrix}\) has eigenvectors \((-1,1)\) and~\((2,-1)\) corresponding to respective {eigenvalue}s~\(-3\) and~\(1\), what matrix diagonalises~\(F\) to \(D=\diag(-3,1)\)?
+Given matrix~\(F=\begin{bmatrix} 5&8\\-4&-7 \end{bmatrix}\) has eigenvectors \((-1,1)\) and~\((2,-1)\) corresponding to respective {eigenvalue}s~\(-3\) and~\(1\), what matrix diagonalizes~\(F\) to \(D=\diag(-3,1)\)?
 \actposs{\(\begin{bmatrix} -1&2\\1&-1 \end{bmatrix}\)}
 {\(\begin{bmatrix} -1&1\\2&-1 \end{bmatrix}\)}
 {\(\begin{bmatrix} 2&-1\\-1&1 \end{bmatrix}\)}
 {\(\begin{bmatrix} 2&-1\\1&-1 \end{bmatrix}\)}
-%\begin{parts}
-%\item \(\begin{bmatrix} -1&2\\1&-1 \end{bmatrix}\)\actans
-%\item \(\begin{bmatrix} -1&1\\2&-1 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 2&-1\\-1&1 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 2&-1\\1&-1 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
 
 
 
 
 \begin{theorem} \label{thm:gendiag} 
-For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalisable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s.  
-If \(A\)~is \idx{diagonalisable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the \idx{diagonal entries} of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
+For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalizable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s.  
+If \(A\)~is \idx{diagonalizable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the \idx{diagonal entries} of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
 \end{theorem}
 \begin{proof} 
-First, let matrix~\(A\) be diagonalisable by invertible~\(P\) and diagonal~\(D\).
+First, let matrix~\(A\) be diagonalizable by invertible~\(P\) and diagonal~\(D\).
 Write \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\) in terms of its columns, and let \(D=\diag(\hlist\lambda n)\) in terms of its diagonal entries.
 Then \(AP=PD\) becomes
 \begin{equation*}
@@ -165,10 +164,10 @@ Multiplying the matrix-column products on both sides gives
 Equating corresponding columns implies \(A\pv_1=\lambda_1\pv_1\)\,, \(A\pv_2=\lambda_2\pv_2\)\,, \ldots, \(A\pv_n=\lambda_n\pv_n\)\,.
 As the matrix~\(P\) is invertible, all its columns must be nonzero (\autoref{thm:ppdet:i}).
 Hence \hlist\pv n\ are eigenvectors of matrix~\(A\) corresponding to eigenvalues \hlist\lambda n\,.
-Since matrix~\(P\) is invertible, \autoref{thm:ftim3xi} implies the columns vectors \hlist\pv n\ are linearly independent.
+Since matrix~\(P\) is invertible, \autoref{thm:ftim3xi} asserts the \(n\)~columns vectors \hlist\pv n\ are linearly independent.
 
 Second, suppose matrix~\(A\) has \(n\)~{linearly independent} {eigenvector}s \hlist\pv n\ with corresponding eigenvalues \hlist\lambda n\,.  
-Then follow the above argument backwards to deduce \(AP=PD\) for invertible matrix \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\), and hence \(A\)~is diagonalisable.
+Then follow the above argument backwards to deduce \(AP=PD\) for invertible matrix \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\), and hence \(A\)~is diagonalizable.
 Lastly, in these arguments, \(P\)~is the matrix of eigenvectors and the diagonal of~\(D\) are the corresponding eigenvalues, as required.
 \end{proof}
 
@@ -181,10 +180,10 @@ A=\begin{bmatrix}-3&2&0
 \\0&0&4\end{bmatrix}
 \end{equation*}
 has eigenvalues~\(-3\), \(-4\) and~\(4\) (from its diagonal) and corresponding eigenvectors are proportional to \((1,0,0)\), \((-2,1,0)\) and \((\frac1{14},\frac14,1)\).
-Is matrix~\(A\) diagonalisable?
+Is matrix~\(A\) diagonalizable?
 \begin{solution} 
 These three eigenvectors are linearly independent as they correspond to distinct eigenvalues (\autoref{thm:indepev}).
-Hence the matrix is diagonalisable.
+Hence the matrix is diagonalizable.
 
 The previous statement answers the question. 
 But further, forming these eigenvectors into the columns of matrix
@@ -205,7 +204,7 @@ P=[1 -2 1/14;0 1 1/4;0 0 1]
 A=[-3 2 0;0 -4 2;0 0 4]
 P=[1 -2 1/14;0 1 1/4;0 0 1]
 D=P\slosh A*P
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 then compute \(D=P^{-1}AP\) with \verb|D=P\A*P| to find as required the following diagonal result
 \begin{verbatim}
 D =
@@ -220,7 +219,7 @@ D =
 
 \begin{example} \label{eg:sier2eigp}
 Recall the \idx{Sierpinski network} of \autoref{eg:sier2eig} (shown in the margin).
-Is the \(9\times9\) matrix~\(A\) encoding the network diagonalisable?
+Is the \(9\times9\) matrix~\(A\) encoding the network diagonalizable?
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=none ]
@@ -286,7 +285,7 @@ D =
 %\end{eqnarray*}
 Since matrix~\(A\) is symmetric, \script\ computes for us an orthogonal matrix~\(V\) with columns eigenvectors.
 Since~\(V\) is orthogonal its column vectors are orthonormal and hence its columns are linearly independent (\autoref{thm:ortholi}).
-Since there exist nine linearly independent eigenvectors, the nine column vectors of~\(V\), the matrix~\(A\) is diagonalisable.
+Since there exist nine linearly independent eigenvectors, the nine column vectors of~\(V\), the matrix~\(A\) is diagonalizable.
 Further, the product \(V^{-1}AV=D\) for the above diagonal matrix~\(D\) of eigenvalues in the order of the eigenvectors in~\(V\).
 (Also, since \(V\)~is orthogonal, \(\tr VAV=D\).)
 \end{solution}
@@ -298,31 +297,31 @@ Further, the product \(V^{-1}AV=D\) for the above diagonal matrix~\(D\) of eigen
 
 \begin{example} \label{eg:faespmp}
 Recall \autoref{eg:faespm} found \idx{eigenvalue}s and corresponding \idx{eigenspace}s for various matrices.
-Revisit these cases and show none of the matrices are diagonalisable.
+Revisit these cases and show none of the matrices are diagonalizable.
 \begin{enumerate}
-\item Matrix \(A=\begin{bmatrix} 3&1\\0&3 \end{bmatrix}\) had one eigenvalue \(\lambda=3\) with \idx{multiplicity} two and corresponding eigenspace \(\EE_3=\Span\{(1,0)\}\).
-This matrix is not diagonalisable as it has only one \idx{linearly independent} eigenvector, such as~\((1,0)\) or any nonzero multiple, and it needs two to be diagonalisable. 
+\item Matrix \(A=\begin{bmat} 3&1\\0&3 \end{bmat}\) had one eigenvalue \(\lambda=3\) with \idx{multiplicity} two and corresponding eigenspace \(\EE_3=\Span\{(1,0)\}\).
+This matrix is not diagonalizable as it has only one \idx{linearly independent} eigenvector, such as~\((1,0)\) or any nonzero multiple, and it needs two to be diagonalizable. 
 
-\item Matrix \(B=\begin{bmatrix}-1&1&-2
+\item Matrix \(B=\begin{bmat}-1&1&-2
 \\-1&0&-1
-\\0&-3&1 \end{bmatrix}\)
+\\0&-3&1 \end{bmat}\)
 has eigenvalues  \(\lambda=-2\) (multiplicity one) and \(\lambda=1\) (multiplicity two).
 The corresponding eigenspaces are \(\EE_{-2}=\Span\{(1,1,1)\}\) and \(\EE_{1}=\Span\{(-1,0,1)\}\).
-Thus the matrix has only two \idx{linearly independent} eigenvectors, one from each eigenspace, and it needs three to be diagonalisable.
+Thus the matrix has only two \idx{linearly independent} eigenvectors, one from each eigenspace, and it needs three to be diagonalizable.
 
-\item Matrix \(C=\begin{bmatrix}-1&0&-2
+\item Matrix \(C=\begin{bmat}-1&0&-2
 \\0&-3&2
-\\0&-2&1\end{bmatrix}\)
+\\0&-2&1\end{bmat}\)
 has only the eigenvalue \(\lambda=-1\) with multiplicity three.
 The corresponding eigenspace \(\EE_{-1}=\Span\{(1,0,0)\}\).
-With only one \idx{linearly independent} eigenvector, the matrix is not diagonalisable.
+With only one \idx{linearly independent} eigenvector, the matrix is not diagonalizable.
 
 \end{enumerate}
 \end{example}
 
 
 \begin{example} \label{eg:fiveevp}
-Use the results of \autoref{eg:fiveev} to show the following matrix is \idx{diagonalisable}:
+Use the results of \autoref{eg:fiveev} to show the following matrix is \idx{diagonalizable}:
 \begin{equation*}
 A=\begin{bmatrix}0&3&0&0&0
 \\1&0&3&0&0
@@ -339,7 +338,7 @@ Further, the corresponding eigenspaces are
 \\&&\EE_{\pm3}=\Span\{(9,\pm9,6,\pm3,1)\}.
 \end{eqnarray*}
 Here there are five linearly independent eigenvectors, one from each distinct eigenspace  (\autoref{thm:indepev}).
-Since \(A\) is a \(5\times5\) matrix it is thus diagonalisable.
+Since \(A\) is a \(5\times5\) matrix it is thus diagonalizable.
 Further, \autoref{thm:gendiag} establishes that the matrix formed from the columns of the five eigenvectors will be a possible matrix
 \begin{equation*}
 P=\begin{bmatrix} 9&-9&-9&9&9
@@ -349,7 +348,7 @@ P=\begin{bmatrix} 9&-9&-9&9&9
 \\1&1&1&1&1
 \end{bmatrix}.
 \end{equation*}
-(One could also scale each column of~\(P\) by a different arbitrary nonzero constant, and the diagonalisation still holds.)
+(One could also scale each column of~\(P\) by a different arbitrary nonzero constant, and the diagonalization still holds.)
 Lastly, \autoref{thm:gendiag} establishes the diagonal matrix
 \(P^{-1}AP=D=\diag(0,\sqrt3,-\sqrt3,3,-3)\) is that of the eigenvalues in the order corresponding to the eigenvectors in~\(P\).
 \end{solution}
@@ -360,10 +359,10 @@ Lastly, \autoref{thm:gendiag} establishes the diagonal matrix
 
 
 These examples illustrate a widely useful property.
-The \(5\times 5\) matrix in \autoref{eg:fiveevp} has five distinct eigenvalues whose corresponding \idx{eigenvector}s are necessarily \idx{linearly independent} (\autoref{thm:indepev}) and so diagonalise the matrix (\autoref{thm:gendiag}).
-The \(3\times 3\) matrix in \autoref{eg:trieigp} has three distinct eigenvalues whose corresponding eigenvectors are necessarily \idx{linearly independent} (\autoref{thm:indepev}) and so diagonalise the matrix (\autoref{thm:gendiag}).
-However, the matrices of Examples~\ref{eg:sier2eigp} and~\ref{eg:faespmp} have \idx{repeated eigenvalue}s---eigenvalues of \idx{multiplicity} two or more---and these matrices may (\autoref{eg:sier2eigp}) or may not (\autoref{eg:faespmp}) be diagonalisable.
-The following theorem confirms that matrices with as many \emph{distinct} eigenvalues as the \idx{size} of the matrix are always diagonalisable.
+The \(5\times 5\) matrix in \autoref{eg:fiveevp} has five distinct eigenvalues whose corresponding \idx{eigenvector}s are necessarily \idx{linearly independent} (\autoref{thm:indepev}) and so diagonalize the matrix (\autoref{thm:gendiag}).
+The \(3\times 3\) matrix in \autoref{eg:trieigp} has three distinct eigenvalues whose corresponding eigenvectors are necessarily \idx{linearly independent} (\autoref{thm:indepev}) and so diagonalize the matrix (\autoref{thm:gendiag}).
+However, the matrices of \cref{eg:sier2eigp,eg:faespmp} have \idx{repeated eigenvalue}s---eigenvalues of \idx{multiplicity} two or more---and these matrices may (\autoref{eg:sier2eigp}) or may not (\autoref{eg:faespmp}) be diagonalizable.
+The following theorem confirms that matrices with as many \emph{distinct} eigenvalues as the \idx{size} of the matrix are always diagonalizable.
 
 
 
@@ -371,33 +370,32 @@ The following theorem confirms that matrices with as many \emph{distinct} eigenv
 
 
 \begin{theorem} \label{thm:dlamd} 
-For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~\idx{distinct eigenvalues}, then \(A\)~is \idx{diagonalisable}.
-Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalisable} matrix must be non-symmetric and must have at least one \idx{repeated eigenvalue} (an \idx{eigenvalue} with \idx{multiplicity} two or~more).
+For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~\idx{distinct eigenvalues}, then \(A\)~is \idx{diagonalizable}.
+Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalizable} matrix must be non-symmetric and must have at least one \idx{repeated eigenvalue} (an \idx{eigenvalue} with \idx{multiplicity} two or~more).
 \end{theorem}
 \begin{proof}  
 First, let \hlist\vv n\ be eigenvectors corresponding to the \(n\)~distinct eigenvalues of matrix~\(A\).
 (Recall that \autoref{thm:geecp} establishes that there cannot be more than \(n\)~eigenvalues.)
 As the corresponding eigenvalues are distinct, \autoref{thm:indepev} establishes that these eigenvectors are linearly independent.
-\autoref{thm:gendiag} then establishes the matrix~\(A\) is diagonalisable.
+\autoref{thm:gendiag} then establishes the matrix~\(A\) is diagonalizable.
 
-Second, the converse of the first statement in the theorem then also holds.
-Since an \(n\times n\) matrix has \(n\)~eigenvalues, when counted accordingly to multiplicity and allowing for complex eigenvalues (\autoref{pro:geneig}), a non-diagonalisable matrix must have at least one repeated eigenvalue.  
-Further, by \autoref{thm:symspec} a real symmetric matrix is always diagonalisable: hence a non-diagonalisable matrix must also be non-symmetric.
+Second, since an \(n\times n\) matrix has \(n\)~eigenvalues, when counted accordingly to multiplicity and allowing for complex eigenvalues (\autoref{pro:geneig}), a non-diagonalizable matrix must have at least one repeated eigenvalue.  
+Further, by \autoref{thm:symspec} a real symmetric matrix is always diagonalizable: hence a non-diagonalizable matrix must also be non-symmetric.
 \end{proof}
 
 
-\begin{example} \label{eg:}
-From the given information, are the matrices diagonalisable?
+\begin{example} 
+From the given information, are the matrices diagonalizable?
 \begin{enumerate}
 \item The only \idx{eigenvalue}s of a \(4\times 4\) matrix are \(1.8\), \(-3\), \(0.4\) and~\(3.2\).
 \begin{solution} 
-\autoref{thm:dlamd} implies the matrix must be diagonalisable.
+\autoref{thm:dlamd} implies the matrix must be diagonalizable.
 \end{solution}
 
 \item The only eigenvalues of a \(5\times 5\) matrix are \(1.8\), \(-3\), \(0.4\) and~\(3.2\).
 \begin{solution} 
 Here there are only four distinct eigenvalues of the \(5\times5\) matrix.
-\autoref{thm:dlamd} does not apply as the precondition that there be five distinct eigenvalues is not met: the matrix may or may not be diagonalisable---it is unknowable on this information.
+\autoref{thm:dlamd} does not apply as the precondition that there be five distinct eigenvalues is not met: the matrix may or may not be diagonalizable---it is unknowable on this information.
 \end{solution}
 
 \item The only eigenvalues of a \(3\times 3\) matrix are \(1.8\), \(-3\), \(0.4\) and~\(3.2\).
@@ -413,22 +411,15 @@ Because of the error, we cannot answer.
 
 \begin{activity}
 A \(3\times3\) matrix~\(A\) depends upon a parameter~\(a\) and has \idx{eigenvalue}s \(6\), \(3-3a\) and \(2+a\)\,.
-For which of the following values of parameter~\(a\) may the matrix be \emph{not} diagonalisable?
+For which of the following values of parameter~\(a\) may the matrix be \emph{not} diagonalizable?
 \actposs[4]{\(a=4\)}{\(a=1\)}{\(a=2\)}{\(a=3\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(a=1\)
-%\item \(a=2\)
-%\item \(a=3\)
-%\item \(a=4\)\actans
-%\end{parts}
 \end{activity}
 
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 \script\ computes the \idx{eigenvalue}s of matrix
 \begin{equation*}
 A=\begin{bmatrix}-1&2&-2&1&-2
@@ -446,14 +437,14 @@ ans =
    5.00
    1.91
 \end{verbatim}
-Is the matrix diagonalisable?
+Is the matrix diagonalizable?
 \begin{solution} 
-The matrix appears to have only four distinct eigenvalues (two of them \idx{complex valued}), and so on the given information \autoref{thm:dlamd} cannot determine whether the matrix is diagonalisable or not.
+The matrix appears to have only four distinct eigenvalues (two of them \idx{complex valued}), and so on the given information \autoref{thm:dlamd} cannot determine whether the matrix is diagonalizable or not.
 
 However, upon reporting the eigenvalues to four \idx{decimal places} we find the two eigenvalues of~\verb|5.00| \twodp\ are more precisely two separate eigenvalues of~\verb|5.0000| and~\verb|4.9961|.
-Hence this matrix has five distinct eigenvalues and so \autoref{thm:dlamd} implies the matrix is diagonalisable.
-\footnote{Nonetheless, in an application where errors are significant then the matrix may be effectively \idx{non-diagonalisable}.
-Such effective non-diagonalisability is indicated by poor conditioning of the matrix of eigenvectors which here has the poor \texttt{rcond} of~\(0.0004\) (\autoref{pro:unisol}).}
+Hence this matrix has five distinct eigenvalues and so \autoref{thm:dlamd} implies the matrix is diagonalizable.%
+\footnote{Nonetheless, in an application where errors are significant then the matrix may be effectively \idx{non-diagonalizable}.
+Such effective non-diagonalizability is indicated by poor conditioning of the matrix of eigenvectors which here has the poor \texttt{rcond} of~\(0.0004\) (\autoref{pro:unisol}).}
 \end{solution}
 %\begin{verbatim}
 %for i=1:99999,a=round(randn(5)*3); if abs(min(abs(diff(eig(a))))-3e-3)<2e-3, eig(a), break, end, end
@@ -538,7 +529,7 @@ P=\begin{bmatrix} \vv_1&\cdots&\vv_p&\wv_{p+1}&\cdots&\wv_n \end{bmatrix}
 \end{equation*}
 be any orthogonal matrix with \hlist\vv p\ as its first \(p\)~columns.
 Equivalently, write as the partitioned matrix \(P=\begin{bmatrix} V&W \end{bmatrix}\) for corresponding \(n\times p\) and \(n\times(n-p)\) matrices.
-Since \(P\)~is orthogonal, its inverse \(P^{-1}=\tr P=\begin{bmatrix} \tr V\\\tr W \end{bmatrix}\).
+Since \(P\)~is orthogonal, its inverse \(P^{-1}=\tr P=\begin{bmat} \tr V\\\tr W \end{bmat}\).
 Since the columns of~\(V\) are eigenvectors corresponding to eigenvalue~\(\lambda_j\), \(AV=A\begin{bmatrix} \vv_1&\cdots&\vv_p \end{bmatrix}
 =\begin{bmatrix} A\vv_1&\cdots&A\vv_p \end{bmatrix}
 =\begin{bmatrix} \lambda_j\vv_1&\cdots&\lambda_j\vv_p \end{bmatrix}
@@ -571,13 +562,12 @@ Then the characteristic polynomial of matrix~\(A\) becomes
 \\&=&(\lambda_j-\lambda)^p\det(\tr WAW -\lambda I_{n-p})
 \end{eqnarray*}
 by \(p\)~successive first column expansions of the determinant (\autoref{thm:letdet}).
-Because of the factor \((\lambda_j-\lambda)^p\) in the characteristic polynomial of~\(A\), the eigenvalue~\(\lambda_j\) must have multiplicity of at least~\(p=\dim\EE_{\lambda_j}\)
----there may be more factors of \((\lambda_j-\lambda)\) hidden within \(\det(\tr WAW -\lambda I_{n-p})\).
+Because of the factor \((\lambda_j-\lambda)^p\) in the characteristic polynomial of~\(A\), the eigenvalue~\(\lambda_j\) must have multiplicity of at least~\(p=\dim\EE_{\lambda_j}\)---there may be more factors of \((\lambda_j-\lambda)\) hidden within \(\det(\tr WAW -\lambda I_{n-p})\).
 \end{proof}
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Show the following matrix has one \idx{eigenvalue} of \idx{multiplicity} three, and the corresponding \idx{eigenspace} has \idx{dimension} two:
 \begin{equation*}
 A=\begin{bmatrix}0&5&6
@@ -616,7 +606,7 @@ Hence all solutions form the two dimensional eigenspace
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to find the \idx{eigenvalue}s and the \idx{dimension} of the \idx{eigenspace}s of the matrix 
 \begin{equation*}
 B=\begin{bmatrix} 344&-1165&-149&-1031&1065&-2816
@@ -648,7 +638,7 @@ B=[344 -1165  -149 -1031  1065 -2816
 svd(V(:,1:3))
 svd(V(:,4:6))
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 Then \verb|[V,D]=eig(B)| computes something like the following \twodp
 \begin{verbatim}
 V =
@@ -698,7 +688,7 @@ As discussed by \autoref{sec:reas}, \idx{repeated eigenvalue}s are very sensitiv
 However, each eigenspace spanned by the appropriate columns of~\verb|V| is robust.
 \end{example}
 
-\index{diagonalisable|)}
+\index{diagonalizable|)}
 
 
 
@@ -742,11 +732,11 @@ P\D t\Yv=AP\Yv\,,
 \quad\text{that is}\quad
 \D t\Yv=\left(P^{-1}AP\right)\Yv.
 \end{equation*}
-To simplify this system for~\Yv, we diagonalise the matrix on the right-hand side.
+To simplify this system for~\Yv, we diagonalize the matrix on the right-hand side.
 The procedure is to choose the columns of~\(P\) to be \idx{eigenvector}s of the matrix~\(A\) (\autoref{thm:gendiag}).
 
 \item Third, find the eigenvectors of~\(A\) by hand as it is a \(2\times2\) matrix. 
-Here the matrix \(A=\begin{bmatrix} 1&-4\\-1&1 \end{bmatrix}\) has \idx{characteristic polynomial} \(\det(A-\lambda I)=(1-\lambda)^2-4\)\,.
+Here the matrix \(A=\begin{bmat} 1&-4\\-1&1 \end{bmat}\) has \idx{characteristic polynomial} \(\det(A-\lambda I)=(1-\lambda)^2-4\)\,.
 This is zero for \((1-\lambda)^2=4\)\,, that is, \((1-\lambda)=\pm2\).
 Hence the \idx{eigenvalue}s \(\lambda=1\pm2=3,-1\)\,.
 \begin{itemize}
@@ -769,7 +759,7 @@ P=\begin{bmatrix} 2&2\\-1&1 \end{bmatrix}
 \end{equation*}
 (any scalar multiple of the two columns of~\(P\) would also work).
 
-\item Fourth, having diagonalised the matrix, expand this diagonalised set of differential equations to write this system in terms of \idx{components}: 
+\item Fourth, having diagonalized the matrix, expand this diagonalized set of differential equations to write this system in terms of \idx{components}: 
 \begin{equation*}
 \D t{Y_1}=3Y_1 \quad\text{and}\quad \D t{Y_2}=-Y_2\,.
 \end{equation*}
@@ -787,11 +777,11 @@ From the relation
 That is, a general solution of the original system of differential equations is \(y(t)=2c_1e^{3t}+2c_2e^{-t}\) and \(z(t)=-c_1e^{3t}+c_2e^{-t}\).
 
 \end{itemize}
-The diagonalisation of the matrix empowers us to solve complicated systems of differential equations as a set of simple systems.
+The diagonalization of the matrix empowers us to solve complicated systems of differential equations as a set of simple systems.
 
 
 Such a \idx{general solution} makes predictions. 
-For example, suppose at time zero (\(t=0\)) the \idx{initial population} of \idx{female} \(y\)-animals is~\(22\) and the population of female \(z\)-animals is~\(9\).
+For example, suppose at time zero (\(t=0\)) the \idx{initial population} (\idx{female}) of \(y\)-animals is~\(22\) and the population of \(z\)-animals is~\(9\).
 From the above general solution we then know that at time \(t=0\)
 \begin{equation*}
 \begin{bmatrix} 22\\9 \end{bmatrix}=
@@ -848,27 +838,13 @@ This may be written in \idx{matrix-vector form} \(d\xv/dt=A\xv\) for vector \(\x
 {\(\begin{bmatrix} 1&1&-3
 \\0&-2&1
 \\1&-2&2 \end{bmatrix}\)}
-%\begin{parts}
-%\item \(\begin{bmatrix} 1&-3&1
-%\\-2&1&0
-%\\-2&2&1 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 1&-2&2
-%\\0&-2&1
-%\\1&1&-3 \end{bmatrix}\)
-%\item\actans \(\begin{bmatrix} 1&1&-3
-%\\-2&0&1
-%\\-2&1&2 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 1&1&-3
-%\\0&-2&1
-%\\1&-2&2 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
 
 
 
 
 \begin{theorem} \label{thm:ddtsol}
-Let \(n\times n\) \idx{square matrix}~\(A\) be \idx{diagonalisable} by matrix \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\) whose columns are \idx{eigenvector}s corresponding to \idx{eigenvalue}s \hlist\lambda n.  
+Let \(n\times n\) \idx{square matrix}~\(A\) be \idx{diagonalizable} by matrix \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\) whose columns are \idx{eigenvector}s corresponding to \idx{eigenvalue}s \hlist\lambda n\ of matrix~\(A\).  
 Then a \idx{general solution}~\(\xv(t)\) to the \idx{differential equation} system \(d\xv/dt=A\xv\) is the \idx{linear combination}
 \begin{equation}
 \xv(t)=c_1\pv_1e^{\lambda_1t}+c_2\pv_2e^{\lambda_2t}+\cdots+c_n\pv_ne^{\lambda_nt}
@@ -911,7 +887,7 @@ To rewrite this solution for the original coordinates~\xv\ use
 to derive the solution~\eqref{eq:ddtsol}.
 
 \begin{comment}
-Straightforward substitution is simpler, but the above reinforces the simplification through diagonalisation.
+Straightforward substitution is simpler, but the above reinforces the simplification through diagonalization.
 \end{comment}
 %First show that formula~\eqref{eq:ddtsol} is a solution by substitution into the differential equation \(d\xv/dt=A\xv\)\,: recalling from calculus that \(\D t{}e^{at}=ae^{at}\), the left-hand side
 %\begin{eqnarray*}
@@ -935,7 +911,7 @@ Recalling \(e^0=1\)\,, formula~\eqref{eq:ddtsol} evaluated at \(t=0\)  requires
 \\&=&P\cv\,.
 \end{eqnarray*}
 Since matrix~\(P\) is invertible, choose constants \(\cv=P^{-1}\xv(0)\) for any given~\(\xv(0)\).
-%Theorems~\ref{thm:gendiag} and~\ref{thm:ftim3} establish that such an invertible~\(P\) exists for diagonalisable matrices~\(A\).
+%\cref{thm:gendiag,thm:ftim3} establish that such an invertible~\(P\) exists for diagonalizable matrices~\(A\).
 \end{proof}
 
 
@@ -949,12 +925,6 @@ What are the values of these constants given that \(y(0)=2\) and \(z(0)=3\)?
 {\(c_1=c_2=1\)}
 {\(c_1=0\), \(c_2=-1\)}
 {\(c_1=-2\), \(c_2=0\)}
-%\begin{parts}
-%\item \(c_1=c_2=1\)
-%\item \(c_1=0\), \(c_2=-1\)
-%\item \(c_1=-2\), \(c_2=0\)
-%\item\actans \(c_1=-1\), \(c_2=2\)
-%\end{parts}
 \end{activity}
 
 
@@ -1023,7 +993,7 @@ That is, \(u(t)=c_1+c_2e^{-2t}-c_3e^{-4t}\), \(v(t)=c_1+c_3e^{-4t}\), and \(w(t)
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use the general solution derived in \autoref{eg:de3t} to predict the solution of the differential equations \(\D tu=-2u+2v\)\,, \(\D tv=u-2v+w\)\,, and \(\D tw=2v-2w\) given the \idx{initial condition}s that \(u(0)=v(0)=0\) and \(w(0)=4\)\,.
 \begin{solution} 
 Evaluating the general solution
@@ -1071,7 +1041,7 @@ Consequently, as drawn in the margin, the particular solution is
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to find a \idx{general solution} to the system of differential equations
 \begin{eqnarray*}
 &&dx_1/dt=-\tfrac12x_1-\tfrac12x_2+x_3+2x_4\,, 
@@ -1108,7 +1078,7 @@ A=[-1/2 -1/2 1 2
  2 1 -1/2 -1/2]
 [V,D]=eig(A)
 c=V\slosh[-5;-1;0;0]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \script\ tells us the eigenvectors and eigenvalues:
 \begin{verbatim}
 V =
@@ -1131,7 +1101,7 @@ c_1\begin{bmatrix} -\tfrac12\\-\tfrac12\\\tfrac12\\\tfrac12 \end{bmatrix}e^{-4t}
 +c_4\begin{bmatrix} -\tfrac12\\-\tfrac12\\-\tfrac12\\-\tfrac12 \end{bmatrix}e^{2t}.
 \end{equation*}
 Given the specified initial conditions at \(t=0\)\,, when all the above exponentials reduce to \(e^0=1\)\,, we just need to find the linear combination of the eigenvectors that equals the initial vector \(\xv(0)=(-5,-1,0,0)\); that is, solve \(V\cv=\xv(0)\).
-In \script\ compute \verb|c=V\[-5;-1;0;0]| to find the vector of coefficients is \(\cv=(3,-2,2,3)\).
+In \script, after checking \verb|rcond(V)| is the good~\(0.25\), compute \verb|c=V\[-5;-1;0;0]| to find the vector of coefficients is \(\cv=(3,-2,2,3)\).
 Hence the particular solution is
 \begin{equation*}
 \xv=
@@ -1176,7 +1146,7 @@ This determinant is only zero for \(\lambda^2=-4\), that is, \(\lambda=\pm2\i\) 
 =\ov.
 \end{equation*}
 The second row of this matrix is \(-2\i\)~times the first row so we just need to satisfy the first row equation \(\begin{bmatrix} -2\i&1 \end{bmatrix}\pv=0\)\,.
-This equation is \(-2ip_1+p_2=0\), that is, \(p_2=2ip_1\).
+This equation is \(-2\i p_1+p_2=0\), that is, \(p_2=2\i p_1\).
 Hence all eigenvectors are of the form \(\pv=(1,2\i)p_1\)\,.
 Choose any one, say \(\pv=(1,2\i)\).
 
@@ -1186,7 +1156,7 @@ Choose any one, say \(\pv=(1,2\i)\).
 =\ov.
 \end{equation*}
 The second row of this matrix is \(2\i\)~times the first row so we just need to satisfy the first row equation \(\begin{bmatrix} 2\i&1 \end{bmatrix}\pv=0\)\,.
-This equation is \(2ip_1+p_2=0\), that is, \(p_2=-2ip_1\).
+This equation is \(2\i p_1+p_2=0\), that is, \(p_2=-2\i p_1\).
 Hence all eigenvectors are of the form \(\pv=(1,-2\i)p_1\)\,.
 Choose any one, say \(\pv=(1,-2\i)\).
 \end{itemize}
@@ -1225,7 +1195,7 @@ y(t)=\frac32e^{\i2t}+\frac32e^{-\i2t}
 \quad\text{and}\quad
 z(t)=3ie^{\i2t}-3ie^{-\i2t}.
 \end{equation*}
-But recall \idx{Euler's formula} that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for any~\(\theta\).
+But recall \idx{Euler's formula} that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for every~\(\theta\).
 Invoking Euler's formula the above particular solution simplifies:
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
@@ -1253,8 +1223,8 @@ Because \(y(t)\) and~\(z(t)\) are just trigonometric functions of~\(t\), they os
 
 \begin{example} \label{eg:realcis}
 In a real application the \idx{complex number}s of the \idx{general solution} to \autoref{eg:decis2t} are usually inconvenient.  
-Instead we often express the solution solely in terms of real quantities as just done in the previous \autoref{eg:decis2tb}.
-Use \idx{Euler's formula}, that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for any~\(\theta\), to rewrite the general solution of \autoref{eg:decis2t} in terms of real functions.
+Instead we typically express the solution solely in terms of real quantities as just done in the previous \autoref{eg:decis2tb}.
+Use \idx{Euler's formula}, that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for every~\(\theta\), to rewrite the general solution of \autoref{eg:decis2t} in terms of real functions.
 \begin{solution}
 Here use Euler's formula in the expression for
 \begin{eqnarray*}
@@ -1265,7 +1235,7 @@ y(t)&=&c_1e^{\i2t}+c_2e^{-\i2t}
 \\&=&C_1\cos2t+C_2\sin2t
 \end{eqnarray*}
 for constants \(C_1=c_1+c_2\) and \(C_2=\i(c_1-c_2)\).
-Let's view the arbitrariness in~\(c_1\) and~\(c_2\) as being `transferred' to~\(C_1\) and~\(C_2\), then \(y(t)=C_1\cos2t+C_2\sin2t\) is a general solution to the differential equations, and is expressed purely in real factors.
+Let's view the arbitrariness in~\(c_1\) and~\(c_2\) as having being `transferred' to~\(C_1\) and~\(C_2\), then \(y(t)=C_1\cos2t+C_2\sin2t\) is a general solution to the differential equations, and is expressed purely in real factors.
 In such a real form we explicitly see the oscillations in time~\(t\) through the trigonometric functions \(\cos 2t\) and~\(\sin2t\)\,.
 
 The function \(z(t)=2\i c_1e^{\i2t}-2\i c_2e^{-\i2t}\) has a corresponding form found by replacing~\(c_1\) and~\(c_2\) in terms of the same~\(C_1\) and~\(C_2\).
@@ -1292,6 +1262,7 @@ That is, the corresponding general solution \(z(t)=-2C_1\sin2t+2C_2\cos2t\) is n
 
 
 
+\begin{reduce}
 \begin{example}[oscillating applications] \label{eg:sprmas}
 \def\temp#1{\begin{tikzpicture}
 \def\ugh{\ifnum0=#1 axis x line=none
@@ -1376,6 +1347,7 @@ For all values of the arbitrary constants~\(C_1\) and~\(C_2\), this formula desc
 Similarly for the velocity~\(v(t)\) (\autoref{ex:sprmas}).
 \end{solution}
 \end{example}
+\end{reduce}
 
 
 
@@ -1389,7 +1361,7 @@ Similarly for the velocity~\(v(t)\) (\autoref{ex:sprmas}).
 Probable section includes Cayley--Hamilton theorem: recall \autoref{sec:mpmev}, compute powers of matrices, then C-H.
 Other applications include Markov chains.
 
-Possibly develop a little more theory on similarity of matrices and coordinate transform of matrices.  Then Jordan form and solving non-diagonalisable systems of differential equations.
+Possibly develop a little more theory on similarity of matrices and coordinate transform of matrices.  Then Jordan form and solving non-diagonalizable systems of differential equations.
 
 Possibly something on {Emergent quasi-stationary dynamics of metastable states} but perhaps done in 7.1.2--3. (Can one have too many buzz-words?)
 \end{comment}
@@ -1412,14 +1384,14 @@ Possibly something on {Emergent quasi-stationary dynamics of metastable states} 
 
 
 \begin{exercise} \label{ex:whichp} 
-Which of the following matrices diagonalise the matrix \(Z=\begin{bmatrix} 7&12\\-2&-3 \end{bmatrix}\)?  
+Which of the following matrices diagonalize the matrix \(Z=\begin{bmat} 7&12\\-2&-3 \end{bmat}\)?  
 Show your working.
 %\begin{verbatim}
 %n=2
 %for i=1:9999,P=0+round(randn(n)*2);if abs(det(P))==1,break,end,end
 %P=P,D=diag(round(randn(1,n)*2)),A=round(P*D*inv(P))
 %\end{verbatim}
-\begin{parts}
+\begin{Parts}
 \item \(P_{\alph{enumii}}=\begin{bmatrix} -2&3\\1&-1 \end{bmatrix}\)
 \answer{yes}
 
@@ -1444,34 +1416,34 @@ Show your working.
 \item \(P_{\alph{enumii}}=\begin{bmatrix} 3&1\\2&1 \end{bmatrix}\)
 \answer{no}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 \begin{exercise} \label{ex:whichps} 
-Redo \autoref{ex:whichp} by finding which matrices~\(P_a,\ldots,P_h\) diagonalise each of the following matrices.
-\begin{parts}
+Redo \autoref{ex:whichp} by finding which matrices~\(P_a,\ldots,P_h\) diagonalize each of the following matrices.
+\begin{Parts}
 \item \(\eAii=\begin{bmatrix} 5&12\\-2&-5 \end{bmatrix}\)
 \item \(\eAii=\begin{bmatrix} -3&-12\\2&7 \end{bmatrix}\)
 \item \(\eAii=\begin{bmatrix} -1&-1\\6&4 \end{bmatrix}\)
 \item \(\eAii=\begin{bmatrix} 4&6\\-1&-1 \end{bmatrix}\)
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
-Following \autoref{eg:diagonaliseb}, prove that for every scalar~\(k\) the matrix \(\begin{bmatrix} k&1\\0&k \end{bmatrix}\) is not diagonalisable.
+\begin{exercise}  
+Following \autoref{eg:diagonaliseb}, prove that for every scalar~\(k\) the matrix \(\begin{bmat} k&1\\0&k \end{bmat}\) is not diagonalizable.
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 In each of the following cases, you are given three \idx{linearly independent} \idx{eigenvector}s and corresponding \idx{eigenvalue}s for some \(3\times3\) matrix~\(A\).
-Write down three different matrices~\(P\) that will diagonalise the matrix~\(A\), and for each write down the corresponding \idx{diagonal matrix} \(D=P^{-1}AP\).
+Write down three different matrices~\(P\) that will diagonalize the matrix~\(A\), and for each write down the corresponding \idx{diagonal matrix} \(D=P^{-1}AP\).
 \begin{enumerate}
 \item \(\lambda_1=-1\), \(\pv_1=(3,2,-1)\);
 \(\lambda_2=1\), \(\pv_2=(-4,-2,2)\);
@@ -1485,9 +1457,11 @@ Write down three different matrices~\(P\) that will diagonalise the matrix~\(A\)
 \(\lambda_2=-2\), \(\pv_2=(-4,-5,1)\);
 \(\lambda_3=4\), \(\pv_3=(1,2,3)\).
 
+\begin{reduce}
 \item \(\lambda_1=3\), \(\pv_1=(2,-3,0)\);
 \(\lambda_2=1\), \(\pv_2=(-1,2,-6)\);
 \(\lambda_3=-4\), \(\pv_3=(-2,-1,-3)\).
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}
@@ -1496,8 +1470,8 @@ Write down three different matrices~\(P\) that will diagonalise the matrix~\(A\)
 
 
 
-\begin{exercise} \label{ex:} 
-From the given information, are each of the matrices \idx{diagonalisable}?  
+\begin{exercise}  
+From the given information, are each of the matrices \idx{diagonalizable}?  
 Give reasons.
 \begin{enumerate}
 \item The only eigenvalues of a \(2\times2\) matrix are \(2.2\) and~\(0.1\).
@@ -1512,6 +1486,7 @@ Give reasons.
 \item The only eigenvalues of a \(6\times6\) matrix are \(-1.6\), \(0.3\), \(0.1\) and~\(-2.3\).
 \answer{unknown}
 
+\begin{reduce}
 \item The only eigenvalues of a \(5\times5\) matrix are \(-1.7\), \(1.4\), \(1.3\), \(2.4\), \(0.5\) and~\(-2.3\).
 \answer{error}
 
@@ -1527,6 +1502,7 @@ ans =
    0.3844
 \end{verbatim}
 \answer{yes}
+\end{reduce}
 
 \item The \script\ function \verb|eig(A)| returns the result
 \begin{verbatim}
@@ -1554,13 +1530,13 @@ ans =
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following \(3\times3\) matrices, show with hand algebra that each matrix has one \idx{eigenvalue} of \idx{multiplicity} three, and then determine the \idx{dimension} of the corresponding \idx{eigenspace}.
 Also compute the eigenvalue and eigenvectors with \script: comment on any limitations in the computed `eigenvalues' and `eigenvectors'.
 %\begin{verbatim}
 %d=eye(3)*round(randn)+[0 round(rand) 0;0 0 round(rand); 0 0 0], for i=1:99999,p=round(randn(3)*3); if abs(det(p))==1, a=round(p*d*inv(p))+0, break, end, end, [v,d]=eig(a)
 %\end{verbatim}
-\begin{parts}
+\begin{Parts}
 \item \(\eAii=\begin{bmatrix} 2 & 0 & 0
 \\0 & 2 & 0
 \\0 & 0 & 2 \end{bmatrix}\)
@@ -1581,6 +1557,7 @@ Also compute the eigenvalue and eigenvectors with \script: comment on any limita
 \\-1 & 0 & -3 \end{bmatrix}\)
 \answer{\(\lambda=1\), one; errors~\(10^{-5}\), all three eigenvectors effectively the same}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} 3 & 5 & -1
 \\-4 & -6 & 1
 \\-5 & -6 & 0 \end{bmatrix}\)
@@ -1590,6 +1567,7 @@ Also compute the eigenvalue and eigenvectors with \script: comment on any limita
 \\-4 & -7 & 3
 \\-12 & -15 & 7 \end{bmatrix}\)
 \answer{\(\lambda=0\), two; errors~\(10^{-8}\) and two  eigenvectors effectively the same.}
+\end{reduce}
 
 \item \(\eAii=\begin{bmatrix} -3 & 2 & 7
 \\2 & -3 & -9
@@ -1602,7 +1580,7 @@ Also compute the eigenvalue and eigenvectors with \script: comment on any limita
 \answer{\(\lambda=-1\), three; all good}
 
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -1620,8 +1598,9 @@ Then deduce that \(\lambda_1\)~is the only eigenvalue of~\(A\), and is of \idx{m
 
 
 
-\begin{exercise} \label{ex:} 
-For each of the following matrices, use \script\ to find the \idx{eigenvalue}s, their \idx{multiplicity}, and the \idx{dimension} of the \idx{eigenspace}s.  Give reasons (remember computational error).
+\begin{exercise}  
+For each of the following matrices, use \script\ to find the \idx{eigenvalue}s, their \idx{multiplicity}, and the \idx{dimension} of the \idx{eigenspace}s.  
+Give reasons (remember computational error).
 %\begin{verbatim}
 %d=0+round(randn(1,2)*2);
 %d=diag([d(1) d(1) d(1) d(2) d(2)]);
@@ -1640,9 +1619,10 @@ A=[-30.5 25.5 22 -5 -48.5
  87.5 -70.5 -61 16 136.5
  51 -43 -36 9 81
  -4.5 2.5 2 -1 -6.5]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=1\) twice, \(\dim\EE_{1}=1\); \(\lambda=-1\) thrice, \(\dim\EE_{-1}=2\)}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} 2929 & 1140 & -1359 & 2352 & 406
 \\-2441 & -950 & 1132 & -1960 & -338
 \\-1070 & -416 & 495 & -858 & -148
@@ -1654,7 +1634,7 @@ A=[2929 1140 -1359 2352 406
  -1070 -416 495 -858 -148
  -2929 -1140 1359 -2352 -406
  -895 -347 412 -715 -124]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=-1\) twice, \(\dim\EE_{-1}=1\); \(\lambda=0\) thrice, \(\dim\EE_{0}=2\)}
 
 \item \(\eAii=\begin{bmatrix} -168 & 115 & 305 & -120 & 70
@@ -1668,8 +1648,9 @@ A=[-168 115 305 -120 70
  450 -305 -813 320 -190
  -4545 3090 8205 -3243 1920
  -2415 1640 4355 -1720 1017]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=2\) twice, \(\dim\EE_{2}=2\); \(\lambda=-3\) thrice, \(\dim\EE_{-3}=3\)}
+\end{reduce}
 
 \item \(\eAii=\begin{bmatrix} -8 & 744 & -564 & 270 & 321
 \\1 & -43 & 33 & -15 & -19
@@ -1682,7 +1663,7 @@ A=[-8 744 -564 270 321
  1 29 -21 12 12
  5 -431 327 -156 -186
  -5 535 -405 195 231]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=0\) twice, \(\dim\EE_{0}=2\); \(\lambda=1\) thrice, \(\dim\EE_{1}=2\)}
 
 \item \(\eAii=\begin{bmatrix}15.6 & 31.4 & -11.6 & -14.6 & -10.6
@@ -1696,7 +1677,7 @@ A=[15.6 31.4 -11.6 -14.6 -10.6
  33.6 56.4 -19.6 -27.6 -15.6
  38.6 75.4 -28.6 -35.6 -26.6
  -122 -226 82 106 73]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=2\) twice, \(\dim\EE_{2}=1\); \(\lambda=-1\) thrice, \(\dim\EE_{-1}=3\)}
 
 \item \(\eAii=\begin{bmatrix}-208 & 420 & -518 & 82 & 264
@@ -1710,7 +1691,7 @@ A=[-208 420 -518 82 264
  229 -467 574 -91 -294
  -171 348 -428 66 218
  -703 1431 -1760 279 896]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=-1\pm \i\) once each, \(\dim\EE_{-1\pm \i}=1\); \(\lambda=-2\) thrice, \(\dim\EE_{-2}=2\)}
 
 \end{enumerate}
@@ -1721,13 +1702,13 @@ A=[-208 420 -518 82 264
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following systems of differential equations, find \idx{eigenvalue}s and \idx{eigenvector}s to derive a \idx{general solution} of the system of differential equations.  Show your working.
 %\begin{verbatim}
 %n=3,d=diag(0+round(randn(1,n)*(5-n)));for i=1:99999,p=round(randn(n)*3); if min(abs(abs(det(p))-[1 2 5 10]))<1e-7, a=round(p*d*inv(p)*100)/100, break, end, end,[V,D]=eig(a),V*diag(1./max(abs(V)))
 %\end{verbatim}
 
-\begin{parts}
+\begin{Parts}
 \item \(\D tx=x-1.5y\), \(\D ty=4x-4y\)
 \answer{\((x,y)=c_1(3,4)e^{-t}+c_2(1,2)e^{-2t}\)}
 
@@ -1737,6 +1718,7 @@ For each of the following systems of differential equations, find \idx{eigenvalu
 \item \(\D tx=7x-3y\)
 \answer{Not possible: only one equation for two unknowns.}
 
+\begin{reduce}
 \item \(\D tu=2.8u-3.6v\), \(\D tv=-0.6u+2.2v\)
 \answer{\((u,v)=c_1(3,-1)e^{4t}+c_2(2,1)e^{t}\)}
 
@@ -1748,6 +1730,7 @@ For each of the following systems of differential equations, find \idx{eigenvalu
 
 \item \(\D tx=-31x+26y-24z\), \(\D ty=-48x+39y-36z\), \(\D tz=-14x+10y-9z\)
 \answer{\((x,y,z)=c_1(3,3,-1)e^{3t}+c_2(1,2,1)e^{-3t}+c_3(1,3,2)e^{-t}\)}
+\end{reduce}
 
 \item \(\D tx=0.2x+1.2z\), \(\D ty=-x\), \(\D tz=1.8x+0.8z\)
 \answer{\((x,y,z)=c_1(0,1,0) +c_2(1,1,-1)e^{-t} +c_3(-2,1,3)e^{2t}\)}
@@ -1758,14 +1741,14 @@ For each of the following systems of differential equations, find \idx{eigenvalu
 \item \(\D tp=-13p+30q+6r\), \(\D tq=-32p+69q+14r\), \(\D tr=125p-265q-54r\)
 \answer{\((p,q,r)=c_1(2,2,-5)e^{2t}+c_2(3,1,2)e^{t}+c_3(0,-1,5)e^{-t}\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 In each of the following, a general solution to a differential equation is given.  
 Find the \idx{particular solution} that satisfies the specified \idx{initial condition}s.
 Show your working.
@@ -1776,11 +1759,13 @@ Show your working.
 \item \((x,y)=c_1(0,1)e^{-2t}+c_2(1,3)e^{t}\) where \(x(0)=0\) and \(y(0)=2\)
 \answer{\((x,y)=(0,2)e^{-2t}\)}
 
+\begin{reduce}
 \item \(x=3c_1e^t+c_2e^{-t}\), \(y=5c_1e^t+2c_2e^{-t}\) where \(x(0)=0\) and \(y(0)=2\)
 \answer{\(x=-6e^t+6e^{-t}\), \(y=-10e^t+12e^{-t}\)}
 
 \item \(x=3c_1e^t+c_2e^{2t}\), \(y=5c_1e^t+2c_2e^{2t}\) where \(x(0)=1\) and \(y(0)=3\)
 \answer{\(x=-3e^t+4e^{2t}\), \(y=-5e^t+8e^{2t}\)}
+\end{reduce}
 
 \item \((x,y,z)=c_1(0,0,1) +c_2(1,-1,1)e^{2t} +c_3(-2,3,1)e^{-2t}\) where \(x(0)=3\), \(y(0)=-4\) and \(z(0)=0\)
 \answer{\((x,y,z)=(1,-1,1)e^{2t} +(2,-3,-1)e^{-2t}\)}
@@ -1797,7 +1782,7 @@ Show your working.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following systems of differential equations, use \script\ to find \idx{eigenvalue}s and \idx{eigenvector}s and hence derive a \idx{general solution} of the system of differential equations.  
 Record your working.
 %\begin{verbatim}
@@ -1818,7 +1803,7 @@ A=[15.8 17.1 -119.7 153.9
  1.4 0.1 12.9 -17.1
  6.2 6.2 -43.0 57.6
  3.4 3.4 -25.0 34.0 ]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\twodp\ \(\xv
 =c_1(0.71,-0.71,0,0)e^{-1.3t} 
 +c_2(-0.63,-0.63,-0.42,-0.21)e^{4.4t} 
@@ -1836,7 +1821,7 @@ A=[ -12.2 53.7 50.1 -22.8
  0.6 -2.3 -2.7 1.2
  -20.4 93.8 90.2 -40.8
  -38.2 177.9 170.7 -77.2 ]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\twodp\ \(\xv
 =c_1(0.63,0.63,-0.42,0.21)e^{0.5t} 
 +c_2(-0.23,-0.23,-0.23,-0.92)e^{0.4t} 
@@ -1854,13 +1839,14 @@ A=[ 1.0 29.4 -3.2 -12.9
  1.4 -38.4 5.6 18.2
  2.3 -80.3 12.3 36.7
  2.4 -65.0 9.2 31.1 ]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\twodp\ \(\xv
 =c_1(-0.63,0.32,0.32,0.63)e^{0.8t} 
 +c_2(0.8,0.27,0,0.53)e^{2.2t} 
 +c_3(0.76,0,-0.49-0.4\i,0.091+0.12\i)e^{(1.5-0.4\i)t} 
 +c_4(0.76,0,-0.49+0.4\i,0.091-0.12\i)e^{(1.5+0.4\i)t}\)}
 
+\begin{reduce}
 \item \(\begin{array}{l}
 \D t{x_1}= -50.2x_1 -39.5x_2 -20.2x_3 +68.9x_4\,,\\
 \D t{x_2}= 62.8x_1 +50.2x_2 +28.4x_3 -85.2x_4\,,\\
@@ -1872,12 +1858,13 @@ A=[-50.2 -39.5 -20.2 68.9
  62.8 50.2 28.4 -85.2
  -17.3 -13.7 -8.9 22.7
  -6.4 -4.6 -1.4 9 ]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\twodp\ \(\xv
 =c_1(-0.78,0.38+0.3\i,0.095+0.076\i,-0.32+0.21\i)e^{(0.1-1.1\i)t} 
 +c_2(-0.78,0.38-0.3\i,0.095-0.076\i,-0.32-0.21\i)e^{(0.1+1.1\i)t} 
 +c_3(0,-0.87,0.22,-0.44)e^{0.5t} 
 +c_4(-0.5,-0.5,0.5,-0.5)e^{-0.6t}\)}
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}
@@ -1886,10 +1873,12 @@ A=[-50.2 -39.5 -20.2 68.9
 
 
 
+\begin{reduce}
 \begin{exercise} \label{ex:sprmas} 
 Recall the general complex solution that \autoref{eg:sprmas} derives for the \idx{oscillation}s of a mass on a spring.
 Show that substituting \(c_1=(C_1-\i C_2)/2\) and \(c_2=(C_1+\i C_2)/2\) for real~\(C_1\) and~\(C_2\) results in the velocity~\(v(t)\) being expressed algebraically in purely real terms.
 \end{exercise}
+\end{reduce}
 
 
 
@@ -1897,13 +1886,13 @@ Show that substituting \(c_1=(C_1-\i C_2)/2\) and \(c_2=(C_1+\i C_2)/2\) for rea
 
 
 \begin{exercise} 
-In a few sentences, answer\slash discuss each of the the following.
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
-\item What is the relation between diagonalisation of a matrix and using non-standard basis vectors for a space?
+\item What is the relation between diagonalization of a matrix and using non-standard basis vectors for a space?
 
-\item  Why is diagonalisation useful in population modelling? and systems of differential equations?
+\item  Why is diagonalization useful in population modelling? and systems of differential equations?
 
-\item Suppose you generate a matrix at random: why would you expect the matrix to be diagonalisable?
+\item Suppose you generate a matrix at random: why would you expect the matrix to be diagonalizable?
 
 \item How does it occur that the dimension of an eigenspace is strictly less than the multiplicity of the corresponding eigenvalue?
 
@@ -1926,5 +1915,5 @@ Add exercises on perhaps simple SIR models, and perhaps mechanical models.
 
 
 
-\index{diagonalisation|)}
+\index{diagonalization|)}
 

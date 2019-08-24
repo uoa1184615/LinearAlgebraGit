@@ -22,6 +22,9 @@ The marvellously useful properties developed here result from asking for which v
 Let \(A\) be a \idx{square matrix}.  
 A \idx{scalar}~\(\lambda\) (lambda) is called an \bfidx{eigenvalue} of~\(A\) if 
 there is a nonzero vector~\xv\ such that \(A\xv=\lambda\xv\)\,. 
+\begin{aside}
+The prefix ``eigen-'' comes from the German word for `owning' or `belonging to' in relation to the originating matrix.
+\end{aside}
 Such a vector~\xv\ is called an \bfidx{eigenvector} of~\(A\) corresponding to the eigenvalue~\(\lambda\).   
 \end{definition}
 
@@ -34,34 +37,34 @@ A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 \begin{enumerate}
 \item Verify an eigenvector is \((1,0,-1)\).  
 What is the corresponding eigenvalue?
-\item Verify that \((2,-4,2)\) is an eigenvector.  
-What is its corresponding eigenvalue.
-\item Verify that \((1,2,1)\) is not an eigenvector.
-\item Use inspection to guess and verify another eigenvector (not proportional to either of the above two).  
-What is its eigenvalue?
-\end{enumerate}
 \begin{solution} 
 The simplest approach is to multiply the matrix by the given vector and see what happens.
-\begin{enumerate}
-\item For vector \(\xv=(1,0,-1)\),
+For vector \(\xv=(1,0,-1)\),
 \begin{equation*}
 A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \begin{bmatrix} 1\\0\\-1 \end{bmatrix}
 =\begin{bmatrix} 1\\0\\-1  \end{bmatrix}
 =1\cdot\xv\,.
 \end{equation*}
-Hence \((1,0,-1)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\lambda=1\)\,.
+Hence \((1,0,-1)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\lambda=1\)\,. 
+\end{solution}
 
-\item For vector \(\xv=(2,-4,2)\),
+\item Verify that \((2,-4,2)\) is an eigenvector.  
+What is its corresponding eigenvalue.
+\begin{solution} 
+For vector \(\xv=(2,-4,2)\),
 \begin{equation*}
 A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \begin{bmatrix} 2\\-4\\2 \end{bmatrix}
 =\begin{bmatrix} 6\\-12\\6  \end{bmatrix}
 =3\cdot\xv\,.
 \end{equation*}
-Hence \((2,-4,2)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\lambda=3\)\,.
- 
-\item For vector \(\xv=(1,2,1)\),
+Hence \((2,-4,2)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\lambda=3\)\,. 
+\end{solution}
+
+\item Verify that \((1,2,1)\) is not an eigenvector.
+\begin{solution} 
+For vector \(\xv=(1,2,1)\),
 \begin{equation*}
 A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \begin{bmatrix} 1\\2\\1 \end{bmatrix}
@@ -69,19 +72,23 @@ A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \not\propto\begin{bmatrix} 1\\2\\1 \end{bmatrix}.
 \end{equation*}
 If there was a constant of proportionality (an eigenvalue), then the first component would require the constant \(\lambda=-1\) but the second component would require \(\lambda=+1\) which is a contradiction.
-Hence \((1,2,1)\) is not an eigenvector of~\(A\).
+Hence \((1,2,1)\) is not an eigenvector of~\(A\). 
+\end{solution}
 
-\item Inspection is useful if it is quick: here one might quickly spot that the \idx{elements} in each row of~\(A\) sum to the same thing, namely zero, so  try vector \(\xv=(1,1,1)\)\,:
+\item Use inspection to guess and verify another eigenvector (not proportional to either of the above two).  
+What is its eigenvalue?
+\begin{solution} 
+Inspection is useful if it is quick: here one might quickly spot that the \idx{elements} in each row of~\(A\) sum to the same thing, namely zero, so  try vector \(\xv=(1,1,1)\)\,:
 \begin{equation*}
 A\xv=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
 \begin{bmatrix} 1\\1\\1 \end{bmatrix}
 =\begin{bmatrix} 0\\0\\0  \end{bmatrix}
 =0\cdot\xv\,.
 \end{equation*}
-Hence \((1,1,1)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\lambda=0\)\,.
+Hence \((1,1,1)\) is an eigenvector of~\(A\) corresponding to the eigenvalue \(\lambda=0\)\,. 
+\end{solution}
 
 \end{enumerate}
-\end{solution}
 \end{example}
 
 
@@ -92,13 +99,6 @@ Which of the following vectors is an eigenvector of the \idx{symmetric matrix} \
 {\(\begin{bmatrix} -3\\1 \end{bmatrix}\)}
 {\(\begin{bmatrix} -1\\2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 2\\1 \end{bmatrix}\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\begin{bmatrix} -3\\1 \end{bmatrix}\)
-%\item \(\begin{bmatrix} -1\\2 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 2\\1 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 4\\-3 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
 
 
@@ -112,7 +112,7 @@ For some examples and exercises we plot a given vector~\xv\ and join onto its he
   
 
 \begin{example}   \label{eg:eig2sym}
-Let the matrix \(A=\begin{bmatrix} 1&-\tfrac12\\-\tfrac12&1 \end{bmatrix}\). 
+Let the matrix \(A=\begin{bmat} 1&-1/2\\-1/2&1 \end{bmat}\). 
 The plot below-left shows the vector \(\xv=(1,\tfrac12)\), and adjoined to its head the \idx{matrix-vector product} \(A\xv=(\frac34,0)\): 
 because the two are at an angle, \((1,\frac12)\)~is not an eigenvector.
 \begin{center}
@@ -147,6 +147,7 @@ because the two are at an angle, \((1,\frac12)\)~is not an eigenvector.
 However, as plotted above-right, for the vector \(\xv=(1,1)\) the matrix-vector product \(A\xv=(\frac12,\frac12)\) and the plot of these vectors head-to-tail illustrates that they are aligned in the same direction. 
 Because of the alignment, \((1,1)\) is an eigenvector of this matrix.
 The constant of proportionality is the corresponding eigenvalue: here \(A\xv=(\frac12,\frac12)=\frac12(1,1)=\frac12\xv\) so the eigenvalue is \(\lambda=\frac12\)\,.
+This eigenvalue of~\(\frac12\) is seen graphically by the (red) vector~\(A\xv\) being half the length of the (blue) vector~\xv.
 \end{example}
 
 
@@ -187,57 +188,12 @@ Which picture indicates that~\xv\ is an eigenvector of the matrix?
     \twovec{\quad A\noexpand\xv}{-0.5}{1}01
 \end{axis}
 \end{tikzpicture}}
-%\begin{parts}
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
-%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
-%    \twovec{\noexpand\xv}1000
-%    \twovec{\quad A\noexpand\xv}{0.5}{-0.5}10
-%\end{axis}
-%\end{tikzpicture}
-%
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
-%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
-%    \twovec{\noexpand\xv}{0.85}{0.52}00
-%    \twovec{\quad A\noexpand\xv}{0.165}{0.095}{0.85}{0.52}
-%\end{axis}
-%\end{tikzpicture}
-%
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
-%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
-%    \twovec{\noexpand\xv}{0.52}{0.85}00
-%    \twovec{\quad A\noexpand\xv}{-0.165}{0.59}{0.52}{0.85}
-%\end{axis}
-%\end{tikzpicture}
-%
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
-%    ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
-%    \twovec{\noexpand\xv}0100
-%    \twovec{\quad A\noexpand\xv}{-0.5}{1}01
-%\end{axis}
-%\end{tikzpicture}
-%
-%\end{parts}
 \end{activity}
 
 
 \begin{activity}
-Further, for the picture in Activity~\ref{act:eig} that indicates~\xv\ is an eigenvector, is the corresponding eigenvalue~\(\lambda\):
+Further, for the picture in \autoref{act:eig} that indicates~\xv\ is an eigenvector, is the corresponding eigenvalue~\(\lambda\):
 \actposs[4]{\(0.5>\lambda>0\)}{\(\lambda>1\)}{\(1>\lambda>0.5\)}{\(0>\lambda\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\lambda>1\)
-%\item \(1>\lambda>0.5\)
-%\item \(0.5>\lambda>0\)
-%\item \(0>\lambda\)
-%\end{parts}
 \end{activity}
 
 
@@ -249,11 +205,12 @@ Then inspection estimates the eigenvectors and corresponding eigenvalues \cite[]
 \begin{tabular}{@{}cc@{}}
 \def\eRosesize{small}%
 \eRose1{-0.5}{-0.5}1 &
-\parbox[b]{0.45\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
+\parbox[b]{0.45\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some symmetric matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.}
 \end{tabular}
 \begin{aside}
 The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
+(Download from the internet if using a recent version of \script[1].)
 \end{aside}%
 \begin{solution} 
 We seek vectors~\xv\ such that~\(A\xv\) is in the same direction (to graphical accuracy).
@@ -270,7 +227,7 @@ Any multiple of these eigenvectors will also be eigenvectors so we may report th
 \begin{tabular}{@{}cc@{}}
 \def\eRosesize{small}%
 \eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[b]{0.4\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. }
+\parbox[b]{0.4\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some symmetric matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. }
 \end{tabular}\\
 Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.
 \begin{solution} 
@@ -318,9 +275,10 @@ By \autoref{def:evecval}, each diagonal element~\(d_j\)  is an eigenvalue of the
 
 \paragraph{Eigenvalues}
 The \(3\times 3\) matrix of \autoref{eg:eig3intro} has three eigenvalues.
-The \(2\times2\) matrices underlying Examples~\ref{eg:eig2pic1} and~\ref{eg:eig2pic2} both have two eigenvalues.
+The \(2\times2\) matrices underlying \cref{eg:eig2pic1,eg:eig2pic2} both have two eigenvalues.
 \autoref{eg:eigndiag} shows an \(n\times n\) \idx{diagonal matrix} has \(n\)~eigenvalues.
 The next section establishes the general pattern that an \(n\times n\) \emph{\idx{symmetric matrix}} generally has \(n\)~real eigenvalues.
+
 However, the eigenvalues of non-symmetric matrices are more complex (in both senses of the word) as explored by \autoref{ch:gee}.
 
 \paragraph{Eigenvectors}
@@ -397,12 +355,6 @@ Thus a general solution is \(\xv=(t,t,t)\) so the eigenspace \(\EE_0=\{(t,t,t) :
 \begin{activity}
 Which line, in the \(xy\)-plane, is the \idx{eigenspace} corresponding to the eigenvalue~\(-5\) of the matrix~\(\begin{bmatrix} 3&4\\4&-3 \end{bmatrix}\)?
 \actposs{\(2x+y=0\)}{\(x+2y=0\)}{\(x=2y\)}{\(y=2x\)}
-%\begin{parts}
-%\item \(x+2y=0\)
-%\item \(2x+y=0\)\actans
-%\item \(x=2y\)
-%\item \(y=2x\)
-%\end{parts}
 \end{activity}
 
 
@@ -425,7 +377,7 @@ Estimate and draw the eigenspaces of matrix~\(A\).}
 \begin{tabular}{@{}cc@{}}
 \eRose{1}{-0.5}{-0.5}{-0.2} &
 \parbox[b]{14em}{\autoref{eg:eig2pic2} found directions in which \(A\xv\) is aligned with~\xv.
-Then the corresponding eigenspace is all vectors in the line aligned with that direction, including the opposite direction.}
+Then the corresponding eigenspace (brown) is every vector in the line aligned with that direction, including the opposite direction.}
 \end{tabular}
 \end{solution}
 \end{example}
@@ -439,7 +391,7 @@ Find the \idx{eigenspace}s of the \idx{diagonal matrix}
 D=\begin{bmatrix} -\frac13&0&0\\0&\frac32&0\\0&0&\frac32 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-\autoref{eg:eigndiag} shows this matrix has two distinct eigenvalues \(\lambda=-\frac13\) and \(\lambda=\frac32\)\,.
+\autoref{eg:eigndiag} shows that this diagonal matrix has two distinct eigenvalues \(\lambda=-\frac13\) and \(\lambda=\frac32\)\,.
 \begin{itemize}
 \item Eigenvectors corresponding to eigenvalue \(\lambda=-\frac13\) satisfy
 \begin{equation*}
@@ -470,23 +422,23 @@ But for real symmetric matrices they are the same.}
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 The \idx{multiplicity} of the various eigenvalues in earlier examples are the following.
-\begin{itemize}
-\item[\ref{eg:eig3sp}] Recall that in this example:
+\begin{description}
+\item[\cref{eg:eig3sp}] Recall that in this example:
 \begin{itemize}
 \item the \idx{eigenspace} \(\EE_1=\Span\{(1,0,-1)\}\) has dimension one, so the multiplicity of eigenvalue \(\lambda=1\) is one;
 \item the eigenspace \(\EE_3=\Span\{(1,-2,1)\}\) has dimension one, so the multiplicity of eigenvalue \(\lambda=3\) is one; and
 \item the eigenspace \(\EE_0=\Span\{(1,1,1)\}\) has dimension one, so the multiplicity of eigenvalue \(\lambda=0\) is one.
 \end{itemize}
 
-\item[\ref{eg:espace2d}] Recall that in this example: 
+\item[\cref{eg:espace2d}] Recall that in this example: 
 \begin{itemize}
 \item the \idx{eigenspace} \(\EE_{-1/3}=\Span\{\ev_1\}\) has dimension one, so the multiplicity of eigenvalue \(\lambda=-1/3\) is one; and
 \item the eigenspace \(\EE_{3/2}=\Span\{\ev_2,\ev_3\}\) has dimension two, so the multiplicity of eigenvalue \(\lambda=3/2\) is two.
 \end{itemize}
 
-\end{itemize}
+\end{description}
 \end{example}
 
 
@@ -505,7 +457,7 @@ The \idx{multiplicity} of the various eigenvalues in earlier examples are the fo
 \subsection{Systematically find eigenvalues and eigenvectors}
 
 Computer packages easily compute eigenvalues and eigenvectors for us.
-Sometimes we need to explicitly see dependence upon a parameter so this subsection also develops how to find by hand the eigenvalues and eigenvectors of small matrices.
+Sometimes we need to explicitly see dependence upon a parameter, so this subsection also develops how to find by hand the eigenvalues and eigenvectors of small matrices.
 We start with computation.
 
 
@@ -513,7 +465,7 @@ We start with computation.
 \label{sec:cee}
 
 \begin{table}
-\caption{As well as the \script\ commands and operations listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics}, \ref{tbl:mtlbops}, \ref{tbl:mtlbmops}, and~\ref{tbl:mtlbsvd}  we need the eigenvector function.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbeig}
+\caption{As well as the \script\ commands and operations listed in \cref{tbl:mtlbpre,tbl:mtlbbasics,tbl:mtlbops,tbl:mtlbmops,tbl:mtlbsvd}  we need the eigenvector function.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbeig}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -524,7 +476,7 @@ We start with computation.
 \(j\)th~column of \(n\times n\) square matrix~\(V\) is an 
 \idx{eigenvector} (of \idx{unit length}).
 \end{itemize}
-\item \verb|eig(A)| by itself just reports, in a vector, the eigenvalues of square matrix~\(A\) (repeated according to their  \idx{multiplicity}, \autoref{def:eigsymult}).
+\item \verb|eig(A)| by itself just reports, in a vector, the eigenvalues of square matrix~\(A\) (repeated according to their  \idx{multiplicity}, \cref{def:eigsymult,def:eigmult}).
 
 \item If the matrix~\(A\) is a real \idx{symmetric matrix}, then the eigenvalues and eigenvectors are all real, and the eigenvector matrix~\(V\) is orthogonal.
 
@@ -549,7 +501,7 @@ Reconsider the \idx{symmetric matrix} of \autoref{eg:eig3intro}:
 A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 \end{equation*}
 Use \script\ to find its eigenvalues and corresponding eigenvectors.
-Confirm that \(AV=VD\) for matrices \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\) and \(D=\diag(\hlist\lambda n)\), and confirm that the computed~\(V\) is orthogonal.
+Confirm that \(AV=VD\) for matrices \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\) and \(D=\diag(\hlist\lambda n)\), and confirm that the computed~\(V\) is an orthogonal matrix.
 \begin{solution} 
 Enter the matrix into \script\ and execute \verb|eig()|:
 \setbox\ajrqrbox\hbox{\qrcode{% eigen-problem
@@ -558,7 +510,7 @@ A=[1 -1 0;-1 2 -1;0 -1 1]
 A*V-V*D
 V'*V
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 A=[1 -1 0;-1 2 -1;0 -1 1]
 [V,D]=eig(A)
@@ -580,9 +532,9 @@ D =
 \end{verbatim}
 \begin{itemize}
 \item The first diagonal element of~\verb|D| is zero\footnote{The function~\texttt{eig()} actually computes the eigenvalue to be~\(10^{-16}\), which is effectively zero as \(10^{-15}\) is the typical level of \idx{relative error} in computer calculations.} so eigenvalue \(\lambda_1=0\)\,.
-A corresponding eigenvector is the first column of~\verb|V|, namely \(\vv_1=-0.5774(1,1,1)\);  since eigenvectors can be scaled by a constant, we could also say an eigenvector is \(\vv_1=(1,1,1)\).
+A corresponding eigenvector is the first column of~\verb|V|, namely \(\vv_1=-0.5774(1,1,1)\);  since eigenvectors can be scaled by a constant, we could more simply say an eigenvector is \(\vv_1=(1,1,1)\).
 \item The second diagonal element of~\verb|D| is one so eigenvalue \(\lambda_2=1\)\,.
-A corresponding eigenvector is the second column of~\verb|V|, namely \(\vv_2=0.7071(-1,0,1)\);  we could also say an eigenvector is \(\vv_2=(-1,0,1)\).
+A corresponding eigenvector is the second column of~\verb|V|, namely \(\vv_2=0.7071(-1,0,1)\);  we could more simply say an eigenvector is \(\vv_2=(-1,0,1)\).
 \item The third diagonal element of~\verb|D| is three so eigenvalue \(\lambda_3=3\)\,.
 A corresponding eigenvector is the third column of~\verb|V|, namely \(\vv_3=0.4082(1,-2,1)\);  we could also say an eigenvector is \(\vv_3=(1,-2,1)\).
 \end{itemize}
@@ -622,25 +574,19 @@ D =
 \end{verbatim}
 Which of the following is \emph{not} an eigenvalue of the matrix~\verb|A|?
 \actposs[4]{\(-0.5\)}{\(-0.1\)}{\(0.1\)}{\(0.5\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(-0.5\)\actans
-%\item \(-0.1\)
-%\item \(0.1\)
-%\item \(0.5\)
-%\end{parts}
 \end{activity}
 
 
 
 
 
+\begin{reduce}
 \begin{example}[application to vibrations] \label{eg:eig3vib}
 Consider three masses in a row connected by two springs: on a tiny scale this could represent a molecule of carbon dioxide~(\(\text{CO}_2\)).
 For simplicity suppose the three masses are equal, and the spring strengths are equal.
 Define \(y_i(t)\)~to be the distance from equilibrium of the \(i\)th~mass.
 Newton's law for bodies says the acceleration of the mass, \(d^2y_i/dt^2\), is proportional to the forces due to the springs.
-Hooke's law for springs says the force is proportional to the stretching\slash compression of the springs, \(y_2-y_1\) and \(y_3-y_2\)\,.
+Hooke's law for springs says the force is proportional to the stretching\slash compression of the springs, here \(y_2-y_1\) and \(y_3-y_2\)\,.
 For simplicity, suppose the constants of proportionality are all one.
 \begin{itemize}
 \item The left mass~(\(y_1\)) is accelerated by the spring connecting it to the middle mass~(\(y_2\)); that is, \(d^2y_1/dt^2=y_2-y_1\)\,.
@@ -654,7 +600,7 @@ Substitute and the three \idx{differential equation}s become
 \\&&-f^2x_2\cos(ft)=x_1\cos(ft)-2x_2\cos(ft)+x_3\cos(ft),
 \\&&-f^2x_3\cos(ft)=x_2\cos(ft)-x_3\cos(ft).
 \end{eqnarray*}
-These are satisfied for all time~\(t\) only if the coefficients of the cosine are equal on each side of each equation:
+These are satisfied for all time~\(t\) only if the coefficients of the cosines are equal on each side of each equation:
 \begin{eqnarray*}
 &&-f^2x_1=x_2-x_1\,,
 \\&&-f^2x_2=x_1-2x_2+x_3\,,
@@ -674,6 +620,7 @@ The eigenvector~\((1,1,1)\) shows the static displacement is that of all three m
 \end{itemize}
 That these three solutions combine together form a general solution of the system of differential equations is a topic for a course on differential equations.
 \end{example}
+\end{reduce}
 
 
 
@@ -694,7 +641,7 @@ Consider three triangles formed into a triangle (as shown in the margin)---perha
 \end{tikzpicture}}%
 Form an matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) of ones if node~\(i\) is connected to node~\(j\);  set the diagonal~\(a_{ii}\) to be minus the number of other nodes to which node~\(i\) is connected; and all other components of~\(A\) are zero.
 The symmetry of the matrix~\(A\) follows from the symmetry of the connections: construct the matrix, check it is symmetric, and find the \idx{eigenvalue}s and \idx{eigenspace}s with \script, and their \idx{multiplicity}.
-For the computed matrices~\(V\) and~\(D\), check that \(AV=VD\) and also that \(V\)~is orthogonal.
+For the computed matrices~\(V\) and~\(D\), check that \(AV=VD\) and also that \(V\)~is an orthogonal matrix.
 \begin{solution} In \script\ use
 \setbox\ajrqrbox\hbox{\qrcode{% Sierpinski network
 A=[-3 1 1 0 0 0 0 0 1
@@ -711,7 +658,7 @@ A-A'
 A*V-V*D
 V'*V
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 A=[-3 1 1 0 0 0 0 0 1
    1 -2 1 0 0 0 0 0 0
@@ -725,7 +672,7 @@ A=[-3 1 1 0 0 0 0 0 1
 A-A'
 [V,D]=eig(A)
 \end{verbatim}
-To two decimal places so that it fits the page, the computation may give
+To two decimal places so that the results fit the page, the computation may give
 {\small%??
 \begin{verbatim}
 V =
@@ -873,7 +820,7 @@ Since the matrix of eigenvectors is called~\(V\), and the diagonal matrix of eig
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to compute eigenvectors and the eigenvalues of (symmetric) matrix
 \begin{equation*}
 A=\begin{bmatrix} 2&2&-2&0
@@ -893,7 +840,7 @@ A=[2 2 -2 0
 [V,D]=eig(A)
 A*V-V*D
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 A=[2 2 -2 0
   2 -1 -2 -3
@@ -942,8 +889,8 @@ ans =
 \label{sec:feebh}
 
 \begin{itemize}
-\item Recall from previous study (\autoref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and that \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
-\item Similarly, although not justified until \autoref{ch:ddm}, a \(3\times 3\) matrix \(A=\begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
+\item Recall from previous study (\autoref{thm:2x2det}) that a \(2\times 2\) matrix \(A=\begin{bmat} a&b\\c&d \end{bmat}\) has \idx{determinant} \(\det A=|A|=ad-bc\)\,, and that \(A\)~is not \idx{invertible} \idx{iff} \(\det A=0\)\,.
+\item Similarly, although not justified until \autoref{ch:ddm}, a \(3\times 3\) matrix \(A=\begin{bmat} a&b&c\\d&e&f\\g&h&i \end{bmat}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,, and \(A\)~is not \idx{invertible} iff \(\det A=0\)\,.
 \end{itemize}
 This section shows these two formulas for a \idx{determinant} are useful for hand calculations on small problems.
 The formulas are best remembered via the following diagrams where products along the red lines are subtracted from the sum of products along the blue lines, respectively:
@@ -955,7 +902,7 @@ The formulas are best remembered via the following diagrams where products along
 \autoref{ch:ddm} extends the determinant to any \idx{size} matrix, and explores more useful properties, but for now this is the information we need on determinants.
 
 
-For hand calculation on small matrices the key is the following.
+For hand calculation on small matrices (\(2\times 2\) or \(3\times3\)) the key property is the following.
 By \autoref{def:evecval} eigenvalues and eigenvectors are determined from \(A\xv=\lambda\xv\)\,.  
 Rearranging, this equation is equivalent to \((A-\lambda I)\xv=\ov\)\,.  
 Both \autoref{thm:2x2det} (\(2\times2\) matrices) and \autoref{thm:detinv} (general matrices) establish that \((A-\lambda I)\xv=\ov\) has nonzero solutions~\xv\ iff the determinant \(\det(A-\lambda I)=0\)\,.
@@ -985,7 +932,7 @@ Use \autoref{pro:eeh} to find the eigenvalues and eigenvectors of the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix}
 \end{equation*}
-(this is the matrix illustrated in Examples~\ref{eg:eig2sym} and~\ref{eg:eig2pic1}).
+(this is the matrix illustrated in \cref{eg:eig2sym,eg:eig2pic1}).
 \begin{solution} Follow the first two steps of \autoref{pro:eeh}.
 \begin{enumerate}
 \item Solve \(\det(A-\lambda I)=0\) for the eigenvalues~\(\lambda\).
@@ -997,7 +944,7 @@ Using~\eqref{eq:dets23},
 \end{equation*}
 That is, \((\lambda-1)^2=\frac14\)\,.  Taking account of both square roots this quadratic gives \(\lambda-1=\pm\frac12\)\,; that is, \(\lambda=1\pm\frac12=\frac12,\frac32\) are the only two eigenvalues.
 
-\item Consider the two eigenvalues in turn.
+\item For eigenvectors, consider the two eigenvalues in turn.
 \begin{enumerate}
 \item For eigenvalue \(\lambda=\frac12\) solve \((A-\lambda I)\xv=\ov\)\,.  That is,
 \begin{equation*}
@@ -1036,20 +983,13 @@ That is, the eigenspace \(\EE_{3/2}=\Span \{(1,-1)\}\).
 Use the \idx{characteristic equation} to determine all eigenvalues of the matrix \(A=\begin{bmatrix} 3&2\\2&0 \end{bmatrix}\).
 They are which of the following?
 \actposs[4]{\(-1,4\)}{\(-4,1\)}{\(0,3\)}{\(3,4\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(-4,1\)
-%\item \(-1,4\)\actans
-%\item \(0,3\)
-%\item \(3,4\)
-%\end{parts}
 \end{activity}
 
 
 
 
 \begin{example} \label{eg:eig3introval}
-Use the \idx{determinant} to confirm that \(\lambda=0,1,3\) are the \emph{only} eigenvalues of the matrix
+Use the \idx{determinant}~\eqref{eq:dets23} to confirm that \(\lambda=0,1,3\) are the \emph{only} eigenvalues of the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 \end{equation*}
@@ -1084,20 +1024,20 @@ Follow the steps of \autoref{pro:eeh}.
 \begin{enumerate}
 \item Solve \(\det(A-\lambda I)=0\) for the eigenvalues.
 Using~\eqref{eq:dets23},
-\begin{eqnarray*}&&
+\begin{align*}&
 \det(A-\lambda I)
-\\&=& \begin{vmatrix} -2-\lambda&0&-6\\0&4-\lambda&6\\-6&6&-9-\lambda \end{vmatrix}
-\\&=&(-2-\lambda)(4-\lambda)(-9-\lambda)+0\cdot6\cdot(-6)+(-6)\cdot0\cdot 6
-\\&&{}
+\\&= \begin{vmatrix} -2-\lambda&0&-6\\0&4-\lambda&6\\-6&6&-9-\lambda \end{vmatrix}
+\\&=(-2-\lambda)(4-\lambda)(-9-\lambda)+0\cdot6\cdot(-6)+(-6)\cdot0\cdot 6
+\\&\qquad{}
 -(-6)(4-\lambda)(-6)-(-2-\lambda)\cdot6\cdot6-0\cdot0\cdot(-9-\lambda)
-\\&=&(2+\lambda)(4-\lambda)(9+\lambda)+36(-4+\lambda)+36(2+\lambda)
-\\&=&-\lambda^3-7\lambda^2+98\lambda
-\\&=&-\lambda(\lambda^2-7\lambda+98)
-\\&=&-\lambda(\lambda-14)(\lambda+7).
-\end{eqnarray*}
+\\&=(2+\lambda)(4-\lambda)(9+\lambda)+36(-4+\lambda)+36(2+\lambda)
+\\&=-\lambda^3-7\lambda^2+98\lambda
+\\&=-\lambda(\lambda^2-7\lambda+98)
+\\&=-\lambda(\lambda-14)(\lambda+7).
+\end{align*}
 This determinant is zero only for the three eigenvalues \(\lambda=0,-7,14\).
 
-\item Consider the three eigenvalues in turn.
+\item For eigenvectors, consider the three eigenvalues in turn.
 \begin{enumerate}
 \item For eigenvalue \(\lambda=0\) solve \((A-\lambda I)\vv=\ov\)\,.  
 That is,
@@ -1107,7 +1047,7 @@ That is,
 \end{eqnarray*}
 The first row says \(v_1=-3v_3\)\,, the second row says \(v_2=-\frac32v_3\)\,.  
 Substituting these into the left-hand side of the third row gives
-\(-6v_1+6v_2-9v_3=18v_3-9v_3-9v_3=0\) for all~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
+\(-6v_1+6v_2-9v_3=18v_3-9v_3-9v_3=0\) for every~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
 Eigenvectors may be written in the form \(\vv=(-3v_3,-\frac32v_3,v_3)\); that is, the eigenspace \(\EE_0=\Span\{(-6,-3,2)\}\).
 
 \item For eigenvalue \(\lambda=7\) solve \((A-\lambda I)\vv=\ov\)\,.  
@@ -1119,7 +1059,7 @@ That is,
 The first row says \(v_1=-\frac23v_3\)\,, 
 the second row says \(v_2=2v_3\)\,.  
 Substituting these into the left-hand side of the third row gives
-\(-6v_1+6v_2-16v_3=4v_3+12v_3-16v_3=0\) for all~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
+\(-6v_1+6v_2-16v_3=4v_3+12v_3-16v_3=0\) for every~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
 Eigenvectors may be written in the form 
 \(\vv=(-\frac23v_3,2v_3,v_3)\); that is, the eigenspace \(\EE_7=\Span\{(-2,6,3)\}\).
 
@@ -1132,7 +1072,7 @@ That is,
 The first row says \(v_1=\frac12v_3\)\,, 
 the second row says \(v_2=-\frac13v_3\)\,.  
 Substituting these into the left-hand side of the third row gives
-\(-6v_1+6v_2+5v_3=-3v_3-2v_3+5v_3=0\) for all~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
+\(-6v_1+6v_2+5v_3=-3v_3-2v_3+5v_3=0\) for every~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
 Eigenvectors may be written in the form 
 \(\vv=(\frac12v_3,-\frac13v_3,v_3)\); 
 that is, the eigenspace \(\EE_{-14}=\Span\{(3,-2,6)\}\).
@@ -1150,7 +1090,7 @@ There are many applications where this reality is crucial.
 
 
 \begin{example} \label{eg:ccevals}
-Find the eigenvalues and a corresponding eigenvector for the \idx{non-symmetric matrix} \(A=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\).
+Find the eigenvalues and a corresponding eigenvector for the \idx{non-symmetric matrix} \(A=\begin{bmat} 0&1\\-1&0 \end{bmat}\).
 \begin{aside}
 This example aims to recall basic properties of \idx{complex number}s as a prelude to the proof of the reality of eigenvalues for every symmetric matrix.  
 %It reinforces that matrix symmetry is a crucial part of the next section.
@@ -1175,23 +1115,23 @@ Thus we proceed to find complex valued eigenvectors.
 \begin{enumerate}
 \item For eigenvalue \(\lambda=\i\) solve \((A-\lambda I)\xv=\ov\)\,.  That is,
 \begin{equation*}
-(A-iI)\xv
+(A-\i I)\xv
 =\begin{bmatrix} -\i&1\\
 -1&-\i \end{bmatrix}\xv
 =\ov\,.
 \end{equation*}
-The first component of this system says \(-ix_1+x_2=0\)\,; that is, \(x_2=ix_1\)\,.  
-The second component of this system says \(-x_1-ix_2=0\)\,; that is, \(x_2=ix_1\) (the same).  
+The first component of this system says \(-\i x_1+x_2=0\)\,; that is, \(x_2=\i x_1\)\,.  
+The second component of this system says \(-x_1-\i x_2=0\)\,; that is, \(x_2=\i x_1\) (the same).  
 So a general corresponding eigenvector is the complex \(\xv=(1,\i)t\) for any nonzero~\(t\).
 \item For eigenvalue \(\lambda=-\i\) solve \((A-\lambda I)\xv=\ov\)\,.  That is,
 \begin{equation*}
-(A+iI)\xv
+(A+\i I)\xv
 =\begin{bmatrix} \i&1\\
 -1&\i \end{bmatrix}\xv
 =\ov\,.
 \end{equation*}
-The first component of this system says \(ix_1+x_2=0\)\,; that is, \(x_2=-ix_1\)\,.  
-The second component of this system says \(-x_1+ix_2=0\)\,; that is, \(x_2=-ix_1\) (the same).  
+The first component of this system says \(\i x_1+x_2=0\)\,; that is, \(x_2=-\i x_1\)\,.  
+The second component of this system says \(-x_1+\i x_2=0\)\,; that is, \(x_2=-\i x_1\) (the same).  
 So a general corresponding eigenvector is the complex \(\xv=(1,-\i)t\) for any nonzero~\(t\).
 \end{enumerate}
 \end{enumerate}
@@ -1211,7 +1151,7 @@ Forming into a matrix-vector problem these are
 \begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\xv=\lambda\xv\,.
 \end{equation*}
 We need to find the eigenvalues and eigenvectors of the matrix: we derive eigenvalues are \(\lambda=\pm \sqrt{-1}=\pm \i\)\,. 
-Physically, such \idx{complex eigenvalue}s represent \idx{oscillation}s in time~\(t\) since, for example, \(e^{\lambda t}=e^{it}=\cos t+\i\sin t\) by \idx{Euler's formula}.
+Physically, such \idx{complex eigenvalue}s represent \idx{oscillation}s in time~\(t\) since, for example, \(e^{\lambda t}=e^{\i t}=\cos t+\i\sin t\) by \idx{Euler's formula}. 
 
 
 
@@ -1244,6 +1184,7 @@ Estimate which directions~\xv\ are eigenvectors of matrix~\(A\), and for each ei
 \answer{\(\vv_1\propto\pm(1,-0.2)\), \(\lambda_1\approx -0.7\)\,;  and
 \(\vv_2\propto\pm(-0.2,1)\), \(\lambda_2\approx 1.1\)\,.}
 
+\begin{reduce}
 \item\eRose{1.0}{0.1}{-1.22}{0.3}
 \answer{\(\vv_1\propto\pm(-0.3,1)\), \(\lambda_1\approx 0.7\)\,;  and
 no other.}
@@ -1255,6 +1196,7 @@ no other.}
 \item\eRose{-0.2}{0.8}{-0.2}{1.0}
 \answer{\(\vv_1\propto\pm(1,0.2)\), \(\lambda_1\approx -0.1\)\,;  and
 \(\vv_2\propto\pm(0.6,0.8)\), \(\lambda_2\approx 0.9\)\,.}
+\end{reduce}
 
 \item\eRose{1.1}{-0.0}{0.9}{-0.6}
 \answer{\(\vv_1\propto\pm(0,1)\), \(\lambda_1\approx -0.6\)\,;  and
@@ -1287,6 +1229,7 @@ In each case use the \idx{matrix-vector product} to determine which of the given
 \(\begin{bmatrix}2\\1\\-1\end{bmatrix}\), \(\begin{bmatrix}0\\-1\\2\end{bmatrix}\), \(\begin{bmatrix}0\\1\\2\end{bmatrix}\), \(\begin{bmatrix}0\\3\\1\end{bmatrix}\), \(\begin{bmatrix}\frac12\\\frac12\\-1\end{bmatrix}\), \(\begin{bmatrix}0\\0\\0\end{bmatrix}\), \(\begin{bmatrix}0\\-1\\-\frac13\end{bmatrix}\)
 \answer{Corresponding eigenvalues are: n/a, 1, n/a, -6, 3, n/a, -6}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -2&0&0&0\\1&-2&3&-2\\-5&-3&4&-2\\-5&1&-1&0 \end{bmatrix}\),\quad
 \(\begin{bmatrix}2\\0\\4\\7\end{bmatrix}\), \(\begin{bmatrix}0\\2\\2\\1\end{bmatrix}\), \(\begin{bmatrix}1\\-2\\2\\-1\end{bmatrix}\), \(\begin{bmatrix}0\\2\\2\\0\end{bmatrix}\), \(\begin{bmatrix}0\\-1\\-1\\0\end{bmatrix}\), \(\begin{bmatrix}1\\0\\2\\1\end{bmatrix}\)
 \answer{Corresponding eigenvalues are: -2, 0, n/a, 1, 1, n/a}
@@ -1294,6 +1237,8 @@ In each case use the \idx{matrix-vector product} to determine which of the given
 \item \(\begin{bmatrix} 5&-4&-1&0\\ 1&0&-1&0\\ -5&8&2&5\\ 4&-4&1&1 \end{bmatrix}\),\quad
 \(\begin{bmatrix}2\\0\\4\\1\end{bmatrix}\), \(\begin{bmatrix}1\\1\\1\\-1\end{bmatrix}\), \(\begin{bmatrix}1\\1\\1\\1\end{bmatrix}\), \(\begin{bmatrix}1\\1\\0\\-\frac35\end{bmatrix}\), \(\begin{bmatrix}1\\-\frac12\\3\\3\end{bmatrix}\), \(\begin{bmatrix}0\\\frac12\\1\\1\end{bmatrix}\), \(\begin{bmatrix}-1\\-1\\2\\1\end{bmatrix}\)
 \answer{Corresponding eigenvalues are: n/a, 0, n/a, 1, 4, n/a, 3}
+\end{reduce}
+
 \end{enumerate}
 %\begin{comment} brutal search
 %\begin{verbatim}
@@ -1313,45 +1258,54 @@ In each case use the \idx{matrix-vector product} to determine which of the given
 
 
 
-\begin{exercise} \label{ex:} 
-Use \script\ function \index{eig()@\texttt{eig()}}\verb|eig()| to determine the eigenvalues and corresponding \idx{eigenspace}s of the following symmetric matrices.
-\begin{parts}
+\begin{exercise}  
+Use the \script\ function \index{eig()@\texttt{eig()}}\verb|eig()| to determine the eigenvalues and corresponding \idx{eigenspace}s of the following symmetric matrices.
+\begin{Parts}
 \item  \(\begin{bmatrix} -1 & -\frac{4}{5} & \frac{12}{5} & -2
 \\ -\frac{4}{5} & \frac{1}{5} & -\frac{8}{5} & -\frac{12}{5}
 \\ \frac{12}{5} & -\frac{8}{5} & -\frac{11}{5} & -\frac{14}{5}
 \\ -2 & -\frac{12}{5} & -\frac{14}{5} & 2
 \end{bmatrix}\)
 \answer{Eigenvalues \( -3,-5,2,5\).}
+
 \item  \(\begin{bmatrix} \frac{7}{5} & -\frac{2}{5} & 0 & -\frac{2}{5}
 \\ -\frac{2}{5} & 2 & \frac{2}{5} & 0
 \\ 0 & \frac{2}{5} & \frac{13}{5} & \frac{2}{5}
 \\ -\frac{2}{5} & 0 & \frac{2}{5} & 2
 \end{bmatrix}\)
 \answer{Eigenvalues \( 2,3,1\), eigenspace \(\EE_2\) is 2D.}
+
+\begin{reduce}
 \item  \(\begin{bmatrix} \frac{30}{7} & \frac{16}{7} & \frac{16}{7} & \frac{4}{7}
 \\ \frac{16}{7} & \frac{30}{7} & \frac{16}{7} & \frac{4}{7}
 \\ \frac{16}{7} & \frac{16}{7} & \frac{30}{7} & \frac{4}{7}
 \\ \frac{4}{7} & \frac{4}{7} & \frac{4}{7} & \frac{15}{7}
 \end{bmatrix}\)
 \answer{Eigenvalues \(2,9\), eigenspace \(\EE_{2}\) is 3D.}
+
 \item  \(\begin{bmatrix} -\frac{36}{7} & -\frac{8}{7} & \frac{20}{7} & \frac{12}{7}
 \\ -\frac{8}{7} & -\frac{6}{7} & -\frac{12}{7} & \frac{20}{7}
 \\ \frac{20}{7} & -\frac{12}{7} & -3 & -\frac{32}{7}
 \\ \frac{12}{7} & \frac{20}{7} & -\frac{32}{7} & -3
 \end{bmatrix}\)
 \answer{Eigenvalues \( -3,4,-10\), eigenspace \(\EE_{-3}\) is 2D.}
+
 \item  \(\begin{bmatrix} -2.6 & -2.7 & 5.2 & 2.1
 \\ -2.7 & 4.6 & 9.9 & 5.2
 \\ 5.2 & 9.9 & -2.6 & 2.7
 \\ 2.1 & 5.2 & 2.7 & 4.6
 \end{bmatrix}\)
 \answer{Eigenvalues \( 2,-13,15,0\).}
+\end{reduce}
+
+
 \item  \(\begin{bmatrix} 1.4 & -7.1 & -0.7 & 6.2
 \\ -7.1 & -1.0 & -2.2 & -2.5
 \\ -0.7 & -2.2 & -3.4 & -4.1
 \\ 6.2 & -2.5 & -4.1 & -1.0
 \end{bmatrix}\)
 \answer{Eigenvalues \( 11,-8,1\), eigenspace \(\EE_{-8}\) is 2D.}
+
 \item  \(\begin{bmatrix} -1 & 1 & 4 & -3 & 1
 \\ 1 & 0 & -2 & 1 & 0
 \\ 4 & -2 & 1 & -3 & 0
@@ -1359,6 +1313,8 @@ Use \script\ function \index{eig()@\texttt{eig()}}\verb|eig()| to determine the 
 \\ 1 & 0 & 0 & -1 & -1
 \end{bmatrix}\)
 \answer{Eigenvalues  \(-5.1461\), \(-1.6639\), \(-0.7427\), \(0.7676\), \(7.7851\).}
+
+\begin{reduce}
 \item  \(\begin{bmatrix} 5 & -1 & 3 & 0 & 0
 \\ -1 & -1 & 0 & 0 & -2
 \\ 3 & 0 & 1 & 1 & 1
@@ -1366,7 +1322,10 @@ Use \script\ function \index{eig()@\texttt{eig()}}\verb|eig()| to determine the 
 \\ 0 & -2 & 1 & 0 & -1
 \end{bmatrix}\)
 \answer{Eigenvalues  \(-3.3693\), \(-1.0170\), \(0.6342\), \(0.9466\), \(6.8055\).}
-\end{parts}
+\end{reduce}
+
+
+\end{Parts}
 %\begin{comment} brutal search
 %\begin{verbatim}
 %format rat
@@ -1397,9 +1356,9 @@ Use \script\ function \index{eig()@\texttt{eig()}}\verb|eig()| to determine the 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the given symmetric matrices, determine all eigenvalues by finding and solving the \idx{characteristic equation} of the matrix.
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 2&3\\3&2 \end{bmatrix}\)
 \answer{\(-1,5\)}
 \item \(\begin{bmatrix} 6&\frac{11}2\\\frac{11}2&6 \end{bmatrix}\)
@@ -1408,6 +1367,8 @@ For each of the given symmetric matrices, determine all eigenvalues by finding a
 \answer{\(-6,-1\)}
 \item \(\begin{bmatrix} -5&5\\5&-5 \end{bmatrix}\)
 \answer{\(-10,0\)}
+
+\begin{reduce}
 \item \(\begin{bmatrix} 5&-4\\-4&-1 \end{bmatrix}\)
 \answer{\(-3,7\)}
 \item \(\begin{bmatrix} -2&\frac92\\\frac92&10 \end{bmatrix}\)
@@ -1422,6 +1383,8 @@ For each of the given symmetric matrices, determine all eigenvalues by finding a
 \\6&4&-2
  \end{bmatrix}\)
 \answer{\(-8,-4,8\)}
+\end{reduce}
+
 \item \(\begin{bmatrix}2&-3&-3
 \\-3&2&-3
 \\-3&-3&2
@@ -1442,7 +1405,7 @@ For each of the given symmetric matrices, determine all eigenvalues by finding a
 \\-3&0&0
  \end{bmatrix}\)
 \answer{\(-3,2,3\)}
-\end{parts}
+\end{Parts}
 %\begin{comment}brutal search for this and later
 %\begin{verbatim}
 %format rat
@@ -1461,21 +1424,26 @@ For each of the given symmetric matrices, determine all eigenvalues by finding a
 \end{exercise}
 
 
-\begin{exercise} \label{eg:}
+\begin{exercise} 
 For each symmetric matrix, find the \idx{eigenspace} of the given `eigenvalues' by hand solution of \idx{linear equation}s, or determine from your solution that the given value cannot be an eigenvalue.
 \begin{enumerate}
 \item \(\begin{bmatrix} 1&3\\3&1 \end{bmatrix}\), \(4\), \(-2\)
 \answer{\(\EE_4=\Span\{(-1,1)\}\), \(\EE_{-2}=\Span\{(1,1)\}\)}
+
 \item \(\begin{bmatrix} 4&-2\\-2&7 \end{bmatrix}\), \(3\), \(6\)
 \answer{\(\EE_3=\Span\{(-1,2)\}\), \(6\)~is not an eigenvalue}
+
 \item \(\begin{bmatrix} -7 & 0 & 2
 \\ 0 & -7 & -2
 \\ 2 & -2 & -0 \end{bmatrix}\), \(-8\), \(-7\), \(1\)
 \answer{\(\EE_{-8}=\Span\{(2,-2,-1)\}\), \(\EE_{-7}=\Span\{(-1,-1,0)\}\), \(\EE_1=\Span\{(1,-1,4)\}\)}
+
 \item \(\begin{bmatrix} 0 & 6 & -3
 \\ 6 & 0 & 7
 \\ -3 & 7 & 3 \end{bmatrix}\), \(-6\), \(4\), \(9\)
 \answer{\(-6\)~is not an eigenvalue, \(\EE_4=\Span\{(3,1,-2)\}\), \(\EE_9=\Span\{(1,3,3)\}\)}
+
+\begin{reduce}
 \item \(\begin{bmatrix} 0 & -4 & 2
 \\ -4 & 1 & -0
 \\ 2 & -0 & 1 \end{bmatrix}\), \(-4\), \(1\), \(2\)
@@ -1489,15 +1457,16 @@ For each symmetric matrix, find the \idx{eigenspace} of the given `eigenvalues' 
 \answer{\(\EE_1=\Span\{(1,1,1)\}\),
 \(4\)~is not an eigenvalue,
 \(\EE_9=\Span\{(1,-2,1)\}\).}
+\end{reduce}
 \end{enumerate}
 \end{exercise}
 
 
 
-\begin{exercise} \label{eg:}
-For each \idx{symmetric matrix}, find by hand all \idx{eigenvalue}s and an \idx{orthonormal basis} for the corresponding \idx{eigenspace}.
+\begin{exercise} 
+For each \idx{symmetric matrix}, find by hand all \idx{eigenvalue}s and an \idx{orthonormal basis} for all the corresponding \idx{eigenspace}s.
 What is the \idx{multiplicity} of each eigenvalue?
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} -8 & 3
 \\ 3 & 0 \end{bmatrix}\)
 \answer{\(\EE_{-9}=\Span\{(3,-1)\}\),
@@ -1510,6 +1479,7 @@ Both eigenvalues have multiplicity one.}
 \(\EE_{11}=\Span\{(-1,1)\}\).
 Both eigenvalues have multiplicity one.}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -2 & -2
 \\ -2 & -5 \end{bmatrix}\)
 \answer{\(\EE_{-6}=\Span\{(1,2)\}\),
@@ -1537,6 +1507,7 @@ All eigenvalues have multiplicity one.}
 \(\EE_{-5}=\Span\{(-2,1,1)\}\),
 \(\EE_{-1}=\Span\{(1,2,0)\}\).
 All eigenvalues have multiplicity one.}
+\end{reduce}
 
 \item \(\begin{bmatrix} 11 & 4 & -2
 \\ 4 & 5 & 4
@@ -1568,7 +1539,7 @@ All eigenvalues have multiplicity one.}
 \(\EE_{5}=\Span\{(3,1,0),(-1,3,-10)\}\)
 Eigenvalue \(\lambda=-6\) has multiplicity one, whereas \(\lambda=5\) has multiplicity two.}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -1576,7 +1547,7 @@ Eigenvalue \(\lambda=-6\) has multiplicity one, whereas \(\lambda=5\) has multip
 
 
 
-\begin{exercise}[\idx{Seven Bridges of K\"onigsberg}] \label{ex:} 
+\begin{exercise}[\idx{Seven Bridges of K\"onigsberg}]  
 The marginal picture shows the abstract graph of the seven bridges of K\"onigsberg during the time of \idx{Euler}: the small disc nodes represent the islands of K\"onigsberg; the lines between represent the seven different bridges.
 \marginpar{\begin{tikzpicture}
 \begin{axis}[axis equal image, axis lines=none,footnotesize]
@@ -1591,17 +1562,17 @@ Form the \(4\times 4\) \idx{symmetric matrix} of the number of lines from each n
 Use \script\ function \index{eig()@\texttt{eig()}}\verb|eig()| to find the eigenvalues and eigenvectors for this matrix.
 Analogous to well known web search software, identify the largest eigenvalue and a corresponding eigenvector:  then rank the importance of each node in order of the size of the component in the corresponding~eigenvector.
 \answer{Number the nodes as you like, say 1=top, 2=centre, 3=right, and 4=bottom.
-Then the matrix is \(\begin{bmatrix} 0&2&1&0
+Then the matrix is \(\protect\begin{bmat} 0&2&1&0
 \\2&0&1&2
 \\1&1&0&1
-\\0&2&1&0 \end{bmatrix}\).
+\\0&2&1&0 \protect\end{bmat}\).
 Eigenvalues are \(-2.86,-0.77,0.00,3.63\) \twodp\ and an eigenvector corresponding to the largest~\(3.63\) is \((0.46,0.63,0.43,0.46)\).
 Thus rank the centre left node as the most important, the right node is least important, and the top and bottom nodes equal second importance.}
 \end{exercise}
 
 
 
-\begin{exercise} \label{eg:}
+\begin{exercise} 
 For each of the following networks:\footnote{Although a well known web search engine computes eigenvectors for all the web pages, it uses an approximate iterative algorithm more suited to the mind-boggingly vast size of the internet.}
 \begin{itemize}
 \item label the nodes; 
@@ -1621,12 +1592,13 @@ For each of the following networks:\footnote{Although a well known web search en
 \end{axis}
 \end{tikzpicture}}
 \pgfmathsetseed{1138}% set seed so graphs remain fixed
-\begin{parts}
-\item \netwk5{12}
-\item \netwk6{20}
-\item \netwk8{20}
-\item \netwk9{20}
-\end{parts}
+\begin{Parts}
+\item\netwk5{12}
+\item\hspace*{-1em}%%%%%%%%%%%%%%%%%%??
+\netwk6{20}
+\item\netwk8{20}
+\item\netwk9{20}
+\end{Parts}
 \end{exercise}
 
 
@@ -1636,8 +1608,8 @@ Could also give some examples dressed as ODEs (leave to the ODEs in EigGen) or i
 \end{comment}
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item In an \svd, \(\usv\), what is important about singular vectors for which \(\uv_j=\pm \vv_j\)?
 

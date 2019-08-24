@@ -28,7 +28,7 @@ The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{gen
 \item the sum of the \idx{eigenvalue}s equals \((-1)^{n-1}\)~times the \idx{coefficient} of~\(\lambda^{n-1}\) in the \idx{characteristic polynomial} and equals the \bfidx{trace} of the matrix, defined as the sum of the diagonal elements \(a_{11}+a_{22}+\cdots+a_{nn}\)\,.
 \end{itemize}
 
-\item An \idx{eigenvalue}~\(\lambda_0\) of a matrix~\(A\) is said to have \bfidx{multiplicity}~\(m\) if the \idx{characteristic polynomial} factorises to \(\det(A-\lambda I)=(\lambda-\lambda_0)^mg(\lambda)\) where \(g(\lambda_0)\neq0\) (\autoref{def:eigmult}).
+\item An \idx{eigenvalue}~\(\lambda_0\) of a matrix~\(A\) is said to have \bfidx{multiplicity}~\(m\) if the \idx{characteristic polynomial} factorizes to \(\det(A-\lambda I)=(\lambda-\lambda_0)^mg(\lambda)\) where \(g(\lambda_0)\neq0\) (\autoref{def:eigmult}).
 Every eigenvalue of multiplicity \(m\geq2\) may also be called a \bfidx{repeated eigenvalue}.
 
 \itemme \autoref{pro:geneig} finds by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{square matrix}~\(A\):
@@ -72,7 +72,7 @@ for all constants \hlist cm.
 \end{itemize}
 
 
-\item For every real \(m\times n\) matrix~\(A\), the \idx{singular value}s of~\(A\) are the non-negative \idx{eigenvalue}s of the \((m+n)\times(m+n)\) \idx{symmetric matrix} \(B=\begin{bmatrix} O_m&A\\\tr A&O_n \end{bmatrix}\) (\autoref{thm:eigsvd}). 
+\item For every real \(m\times n\) matrix~\(A\), the \idx{singular value}s of~\(A\) are the non-negative \idx{eigenvalue}s of the \((m+n)\times(m+n)\) \idx{symmetric matrix} \(B=\begin{bmat} O_m&A\\\tr A&O_n \end{bmat}\) (\autoref{thm:eigsvd}). 
 Writing an \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) as \(\wv=(\uv,\vv)\) gives corresonding singular vectors of~\(A\), \(\uv\in\RR^m\)\ and \(\vv\in\RR^n\).
 
 
@@ -96,7 +96,7 @@ B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \end{eqnarray*}
 \script: \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))|.
 
-\item Find the eigenvalues of the so-called \bfidx{generalised eigen-problem} \(A\vv=\lambda B\vv\)\,: 
+\item Find the eigenvalues of the so-called \bfidx{generalized eigen-problem} \(A\vv=\lambda B\vv\)\,: 
 \begin{itemize}
 \item by hand on small problems solve \(\det(A-\lambda B)=0\)\,;
 \item in \script\ invoke \index{eig()@\texttt{eig()}}\verb|lambda=eig(A,B)|\,, and then \index{log()@\texttt{log()}}\verb|r=log(lambda)/h|\,.
@@ -114,7 +114,7 @@ For example, the first \(n\)~data points give the linear system
  \end{bmatrix}\begin{bmatrix} c_1\\c_2\\\vdots\\c_n \end{bmatrix}
  =\begin{bmatrix} f_1\\f_2\\f_3\\\vdots\\f_n \end{bmatrix}
 \end{equation*}
-In \script, construct this matrix with \index{bsxfun()@\texttt{bsxfun()}}\verb|U=bsxfun(@power,lambda,0:n-1).'|.
+In \script, construct this matrix with \index{auto-replication}\verb|U=(lambda.^(0:n-1)).'|   (see \autoref{tbl:mtlbnorm}).
 \end{enumerate}
 \fi%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -151,7 +151,7 @@ the \bfidx{dimension} of~\WW\ is the number of vectors in any \idx{basis} for~\W
 \itemme \autoref{pro:bfs} finds a \idx{basis} for the \idx{subspace} \(\AA=\Span\{\hlist\av n\}\) for every given set of $n$~vectors in~\(\RR^m\), $\{\hlist\av n\}$.
 \begin{enumerate}
 \item Form \(m\times n\) matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
-\item Factorise~\(A\) into a \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
+\item Factorize~\(A\) into a \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
 \item The first \(r\)~columns of~\(U\) form a \idx{basis}, specifically an \idx{orthonormal basis}, for the \(r\)-\idx{dimension}al subspace~\AA.
 \end{enumerate}
 Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{linearly independent} and span the subspace~\AA, and so is also a \idx{basis} for the \(n\)-dimensional subspace~\AA.
@@ -160,7 +160,7 @@ Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{l
 \itemme \autoref{pro:bfe} finds a \idx{basis} for a \idx{subspace}~\WW\ specified as the solutions of a system of equations.
 \begin{enumerate}
 \item Rewrite the system of equations as the \idx{homogeneous} system \(A\xv=\ov\) so that the subspace~\WW\ is the \idx{nullspace} of \(m\times n\) matrix~\(A\).
-\item  Find an \svd\ factorisation \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
+\item  Find an \svd\ factorization \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
 \item The last \(n-r\) columns of~\(V\) form an \idx{orthonormal basis} for the subspace~\WW.
 \end{enumerate}
 
@@ -169,7 +169,7 @@ Then there is exactly one way to write each and every vector \(\wv\in\WW\) as a 
 The coefficients \(\hlist ck\) are called the \textbf{\bfidx{coordinates} of~\wv\ with respect to~\cB}, and the \idx{column vector} \([\wv]_{\cB}=(\hlist ck)\) is called the \textbf{\bfidx{coordinate vector} of~\wv\ with respect to~\cB}.
 
 \itemme For every \(n\times n\) \idx{square matrix}~\(A\), and  
-extending Theorems~\ref{thm:ftim1} and~\ref{thm:ftim2}, the following statements are equivalent (\autoref{thm:ftim3}):
+extending \cref{thm:ftim1,thm:ftim2}, the following statements are equivalent (\autoref{thm:ftim3}):
 \begin{itemize}
 \item \(A\) is \idx{invertible};
 \item \(A\xv=\bv\) has a \idx{unique solution} for every \(\bv\in\RR^n\);
@@ -192,15 +192,15 @@ extending Theorems~\ref{thm:ftim1} and~\ref{thm:ftim2}, the following statements
 
 
 
-\subsubsection*{Diagonalisation identifies the transformation}
+\subsubsection*{Diagonalization identifies the transformation}
 
-\item An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalisable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\) (\autoref{def:diagonalise}).
+\item An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalizable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\) (\autoref{def:diagonalise}).
 
-\itemhi For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalisable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s (\autoref{thm:gendiag}).  
-If \(A\)~is \idx{diagonalisable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the \idx{diagonal entries} of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
+\itemhi For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalizable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s (\autoref{thm:gendiag}).  
+If \(A\)~is \idx{diagonalizable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the \idx{diagonal entries} of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
 
-\itemme For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalisable} (\autoref{thm:dlamd}).
-Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalisable} matrix must be non-symmetric and must have at least one \idx{repeated eigenvalue}.
+\itemme For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalizable} (\autoref{thm:dlamd}).
+Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalizable} matrix must be non-symmetric and must have at least one \idx{repeated eigenvalue}.
 
 \itemme For every square matrix~\(A\), and for each \idx{eigenvalue}~\(\lambda_j\) of~\(A\), the corresponding \idx{eigenspace}~\(\EE_{\lambda_j}\) has \idx{dimension} less than or equal to the \idx{multiplicity} of~\(\lambda_j\);
 that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\) (\autoref{thm:dimee}).  
@@ -210,7 +210,7 @@ that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\) (\auto
 Using Newton's Second Law, that mass\({}\times{}\)\text{acceleration}\({}={}\)force, many mechanical systems may be modelled by differential equations also in the form of the linear system \(d\yv/dt=A\yv\)\,.
 
 
-\itemhi Let \(n\times n\) \idx{square matrix}~\(A\) be \idx{diagonalisable} by matrix \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\) whose columns are \idx{eigenvector}s corresponding to \idx{eigenvalue}s \hlist\lambda n.  
+\itemhi Let \(n\times n\) \idx{square matrix}~\(A\) be \idx{diagonalizable} by matrix \(P=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\) whose columns are \idx{eigenvector}s corresponding to \idx{eigenvalue}s \hlist\lambda n.  
 Then a \idx{general solution}~\(\xv(t)\) to the \idx{differential equation} system \(d\xv/dt=A\xv\) is the \idx{linear combination}
 \begin{equation*}
 \xv(t)=c_1\pv_1e^{\lambda_1t}+c_2\pv_2e^{\lambda_2t}+\cdots+c_n\pv_ne^{\lambda_nt}

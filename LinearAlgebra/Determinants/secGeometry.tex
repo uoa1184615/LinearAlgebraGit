@@ -2,7 +2,7 @@
 
 \section{Geometry underlies determinants}
 \label{sec:gud}
-\secttoc
+%\secttoc
 
 \index{determinant|(}
 
@@ -12,11 +12,11 @@ Develop {determinant}s from a geometric basis to most quickly get critical resul
 This geometric approach ``encourages students to engage in what Blum and Kirsch call preformal proving'' \cite[p.401]{Hannah96}.
 \end{comment}
 
-Sections~\ref{sec:dmd}, \ref{sec:omr} and~\ref{sec:ilt} introduced that multiplication by a matrix transforms \idx{area}s and \idx{volume}s.
+\cref{sec:dmd,sec:omr,sec:ilt} introduced that multiplication by a matrix transforms \idx{area}s and \idx{volume}s.
 Determinants give precisely how much a square matrix transforms such areas and volumes.
 
 \begin{example} \label{eg:detarea1}
-Consider the square matrix \(A=\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix}\).
+Consider the square matrix \(A=\begin{bmat} 1/2&1\\0&1 \end{bmat}\).
 Use matrix-vector multiplication to find the image of the \idx{unit square} under the transformation by~\(A\).
 How much is the \idx{area} of the unit square scaled up/down?  
 Compare with the determinant.
@@ -32,7 +32,7 @@ This parallelogram area of~\(\tfrac12\) is the same as the determinant since her
 
 
 \begin{example} \label{eg:detarea2}
-Consider the square matrix \(B=\begin{bmatrix} -1&1\\1&1 \end{bmatrix}\).
+Consider the square matrix \(B=\begin{bmat} -1&1\\1&1 \end{bmat}\).
 Use matrix-vector multiplication to find the image of the \idx{unit square} under the transformation by~\(B\).
 How much is the unit \idx{area} scaled up/down?  
 Compare with the determinant.
@@ -52,19 +52,12 @@ This area has the same magnitude as the determinant since here~\eqref{eq:dets23b
 Upon multiplication by the matrix~\(\begin{bmatrix} -2&5\\-3&-2 \end{bmatrix}\) the \idx{unit square} transforms to a \idx{parallelogram}.
 Use the determinant of the matrix to find the \idx{area} of the \idx{parallelogram} is which of the following.
 \actposs[4]{\(19\)}{\(4\)}{\(11\)}{\(16\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(4\)
-%\item \(11\)
-%\item \(16\)
-%\item \(19\)\actans
-%\end{parts}
 \end{activity}
 
 
 
 \begin{example} \label{eg:detarea3}
-Consider the square matrix \(C=\begin{bmatrix} 2&0&0\\1&1&0\\0&0&\frac32 \end{bmatrix}\).
+Let the square matrix \(C=\begin{bmat} 2&0&0\\1&1&0\\0&0&3/2 \end{bmat}\).
 Use matrix-vector multiplication to find the image of the \idx{unit cube} under the transformation by~\(C\).
 How much is the volume of the unit cube scaled up/down?  
 Compare with the determinant.
@@ -76,7 +69,7 @@ Consider the corner points of the unit cube under multiplication by~\(C\): \((0,
 \end{equation*}
 Through multiplication by the matrix~\(C\), the unit cube is deformed to a parallelepiped.
 The resultant parallelepiped has volume of~\(3\) as it has height~\(\frac32\) and the parallelogram base has area~\(2\cdot1\).
-This volume is the same  as the matrix determinant since~\eqref{eq:dets23b} gives \(\det G=2\cdot1\cdot\frac32+0+0-0-0-0=3\)\,.
+This volume is the same  as the matrix determinant since~\eqref{eq:dets23b} gives \(\det C=2\cdot1\cdot\frac32+0+0-0-0-0=3\)\,.
 \end{solution}
 \end{example}
 
@@ -87,7 +80,7 @@ This volume is the same  as the matrix determinant since~\eqref{eq:dets23b} give
 
 \Needspace{15\baselineskip}
 \paragraph{Determinants determine area transformation}
-Consider multiplication by the general \(2\times2\) matrix \(A=\begin{bmatrix} a&b\\c&d \end{bmatrix}\).
+Consider multiplication by the general \(2\times2\) matrix \(A=\begin{bmat} a&b\\c&d \end{bmat}\).
 
 \begin{wrapfigure}{r}{0pt} 
 \begin{tikzpicture} 
@@ -112,13 +105,13 @@ Consider multiplication by the general \(2\times2\) matrix \(A=\begin{bmatrix} a
 \end{tikzpicture}
 \end{wrapfigure}
 Under multiplication by this matrix~\(A\) the \idx{unit square} becomes the \idx{parallelogram} shown with four corners at \((0,0)\), \((a,c)\), \((b,d)\) and \((a+b,c+d)\).
-Let's determine the \idx{area} of the parallelogram by that of the containing rectangle (brown) less the two small rectangles and the four small triangles.
+Let's determine the \idx{area} of the parallelogram by that of the containing rectangle (brown) less the two small rectangles and the four triangles.
 The two small rectangles have the same area, namely~\(bc\).
-The two small triangles on the left and the right also have the same area, namely~\(\frac12bd\).
-The two small triangles on the top and the bottom have the same area, namely~\(\frac12ac\).
+The two triangles on the left and the right also have the same area, namely~\(\frac12bd\).
+The two triangles on the top and the bottom have the same area, namely~\(\frac12ac\).
 Thus, under multiplication by matrix~\(A\) the image of the unit square is the parallelogram with 
 \begin{eqnarray*}
-\text{area}&=&(a+b)(c+d)-2bc-2\cdot\frac12bd-2\cdot\frac12ac
+\text{area}&=&(a+b)(c+d)-2\cdot bc-2\cdot\frac12bd-2\cdot\frac12ac
 \\&=&ac+ad+bc+bd-2bc-bd-ac
 \\&=&ad-bc=\det A\,.
 \end{eqnarray*}
@@ -170,7 +163,7 @@ By computing the volumes of various rectangular boxes, prisms and tetrahedra,
 the volume of such a parallelepiped could be expressed as the \(3\times3\) {determinant} formula~\eqref{eq:dets23b}.
 
 In higher dimensions we want the determinant to behave analogously and so next define the determinant to do so.
-We use the terms \index{nD-cube@$n$D-cube|textbf}\textbf{$n$D-cube} to generalise a square and cube to \(n\)~dimensions (\(\RR^n)\), \index{nD-volume@$n$D-volume|textbf}\textbf{$n$D-volume} to generalise the notion of area and volume to \(n\)~dimensions, and so on.
+We use the terms \index{nD-cube@$n$D-cube|textbf}\textbf{$n$D-cube} to generalize a square and cube to \(n\)~dimensions (\(\RR^n)\), \index{nD-volume@$n$D-volume|textbf}\textbf{$n$D-volume} to generalize the notion of area and volume to \(n\)~dimensions, and so on.
 When the dimension of the space is unspecified, then we may say \bfidx{hyper-cube}, \bfidx{hyper-volume}, and so on.
 
 
@@ -186,7 +179,7 @@ Define the \bfidx{determinant} of~\(A\), denoted either~\(\det A\) or sometimes~
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Roughly estimate the determinant of the matrix that transforms the \idx{unit square} to the \idx{parallelogram} as shown in the margin.
 \marginpar{\TwoD{-0.7}0{1}{0.8}}
 \begin{solution} 
@@ -202,13 +195,6 @@ Our estimate for the matrix determinant is~\(-0.6\)\,.
 Roughly estimate the determinant of the matrix that transforms the \idx{unit square} to the rectangle as shown in the margin.
 \marginpar{\TwoD{1.2}{1.2}{-0.9}{1.6}}
 \actposs[4]{\(3\)}{\(2\)}{\(2.5\)}{\(4\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(2\)
-%\item \(2.5\)
-%\item \(3\)\actans
-%\item \(4\)
-%\end{parts}
 \end{activity}
 
 
@@ -218,36 +204,36 @@ Basic properties of a determinant follow direct from \autoref{def:detarea}.
 
 
 \begin{theorem} \label{thm:basicdet}
-\begin{enumerate}
-\item \label{thm:basicdet:i}  For every \(n\times n\) \idx{diagonal matrix}~\(D\),
+\begin{enumerate}[ref=\ref{thm:basicdet}(\alph*)]
+\item\label[theorem]{thm:basicdet:i}  For every \(n\times n\) \idx{diagonal matrix}~\(D\),
 the \idx{determinant} of~\(D\) is the product of the \idx{diagonal entries}: \(\det D=d_{11}d_{22}\cdots d_{nn}\)\,.
-\item \label{thm:basicdet:ii}Every \idx{orthogonal matrix}~\(Q\) has  \(\det Q=\pm1\) (only one alternative, not both).
+\item\label[theorem]{thm:basicdet:ii}Every \idx{orthogonal matrix}~\(Q\) has  \(\det Q=\pm1\) (only one alternative, not both).
 Further, \(\det Q=\det(\tr Q)\).
-\item \label{thm:basicdet:iii}For every \(n\times n\) matrix~\(A\), \(\det(kA)=k^n\det A\) for every \idx{scalar}~\(k\).
+\item\label[theorem]{thm:basicdet:iii}For every \(n\times n\) matrix~\(A\), \(\det(kA)=k^n\det A\) for every \idx{scalar}~\(k\).
 \end{enumerate}
 \end{theorem}
 \begin{proof} Use \autoref{def:detarea}.
 %Direct from definition, and that an orthogonal matrix is a rotation and so preserves $n$D-volumes (\(\det Q=\det(\tr Q)=-1\) if \(Q\)~also involves a reflection).
-\begin{itemize}
+\begin{description}
 \Needspace{8\baselineskip}
-\item[\ref{thm:basicdet:i}.]
+\item[\ref{thm:basicdet:i}]
 The unit $n$D-cube in~\(\RR^n\) has edges \hlist\ev n\ (the unit vectors).
 Multiplying each of these edges by the diagonal matrix \(D=\diag(d_{11},d_{22},\ldots,d_{nn})\) maps the unit $n$D-cube to a $n$D-`rectangle' with edges \(d_{11}\ev_1,d_{22}\ev_2,\ldots,d_{nn}\ev_n\) (as illustrated in the margin).
 \marginpar{\def\unithouseviews{30}\ThreeD30002000{0.5}}
 Being a $n$D-rectangle with all edges orthogonal, its $n$D-volume is the product of the length of the sides; that is, \(|\det D|=|d_{11}|\cdot|d_{22}|\cdots |d_{nn}|\).
 The $n$D-cube is reflected only if there are an odd number of negative \idx{diagonal elements}, hence the sign of the determinant is such that \(\det D=d_{11}d_{22}\cdots d_{nn}\)\,.
 
-\item[\ref{thm:basicdet:ii}.]
+\item[\ref{thm:basicdet:ii}]
 Multiplication by an orthogonal matrix~\(Q\) is a rotation and/or reflection as it preserves all lengths and angles (\autoref{thm:orthog:iv}).
 Hence it preserves $n$D-volumes.
 Consequently the image of the unit $n$D-cube under multiplication by~\(Q\) has the same volume of one; that is, \(|\det Q|=1\)\,.
-The sign of~\(\det Q\) characterises whether multiplication by~\(Q\) has a reflection.
+The sign of~\(\det Q\) characterizes whether multiplication by~\(Q\) has a reflection.
 
 When \(Q\)~is orthogonal then so is~\(\tr Q\) (\autoref{thm:orthog:ia}).  Hence \(\det\tr Q=\pm1\)\,.
 Multiplication by~\(Q\) involves a reflection iff its inverse of multiplication by~\(\tr Q\) involves the reflection back again.
 Hence the signs of the two determinants must be the same: that is, \(\det Q=\det\tr Q\)\,.
 
-\item[\ref{thm:basicdet:iii}.]
+\item[\ref{thm:basicdet:iii}]
 Let the matrix~\(A\) transform the unit $n$D-cube to a $n$D-parallelepiped~\(C'\) that  (by definition) has $n$D-volume~\(|\det A|\).
 Multiplication by the matrix~\((kA)\) then forms a $n$D-parallelepiped which is \(|k|\)-times bigger than~\(C'\) in every direction.
 In~\(\RR^n\) its $n$D-volume is then \(|k|^n\)-times bigger; that is,
@@ -256,7 +242,7 @@ If the scalar~\(k\) is negative then the orientation of the image is reversed (r
 \marginpar{\TwoD{-1}00{-1}}%
 (For example, the unit square shown in the margin is transformed through multiplication by~\((-1)I_2\) and the effect is the same as rotation by~\(180^\circ\), without any reflection as \((-1)^2=1\)\,.)
 Hence for all real~\(k\), the orientation is such that \(\det(kA)=k^n\det A\). 
-\end{itemize}
+\end{description}
 \end{proof}
 
 
@@ -281,12 +267,6 @@ What is the determinant of \(-I_n\)?
 \actposs{\(-1\) for odd~\(n\), and \(+1\) for even~\(n\)}
 {\(-1\)}{\(+1\)}
 {\(+1\) for odd~\(n\), and \(-1\) for even~\(n\)}
-%\begin{parts}
-%\item \(-1\)
-%\item \(+1\)
-%\item \(-1\) for odd~\(n\), and \(+1\) for even~\(n\) \actans
-%\item \(+1\) for odd~\(n\), and \(-1\) for even~\(n\)
-%\end{parts}
 \end{activity}
 
 
@@ -294,7 +274,7 @@ What is the determinant of \(-I_n\)?
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use~\eqref{eq:dets23b} to compute the determinant of the \idx{orthogonal matrix}
 \begin{equation*}
 Q=\begin{bmatrix} \frac13&-\frac23&\frac23
@@ -329,9 +309,9 @@ Then use \autoref{thm:basicdet} to deduce the determinants of the following matr
 
 \item The first matrix is~\(\tr Q\) for which \(\det\tr Q=\det Q=1\)\,.
 
-\item The second matrix is minus three times~\(Q\) so, being \(3\times3\) matrices, its determinant is~\((-3)^3\det Q=-27\)\,.
+\item The second matrix is minus three times~\(Q\) so, being \(3\times3\) matrices, its determinant is~\((-3)^3\det Q=-27\cdot1=-27\)\,.
 
-\item The third matrix is half of~\(Q\) so, being \(3\times3\) matrices, its determinant is~\((\tfrac12)^3\det Q=\frac18\)\,.
+\item The third matrix is half of~\(Q\) so, being \(3\times3\) matrices, its determinant is~\((\tfrac12)^3\det Q=\frac18\cdot1=\frac18\)\,.
 \end{itemize}
 \end{solution}
 \end{example}
@@ -350,17 +330,10 @@ what is
 \\-2&2&4&2
 \\2&0&0&2 \end{bmatrix}\)?
 \actposs[4]{\(-16\)}{\(8\)}{\(2\)}{\(-4\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(8\)
-%\item \(2\)
-%\item \(-4\)
-%\item \(-16\)
-%\end{parts}
 \end{activity}
 
 
-A consequence of \autoref{thm:basicdet:iii} is that a determinant characterises the transformation of any sized \idx{hyper-cube}. 
+A consequence of \autoref{thm:basicdet:iii} is that a determinant characterizes the transformation of any sized \idx{hyper-cube}. 
 Consider the transformation by a matrix~\(A\) of an \index{nD-cube@$n$D-cube}$n$D-cube of side length~\(k\,(k\geq0)\), and hence of volume~\(k^n\).
 The \index{nD-cube@$n$D-cube}$n$D-cube has edges \hlist{k\ev}n.
 The transformation results in an \index{nD-parallelepiped@$n$D-parallelepiped}$n$D-\idx{parallelepiped} with edges \(A(k\ev_1),A(k\ev_2),\ldots,A(k\ev_n)\), which by \idx{commutativity} and associativity (\autoref{thm:pmmc}) are the same edges as \hlist{(kA)\ev}n.
@@ -369,7 +342,7 @@ This is a factor of~\(|\det A|\) times the original volume.
 Crucially, this property that \idx{matrix multiplication} multiplies all sizes of hyper-cubes by the determinant holds for all other shapes and sizes, not just hyper-cubes.
 Let's see an specific example before proving the general theorem.
 
-\begin{example} \label{eg:}
+\begin{example} 
 Multiplication by some specific matrix transforms the (blue) triangle~\(C\) to the (red) triangle~\(C'\) as shown in the margin.  By finding the ratio of the \idx{area}s, estimate the \idx{magnitude} of the determinant of the matrix.
 \marginpar{\begin{tikzpicture}
     \begin{axis}[footnotesize,axis equal image, axis lines=middle]
@@ -424,15 +397,13 @@ We do not detail such a more rigorous proof here.
 
 This property of transforming general \idx{area}s and volumes also establishes the next crucial property of determinants, namely that the determinant of a \idx{matrix product} is the product of the determinants: \(\det(AB)=\det(A)\det(B)\) for all square matrices~\(A\) and~\(B\) (of the same size).
 
-\begin{example} \label{eg:}
-Recall the two \(2\times2\) matrices of Examples~\ref{eg:detarea1} and~\ref{eg:detarea2}:
-\begin{equation*}
-A=\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix},\quad
-B=\begin{bmatrix} -1&1\\1&1 \end{bmatrix}.
-\end{equation*}
+\begin{example} 
+Recall the two \(2\times2\) matrices of \cref{eg:detarea1,eg:detarea2}:
+\(A=\begin{bmat} 1/2&1\\0&1 \end{bmat}\) and
+\(B=\begin{bmat} -1&1\\1&1 \end{bmat}\).
 Check that the determinant of their product is the product of their determinants. 
 \begin{solution} 
-First, Examples~\ref{eg:detarea1} and~\ref{eg:detarea2} computed \(\det A=\tfrac12\) and \(\det B=-2\)\,.
+First, \cref{eg:detarea1,eg:detarea2} computed \(\det A=\tfrac12\) and \(\det B=-2\)\,.
 Thus the product of their determinants is \(\det(A)\det(B)=-1\)\,.
 
 Secondly, calculate the matrix product
@@ -496,21 +467,14 @@ Given that the three matrices
 \end{equation*}
 have determinants~\(2\)\,, \(-4\) and~\(3\), respectively, what is the determinant of the product of the three matrices?
 \actposs[4]{\(-24\)}{\(1\)}{\(9\)}{\(24\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(-24\)
-%\item \(1\)
-%\item \(9\)
-%\item \(24\)
-%\end{parts}
 \end{activity}
 
 
 
 
-\begin{example} \label{eg:}
-\begin{enumerate}
-\item\label{eg:baddets} Confirm the product rule for determinants, \autoref{thm:detprod}, for the product
+\begin{example}\label[example]{eg:2baddets}
+\begin{enumerate}[ref=\ref{eg:2baddets}(\alph*)]
+\item\label[example]{eg:baddets} Confirm the product rule for determinants, \autoref{thm:detprod}, for the product
 \begin{equation*}
 \begin{bmatrix} -3&-2\\3&-3 \end{bmatrix}
 =\begin{bmatrix} 3&1&1\\0&-3&0 \end{bmatrix}
@@ -530,7 +494,7 @@ However, if we are \emph{additionally} given that \(A\) and~\(B\) are the same s
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use the product theorem to help find the determinant of matrix
 \begin{equation*}
 C=\begin{bmatrix} 45&-15&30\\
@@ -553,7 +517,7 @@ The second matrix, from~\eqref{eq:dets23b}, has determinant\({}=-9-2-8-2-12+6=-2
 
 We now proceed to link the determinant of a matrix to the \idx{singular value}s of the matrix.
 
-\begin{example} \label{eg:}
+\begin{example} 
 Recall \autoref{eg:3by3svd} showed that the following matrix has the given \svd:
 \begin{eqnarray*}
 A&=&\begin{bmatrix}-4&-2&4
@@ -590,7 +554,7 @@ For every \(n\times n\) \idx{square matrix}~\(A\), the \idx{magnitude} of its de
 
 \begin{proof} 
 Consider an \svd\ of the matrix \(A=\usv\).
-Theorems~\ref{thm:basicdet} and~\ref{thm:detprod} empowers the following identities:
+\cref{thm:basicdet,thm:detprod} empowers the following identities:
 \begin{eqnarray*}
 \det A&=&\det(\usv)
 \\&=&\det(U)\det(S)\det(\tr V)
@@ -598,15 +562,15 @@ Theorems~\ref{thm:basicdet} and~\ref{thm:detprod} empowers the following identit
 \\&=&(\pm 1)\det(S)(\pm 1)
 \quad(\text{by \autoref{thm:basicdet:ii}})
 \\&=&\pm \det S
-\quad(\text{and since \(S\) is diagonal})
+\quad(\text{and then since \(S\) is diagonal})
 \\&=&\pm \sigma_1\sigma_2\cdots\sigma_n\,.
 \quad(\text{by \autoref{thm:basicdet:i}})
 \end{eqnarray*}
 Hence \(|\det A|=\sigma_1\sigma_2\cdots\sigma_n\)\,.
 \end{proof}
 
-\begin{example} \label{eg:}
-Confirm \autoref{thm:detsvd} for the matrix \(A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix}\) of \autoref{eg:2by2svd}.
+\begin{example} 
+Confirm \autoref{thm:detsvd} for the matrix \(A=\begin{bmat} 10&2\\5&11 \end{bmat}\) of \autoref{eg:2by2svd}.
 \begin{solution} 
 \autoref{eg:2by2svd} gave the \svd
 \begin{equation*}
@@ -643,21 +607,14 @@ A=\begin{bmatrix} \frac13&-\frac23&\frac23
 \\-\frac49&\frac49&\frac79
 \\-\frac19&-\frac89&\frac49 \end{bmatrix}}.
 \end{equation*}
-What is the the \idx{magnitude} of the determinant of~\(A\), \(|\det A\,|\)\,?
+What is the \idx{magnitude} of the determinant of~\(A\), \(|\det A\,|\)\,?
 \actposs[4]{\(0\)}{\(4\)}{\(18\)}{\(81\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(0\) \actans
-%\item \(4\)
-%\item \(18\)
-%\item \(81\)
-%\end{parts}
 \end{activity}
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use an \svd\ of the following matrix to find the \idx{magnitude} of its determinant:
 \begin{equation*}
 A=\begin{bmatrix}-2&-1&4&-5
@@ -678,9 +635,9 @@ Establishing this connection between determinants and \idx{singular value}s reli
 We now establish that this determinant-transpose property holds for the \idx{transpose} of all square matrices.
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 \autoref{eg:baddets} determined that
-\(\det\begin{bmatrix} -3&-2\\3&-3 \end{bmatrix}=15\)\,.
+\(\det\begin{bmat} -3&-2\\3&-3 \end{bmat}=15\)\,.
 By~\eqref{eq:dets23b}, its transpose has determinant
 \begin{equation*}
 \det\begin{bmatrix} -3&3\\-2&-3 \end{bmatrix}
@@ -697,7 +654,7 @@ For every \idx{square matrix}~\(A\), \(\det(\tr A)=\det A\).
 \end{theorem}
 \begin{proof} 
 Use an \svd\ of the \(n\times n\) matrix, say \(A=\usv\).
-Then Theorems~\ref{thm:basicdet} and~\ref{thm:detprod} empowers the following:
+Then \cref{thm:basicdet,thm:detprod} empowers the following:
 \begin{eqnarray*}
 \det A&=&\det(\usv)
 \\&=&\det(U)\det(S)\det(\tr V)\quad(\text{by \autoref{thm:detprod}})
@@ -710,9 +667,9 @@ Then Theorems~\ref{thm:basicdet} and~\ref{thm:detprod} empowers the following:
 \end{eqnarray*}
 \end{proof}
 
-\begin{example} \label{eg:}
-A general \(3\times 3\) matrix \(A=\begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix}\) has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,.
-Its transpose, \(\tr A=\begin{bmatrix} a&d&g\\b&e&h\\c&f&i \end{bmatrix}\), from the rule~\eqref{eq:dets23b}
+\begin{example} 
+Every \(3\times 3\) matrix has the form \(A=\begin{bmat} a&b&c\\d&e&f\\g&h&i \end{bmat}\) which has \idx{determinant} \(\det A=|A|=aei+bfg+cdh-ceg-afh-bdi\)\,.
+Its transpose, \(\tr A=\begin{bmat} a&d&g\\b&e&h\\c&f&i \end{bmat}\), from the rule~\eqref{eq:dets23b}
 \begin{equation*}
 \setlength{\unitlength}{1ex}
 \def\z{\hspace*{-0.15em}&}
@@ -750,10 +707,8 @@ Such extreme squashing cannot be uniquely undone.
 
 \begin{example} \label{eg:detzerorow}
 Consider multiplication by the matrix 
-\begin{equation*}
-A=\begin{bmatrix} 1&\frac12&0
-\\0&\frac12&1 \\0&0&0 \end{bmatrix}.
-\end{equation*}
+\(A=\begin{bmat} 1&1/2&0
+\\0&1/2&1 \\0&0&0 \end{bmat}\).
 whose effect on the \idx{unit cube} is illustrated below:
 \begin{center}
 \ThreeD{1}{0.5}{0}{0}{0.5}{1}{0}{0}{0}
@@ -796,7 +751,7 @@ dividing by~\(\det A\) gives \(\det(A^{-1})=1/\det A\)\,.
 
 \begin{exercise} \label{ex:2x2detseye} 
 For each of the given illustrations of a \idx{linear transformation} of the \idx{unit square}, `guesstimate' by eye the \idx{determinant} of the matrix of the transformation (estimate to say~33\% or so).
-\begin{parts}
+\begin{Parts}
 % A=round(randn(2)*10)/10; A(abs(A)==min(abs(A(:))))=0, detA=det(A)
 \item \TwoD{0.5}{-0.5}{0}{1}
 \answer{\(\det\approx 0.5\)}
@@ -817,7 +772,7 @@ For each of the given illustrations of a \idx{linear transformation} of the \idx
 \answer{\(\det\approx -0.9\)}
 
 % A=round(randn(2)*10)/10, detA=det(A)
-
+\begin{reduce}
 \item \TwoD{0.4}{0.7}{-1.2}{0.5}
 \answer{\(\det\approx 1.04\)}
 
@@ -835,14 +790,14 @@ For each of the given illustrations of a \idx{linear transformation} of the \idx
 
 \item \TwoD{-0.3}{-0.8}{0.6}{-2.1}
 \answer{\(\det\approx -1.11\)}
-
-\end{parts}
+\end{reduce}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the transformations illustrated in \autoref{ex:2x2detseye}, estimate the matrix of the \idx{linear transformation} (to within say~10\%). 
 Then use formula~\eqref{eq:dets23b} to estimate the determinant of your matrix and confirm \autoref{ex:2x2detseye}.
 \end{exercise}
@@ -851,7 +806,7 @@ Then use formula~\eqref{eq:dets23b} to estimate the determinant of your matrix a
 
 
 
-\begin{exercise} \label{ex:default} 
+\begin{exercise}  
 For each of the following stereo illustrations of a \idx{linear transformation} of the \idx{unit cube}, estimate the matrix of the \idx{linear transformation} (to within say~20\%). 
 Then use formula~\eqref{eq:dets23b} to estimate the determinant of the matrix of the transformation.
 % A=round(randn(3)*10)/10; [~,j]=sort(abs(A(:))); A(j(1:3))=0, detA=det(A)
@@ -859,11 +814,13 @@ Then use formula~\eqref{eq:dets23b} to estimate the determinant of the matrix of
 \item \ThreeD{0.0}{0.3}{1.0}{0.6}{-1.5}{0.0}{-2.0}{0.0}{0.7}
 \answer{\(\det\approx  -3.1\)}
 
+\begin{reduce}
 \item \ThreeD{-2.0}{0.9}{-1.2}{-1.3}{0.9}{0.0}{0.0}{1.0}{0.0}
 \answer{\(\det\approx  1.6\)}
 
 \item \ThreeD{0.0}{1.2}{-0.8}{-0.5}{0.0}{1.0}{-0.9}{-0.9}{0.0}
 \answer{\(\det\approx -1.4 \)}
+\end{reduce}
 
 \item \ThreeD{0.0}{-1.7}{2.1}{0.0}{-0.8}{-0.5}{0.4}{-0.7}{0.0}
 \answer{\(\det\approx 1.0 \)}
@@ -881,14 +838,14 @@ Then use formula~\eqref{eq:dets23b} to estimate the determinant of the matrix of
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, use~\eqref{eq:dets23b} to find all the values of~\(k\) for which the matrix is \emph{not} \idx{invertible}.
 %\begin{verbatim}
 %n=2
 %A=round(full(sprandn(n,n,0.7))*3)+0, B=round(full(sprandn(n,n,0.5))*2)+0, eig(A,-B)
 %\end{verbatim}
 
-\begin{parts}
+\begin{Parts}
 \item \(\eAii=\begin{bmatrix} 0 & 6-2k
 \\-2k & -4 \end{bmatrix}\)
 \answer{\(0,3\)}
@@ -907,6 +864,7 @@ For each of the following matrices, use~\eqref{eq:dets23b} to find all the value
 \\0 & 0 & 4+2k \end{bmatrix}\)
 \answer{\(-\frac12,-1,-2\)}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} -1-2k & 5 & 1-k
 \\0 & -2 & 0
 \\0 & 0 & -7+k \end{bmatrix}\)
@@ -916,8 +874,8 @@ For each of the following matrices, use~\eqref{eq:dets23b} to find all the value
 \\3 & 7 & 3k
 \\0 & 2k & 2-k \end{bmatrix}\)
 \answer{\(0,-\frac16,-4\)}
-
-\end{parts}
+\end{reduce}
+\end{Parts}
 \end{exercise}
 
 
@@ -925,7 +883,7 @@ For each of the following matrices, use~\eqref{eq:dets23b} to find all the value
 
 
 
-\begin{exercise} \label{ex:default} 
+\begin{exercise}  
 Find the determinants of each of the following matrices.
 % A=0+round(diag(randn(1,4)*3)),deta=det(A)
 \begin{enumerate}
@@ -935,6 +893,7 @@ Find the determinants of each of the following matrices.
 \\0&0&0&3 \end{bmatrix}\)
 \answer{\(36\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -3&0&0&0
 \\0&-1&0&0
 \\0&0&1&0
@@ -946,6 +905,7 @@ Find the determinants of each of the following matrices.
 \\0&0&-5/2&0
 \\0&0&0&-1/2 \end{bmatrix}\)
 \answer{\(-15/16\)}
+\end{reduce}
 
 \item \(\begin{bmatrix} 5/6&0&0&0
 \\0&-1&0&0
@@ -985,6 +945,7 @@ Find the determinants of each of the following matrices.
 \\7&-1&-4&-2 \end{bmatrix}= 246 \)
 \answer{\(82/27\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -12&-16&-4&12
 \\-4&8&-4&-16
 \\-0&-4&-12&4
@@ -994,6 +955,7 @@ Find the determinants of each of the following matrices.
 \\0&1&3&-1
 \\-1&1&2&-1 \end{bmatrix}= -34 \)
 \answer{\(-8704\)}
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}
@@ -1001,13 +963,13 @@ Find the determinants of each of the following matrices.
 
 
 
-\begin{exercise} \label{ex:default} 
-Use Theorems~\ref{thm:idm} and~\ref{thm:basicdet:i} to prove that for every diagonal square matrix~\(D\), \(\det(D^{-1})=1/\det D\) provided \(\det D\neq 0\)\,.
+\begin{exercise} 
+Use \cref{thm:idm,thm:basicdet:i} to prove that for every diagonal square matrix~\(D\), \(\det(D^{-1})=1/\det D\) provided \(\det D\neq 0\)\,.
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:default} 
+\begin{exercise} 
 For each pair of following matrices, by computing in full using~\eqref{eq:dets23b} confirm \(\det(AB)=\det(BA)=\det(A)\det(B)\). 
 Show your working.
 % A=full(0+round(randn(n,n)*3)/2),B=full(0+round(randn(n,n)*3)/2), detA=det(A),detB=det(B)
@@ -1022,6 +984,7 @@ Show your working.
 \(B=\begin{bmatrix} 1/2&-5/2
 \\-1/2&3/2 \end{bmatrix}\)
 
+\begin{reduce}
 \item \(A=\begin{bmatrix} 4&-1
 \\4&-3 \end{bmatrix}\), 
 \(B=\begin{bmatrix} -3/2&0
@@ -1047,6 +1010,7 @@ Show your working.
 \(B=\begin{bmatrix} 2&0&1
 \\0&1&0
 \\1&0&0 \end{bmatrix}\)
+\end{reduce}
 
 \item \(A=\begin{bmatrix} -2&-1/2&0
 \\0&0&2
@@ -1068,16 +1032,16 @@ Show your working.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Given that \(\det(AB)=\det(A)\det(B)\) for every two square matrices of the same size, prove that \(\det(AB)=\det(BA)\) (despite \(AB\neq BA\) in general).
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Given that \(n\times n\) matrices~\(A\) and~\(B\) have \(\det A=3\) and \(\det B=-5\)\,, determine the following determinants (if possible).
-\begin{parts}
+\begin{Parts}
 \item \(\det(AB)\)
 \answer{\(-15\)}
 
@@ -1096,13 +1060,15 @@ Given that \(n\times n\) matrices~\(A\) and~\(B\) have \(\det A=3\) and \(\det B
 \item \(\det(2A)\)
 \answer{\(3\cdot2^n\)}
 
+\begin{reduce}
 \item \(\det(\tr B/2)\)
 \answer{\(-5/2^n\)}
 
 \item \(\det(\tr BB)\)
 \answer{\(25\)}
+\end{reduce}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -1110,7 +1076,7 @@ Given that \(n\times n\) matrices~\(A\) and~\(B\) have \(\det A=3\) and \(\det B
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Let \(A\) and~\(P\) be square matrices of the same size, and let matrix~\(P\) be invertible.  Prove that \(\det(P^{-1}AP)=\det A\)\,.
 \end{exercise}
 
@@ -1118,14 +1084,14 @@ Let \(A\) and~\(P\) be square matrices of the same size, and let matrix~\(P\) be
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Suppose square matrix~\(A\) satisfies \(A^2=A\) (called \idx{idempotent}).  Determine all possible values of~\(\det A\)\,.
 Invent and verify a nontrivial example of a idempotent matrix.
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Suppose a square matrix~\(A\) satisfies \(A^p=O\) for some integer exponent~\(p\geq 2\) (called \idx{nilpotent}). 
 Determine all possible values of~\(\det A\)\,.
 Invent and verify a nontrivial example of a nilpotent matrix. 
@@ -1146,15 +1112,15 @@ For \(n\times n\) matrices \hlist A\ell, use induction to prove the second part 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 To complement the algebraic argument of \autoref{thm:detinv}, use a geometric argument based upon the transformation of \(n\)D-volumes to establish that \(\det(A^{-1})=1/(\det A)\) for an invertible matrix~\(A\).
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
-Suppose square matrix \(A=\begin{bmatrix} P&O\\O&Q \end{bmatrix}\) for some square matrices~\(P\) and~\(Q\), and appropriately sized zero matrices~\(O\).
+\begin{exercise}  
+Suppose square matrix \(A=\begin{bmat} P&O\\O&Q \end{bmat}\) for some square matrices~\(P\) and~\(Q\), and appropriately sized zero matrices~\(O\).
 Give a geometric argument justifying that \(\det A=(\det P)(\det Q)\).
 \end{exercise}
 
@@ -1162,9 +1128,9 @@ Give a geometric argument justifying that \(\det A=(\det P)(\det Q)\).
 
 
 \begin{exercise} 
-In a few sentences, answer\slash discuss each of the the following.
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
-\item  Why is it important that the determinant characterises how a matrix transforms vectors?
+\item  Why is it important that the determinant characterizes how a matrix transforms vectors?
 
 \item What causes a determinant to be only defined for square matrices?
 

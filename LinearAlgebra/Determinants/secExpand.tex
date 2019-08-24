@@ -3,7 +3,7 @@
 
 \section{Laplace expansion theorem for determinants}
 \label{sec:apd}
-\secttoc
+%\secttoc
 
 \index{determinant|(}
 
@@ -29,10 +29,8 @@ We start with examples of row properties that underpin a row\slash column algebr
 
 \begin{example}[\autoref{thm:ppdet:i}] \label{eg:detzerorowii}
 \autoref{eg:detzerorow} argued geometrically that the determinant is zero for the matrix
-\begin{equation*}
-A=\begin{bmatrix} 1&\frac12&0
-\\0&\frac12&1 \\0&0&0 \end{bmatrix}.
-\end{equation*}
+\(A=\begin{bmat} 1&1/2&0
+\\0&1/2&1 \\0&0&0 \end{bmat}\).
 Confirm this determinant algebraically.
 \begin{solution} 
 Using~\eqref{eq:dets23b}, \(\det A
@@ -44,13 +42,11 @@ In every term there is a zero from the last row of the matrix.
 \end{example}
 
 
-\begin{example}[\autoref{thm:ppdet:ii}] \label{eg:}
+\begin{example}[\autoref{thm:ppdet:ii}] 
 Consider the matrix with two identical rows,
-\begin{equation*}
-A=\begin{bmatrix} 1&\frac12&\frac15
-\\1&\frac12&\frac15
-\\0&\frac12&1 \end{bmatrix}.
-\end{equation*}
+\(A=\begin{bmat} 1&1/2&1/5
+\\1&1/2&1/5
+\\0&1/2&1 \end{bmat}\).
 Confirm algebraically that its determinant is zero.
 Give a geometric reason for why its determinant has to be zero.
 
@@ -76,15 +72,13 @@ By \autoref{def:detarea}, \(\det A=0\)\,.
 
 
 \begin{example}[\autoref{thm:ppdet:iii}] \label{eg:detswap}
-Consider the two matrices with two rows swapped:
-\begin{equation*}
-A=\begin{bmatrix} 1&-1&0
+Consider the two matrices with two rows swapped (the first two rows):
+\(A=\begin{bmat} 1&-1&0
 \\0&1&1
-\\\frac15&\frac12&1 \end{bmatrix},\qquad
-B=\begin{bmatrix} 0&1&1
+\\1/5&1/2&1 \end{bmat}\) and
+\(B=\begin{bmat} 0&1&1
 \\1&-1&0
-\\\frac15&\frac12&1 \end{bmatrix}
-\end{equation*}
+\\1/5&1/2&1 \end{bmat}\)
 Confirm algebraically that their determinants are the negative of each other.
 Give a geometric reason why this should be so.
 \begin{solution} 
@@ -119,33 +113,32 @@ Hence \(A\xv\) and~\(B\xv\) are always the reflection of each other in the plane
 %1{-1}{0}
 %{0.2}{0.5}1
 %} %
-Consequently, the images of the unit cubes under multiplication by~\(A\) and by~\(B\) are the reflection of each other in the plane \(x_1=x_2\)\,, as illustrated below,
+Consequently, the images of the unit cubes under multiplication by~\(A\) and by~\(B\) are the reflection of each other in the plane \(x_1=x_2\)\,, 
+%as illustrated below,
 and so the determinants must be the negative of each other.
-\begin{center}
-\def\unithouseviews{25,20}
-\(A\)\quad\ThreeD
-1{-1}{0}
-011
-{0.2}{0.5}1
-\\
-\(B\)\quad\ThreeD
-011
-1{-1}{0}
-{0.2}{0.5}1
-\end{center}
+%\begin{center}
+%\def\unithouseviews{25,20}
+%\(A\)\quad\ThreeD
+%1{-1}{0}
+%011
+%{0.2}{0.5}1
+%\\
+%\(B\)\quad\ThreeD
+%011
+%1{-1}{0}
+%{0.2}{0.5}1
+%\end{center}
 \end{solution}
 \end{example}
 
 
 
 
-\begin{example}[\autoref{thm:ppdet:iv}] \label{eg:}
+\begin{example}[\autoref{thm:ppdet:iv}] 
 Compute the determinant of the matrix
-\begin{equation*}
-B=\begin{bmatrix} 1&-1&0
+\(B=\begin{bmat} 1&-1&0
 \\0&1&1
-\\2&5&10 \end{bmatrix}.
-\end{equation*}
+\\2&5&10 \end{bmat}\).
 Compare~\(B\) with matrix~\(A\) given in \autoref{eg:detswap}, and compare their determinants.
 \begin{solution} 
 Using~\eqref{eq:dets23b}, \(\det B 
@@ -162,19 +155,19 @@ Correspondingly, \(\det B=3=10\times\frac3{10}=10\det A\)\,.
 
 
 
-The above four examples are specific cases of the four general properties established as the four parts of the following theorem. 
+The above four examples are specific cases of the four general properties established by the following theorem. 
 
 
 \begin{theorem}[row and column properties of determinants] \label{thm:ppdet} 
 For every \(n\times n\) matrix~\(A\) the following properties hold.
-\begin{enumerate}
-\item\label{thm:ppdet:i} 
+\begin{enumerate}[ref=\ref{thm:ppdet}(\alph*)]
+\item\label[theorem]{thm:ppdet:i} 
 If \(A\) has a \idx{zero row} or \index{zero column}column, then \(\det A=0\)\,.
-\item\label{thm:ppdet:ii} 
+\item\label[theorem]{thm:ppdet:ii} 
 If \(A\) has two \idx{identical rows} or \index{identical columns}columns, then  \(\det A=0\)\,.
-\item\label{thm:ppdet:iii} 
-Let \(B\) be obtained by \idx{interchanging two rows} or \index{interchanging two columns}columns of~\(A\), then \(\det B=-\det A\)\,.
-\item\label{thm:ppdet:iv} 
+\item\label[theorem]{thm:ppdet:iii} 
+Let \(B\) be obtained by \idx{interchanging two rows} or \idx{interchanging two columns} of~\(A\), then \(\det B=-\det A\)\,.
+\item\label[theorem]{thm:ppdet:iv} 
 Let \(B\) be obtained by multiplying any \emph{one} row or column of~\(A\) by a \idx{scalar}~\(k\), then \(\det B=k\det A\)\,.
 \end{enumerate}
 \end{theorem}
@@ -182,7 +175,7 @@ Let \(B\) be obtained by multiplying any \emph{one} row or column of~\(A\) by a 
 \begin{proof} 
 We establish the  properties for matrix rows.  
 Then the same property holds for the columns because \(\det(\tr A)=\det(A)\) (\autoref{thm:dettr}).
-\begin{itemize}
+\begin{description}
 \item[\ref{thm:ppdet:iv}]
 Suppose row~\(i\) of matrix~\(A\) is multiplied by~\(k\) to give a new matrix~\(B\).
 Let the diagonal matrix
@@ -232,14 +225,14 @@ Using the matrix~\(E\) to swap these two identical rows results in the same matr
 Take determinants of both sides: \(\det A=\det(EA)=\det(E)\det(A)\).
 Since \(\det E=-1\) it follows that \(\det A=-\det A\)\,.
 Zero is the only number that equals its negative: thus \(\det A=0\)\,.
-\end{itemize}
+\end{description}
 \end{proof}
 
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 You are given that \(\det A=-9\) for the matrix
 \begin{equation*}
 A=\begin{bmatrix}0&2&3&1&4
@@ -249,7 +242,7 @@ A=\begin{bmatrix}0&2&3&1&4
 \\5&4&3&-2&-5\end{bmatrix}.
 \end{equation*}
 Use \autoref{thm:ppdet} to find the determinant of the following matrices, giving reasons. 
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix}0&2&3&0&4
 \\-2&2&-2&0&-3
 \\4&-2&-4&0&0
@@ -286,6 +279,7 @@ Use \autoref{thm:ppdet} to find the determinant of the following matrices, givin
 \(\det=\frac12\det A=-\frac92\) as the 2nd column is half that of~\(A\) 
 \end{solution}
 
+\begin{reduce}
 \item \(\begin{bmatrix}-2&2&-6&0&-3
 \\4&-2&-12&1&0
 \\2&-1&-12&2&2
@@ -303,8 +297,9 @@ Use \autoref{thm:ppdet} to find the determinant of the following matrices, givin
 \begin{solution} 
 Cannot answer as none of these row and column operations on~\(A\) appear to give this matrix.
 \end{solution}
+\end{reduce}
 
-\end{parts}
+\end{Parts}
 % brute force search
 %for i=1:99,a=round(randn(5)*3);if abs(det(a))<10, a=a,break,end,end
 \end{example}
@@ -330,20 +325,6 @@ Now, \(\det\begin{bmatrix} 2&-3&1
 {\(\begin{bmatrix} 2&-3&1/3
 \\2&-5&-1
 \\-4&1&-1 \end{bmatrix}\)}
-%\begin{parts}
-%\item \(\begin{bmatrix} -1&-3&1
-%\\-1&-5&-3
-%\\2&1&-3 \end{bmatrix}\)  \actans
-%\item \(\begin{bmatrix} 2&-3&1
-%\\2&-5&-3
-%\\2&-5&-3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} -4&6&-2
-%\\2&-5&-3
-%\\-4&1&-3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 2&-3&1/3
-%\\2&-5&-1
-%\\-4&1&-1 \end{bmatrix}\)
-%\end{parts}
 \item Further, which has determinant~\(-12\)? \(0\)? \(72\)?
 \end{itemize}
 \end{activity}
@@ -419,9 +400,9 @@ The next step in developing a general `formula' for a determinant is the special
 %\color{blue!50!white}\multiput(2,8)(3,0)3{\line(5,-4)9}
 %\end{picture}}
 
-\begin{example} \label{eg:}
+\begin{example} 
 Find the determinant of 
-\(A=\begin{bmatrix} -2&-1&-1\\1&-3&-2\\0&0&2 \end{bmatrix}\)
+\(A=\begin{bmat} -2&-1&-1\\1&-3&-2\\0&0&2 \end{bmat}\)
 which has two zeros in its last row.
 \begin{solution} Let's use two different arguments, both illustrating the next theorem and proof.
 \begin{itemize}
@@ -432,9 +413,9 @@ which has two zeros in its last row.
 -(-1)(-3)0-(-2)(-2)0-(-1)1\cdot2
 \\&=&2\big[(-2)(-3)-(-1)1\big]=2\cdot7=14\,.
 \end{eqnarray*}
-Observe \(\det A=2\cdot7=2\cdot\det\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) which is the expression to be generalised.
+Observe \(\det A=2\cdot7=2\cdot\det\begin{bmat} -2&-1\\1&-3 \end{bmat}\) which is the expression to be generalized.
 
-\item Alternatively we use the product rule for determinants. Recognise that the matrix~\(A\) may be written as the product \(A=FB\) where
+\item Alternatively we use the product rule for determinants. Recognize that the matrix~\(A\) may be written as the product \(A=FB\) where
 \begin{equation*}
 F=\begin{bmatrix} 1&0&-\frac12\\0&1&-1\\0&0&1 \end{bmatrix},
 \quad B=\begin{bmatrix} -2&-1&0\\1&-3&0\\0&0&2 \end{bmatrix};
@@ -454,7 +435,7 @@ Consequently, by \autoref{def:detarea}, \(\det F=1\)\,.
 \ThreeD{-2}{-1}01{-3}000{2}
 \end{center}
 Firstly,  the \(2\times2\) top-left sub-matrix, being bordered by zeros, maps the \idx{unit square} in the \(x_1x_2\)-plane into the base parallelogram in the \(x_1x_2\)-plane.
-The shape of the parallelogram is determined by the top-left sub-matrix \(\small\begin{bmatrix} -2&-1\\1&-3 \end{bmatrix}\) (to be called the \(A_{33}\)~minor) acting on the \idx{unit square}.
+The shape of the parallelogram is determined by the top-left sub-matrix \(\begin{bmat} -2&-1\\1&-3 \end{bmat}\) (to be called the \(A_{33}\)~minor) acting on the \idx{unit square}.
 Thus the \idx{area} of the parallelogram is \(\det A_{33}=(-2)(-3)-(-1)1=7\)\,.
 Secondly, the~\(2\) in the bottom corner of~\(B\) stretches objects vertically by a factor of~\(2\) to form a parallelepiped of height~\(2\).
 Thus the volume of the parallelepiped, \(\det B\) by \autoref{def:detarea}, is \(2\cdot\det A_{33}=2\cdot 7=14\)\,.
@@ -571,8 +552,8 @@ I_{n-1}\ov+\av'_n/a_{nn}\cdot a_{nn}\\
 \tr\ov  &
 a_{nn}  \end{bmatrix} =A\,.
 \end{eqnarray*}
-By \autoref{thm:detprod}, \(\det A=\det(FB)=\det(F)\det(B)\)\,.
-From the previous part \(\det B=a_{nn}\det A_{nn}\)\,, so we just need to determine~\(\det F\)\,.
+By \autoref{thm:detprod}, \(\det A=\det(FB)=\det(F)\det(B)\).
+From the previous part \(\det B=a_{nn}\det A_{nn}\)\,, so we just need to determine~\(\det F\).
 \marginpar{\def\unithouseviews{30}\ThreeD10{0.5}01{0.4}001}
 As illustrated for 3D in the margin, the action of matrix~\(F\) on the unit \(n\)D-cube is that of a simple shear keeping the \((n-1)\)D-cube base unchanged (due to the identity~\(I_{n-1}\) in~\(F\)).
 Since the height orthogonal to the \((n-1)\)D-cube base is unchanged (due to the one in the bottom-right corner of~\(F\)), the action of multiplying by~\(F\) leaves the volume of the unit \(n\)D-cube unchanged at one.
@@ -587,7 +568,7 @@ The resulting matrix, say~\(C\), has the form
 C=\begin{bmatrix} A_{ij}&\av'_j\\\tr\ov&a_{ij} \end{bmatrix}
 \end{equation*}
 for \(\av'_j\) denoting the \(j\)th~column of~\(A\) with the \(i\)th~entry omitted.
-Since matrix~\(C\) has the form addressed in the first part, we know \(\det C=a_{ij}\det A_{ij}\)\,.
+Since matrix~\(C\) has the form addressed in the third part, we know \(\det C=a_{ij}\det A_{ij}\)\,.
 From the row and column swapping, \(\det A=(-1)^{n-i}(-1)^{n-j}\det C =(-1)^{2n-i-j}\det C =(-1)^{-(i+j)}\det C =(-1)^{i+j}\det C =(-1)^{i+j}a_{ij}\det A_{ij}\)\,.
 \end{proof}
 
@@ -597,24 +578,26 @@ From the row and column swapping, \(\det A=(-1)^{n-i}(-1)^{n-j}\det C =(-1)^{2n-
 \begin{example} \label{eg:rpdet}
 Use \autoref{thm:rpdet:vii} to evaluate the determinant of the following matrices.  
 \begin{enumerate}
-\item \(\begin{bmatrix} -3&-3&-1\\-3&2&0\\0&0&2 \end{bmatrix}\)
+\item \(\begin{bmat} -3&-3&-1\\-3&2&0\\0&0&2 \end{bmat}\)
 \begin{solution} 
-There are two zeros in the bottom row so the determinant is \((-1)^62\det\begin{bmatrix} -3&-3\\-3&2 \end{bmatrix}=2(-6-9)=-30\)\,. 
+There are two zeros in the bottom row so the determinant is \((-1)^62\det\begin{bmat} -3&-3\\-3&2 \end{bmat}=2(-6-9)=-30\)\,. 
 \end{solution}
 
-\item \(\begin{bmatrix} 2&-1&7\\0&3&0\\2&2&5 \end{bmatrix}\)
+\item \(\begin{bmat} 2&-1&7\\0&3&0\\2&2&5 \end{bmat}\)
 \begin{solution} 
-There are two zeros in the middle row so the determinant is \((-1)^43\det\begin{bmatrix} 2&7\\2&5 \end{bmatrix}=3(10-14)=-12\)\,. 
+There are two zeros in the middle row so the determinant is \((-1)^43\det\begin{bmat} 2&7\\2&5 \end{bmat}=3(10-14)=-12\)\,. 
 \end{solution}
 
-\item \(\begin{bmatrix} 2&4&3\\8&0&-1\\-5&0&-2 \end{bmatrix}\)
+\begin{reduce}
+\item \(\begin{bmat} 2&4&3\\8&0&-1\\-5&0&-2 \end{bmat}\)
 \begin{solution} 
-There are two zeros in the middle column so the determinant is \((-1)^34\det\begin{bmatrix} 8&-1\\-5&-2 \end{bmatrix}=-4(-16-5)=84\)\,. 
+There are two zeros in the middle column so the determinant is \((-1)^34\det\begin{bmat} 8&-1\\-5&-2 \end{bmat}=-4(-16-5)=84\)\,. 
 \end{solution}
+\end{reduce}
 
-\item \(\begin{bmatrix} 2&1&3\\0&-2&-3\\0&2&4 \end{bmatrix}\)
+\item \(\begin{bmat} 2&1&3\\0&-2&-3\\0&2&4 \end{bmat}\)
 \begin{solution} 
-There are two zeros in the first column so the determinant is \((-1)^22\det\begin{bmatrix} -2&-3\\2&4 \end{bmatrix}=2(-8+6)=-4\)\,. 
+There are two zeros in the first column so the determinant is \((-1)^22\det\begin{bmat} -2&-3\\2&4 \end{bmat}=2(-8+6)=-4\)\,. 
 \end{solution}
 
 \end{enumerate}
@@ -637,13 +620,6 @@ Using one of the determinants in the above \autoref{eg:rpdet}, what is the deter
 \\0&2&0&4 \end{bmatrix} ?
 \end{equation*}
 \actposs[4]{\(60\)}{\(-120\)}{\(-60\)}{\(120\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(-120\)
-%\item \(-60\)
-%\item \(60\)\actans
-%\item \(120\)
-%\end{parts}
 \end{activity}
 
 
@@ -692,7 +668,7 @@ There is, as expressed by the following definition and theorem.
 
 
 \begin{definition} \label{def:trim}
-A \bfidx{triangular matrix} is a \idx{square matrix} where all \idx{entries} are zero either to the lower-left of the diagonal or to the upper-right:
+A \bfidx{triangular matrix} is a \idx{square matrix} where all \idx{entries} are zero either to the lower-left of the diagonal or to the upper-right:%
 \footnote{From time-to-time, some people call an \idx{upper triangular} matrix either a \idx{right triangular} or an \idx{upper-right triangular} matrix.  
 Correspondingly, from time-to-time, some people  call a \idx{lower triangular} matrix either a \idx{left triangular} or a \idx{lower-left triangular} matrix.}
 \begin{itemize}
@@ -717,8 +693,8 @@ Correspondingly, from time-to-time, some people  call a \idx{lower triangular} m
 \end{definition}
 
 
-Any square \idx{diagonal matrix} is also an upper \idx{triangular matrix}, and is also a \idx{lower triangular} matrix.
-Thus the following theorem encompasses square diagonal matrices and so generalises \autoref{thm:basicdet:i}.
+Any square \idx{diagonal matrix} is both an upper \idx{triangular matrix}, and also a \idx{lower triangular} matrix.
+Thus the following theorem encompasses square diagonal matrices and so generalizes \autoref{thm:basicdet:i}.
 
 
 
@@ -730,9 +706,9 @@ the \idx{determinant} of~\(A\) is the product of the \idx{diagonal entries}, \(\
 A little induction proves the determinant of a triangular matrix is the product of its diagonal entries: only consider upper triangular matrices as transposing the matrix caters for lower triangular matrices.
 
 First, for \(1\times 1\) matrices the result is trivial.
-The results is also straightforward for \(2\times 2\) matrices since the determinant
+The result is also straightforward for \(2\times 2\) matrices since the determinant
 \begin{equation*}
-\begin{vmatrix} a_{11}&a_{12}\\0&a_{22} \end{vmatrix}
+\det\begin{bmatrix} a_{11}&a_{12}\\0&a_{22} \end{bmatrix}
 =a_{11}a_{22}-0a_{12}=a_{11}a_{22}
 \end{equation*}
 which is the product of the diagonal entries as required.
@@ -746,7 +722,7 @@ for \((n-1)\times(n-1)\) minor~\(A_{nn}\).
 \autoref{thm:rpdet:vii} establishes \(\det A=a_{nn}\det A_{nn}\)\,.  
 Since the  minor~\(A_{nn}\) is upper triangular and \((n-1)\times(n-1)\), by assumption \(\det A_{nn}=a_{11}a_{22}\cdots a_{n-1,n-1}\)\,.
 Consequently, \(\det A=a_{nn}\det A_{nn}=a_{nn}a_{11}a_{22}\cdots a_{n-1,n-1}\)\,, as required.
-Induction then establishes the theorem for all~\(n\).
+Induction on~\(n\) then establishes the theorem for every~\(n\).
 \end{proof}
 
 
@@ -770,104 +746,90 @@ Which of the following matrices is \emph{not} a \idx{triangular matrix}?
 \\0&-1&0&0
 \\0&0&2&0
 \\0&0&0&3 \end{bmatrix}\)}
-%\begin{parts}
-%\item \(\begin{bmatrix} -1&-1&1&0
-%\\0&-5&4&2
-%\\0&0&1&-2
-%\\0&0&0&1 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 0&0&0&0
-%\\3&4&0&0
-%\\4&-2&-1&0
-%\\-1&-2&2&-3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 0&0&0&-2
-%\\0&0&-1&-1
-%\\0&1&1&4
-%\\-1&-1&0&3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} -2&0&0&0
-%\\0&-1&0&0
-%\\0&0&2&0
-%\\0&0&0&3 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Find the determinant of those of the following matrices which are triangular.
 %a=triu(round(randn(5)*3))
 \begin{enumerate}
-\item \(\begin{bmatrix}-1&-1&-1&-5
+\item \(\begin{bmat}-1&-1&-1&-5
 \\0&-4&1&4
 \\0&0&7&0
-\\0&0&0&-3 \end{bmatrix}\)
+\\0&0&0&-3 \end{bmat}\)
 \begin{solution} 
 This is upper triangular, and its determinant is \((-1)\cdot(-4)\cdot7\cdot(-3)=-84\). 
 \end{solution}
 
-\item \(\begin{bmatrix}-3&0&0&0
+\item \(\begin{bmat}-3&0&0&0
 \\-4&2&0&0
 \\-1&1&1&0
-\\-2&-3&7&-1\end{bmatrix}\)
+\\-2&-3&7&-1\end{bmat}\)
 \begin{solution} 
 This is lower triangular, and its determinant is \((-3)\cdot2\cdot1\cdot)-1)=6\). 
 \end{solution}
 
-\item \(\begin{bmatrix}-4&0&0&0
+\begin{reduce}
+\item \(\begin{bmat}-4&0&0&0
 \\2&-2&0&0
 \\-5&-3&-2&0
-\\-2&5&-2&0\end{bmatrix}\)
+\\-2&5&-2&0\end{bmat}\)
 \begin{solution} 
 This is lower triangular, and its determinant is zero as it has a column of zeros. 
 \end{solution}
 
-\item \(\begin{bmatrix}0.2&0&0&0
+\item \(\begin{bmat}0.2&0&0&0
 \\0&1.1&0&0
 \\0&0&-0.5&0
-\\0&0&0&0.9\end{bmatrix}\)
+\\0&0&0&0.9\end{bmat}\)
 \begin{solution} 
 This diagonal matrix is both upper and lower triangular, and its determinant is \(0.2\cdot1.1\cdot(-0.5)\cdot0.9=-0.099\). 
 \end{solution}
+\end{reduce}
 
 %a=triu(round(randn(4)*3)),a=a(randperm(4),:)
-\item \(\begin{bmatrix}1&-1&1&-3
+\item \(\begin{bmat}1&-1&1&-3
 \\0&0&0&-5
 \\0&0&-3&-4
-\\0&-2&1&-2\end{bmatrix}\)
+\\0&-2&1&-2\end{bmat}\)
 \begin{solution} 
 This is not triangular, so we do not have to compute its determinant. 
-Nonetheless, if we swap the 2nd and 4th~rows, then the result is the upper triangular \(\footnotesize\begin{bmatrix}1&-1&1&-3
+Nonetheless, if we swap the 2nd and 4th~rows, then the result is the upper triangular \(\begin{bmat}1&-1&1&-3
 \\0&-2&1&-2
 \\0&0&-3&-4
-\\0&0&0&-5\end{bmatrix}\) and its determinant is \(1\cdot(-2)\cdot(-3)\cdot(-5)=-30\). 
+\\0&0&0&-5\end{bmat}\) and its determinant is \(1\cdot(-2)\cdot(-3)\cdot(-5)=-30\). 
 But the row swap changes the sign so the determinant of the original matrix is~\(-(-30)=30\).
 \end{solution}
 
-\item \(\begin{bmatrix}0&0&0&-3
+\item \(\begin{bmat}0&0&0&-3
 \\0&0&2&-4
 \\0&-1&4&-1
-\\-6&1&5&1\end{bmatrix}\)
+\\-6&1&5&1\end{bmat}\)
 \begin{solution} 
 This is \emph{not} triangular, so we do not have to compute its determinant. 
-Nonetheless, if we swap the 1st and 4th~rows, and the 2nd and 3rd~rows, then the result is the lower triangular \(\footnotesize\begin{bmatrix}-3&0&0&0
+Nonetheless, if we swap the 1st and 4th~rows, and the 2nd and 3rd~rows, then the result is the lower triangular \(\begin{bmat}-3&0&0&0
 \\-4&2&0&0
 \\-1&4&-1&0
-\\1&5&1&-6\end{bmatrix}\) and its determinant is \((-3)\cdot2\cdot(-1)\cdot(-6)=-36\). 
+\\1&5&1&-6\end{bmat}\) and its determinant is \((-3)\cdot2\cdot(-1)\cdot(-6)=-36\). 
 But each row swap changes the sign so the determinant of the original matrix is~\((-1)^2(-36)=-36\). 
 \end{solution}
 
-\item \(\begin{bmatrix}-1&0&0&1
+\begin{reduce}
+\item \(\begin{bmat}-1&0&0&1
 \\-2&0&0&0
 \\2&-2&-1&-2
-\\-1&0&4&2\end{bmatrix}\)
+\\-1&0&4&2\end{bmat}\)
 \begin{solution} 
 This is not triangular, so we do not have to compute its determinant. 
-Nonetheless, if we magically know to swap the 2nd and 4th~columns, the 1st and 2nd~rows, and the 3rd and 4th~rows, then the result is the lower triangular \(\footnotesize\begin{bmatrix}-2&0&0&0
+Nonetheless, if we magically know to swap the 2nd and 4th~columns, the 1st and 2nd~rows, and the 3rd and 4th~rows, then the result is the lower triangular \(\begin{bmat}-2&0&0&0
 \\-1&1&0&0
 \\-1&2&4&0
-\\2&-2&-1&-2\end{bmatrix}\) and its determinant is \((-2)\cdot1\cdot4\cdot(-2)=16\). 
+\\2&-2&-1&-2\end{bmat}\) and its determinant is \((-2)\cdot1\cdot4\cdot(-2)=16\). 
 But each row and column swap changes the sign so the determinant of the original matrix is~\((-1)^316=-16\). 
 \end{solution}
+\end{reduce}
 \end{enumerate}
 \end{example}
 
@@ -877,7 +839,7 @@ The above case of triangular matrices is a short detour from the main developmen
 The following two examples introduce the next property we need before establishing a general formula for determinants.
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Let's rewrite the explicit formulas~\eqref{eq:dets23b} for \(2\times2\) and \(3\times3\) determinants explicitly as the sum of simpler determinants.
 \begin{itemize}
 \item Recall that the \(2\times2\) determinant
@@ -1072,8 +1034,8 @@ The above proof for the last column case then assures us \((-\det A)=(-\det B)+(
 
 The \idx{sum} formula \autoref{thm:rpdet:v} leads to the common way to compute determinants by hand for matrices larger than \(3\times3\)\,, albeit not generally practical for matrices significantly larger.
 
-\begin{example} \label{eg:}
-Use Theorems~\ref{thm:rpdet:v} and~\ref{thm:rpdet:vii} to evaluate the determinant of matrix
+\begin{example} 
+Use \cref{thm:rpdet:v,thm:rpdet:vii} to evaluate the determinant of matrix
 \begin{equation*}
 A=\begin{bmatrix}   -2&1&-1
 \\   1 & -6 & -1
@@ -1176,13 +1138,6 @@ Which one of the following would not be used in the sum?
 {\(\begin{vmatrix} 4&6\\6&-3 \end{vmatrix}\)}
 {\(\begin{vmatrix} 6&-4\\6&-3 \end{vmatrix}\)}
 {\(\begin{vmatrix} 6&-4\\4&6 \end{vmatrix}\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\begin{vmatrix} 4&6\\6&-3 \end{vmatrix}\)
-%\item \(\begin{vmatrix} 7&6\\1&-3 \end{vmatrix}\)\actans
-%\item \(\begin{vmatrix} 6&-4\\6&-3 \end{vmatrix}\)
-%\item \(\begin{vmatrix} 6&-4\\4&6 \end{vmatrix}\)
-%\end{parts}
 \end{activity}
 
 
@@ -1191,18 +1146,18 @@ Which one of the following would not be used in the sum?
 \begin{theorem}[Laplace expansion theorem] \label{thm:letdet} 
 For every \(n\times n\) matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) (\(n\geq2\)), recall the \((i,j)\)th~\idx{minor} \(A_{ij}\)~to be the \((n-1)\times(n-1)\) matrix obtained from~\(A\) by omitting the \(i\)th~row and \(j\)th~column.  
 Then the \idx{determinant} of~\(A\) can be computed via expansion in any row~\(i\) or any column~\(j\) as, respectively,
-\begin{eqnarray}
+\begin{align}
 \det A
-&=&(-1)^{i+1}a_{i1}\det A_{i1}
+&=(-1)^{i+1}a_{i1}\det A_{i1}
 +(-1)^{i+2}a_{i2}\det A_{i2}
-\nonumber\\&&{}
+\nonumber\\&\quad{}
 +\cdots+(-1)^{i+n}a_{in}\det A_{in}
-\nonumber\\&=&(-1)^{j+1}a_{1j}\det A_{1j}
+\nonumber\\&=(-1)^{j+1}a_{1j}\det A_{1j}
 +(-1)^{j+2}a_{2j}\det A_{2j}
-\nonumber\\&&{}
+\nonumber\\&\quad{}
 +\cdots+(-1)^{j+n}a_{nj}\det A_{nj}\,.
 \label{eq:detlet}
-\end{eqnarray}
+\end{align}
 %Using summation notation,
 %\begin{equation*}
 %\det A=\sum_{j=1}^n (-1)^{i+j}a_{ij}\det A_{ij}
@@ -1320,7 +1275,7 @@ as required.
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use the Laplace expansion~\eqref{eq:detlet} to find the determinant of the following matrices.
 \begin{enumerate}
 \item \(\begin{bmatrix}0&2&1&2
@@ -1383,7 +1338,7 @@ In any case, remember that except for theoretical purposes there is rarely any n
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 The determinant of a \(3\times3\) matrix has \(3!=6\) terms, each a product of three factors:
 diagram~\eqref{eq:dets23b} gives the determinant
 \begin{equation*}
@@ -1431,7 +1386,7 @@ By induction the theorem holds for all~\(n\).
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 In each of the following, the determinant of a matrix is given. 
 Use \autoref{thm:ppdet} on the row and column properties of a determinant to find the determinant of the other four listed matrices.
 Give reasons for your answers.
@@ -1440,7 +1395,7 @@ Give reasons for your answers.
 \item \(\det\begin{bmatrix} -2 & 1 & -4
 \\-2 & -1 & 2
 \\-2 & 5 & -1 \end{bmatrix}=60\)
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 1 & 1 & -4
 \\1 & -1 & 2
 \\1 & 5 & -1 \end{bmatrix}\)
@@ -1453,7 +1408,7 @@ Give reasons for your answers.
 \item \(\begin{bmatrix} -2 & 1 & -4
 \\-2 & 5 & -1
 \\-2 & -1 & 2 \end{bmatrix}\)
-\end{parts}
+\end{Parts}
 \answer{\(-30,0,6,-60\)}
 
 
@@ -1461,7 +1416,7 @@ Give reasons for your answers.
 \\4 & -2 & -2 & -1
 \\0 & -3 & -1 & -4
 \\3 & 2 & 1 & 1 \end{bmatrix}=72\)
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 0 & -3 & -1 & -4
 \\4 & -2 & -2 & -1
 \\-1 & -1 & 4 & -6
@@ -1478,14 +1433,15 @@ Give reasons for your answers.
 \\-2 & 4 & -2 & -1
 \\-3 & 0 & -1 & -4
 \\2 & 3 & 1 & 1 \end{bmatrix}\)
-\end{parts}
+\end{Parts}
 \answer{\(-72,0,36,-72\)}
 
+\begin{reduce}
 \item \(\det\begin{bmatrix} 2 & -3 & 2 & -3
 \\0 & -1 & -1 & -2
 \\2 & 1 & -2 & -3
 \\-4 & -1 & -4 & 0 \end{bmatrix}=16\)
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 0 & -1 & -1 & -2
 \\2 & -3 & 2 & -3
 \\-4 & -1 & -4 & 0
@@ -1502,15 +1458,16 @@ Give reasons for your answers.
 \\2 & -3 & 1 & -3
 \\2 & 1 & -1 & -3
 \\-4 & -1 & -2 & 0 \end{bmatrix}\)
-\end{parts}
+\end{Parts}
 \answer{\(16,-32,-32,-8\)}
+\end{reduce}
 
 
 \item \(\det\begin{bmatrix} 0.3 & -0.1 & -0.1 & 0.4
 \\0.2 & 0.3 & 0 & 0.1
 \\0.1 & -0.1 & -0.3 & -0.2
 \\-0.1 & -0.2 & 0.4 & 0.2 \end{bmatrix}=0.01\)
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 3 & -1 & -1 & 4
 \\2 & 3 & 0 & 1
 \\1 & -1 & -3 & -2
@@ -1519,6 +1476,7 @@ Give reasons for your answers.
 \\0.2 & -0.6 & 0 & 0.5
 \\0.1 & 0.2 & 0 & -1
 \\-0.1 & 0.4 & 0 & 1 \end{bmatrix}\)
+\columnbreak%%%%%%%??
 \item \(\begin{bmatrix} 0.2 & 0.3 & 0 & 0.1
 \\0.1 & -0.1 & -0.3 & -0.2
 \\-0.1 & -0.2 & 0.4 & 0.2
@@ -1527,16 +1485,16 @@ Give reasons for your answers.
 \\0.2 & 0.1 & 0 & 0.1
 \\0.1 & -0.2 & -0.3 & -0.2
 \\-0.1 & 0.2 & 0.4 & 0.2 \end{bmatrix}\)
-\end{parts}
+\end{Parts}
 \answer{\(100,-0.1,-0.01,0\)}
 
 %\item \(\det\begin{bmatrix}  \end{bmatrix}=\)
-%\begin{parts}
+%\begin{Parts}
 %\item \(\begin{bmatrix}  \end{bmatrix}\)
 %\item \(\begin{bmatrix}  \end{bmatrix}\)
 %\item \(\begin{bmatrix}  \end{bmatrix}\)
 %\item \(\begin{bmatrix}  \end{bmatrix}\)
-%\end{parts}
+%\end{Parts}
 %\answer{\(\)}
 
 \end{enumerate}
@@ -1545,7 +1503,7 @@ Give reasons for your answers.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Recall \autoref{eg:linedet}.
 For each pair of given points, \((x_1,y_1)\) and~\((x_2,y_2)\), evaluate the determinant in the equation
 \begin{equation*}
@@ -1554,7 +1512,7 @@ For each pair of given points, \((x_1,y_1)\) and~\((x_2,y_2)\), evaluate the det
 to find an equation for the straight line through the two given points.
 Show your working.
 % a:=mat((1,x,y),(1,random(9)-4,random(9)-4),(1,random(9)-4,random(9)-4));det(a);
-\begin{parts}
+\begin{Parts}
 \item \((-3,-6)\), \((2,3)\)
 \answer{\(-9x+5y+3=0\)}
 
@@ -1567,21 +1525,22 @@ Show your working.
 \item \((-1,0)\), \((-2,1)\)
 \answer{\(-(x+y+1)=0\)}
 
+\begin{reduce}
 \item \((6,1)\), \((2,-1)\)
 \answer{\(2(x-2y-4)=0\)}
 
 \item \((3,-8)\), \((7,-2)\)
 \answer{\(2(-3x+2y+25)=0\)}
-
-\end{parts}
+\end{reduce}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Using mainly the properties of \autoref{thm:ppdet} detail an argument that the following determinant equations each give an equation for the line through two given points \((x_1,y_1)\) and~\((x_2,y_2)\).
-\begin{parts}
+\begin{Parts}
 \item \(\det\begin{bmatrix} 1&x_1&y_1
 \\1&x&y
 \\1&x_2&y_2 \end{bmatrix}=0\)
@@ -1590,14 +1549,14 @@ Using mainly the properties of \autoref{thm:ppdet} detail an argument that the f
 \\x_2&x_1&x
 \\y_2&y_1&y \end{bmatrix}=0\)
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Recall \autoref{eg:planeq}.
 For each pair of given points, \((x_1,y_1,z_1)\) and~\((x_2,y_2,z_2)\), evaluate the determinant in the equation
 \begin{equation*}
@@ -1606,15 +1565,17 @@ For each pair of given points, \((x_1,y_1,z_1)\) and~\((x_2,y_2,z_2)\), evaluate
 to find an equation for the plane that passes through the two given points and the origin.
 Show your working.
 % a:=mat((x,y,z),(random(9)-4,random(9)-4,random(9)-4),(random(9)-4,random(9)-4,random(9)-4));det(a);
-\begin{parts}
+\begin{Parts}
 \item \((-1,-1,-3)\), \((3,-5,-1)\)
 \answer{\(2(-7x-5y+4z)=0\)}
 
+\begin{reduce}
 \item \((0,0,-2)\), \((4,-4,0)\)
 \answer{\(8(x+y)=0\)}
 
 \item \((-1,2,2)\), \((-1,-3,2)\)
 \answer{\(5(2x+z)=0\)}
+\end{reduce}
 
 \item \((4,-2,0)\), \((-3,-4,-1)\)
 \answer{\(2(x+2y-11z)=0\)}
@@ -1625,15 +1586,15 @@ Show your working.
 \item \((2,2,3)\), \((2,1,4)\)
 \answer{\(5x-2y-2z=0\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Using mainly the properties of \autoref{thm:ppdet} detail an argument that the following determinant equations each give an equation for the plane passing through the origin and the two given points \((x_1,y_1,z_1)\) and~\((x_2,y_2,z_2)\).
-\begin{parts}
+\begin{Parts}
 \item \(\det\begin{bmatrix} x_1&y_1&z_1
 \\x_2&y_2&z_2
 \\x&y&z \end{bmatrix}=0\)
@@ -1642,7 +1603,7 @@ Using mainly the properties of \autoref{thm:ppdet} detail an argument that the f
 \\y_2&y&y_1
 \\z_2&z&z_1 \end{bmatrix}=0\)
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -1652,8 +1613,8 @@ Using mainly the properties of \autoref{thm:ppdet} detail an argument that the f
 
 
 
-\begin{exercise} \label{ex:} 
-Prove Theorems~\ref{thm:ppdet:i}, \ref{thm:ppdet:iv} and~\ref{thm:ppdet:ii} using basic geometric arguments about the transformation of the unit \(n\)D-cube.
+\begin{exercise}  
+Prove \cref{thm:ppdet:i,thm:ppdet:iv,thm:ppdet:ii} using basic geometric arguments about the transformation of the unit \(n\)D-cube.
 %Consider the unit $n$D-cube when transformed by~\(A\) and when transformed by~\(B\): it is transformed into a $n$D-parallelepiped but by~\(B\) the \(i\)th~coordinate is stretched by a factor~\(k\) more than that by~\(A\).
 %Thus the resulting $n$D-volume by~\(B\) is a factor \(k\)~times that of the $n$D-volume by~\(A\).
 %Consequently, by \autoref{def:detarea}, \(\det B=k\det A\)\,.
@@ -1665,7 +1626,7 @@ Prove Theorems~\ref{thm:ppdet:i}, \ref{thm:ppdet:iv} and~\ref{thm:ppdet:ii} usin
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use \autoref{thm:ppdet} to prove that if a square matrix~\(A\) has two nonzero rows proportional to each other, then \(\det A=0\)\,.
 Why does it immediately follow that (instead of rows) if the matrix has two nonzero columns proportional to each other, then \(\det A=0\)\,.
 \end{exercise}
@@ -1673,11 +1634,11 @@ Why does it immediately follow that (instead of rows) if the matrix has two nonz
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use \autoref{thm:rpdet:vii}, and then~\eqref{eq:dets23b}, to evaluate the following determinants.
 Show your working.
 % A=0+round([randn(n-1,n);zeros(1,n-1) randn]*4); A=A(randperm(n),randperm(n)), if rand>0.5, A=A',end, detA=det(A)
-\begin{parts}
+\begin{Parts}
 \item \(\det\begin{bmatrix} 6 & 1 & 1
 \\-1 & 3 & -8
 \\-6 & 0 & 0 \end{bmatrix}\)
@@ -1688,6 +1649,7 @@ Show your working.
 \\-1 & -1 & -3 \end{bmatrix}\)
 \answer{\(96\)}
 
+\begin{reduce}
 \item \(\det\begin{bmatrix} 0 & 0 & 3
 \\-1 & -3 & -3
 \\-3 & -5 & 2 \end{bmatrix}\)
@@ -1697,6 +1659,7 @@ Show your working.
 \\1 & -7 & -1
 \\4 & 0 & 4 \end{bmatrix}\)
 \answer{\(-28\)}
+\end{reduce}
 
 \item \(\det\begin{bmatrix} 2 & -4 & -2 & -2
 \\0 & 1 & -3 & -2
@@ -1722,17 +1685,17 @@ Show your working.
 \\2 & -6 & 1 & 2 \end{bmatrix}\)
 \answer{\(-42\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use the \idx{triangular matrix} \autoref{thm:rpdet:vi}, as well as the row\slash column properties of \autoref{thm:ppdet}, to find the determinants of each of the following matrices.
 Show your argument.
 % A=triu(0+round(randn(n)*4));A=A(randperm(n),randperm(n)), if rand>0.5, A=A',end, detA=det(A)
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} -6 & -4 & -7 & 2
 \\0 & -2 & -1 & 1
 \\0 & 0 & -4 & 1
@@ -1745,6 +1708,7 @@ Show your argument.
 \\2 & 4 & -1 & 1 \end{bmatrix}\)
 \answer{\(12\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} 0 & 0 & -6 & -6
 \\-2 & -2 & -2 & 1
 \\0 & 0 & 0 & -4
@@ -1756,6 +1720,7 @@ Show your argument.
 \\-7 & -6 & 8 & 2
 \\0 & -2 & -4 & 1 \end{bmatrix}\)
 \answer{\(-28\)}
+\end{reduce}
 
 \item \(\begin{bmatrix} 0 & 0 & 8 & 0
 \\-5 & -6 & 6 & -1
@@ -1783,19 +1748,19 @@ Show your argument.
 \\-2 & -1 & -5 & -2 & 5 \end{bmatrix}\)
 \answer{\(1800\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Given that the determinant
 \begin{equation*}
 \begin{vmatrix} a&b&c\\d&e&f\\g&h&i \end{vmatrix}=6\,,
 \end{equation*}
 find the following determinants.  Give reasons.
-\begin{parts}
+\begin{Parts}
 \item \(\begin{vmatrix} 3a&b&c\\3d&e&f\\3g&h&i \end{vmatrix}\)
 \answer{18}
 
@@ -1814,21 +1779,23 @@ find the following determinants.  Give reasons.
 \item \(\begin{vmatrix} a&b&c\\d&e&f\\a+2g&b+2h&c+2i \end{vmatrix}\)
 \answer{12}
 
+\begin{reduce}
 \item \(\begin{vmatrix} d&e&f\\g+a&h+b&i+c\\a&b&c \end{vmatrix}\)
 \answer{6}
 
 \item \(\begin{vmatrix} a-3g&b&c\\d/3-f&e/3&f/3\\g-3i&h&i \end{vmatrix}\)
 \answer{2}
+\end{reduce}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
-Consider a general \(3\times3\) matrix \(A=\begin{bmatrix} a&b&c \\d&e&f\\ g&h&i \end{bmatrix}\).
+\begin{exercise}  
+Consider a general \(3\times3\) matrix \(A=\begin{bmat} a&b&c \\d&e&f\\ g&h&i \end{bmat}\).
 Derive a first column Laplace expansion (\autoref{thm:letdet}) of the \(3\times3\) determinant, and rearrange to show it is the same as the determinant formula~\eqref{eq:dets23b}.
 \end{exercise}
 
@@ -1836,13 +1803,13 @@ Derive a first column Laplace expansion (\autoref{thm:letdet}) of the \(3\times3
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use the Laplace expansion (\autoref{thm:letdet}) to find the determinant of the following matrices.  
 Use rows or columns with many zeros.
 Show your working.
 % n=4
 % A=full(0+round(sprandn(n,n,0.6)*3)), detA=det(A)
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 1 & 4 & 0 & 0
 \\0 & 2 & -1 & 0
 \\-3 & 0 & -3 & 0
@@ -1855,6 +1822,7 @@ Show your working.
 \\0 & 0 & 0 & -4 \end{bmatrix}\)
 \answer{\(140\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -4 & 0 & -2 & 2
 \\0 & 1 & 5 & -2
 \\4 & 0 & 0 & 4
@@ -1880,12 +1848,15 @@ Show your working.
 \\-3 & 0 & -4 & -3 & -3
 \\0 & -6 & 0 & 0 & 5 \end{bmatrix}\)
 \answer{\(1080\)}
+\end{reduce}
 
-\item \(\begin{bmatrix} 0 & 0 & -2 & 0 & -6
+\item {\small%%%%%??
+\(\begin{bmatrix} 0 & 0 & -2 & 0 & -6
 \\0 & -3 & 0 & 1 & 0
 \\-4 & -5 & 2 & 0 & 2
 \\0 & 2 & 0 & 3 & -3
 \\2 & 0 & 0 & -1 & 0 \end{bmatrix}\)
+}%%%%%%
 \answer{\(-308\)}
 
 \item \(\begin{bmatrix} 0 & 0 & -2 & 7 & 4
@@ -1895,12 +1866,12 @@ Show your working.
 \\0 & -2 & 0 & 0 & 1 \end{bmatrix}\)
 \answer{\(236\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, use the Laplace expansion (\autoref{thm:letdet}) to find all the values of~\(k\) for which the matrix is \emph{not} \idx{invertible}.
 Show your working.
 %\begin{verbatim}
@@ -1921,6 +1892,7 @@ Show your working.
 \\-2+k & 1+2k & 4 & 0 \end{bmatrix}\)
 \answer{\(0,3/4\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -1+k & 0 & -2+3k & -1+k
 \\-6 & 1+2k & -3 & k
 \\0 & 3k & -4 & 0
@@ -1939,6 +1911,7 @@ Show your working.
 \\1+2k & -1 & 3 & 1-4k & -4
 \\-1+2k & 0 & 0 & -1 & -2 \end{bmatrix}\)
 \answer{\(1/2,-6/5\)}
+\end{reduce}
 
 \item \(\begin{bmatrix} k & 1 & 0 & -5-k & -1-k
 \\-4+6k & -1 & 1+3k & -3-5k & 0
@@ -1955,7 +1928,7 @@ Show your working.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an argument that the following determinant equation generally forms an equation for the plane passing through the three given points \((x_1,y_1,z_1)\), \((x_2,y_2,z_2)\) and~\((x_3,y_3,z_3)\):
 \begin{equation*}
 \det\begin{bmatrix} 1&x&y&z
@@ -1968,7 +1941,7 @@ Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an argument that the following determinant equation generally forms an equation for the \idx{parabola} passing through the three given points \((x_1,y_1)\), \((x_2,y_2)\) and~\((x_3,y_3)\):
 \begin{equation*}
 \det\begin{bmatrix} 1&x&x^2&y
@@ -1983,7 +1956,7 @@ Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Using \autoref{thm:detnfac} and the properties of \autoref{thm:ppdet}, detail an argument that the equation
 \begin{equation*}
 \det\begin{bmatrix} 1&x&x^2&y&y^2&xy
@@ -2000,9 +1973,9 @@ generally forms an equation for the \idx{conic section} passing through the five
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Consider the task of computing the determinant of a typical \(n\times n\) matrix~\(A\) (`typical' means all its entries are nonzero).  
-Using the Laplace Expansion \autoref{thm:letdet} to compute the determinant takes approximately~\((e-1)n!\) multiplications.
+Using the Laplace Expansion \autoref{thm:letdet} to compute the determinant takes approximately~\(1.72\,n!\) multiplications.
 On a computer that does about~\(10^9\) multiplications per second, what is the largest sized matrix for which the determinant can be computed by Laplace Expansion in less than an hour?
 Detail your reasons.
 \answer{\(n=15\)}
@@ -2015,7 +1988,7 @@ Detail your reasons.
 
 
 \begin{exercise} 
-In a few sentences, answer\slash discuss each of the the following.
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item What can cause a determinant to be zero?
 

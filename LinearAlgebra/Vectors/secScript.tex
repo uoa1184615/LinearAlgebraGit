@@ -3,19 +3,19 @@
 
 \section{Use \script\ for vector computation}
 \label{sec:umovc}
-\secttoc
+%\secttoc
 
 \index{Matlab@\textsc{Matlab}|(}
 \index{Octave|(}
 
 \begin{quoted}{\index{Babbage, Charles}Charles Babbage, 1832}
-It is the science of \emph{calculation},---which becomes continually more necessary at each step of our progress, and which must ultimately govern the whole of the applications of science to the arts of life.
+It is the science of \emph{calculation}, which becomes continually more necessary at each step of our progress, and which must ultimately govern the whole of the applications of science to the arts of life.
 \end{quoted}
 
-Subsequent chapters invoke the computer packages \script\ to perform calculations that would be tedious and error prone when done by hand.
+Subsequent chapters invoke either of the computer packages \script[1]\ or \script[2]\ to perform calculations that would be tedious and error prone when done by hand.
 This section introduces \script\ so that you can start to become familiar with it on small problems.
 You should directly compare the computed answer with your calculation by hand.
-The aim is to develop some basic confidence with \script\ before later using it to save considerable time in longer tasks.
+The aim is to develop some basic confidence with \script\ before later using it to save you considerable time in longer tasks.
 
 \begin{itemize}
 \item  \script[1]\ is commercial software available from Mathworks.\footnote{\url{http://mathworks.com}}
@@ -35,13 +35,13 @@ Avoid plotting because I do not want to confuse a vector with a row vector of pl
 
 \begin{table}
 \caption{Use \script\ to help compute vector results with the following basics.  
-This and subsequent tables throughout the book summarise \script\ for our use.
+This and subsequent tables throughout the book summarize \script\ for our use.
 \index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbpre}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item Real numbers are limited to being zero or of magnitude from \(10^{-323}\)  to~\(10^{+308}\), both positive and negative (called the \bfidx{floating point} numbers).
-Real numbers are computed and stored to a maximum \idx{precision} of nearly sixteen \idx{significant digits}.
+Real numbers are computed and stored to a maximum \idx{precision} of nearly sixteen \idx{significant digits}.%
 \footnote{If desired, `\idx{computer algebra}' software provides us with an arbitrary level of \idx{precision}, even exact.
 Current computer algebra software includes the free Sage, Maxima and Reduce, and the commercial Maple, Mathematica and (via Matlab) MuPad.}
 
@@ -63,7 +63,7 @@ If the result of an expression is not explicitly assigned to a variable, then by
 
 \item \index{norm()@\texttt{norm()}|textbf}\verb|norm(v)| computes the \idx{length}\slash \idx{magnitude} of the vector~\verb|v| (\autoref{def:veclen}).
 
-\item \index{+,-,*@\texttt{+,-,*}|textbf}\verb|+,-,*| is vector\slash scalar addition, subtraction, and multiplication, but only provided the sizes of vectors are the same.
+\item \index{+,-,*@\texttt{+,-,*}|textbf}\verb|+,-,*| is vector\slash scalar addition, subtraction, and scalar multiplication, but only provided the sizes of vectors are the same.
 Parentheses \index{()@\texttt{()}}\verb|()| control the order of operations.
 
 \item \index{/@\texttt{/}|textbf}\verb|/x| divides a vector\slash scalar by a scalar~\(x\).
@@ -85,13 +85,14 @@ To find the angle in degrees use \verb|acos(q)*180/pi| (\script\ knows \(\verb|p
 
 
 
-\begin{example} \label{eg:}
-Use the \script\ command \index{norm()@\texttt{norm()}}\verb|norm()| to compute the \idx{length}\slash \idx{magnitude} of the following vectors (\autoref{def:veclen}).
+\begin{example} 
+Use the \script\ command called \index{norm()@\texttt{norm()}}\verb|norm()| to compute the \idx{length}\slash \idx{magnitude} of the following vectors (\autoref{def:veclen}).
+Generally, computer commands and their output are typeset in the special \texttt{fixed width font}, such as this command~\verb|norm()|.
 \begin{enumerate}
 \item \((2,-1)\)
 \begin{solution} 
 Start \script.  After a prompt, ``\verb|>>|'' in \script[1] or ``\verb|octave:1>|'' in \script[2], type a command, followed by the Return\slash Enter key to get it executed.
-As indicated by \autoref{tbl:mtlbpre} the numbers with \idx{brackets} separated by semi-colons forms a vector, and the \verb|=|~character assigns the result to variable for subsequent use.
+As indicated by \autoref{tbl:mtlbpre} the numbers with \idx{brackets} separated by semi-colons forms a vector, and the \verb|=|~character assigns the result to a variable for subsequent use.
 
 \begin{tabular}{@{}*2{p{0.45\linewidth}}@{}}\raggedright
 Assign the vector to a variable~\verb|a| by the command \verb|a=[2;-1]|.
@@ -108,17 +109,20 @@ ans =  2.2361
 
 This computes the answer \(|(2,-1)|=\sqrt{2^2+(-1)^2}=\sqrt5=2.2361\) (to five significant digits which we take to be practically exact).
 
+\ifinQRcodes
 The \idx{qr-code} appearing in the margin here encodes these \script\ commands.  
 \setbox\ajrqrbox\hbox{\qrcode{% vector length
 a=[2;-1]
 norm(a)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 You may scan such \idx{qr-code}s with your favourite app\footnote{At the time of writing, qr-code scanning applications for smart-phones include \emph{WaspScan} and \emph{QRReader}---but I have no expertise to assess their quality.}, and then copy and paste the code direct into a \script\ client.
 Alternatively, if reading an electronic version of this book, then you may copy and paste the commands (although often the \idx{quote} character~\verb|'| needs correcting).
 Although in this example the saving in typing is negligible, later you can save considerable typing via such qr-codes.
+\fi
 \end{solution}
 
+\begin{reduce}
 \item \((-1,1,-5,4)\)
 \begin{solution} 
 In \script:
@@ -141,10 +145,11 @@ ans =  6.5574
 b=[-1;1;-5;4]
 norm(b)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 
 Hence \(6.5574\) is the length of~\((-1,1,-5,4)\) (to five significant digits which we take to be practically exact).
 \end{solution}
+\end{reduce}
 
 \item \((-0.3,4.3,-2.5,-2.8,7,-1.9)\)
 \begin{solution} 
@@ -158,7 +163,7 @@ In \script:
 c=[-0.3;4.3;-2.5;-2.8;7;-1.9]
 norm(c)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 Hence the length of vector~\((-0.3,4.3,-2.5,-2.8,7,-1.9)\) is~\(9.2347\) (to five significant digits).
 \end{solution}
 
@@ -170,7 +175,7 @@ Hence the length of vector~\((-0.3,4.3,-2.5,-2.8,7,-1.9)\) is~\(9.2347\) (to fiv
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ operators \index{+,-,*@\texttt{+,-,*}}\verb|+,-,*| to compute the value of the expressions \(\uv+\vv\), \(\uv-\vv\), \(3\uv\) for vectors \(\uv=(-4.1,1.7,4.1)\) and \(\vv=(2.9,0.9,-2.4)\) (\autoref{def:vecops}).
 \begin{solution}  In \script\ type the commands, each followed by Return\slash Enter key.
 \setbox\ajrqrbox\hbox{\qrcode{% vector ops
@@ -180,7 +185,7 @@ u+v
 u-v
 3*u
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}% 
+\marginajrbox%
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
 Assign the named vectors with the commands \verb|u=[-4.1;1.7;4.1]| and \verb|v=[2.9;0.9;-2.4]| to see the two steps in the dialogue to the right.
@@ -237,7 +242,7 @@ ans =
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to confirm that \(2(2\pv-3\qv)+6(\qv-\pv)=-2\pv\) for vectors \(\pv=(1,0,2,-6)\) and \(\qv=(2,4,3,5)\).
 \begin{solution} 
 In \script\
@@ -259,7 +264,7 @@ q=[2;4;3;5]
 2*(2*p-3*q)+6*(q-p)
 ans+2*p
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}% 
+\marginajrbox%
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
 Assign the other vector with \verb|q=[2;4;3;5]|.
@@ -303,7 +308,7 @@ ans =
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to confirm the \idx{commutative law} (\autoref{thm:vecopsa}) \(\uv+\vv=\vv+\uv\) for vectors
 \(\uv=(8,-6,-4,-2)\) and \(\vv=(4,3,-1)\).
 \begin{solution} 
@@ -327,7 +332,7 @@ u+v
 size(u)
 size(v)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}% 
+\marginajrbox%
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
 Assign \(\vv=(4,3,-1)\) with the command \verb|v=[4;3;-1]|.
@@ -399,27 +404,6 @@ Inner matrix dimensions must agree.
     7.4000\\
    -9.0000
 \end{tabular}}
-%\begin{parts} 
-%\item \tt\begin{tabular}r
-%    2.8000\\
-%    4.3000\\
-%   -7.1000
-%\end{tabular}
-%\item\actans \tt\begin{tabular}r
-%   -0.6000\\
-%    3.1000\\
-%   -1.9000
-%\end{tabular}
-%\item \tt\begin{tabular}{p{9em}}
-%Error using  * \\
-%Inner matrix dimensions must agree. 
-%\end{tabular}
-%\item \tt\begin{tabular}r
-%    2.2000\\
-%    7.4000\\
-%   -9.0000
-%\end{tabular}
-%\end{parts}
 \item Which is the result of typing the command \verb|2*u|? %d
 \item Which is the result of typing the command \verb|u*v|? %c
 \end{itemize}
@@ -430,7 +414,7 @@ Inner matrix dimensions must agree.
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to compute the angles between the pair of vectors \((4,3)\) and \((5,12)\) (\autoref{thm:anglev}).
 \begin{solution} In \script
 
@@ -453,7 +437,7 @@ v=[5;12]
 cost=dot(u,v)/norm(u)/norm(v)
 theta=acos(cost)*180/pi
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}% 
+\marginajrbox%
 
 \begin{tabular}{@{}p{0.34\linewidth}p{0.6\linewidth}@{}}\raggedright
 Then compute the dot product, via \verb|dot()|, in the formula for the cosine of the angle.
@@ -477,7 +461,8 @@ theta =  30.510
 
 
 
-\begin{example} \label{eg:}
+\begin{reduce}
+\begin{example} 
 Verify the \idx{distributive law} for the \idx{dot product} \((\uv+\vv)\cdot\wv=\uv\cdot\wv+\vv\cdot\wv\) (\autoref{thm:dotopsf}) for vectors
 \(\uv=(-0.1,-3.1,-2.9,-1.3)\), \(\vv=(-3,0.5,6.4,-0.9)\) and \(\wv=(-1.5,-0.2,0.4,-3.1)\).
 \begin{solution} 
@@ -501,7 +486,7 @@ w=[-1.5;-0.2;0.4;-3.1]
 dot(u+v,w)
 dot(u,w)+dot(v,w)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}% 
+\marginajrbox%
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
 Assign vector \(\vv=(-3,0.5,6.4,-0.9)\)  with the command \verb|v=[-3;0.5;6.4;-0.9]| as shown to the right.
@@ -546,6 +531,7 @@ ans =  13.390
 That the two answers agree verifies the distributive law for dot products.
 \end{solution}
 \end{example}
+\end{reduce}
 
 
 
@@ -584,13 +570,14 @@ I am not able rightly to apprehend the kind of confusion of ideas that could pro
 
 \sectionExercises
 
-\begin{exercise} \label{ex:} 
-Use \script\ to compute the \idx{length} of each of the following vectors (the first five have integer lengths).
-\begin{parts}[6em]
+\begin{exercise}  
+Use \script\ to compute the \idx{length} of each of the following vectors.
+\begin{Parts}[4]
 \item \(\begin{bmatrix} 2\\3\\6 \end{bmatrix}\)
 \answer{\(7\)}
 \item \(\begin{bmatrix} 4\\-4\\7 \end{bmatrix}\)
 \answer{\(9\)}
+\begin{reduce}
 \item \(\begin{bmatrix} -2\\6\\9 \end{bmatrix}\)
 \answer{\(11\)}
 \item \(\begin{bmatrix} 0.5\\0.1\\-0.5\\0.7 \end{bmatrix}\)
@@ -599,33 +586,36 @@ Use \script\ to compute the \idx{length} of each of the following vectors (the f
 \answer{\(13\)}
 \item \(\begin{bmatrix} 1.1\\1.7\\-4.2\\-3.8\\0.9 \end{bmatrix}\)
 \answer{\(6.0819\)}
+\end{reduce}
 \item \(\begin{bmatrix} 2.6\\-0.1\\3.2\\-0.6\\-0.2 \end{bmatrix}\)
 \answer{\(4.1725\)}
 \item \(\begin{bmatrix} 1.6\\-1.1\\-1.4\\2.3\\-1.6 \end{bmatrix}\)
 \answer{\(3.6851\)}
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use \script\ to determine which are wrong out of the following identities and relations for vectors \(\pv=(0.8,-0.3,1.1,2.6,0.1)\) and \(\qv=(1,2.8,1.2,2.3,2.3)\).
-\begin{parts}
+\begin{Parts}
 \item \(3(\pv-\qv)=3\pv-3\qv\)
 \item \(2(\pv-3\qv)+3(2\qv-\pv)=\pv\)
+\begin{reduce}
 \item \(\frac12(\pv-\qv)+\frac12(\pv+\qv)=\pv\)
 \item \(|\pv+\qv|\leq|\pv|+|\qv|\)
+\end{reduce}
 \item \(|\pv-\qv|\leq|\pv|+|\qv|\)
 \item \(|\pv\cdot\qv|\leq|\pv||\qv|\)
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
-Use \script\ to find the angles between pairs of vectors in each of the following groups.
+\begin{exercise}  
+Use \script\ to find the angles between all pairs of vectors in each of the following groups.
 \begin{enumerate}\sloppy
 \item \(\pv=(2,3,6)\), \(\qv=(6,2,-3)\), \(\rv=(3,-6,2)\)
 \answer{They are all orthogonal.}
@@ -635,15 +625,16 @@ Use \script\ to find the angles between pairs of vectors in each of the followin
 u=[-1;-7;-1;-7]
 v=[-1;4;4;4]
 w=[1;-4;-4;-4]}}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\(\theta_{uv}=147.44^\circ\), \(\theta_{uw}=32.56^\circ\), \(\theta_{vw}=180^\circ\)}
 
+\begin{reduce}
 \item \(\uv=\begin{bmatrix}5\\1\\-1\\3\end{bmatrix}\), \(\vv=\begin{bmatrix}-6\\4\\2\\-5\end{bmatrix}\), \(\wv=\begin{bmatrix}-4\\2\\1\\-2\end{bmatrix}\)
 \setbox\ajrqrbox\hbox{\qrcode{%
 u=[5;1;-1;3]
 v=[-6;4;2;-5]
 w=[-4;2;1;-2]}}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\(\theta_{uv}=142.78^\circ\), \(\theta_{uw}=146.44^\circ\), \(\theta_{vw}=12.10^\circ\)}
 
 \item \(\uv=\begin{bmatrix}-9\\-8\\4\\8\end{bmatrix}\), \(\vv=\begin{bmatrix}9\\3\\1\\-3\end{bmatrix}\), \(\wv=\begin{bmatrix}-6\\5\\-2\\-4\end{bmatrix}\)
@@ -651,7 +642,7 @@ w=[-4;2;1;-2]}}%
 u=[-9;-8;4;8]
 v=[9;3;1;-3]
 w=[-6;5;-2;-4]}}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\(\theta_{uv}=146.44^\circ\), \(\theta_{uw}=101.10^\circ\), \(\theta_{vw}=108.80^\circ\)}
 
 \item \(\av=\begin{bmatrix}-4.1\\9.8\\0.3\\1.4\\2.7\end{bmatrix}\), \(\bv=\begin{bmatrix}-0.6\\2.6\\-1.2\\-0.2\\-0.9\end{bmatrix}\), \(\cv=\begin{bmatrix}-2.8\\-0.9\\-6.2\\-2.3\\-4.7\end{bmatrix}\), \(\dv=\begin{bmatrix}1.8\\-3.4\\-8.6\\1.4\\1.8\end{bmatrix}\)
@@ -661,8 +652,9 @@ b=[-0.6;2.6;-1.2;-0.2;-0.9]
 c=[-2.8;-0.9;-6.2;-2.3;-4.7]
 d=[1.8;-3.4;-8.6;1.4;1.8]
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\(\theta_{ab}=42.82^\circ\), \(\theta_{ac}=99.11^\circ\), \(\theta_{ad}=109.89^\circ\), \(\theta_{bc}=64.32^\circ\), \(\theta_{bd}=92.89^\circ\), \(\theta_{cd}=61.70^\circ\)}
+\end{reduce}
 
 
 \item \(\av=\begin{bmatrix}-0.5\\2.0\\-3.4\\1.8\\0.1\end{bmatrix}\), \(\bv=\begin{bmatrix}5.4\\7.4\\0.5\\0.7\\1.3\end{bmatrix}\), \(\cv=\begin{bmatrix} -0.2\\-1.5\\-0.3\\1.1\\2.5\end{bmatrix}\), \(\dv=\begin{bmatrix}1.0\\2.0\\-1.3\\-4.4\\-2.0\end{bmatrix}\)
@@ -672,7 +664,7 @@ b=[5.4;7.4;0.5;0.7;1.3]
 c=[ -0.2;-1.5;-0.3;1.1;2.5]
 d=[1.0;2.0;-1.3;-4.4;-2.0]
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\(\theta_{ab}=73.11^\circ\), \(\theta_{ac}=88.54^\circ\), \(\theta_{ad}=90.48^\circ\), \(\theta_{bc}=106.56^\circ\), \(\theta_{bd}=74.20^\circ\), \(\theta_{cd}=137.36^\circ\)}
 
 \end{enumerate}
@@ -682,8 +674,8 @@ d=[1.0;2.0;-1.3;-4.4;-2.0]
 
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item Explain the differences between \index{size()@\texttt{size()}}\verb|size(v)| and \index{norm()@\texttt{norm()}}\verb|norm(v)|?
 

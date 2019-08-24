@@ -2,7 +2,7 @@
 
 \section{Linear combinations span sets}
 \label{sec:lcss}
-\secttoc
+%\secttoc
 \index{linear combination|(}
 
 \begin{comment}
@@ -36,9 +36,9 @@ A vector~\vv\ is a \bfidx{linear combination} of vectors \hlist\vv k\ if there a
 \end{definition}
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Estimate roughly each of the blue vectors as a \idx{linear combination} of the given red vectors in the following graphs (estimate coefficients to say roughly 10\%~error).
-\begin{parts}
+\begin{Parts}
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize%,domain=-1.5:1.5
     ,axis equal image, axis lines=none    ] 
@@ -55,7 +55,7 @@ Estimate roughly each of the blue vectors as a \idx{linear combination} of the g
 \end{axis}
 \end{tikzpicture}
 \begin{solution} 
-By visualising various combinations: 
+By visualizing various combinations: 
  \(\av\approx \vv_1+\vv_2 =1\vv_1+1\vv_2\)\,;
  \(\bv\approx 2\vv_1-\vv_2 =2\vv_1+(-1)\vv_2\)\,;
  \(\cv\approx -0.2\vv_1+0.6\vv_2\)\,.
@@ -79,13 +79,13 @@ By visualising various combinations:
 \end{axis}
 \end{tikzpicture}
 \begin{solution} 
-By visualising various combinations: 
+By visualizing various combinations: 
  \(\av\approx -1\vv_1+4\vv_2\)\,;
  \(\bv\approx 2\vv_1-2\vv_2\)\,;
  \(\cv\approx -1\vv_1+2\vv_2\)\,. 
 \end{solution}
 
-\end{parts}
+\end{Parts}
 \end{example}
 
 
@@ -100,7 +100,7 @@ Choose any one of these linear combinations:
 -0.5\vv_1+0.5\vv_2\,; \qquad 
 \vv_1+\vv_2\,. 
 \end{equation*}
-Then in the plot below, which vector, \av, \bv, \cv\ or~\dv, corresponds to the chosen \idx{linear combination}?
+Then in the plot below, which vector, \av, \bv, \cv\ or~\dv, corresponds to your chosen \idx{linear combination}?
 \begin{center}
 \begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize%,domain=-1.5:1.5
@@ -127,7 +127,7 @@ Then in the plot below, which vector, \av, \bv, \cv\ or~\dv, corresponds to the 
 
 
 \begin{example} \label{eg:lcs}
-\index{parametric equation}Parametric descriptions of lines and planes  involve \idx{linear combination}s (Sections~\ref{sec:asv}--\ref{sec:dpdal}).
+\index{parametric equation}Parametric descriptions of lines and planes  involve \idx{linear combination}s (\cref{sec:asv,sec:dpdal}).
 \begin{enumerate}
 \item 
 For each value of~\(t\), the expression \((3,4)+t(-1,2)\) is a linear combination of the two vectors \((3,4)\) and~\((-1,2)\).  
@@ -154,7 +154,7 @@ Over all values of the parameters~\(s\) and~\(t\) it describes the plane illustr
     , xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-1.5ex}
     , grid, domain=0:4
     ]
-    \addplot3[surf,shader=interp,opacity=0.3,samples=2,y domain=-2:1] {(-x-y+8)/3};
+    \addplot3[surf,opacity=0.3,samples=9,y domain=-2:1] {(-x-y+8)/3};
     \addplot3[red,quiver={u=1,v=0,w=1},-stealth,thick] coordinates {(0,0,0)(1,0,1)};
     \addplot3[red,quiver={u=-1,v=-1/2,w=1/2},-stealth,thick] coordinates {(2,0,2)};
     \addplot3[red,quiver={u=1,v=-1,w=0},-stealth,thick] coordinates {(2,0,2)};
@@ -174,7 +174,7 @@ This expression is a parametric description of a \idx{parabola} in~\(\RR^3\), as
 \begin{axis}[footnotesize,view={\q}{30}
     , grid, domain=-1:1]
     \addplot3[blue,samples y=0,thick]({-x},{2*x+2*x^2},{x^2});
-    \addplot3[surf,shader=interp,opacity=0.3,samples=2,y domain=-0.5:4] {x+y/2};
+    \addplot3[surf,opacity=0.3,samples=9,y domain=-0.5:4] {x+y/2};
     \addplot3[red,quiver={u=-1,v=2,w=0},-stealth,thick] coordinates {(0,0,0)};
     \addplot3[red,quiver={u=0,v=2,w=1},-stealth,thick] coordinates {(0,0,0)};
 \end{axis}
@@ -188,7 +188,7 @@ This expression is a parametric description of a \idx{parabola} in~\(\RR^3\), as
 
 The \idx{matrix-vector form} \(A\xv=\bv\) of a \idx{system} of \idx{linear equation}s involves a \idx{linear combination} on the left-hand side.
 
-\begin{example} \label{eg:}
+\begin{example} 
 Recall from \autoref{def:matvecsys} that \(\begin{bmatrix} -5&4\\3&2 \end{bmatrix}\begin{bmatrix} x\\y \end{bmatrix}=\begin{bmatrix} 1\\-2 \end{bmatrix}\) is our abstract abbreviation for the system of two equations
 \begin{equation*}
 \begin{matrix} -5x+4y=1\,,\\ 3x+2y=-2\,. \end{matrix}
@@ -254,11 +254,11 @@ if and only if the right-hand side vector~\bv\ is a \idx{linear combination} of 
 
 \begin{proof} 
 \autoref{eg:lcmatvec} establishes that if a solution~\xv\ exists, then \bv~is a linear combination of the columns.
-Conversely, if vector~\bv is a linear combination of the columns, then a solution~\xv\ exists with components of~\xv\ set to the coefficients in the linear combination.
+Conversely, if vector~\bv\ is a linear combination of the columns, then a solution~\xv\ exists with components of~\xv\ set to the coefficients in the linear combination.
 \end{proof}
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 This first example considers the simplest cases when the matrix has only one column, and so any linear combination is only a scalar multiple of that column.
 Compare the consistency of the equations with the right-hand side being a \idx{linear combination} of the column of the matrix.
 \begin{enumerate}
@@ -315,18 +315,11 @@ Hence it is only for \(a=-2\) that a linear combination of~\((1,a)\) can give th
 \begin{activity}
 For what value of~\(a\) is the system \(\begin{bmatrix} 3-a\\-2a \end{bmatrix}x=\begin{bmatrix} 1\\1 \end{bmatrix}\) \idx{consistent}?
 \actposs[4]{\(a=-3\)}{\(a=-\frac12\)}{\(a=1\)}{\(a=2\)}
-%\partswidth=5em
-%\begin{parts}
-%\item\actans \(a=-3\)
-%\item \(a=-\frac12\)
-%\item \(a=1\)
-%\item \(a=2\)
-%\end{parts}
 \end{activity}
 
 
 
-In the Examples~\ref{eg:lcs} and~\ref{eg:lcmatvec} of linear combination, the coefficients mostly are a variable parameter or unknown.
+In the \cref{eg:lcs,eg:lcmatvec} of linear combination, the coefficients mostly are a variable parameter or unknown.
 Consequently, mostly we are interested in the range of possibilities encompassed by a given set of vectors.
 
 
@@ -387,7 +380,7 @@ The plane passes through the origin~\ov, obtained when \(s=t=0\)\,.
 \qview{37}{40} {\begin{tikzpicture}
 \begin{axis}[footnotesize,view={\q}{30}
     , grid, domain=-1:1 ]
-    \addplot3[surf,shader=interp,blue,opacity=0.4,samples=2,y domain=-0.5:4] {x+y/2};
+    \addplot3[surf,opacity=0.4,samples=9,y domain=-0.5:4] {x+y/2};
     \addplot3[red,quiver={u=-1,v=2,w=0},-stealth,thick] coordinates {(0,0,0)};
     \addplot3[red,quiver={u=0,v=2,w=1},-stealth,thick] coordinates {(0,0,0)};
 \end{axis}
@@ -395,8 +388,10 @@ The plane passes through the origin~\ov, obtained when \(s=t=0\)\,.
 \end{center}
 One could also check that the vector~\((2,1,-2)\) is orthogonal to these two vectors, hence is a normal to the plane, and so the plane may be also expressed as \(2x+y-2z=0\)\,.
 
+\begin{reduce}
 \item For the complete set of \(n\)~\idx{standard unit vector}s in~\(\RR^n\) (\autoref{def:stuniv}), \index{e@$\ev_j$}\(\Span\{\hlist\ev n\}=\RR^n\).
 This is because every vector \(\xv=(\hlist xn)\) in~\(\RR^n\) may be written as the linear combination \(\xv=x_1\ev_1+x_2\ev_2+\cdots+x_n\ev_n\), and hence every vector is in \(\Span\{\hlist\ev n\}\).
+\end{reduce}
 
 
 \item The \idx{homogeneous} system (\autoref{def:homosys}) of linear equations from \autoref{eg:homosysiv} has solutions \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) for arbitrary \(s\) and~\(t\).
@@ -429,17 +424,12 @@ In the margin is drawn a line:
 \end{tikzpicture}}%
 for which one of the following vectors~\(\uv\) is \(\Span\{\uv\}\) \emph{not} the drawn line?
 \actposs{\((-1,-2)\)}{\((2,1)\)}{\((-1,-0.5)\)}{\((4,2)\)}
-%\begin{parts}
-%\item \((2,1)\)
-%\item \((-1,-0.5)\)
-%\item\actans \((-1,-2)\)
-%\item \((4,2)\)
-%\end{parts}
 \end{activity}
 
 
 
-\begin{example} \label{eg:}
+\begin{reduce}
+\begin{example} 
 Describe in other words \index{i@$\iv$}\index{k@$\kv$}\(\Span\{\iv,\kv\}\) in~\(\RR^3\).
 
 \begin{solution} 
@@ -450,10 +440,11 @@ All vectors in \(\Span\{\iv,\kv\}\) are of the form
 Hence the span is all vectors with second component zero---it is the plane \(y=0\) in \((x,y,z)\) coordinates.
 \end{solution}
 \end{example}
+\end{reduce}
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Find a set~\(S\) such that \(\Span S=\{(3b,a+b,-2a-4b): a,b\text{ scalars}\}\).
 Similarly, find a set~\(T\) such that \(\Span T=\{(-a-2b-2,-b+1, -3b-1): a,b\text{ scalars}\}\).
 \begin{solution} 
@@ -500,7 +491,7 @@ Instead soon introduce the more commonly invoked concept of orthonormal vectors.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following, express vectors~\av\ and~\bv\ as a \idx{linear combination} of vectors~\(\vv_1\) and~\(\vv_2\).
 Estimate the coefficients roughly (to say~10\%).
 \newcommand{\pvec}[3]{%
@@ -528,12 +519,13 @@ Estimate the coefficients roughly (to say~10\%).
 $\noexpand\bv=#7 \noexpand\vv_1 #8 \noexpand\vv_2$}
 }
 
-\begin{parts}
+\begin{Parts}
 
 \mytemp{-1.0}{0.5}{0}{0.9}{1}{+1}{1.5}{-0.5}
 
 \mytemp{-3.3}{ 2.9}{-0.5}{-2.4}{-1}{+1.5}{ 1}{+3}
 
+\begin{reduce}
 \mytemp{-0.9}{-1.3}{-0.5}{ 1.6}{-0.8}{+0}{ 2}{-0.5}
 
 \mytemp{1.8}{-0.1}{-0.2}{-1.9}{ 0.3}{-1.7}{-1.4}{+3.3}
@@ -541,19 +533,20 @@ $\noexpand\bv=#7 \noexpand\vv_1 #8 \noexpand\vv_2$}
 \mytemp{1.5}{-0.8}{-0.7}{-1.0}{ 0.9}{+1.1}{ 3.6}{-1.0}
 
 \mytemp{-1.2}{ 0.3}{-0.4}{-0.5}{ 2.3}{-2.6}{-1.4}{-0.4}
+\end{reduce}
 
 \mytemp{0.4}{-1.3}{-2.9}{-1.7}{-2.6}{+0.9}{1.0}{+0.9}
 
 \mytemp{-0.4}{-1.9}{1.4}{0.5}{-1.8}{+1.5}{-1.5}{-0.6}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following lines in 2D, write down a \idx{parametric equation} of the line as a \idx{linear combination} of two vectors, one of which is multiplied by the parameter.
 \newcommand{\mytemp}[4]{\item
 \begin{tikzpicture} 
@@ -565,19 +558,21 @@ For each of the following lines in 2D, write down a \idx{parametric equation} of
 \answer{e.g.\ $(#1,#2)+t(#3,#4)$}
 }
 
-\begin{parts}
+\begin{Parts}
 \mytemp{-0.5}{-2}{-1.5}{0}
 
 \mytemp{0}{3.5}{-2.5}{2}
 
+\begin{reduce}
 \mytemp{0}{-0.5}{-1}{0}
 
 \mytemp{-1.5}{0.5}{1}{-1.5}
+\end{reduce}
 
 \mytemp{-1.5}{-3}{-1}{-1}
 
 \mytemp{0.5}{1}{0.5}{1}
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -585,70 +580,64 @@ For each of the following lines in 2D, write down a \idx{parametric equation} of
 
 \begin{exercise} \label{ex:syslc} 
 Write each of the following systems of \idx{linear equation}s as one vector equation involving a \idx{linear combination} of vectors.
-\begin{parts}
+\begin{Parts}
 \item\label{ex:syslci} \(\begin{array}{l}
 -2x+y-2z=-2\\
 -4x+2y-z=2
 \end{array}\)
-\answer{\(\begin{bmatrix} -2\\-4 \end{bmatrix}x
-+\begin{bmatrix} 1\\2 \end{bmatrix}y
-+\begin{bmatrix} -2\\-1 \end{bmatrix}z=
-\begin{bmatrix} -2\\2 \end{bmatrix}\)}
+\answer{\(\protect\begin{bmat} -2\protect\\-4 \protect\end{bmat}x
++\protect\begin{bmat} 1\protect\\2 \protect\end{bmat}y
++\protect\begin{bmat} -2\protect\\-1 \protect\end{bmat}z=
+\protect\begin{bmat} -2\protect\\2 \protect\end{bmat}\)}
 
 \item\label{ex:syslcii} \(\begin{array}{l}
 -3x+2y-3z=0\\
 y-z=0\\
 x-3y=0
 \end{array}\)
-\answer{\(\begin{bmatrix} -3\\0\\1 \end{bmatrix}x
-+\begin{bmatrix} 2\\1\\-3 \end{bmatrix}y
-+\begin{bmatrix} -3\\1\\0 \end{bmatrix}z=
-\begin{bmatrix} 0\\0\\0 \end{bmatrix}\)}
+\answer{\(\protect\begin{bmat} -3\protect\\0\protect\\1 \protect\end{bmat}x
++\protect\begin{bmat} 2\protect\\1\protect\\-3 \protect\end{bmat}y
++\protect\begin{bmat} -3\protect\\1\protect\\0 \protect\end{bmat}z=
+\protect\begin{bmat} 0\protect\\0\protect\\0 \protect\end{bmat}\)}
+
+%\vspace*{4ex}%%%%%%%%%%%%%??
 
 \item\label{ex:syslciii} \(\begin{array}{l}
 x_1+   3x_2+   x_3  -2x_4=   2\\
    2x_1+   x_2+   4x_3  -2x_4=  -1\\
   -x_1+   2x_2  -2x_3  -x_4=   3
 \end{array}\)
-\answer{\(\begin{bmatrix} 1\\2\\-1 \end{bmatrix}x_1
-+\begin{bmatrix} 3\\1\\2 \end{bmatrix}x_2
-+\begin{bmatrix} 1\\4\\-2 \end{bmatrix}x_3
-+\begin{bmatrix} -2\\-2\\-1 \end{bmatrix}x_4=
-\begin{bmatrix} 2\\-1\\3 \end{bmatrix}\)}
+\answer{\(\protect\begin{bmat} 1\protect\\2\protect\\-1 \protect\end{bmat}x_1
++\protect\begin{bmat} 3\protect\\1\protect\\2 \protect\end{bmat}x_2
++\protect\begin{bmat} 1\protect\\4\protect\\-2 \protect\end{bmat}x_3
++\protect\begin{bmat} -2\protect\\-2\protect\\-1 \protect\end{bmat}x_4=
+\protect\begin{bmat} 2\protect\\-1\protect\\3 \protect\end{bmat}\)}
 
 \item\label{ex:syslciv} \(\begin{array}{l}
   -2p  -2q=  -1\\
       q=   2\\
-   3p  -q=  1\\
+   3p  -q=  1
 \end{array}\)
-\answer{\(\begin{bmatrix} -2\\0\\3 \end{bmatrix}p
-+\begin{bmatrix} -2\\1\\-1 \end{bmatrix}q
-=\begin{bmatrix} -1\\2\\1 \end{bmatrix}\)}
+\answer{\(\protect\begin{bmat} -2\protect\\0\protect\\3 \protect\end{bmat}p
++\protect\begin{bmat} -2\protect\\1\protect\\-1 \protect\end{bmat}q
+=\protect\begin{bmat} -1\protect\\2\protect\\1 \protect\end{bmat}\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the cases in \autoref{ex:syslc}, by attempting to solve the system, determine if the right-hand side vector is in the span of the vectors on the left-hand side.
 \answer{\ref{ex:syslci}, yes,  e.g.\ \((x,y,z)=(0,2,2)\);
 \ref{ex:syslcii}, yes,  e.g.\ \((x,y,z)=(0,0,0)\);
 \ref{ex:syslciii}, yes,  e.g.\ \(\xv=(-1,1,0,0)\);
 \ref{ex:syslciv}, no, as there is no solution for \(p\) and~\(q\).}
-%\begin{answer}
-%\begin{parts}
-%\item  yes, e.g.\ \((x,y,z)=(0,2,2)\);
-%\item yes,  e.g.\ \((x,y,z)=(0,0,0)\);
-%\item yes,  e.g.\ \(\xv=(-1,1,0,0)\);
-%\item no, as there is no solution for \(p\) and~\(q\).
-%\end{parts}
-%\end{answer}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following sets, write the set as a span, if possible.
 Give reasons.
 \begin{enumerate}
@@ -675,7 +664,7 @@ Give reasons.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Show the following identities hold for any given vectors \uv, \vv\ and~\wv:
 \begin{enumerate}
 \item \(\Span\{\uv,\vv\}=\Span\{\uv-\vv,\uv+\vv\}\);
@@ -690,7 +679,7 @@ Show the following identities hold for any given vectors \uv, \vv\ and~\wv:
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Suppose \hlist\uv s\ are any \(s\)~vectors in~\(\RR^n\).
 Let the set \(R=\{\hlist\uv r\}\) for some \(r<s\), and the set \(S=\{\hlist\uv r,\uv_{r+1},\ldots,\uv_s\}\).
 \begin{enumerate}
@@ -702,7 +691,7 @@ Let the set \(R=\{\hlist\uv r\}\) for some \(r<s\), and the set \(S=\{\hlist\uv 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Suppose \hlist\uv r\ and \hlist\vv s\ are all vectors in~\(\RR^n\).
 \begin{enumerate}
 \item Prove that if every vector~\(\uv_j\) is a linear combination of \hlist\vv s, then \(\Span\{\hlist\uv r\}\subseteq\Span\{\hlist\vv s\}\); that is, that every vector in~\(\Span\{\hlist\uv r\}\) is also in~\(\Span\{\hlist\vv s\}\).
@@ -714,7 +703,7 @@ Suppose \hlist\uv r\ and \hlist\vv s\ are all vectors in~\(\RR^n\).
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Let \(S=\{\hlist\vv s\}\) be a set of vectors in~\(\RR^n\) such that vector~\(\vv_1\) is a linear combination of \hlist[2]\vv s\,.  
 Prove that \(\Span S=\Span\{\hlist[2]\vv s\}\).
 \end{exercise}
@@ -725,8 +714,8 @@ Prove that \(\Span S=\Span\{\hlist[2]\vv s\}\).
 
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item In what circumstances have you encountered linear combinations of vectors---even though they may not have been identified as linear combinations.
 Justify classifying the circumstances as involving linear combinations. 

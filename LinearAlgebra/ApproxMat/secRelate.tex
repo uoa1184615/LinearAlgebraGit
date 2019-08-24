@@ -40,21 +40,21 @@ O_{(m-k)\times k}&O_{(m-k)\times (n-k)}\end{bmatrix}
 \\&=&
 \sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k\,.
 \end{eqnarray*}
-This last form constructs matrix~\(A\).
-Further, when the rank~\(k\) is low compared to size~\(m\) and~\(n\), this last form \emph{has relatively few components}.
+This last sum constructs matrix~\(A\).
+Further, when the rank~\(k\) is low compared to size~\(m\) and~\(n\), this last sum \emph{has relatively few components}.
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Invent and write down a rank three representation of the following \(5\times5\) `\idx{bulls eye}' matrix (illustrated in the margin)
 \marginpar{\input{ApproxMat/bullseye.ltx}}
 \begin{equation*}
-A=\begin{bmatrix} 0&1&1&1&0
+A=\begin{bmat} 0&1&1&1&0
 \\1&0&0&0&1
 \\1&0&1&0&1
 \\1&0&0&0&1
-\\0&1&1&1&0 \end{bmatrix}.
+\\0&1&1&1&0 \end{bmat}.
 \end{equation*}
 \begin{solution} 
 Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vectors set the magnitude (for the moment, here these are not singular vectors and \(\sigma_j\)~are not singular values---but subsequently such a meaning will be restored).
@@ -63,49 +63,49 @@ Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vector
 \marginpar{\input{ApproxMat/bulls1.ltx}}
 \begin{equation*}
 \uv_1\tr\vv_1
-=\begin{bmatrix} 1\\0\\0\\0\\1 \end{bmatrix}
-\begin{bmatrix} 0&1&1&1&0 \end{bmatrix}
-=\begin{bmatrix} 0&1&1&1&0
+=\begin{bmat} 1\\0\\0\\0\\1 \end{bmat}
+\begin{bmat} 0&1&1&1&0 \end{bmat}
+=\begin{bmat} 0&1&1&1&0
 \\0&0&0&0&0
 \\0&0&0&0&0
 \\0&0&0&0&0
-\\0&1&1&1&0 \end{bmatrix}.
+\\0&1&1&1&0 \end{bmat}.
 \end{equation*}
 
 \item Next choose to add in the first and last columns of the image (as illustrated): they are computed by choosing  \(\uv_2=(0,1,1,1,0)\) and \(\vv_2=(1,0,0,0,1)\), and using the rank two matrix
 \marginpar{\input{ApproxMat/bulls2.ltx}}
 \begin{eqnarray*}
 \uv_1\tr\vv_1+\uv_2\vv_2
-&=&\uv_1\tr\vv_1+\begin{bmatrix} 0\\1\\1\\1\\0 \end{bmatrix}
-\begin{bmatrix} 1&0&0&0&1 \end{bmatrix}
-\\&=&\uv_1\tr\vv_1+\begin{bmatrix} 0&0&0&0&0
+&=&\uv_1\tr\vv_1+\begin{bmat} 0\\1\\1\\1\\0 \end{bmat}
+\begin{bmat} 1&0&0&0&1 \end{bmat}
+\\&=&\uv_1\tr\vv_1+\begin{bmat} 0&0&0&0&0
 \\1&0&0&0&1
 \\1&0&0&0&1
 \\1&0&0&0&1
-\\0&0&0&0&0 \end{bmatrix}
-\\&=&\begin{bmatrix} 0&1&1&1&0
+\\0&0&0&0&0 \end{bmat}
+\\&=&\begin{bmat} 0&1&1&1&0
 \\1&0&0&0&1
 \\1&0&0&0&1
 \\1&0&0&0&1
-\\0&1&1&1&0 \end{bmatrix}.
+\\0&1&1&1&0 \end{bmat}.
 \end{eqnarray*}
 
 \item Lastly put the dot in the middle of the image (to form the original image): choose  \(\uv_3=\vv_3=(0,0,1,0,0)\), and compute the rank three matrix
 \begin{eqnarray*}
 &&\uv_1\tr\vv_1+\uv_2\vv_2+\uv_3\vv_3
 \\&=&\uv_1\tr\vv_1+\uv_2\vv_2
-+\begin{bmatrix} 0\\0\\1\\0\\0 \end{bmatrix}
-\begin{bmatrix} 0&0&1&0&0 \end{bmatrix}
-\\&=&\uv_1\tr\vv_1+\uv_2\vv_2+\begin{bmatrix} 0&0&0&0&0
++\begin{bmat} 0\\0\\1\\0\\0 \end{bmat}
+\begin{bmat} 0&0&1&0&0 \end{bmat}
+\\&=&\uv_1\tr\vv_1+\uv_2\vv_2+\begin{bmat} 0&0&0&0&0
 \\0&0&0&0&0
 \\0&0&1&0&0
 \\0&0&0&0&0
-\\0&0&0&0&0 \end{bmatrix}
-\\&=&\begin{bmatrix} 0&1&1&1&0
+\\0&0&0&0&0 \end{bmat}
+\\&=&\begin{bmat} 0&1&1&1&0
 \\1&0&0&0&1
 \\1&0&1&0&1
 \\1&0&0&0&1
-\\0&1&1&1&0 \end{bmatrix}.
+\\0&1&1&1&0 \end{bmat}.
 \end{eqnarray*}
 
 \end{enumerate}
@@ -141,12 +141,12 @@ Which pair of vectors gives a rank one representation,~\(\uv\tr\vv\) of the matr
 
 
 \begin{procedure}[approximate images] \label{pro:ai} 
-Given an image stored as scalars in an \(m\times n\) matrix~\(A\).
+Given an image stored as scalars in an \(m\times n\) matrix~\(A\).%
 \footnote{Some of you may wonder about compressing three dimensional (3D) images such as the details in 3D space found by \textsc{ct}-scans\index{CT scan} of your body, or such as a movie (2D in space  and 1D in time). 
-As yet there is no one outstanding, clear and efficient generalisation of the \svd\ to represent a 3D array of numbers, nor for \(n\)D with \(n\geq3\) (search for Tensor Rank Decomposition).}
+As yet there is no one outstanding, clear and efficient generalization of the \svd\ to represent a 3D array of numbers, nor for \(n\)D with \(n\geq3\) (search for Tensor Rank Decomposition).}
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
-\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\autoref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and the rest are `small'.
+\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\autoref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and all the rest are `small'.
 \item Then the `best' rank~\(k\) approximation to the image matrix~\(A\) is (using the subscript~\(k\) on the matrix name to denote the rank~\(k\) approximation)
 \begin{eqnarray*}
 A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
@@ -202,7 +202,7 @@ A=[0 1 1 1 0
 A3=U(:,1:3)*S(1:3,1:3)*V(:,1:3)'
 A2=U(:,1:2)*S(1:2,1:2)*V(:,1:2)'
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \begin{itemize}
 \item For this matrix there are three `large' singular values of~\(2.68\), \(2.32\) and~\(0.64\), and two `small' singular values of~\(0.00\) (they are precisely zero), thus construct a rank three approximation to the image matrix as
 \begin{equation*}
@@ -272,13 +272,6 @@ V =
 \end{verbatim}
 What rank representation will exactly reproduce the matrix\slash image?
 \actposs[4]2134
-%\partswidth=5em
-%\begin{parts}
-%\item 1
-%\item 2
-%\item 3
-%\item 4
-%\end{parts}
 \end{activity}
 
 
@@ -313,7 +306,7 @@ rgb=imread('euler1737.png');
 A=mean(rgb,3);
 \end{verbatim}
 The \verb|imread| command sets the \(326\times277\times3\) array~\verb|rgb| to the red-green-blue values of the image data. 
-Then convert into a grayscale image matrix~\verb|A| by averaging the 
+Then convert into a greyscale image matrix~\verb|A| by averaging the 
 red-green-blue values via the function \index{mean()@\texttt{mean()}}\verb|mean(rgb,3)| which computes the \idx{mean} over the third dimension of the array (over the three colours).
 
 \item Compute an \svd, \(A=\usv\), of the matrix~\verb|A| with the usual command \verb|[U,S,V]=svd(A)|.
@@ -328,7 +321,7 @@ k=10
 imagesc(U(:,1:k)*S(1:k,1:k)*V(:,1:k)')
 axis equal, axis off
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 
 
 \begin{figure}
@@ -367,7 +360,8 @@ The \svd\ provides an effective flexible data compression.
 
 
 \begin{table}
-\caption{As well as the \script\ commands and operations listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics}, \ref{tbl:mtlbops}, \ref{tbl:mtlbmops}, \ref{tbl:mtlbsvd}, and~\ref{tbl:mtlbimag}  we may invoke these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbnorm}
+\caption{As well as the \script\ commands and operations listed in 
+\cref{tbl:mtlbpre,tbl:mtlbbasics,tbl:mtlbops,tbl:mtlbmops,tbl:mtlbsvd,tbl:mtlbimag}  we may invoke these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbnorm}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
@@ -400,9 +394,10 @@ Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(
 
 \item \index{std()@\texttt{std()}|textbf}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the \idx{row vector} of the \idx{standard deviation} over each column of~\(A\) (close to the root-mean-square from the mean).
 
-\item \index{bsxfun()@\texttt{bsxfun()}|textbf}\verb|bsxfun(@op,A,B)| for \(m\times n\) arrays~\(A\) and~\(B\) computes the \(m\times n\) array \(\begin{bmatrix} a_{ij}\operatorname{op}b_{ij} \end{bmatrix}\), where ``\verb|@op|'' is one of the operations~\verb|@plus|, \verb|@minus|, \verb|@times|, \verb|@rdivide|, \verb|@power|, \ldots.
-Where \verb|bsxfun()| becomes useful is that if either of the matrices is \(m\times1\) or \(1\times n\) then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
+\item For the element-by-element operations of \verb|+|, \verb|-|, \verb|.*|, \verb|./|, \verb|.^|, and so on, \index{auto-replication}\emph{\script\ auto-replicates scalars and vectors as appropriate}. 
+Where this auto-replication becomes extremely useful is that if either of the matrices is \(m\times1\) or \(1\times n\) or one of each, then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
 
+\emph{The general rule} is that if all the non-\(1\) sizes of the operands agree, then the dimensions of size~\(1\) in each operand are replicated as needed to match the other operand.
 
 %\item \index{double@\texttt{double}}\verb|double(a)| converts the integers (or other data-types) in array~\verb|a| into the same size array of integer-valued real numbers that we normally use.
 %\footnote{The term \emph{double} refers to the 15-digit precision of real numbers we use by default, compared to the \emph{single} precision of 7-digit real numbers used for simple purposes in, for example, graphics video cards for computers.}
@@ -411,12 +406,12 @@ Where \verb|bsxfun()| becomes useful is that if either of the matrices is \(m\ti
 
 %\item \index{figure@\texttt{figure}}\verb|figure(n)| starts or restarts drawing graphics into the figure window number~\verb|n|. 
 
-%\item \index{colormap()@\texttt{colormap()}}\verb|colormap('gray')| \script\ usually draws graphs with colour, but for many images we need grayscale; this command changes the current figure to 64~shades of gray.  
+%\item \index{colormap()@\texttt{colormap()}}\verb|colormap('gray')| \script\ usually draws graphs with colour, but for many images we need greyscale; this command changes the current figure to 64~shades of grey.  
 
 %\item \index{subplot@\texttt{subplot}}\verb|subplot(m,n,p)| notionally tiles the current figure window into  \(\verb|m|\times\verb|n|\)~rectangular tiles, and then subsequent plotting commands draw into the \verb|p|th~tile numbered row-wise.
 %For example, after \verb|subplot(2,3,p)| the~\verb|p| refers to the following tiles: \(\begin{array}{|c|c|c|} \hline 1&2&3\\ \hline 4&5&6\\ \hline \end{array}\).
 
-%\item \index{imagesc()@\texttt{imagesc()}}\verb|imagesc(A)| where \(A\)~is a \(m\times n\) matrix of values draws an \(m\times n\) image in the current figure window using the values of~\(A\) (scaled to fit) to determine the colour from the current colormap (e.g., grayscale).
+%\item \index{imagesc()@\texttt{imagesc()}}\verb|imagesc(A)| where \(A\)~is a \(m\times n\) matrix of values draws an \(m\times n\) image in the current figure window using the values of~\(A\) (scaled to fit) to determine the colour from the current colormap (e.g., greyscale).
 
 \item \index{axis@\texttt{axis}|textbf}\verb|axis| sets some properties of a drawn figure:
 \begin{itemize}
@@ -442,7 +437,7 @@ Where \verb|bsxfun()| becomes useful is that if either of the matrices is \(m\ti
 
 
 We need to define what `best' means in the approximation \autoref{pro:ai} and then show the procedure achieves this best.
-%Recall diagonal matrices, orthogonal matrices and properties, rank, \svd\ factorisation, and how to approximate \idx{inconsistent} right-hand side vectors.
+%Recall diagonal matrices, orthogonal matrices and properties, rank, \svd\ factorization, and how to approximate \idx{inconsistent} right-hand side vectors.
 %To proceed to understand \idx{image compression}, 
 We need a measure of the \idx{magnitude} of matrices and distances between matrices.
 
@@ -454,7 +449,6 @@ Define the \bfidx{matrix norm} (sometimes called the \idx{spectral norm})
 \begin{equation}
 \norm A:=\max_{|\xv|=1}|A\xv|, 
 \quad\text{equivalently }\norm A=\sigma_1
-\label{eq:}
 \end{equation}
 the largest \idx{singular value} of the matrix~\(A\).
 \footnote{Sometimes this matrix norm is more specifically called a \idx{2-norm} and correspondingly denoted by~\(\norm{A}_2\): but not in this book because at other times and places \(\norm{A}_2\)~denotes something slightly different.}
@@ -465,16 +459,16 @@ The equivalence, that \(\max_{|\xv|=1}|A\xv|=\sigma_1\)\,, is due to the definit
 
 
 
-\begin{example} \label{eg:}
+\begin{example} \label{eg:g2x2norm}
 The two following \(2\times2\) matrices have the product~\(A\xv\) plotted~(red), adjoined to~\xv~(blue), for a complete range of \idx{unit vector}s~\xv\ (as in \autoref{sec:iee} for eigenvectors).
 From \autoref{def:norm}, the norm of the matrix~\(A\) is then the \idx{length} of the longest such plotted~\(A\xv\).
 As such, this norm is a measure of the \idx{magnitude} of the matrix.
 \begin{aside}
-The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to such static views.
+The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}\footnote{Download for R2017b etc.} provides an interactive alternative to such static views.
 \end{aside}%
 For each matrix, use the plot to roughly estimate their norm.
-\begin{enumerate}
-\item\label{eg:g2x2norm:a} \(\eAii=\begin{bmatrix} 0.5&0.5\\-0.6&1.2 \end{bmatrix}\)\\
+\begin{enumerate}[ref=\ref{eg:g2x2norm}(\alph*)]
+\item\label[example]{eg:g2x2norm:a} \(\eAii=\begin{bmatrix} 0.5&0.5\\-0.6&1.2 \end{bmatrix}\)\\
 \marginpar{\eRose{0.5}{0.5}{-0.6}{1.2}}
 \begin{solution} 
 The longest \(\eAii\xv\) appear to be near the top and bottom of the plot, and appear to be a little longer than one, so estimate \(\norm{\eAii}\approx 1.3\)\,.
@@ -494,8 +488,8 @@ So estimate \(\norm{\eAii}\approx 0.9\)\,.
 
 
 
-\begin{example} \label{eg:}
-Consider the \(2\times2\) matrix \(A=\begin{bmatrix} 1&1\\0&1 \end{bmatrix}\).
+\begin{example} 
+Consider the \(2\times2\) matrix \(A=\begin{bmat} 1&1\\0&1 \end{bmat}\).
 Algebraically explore products \(A\xv\) for \idx{unit vector}s~\xv, as illustrated in the margin, 
 \marginpar{\eRose1101}
 and then find the \idx{matrix norm}~\(\norm{A}\).
@@ -513,7 +507,7 @@ Then
 \\&=&\cos^2 t+2\cos t\,\sin t+\sin^2t+\sin^2 t
 \\&=&\tfrac32+\sin 2t-\tfrac12\cos 2t\,.
 \end{eqnarray*}
-This length (squared) is maximised (and minimised) for some~\(t\) determined by calculus.
+This length (squared) is maximized (and minimized) for some~\(t\) determined by calculus.
 Differentiating with respect to~\(t\)  leads to
 \begin{equation*}
 \frac{d|A\xv|^2}{dt}=2\cos2t+\sin 2t \ =0\quad\text{for stationary points.}
@@ -571,48 +565,45 @@ A\begin{bmatrix} 1\\-2\\-2 \end{bmatrix}
 \end{equation*}
 Which of the following is the `best' statement about the norm of matrix~\(A\) (best in the sense of giving the largest valid lower bound)?
 \actposs{\(\|A\|\geq 3.9\)}{\(\|A\|\geq 1.7\)}{\(\|A\|\geq 2.3\)}{\(\|A\|\geq 11.7\)}
-%\begin{parts}
-%\item \(\|A\|\geq 1.7\)
-%\item \(\|A\|\geq 2.3\)
-%\item \(\|A\|\geq 3.9\)
-%\item \(\|A\|\geq 11.7\)
-%\end{parts}
 \end{activity}
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 \script\ readily computes the \idx{matrix norm} either via an \svd\ or using the \index{norm()@\texttt{norm()}}\verb|norm()| function directly (\autoref{tbl:mtlbnorm}).
-Compute the norm of the following matrices.
-\begin{enumerate}
-\item \(A=\begin{bmatrix} 
-   0.1&-1.3&-0.4&-0.1&-0.6\\
-   1.9&2.4&-1.8&0.2&0.8\\
-  -0.2&-0.5&-0.7&-2.5&1.1\\
-  -1.8&0.2&1.1&-1.2&1.0\\
-  -0.0&1.2&1.1&-0.1&1.7
- \end{bmatrix}\)
-\begin{solution} 
-Enter the matrix into \script\ then executing \verb|svd(A)| returns the vector of singular values
-\setbox\ajrqrbox\hbox{\qrcode{% matrix norm
-A=[0.1 -1.3 -0.4 -0.1 -0.6
-   1.9 2.4 -1.8 0.2 0.8
-  -0.2 -0.5 -0.7 -2.5 1.1
-  -1.8 0.2 1.1 -1.2 1.0
-  -0.0 1.2 1.1 -0.1 1.7]
-svd(A)
-norm(A)
-}}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
-\begin{equation*}\sloppy
-(4.0175,3.5044,2.6568,0.8571,0.1618),
-\end{equation*}
-so \(\norm{A}=\sigma_1=4.0175\)\,.
-Alternatively, executing \index{norm()@\texttt{norm()}}\verb|norm(A)| directly gives  \(\norm{A}=4.0175\)\,.
-\end{solution}
-
-\item \(B=\begin{bmatrix} 
+%\begin{enumerate}
+%\item 
+%Compute the norm of the matrix
+%\(A=\begin{bmatrix} 
+%   0.1&-1.3&-0.4&-0.1&-0.6\\
+%   1.9&2.4&-1.8&0.2&0.8\\
+%  -0.2&-0.5&-0.7&-2.5&1.1\\
+%  -1.8&0.2&1.1&-1.2&1.0\\
+%  -0.0&1.2&1.1&-0.1&1.7
+% \end{bmatrix}\)
+%\begin{solution} 
+%Enter the matrix into \script\ then executing \verb|svd(A)| returns the vector of singular values
+%\setbox\ajrqrbox\hbox{\qrcode{% matrix norm
+%A=[0.1 -1.3 -0.4 -0.1 -0.6
+%   1.9 2.4 -1.8 0.2 0.8
+%  -0.2 -0.5 -0.7 -2.5 1.1
+%  -1.8 0.2 1.1 -1.2 1.0
+%  -0.0 1.2 1.1 -0.1 1.7]
+%svd(A)
+%norm(A)
+%}}%
+%\marginajrbox%
+%\begin{equation*}\sloppy
+%(4.0175,3.5044,2.6568,0.8571,0.1618),
+%\end{equation*}
+%so \(\norm{A}=\sigma_1=4.0175\)\,.
+%Alternatively, executing \index{norm()@\texttt{norm()}}\verb|norm(A)| directly gives  \(\norm{A}=4.0175\)\,.
+%\end{solution}
+%
+%\item 
+Compute the norm of the matrix
+\(B=\begin{bmatrix} 
 0&-2&-1&-4&-5&0
 \\2&0&1&-2&-6&-2
 \\-2&0&4&2&3&-3
@@ -628,7 +619,7 @@ B=[0 -2 -1 -4 -5 0
 svd(B)
 norm(B)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \begin{equation*}\sloppy
 (10.1086,7.6641,3.2219,0.8352),
 \end{equation*}
@@ -636,7 +627,7 @@ so \(\norm{B}=\sigma_1=10.1086\)\,.
 Alternatively, executing \index{norm()@\texttt{norm()}}\verb|norm(B)| directly gives  \(\norm{B}=10.1086\)\,.
 \end{solution}
 
-\end{enumerate}
+%\end{enumerate}
 \end{example}
 
 
@@ -663,30 +654,30 @@ Analogous properties hold for the matrix norm as established in the next theorem
 
 \begin{theorem}[\idx{matrix norm} properties] \label{thm:norm} 
 For every \(m\times n\) real matrix~\(A\):
-\begin{enumerate}
-\item\label{thm:norm:iii} \(\norm A=0\) if and only if \(A=O_{m\times n}\)\,;
-\item\label{thm:norm:vi} \(\norm{I_n}=1\)\,;
-\item\label{thm:norm:iv} \(\norm {A\pm B}\leq\norm{A}+\norm B\), for every \(m\times n\) matrix~\(B\), is like a \idx{triangle inequality} (\autoref{thm:triscalc});
-\item\label{thm:norm:v} \(\norm{tA}=|t|\norm{A}\)\,;
-\item\label{thm:norm:i} \(\norm A=\norm{\tr A}\)\,;
-\item\label{thm:norm:ii} \(\norm{Q_mA}=\norm A=\norm{AQ_n}\) for every \(m\times m\) \idx{orthogonal matrix}~\(Q_m\) and every \(n\times n\) \idx{orthogonal matrix}~\(Q_n\);
-\item\label{thm:norm:viii} \(|A\xv|\leq\norm{A}|\xv|\) for all \(\xv\in\RR^n\), is like a \idx{Cauchy--Schwarz inequality} (\autoref{thm:triscalb}), as is the following;
-\item\label{thm:norm:vii} \(\norm{AB}\leq\norm A\norm B\) for every \(n\times p\) matrix~\(B\).
+\begin{enumerate}[ref=\ref{thm:norm}(\alph*)]
+\item\label[theorem]{thm:norm:iii} \(\norm A=0\) if and only if \(A=O_{m\times n}\)\,;
+\item\label[theorem]{thm:norm:vi} \(\norm{I_n}=1\)\,;
+\item\label[theorem]{thm:norm:iv} \(\norm {A\pm B}\leq\norm{A}+\norm B\), for every \(m\times n\) matrix~\(B\), is like a \idx{triangle inequality} (\autoref{thm:triscalc});
+\item\label[theorem]{thm:norm:v} \(\norm{tA}=|t|\norm{A}\)\,;
+\item\label[theorem]{thm:norm:i} \(\norm A=\norm{\tr A}\)\,;
+\item\label[theorem]{thm:norm:ii} \(\norm{Q_mA}=\norm A=\norm{AQ_n}\) for every \(m\times m\) \idx{orthogonal matrix}~\(Q_m\) and every \(n\times n\) \idx{orthogonal matrix}~\(Q_n\);
+\item\label[theorem]{thm:norm:viii} \(|A\xv|\leq\norm{A}|\xv|\) for all \(\xv\in\RR^n\), is like a \idx{Cauchy--Schwarz inequality} (\autoref{thm:triscalb}), as is the following;
+\item\label[theorem]{thm:norm:vii} \(\norm{AB}\leq\norm A\norm B\) for every \(n\times p\) matrix~\(B\).
 \end{enumerate}
 \end{theorem}
 \begin{proof}  Alternative proofs to the following may be invoked (\autoref{ex:norm}).
 Where necessary in the following, let matrix~\(A\) have the \svd\ \(A=\usv\).
-\begin{itemize}
-\item[\ref{thm:norm:iii}.]
+\begin{description}
+\item[\ref{thm:norm:iii}]
 If \(A=O_{m\times n}\) \,,
 then from \autoref{def:norm} 
 \begin{equation*}
 \norm A=\max_{|\xv|=1}|O\xv|
 =\max_{|\xv|=1}|\ov|=\max_{|\xv|=1}0=0\,.
 \end{equation*}
-Conversely, if \(\norm A=0\)\,, then the largest singular value \(\sigma_1=0\) (\autoref{def:norm}), which implies that all singular values are zero, so the matrix~\(A\) has an \svd\ of the form \(A=UO_{m\times n}\tr V\)\,, which evaluates to \(A=O_{m\times n}\)\,.
+Conversely, if \(\norm A=0\)\,, then the largest singular value \(\sigma_1=0\) (\autoref{def:norm}), which implies that all singular values are zero, so the matrix~\(A\) has an \svd\ of the form \(A=UO_{m\times n}\tr V\)\,, which reduces to \(A=O_{m\times n}\)\,.
 
-\item[\ref{thm:norm:vi}.] From \autoref{def:norm}, 
+\item[\ref{thm:norm:vi}] From \autoref{def:norm}, 
 \begin{equation*}
 \norm{I_n}=\max_{|\xv|=1}|I_n\xv|
 =\max_{|\xv|=1}|\xv|
@@ -695,7 +686,7 @@ Conversely, if \(\norm A=0\)\,, then the largest singular value \(\sigma_1=0\) (
 \end{equation*}
 
 
-\item[\ref{thm:norm:iv}.]
+\item[\ref{thm:norm:iv}]
 Using \autoref{def:norm} at the first and last steps:
 \begin{eqnarray*}
 \norm{A\pm B}
@@ -708,7 +699,7 @@ Using \autoref{def:norm} at the first and last steps:
 \\&&{}\phantom{\leq}=\norm A+ \norm B\,.
 \end{eqnarray*}
 
-\item[\ref{thm:norm:v}.]
+\item[\ref{thm:norm:v}]
 Using \autoref{def:norm},
 \begin{eqnarray*}
 \norm{tA}
@@ -721,12 +712,12 @@ Using \autoref{def:norm},
 \\&=&|t|\norm A\,.
 \end{eqnarray*}
 
-\item[\ref{thm:norm:i}.]
+\item[\ref{thm:norm:i}]
 Recall that the transpose~\(\tr A\) has an \svd\ \(\tr A=\tr{(\usv)}=V\tr S\tr U\), and so has the same singular values as~\(A\).
 So the largest singular value of~\(\tr A\) is the same as that of~\(A\).
 Hence \(\norm A=\norm{\tr A}\).
 
-\item[\ref{thm:norm:ii}.]
+\item[\ref{thm:norm:ii}]
 Recall that multiplication by an orthogonal matrix is a rotation\slash reflection and so does not change lengths (\autoref{thm:orthog:iv}): correspondingly, it also does not change the norm of a matrix as established here.
 
 Now \(Q_mA=Q_m(\usv)=(Q_mU)S\tr V\).
@@ -749,8 +740,8 @@ Alternatively, in the case \(\xv\neq\ov\), then we write \(\xv=\hat{\xv}|\xv|\) 
 \end{eqnarray*}
 
 
-\item[\ref{thm:norm:vii}] See {Exercise}~\ref{ex:norm:vii}.
-\end{itemize}
+\item[\ref{thm:norm:vii}] See \cref{ex:norm:vii}.
+\end{description}
 \end{proof}
 
 
@@ -758,7 +749,7 @@ Alternatively, in the case \(\xv\neq\ov\), then we write \(\xv=\hat{\xv}|\xv|\) 
 
 Since the matrix norm has the familiar properties of a measure of \idx{magnitude}, we use the matrix norm to measure the `\idx{distance}' between matrices.
 
-\begin{example} \label{eg:}
+\begin{example} 
 \begin{enumerate}
 \item Use the \idx{matrix norm} to estimate the `\idx{distance}' between matrices
 \begin{equation*}
@@ -851,18 +842,13 @@ Which of the following matrices is \emph{not} a \idx{distance} one from the matr
 {\(\begin{bmatrix} 8&-1\\1&5 \end{bmatrix}\)}
 {\(\begin{bmatrix} 9&-1\\1&6 \end{bmatrix}\)}
 {\(\begin{bmatrix} 10&-1\\1&6 \end{bmatrix}\)}
-%\begin{parts}
-%\item \(\begin{bmatrix} 8&-1\\1&5 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 9&-1\\1&6 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 10&-1\\1&6 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 8&-2\\2&4 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
 
 
 
 
-\begin{example} \label{eg:}
+\begin{reduce}
+\begin{example} 
 From \autoref{eg:bullseyemat}, recall the `\idx{bulls eye}' matrix
 \begin{equation*}
 A=\begin{bmatrix} 0&1&1&1&0
@@ -913,6 +899,7 @@ One might further comment that the relative error in the approximate~\(A_2\) is 
 \end{itemize}
 \end{solution}
 \end{example}
+\end{reduce}
 
 
 
@@ -978,13 +965,13 @@ That is, there exists a \((k+1)\)-dimensional subspace in which \(|A\vv|\geq\sig
 
 Lastly, since the sum of the dimensions of these two subspaces of~\(\RR^n\) is at least \((n-k)+(k+1)>n\), there must be a nonzero vector, say~\uv, lying in both.
 So for this~\uv, simultaneously \(|A\uv|<\sigma_{k+1}|\uv|\) and \(|A\uv|\geq\sigma_{k+1}|\uv|\)\,.
-These two deductions contradict each other.
+These two statements contradict each other.
 Hence the assumption is wrong: there is no rank~\(k\) matrix more closely approximating~\(A\) than~\(A_k\).
 \end{proof}
 
 
 
-\begin{example}[the letter \texttt{R}] \label{eg:}
+\begin{example}[the letter \texttt{R}] 
 In displays with low resolution, letters and numbers are displayed with noticeable \idx{pixel pattern}s: for example, the letter~\verb|R| is pixellated in the margin.
 \marginpar{\input{ApproxMat/R.ltx}}%
 Let's see how such \idx{pixel pattern}s are best approximated by matrices of different ranks.
@@ -993,13 +980,13 @@ Let's see how such \idx{pixel pattern}s are best approximated by matrices of dif
 Use \autoref{pro:ai}.
 First, form and enter into \script\ the \(7\times5\) matrix of the pixel pattern as illustrated in the margin
 \begin{equation*}
-R=\begin{bmatrix} 1&1&1&1&0
+R=\begin{bmat} 1&1&1&1&0
 \\1&0&0&0&1
 \\1&0&0&0&1
 \\1&1&1&1&0
 \\1&0&1&0&0
 \\1&0&0&1&0
-\\1&0&0&0&1 \end{bmatrix}.
+\\1&0&0&0&1 \end{bmat}.
 \end{equation*}
 Second, compute an \svd\ via \verb|[U,S,V]=svd(R)| to find \twodp
 \begin{verbatim}
@@ -1037,7 +1024,7 @@ R=[ 1 1 1 1 0
 [U,S,V]=svd(R)
 R2=U(:,1:2)*S(1:2,1:2)*V(:,1:2)'
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 The singular values are \(\sigma_1=3.47\), \(\sigma_2=2.09\), \(\sigma_3=1.00\), \(\sigma_4=0.75\) and \(\sigma_5=0\)\,.
 Four successively better approximations to the image are the following.
 \begin{itemize}
@@ -1060,7 +1047,7 @@ R1 =
    0.83   0.34   0.45   0.45   0.27
    0.71   0.29   0.39   0.39   0.24
 \end{verbatim}
-This has difference \(\norm{R-R_1}=\sigma_2=2.09\) which at~60\% of~\(\sigma_1\) is large: indeed the letter~\verb|R| is not recognisable.
+This has difference \(\norm{R-R_1}=\sigma_2=2.09\) which at~60\% of~\(\sigma_1\) is large: indeed the letter~\verb|R| is not recognizable.
 
 \item The second approximation is \(R_2=\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2\).
 Compute via \verb|R2=U(:,1:2)*S(1:2,1:2)*V(:,1:2)'| to find \twodp, as illustrated, 
@@ -1124,20 +1111,13 @@ This has difference \(\norm{R-R_4}=\sigma_5=0.00\) and so \(R_4\)~exactly reprod
 A given image has \idx{singular value}s \(12.74\), \(8.38\), \(3.06\), \(1.96\), \(1.08\), \ldots. 
 What rank approximation has an error of just a little less than~25\%?
 \actposs[4]2134
-%\partswidth=5em
-%\begin{parts}
-%\item 1
-%\item 2
-%\item 3
-%\item 4
-%\end{parts}
 \end{activity}
 
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Recall \autoref{eg:euler1737} approximated the image of \idx{Euler} (1737) with various rank~\(k\) approximates from an \svd\ of the image.
 Let the image be denoted by matrix~\(A\).
 From \autoref{fig:euler1737sing} the largest \idx{singular value} of the image is \(\norm A=\sigma_1\approx40\,000\)\,.
@@ -1200,8 +1180,8 @@ Could introduce the Frobenius norm here, but would confuse some, and there is no
 %\begin{theorem} \label{thm:normf} 
 %Let \(A\) be an \(m\times n\) matrix, and \(Q\) be an \(m\times m\) \idx{orthogonal matrix}:
 %\begin{enumerate}
-%\item\label{thm:normf:i} \(\normf A=\normf{\tr A}\)\,;
-%\item\label{thm:normf:ii} \(\normf{QA}=\normf A\)\,.
+%\item\label[theorem]{thm:normf:i} \(\normf A=\normf{\tr A}\)\,;
+%\item\label[theorem]{thm:normf:ii} \(\normf{QA}=\normf A\)\,.
 %\end{enumerate}
 %\end{theorem}
 %\begin{proof} %Immediate from definition, and 
@@ -1262,7 +1242,7 @@ Could introduce the Frobenius norm here, but would confuse some, and there is no
 %% this proof is wrong??
 %perhaps see (G. Golub and C. Reinsch, Handbook for automatic computation: {II}, linear algebra, Springer--Verlag, 1971)
 %The off-diagonal elements of~\(B\) must be zero: if \(B\) has off-diagonal entries nonzero, then \normf{S-B}\ can be reduced by reducing the off-diagonal entries and still maintaining rank~\(k\). %why?? do we need to write B=D+C ??
-%Hence we need to choose precisely~\(k\) diagonal elements to be nonzero:  minimise \normf{S-B}\ with \(B=\diag(\hlist\sigma k,0,\ldots,0)\).
+%Hence we need to choose precisely~\(k\) diagonal elements to be nonzero:  minimize \normf{S-B}\ with \(B=\diag(\hlist\sigma k,0,\ldots,0)\).
 %Then the closest rank~\(k\) matrix is \(A_k=UB\tr V\). 
 %\end{proof}
 
@@ -1300,7 +1280,8 @@ approximation to \idx{high dimensional} data, one then plots 2D (or~3D) graphics
 Such an approach is often termed a \idx{principal component analysis}~(\index{PCA@\textsc{pca}}\textsc{pca}).
 
 The technique introduced here is so useful that more-or-less the same 
-approach has been invented independently in many fields and so much 
+approach has been invented independently in many fields. 
+Consequently, much 
 the same technique has alternative names such as the 
 \idx{Karhunen--Lo\`eve decomposition}, \idx{proper orthogonal decomposition}, \idx{empirical orthogonal functions}, and the \idx{Hotelling transform}.
 
@@ -1343,7 +1324,7 @@ table[x=x,y=y, meta=S, row sep=\\] {
 \end{array}
 \end{equation*}
 The item properties\slash attributes are the points \((h,v)\) in 2D as illustrated in the margin.
-But humans always prefer simple one dimensional summaries: we do it all the time when we rank sport teams, schools, web pages, and so on.
+But humans always prefer simple one dimensional summaries: we do it all the time when we rank sport teams, schools, web pages, political parties, and so on.
 
 Challenge: is there a one dimensional summary of these six item's data that clearly separates the blue from the red?
 Using just one of the attributes~\(h\) or~\(v\) on their own would not suffice:
@@ -1385,7 +1366,7 @@ table[x=x,y=y, meta=S, row sep=\\] {
 \end{itemize}
 
 \begin{solution} 
-Use an \svd\ to automatically find the best 1D view of the data.
+Use an \svd\ to automatically find the `best' 1D view of the data.
 \begin{enumerate}
 \item Enter the \(6\times2\) matrix of data into \script\ with
 \begin{verbatim}
@@ -1406,7 +1387,7 @@ A=[-3 -3
 [U,S,V]=svd(A)
 A*V(:,1)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 
 \item Then \verb|[U,S,V]=svd(A)| computes an \svd, \(A=\usv\), of the data \twodp:
 \begin{verbatim}
@@ -1431,7 +1412,7 @@ V =
 
 \item Now what does such an \svd\ tell us?
 Recall from the proof of the \svd\ (\autoref{sec:psvdt}) that \(A\vv_1=\sigma_1\uv_1\)\,. 
-Further recall from the proof that \(\vv_1\) is the unit vector that maximises~\(|A\vv_1|\) so in some sense it is the direction in which the data in~\(A\) is most spread out (\(\vv_1\)~is called the \idx{principal vector}).
+Further recall from the proof that \(\vv_1\) is the unit vector that maximizes~\(|A\vv_1|\) so in some sense it is the direction in which the data in~\(A\) is most spread out (\(\vv_1\)~is called the \idx{principal vector}).
 We find here \twodp
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
@@ -1460,7 +1441,7 @@ In essence, the product~\(A\vv_1\) orthogonally projects (\autoref{sec:proj}) th
 \end{solution}
 \end{example}
 
-Although this \autoref{eg:toypca} is just a toy to illustrate concepts, the above steps generalise straightforwardly to be immensely useful on vastly bigger and more challenging data.
+Although this \autoref{eg:toypca} is just a toy to illustrate concepts, the above steps generalize straightforwardly to be immensely useful on vastly bigger and more challenging data.
 The next example takes the next step in complexity by introducing how to automatically find a good 2D view of some data in~4D.
 
 
@@ -1517,7 +1498,7 @@ The measurements come from the flowers of ten each of three different species of
 \end{table}
 \autoref{tbl:eaid} list part of Edgar Anderson's data on the length and widths of sepals and petals of \idx{Iris} flowers.\footnote{\url{http://archive.ics.uci.edu/ml/datasets/Iris} gives the full dataset \cite[]{Lichman2013}.}
 There are three \idx{species} of Irises in the data (Setosa, Versicolor, Virginia).
-The data is 4D: each instance of thirty Iris flowers is characterised by the four measurements of sepals and petals.
+The data is~4D: each instance of thirty Iris flowers is characterised by the four measurements of sepals and petals.
 Our challenge is to plot a 2D picture of this data in such a way that separates the flowers as best as possible.
 For high-D data (although 4D is not really that high), simply plotting one characteristic against another is rarely useful.
 For example,  \autoref{fig:eaid} plots the attributes of sepal widths versus sepal lengths: the plot shows the three species being intermingled together rather than reasonably separated.
@@ -1618,7 +1599,7 @@ iris=[
 6.3 2.5 5.0 1.9 3
 ];
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 Then a scatter plot such as \autoref{fig:eaid} may be drawn with the command
 \begin{verbatim}
 scatter(iris(:,1),iris(:,2),[],iris(:,5))
@@ -1633,20 +1614,20 @@ Then the \svd\ analyses the variations from the mean.
 Here the mean Iris sepal length and width is \(5.81\)\,cm and~\(3.09\)\,cm (the black~``+'' in \autoref{fig:eaid}), and the mean petal length and width is \(3.69\)\,cm and~\(1.22\)\,cm.
 The \idx{row vector} of these means are computed in \script\ by \index{mean()@\texttt{mean()}}\verb|mean(iris(:,1:4))|, giving \(\begin{bmatrix} 5.81&3.09&3.69&1.22 \end{bmatrix}\).
 Thus we subtract~\(5.81\)\,cm from the first column of data, \(3.09\)\,cm~from the second column, and so on.
-The \verb|bsxfun()|\index{bsxfun()@\texttt{bsxfun()}} in \script\ (\autoref{tbl:mtlbnorm}) provides a convenient method to do this subtraction as it replicates the \idx{row vector} of means to suit the number of rows in the data (\autoref{tbl:eaid}).
+The \idx{auto-replication} of \script\ (\autoref{tbl:mtlbnorm}) provides a convenient method to do this subtraction as it replicates the \idx{row vector} of means to suit the number of rows in the 2D data array (\autoref{tbl:eaid}).
 In \script\ execute the following to form a matrix~\(A\) of the variations from the mean, and then compute an \svd:%
 %meaniris=mean(iris(:,1:4))
 %A=iris(:,1:4)-ones(30,1)*meaniris
 \begin{verbatim}
-A=bsxfun(@minus,iris(:,1:4),mean(iris(:,1:4)))
+A=iris(:,1:4)-mean(iris(:,1:4))
 [U,S,V]=svd(A)
 \end{verbatim}
 \setbox\ajrqrbox\hbox{\qrcode{% view Iris
-A=bsxfun(@minus,iris(:,1:4),mean(iris(:,1:4)))
+A=iris(:,1:4)-mean(iris(:,1:4))
 [U,S,V]=svd(A)
 scatter(A*V(:,1),A*V(:,2),[],iris(:,5))
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 The resulting \svd\ is \twodp
 \begin{verbatim}
 U = ...
@@ -1740,7 +1721,7 @@ When they do appear, they are called row vectors: the term vector on its own sti
 
 
 \begin{definition}[principal components] \label{def:pc}
-Given a \(m\times n\) data matrix~\(A\) (usually with zero \idx{mean} when \idx{average}d over all rows) with  \svd\ \(A=\usv\), then the \(j\)th column~\(\vv_j\) of~\(V\) is called the \(j\)th~\bfidx{principal vector} and the vector \(\xv_j:=A\vv_j\) is called the \(j\)th~\bfidx{principal components} of the data matrix~\(A\).
+Given an \(m\times n\) data matrix~\(A\) (usually with zero \idx{mean} when \idx{average}d over all rows) with  \svd\ \(A=\usv\), then the \(j\)th column~\(\vv_j\) of~\(V\) is called the \(j\)th~\bfidx{principal vector} and the vector \(\xv_j:=A\vv_j\) is called the \(j\)th~\bfidx{principal components} of the data matrix~\(A\).
 \end{definition}
 
 
@@ -1794,13 +1775,6 @@ Consequently, the vector~\(\sigma_j\uv_j\) of \(j\)th~coordinates in the subspac
 A given data matrix from some experiment has \idx{singular value}s \(12.76\), \(10.95\), \(7.62\), \(0.95\), \(0.48\), \ldots.  
 How many \idx{dimension}s should you expect to be needed for a good view of the data?
 \actposs[4]{3D}{1D}{2D}{4D}
-%\partswidth=5em
-%\begin{parts}
-%\item 1D
-%\item 2D
-%\item 3D
-%\item 4D
-%\end{parts}
 \end{activity}
 
 
@@ -1829,12 +1803,12 @@ scatter(wine(:,2),wine(:,3),[],wine(:,1))
 wine=csvread('wine.data')
 [m,n]=size(wine)
 scatter(wine(:,2),wine(:,3),[],wine(:,1))
-A=bsxfun(@minus,wine(:,2:14),mean(wine(:,2:14)));
-A=bsxfun(@rdivide,A,std(A));
+A=wine(:,2:14)-mean(wine(:,2:14));
+A=A./std(A);
 [U,S,V]=svds(A,4)
 scatter(A*V(:,1),A*V(:,2),[],wine(:,1))
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 The scatter plot, \autoref{fig:wine12}, shows that if we just plot the first two chemicals, alcohol and malic acid, then the three cultivars are inextricably intermingled.
 Our aim is to automatically draw \autoref{fig:winepca} in which the three cultivars are largely separated.
 \begin{figure}
@@ -1847,9 +1821,9 @@ Our aim is to automatically draw \autoref{fig:winepca} in which the three cultiv
 
 \item To find the principal components of the wine chemicals it is best to subtract the mean.
 In \script, recall that \index{mean()@\texttt{mean()}}\verb|mean(X)| computes the \idx{row vector} of the \idx{mean}\slash \idx{average} of each column of~\verb|X| (\autoref{tbl:mtlbnorm}).
-Then \verb|bsxfun()|\index{bsxfun()@\texttt{bsxfun()}} (\autoref{tbl:mtlbnorm}) provides a convenient method to do this subtraction as it replicates the \idx{row vector} of means to suit the number of rows in the data: thus invoke
+Then \idx{auto-replication} (\autoref{tbl:mtlbnorm}) provides a convenient method to do this subtraction as it replicates the \idx{row vector} of means to suit the number of rows in the data: thus invoke
 \begin{verbatim}
-A=bsxfun(@minus,wine(:,2:14),mean(wine(:,2:14)));
+A=wine(:,2:14)-mean(wine(:,2:14));
 \end{verbatim}
 
 But now a further issue arises: the values in the columns are of widely different magnitudes; moreover, each column has different physical units (in contrast, the Iris flower measurements were all cm).
@@ -1861,11 +1835,15 @@ This scaling does two practically useful things:
 \item also the spread of data in each column is now comparable to each other, namely around about size one, instead of some columns being of the order of one-tenths and other columns being in the hundreds.
 \end{itemize}
 In \script\ (\autoref{tbl:mtlbnorm}), \index{std()@\texttt{std()}}\verb|std(X)| computes the \idx{row vector} of the \idx{standard deviation} of each column of~\verb|X|.
-Then the function \verb|bsxfun()|\index{bsxfun()@\texttt{bsxfun()}}  provides a convenient method to do the division by these standard deviations as it replicates the row vector to suit the number of rows in the data.
+Then \idx{auto-replication}  provides a convenient method to do the division by these standard deviations as it replicates the row vector to suit the number of rows in the data.
 Consequently, form the \(178\times13\) matrix to analyse by the commands
 \begin{verbatim}
-A=bsxfun(@minus,wine(:,2:14),mean(wine(:,2:14)));
-A=bsxfun(@rdivide,A,std(A));
+A=wine(:,2:14)-mean(wine(:,2:14));
+A=A./std(A);
+\end{verbatim}
+Or both in one command
+\begin{verbatim}
+A=(wine(:,2:14)-mean(wine(:,2:14)))./std(wine(:,2:14)));
 \end{verbatim}
 
 \item Now compute and use an \svd\ \(A=\usv\).
@@ -1928,12 +1906,10 @@ Consider the case when you have data values consisting of \(n\)~attributes for e
 \item usually make each column have zero \idx{mean} by subtracting its mean~\(\bar b_j\), algebraically \(\av_j=\bv_j-\bar b_j\)\,;
 \item but ensure each column has the same `physical dimensions', often by dividing by the \idx{standard deviation}~\(s_j\) of each column, algebraically \(\av_j=(\bv_j-\bar b_j)/s_j\)\,.
 \end{enumerate}
-Compute in \script\ with\index{bsxfun()@\texttt{bsxfun()}}
-{\small
+Compute in \script\ via \idx{auto-replication}:
 \begin{verbatim}
-A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B))
+A=(B-mean(B))./std(B)
 \end{verbatim}
-}
 
 \item  Economically compute an \svd\ for the best rank~\(k\) approximation to the \index{data scaling}scaled data matrix with \index{svds()@\texttt{svds()}}\verb|[U,S,V]=svds(A,k)|.
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
@@ -1943,8 +1919,8 @@ A=bsxfun(@rdivide,bsxfun(@minus,B,mean(B)),std(B))
 
 
 
-Courses on multivariate statistics prove that, for every (usually zero mean) data matrix~\(A\), the first~\(k\) principal vectors \hlist\vv k\ are orthogonal unit vectors that \emph{maximise the total \idx{variance}} in the principal components \(\xv_j=A\vv_j\)\,; that is, that maximise \(|\xv_1|^2+|\xv_2|^2+\cdots+|\xv_k|^2\).
-Indeed, this maximisation of the variance corresponds closely to the constructive proof of the existence of \svd{}s (\autoref{sec:psvdt}) which successively maximises~\(|A\vv|\) subject to~\vv\ being orthonormal to the singular\slash principal vectors already determined.
+Courses on multivariate statistics prove that, for every (usually zero mean) data matrix~\(A\), the first~\(k\) principal vectors \hlist\vv k\ are orthogonal unit vectors that \emph{maximize the total \idx{variance}} in the principal components \(\xv_j=A\vv_j\)\,; that is, that maximize \(|\xv_1|^2+|\xv_2|^2+\cdots+|\xv_k|^2\).
+Indeed, this maximization of the variance corresponds closely to the constructive proof of the existence of \svd{}s (\autoref{sec:psvdt}) which successively maximizes~\(|A\vv|\) subject to~\vv\ being orthonormal to the singular\slash principal vectors already determined.
 Consequently, when data is approximated in the space of the first~\(k\) principal vectors, then the data is the most spread out it can be in \(k\)-dimensions.
 When the data is most spread out in~\(k\)D, then (roughly) it retains the most information possible in~\(k\)D.
 
@@ -1956,6 +1932,7 @@ When the data is most spread out in~\(k\)D, then (roughly) it retains the most i
 
 
 
+\begin{reduce}
 \subsubsection{Application to latent semantic indexing}
 \label{sec:alsi}
 \index{latent semantic indexing|(}
@@ -1982,8 +1959,8 @@ In 2015 six of those books had the following titles:
 \item Stochastic Chemical Kinetics: Theory and Mostly Systems Biology Applications
 \item Quantum Theory for Mathematicians 
 \end{enumerate}
-Consider the capitalised words. 
-For those words that appear in more than one title, let's form a \idx{word vector} (\autoref{eg:deflsv}) for each title, then use \idx{principal components} to summarise these six books on a 2D~plane.
+Consider the capitalized words. 
+For those words that appear in more than one title, let's form a \idx{word vector} (\autoref{eg:deflsv}) for each title, then use \idx{principal components} to summarize these six books on a 2D~plane.
 This task is part of what is called \idx{latent semantic indexing} \cite[]{Berry95}.  
 (We should also count words that are used only once, but this example omits for simplicity.)
 
@@ -1995,7 +1972,7 @@ Follow the \idx{principal component analysis} \autoref{pro:pca}.
 \begin{enumerate}
 \item 
 First find the set of words that are used more than once.
-Ignoring pluralisation, they are: 
+Ignoring pluralization, they are: 
 Application, Introduction, Method, System, Theory.
 The corresponding \idx{word vector} for each book title is then the following:
 \begin{itemize}
@@ -2029,7 +2006,7 @@ A=[0 1 1 0 0
 [U,S,V]=svds(A,2)
 scatter(A*V(:,1),A*V(:,2),[],1:6)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 
 
 \item Third, to compute a representation in the 2D plane, \idx{principal components} uses, as an \idx{orthonormal basis}, the singular vectors corresponding to the two largest singular values.  
@@ -2107,7 +2084,7 @@ Recall that \autoref{eg:lsidot} introduced using the \idx{dot product} to measur
 We could use the dot product in the 5D~space of the word vectors to find the `angles' between the book titles.
 However, we know that the 2D~view just plotted is the `best' 2D~summary of the book titles, so we could more economically estimate the angle between book titles using just the 2D~summary.
 
-\begin{example} \label{eg:}
+\begin{example} 
 What is the `angle' between the first two listed books?
 \begin{itemize}
 \item Introduction to Finite and Spectral Element Methods using \textsc{Matlab}
@@ -2196,7 +2173,7 @@ Let's explore this further with more data, albeit still very restricted.
 \item the Boundary Integral Approach to Static and Dynamic Contact Problems
 \item the Double Mellin--Barnes Type Integrals and their Applications to Convolution Theory
 \end{enumerate}
-Principal component analysis summarises and relates these titles.
+Principal component analysis summarizes and relates these titles.
 \def\temp#1{%
 \begin{center}
 \def\threevcol{red}
@@ -2233,7 +2210,7 @@ table[x=x,y=y,z=z, meta=s,row sep=\\] {
 }%end def temp
 Follow \autoref{pro:pca}.
 \begin{enumerate}
-\item  The significant (capitalised) words which appear more than once in these titles (ignoring pluralisation) are the fourteen words
+\item  The significant (capitalized) words which appear more than once in these titles (ignoring pluralization) are the fourteen words
 \begin{equation}
 \parbox{0.8\linewidth}{\raggedright
 Algorithm,
@@ -2300,7 +2277,7 @@ A=[0 0 0 0 1 0 1 0 0 0 0 0 0 0
 A*V
 scatter3(A*V(:,1),A*V(:,2),A*V(:,3),[],1:14)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 
 
 \item To compute a representation of the titles in 3D~space, \idx{principal components} uses, as an \idx{orthonormal basis}, the singular vectors corresponding to the three largest singular values.
@@ -2366,7 +2343,7 @@ AV=\begin{bmatrix} 0.70 & 0.09 & -0.25
 \end{equation*}
 Each of the fourteen books is represented in 3D~space by the corresponding row of these coordinates.
 Plot these books in \script\ with 
-\index{scatte3r()@\texttt{scatter3()}}
+\index{scatter3()@\texttt{scatter3()}}
 \begin{verbatim}
 scatter3(A*V(:,1),A*V(:,2),A*V(:,3),[],1:14)
 \end{verbatim}
@@ -2430,11 +2407,13 @@ Hence this \svd\ analysis of documents becomes an effective way of retrieving in
 
 \index{latent semantic indexing|)}
 
+\end{reduce}
 
 
 
 
 
+\begin{reduce}
 \begin{draft}
 \subsubsection {Application to singular spectrum analysis}
 \label{sec:ssa}
@@ -2446,6 +2425,7 @@ Follow up \autoref{eg:orthbapp} on the \textsc{soi} to introduce the use of sing
 
 \index{singular spectrum analysis|)}
 \end{draft}
+\end{reduce}
 
 
 
@@ -2460,10 +2440,10 @@ Follow up \autoref{eg:orthbapp} on the \textsc{soi} to introduce the use of sing
 \sectionExercises
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For some \(2\times2\) matrices~\(A\) the following plots adjoin the product \(A\xv\) to~\xv\ for a complete range of \idx{unit vector}s~\xv.
 Use each plot to roughly estimate the norm of the underlying matrix for that plot.
-\begin{parts}
+\begin{Parts}
 \item \eRose{1.3}{0.9}{1.3}{0.9}
 \answer{2.2}
 \item \eRose{1.3}{0.3}{-0.5}{1.1}
@@ -2472,18 +2452,20 @@ Use each plot to roughly estimate the norm of the underlying matrix for that plo
 \answer{1.9}
 \item \eRose{1.6}{1.5}{-0.1}{-0.6}
 \answer{2.3}
+\begin{reduce}
 \item \eRose{-1.0}{0.8}{1.2}{0.5}
 \answer{1.6}
 \item \eRose{1.7}{-0.6}{0.8}{1.1}
 \answer{1.9}
-\end{parts}
+\end{reduce}
+\end{Parts}
 \end{exercise}
 
 
-\begin{exercise} \label{eg:}
+\begin{exercise} 
 For the following matrices, use a few \idx{unit vector}s~\xv\ to determine how the \idx{matrix-vector product} varies with~\xv.
 Using calculus to find the appropriate \idx{maximum}, find from definition the norm of the matrices (hint: all norms here are integers).
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 2&-3\\0&2 \end{bmatrix}\)
 \answer{4}
 \item \(\begin{bmatrix} -4&-1\\-1&-4 \end{bmatrix}\)
@@ -2492,6 +2474,7 @@ Using calculus to find the appropriate \idx{maximum}, find from definition the n
 \answer{3}
 \item \(\begin{bmatrix} 2&-2\\2&1 \end{bmatrix}\)
 \answer{3}
+\begin{reduce}
 \item \(\begin{bmatrix} 5&2\\2&2 \end{bmatrix}\)
 \answer{6}
 \item \(\begin{bmatrix} 6&-1\\4&6 \end{bmatrix}\)
@@ -2500,7 +2483,8 @@ Using calculus to find the appropriate \idx{maximum}, find from definition the n
 \answer{8}
 \item \(\begin{bmatrix} 2&-4\\1&-2 \end{bmatrix}\)
 \answer{5}
-\end{parts}
+\end{reduce}
+\end{Parts}
 \begin{comment}
 \begin{verbatim}
 format rat
@@ -2517,27 +2501,27 @@ end
 
 \begin{exercise} \label{ex:norm} 
 Many properties of a norm may be proved in other ways than those given for \autoref{thm:norm}.
-\begin{enumerate}
-\item Use an \svd\ factorisation of~\(I_n\) to prove \autoref{thm:norm:vi}.
-\item Use the existence of an \svd\ factorisation of~\(A\) to prove \autoref{thm:norm:v}.
+\begin{enumerate}[ref=\ref{ex:norm}(\alph*)]
+\item Use an \svd\ factorization of~\(I_n\) to prove \autoref{thm:norm:vi}.
+\item Use the existence of an \svd\ factorization of~\(A\) to prove \autoref{thm:norm:v}.
 \item Use the definition of a norm as a \idx{maximum} to prove \autoref{thm:norm:ii}.
-\item Use the existence of an \svd\ factorisation of~\(A\) to prove \autoref{thm:norm:viii}.
-\item\label{ex:norm:vii} Prove \autoref{thm:norm:vii} using~\ref{thm:norm:viii} and the definition of a norm as a \idx{maximum}.
+\item Use the existence of an \svd\ factorization of~\(A\) to prove \autoref{thm:norm:viii}.
+\item\label[exercise]{ex:norm:vii} Prove \autoref{thm:norm:vii} using~\ref{thm:norm:viii} and the definition of a norm as a \idx{maximum}.
 \end{enumerate}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Let \(m\times n\) matrix~\(A\) have in each row and column at most one nonzero element.
 Argue that there exists an \svd\ which establishes that the norm \(\|A\|=\max_{i,j}|a_{ij}|\).
-\answer{Let \(U\) permute the rows and \(V\) permute the columns to diagonalise~\(A\), further modify~\(U\) to contain the sign of the diagonal elements, then the result is an \svd\ with largest singular value \(\max_{i,j}|a_{ij}|\).}
+\answer{Let \(U\) permute the rows and \(V\) permute the columns to diagonalise~\(A\), further modify~\(U\) to contain the sign of the diagonal elements, then the result is an \protect\svd\ with largest singular value \(\protect\max_{i,j}|a_{ij}|\).}
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} \ \\
+\begin{exercise}  \ \\
 \marginpar{\input{ApproxMat/G.ltx}}%
 \begin{tabular}{@{}ll@{}}
 \parbox[b]{0.8\linewidth}{
@@ -2553,7 +2537,7 @@ By inspecting various rank approximations from this \svd, determine the rank of 
 
 
 
-\begin{exercise} \label{ex:}
+\begin{exercise} 
 Write down two different rank two representations of the pixel image of the letter~\verb|L|, as shown in the margin.
 \marginpar{\input{ApproxMat/L.ltx}}%
 Compute \svd\ representations of the letter~\verb|L|.  
@@ -2563,7 +2547,7 @@ Compare and comment on the various representations.
 
 \begin{exercise}[\idx{Sierpinski triangle}] \label{ex:siertri} 
 Whereas mostly we deal with the smooth geometry of lines, planes and curves, 
-the subject of \idx{fractal} geometry recognises that there is much in the world around us that has a rich fractured structure: from clouds, and rocks, to the cardiovascular structure within each of us.
+the subject of \idx{fractal} geometry recognizes that there is much in the world around us that has a rich fractured structure: from clouds, and rocks, to the cardiovascular structure within each of us.
 \marginpar{\input{ApproxMat/SierTri4.ltx}}
 The Sierpinski triangle, illustrated in the margin, is a simple fractal.
 Generate such fractals using recursion as in the following \script\ code\footnote{Many of you will know that a for-loop would more concisely compute the recursion; if so, then do so.}:
@@ -2589,7 +2573,7 @@ imagesc(1-A)
 colormap('gray')
 axis equal,axis off
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \begin{enumerate}
 \item Add code to this recursion to compute and print the \idx{singular value}s of each generation of the \idx{Sierpinski triangle} image.
 What do you conjecture about the number of distinct singular values as a function of generation number~\(k\)?
@@ -2608,12 +2592,12 @@ Use an \svd\ to generate and draw the best rank nine approximation to the image.
 
 
 
-\begin{exercise}[\idx{Sierpinski carpet}] \label{ex:} 
+\begin{exercise}[\idx{Sierpinski carpet}]  
 The Sierpinski carpet is another \idx{fractal} which is easily generated by recursion (as illustrated in the margin after three iterations in the recursion).
 \marginpar{\input{ApproxMat/SierCarp3.ltx}}
 \begin{enumerate}
 \item Modify the recursive \script\ code of the previous \autoref{ex:siertri} to generate such an image.
-\answer{Use \verb|A=[A A A;A 0*A A; A A A]|}
+\answer{Use \protect\verb|A=[A A A;A 0*A A; A A A]|}
 
 \item For a range of generations of the image, compute the \idx{singular value}s and comment on the apparent patterns in the singular values.
 \answer{For generation~\(k\), forming an image of size \(3^k\times3^k\): there are \(2^k\)~nonzero singular values and all the rest are effectively zero;  there are \(k+2\) distinct singular values.}
@@ -2628,12 +2612,12 @@ The Sierpinski carpet is another \idx{fractal} which is easily generated by recu
 \end{exercise}
 
 
-\begin{exercise}[another fractal] \label{ex:} 
+\begin{exercise}[another fractal]  
 Illustrated in the margin is another \idx{fractal} generated by recursion.
 \marginpar{\input{ApproxMat/SpikeyFrac.ltx}}
 \begin{enumerate}
 \item Modify the recursive \script\ code of \autoref{ex:siertri} to generate such an image.
-\answer{Use \verb|A=[A 0*A A;0*A A 0*A; A 0*A A]|}
+\answer{Use \protect\verb|A=[A 0*A A;0*A A 0*A; A 0*A A]|}
 
 \item For a range of generations of the image, compute the \idx{singular value}s and comment on the apparent patterns in the singular values.
 \answer{For generation~\(k\), forming an image of size \(3^k\times3^k\): there are \(2^k\)~nonzero singular values and all the rest are effectively zero;  there are \(k+1\) distinct singular values.}
@@ -2674,7 +2658,8 @@ Using the matrix norm to measures errors, what is the smallest rank to reproduce
 
 
 
-\begin{exercise}[hiding information project] \label{ex:} 
+\begin{reduce}
+\begin{exercise}[hiding information project]  
  \index{steganography}Steganographic methods embed secret messages in images.
 Some methods are based upon the \idx{singular value} decomposition \cite[e.g.]{Gorodetski2001}. % also ijictv4n7spl_11.pdf
 Perhaps the most straightforward method is to use the unimportant small singular values.
@@ -2717,6 +2702,7 @@ perhaps use \index{log()@\texttt{log()}}\index{diff()@\texttt{diff()}}\verb|diff
 
 \end{itemize}
 \end{exercise}
+\end{reduce}
 
 
 
@@ -2729,7 +2715,8 @@ Exercises on colour images, perhaps rounding 0-1 images such as fingerprints, al
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{reduce}
+\begin{exercise}  
 As in \autoref{eg:bks6q}, consider the 2D~plot of the six books. Add to the plot the \idx{word vector} corresponding to a query for books relevant to ``Introduction''.
 Using angle to measure closeness, which book is closest to ``Introduction''?  
 Confirm by computing the angles, in the 2D~plane, between ``Introduction'' and all six books.
@@ -2738,7 +2725,7 @@ Confirm by computing the angles, in the 2D~plane, between ``Introduction'' and a
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 As in \autoref{eg:bks6q}, consider the 2D~plot of the six books. Add to the plot the \idx{word vector} corresponding to a query for books relevant to ``Application and Method''.
 Using angle to measure closeness, which book is closest to ``Application and Method''?  
 Confirm by computing, in the 2D~plane, the angles between ``Application and Method'' and all six books.
@@ -2748,7 +2735,7 @@ Confirm by computing, in the 2D~plane, the angles between ``Application and Meth
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Reconsider the \idx{word vector}s of the group of fourteen mathematical books listed in the text. 
 Instead of computing a representation of these books in 3D~space, here use \idx{principal component analysis} to compute a representation in a 2D~plane.
 \begin{enumerate}
@@ -2782,7 +2769,7 @@ Instead of computing a representation of these books in 3D~space, here use \idx{
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 The discussion on \idx{latent semantic indexing} only considered queries which were ``and'', such as a search for books relevant to \emph{Application and Theory}.
 What if we wanted to search for books relevant to \emph{either Application or Theory}?
 Discuss how such an ``or'' query might be phrased in terms of the angle between vectors and a multi-D \idx{subspace}.
@@ -2826,13 +2813,14 @@ Use an \svd\ to best plot these reviews in 2D.
 Discuss any patterns in the results.
 \end{exercise}
 
+\end{reduce}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item What is it about an \svd\ that makes it useful in compressing images?
 
@@ -2844,9 +2832,11 @@ In a few sentences, answer\slash discuss each of the the following.
 
 \item What causes the first few principal components of some data to often form the basis for a good view of the data?
 
+\begin{reduce}
 \item How is it that we can discuss and analyse the ``angle between books''?
 
 \item When searching for books with a specified keyword, what is it that enables latent semantic indexing to return book-titles that do not have the keyword? 
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}

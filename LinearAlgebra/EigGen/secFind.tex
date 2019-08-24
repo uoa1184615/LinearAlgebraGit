@@ -13,9 +13,12 @@ Need exercises for the fitting exponentials subsection??
 \end{comment}
 
 
-Given the additional determinant methods of \autoref{ch:ddm}, this section begins exploring the properties and some applications of the \idx{eigen-problem} \(A\xv=\lambda\xv\) for general matrices~\(A\).
+This section begins exploring the properties and some applications of the \idx{eigen-problem} \(A\xv=\lambda\xv\) for \emph{general} matrices~\(A\).
+The section generalises properties established for symmetric matrices, \cref{ch:eesm}, and relies on the determinant methods of \autoref{ch:ddm}.
 We establish that there are generally \(n\)~eigenvalues of an \(n\times n\) matrix, albeit possibly complex valued, and that \idx{repeated eigenvalue}s are sensitive to errors.
-Applications include population modelling, connecting to the computation of \svd{}s, and fitting exponentials to real data.
+Applications include population modelling, and 
+the computation of \svd{}s\ifcsname r@sec:eidd\endcsname, and 
+fitting exponentials to real data\fi.
 
 
 
@@ -34,7 +37,7 @@ Recall that eigenvalues~\(\lambda\) and nonzero eigenvectors~\xv\ of a square ma
 \autoref{thm:detinv} then implies the \idx{eigenvalue}s of a \idx{square matrix} are precisely the solutions of the \bfidx{characteristic equation} \(\det(A-\lambda I)=0\)\,.  
 
 \begin{theorem} \label{thm:geecp}
-For every \(n\times n\) \idx{square matrix}~\(A\) we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\):
+For every \(n\times n\) \idx{square matrix}~\(A\) we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\):%
 \footnote{Alternatively, many call \(\det(\lambda I-A)\) the characteristic polynomial, as does \script.  
 The distinction is immaterial as,  for an \(n\times n\) matrix~\(A\) and by \autoref{thm:basicdet:iii} with multiplicative factor \(k=-1\)\,, the only difference in the \idx{determinant} is a factor of~\((-1)^n\).
 In \script, \index{poly()@\texttt{poly()}}\texttt{poly(A)} computes the characteristic polynomial of the matrix,  \(\det(\lambda I-A)\), which might be useful for exercises, but is rarely useful in practice due to poor conditioning.}
@@ -60,7 +63,7 @@ In \script, \index{poly()@\texttt{poly()}}\texttt{poly(A)} computes the characte
 %One of the \(n!\)~terms in the sum is the product along the diagonal \((a_{11}-\lambda)(a_{22}-\lambda)\cdots(a_{nn}-\lambda)\): consequently the polynomial has a term in~\(\lambda^n\) and so is of degree~\(n\).
 Use induction on the size of the matrix.
 First, for \(1\times 1\) matrix \(A=\begin{bmatrix} a_{11} \end{bmatrix}\), the determinant \(\det(A-\lambda I)=\det \begin{bmatrix} a_{11}-\lambda \end{bmatrix}=a_{11}-\lambda\) which is of  degree one in~\(\lambda\).
-Second, assume that for all \((n-1)\times (n-1)\) matrices~\(A\), \(\det(A-\lambda I)\) is a polynomial of degree~\(n-1\) in~\(\lambda\).
+Second, assume that for every \((n-1)\times (n-1)\) matrix~\(A\), \(\det(A-\lambda I)\) is a polynomial of degree~\(n-1\) in~\(\lambda\).
 Then use the Laplace Expansion \autoref{thm:letdet} to give the first row expansion, in terms of minors of~\(A\) and~\(I\),
 \begin{eqnarray*}
 \det(A-\lambda I)
@@ -98,25 +101,18 @@ Hence there are at most \(n\)~distinct eigenvalues.
 A given matrix has eigenvalues of~\(-7\), \(-1\), \(3\), \(4\)  and~\(6\).
 The matrix must be of \idx{size} \(n\times n\) for~\(n\) at least which of the following? (Select the smallest valid answer.)
 \actposs[4]5467
-%\partswidth=5em
-%\begin{parts}
-%\item \(4\)
-%\item \(5\)
-%\item \(6\)
-%\item \(7\)
-%\end{parts}
 \end{activity}
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Find the \idx{characteristic polynomial} of each of the following matrices.  
 Where in the \idx{coefficient}s of the polynomial can you see the \idx{determinant}? and the sum of the diagonal \idx{elements}?
 \begin{enumerate}
 \item \(\eAii=\begin{bmatrix} 1&-1\\-2&4 \end{bmatrix}\)
 \begin{solution} 
 The characteristic polynomial is \(\det(\eAii-\lambda I)
-=\det\begin{bmatrix} 1-\lambda&-1\\-2&4-\lambda \end{bmatrix}
+=\det\begin{bmat} 1-\lambda&-1\\-2&4-\lambda \end{bmat}
 =(1-\lambda)(4-\lambda)-2
 =\lambda^2-5\lambda+2\)\,.
 Now \(\det \eAii=4-2=2\) which is the coefficient of the constant term in this polynomial.
@@ -164,16 +160,16 @@ The \idx{sum} of the \idx{eigenvalue}s equals \((-1)^{n-1}\)~times the \idx{coef
 
 \begin{proof} 
 \autoref{thm:geecp}, and its proof, establishes that the characteristic polynomial has the form
-\begin{eqnarray}
-\det(A-\lambda I)&=&c_0+c_1\lambda+\cdots+c_{n-1}\lambda^{n-1}+(-1)^n\lambda^n
-\nonumber\\&=&(\lambda_1-\lambda)(\lambda_2-\lambda)\cdots(\lambda_n-\lambda),
+\begin{align}
+\det(A-\lambda I)&=c_0+c_1\lambda+\cdots+c_{n-1}\lambda^{n-1}+(-1)^n\lambda^n
+\nonumber\\&=(\lambda_1-\lambda)(\lambda_2-\lambda)\cdots(\lambda_n-\lambda),
 \label{eq:charpolyc}
-\end{eqnarray}
+\end{align}
 where the second equality follows from the Fundamental Theorem of Algebra that an \(n\)th~degree polynomial factors into \(n\)~linear factors (albeit possibly complex).
 First, substitute \(\lambda=0\) and this equation~\eqref{eq:charpolyc} gives \(\det A=c_0=\lambda_1\lambda_2\cdots\lambda_n\)\,, as required.
 
 Second, consider the term~\(c_{n-1}\lambda^{n-1}\) in equation~\eqref{eq:charpolyc}.
-From the factorisation on the right-hand side, the \(\lambda^{n-1}\)~term arises as
+From the factorization on the right-hand side, the \(\lambda^{n-1}\)~term arises as
 \begin{eqnarray*}
 c_{n-1}\lambda^{n-1}&=&\lambda_1(-\lambda)^{n-1}
 +(-\lambda)\lambda_2(-\lambda)^{n-2}
@@ -220,18 +216,11 @@ What is the \idx{trace} of the matrix
 \\-13&4&3&-1 \end{bmatrix}?
 \end{equation*}
 \actposs[4]{\(7\)}{\(-13\)}{\(-12\)}{\(8\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(-13\)
-%\item \(-12\)
-%\item \(7\)
-%\item \(8\)
-%\end{parts}
 \end{activity}
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 \begin{enumerate}
 \item What are the two highest order terms and the \idx{constant term} in the \idx{characteristic polynomial} of the matrix
 \begin{equation*}
@@ -289,6 +278,7 @@ Could this polynomial be correct?
 No. By the column of zeros in~\(\eAii\), \(\det \eAii\) must be zero instead of the calculated~\(668\).
 \end{solution}
 
+\begin{reduce}
 \item What are the two highest order terms and the \idx{constant term} in the \idx{characteristic polynomial} of the matrix
 \begin{equation*}
 \eAii=\begin{bmatrix}0&4&0&0&3&0
@@ -325,19 +315,20 @@ This is the constant term in the characteristic polynomial.
 Second, the trace of~\(\eAii\) is \(0+0+0+0-4+0=-4\) so the quintic coefficient in the characteristic polynomial is~\((-1)^5(-4)=4\)\,.
 That is, the characteristic polynomial of~\(\eAii\) is of the form \(\lambda^6+4\lambda^5+\cdots-162\)\,.
 \end{solution}
+\end{reduce}
 
 \end{enumerate}
 \end{example}
 
 
 Recall that an important characteristic of an eigenvalue is their multiplicity.
-The following definition of \emph{multiplicity} generalises to all matrices the somewhat different \autoref{def:eigsymult} that applies to only symmetric matrices.
+The following definition of \emph{multiplicity} generalizes to all matrices the somewhat different \autoref{def:eigsymult} that applies to only symmetric matrices.
 For symmetric matrices the definitions are equivalent.
 
 
 \begin{definition} \label{def:eigmult}
-An \idx{eigenvalue}~\(\lambda_0\) of a matrix~\(A\) is said to have \bfidx{multiplicity}~\(m\) if the \idx{characteristic polynomial} factorises to \(\det(A-\lambda I)=(\lambda-\lambda_0)^mg(\lambda)\) with \(g(\lambda_0)\neq0\)\,, and \(g(\lambda)\)~is a polynomial of degree~\(n-m\)\,.
-Every eigenvalue of multiplicity \(m\geq2\) is also called a \bfidx{repeated eigenvalue}.
+An \idx{eigenvalue}~\(\lambda_0\) of a matrix~\(A\) is said to have \bfidx{multiplicity}~\(m\) if the \idx{characteristic polynomial} factorizes to \(\det(A-\lambda I)=(\lambda-\lambda_0)^mg(\lambda)\) with \(g(\lambda_0)\neq0\)\,, and \(g(\lambda)\)~is a polynomial of degree~\(n-m\)\,.
+Every eigenvalue of multiplicity \(m\geq2\) may also be called a \bfidx{repeated eigenvalue}.
 \end{definition}
 
 
@@ -346,29 +337,22 @@ Every eigenvalue of multiplicity \(m\geq2\) is also called a \bfidx{repeated eig
 A given matrix~\(A\) has \idx{characteristic polynomial} \(\det(A-\lambda I)=(\lambda+2)\lambda^2(\lambda-2)^3(\lambda-3)^4\).
 The eigenvalue~\(2\) has what \idx{multiplicity}?
 \actposs[4]{three}{one}{two}{four}
-%\partswidth=5em
-%\begin{parts}
-%\item one
-%\item two
-%\item three\actans
-%\item four
-%\end{parts}
 \end{activity}
 
 
 
 \begin{example} \label{eg:faem}
 Use the \idx{characteristic polynomial}s for each of the following matrices to find all \idx{eigenvalue}s and their \idx{multiplicity}.
-\begin{enumerate}
-\item\label{eg:faem:a} \(\eAii=\begin{bmatrix} 3&1\\0&3 \end{bmatrix}\)
+\begin{enumerate}[ref=\ref{eg:faem}(\alph*)]
+\item\label[example]{eg:faem:a} \(\eAii=\begin{bmatrix} 3&1\\0&3 \end{bmatrix}\)
 \begin{solution}The characteristic equation is \(\det(\eAii-\lambda I)
-=\det{\small\begin{bmatrix} 3-\lambda&1\\0&3-\lambda \end{bmatrix}}
+=\det\begin{bmat} 3-\lambda&1\\0&3-\lambda \end{bmat}
 =(3-\lambda)^2-0\cdot1=(\lambda-3)^2=0\). 
 The only eigenvalue is \(\lambda=3\) with multiplicity two.
 (Since this is an upper triangular matrix, \autoref{thm:trieig} asserts the eigenvalues are simply the diagonal elements, namely~\(3\) twice.)
 \end{solution}
 
-\item\label{eg:faem:b} \(\eAii=\begin{bmatrix}-1&1&-2
+\item\label[example]{eg:faem:b} \(\eAii=\begin{bmatrix}-1&1&-2
 \\-1&0&-1
 \\0&-3&1 \end{bmatrix}\)
 \begin{solution}The characteristic equation is 
@@ -387,7 +371,7 @@ Eigenvalues are \(\lambda=1\) with multiplicity two, and \(\lambda=-2\) with mul
 \end{solution}
 
 
-\item\label{eg:faem:c} \(\eAii=\begin{bmatrix}-1&0&-2
+\item\label[example]{eg:faem:c} \(\eAii=\begin{bmatrix}-1&0&-2
 \\0&-3&2
 \\0&-2&1\end{bmatrix}\)
 \begin{solution}The characteristic equation is 
@@ -405,6 +389,7 @@ Eigenvalues are \(\lambda=1\) with multiplicity two, and \(\lambda=-2\) with mul
 The only eigenvalue is \(\lambda=-1\) with multiplicity three.
 \end{solution}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix}2&0&-1
 \\-5&3&-5
 \\5&-2&-2\end{bmatrix}\)
@@ -422,6 +407,7 @@ The only eigenvalue is \(\lambda=-1\) with multiplicity three.
 \end{eqnarray*}
 Eigenvalues are \(\lambda=3\) with multiplicity two, and \(\lambda=-3\) with multiplicity one.
 \end{solution}
+\end{reduce}
 
 \item \(E=\begin{bmatrix} 0&1\\-1&1 \end{bmatrix}\)
 \begin{solution} 
@@ -463,7 +449,7 @@ Execute \verb|eig([2 2 -1;0 1 -2;0 -1 0])| to get
 \setbox\ajrqrbox\hbox{\qrcode{% eigenvalue code
 eig([2 2 -1;0 1 -2;0 -1 0])
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 ans =
    2
@@ -491,7 +477,7 @@ eig([-2 -2 -5 0
  -1 1 0 -1
  -2 1 4 0])
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to get
 \begin{verbatim}
 ans =
@@ -503,6 +489,7 @@ ans =
 There are two complex-valued eigenvalues, evidently \(1\pm\sqrt2\i\), each of multiplicity one, and also the (real) eigenvalue \(\lambda=-3\) which has multiplicity two.
 \end{solution}
 
+\begin{reduce}
 \item \(\begin{bmatrix}3&-1&-2&1&-2
 \\0&0&-2&-2&0
 \\2&1&1&1&-1
@@ -524,7 +511,7 @@ eig([3 -1 -2 1 -2
  -1 -3 0 1 2
   2 -2 1 0 3])
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to get
 \begin{verbatim}
 ans =
@@ -537,6 +524,7 @@ ans =
 There are three eigenvalues of multiplicity one, namely \(4\) and \(2\pm\sqrt8\i\)\,.  
 The last two rows appear to be the eigenvalue \(\lambda=0\) with multiplicity two.
 \end{solution}
+\end{reduce}
 
 \item \(\begin{bmatrix}-1&0&0&0
 \\-1&2&-3&3
@@ -556,7 +544,7 @@ eig([-1 0 0 0
   3 1 -1 0
   0 3 -2 1])
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to get
 \begin{verbatim}
 ans =
@@ -594,10 +582,10 @@ Correspondingly, the following restates the computational procedure of \autoref{
 \begin{compute}
 For a given square matrix~\verb|A|, execute \index{eig()@\texttt{eig()}}\verb|[V,D]=eig(A)|, then 
 the \idx{diagonal entries} of~\verb|D|, \index{diag()@\texttt{diag()}}\verb|diag(D)|, are the \idx{eigenvalue}s of~\verb|A|. 
-Corresponding to the eigenvalue~\verb|D(j,j)| is an  \idx{eigenvector} \(\vv_j=\verb|V(:,j)|\), the \(j\)th~column of~\verb|V|.  
+Corresponding to the eigenvalue~\verb|D(j,j)| is an  \idx{eigenvector} \(\vv_j=\verb|V(:,j)|\), the \(j\)th~column of~\verb|V|.%  
 \footnote{Be aware that \script\ does not use the \idx{determinant} to find the eigenvalues, nor does it solve the \idx{linear equation}s to find eigenvectors.  
 For any but the smallest matrices such a `by hand' approach takes far too long.  
-Instead, to find eigenvalues and eigenvectors, just as for the \svd, \script\ uses an intriguing iteration based upon what is called the \idx{QR factorisation}\ifcsname ch:qrfuma\endcsname\ (\autoref{ch:qrfuma})\fi.}
+Instead, to find eigenvalues and eigenvectors, just as for the \svd, \script\ uses an intriguing iteration based upon what is called the \idx{QR factorization}\ifcsname ch:qrfuma\endcsname\ (\autoref{ch:qrfuma})\fi.}
 If an \idx{eigenvalue} is repeated in the diagonal of~\verb|D| (\idx{multiplicity} more than one), then the corresponding columns of~\verb|V| span the \idx{eigenspace} 
 (and, as \autoref{sec:lisb} discusses, when the \idx{column vector}s have a property called \idx{linear independence} then they form a so-called \idx{basis} for the eigenspace). 
 \end{compute}
@@ -622,8 +610,8 @@ For the matrix \(A=\begin{bmatrix}2&0&-1
 
 \begin{example} \label{eg:faespm}
 Find the \idx{eigenspace}s corresponding to the eigenvalues found for the first three matrices of \autoref{eg:faem}.
-\begin{itemize}
-\item[\ref{eg:faem:a}.]
+\begin{description}
+\item[\ref{eg:faem:a}]
 \(A=\begin{bmatrix} 3&1\\0&3 \end{bmatrix}\)
 \begin{solution} 
 The only eigenvalue is \(\lambda=3\) with multiplicity two.
@@ -648,7 +636,7 @@ Diagonal matrix~\verb|D| confirms the only eigenvalue is three (multiplicity two
 \end{solution}
 
 
-\item[\ref{eg:faem:b}.]
+\item[\ref{eg:faem:b}]
 \(B=\begin{bmatrix}-1&1&-2
 \\-1&0&-1
 \\0&-3&1 \end{bmatrix}\)
@@ -711,7 +699,7 @@ Whereas the last two columns of~\verb|V| confirm the eigenspace
 \end{eqnarray*}
 \end{solution}
 
-\item[\ref{eg:faem:c}.]
+\item[\ref{eg:faem:c}]
 \(C=\begin{bmatrix}-1&0&-2
 \\0&-3&2
 \\0&-2&1\end{bmatrix}\)
@@ -750,12 +738,15 @@ Diagonal matrix~\verb|D| confirms the only eigenvalue is \(\lambda=-1\) with mul
 The three columns of~\verb|V| confirm the eigenspace \(\EE_{-1}=\Span\{(1,0,0)\}\).
 \end{solution}
 
-\end{itemize}
+\end{description}
 \end{example}
 
 The matrices in \autoref{eg:faespm} all have \idx{repeated eigenvalue}s.  
 For these repeated eigenvalues the corresponding \idx{eigenspace}s happen to be all one dimensional.
-This contrasts with the case of symmetric matrices where the eigenspaces always have the same dimensionality as the \idx{multiplicity} of the eigenvalue, as illustrated by Examples~\ref{eg:espace2d} and~\ref{eg:sier2eig}.
+This contrasts with the case of symmetric matrices where the 
+eigenspaces always have the same dimensionality as the 
+\idx{multiplicity} of the eigenvalue, as illustrated by 
+\cref{eg:espace2d,eg:sier2eig}.
 Subsequent sections work towards \autoref{thm:dimee} which establishes that for non-symmetric matrices an eigenspace has dimensionality between one and the multiplicity of the corresponding eigenvalue.
 
 
@@ -780,7 +771,7 @@ Adopt \autoref{pro:geneig}.
 \\0&1&-\lambda&3&0
 \\0&0&1&-\lambda&3
 \\0&0&0&1&-\lambda\end{vmatrix}
-\\&&(\text{by first row expansion~\eqref{eq:detlet}})
+\\&&(\text{then by first row expansion~\eqref{eq:detlet}})
 \\&=&(-\lambda)\begin{vmatrix}-\lambda&3&0&0
 \\1&-\lambda&3&0
 \\0&1&-\lambda&3
@@ -789,7 +780,7 @@ Adopt \autoref{pro:geneig}.
 \\0&-\lambda&3&0
 \\0&1&-\lambda&3
 \\0&0&1&-\lambda\end{vmatrix}
-\\&&(\text{by first row and first column expansion, respectively})
+\\&&(\text{then by first row and first column, respectively})
 \\&=&(-\lambda)^2\begin{vmatrix}-\lambda&3&0
 \\1&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
@@ -800,13 +791,13 @@ Adopt \autoref{pro:geneig}.
 -3\begin{vmatrix}-\lambda&3&0
 \\1&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
-\\&&(\text{by common factor, and first column expansion})
+\\&&(\text{then by common factor, and first column expansion})
 \\&=&(\lambda^2-3)\begin{vmatrix}-\lambda&3&0
 \\1&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
 +3\lambda\begin{vmatrix}-\lambda&3
 \\1&-\lambda\end{vmatrix}
-\\&&(\text{using~\eqref{eq:dets23b}})
+\\&&(\text{then using~\eqref{eq:dets23b}})
 \\&=&(\lambda^2-3)\big[(-\lambda)^3+0+0-0+3\lambda+3\lambda\big]
 +3\lambda(\lambda^2-3)
 \\&=&(\lambda^2-3)(-\lambda^3+9\lambda)
@@ -815,7 +806,7 @@ Adopt \autoref{pro:geneig}.
 The five eigenvalues are thus \(\lambda=0,\pm\sqrt3,\pm3\)\,, all of multiplicity one.
 
 \item Consider each eigenvalue in turn.
-\begin{itemize}
+\begin{description}
 \item[\(\lambda=0\)]  Solve
 \begin{equation*}
 (A-0I)\xv=\begin{bmatrix}0&3&0&0&0
@@ -861,7 +852,7 @@ The second row requires \(x_1\mp3x_2+3x_3=0\)\,, that is, \(x_1=\pm3x_2-3x_3=9x_
 The first row requires \(\mp3x_1+3x_2=0\)\,, which is satisfied as \(\mp3(9x_5)+3(\pm9x_5)=0\)\,.
 Since all eigenvectors are of the form \((9x_5, \pm9 x_5, 6x_5, \pm3x_5, x_5)\), the eigenspaces \(\EE_{\pm3}=\Span\{(9,\pm9,6,\pm3,1)\}\).
 
-\end{itemize}
+\end{description}
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -886,9 +877,9 @@ A=[0 3 0 0 0
  0 0 1 0 3
  0 0 0 1 0]
 [V,D]=eig(A)
-bsxfun(@rdivide,V,V(5,:))
+V./V(5,:)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to obtain the report \twodp
 \begin{verbatim}
 V =
@@ -905,7 +896,7 @@ D =
       0      0      0      0   1.73
 \end{verbatim}
 The eigenvalues in~\verb|D| agree with the hand calculations of \(\lambda=0,\pm\sqrt3,\pm3\).
-To confirm the hand calculation of eigenvectors in \autoref{eg:fiveev}, here divide each column of~\verb|V| by its last element,~\verb|V(5,:)|, via \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun(@rdivide,V,V(5,:))| which gives the more appealing matrix of eigenvectors \twodp
+To confirm the hand calculation of eigenvectors in \autoref{eg:fiveev}, here divide each column of~\verb|V| by its last element,~\verb|V(5,:)|, via the \idx{auto-replication} in \verb|V./V(5,:)|, which gives the more appealing matrix of eigenvectors \twodp
 \begin{verbatim}
 ans =
    9.00   9.00   9.00  -9.00  -9.00
@@ -939,9 +930,9 @@ This optional subsection does not prove the sensitivity: it uses examples to int
 If the matrix or the computation has an error~\idx{$\epsilon$}\index{error~$\epsilon$}, then expect a repeated eigenvalue of \idx{multiplicity}~\(m\) to appear as \(m\)~eigenvalues all within about~\(\epsilon^{1/m}\) of each other.
 Consequently, when we find or compute \(m\)~eigenvalues all within about~\(\epsilon^{1/m}\), then \emph{suspect} them to be one eigenvalue of multiplicity~\(m\).
 
-\begin{example} \label{eg:}
+\begin{example} 
 Explore the eigenvalues of the matrix
-\(A=\begin{bmatrix} a&1\\0.0001&a \end{bmatrix}\) for every parameter~\(a\).
+\(A=\begin{bmat} a&1\\0.0001&a \end{bmat}\) for every parameter~\(a\).
 \begin{solution} 
 By hand, the characteristic equation is
 \begin{equation*}
@@ -958,13 +949,13 @@ However, the `error'~\(0.0001\) splits the repeated eigenvalue into two by an am
 
 
 Further, since computers work to a \idx{relative error} of about~\(10^{-15}\), then expect a repeated eigenvalue of \idx{multiplicity}~\(m\) to appear as \(m\)~eigenvalues within about~\(10^{-15/m}\) of each other---even when there are no \idx{experimental error}s in the matrix.
-Repeat some of the previous cases of \autoref{eg:multeval}, preceded by the \script\ command \index{format long@\texttt{format long}}\verb|format long|, to see that the repeated eigenvalues are sensitive to computational~errors.
+Repeat some of the previous cases of \autoref{eg:multeval}, preceded by the \script\ command \index{format long@\texttt{format long}}\verb|format long|, to see that repeated eigenvalues are sensitive to computational~errors.
 
 %Similarly, repeated eigenvalues are sensitive to errors in the matrix. 
 %The following examples show the sensitivity when we are uncertain about the components of a matrix. 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use \script\ to compute eigenvalues of the following matrices and comment on the effect on repeated eigenvalues of errors in the matrix and/or the computation.
 \begin{enumerate}
 
@@ -989,7 +980,7 @@ eig([3 0 -2 0 0
  5 -1 4 1 -1
  3 2 1 -2 2])
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to get something like
 \begin{verbatim}
 ans =
@@ -1026,7 +1017,7 @@ B=[3 0 -2 0 0
  3 2 1 -2 2]
 eig(B+0.0001*randn(5))
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to get something like
 \begin{verbatim}
 ans =
@@ -1073,7 +1064,7 @@ C=[-1 0 0 0
   0 3 -2 1]
 eig(C+1e-6*randn(4))
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to get something like
 \begin{verbatim}
 ans =
@@ -1107,15 +1098,8 @@ Then in analysing the results, a \(5\times5\)~matrix is formed from the measurem
 1.0090,\quad
 1.0850.
 \end{equation*}
-What should you suspect is the number of different eigenvalues?
+What should you suspect is the number of different (distinct) eigenvalues?
 \actposs[4]{three}{two}{four}{five}
-%\partswidth=5em
-%\begin{parts}
-%\item two
-%\item three
-%\item four
-%\item five
-%\end{parts}
 \end{activity}
 
 
@@ -1132,16 +1116,16 @@ What should you suspect is the number of different eigenvalues?
 \paragraph{But symmetric matrices are OK}
 The \idx{eigenvalue}s of a \idx{symmetric matrix} are not so sensitive.
 This lack of sensitivity is fortunate as many applications give rise to symmetric matrices (\autoref{ch:eesm}).
-Such symmetry often reflects some symmetry in the natural world such as Newton's law of every action having an equal and opposite reaction.
+%Such symmetry often reflects some symmetry in the natural world such as Newton's law of every action having an equal and opposite reaction.
 For symmetric matrices, the eigenvalues and eigenvectors are reasonably robust to both computational perturbations and \idx{experimental error}s.
 
 
 
 
-\begin{example} \label{eg:}
-For perhaps the simplest example, consider the \(2\times2\) \idx{symmetric matrix} \(A=\begin{bmatrix} a&0\\0&a \end{bmatrix}\).
+\begin{example} 
+For perhaps the simplest example, consider the \(2\times2\) \idx{symmetric matrix} \(A=\begin{bmat} a&0\\0&a \end{bmat}\).
 Being diagonal, matrix~\(A\) has eigenvalue \(\lambda=a\) (\idx{multiplicity} two).
-Now perturb the matrix by `experimental' error to \(B=\begin{bmatrix} a&10^{-4}\\ 10^{-4}&a \end{bmatrix}\).
+Now perturb the matrix by `experimental' error to \(B=\begin{bmat} a&10^{-4}\\ 10^{-4}&a \end{bmat}\).
 The \idx{characteristic equation} of~\(B\) is
 \begin{equation*}
 \det(B-\lambda I)=(a-\lambda)^2-10^{-8}=0\,.
@@ -1158,20 +1142,13 @@ Because a perturbation to the \idx{symmetric matrix} of size~\(10^{-4}\) only ch
 \begin{activity}
 What are the eigenvalues of matrix \(\begin{bmatrix} a&0.01\\-0.01&a \end{bmatrix}\)?
 \actposs[4]{\(a\pm 0.01\i\)}{\(a\pm 0.01\)}{\(a\pm 0.1\)}{\(a\pm 0.1\i\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(a\pm 0.01\)
-%\item \(a\pm 0.1\)
-%\item \(a\pm 0.01\i\)\actans
-%\item \(a\pm 0.1\i\)
-%\end{parts}
 \end{activity}
 
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Compute the eigenvalues of the \idx{symmetric matrix}
 \begin{equation*}
 A=\begin{bmatrix}1&1&0&2
@@ -1199,8 +1176,8 @@ A=[1 1 0 2
 eig(A)
 eig(A+0.0001*randn(4))
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
-to firstly get
+\marginajrbox%
+to firstly get for the unperturbed matrix the eigenvalues
 \begin{verbatim}
 ans =
   -4.6235
@@ -1259,7 +1236,7 @@ For a given \idx{species}, let's define \begin{itemize}
 \item \(y_3(t)\)~the number of \idx{adult}s.
 \end{itemize}
 Mostly, biologists only count \idx{female}s as females are the determining sex for reproduction.
-(Although some bacteria\slash algae have seven sexes!)
+\marginpar{Although some bacteria\slash algae have seven sexes!}
 How do these numbers of females evolve over time? from generation to generation?  
 First we need to choose a basic time interval (the unit of time): it could be one year, one month, one day, or maybe six months.
 Whatever we choose as convenient, we then quantify the number of events that happen to the females in each time interval as shown schematically in the diagram below:
@@ -1341,9 +1318,9 @@ Gestation lasts for 9~months, with females giving birth to their first offspring
 Suppose the \idx{initial population} of orangutans in some area at year zero of a study is that of \(30\)~\idx{adolescent} \idx{female}s and \(15\)~\idx{adult} females.
 Use the mathematical model to predict the population for the next five years.
 
-\begin{solution} 
+\begin{solution} This solution illustrates the general steps.
 \emph{Choose level:}  we choose a time unit of one year, and choose to model three age categories.%
-\footnote{A coarse model considers just the total number in a species; a fine model might count the number of each age in years (here 30~years); a `micro' model might simulate each and every orangutan as individuals (thousands).}
+\footnote{A coarse model considers just the total number (of females) in a species; a fine model might count the number of each age in years (here 30~years); a `micro' model might simulate each and every orangutan as individuals (thousands).}
 
 \emph{Define:}
 \begin{itemize}
@@ -1360,7 +1337,7 @@ y_1(t+1)=\tfrac45y_1(t)+\cdots\,,\quad y_2(t+1)=\tfrac15y_1(t)+\cdots\,.
 \end{equation*}
 Say an adult female gives birth every \(7\)--\(8\)~years, so on \idx{average} she gives birth to a juvenile female every \(15\)~years. 
 Thus a fraction~\(1/15\) of adults give birth to a juvenile female in any year.
-Consequently, model juveniles as 
+Consequently, we model juveniles as 
 \begin{equation*}
 {y_1}(t+1)=\tfrac45y_1(t)+\tfrac1{15}y_3(t).
 \end{equation*}
@@ -1441,7 +1418,7 @@ y3=A*y2
 y4=A*y3
 y5=A*y4
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 
 \item Consequently, the rule \(\yv(t+1)=A\yv(t)\) with time \(t=3\)~years gives
 \begin{eqnarray*}
@@ -1559,7 +1536,7 @@ That is, \(\vv_1\propto (1,2)\); let's take \(\vv_1=(1,2)\).
 \end{equation*}
 That is, \(\vv_2\propto (1,-2)\); let's take \(\vv_2=(-1,2)\).
 \end{itemize}
-Summarising so far: \(\yv'(t)=(-1)^t(1,2)\) and \(\yv''(t)=3^t(-1,2)\) are both solutions of the model \(\yv(t+1)=A\yv(t)\).
+Summarizing so far: \(\yv'(t)=(-1)^t(1,2)\) and \(\yv''(t)=3^t(-1,2)\) are both solutions of the model \(\yv(t+1)=A\yv(t)\).
 
 Further, the model \(\yv(t+1)=A\yv(t)\) is a linear equation in~\yv, so every linear combination of solutions is also a solution.
 To see this, let's try \(\yv(t)=c_1\yv'(t)+c_2\yv''(t)\).
@@ -1621,8 +1598,8 @@ Now we establish that the same sort of general solution occurs for all such mode
 
 \begin{theorem} \label{thm:dynsol}
 Suppose the \(n\times n\) \idx{square matrix}~\(A\) governs the dynamics of \(\yv(t)\in\RR^n\) according to \(\yv(t+1)=A\yv(t)\).
-\begin{enumerate}
-\item\label{thm:dynsola} Let \hlist\lambda m\ be \idx{eigenvalue}s of~\(A\) and \hlist\vv m\ be corresponding \idx{eigenvector}s, then a solution of \(\yv(t+1)=A\yv(t)\) is the \idx{linear combination}
+\begin{enumerate}[ref=\ref{thm:dynsol}(\alph*)]
+\item\label[theorem]{thm:dynsola} Let \hlist\lambda m\ be \idx{eigenvalue}s of~\(A\) and \hlist\vv m\ be corresponding \idx{eigenvector}s, then a solution of \(\yv(t+1)=A\yv(t)\) is the \idx{linear combination}
 \begin{equation}
 \yv(t)=c_1\lambda_1^t\vv_1+c_2\lambda_2^t\vv_2+\cdots+c_m\lambda_m^t\vv_m
 \label{eq:dynsol}
@@ -1630,19 +1607,19 @@ Suppose the \(n\times n\) \idx{square matrix}~\(A\) governs the dynamics of \(\y
 for all constants \hlist cm.
 
 \sloppy
-\item\label{thm:dynsolb} Further, if 
+\item\label[theorem]{thm:dynsolb} Further, if 
 %the number of eigenvectors \(m=n\) (the size of the matrix~\(A\)), and 
 the matrix of eigenvectors \(P=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}\) is \idx{invertible}, then the general \idx{linear combination}~\eqref{eq:dynsol} is a \bfidx{general solution} in that unique constants \hlist cm\ may be found for every given \idx{initial value}~\(\yv(0)\).
 \end{enumerate}
 \end{theorem}
 
 \begin{proof} \ 
-\begin{itemize}
+\begin{description}
 \item[\ref{thm:dynsola}] 
 Just premultiply~\eqref{eq:dynsol} by matrix~\(A\) to find that
 \begin{eqnarray*}
 A\yv(t)&=&A(c_1\lambda_1^t\vv_1+c_2\lambda_2^t\vv_2+\cdots+c_m\lambda_m^t\vv_m)
-\\&&\quad(\text{using distributivity \autoref{thm:pasm}})
+\\&&\quad(\text{then using distributivity \autoref{thm:pasm}})
 \\&=&c_1\lambda_1^tA\vv_1+c_2\lambda_2^tA\vv_2+\cdots+c_m\lambda_m^tA\vv_m
 \\&&\quad(\text{then as eigenvectors }A\vv_j=\lambda_j\vv_j)
 \\&=&c_1\lambda_1^t\lambda_1\vv_1+c_2\lambda_2^t\lambda_2\vv_2+\cdots+c_m\lambda_m^t\lambda_m\vv_m
@@ -1663,8 +1640,9 @@ Second, evaluating the solution~\eqref{eq:dynsol} at \(t=0\) gives, since the ze
 \end{equation*}
 as an equation to be solved.
 Writing as a matrix-vector system this equation requires \(P\cv=\yv(0)\) for constant vector \(\cv=(\hlist cn)\).
-Since matrix~\(P\) is invertible, \(P\cv=\yv(0)\) always has the unique solution \(\cv=P^{-1}\yv(0)\) (\autoref{thm:ftim2}) which determines the requisite constants.
-\end{itemize}
+The theorem's precondition is that matrix~\(P\) is invertible.
+So \(P\cv=\yv(0)\) always has the unique solution \(\cv=P^{-1}\yv(0)\) (\autoref{thm:ftim2}) which determines the requisite constants.
+\end{description}
 \end{proof}
 
 
@@ -1674,20 +1652,13 @@ Since matrix~\(P\) is invertible, \(P\cv=\yv(0)\) always has the unique solution
 The matrix~\(A=\begin{bmatrix} 1&1\\a^2&1 \end{bmatrix}\) has eigenvectors \((1,a)\) and~\((1,-a)\).
 For what value(s) of~\(a\) does \autoref{thm:dynsol} \emph{not} provide a \idx{general solution} to \(\yv(t+1)=A\yv(t)\)?
 \actposs[4]{\(a=0\)}{\(a=-1\)}{\(a=1\)}{\(a=\pm1\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(a=-1\)
-%\item \(a=0\)\actans
-%\item \(a=1\)
-%\item \(a=\pm1\)
-%\end{parts}
 \end{activity}
 
 
 
 
 \begin{example} \label{eg:2x2ccgrow}
-Consider the dynamics of \(\yv(t+1)=A\yv(t)\) for matrix \(A=\begin{bmatrix} 1&3\\-1&1 \end{bmatrix}\).
+Consider the dynamics of \(\yv(t+1)=A\yv(t)\) for matrix \(A=\begin{bmat} 1&3\\-1&1 \end{bmat}\).
 First, what is \(\yv(3)\) when the \idx{initial value} \(\yv(0)=(1,0)\)?
 Second, find a \idx{general solution}.
 % and interpret its behaviour in time~\(t\).
@@ -1776,7 +1747,7 @@ as computed directly at the start of this example.
 
 One crucial qualitative aspect we need to know is whether components in the solution~\eqref{eq:dynsol} grow, decay, or stay the same size as time increases.
 The growth or decay is determined by the eigenvalues:
-the reason is that~\(\lambda_j^t\) is the only place that the time appears in the formula~\eqref{eq:dynsol}.
+the reason is that~\(\lambda_j^t\) is the only place that the time appears in the general formula~\eqref{eq:dynsol}.
 \begin{itemize}
 \item For example, in the \idx{general solution} for \autoref{eg:2x2map}, \(\yv(t)=c_1(-1)^t(1,2)+c_23^t(-1,2)\), the \(3^t\)~factor grows in time since \(3^1=3\), \(3^2=9\), \(3^3=27\), and so on.
 Whereas the \((-1)^t\)~factor just oscillates in time since \((-1)^1=-1\), \((-1)^2=1\), \((-1)^3=-1\), and so on.
@@ -1829,17 +1800,10 @@ xlabel={time $t$},ylabel={$|\lambda|^t$},axis lines=middle
 
 \begin{activity}
 For which of the following values of~\(\lambda\), as time~\(t\) increases, will \(\lambda^t\) grow in an oscillatory fashion?
-\actposs[4]{\(\lambda=-\frac45+\i\frac45\)}
+\actposs{\(\lambda=-\frac45+\i\frac45\)}
 {\(\lambda=-0.8\)}
 {\(\lambda=1.5\)}
 {\(\lambda=\frac35+\i\frac45\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\lambda=-0.8\)
-%\item \(\lambda=1.5\)
-%\item \(\lambda=\frac35+\i\frac45\)
-%\item \(\lambda=-\frac45+\i\frac45\) \actans
-%\end{parts}
 \end{activity}
 
 
@@ -1847,7 +1811,7 @@ For which of the following values of~\(\lambda\), as time~\(t\) increases, will 
 
 \begin{example}[orangutans over many years] \label{eg:orangs}
 Extend the \idx{orangutan} analysis of \autoref{eg:orang}. 
-Use \autoref{thm:dynsol} to predict the population over many years: from an \idx{initial population} of \(30\)~idx{adolescent} \idx{female}s and \(15\)~\idx{adult} females; and from a general initial population.
+Use \autoref{thm:dynsol} to predict the population over many years: from an \idx{initial population} of \(30\)~\idx{adolescent} \idx{female}s and \(15\)~\idx{adult} females; and from a general initial population.
 \begin{solution} 
 \autoref{eg:orang} derived that the age structure population \(\yv=(y_1,y_2,y_3)\) satisfies \(\yv(t+1)=A\yv(t)\) for matrix
 \begin{equation*}
@@ -1867,7 +1831,7 @@ y0=[0;30;15]
 rcond(V)
 c=V\slosh y0
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to find
 \begin{verbatim}
 V =
@@ -2029,7 +1993,7 @@ A=[0 0 1/2;1 1/2 0;0 1/2 16/17]
 A=[0 0 1/2;1 1/2 0;0 1/2 16/17]
 [V,D]=eig(A)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 to find
 \begin{verbatim}
 V =
@@ -2092,7 +2056,7 @@ Recall that \autoref{ch:eesm} starts by illustrating the close connection betwee
 This optional section connects the \svd\ of a general matrix to a symmetric eigen-problem, in principle.
 \end{aside}%
 This subsection establishes that an \svd\ of a general matrix is closely connected to the eigenvalues and eigenvectors of a specific matrix of double the size.   
-The connection depends upon determinants and solving linear systems and so, in principle, is an approach to compute an \svd\ distinct from the inductive maximisation of \autoref{sec:psvdt}.
+The connection depends upon determinants and solving linear systems and so, in principle, is an approach to compute an \svd\ distinct from the inductive maximization of \autoref{sec:psvdt}.
 
 
 
@@ -2103,9 +2067,8 @@ B=\begin{bmatrix} 0&0&10&2\\
 0&0&5&11\\
 10&5&0&0\\
 2&11&0&0 \end{bmatrix}.
-\qquad \text{For matrix }A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix},
 \end{equation*}
-compare with an \svd\ of~\(A\).
+Compare these with an \svd\ of matrix \(A=\begin{bmat} 10&2\\5&11 \end{bmat}\).
 \begin{solution} In \script\ execute
 \setbox\ajrqrbox\hbox{\qrcode{% eigenvalue/vector code
 B=[0 0 10 2
@@ -2114,7 +2077,7 @@ B=[0 0 10 2
   2 11 0 0]
 [V,D]=eig(B)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 B=[0 0 10 2
    0 0 5 11
@@ -2169,7 +2132,7 @@ The next \autoref{thm:eigsvd} establishes how these properties relate to an \svd
 
 \autoref{pro:geneig} computes eigenvalues and eigenvectors by hand (in principle no matter how large the matrix). 
 The procedure is independent of the \svd.
-Let's now invoke this procedure to establish another method to find an \svd\ distinct from the inductive maximisation of the proof in \autoref{sec:psvdt}. 
+Let's now invoke this procedure to establish another method to find an \svd\ distinct from the inductive maximization of the proof in \autoref{sec:psvdt}. 
 The following \autoref{thm:eigsvd} is a step towards an efficient numerical computation of an \svd\ \cite[p.234]{Trefethen1997}.
 
 % Trefethen has the transpose in the upper right---curses??
@@ -2188,7 +2151,7 @@ For simplicity this proof addresses only the case \(m=n\); the case \(m\neq n\) 
 First, let \(n\times n\) matrix \(A=\usv\) be an \svd\ (\autoref{thm:svd}) for \(n\times n\) orthogonal \(U=\begin{bmatrix} \uv_1&\uv_2&\cdots&\uv_n \end{bmatrix}\),  orthogonal \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\), and diagonal \(S=\diag(\hlist\sigma n)\).
 Post-multiply the \svd\ by orthogonal~\(V\) gives \(AV=US\)\,.
 % that is, \(A\vv_j=\sigma_j\uv_j\) for \(j=1,\ldots,n\)\,.
-Also, transpose the \svd\ to \(\tr A=\tr{(\usv)}=V\tr S\tr U=VS\tr U\) and post-multiply by orthogonal~\(U\) to give \(\tr AU=VS\)\,.
+Also, transpose the \svd\ to \(\tr A=\tr{(\usv)}=V\tr S\tr U=VS\tr U\) and then post-multiply by orthogonal~\(U\) to give \(\tr AU=VS\)\,.
 % that is, \(\tr A\uv_j=\sigma_j\vv_j\) for \(j=1,\ldots,n\)\,.
 Now consider each of the \(\pm\)~cases of
 \begin{equation*}
@@ -2198,10 +2161,10 @@ B\begin{bmatrix} U\\\pm V \end{bmatrix}
 =\begin{bmatrix} \pm US\\VS \end{bmatrix}
 =\begin{bmatrix} U\\\pm V \end{bmatrix}(\pm S).
 \end{equation*}
-Setting vector \(\wv=(\uv_j,\pm\vv_j)\neq\ov\)\,, then the \(j\)th~column of the above equation is \(B\wv=\pm\sigma_j\wv\) and hence \((\uv_j,\pm\vv_j)\) is an eigenvector of~\(B\) corresponding to eigenvalue~\(\pm\sigma_j\), respectively, for \(j=1,\ldots,n\) and each of the \(\pm\)~cases.
+Setting vector \(\wv=(\uv_j,\pm\vv_j)\neq\ov\)\,, and since \(S\)~is diagonal, then the \(j\)th~column of the above equation is \(B\wv=\pm\sigma_j\wv\) and hence \((\uv_j,\pm\vv_j)\) is an eigenvector of~\(B\) corresponding to eigenvalue~\(\pm\sigma_j\), respectively, for \(j=1,\ldots,n\) and each of the \(\pm\)~cases.
 This completes the first part of the proof.
 
-Second, let \(\wv\in\RR^{2n}\)\ be an eigenvector of~\(B\) corresponding to an eigenvalue~\(\lambda\) (real as \(B\)~is symmetric, \autoref{thm:realeigsym}) and normalised so that \(|\wv|=1\)\,.
+Second, let \(\wv\in\RR^{2n}\)\ be an eigenvector of~\(B\) corresponding to an eigenvalue~\(\lambda\) (real as \(B\)~is symmetric, \autoref{thm:realeigsym}) and normalized so that \(|\wv|=1\)\,.
 Separate the components of~\wv\ into two: \(\wv=(\uv,\vv)\) for \(\uv,\vv\in\RR^n\).
 Then the fundamental eigen-problem \(B\wv=\lambda\wv\)  (\autoref{def:evecval}) separates into
 \begin{equation}
@@ -2213,7 +2176,7 @@ Further, the eigenvalues and eigenvectors of~\(B\) come in pairs since the eigen
 If the eigenvalue~\(\lambda\neq0\)\,, then corresponding to the distinct eigenvalues~\(\pm\lambda\) the eigenvectors \((\uv,\pm\vv)\) of symmetric~\(B\) are orthogonal (\autoref{thm:orthoevec}) and so \(0=(\uv,\vv)\cdot(\uv,-\vv)=\uv\cdot\uv-\vv\cdot\vv=|\uv|^2-|\vv|^2\) and hence \(|\uv|=|\vv|=\frac1{\sqrt2}\) as \(|\wv|^2=|\uv|^2+|\vv|^2=1\) (see \autoref{eg:eigsvd}).
 Further, for any two distinct eigenvalues \(|\lambda_i|\neq|\lambda_j|\neq 0\), the eigenvectors \((\uv_i,\vv_i)\) and \((\uv_j,\pm\uv_j)\) are also orthogonal, hence \(0 =(\uv_i,\vv_i)\cdot(\uv_j,\pm\uv_j) =\uv_i\cdot\uv_j \pm\vv_i\cdot\vv_j\)\,.
 Taking the sum and the difference of the \(\pm\)~cases of this equation gives \(\uv_i\cdot\uv_j=\vv_i\cdot\vv_j=0\)\,; that is,  (\autoref{def:orthoset}) \(\{\hlist\uv n\}\) and \(\{\hlist\vv n\}\) are both orthogonal sets.
-In the cases when matrix~\(B\) has \(2n\)~distinct nonzero eigenvalues, choose \((\uv_j,\vv_j)\) to be a normalised eigenvector corresponding to positive eigenvalue~\(\lambda_j\), \(j=1,\ldots,n\)\,. 
+In the cases when matrix~\(B\) has \(2n\)~distinct nonzero eigenvalues, choose \((\uv_j,\vv_j)\) to be a normalized eigenvector corresponding to positive eigenvalue~\(\lambda_j\), \(j=1,\ldots,n\)\,. 
 Upon setting \(U=\sqrt2\begin{bmatrix} \uv_1&\uv_2&\cdots&\uv_n \end{bmatrix}\), \(V=\sqrt2\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\), and \(S=\diag(\hlist\lambda n)\), equation~\eqref{eq:eigsvd} gives the columns of \(AV=US\) which since the columns of \(U\) and~\(V\) are orthonormal gives the \svd\ \(A=\usv\) for singular vectors \(\uv_j,\vv_j\in\RR^n\) and singular values~\(\lambda_j(>0)\).
 
 Extensions of this proof cater for the case when zero is an eigenvalue and/or eigenvalues are repeated and/or the dimensions \(m\neq n\)\,.
@@ -2231,6 +2194,7 @@ Extensions of this proof cater for the case when zero is an eigenvalue and/or ei
 
 
 
+\begin{reduce}
 \subsection{Application: Exponential interpolation discovers dynamics}
 \label{sec:eidd}
 
@@ -2248,7 +2212,7 @@ All such tasks require fitting a sum of exponential functions to the data.
 
 
 \begin{example} \label{eg:eidd1}
-This example is the simplest case of fitting one exponential to two data points.
+This introductory example is the simplest case of fitting one exponential to two data points.
 Suppose we take two measurements of some process: 
 \begin{itemize}
 \item at time \(t_1=1\) we measure the value \(f_1=5\)\,, and 
@@ -2262,8 +2226,8 @@ f=ce^{rt} \iff (\ln f)=(\ln c)+rt\,,
 \end{equation*}
 and then determine \(\ln c\) and~\(r\) by fitting a straight line through the two data points \((t,\ln f)=(1,\ln5)\) and~\((3,\ln10)\) respectively
 (recall that \index{log}``\(\ln(x)\)'' denotes the \idx{natural logarithm} of~\(x\),  computed in \script\ with \index{log()@\texttt{log()}}\verb|log(x)|, see \autoref{tbl:mtlbmops}).
-This approach has the great virtue that the approach generalises to fitting lots more noisy data (\autoref{sec:asie}).
-But here we take a different approach---an approach that generalises to fitting multiple exponentials.
+This approach has the great virtue that the approach generalizes to fitting lots more noisy data (\autoref{sec:asie}).
+But here we take a different approach---an approach that generalizes to fitting multiple exponentials.
 
 
 The following basic steps correspond to complicated steps in the general procedure developed next for fitting multiple exponentials.
@@ -2279,7 +2243,7 @@ The corresponding~\(f_j\) then gives~\(f\) as a function of~\(t\), namely \(f(t)
 
 \end{enumerate}
 Equivalently, we write this~\(f(t)\) in terms of the exponential function.
-Recall the rule \(2^x=e^{x\ln 2}\).
+Recall the identity that \(2^x=e^{x\ln 2}\).
 Hence the fitted function \(f=5\cdot 2^{t/2-1/2} =(5/\sqrt2)e^{(t/2)\ln2}\). 
 Since \(5/\sqrt2=3.5255\) and \(\frac12\ln 2=0.3466\), the exponential fit is \(f(t)=3.5255\,e^{0.3466\,t}\).
 \end{solution}
@@ -2335,7 +2299,7 @@ After solving these four \idx{nonlinear equation}s,  we ultimately plot the func
 
 \begin{solution} 
 This solution has several twists and several new ideas that turns these four \idx{nonlinear equation}s into two linear algebra problems!
-\begin{enumerate}
+\begin{enumerate}[ref=\ref{eg:2expfit}(\alph*)]
 \item First form the data into vectors of consecutive values:
 \begin{equation*}
 \fv_1=\begin{bmatrix} f_1\\f_2 \end{bmatrix}
@@ -2346,7 +2310,7 @@ This solution has several twists and several new ideas that turns these four \id
 =\begin{bmatrix} \frac23\\\frac7{18} \end{bmatrix},\ 
 \end{equation*}
 and, if only we had more data, notionally on to~\(\fv_4,\fv_5,\ldots\)\,.
-\item\label{eg:2expfitb}
+\item\label[example]{eg:2expfitb}
 Question: is there a \idx{linear transformation} (\autoref{sec:ilt}) that gives both \(\fv_2\) as a function of~\(\fv_1\) and \(\fv_3\) as a function of~\(\fv_2\)?  
 That is, is there a \(2\times2\) matrix~\(K\) such that both \(\fv_2=K\fv_1\) and \(\fv_3=K\fv_2\)?
 
@@ -2380,9 +2344,9 @@ B^{-1}=\begin{bmatrix} -2&3\\3&-3 \end{bmatrix},
 K=AB^{-1}=\begin{bmatrix} 0&1\\-\frac16& \frac56\end{bmatrix}.
 \end{equation*}
 
-\item\label{eg:2expfitc}
+\item\label[example]{eg:2expfitc}
 Since, for this matrix~\(K\), we know that \(\fv_2=K\fv_1\)\,, \(\fv_3=K\fv_2\)\,, we extrapolate into the future to predict \(\fv_4=K\fv_3\)\,, \(\fv_5=K\gv_4\)\,, and so on, where the vectors \(\fv_j=(f_j,f_{j+1})\).
-That is, our model through the four data points is summarised by \(\fv_{j+1}=K\fv_j\) for \(j=1,2,3,\ldots\,\).
+That is, our model through the four data points is summarized by \(\fv_{j+1}=K\fv_j\) for \(j=1,2,3,\ldots\,\).
 This is the same class of dynamic models as explored by \autoref{sec:ddp}, albeit here not for populations.
 Consequently, \autoref{thm:dynsol} gives us a general algebraic solution of the model \(\fv_{j+1}=K\fv_j\) in terms of the eigenvalues and eigenvectors of matrix~\(K\).
 Such an algebraic solution interpolates and extrapolates (with caution) the data.
@@ -2416,7 +2380,7 @@ By \autoref{thm:dynsol}, a general solution of \(\fv_{j+1}=K\fv_j\) is
 \end{equation*}
 
 
-\item\label{eg:2expfitd}
+\item\label[example]{eg:2expfitd}
 The data values also determine the constants~\(c_1\) and~\(c_2\).
 Recall that \(\fv_1=(1,1)\) so substituting \(j=1\) in the above general solution gives
 \begin{equation*}
@@ -2431,7 +2395,7 @@ Substitute these coefficients into the general solution to obtain the specific m
 \fv_j =\begin{bmatrix} 8\\4 \end{bmatrix}\frac1{2^j} +\begin{bmatrix} -9\\-3 \end{bmatrix}\frac1{3^j}\,.
 \end{equation*}
 
-\item\label{eg:2expfite}
+\item\label[example]{eg:2expfite}
 Recall that this example's quest is to fit a function~\(f(t)\) to the data.
 Here \(\fv_j=(f_j,f_{j+1})\) and so the first component of the above specific model gives \(f_j=8(\frac12)^j -9(\frac13)^j\)\,.
 Then recall that \(t_1=0\)\,, \(t_2=1\)\,, \(t_3=2\)\,, and so on; 
@@ -2538,7 +2502,7 @@ Reverting this relation gives the index \(j=t+1\) and so in terms of time~\(t\) 
 %\end{equation*}
 %then one solution gives~\(\lambda_1,\vv_1\) and the other~\(\lambda_2,\vv_2\).
 %This looks like an eigenvalue problem, \(A\vv=\lambda\vv\)\,, but with a matrix~\(B\) inserted in the right-hand side as an extra.
-%The form \(A\vv=\lambda B\vv\) is called a `\idx{generalised eigen-problem}'.
+%The form \(A\vv=\lambda B\vv\) is called a `\idx{generalized eigen-problem}'.
 %
 %\item \label{eg:2expfite}
 %Fifth, solve for the `eigenvalues'~\(\lambda\) by rearranging the equation to
@@ -2585,17 +2549,17 @@ as \(\ln\frac12=-0.6932\) and \(\ln \frac13=-1.0986\)\,.
 
 \autoref{eg:2expfit} shows one way that fitting exponentials to data can be done with eigenvalues and eigenvectors.
 But one undesirable attribute of the example is the need to invert the matrix~\(B\) to form matrix \(K=AB^{-1}\).
-We avoid this inversion by generalising \idx{eigen-problem}s as introduced by the following reworking of parts of \autoref{eg:2expfit}.
+We avoid this inversion by generalizing \idx{eigen-problem}s as introduced by the following reworking of parts of \autoref{eg:2expfit}.
 
 \begin{example}[two short-cuts] \label{eg:2expfit2}
 Recall that \autoref{sec:ddp} derived general solutions of dynamic equations such as \(\fv_{j+1}=K\fv_j\) by seeking solutions of the form \(\fv_j=\vv\lambda^j\).
 For the previous \autoref{eg:2expfit} let's instead seek solutions of the form \(\fv_j=B\wv\lambda^j\).
-Substituting this form, the dynamic equation \(\fv_{j+1}=K\fv_j\) becomes \(B\wv\lambda^{j+1}=KB\wv\lambda^j\); then factoring~\(\lambda^j\), recognising that \(KB=A\), and swapping sides, this equation becomes \(A\wv=\lambda B\wv\)\,.
-This \(A\wv=\lambda B\wv\) forms a \idx{generalised eigen-problem} because it reduces to the standard \idx{eigen-problem} in cases when the matrix \(B=I\).
-Rework parts of \autoref{eg:2expfit} via this generalised eigen-problem.
+Substituting this form, the dynamic equation \(\fv_{j+1}=K\fv_j\) becomes \(B\wv\lambda^{j+1}=KB\wv\lambda^j\); then factoring~\(\lambda^j\), recognizing that \(KB=A\), and swapping sides, this equation becomes \(A\wv=\lambda B\wv\)\,.
+This \(A\wv=\lambda B\wv\) forms a \idx{generalized eigen-problem} because it reduces to the standard \idx{eigen-problem} in cases when the matrix \(B=I\).
+Rework parts of \autoref{eg:2expfit} via this generalized eigen-problem.
 
 \begin{solution} 
-Restart the analysis in \autoref{eg:2expfitc}: instead of the eigen-problem \(K\vv=\lambda\vv\), let's solve the generalised eigen-problem \(A\wv=\lambda B\wv\)\,.
+Restart the analysis in \autoref{eg:2expfitc}: instead of the eigen-problem \(K\vv=\lambda\vv\), let's solve the generalized eigen-problem \(A\wv=\lambda B\wv\)\,.
 Here matrices
 \begin{equation*}
 A=\begin{bmatrix} 1&\frac23\\\frac23&\frac7{18} \end{bmatrix},\quad
@@ -2627,7 +2591,7 @@ Being a homogeneous linear equation, this last equation only has nontrivial solu
 This determinant is zero only for multipliers \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\)\,. 
 These are precisely the same eigenvalues as in \autoref{eg:2expfitc}.
 
-Another simplification is to avoid forming the full vector solution (\autoref{eg:2expfitd}--\ref{eg:2expfite}):
+Another simplification is to avoid forming the full vector solution (\autoref{eg:2expfitd,eg:2expfite}):
 we only use just the first vector-component in the final answer for~\(f(t)\), so the full vector is redundant.
 Instead, given the multipliers \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\), just seek the penultimate form \(f_j=c_1(\tfrac12)^j+c_2(\tfrac13)^j\).
 Given the data values, evaluating this form of solution at \(j=1,2\) gives two equations:
@@ -2645,22 +2609,22 @@ Then, as before, index \(j=t+1\) so the function fit becomes \(f(t)=4(\frac12)^{
 
 
 
-\subsubsection{Generalised eigen-problem}
-\index{eigen-problem!generalised|(}
-\index{generalised eigen-problem|(}
+\subsubsection{Generalized eigen-problem}
+\index{eigen-problem!generalized|(}
+\index{generalized eigen-problem|(}
 
 
-As introduced by \autoref{eg:2expfit2}, let's generalise the \autoref{def:evecval} of eigenvalues and eigenvectors.
-Such generalised eigen-problems also occur in the design analysis of complicated structures, such as buildings and bridges, where the second matrix~\(B\) represents the various masses of the various elements making up a structure.
+As introduced by \autoref{eg:2expfit2}, let's generalize the \autoref{def:evecval} of eigenvalues and eigenvectors.
+Such generalized eigen-problems also occur in the design analysis of complicated structures, such as buildings and bridges, where the second matrix~\(B\) represents the various masses of the various elements making up a structure.
 
 \begin{definition} \label{def:geneig}
 Let \(A\) and~\(B\) be \(n\times n\) square matrices\index{square matrix}. 
-The \bfidx{generalised eigen-problem} is to find \idx{scalar} \idx{eigenvalue}s~\(\lambda\) and corresponding nonzero \idx{eigenvector}s~\vv\ such that \(A\vv=\lambda B\vv\).
+The \bfidx{generalized eigen-problem} is to find \idx{scalar} \idx{eigenvalue}s~\(\lambda\) and corresponding nonzero \idx{eigenvector}s~\vv\ such that \(A\vv=\lambda B\vv\).
 \end{definition}
 
 
-\begin{example} \label{eg:}
-Given \(A=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\) and \(B=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\), what eigenvalue corresponds to the eigenvector \(\vv_1=(1,1)\) of the generalised eigen-problem \(A\vv=\lambda B\vv\)\,?  
+\begin{example} 
+Given \(A=\begin{bmat} -2&2\\3&1 \end{bmat}\) and \(B=\begin{bmat} 3&-3\\2&0 \end{bmat}\), what eigenvalue corresponds to the eigenvector \(\vv_1=(1,1)\) of the generalized eigen-problem \(A\vv=\lambda B\vv\)\,?  
 Also answer for \(\vv_2=(-3,13)\).
 \begin{solution} 
 \begin{itemize}
@@ -2686,7 +2650,7 @@ Since \(32=-\tfrac23(-48)\) and \(4=-\tfrac23(-6)\), then \(A\vv_2\) is~\(-2/3\)
 
 
 \begin{activity}
-Which of the following vectors is an eigenvector of the generalised eigen-problem
+Which of the following vectors is an eigenvector of the generalized eigen-problem
 \begin{equation*}
 \begin{bmatrix} -2&0\\1&0 \end{bmatrix}\vv=\lambda\begin{bmatrix} 3&-1\\-1&1 \end{bmatrix}\vv\,?
 \end{equation*}
@@ -2695,11 +2659,11 @@ Which of the following vectors is an eigenvector of the generalised eigen-proble
 
 
 The standard eigen-problem is the case when matrix \(B=I\)\,.
-Many of the properties for standard eigenvalues and eigenvectors also hold for generalised eigen-problems, although there are some differences.
-Most importantly here, albeit without proof, provided matrix~\(B\) is invertible, then counted according to \idx{multiplicity} there are \(n\)~eigenvalues of a \idx{generalised eigen-problem} in \(n\times n\) matrices.
+Many of the properties for standard eigenvalues and eigenvectors also hold for generalized eigen-problems, although there are some differences.
+Most importantly here, albeit without proof, provided matrix~\(B\) is invertible, then counted according to \idx{multiplicity} there are \(n\)~eigenvalues of a \idx{generalized eigen-problem} in \(n\times n\) matrices.
 
-\begin{example} \label{eg:}
-Find all \idx{eigenvalue}s and corresponding \idx{eigenvector}s of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for matrices
+\begin{example} 
+Find all \idx{eigenvalue}s and corresponding \idx{eigenvector}s of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) for matrices
 \begin{equation*}
 A=\begin{bmatrix} -1&1\\-4&0 \end{bmatrix},\quad
 B=\begin{bmatrix} -1&1\\-1&2 \end{bmatrix}
@@ -2715,7 +2679,7 @@ Hence determine the eigenvalues by finding the zeros of the characteristic polyn
 \\&=&-\lambda^2-3\lambda+4
 \\&=&-(\lambda+4)(\lambda-1).
 \end{eqnarray*}
-Hence the generalised eigenvalues are \(\lambda_1=-4\) and \(\lambda_2=1\)\,.
+Hence the only generalized eigenvalues are \(\lambda_1=-4\) and \(\lambda_2=1\)\,.
 \begin{itemize}
 \item For the case \(\lambda_1=-4\) the corresponding eigenvectors satisfy
 \begin{equation*}
@@ -2735,8 +2699,8 @@ That is, \(-3v_1-2v_2=0\) which rearranged is \(v_1=-\tfrac23v_2\): correspondin
 
 
 
-\begin{example} \label{eg:}
-Find all \idx{eigenvalue}s and corresponding \idx{eigenvector}s of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for matrices
+\begin{example} 
+Find all \idx{eigenvalue}s and corresponding \idx{eigenvector}s of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) for matrices
 \begin{equation*}
 A=\begin{bmatrix} 2&2\\-1&0 \end{bmatrix},\quad
 B=\begin{bmatrix} -1&1\\1&-1 \end{bmatrix}
@@ -2763,8 +2727,8 @@ That is, the two components of~\vv\ must satisfy \(\tfrac13v_1+\tfrac23v_2=0\) w
 \end{example}
 
 
-\index{generalised eigen-problem|)}
-\index{eigen-problem!generalised|)}
+\index{generalized eigen-problem|)}
+\index{eigen-problem!generalized|)}
 
 
 
@@ -2787,8 +2751,8 @@ Because the data is sampled at equi-spaced times, \(h\)~apart, then instead of s
 
 \begin{procedure}[\bfidx{exponential interpolation}] \label{pro:ei}
 Given measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=(j-1)h\) for time-spacing~\(h\) (and starting from time \(t_1=0\) without loss of applicability), we seek to fit the data with a sum of exponentials~\eqref{eq:eiddse}.
-\begin{enumerate}
-\item\label{pro:eia} From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
+\begin{enumerate}[ref=\ref{pro:ei}(\alph*)]
+\item\label[step]{pro:eia} From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
 \begin{eqnarray*}&&
 A=\begin{bmatrix} f_2&f_3&\cdots&f_{n+1}
 \\f_3&f_4&\cdots&f_{n+2}
@@ -2802,14 +2766,14 @@ B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \end{eqnarray*}
 In \script\ \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| forms these two matrices (this Hankel function is also invoked in exploring El~Nino, \autoref{eg:orthbapp}).
 
-\item\label{pro:eib} Find the \idx{eigenvalue}s of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\)\,: 
+\item\label[step]{pro:eib} Find the \idx{eigenvalue}s of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\)\,: 
 \begin{itemize}
 \item by hand on small problems solve \(\det(A-\lambda B)=0\)\,;
 \item in \script\ invoke \index{eig()@\texttt{eig()}}\verb|lambda=eig(A,B)|\,, and then \index{log()@\texttt{log()}}\verb|r=log(lambda)/h|\,.
 \end{itemize}
-This \idx{generalised eigen-problem} typically determines \(n\)~multipliers \hlist\lambda n, and thence the \(n\)~rates \(r_k=(\ln\lambda_k)/h\)\,.
+This \idx{generalized eigen-problem} typically determines \(n\)~multipliers \hlist\lambda n, and thence the \(n\)~rates \(r_k=(\ln\lambda_k)/h\)\,.
 
-\item\label{pro:eic} Determine the corresponding \(n\)~\idx{coefficient}s \hlist cn\ from any \(n\)~point subset of the \(2n\)~data points.
+\item\label[step]{pro:eic} Determine the corresponding \(n\)~\idx{coefficient}s \hlist cn\ from any \(n\)~point subset of the \(2n\)~data points.
 For example, the first \(n\)~data points give the linear system 
 \begin{equation*}
 \begin{bmatrix} 1&1&\cdots&1
@@ -2820,7 +2784,7 @@ For example, the first \(n\)~data points give the linear system
  \end{bmatrix}\begin{bmatrix} c_1\\c_2\\\vdots\\c_n \end{bmatrix}
  =\begin{bmatrix} f_1\\f_2\\f_3\\\vdots\\f_n \end{bmatrix}
 \end{equation*}
-In \script\ one may construct the matrix~\(U\) appearing here with \index{bsxfun()@\texttt{bsxfun()}}\verb|U=bsxfun(@power,lambda,0:n-1).'| when \verb|lambda| is a \idx{column vector} of the eigenvalues.
+In \script\ one may construct the matrix~\(U\) appearing here with \idx{auto-replication} \verb|U=(lambda.^(0:n-1)).'| when \verb|lambda| is a \idx{column vector} of the eigenvalues.
 Since the eigenvalues~\(\lambda\) may be \idx{complex valued} we need the \idx{transpose}~``\verb|.'|'' not the \idx{complex conjugate} transpose~``\verb|'|'' (\autoref{tbl:mtlbops}).
 \end{enumerate}
 \end{procedure}
@@ -2829,7 +2793,8 @@ Since the eigenvalues~\(\lambda\) may be \idx{complex valued} we need the \idx{t
 
 
 \begin{table}
-\caption{As well as the \script\ commands and operations listed in Tables~\ref{tbl:mtlbpre}, \ref{tbl:mtlbbasics}, \ref{tbl:mtlbops}, \ref{tbl:mtlbmops}, \ref{tbl:mtlbsvd}, \ref{tbl:mtlbimag}, and~\ref{tbl:mtlbnorm} this section invokes these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbexpf}
+\caption{As well as the \script\ commands and operations listed in 
+\cref{tbl:mtlbpre,tbl:mtlbbasics,tbl:mtlbops,tbl:mtlbmops,tbl:mtlbsvd,tbl:mtlbimag,tbl:mtlbnorm} this section invokes these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbexpf}
 \smallskip\hrule
 \begin{minipage}{\linewidth}
 %\parbox{\linewidth}{
@@ -2850,9 +2815,11 @@ x_n&y_2&\cdots&y_{n-1}&y_n
 \item \index{eig()@\texttt{eig()}}\verb|eig(A,B)| for \(n\times n\) matrices~\(A\) and~\(B\) computes a vector in~\(\RR^n\) of \idx{eigenvalue}s~\(\lambda\) such that \(\det(A-\lambda B)=0\)\,.
 Some of the computed eigenvalues in the vector may be \(\pm\verb|Inf|\)\index{Inf@\texttt{Inf}} (depending upon the nature of~\(B\)) which denotes that a corresponding eigenvalue does \text{not exist}.
 
-The command \index{eig()@\texttt{eig()}|textbf}\verb|[V,D]=eig(A,B)| solves the \idx{generalised eigen-problem} \(A\xv=\lambda B\xv\) for eigenvalues~\(\lambda\) returned in the diagonal of matrix~\(D\) (some may be~\index{Inf@\texttt{Inf}}\(\pm\verb|Inf|\)), and corresponding \idx{eigenvector}s returned in the corresponding column of~\(V\).
+The command \index{eig()@\texttt{eig()}|textbf}\verb|[V,D]=eig(A,B)| solves the \idx{generalized eigen-problem} \(A\xv=\lambda B\xv\) for eigenvalues~\(\lambda\) returned in the diagonal of matrix~\(D\) (some may be~\index{Inf@\texttt{Inf}}\(\pm\verb|Inf|\)), and corresponding \idx{eigenvector}s returned in the corresponding column of~\(V\).
 
-%\item \index{meshgrid()@\texttt{meshgrid()}}\verb|[X,Y]=meshgrid(x,y)|  for vectors \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist ym)\) forms two \(m\times n\) matrices:
+%\item 
+%% Avoid meshgrid in favour of auto-replication
+%\index{meshgrid()@\texttt{meshgrid()}}\verb|[X,Y]=meshgrid(x,y)|  for vectors \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist ym)\) forms two \(m\times n\) matrices:
 %\begin{equation*}
 %\verb|X|=\begin{bmatrix} x_1&x_2&\cdots&x_n\\
 % x_1&x_2&\cdots&x_n\\
@@ -2895,7 +2862,7 @@ That is, matrix~\(K\) satisfies \(A=KB\) (which in principle we could typically 
 \item Second, view \(\fv_{j+1}=K\fv_j\) as a dynamic system in~\(j\) and modify the approach of \autoref{sec:ddp}.
 Seek solutions in the form \(\fv_j=B\vv \lambda^j\) for some nonzero vector~\vv\ and multiplier~\(\lambda\).
 Then \(\fv_{j+1}=K\fv_j\) becomes \(B\vv \lambda^{j+1}=KB\vv \lambda^j\).
-This equation becomes the generalised eigen-problem \(A\vv=\lambda B\vv\) after factoring out~\(\lambda^j\) (provided nonzero), and recalling that \(A=KB\)\,.
+This equation becomes the generalized eigen-problem \(A\vv=\lambda B\vv\) after factoring out~\(\lambda^j\) (provided nonzero), and recalling that \(A=KB\)\,.
 
 \item Typically, \autoref{pro:eib} in \autoref{pro:ei}, the eigen-problem \(A\vv=\lambda B\vv\) has \(n\)~distinct eigenvalues \hlist\lambda n\ (possibly complex valued) with some corresponding eigenvectors \hlist\vv n.
 By the linearity of \(\fv_{j+1}=K\fv_j\)\,, a general solution is then the linear combination \(\fv_j=C_1B\vv_1\lambda_1^{j} +C_2B\vv_2\lambda_2^{j} +\cdots +C_nB\vv_n\lambda_n^{j}\).
@@ -3025,9 +2992,9 @@ U=[1 1;lambda(1) lambda(2)]
 rcond(U)
 c=U\slosh f(1:2)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 
-\item Compute the multipliers as the eigenvalues of the generalised problem, and then determine the rates with
+\item Compute the multipliers as the eigenvalues of the generalized problem, and then determine the rates with
 \begin{verbatim}
 lambda=eig(A,B)
 r=log(lambda)/0.005
@@ -3071,7 +3038,7 @@ As before, Euler's formula transforms this to a real form.
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 \newcommand{\mytemp}[1]{\begin{tikzpicture}
 \def\aone{#1}
 \begin{axis}[footnotesize,font=\footnotesize,width=4.7cm
@@ -3135,13 +3102,13 @@ A=hankel(f(2:5),f(5:8))
 B=hankel(f(1:4),f(4:7))
 lambda=eig(A,B)
 r=log(lambda)/3
-U=bsxfun(@power,lambda,0:3).'
+U=(lambda.^(0:3)).'
 rcond(U)
 c=U\slosh f(1:4)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 
-\item Compute the multipliers as the eigenvalues of the generalised eigen-problem, and then determine the rates with
+\item Compute the multipliers as the eigenvalues of the generalized eigen-problem, and then determine the rates with
 \begin{verbatim}
 lambda=eig(A,B)
 r=log(lambda)/3
@@ -3160,9 +3127,9 @@ r =
   -0.2363 + 0.0000i
 \end{verbatim}
 
-\item Compute the coefficients in the exponential fit with the following (\autoref{tbl:mtlbnorm} introduces \index{bsxfun()@\texttt{bsxfun()}}\verb|bsxfun()|)
+\item Compute the coefficients in the exponential fit with the following (\autoref{tbl:mtlbnorm} introduces \idx{auto-replication} of~\verb|.^|)
 \begin{verbatim}
-U=bsxfun(@power,lambda,0:3).'
+U=(lambda.^(0:3)).'
 rcond(U)
 c=U\f(1:4)
 \end{verbatim}
@@ -3199,13 +3166,14 @@ As with any data fitting, in practical applications be careful about the reliabi
 Sound statistical analysis needs to supplement \autoref{pro:ei} to inform us about expected errors and \idx{sensitivity}.
 This problem of fitting exponentials to data is often sensitive to errors.
 
-The techniques and theory of this subsection generalise to cater for noisy data and for complex \idx{system} interactions with vast amounts of data.
-The generalisation, \emph{Dynamic Mode Decomposition} \cite[e.g.]{Kutz2016}, is applied across many areas such as fluid mechanics, video processing, epidemiology, neuroscience, and financial trading.
+The techniques and theory of this subsection generalize to cater for noisy data and for complex \idx{system} interactions with vast amounts of data.
+The generalization, \emph{Dynamic Mode Decomposition} \cite[e.g.]{Kutz2016}, is applied across many areas such as fluid mechanics, video processing, epidemiology, neuroscience, and financial trading.
 
 
 
 \index{exponential interpolation|)}
 
+\end{reduce}
 
 
 
@@ -3219,10 +3187,10 @@ The generalisation, \emph{Dynamic Mode Decomposition} \cite[e.g.]{Kutz2016}, is 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following list of numbers, could the numbers be all the \idx{eigenvalue}s of a \(4\times4\) matrix? 
 Justify your answer.
-\begin{parts}
+\begin{Parts}
 \item \(-1.2,-0.6,0.2,-1.4\)
 \answer{yes}
 
@@ -3235,22 +3203,24 @@ Justify your answer.
 \item \(0,3\pm5\i,8\)
 \answer{yes}
 
+\begin{reduce}
 \item \(-1.4\pm\sqrt7\i,-4,3\pm2\i\)
 \answer{no}
+\end{reduce}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Find the \idx{trace} of each of the following matrices.
 %\begin{verbatim}
 %a=0+round(randn(n)*20)/10,trace(a)
 %\end{verbatim}
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 1&3
 \\-1&-2 \end{bmatrix}\)
 \answer{\(-1\)}
@@ -3264,6 +3234,7 @@ Find the \idx{trace} of each of the following matrices.
 \\-0.9&0.8&-0.2 \end{bmatrix}\)
 \answer{\(2.9\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} 3&-1.4&2
 \\0&-0.5&0.4
 \\1.3&-0.2&-0.6 \end{bmatrix}\)
@@ -3274,6 +3245,7 @@ Find the \idx{trace} of each of the following matrices.
 \\1.6&1.4&-0.6&0.9
 \\-0.4&-3.7&-0.4&2.5 \end{bmatrix}\)
 \answer{\(4.1\)}
+\end{reduce}
 
 \item \(\begin{bmatrix} -1.5&0.6&0.5&1.8
 \\1.5&-1.9&-0.1&2.8
@@ -3281,7 +3253,7 @@ Find the \idx{trace} of each of the following matrices.
 \\-1.4&-2.8&0.8&-2.5 \end{bmatrix}\)
 \answer{\(-9.2\)}
   
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -3290,12 +3262,12 @@ Find the \idx{trace} of each of the following matrices.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, determine the two highest order terms and the \idx{constant term} in the \idx{characteristic polynomial} of the matrix.
 %\begin{verbatim}
 %a=0+round(full(sprandn(n,n,2/n))*3),(-1)^n*poly(a)
 %\end{verbatim}
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} -7 & 1
 \\-2 & 2 \end{bmatrix}\)
 \answer{\(\lambda^2+5\lambda-12\)}
@@ -3314,6 +3286,7 @@ For each of the following matrices, determine the two highest order terms and th
 \\0 & 0 & -4 \end{bmatrix}\)
 \answer{\(-\lambda^3+3\lambda^2+\cdots-36\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -1 & 0 & -6
 \\-7 & 0 & -4
 \\0 & -6 & 0 \end{bmatrix}\)
@@ -3324,6 +3297,7 @@ For each of the following matrices, determine the two highest order terms and th
 \\-3 & -1 & 0 & -2
 \\-4 & 0 & -5 & 0 \end{bmatrix}\)
 \answer{\(\lambda^4+\lambda^3+\cdots+0\)}
+\end{reduce}
 
 \item \(\begin{bmatrix} -3 & 0 & 0 & 1
 \\0 & 0 & 2 & 0
@@ -3337,7 +3311,7 @@ For each of the following matrices, determine the two highest order terms and th
 \\0 & 0 & -1 & 0 \end{bmatrix}\)
 \answer{\(\lambda^4+5\lambda^3+\cdots-16\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -3347,24 +3321,26 @@ For each of the following matrices, determine the two highest order terms and th
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following \idx{characteristic polynomial}s, write down the \idx{size} of the corresponding matrix, and the matrix's \idx{trace} and \idx{determinant}.
 %\begin{verbatim}
 %n=2
 %(-1)^n*poly(round(randn(n)*3))
 %\end{verbatim}
-\begin{parts}
+\begin{Parts}
 \item \(\lambda^2+5\lambda-6\)
 \answer{\(2\times2\), \(-5\), \(-6\)}
 
 \item \(\lambda^2+2\lambda-10\)
 \answer{\(2\times2\), \(-2\), \(-10\)}
 
+\begin{reduce}
 \item \(\lambda^2-\lambda\)
 \answer{\(2\times2\), \(1\), \(0\)}
 
 \item \(-\lambda^3+5\lambda^2+7\lambda-20\)
 \answer{\(3\times3\), \(5\), \(-20\)}
+\end{reduce}
 
 \item \(-\lambda^3+28\lambda-199\)
 \answer{\(3\times3\), \(0\), \(-199\)}
@@ -3378,7 +3354,7 @@ For each of the following \idx{characteristic polynomial}s, write down the \idx{
 \item \(\lambda^4+5\lambda^2-41\lambda-5\)
 \answer{\(4\times4\), \(0\), \(-5\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -3394,12 +3370,18 @@ In each case, write down the eigenvalues and their \idx{multiplicity}.
 \begin{enumerate}
 \item \((\lambda+1)\lambda^4(\lambda-2)^3\)
 \answer{\(-1\), one; \(0\), four; \(2\), three}
+
 \item \((\lambda+1)(\lambda+2)^2(\lambda-4)^3(\lambda-1)^2\)
 \answer{\(-1\), one; \(-2\), two; \(1\), two; \(4\), three}
+
+\begin{reduce}
 \item \((\lambda+6)(\lambda+2)^2\lambda(\lambda-2)^3\)
 \answer{\(-6\), one; \(-2\), two; \(0\), one; \(2\), three}
+
 \item \((\lambda+2.6)^4(\lambda-0.8)^3(\lambda+1.1)\)
 \answer{\(-2.6\), four; \(0.8\), three; \(1.1\), one}
+\end{reduce}
+
 \item \((\lambda+0.8)^4(\lambda-2.6)^3(\lambda+0.2)(\lambda-0.7)^2\)
 \answer{\(-0.8\), four; \(2.6\), three; \(-0.2\), one; \(0.7\), two}
 
@@ -3411,7 +3393,7 @@ In each case, write down the eigenvalues and their \idx{multiplicity}.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each the following matrices, determine the \idx{characteristic polynomial} by hand, and hence find all \idx{eigenvalue}s of the matrix and their \idx{multiplicity}.
 Show your working.
 %\begin{verbatim}
@@ -3423,7 +3405,7 @@ Show your working.
 %a=p*d*inv(p),(-1)^n*poly(a),eig(a)
 %\end{verbatim}
 
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 0 & -3
 \\-1 & -2 \end{bmatrix}\)
 \answer{\(1\) once, \(-3\) once}
@@ -3432,6 +3414,7 @@ Show your working.
 \\-2 & 2 \end{bmatrix}\)
 \answer{\(1\pm 3\i\) once}
 
+\begin{reduce}
 \item \(\begin{bmatrix} 0 & -3
 \\3 & 6 \end{bmatrix}\)
 \answer{\(3\) twice}
@@ -3439,6 +3422,7 @@ Show your working.
 \item \(\begin{bmatrix} 3 & -4
 \\2 & -3 \end{bmatrix}\)
 \answer{\(\pm1\) once}
+\end{reduce}
 
 \item \(\begin{bmatrix} 4.5 & 16
 \\-1 & -3.5 \end{bmatrix}\)
@@ -3459,6 +3443,7 @@ Show your working.
 \\2 & -4 & -2 \end{bmatrix}\)
 \answer{\(-2\) once, \(3\) twice}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -14 & 24 & 52
 \\-4 & 8 & 18
 \\-2 & 3 & 6 \end{bmatrix}\)
@@ -3468,6 +3453,7 @@ Show your working.
 \\7 & 18 & -12
 \\7 & 17 & -11 \end{bmatrix}\)
 \answer{\(-1\) once, \(1\) once, \(6\) once}
+\end{reduce}
 
 \item \(\begin{bmatrix} -10 & -10 & -16
 \\4 & 4 & 6
@@ -3479,7 +3465,7 @@ Show your working.
 \\-5 & -15 & -1 \end{bmatrix}\)
 \answer{\(-1\) once, \(\pm2\i\) once}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -3487,7 +3473,7 @@ Show your working.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each the following matrices, use \script\ to find all \idx{eigenvalue}s of the matrix and their \idx{multiplicity}.
 %\begin{verbatim}
 %lams=round(randn(1,n)*20)/10; lams=lams(ceil(n*rand(1,n)))
@@ -3506,7 +3492,7 @@ A=[-2.7 0 1.6
 6.3 -1 -27.8
 -0.1 0 -1.9]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(-1\) once, \(-2.3\) twice}
 
 \item \(\begin{bmatrix} 4.9 & -8.1 & 5.4
@@ -3517,7 +3503,7 @@ A=[4.9 & -8.1 & 5.4
 8 & -11.2 & 8
 3.9 & -3.9 & 3.4]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(-3.2\) once, \(-0.5\) once, \(0.8\) once}
 
 \item \(\begin{bmatrix} -6.7 & -0.6 & -6.6 & 3.6
@@ -3530,7 +3516,7 @@ A=[-6.7 -0.6 -6.6 3.6
 2.8 0.6 2.7 -1.6
 -6 0 -6 3.1]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(-0.9\) once, \(-0.1\) once, \(0.1\) twice}
 
 \item \(\begin{bmatrix} 11 & 17.9 & -33.4 & 46.4
@@ -3543,9 +3529,10 @@ A=[11 17.9 -33.4 46.4
 -12.8 -21 37.2 -54.8
 -12.3 -19.7 33.7 -51.3]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(-0.7\pm1.8\i\) once, \(-1.2\) once, \(0.4\) once}
 
+\begin{reduce}
 \item \(\begin{bmatrix} 0.6 & 0 & 0 & 0
 \\9.6 & -1 & 33.6 & 17.6
 \\-9.6 & 1.6 & -33 & -17.6
@@ -3556,7 +3543,7 @@ A=[0.6 0 0 0
 -9.6 1.6 -33 -17.6
 19.2 -3.2 67.2 35.8]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(0.6\) four times}
 
 \item \(\begin{bmatrix} 52.8 & -93.3 & 73.4 & 57.1 & 104
@@ -3571,7 +3558,7 @@ A=[52.8 -93.3 73.4 57.1 104
 18.2 -31.8 27.4 20.8 36.4
 -6.8 13.6 -6.8 -6.8 -12.8]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(-2\) once, \(0.3\) once, \(0.8\) thrice}
 
 \item \(\begin{bmatrix} -356.4 & 264.6 & -880.8 & -689.9 & 455.5
@@ -3586,8 +3573,9 @@ A=[-356.4 264.6 -880.8 -689.9 455.5
 -78.5 57.8 -198.4 -159.6 100.5
 -58.5 45.6 -142.8 -111.4 73.1]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(1.7\pm1.3\i\) once, \(-3.9\) thrice}
+\end{reduce}
 
 \item \(\begin{bmatrix} 309.4 & -29.7 & 451.3 & 337.3 & 305.9
 \\-217.6 & 20.3 & -313.5 & -236.1 & -215.9
@@ -3601,7 +3589,7 @@ A=[309.4 -29.7 451.3 337.3 305.9
 -232.6 24.1 -336 -254.9 -230.9
 -83.6 5.6 -119.8 -89.2 -81.8]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \answer{\(1.8\) twice, \(-2.3\) once, \(-3.8\) twice}
 
 \end{enumerate}
@@ -3612,7 +3600,7 @@ A=[309.4 -29.7 451.3 337.3 305.9
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, find by hand the \idx{eigenspace} of the nominated eigenvalue.  
 Confirm your answer with \script.  
 Show your working.  
@@ -3633,6 +3621,7 @@ Show your working.
 \\-1 & 5 \end{bmatrix}\), \(\lambda=2\)
 \answer{\(\EE_{2}=\Span\{(3,1)\}\)}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -1 & 0
 \\-2 & 1 \end{bmatrix}\), \(\lambda=-1\)
 \answer{\(\EE_{-1}=\Span\{(1,1)\}\)}
@@ -3646,6 +3635,7 @@ Show your working.
 \\8 & 14 & 2
 \\0 & 0 & 7 \end{bmatrix}\), \(\lambda=7\)
 \answer{\(\EE_{7}=\Span\{(7,-8,0),(-2,2,1)\}\)}
+\end{reduce}
 
 \item \(\begin{bmatrix} -12 & -82 & -17
 \\3 & 18 & 3
@@ -3671,7 +3661,7 @@ Show your working.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, Use \script\ to find their eigenvalues, with \idx{multiplicity}, and to find eigenvectors corresponding to each eigenvalue \twodp.  
 (The next \autoref{sec:lisb} discusses that for \idx{repeated eigenvalue}s we generally want to record the so-called `linearly independent' eigenvectors.)
 %\begin{verbatim}
@@ -3689,7 +3679,7 @@ For each of the following matrices, Use \script\ to find their eigenvalues, with
 A=[14 3 -6
 14 -2 -2
 31 4 -11]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=-3\), once, \((0,-0.89,-0.45)\); 
 \(\lambda=2\), twice, \((0.27,0.53,0.80)\).}
 
@@ -3700,7 +3690,7 @@ A=[14 3 -6
 A=[-1 0 0
 5 5 6
 -5 -6 -7]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=-1\), thrice, \((0,0.71,-0.71)\), \((0.53,-0.78,0.34)\).}
 
 \item \(\begin{bmatrix} -144 & -374 & 316 & 18
@@ -3712,11 +3702,12 @@ A=[-144 -374 316 18
 21 45 -42 0
 -49 -138 112 9
 134 336 -286 -13]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=5\), once, \((-0.82,0,-0.41,0.41)\);
 \(\lambda=3\), once, \((0.55,0.28,0.55,0.55)\);
 \(\lambda=-4\), twice, \((0.67,0,0.33,-0.67)\).}
 
+\begin{reduce}
 \item \(\begin{bmatrix} -50 & 30 & 46 & -62
 \\0 & 2 & 0 & 0
 \\-104 & 62 & 104 & -142
@@ -3726,7 +3717,7 @@ A=[-50 30 46 -62
 0 2 0 0
 -104 62 104 -142
 -39 24 42 -58]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=2\), twice, \((0.19,0,0.86,0.48)\), \((0.37,0.92,-0.15,0.018)\);
 \(\lambda=-3\pm \i\), once, \((0.14\mp0.28\i,0,-0.69,-0.62\pm0.21\i)\).}
 
@@ -3741,11 +3732,12 @@ A=[4 -11 -12 9 -19
 4 16 19 -12 23
 6 16 20 -7 31
 -1 -3 -3 3 1]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=-3.94\), once, \((-0.33,-0.41,0.72,0.44,-0.15)\);
 \(\lambda=1\), once, \((0,0.8,-0.53,0.27,0)\);
 \(\lambda=7.49\pm0.39\i\), once, \((-0.24\pm0.55\i,0.23\pm0.02\i,0.043\pm0.01\i,0.72,0.24\mp0.11\i)\);
 \(\lambda=4.95\), once, \((-0.14,0.45,0.62,0.46,-0.43)\).}
+\end{reduce}
 
 \item \(\begin{bmatrix} 75 & 7 & -13 & -51 & -129
 \\120 & 12 & -24 & -84 & -208
@@ -3758,7 +3750,7 @@ A=[75 7 -13 -51 -129
 62 6 -12 -42 -106
 -48 -5 9 32 83
 62 6 -11 -42 -107]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(\lambda=2\), twice, \((-0.64,-0.43,-0.43,0.21,-0.43)\);
 \(\lambda=-2\), once, \((0.35,0.71,0.35,-0.35,0.35)\);
 \(\lambda=-1\), twice, \((-0.33,-0.89,-0.22 0,-0.22)\), \((-0.18,-0.81,-0.46,0.25,-0.20)\).}
@@ -3772,12 +3764,12 @@ A=[75 7 -13 -51 -129
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Consider the following three matrices which are perturbed versions of the matrix
-\(\begin{bmatrix} 2&1\\0&2 \end{bmatrix}\).
+\(\begin{bmat} 2&1\\0&2 \end{bmat}\).
 Which perturbations show the high \idx{sensitivity} of the \idx{repeated eigenvalue}?  
 Give reasons.
-\begin{parts}
+\begin{Parts}
 \item \(\eAii=\begin{bmatrix} 2&1\\-0.0001&2 \end{bmatrix}\)
 \answer{Sensitive.}
 
@@ -3787,14 +3779,14 @@ Give reasons.
 \item \(\eAii=\begin{bmatrix} 2.0001&1\\0&2 \end{bmatrix}\)
 \answer{Not sensitive.}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, use \script\ to compute the eigenvalues, and to compute the eigenvalues of matrices obtained by adding \idx{random perturbation}s of size~\(0.0001\) (use \verb|randn|).
 Give reasons for which eigenvalues appear \index{sensitivity}sensitive and which appear to be not sensitive.
 \begin{enumerate}
@@ -3828,9 +3820,10 @@ Give reasons for which eigenvalues appear \index{sensitivity}sensitive and which
 3 0.1 3 -2
 2.8 0.6 2.7 -1.6
 -6 0 -6 3.1]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(-0.9\) and \(-0.1\) not sensitive, \(0.1\) sensitive}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} 1.4 & -7.1 & -0.7 & 6.2
 \\ -7.1 & -1.0 & -2.2 & -2.5
 \\ -0.7 & -2.2 & -3.4 & -4.1
@@ -3840,7 +3833,7 @@ Give reasons for which eigenvalues appear \index{sensitivity}sensitive and which
 -7.1 -1.0 -2.2 -2.5
 -0.7 -2.2 -3.4 -4.1
 6.2 -2.5 -4.1 -1.0]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{one sensitive, symmetric.}
 
 \item \(\eAii=\begin{bmatrix} 0.6 & 0 & 0 & 0
@@ -3852,8 +3845,9 @@ Give reasons for which eigenvalues appear \index{sensitivity}sensitive and which
 9.6 -1 33.6 17.6
 -9.6 1.6 -33 -17.6
 19.2 -3.2 67.2 35.8]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \answer{\(0.6\) mixed sensitivity!}
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}
@@ -3887,6 +3881,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 \\0 \end{bmatrix}\)
 \answer{\((0,-12)\), \((12,-24)\) and \((24,-96)\)}
 
+\begin{reduce}
 \item \(A=\begin{bmatrix} 26 & 21
 \\-28 & -23 \end{bmatrix}\), 
 \(\yv(0)=\begin{bmatrix} 3
@@ -3898,6 +3893,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 \(\yv(0)=\begin{bmatrix} 1
 \\1 \end{bmatrix}\)
 \answer{\((3,2)\), \((4,2)\) and \((2,0)\)}
+\end{reduce}
 
 \item \(A=\begin{bmatrix} 11 & -14 & -4
 \\7 & -10 & -2
@@ -3915,6 +3911,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 \\1 \end{bmatrix}\)
 \answer{\((-7,16,-6)\), \((79,-64,126)\) and \((-367,256,-606)\)}
 
+\begin{reduce}
 \item \(A=\begin{bmatrix} 2 & -2 & 0
 \\4 & -2 & 0
 \\0 & -5 & -1 \end{bmatrix}\), 
@@ -3930,6 +3927,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 \\0
 \\0 \end{bmatrix}\)
 \answer{\((-12,6,-39)\), \((-63,-30,0)\) and \((-168,-96,39)\)}
+\end{reduce}
 
 
 \end{enumerate}
@@ -3940,7 +3938,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the matrices of the previous \autoref{ex:yay}, find a \idx{general solution} of \(\yv(t+1)=A\yv(t)\), if possible.
 Then use the corresponding given initial~\(\yv(0)\) to find a formula for the specific~\(\yv(t)\).
 Finally, check that the formula reproduces the values of \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\) found in \autoref{ex:yay}.
@@ -3951,19 +3949,19 @@ Show your working.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Reconsider the mathematical modelling of the \idx{serval}, \autoref{eg:serval}.
 Derive the matrix~\(A\) in the model \(\yv(t+1)=A\yv(t)\) for the following cases:
 \begin{enumerate}
 \item choose the unit of time to be three months (\(1/4\)~year);
-\answer{\(\begin{bmatrix} \frac12&0&\frac14
-\\\frac12&\frac34&0
-\\0&\frac14&\frac{33}{34} \end{bmatrix}\)}
+\answer{\(\protect\begin{bmat} \frac12&0&\frac14
+\protect\\\frac12&\frac34&0
+\protect\\0&\frac14&\frac{33}{34} \protect\end{bmat}\)}
 
 \item choose the unit of time to be one month  (\(1/12\)~year).
-\answer{\(\begin{bmatrix} \frac56&0&\frac1{12}
-\\\frac16&\frac{11}{12}&0
-\\0&\frac1{12}&\frac{101}{102} \end{bmatrix}\)}
+\answer{\(\protect\begin{bmat} \frac56&0&\frac1{12}
+\protect\\\frac16&\frac{11}{12}&0
+\protect\\0&\frac1{12}&\frac{101}{102} \protect\end{bmat}\)}
 
 \end{enumerate}
 \end{exercise}
@@ -3974,10 +3972,12 @@ Derive the matrix~\(A\) in the model \(\yv(t+1)=A\yv(t)\) for the following case
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 From the following partial description of the \idx{Tasmanian Devil}, 
 \marginpar{\includegraphics[width=\marginparwidth]{EigGen/TasmanianDevil}
-\footnotesize\url{https://en.wikipedia.org/wiki/Tasmanian_devil}}
+%\footnotesize\url{https://en.wikipedia.org/wiki/Tasmanian_devil}
+Tasmanian Devil
+}
 derive a mathematical model in the form \(\yv(t+1)=A\yv(t)\) for the age structure of the Tasmanian Devil.
 By finding eigenvalues and an eigenvector, predict the long-term growth of the population, and predict the long-term relative numbers of Devils of various ages.
 \begin{quoted}{\idx{Wikipedia}, 2016}
@@ -3997,10 +3997,13 @@ The young become independent after around nine months, so the female spends most
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 From the following partial description of the \idx{elephant}, 
-\marginpar{\includegraphics[width=\marginparwidth]{EigGen/Loxodontacyclotis}
-\footnotesize\url{https://en.wikipedia.org/wiki/Elephant}}
+\marginpar{\includegraphics[width=\marginparwidth]{EigGen/africanElephant}
+%{EigGen/Loxodontacyclotis}
+%\footnotesize\url{https://en.wikipedia.org/wiki/Elephant}
+African Elephant
+}
 derive a mathematical model in the form \(\yv(t+1)=A\yv(t)\) for the age structure of the \idx{elephant}.
 By finding eigenvalues and an eigenvector, predict the long-term growth of the population, and predict the long-term relative numbers of elephants of various ages.
 \begin{quoted}{\idx{Wikipedia}, 2016}
@@ -4017,7 +4020,8 @@ For its first three months, a calf relies entirely on milk from its mother for n
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{reduce}
+\begin{exercise}  
 From the following partial description of the \idx{giant mouse lemur}, 
 \marginpar{\includegraphics[width=\marginparwidth]{EigGen/Mirza_zaza}
 \footnotesize\url{https://en.wikipedia.org/wiki/Giant_mouse_lemur}}
@@ -4031,14 +4035,18 @@ One to three offspring (typically two) are born after 90~days of gestation, weig
 Females start reproducing after ten months, while males develop functional testicles by their second mating season. Testicle size in the northern giant mouse lemur does not appear to fluctuate by season, and is so large relative to the animal's body mass that it is the highest among all primates. This emphasis on sperm production in males, as well as the use of copulatory plugs, suggests a mating system best described as polygynandrous where males use scramble competition (roaming widely to find many females). In contrast, male Coquerel's giant mouse lemurs appear to fight for access to females (contest competition) during their breeding season. Males disperse from their natal range, and the age at which they leave varies from two years to several. Females reproduce every year, although postpartum estrus has been observed in captivity. In the wild, the lifespan of giant mouse lemurs is thought to rarely exceed five or six years
 \end{quoted}
 \end{exercise}
+\end{reduce}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 From the following partial description of the \idx{dolphin} (Indo-Pacific bottlenose dolphin), 
-\marginpar{\includegraphics[width=\marginparwidth]{EigGen/Tursiops_aduncus}
-\footnotesize\url{https://en.wikipedia.org/wiki/Indo-Pacific_bottlenose_dolphin}}
+\marginpar{\includegraphics[width=\marginparwidth]{EigGen/dolphins}
+%{EigGen/Tursiops_aduncus}
+%\footnotesize\url{https://en.wikipedia.org/wiki/Indo-Pacific_bottlenose_dolphin}
+Two dolphins
+}
 derive a mathematical model in the form \(\yv(t+1)=A\yv(t)\) for the age structure of the \idx{dolphin}.
 (Assume only one calf is born at a time.)
 By finding eigenvalues and an eigenvector, predict the long-term growth of the population, and predict the long-term relative numbers of \idx{dolphin}s of various ages.
@@ -4056,7 +4064,7 @@ In some parts of its range, this dolphin is subject to predation by sharks; its 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 You are given that a mathematical model of the age structure of some animal population is
 \begin{eqnarray*}
 y_1(t+1)&=& 0.5y_1(t)+y_3(t),\\
@@ -4078,11 +4086,11 @@ Be creative.
 
 
 
-\begin{exercise} \label{ex:} 
-For each of the following matrices, say~\(A\) for instance, find by hand calculation the \idx{eigenvalue}s and \idx{eigenvector}s of the larger matrix~\(\begin{bmatrix} O&A\\\tr A&O \end{bmatrix}\).
+\begin{exercise}  
+For \(X\) denoting each of the following matrices, find by hand calculation the \idx{eigenvalue}s and \idx{eigenvector}s of the larger matrix~\(\begin{bmat} O&X\\\tr X&O \end{bmat}\).
 Show your working.
-Relate these to an \svd\ of the matrix~\(A\).
-\begin{parts}
+Relate these to an \svd\ of the particular matrix~\(X\).
+\begin{Parts}
 \item \(\eAii=\begin{bmatrix} 3\\4 \end{bmatrix}\)
 \answer{\(\lambda=0,\pm5\), \((\frac45,-\frac35,0)\) and \((\frac35,\frac45,\pm1)\)}
 
@@ -4095,14 +4103,15 @@ Relate these to an \svd\ of the matrix~\(A\).
 \item \(\eAii=\begin{bmatrix} 0&1\\-4&0 \end{bmatrix}\)
 \answer{\(\lambda=\pm1,\pm4\), \((1,0,0,\pm1)\) and \((0,1,\mp1,0)\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
-Find by hand calculation all eigenvalues and corresponding eigenvectors of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for the following pairs of matrices.
+\begin{reduce}
+\begin{exercise}  
+Find by hand calculation all eigenvalues and corresponding eigenvectors of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) for the following pairs of matrices.
 Check your calculations with \script.
 %\begin{verbatim}
 %n=2,A=0+round(randn(n)*2),B=0+round(randn(n)*2),[v,d]=eig(A,B), v*diag(1./v(1,:))
@@ -4171,8 +4180,8 @@ Check your calculations with \script.
 %\begin{verbatim}
 %n=4,A=0+round(randn(n)*2),B=0+round(randn(n)),[v,d]=eig(A,B), diag(d)'
 %\end{verbatim}
-\begin{exercise} \label{ex:} 
-Use \script\ to find and describe all eigenvalues and corresponding eigenvectors of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for the following pairs of matrices.
+\begin{exercise}  
+Use \script\ to find and describe all eigenvalues and corresponding eigenvectors of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) for the following pairs of matrices.
 \begin{enumerate}
 \item \(A=\begin{bmatrix} -2 & 1 & -2 & -2
 \\ -2 & 2 & -1 & 0
@@ -4218,44 +4227,45 @@ Use \script\ to find and describe all eigenvalues and corresponding eigenvectors
 \end{exercise}
 
 
-\begin{exercise} \label{ex:} 
-Use the properties of \idx{determinant}s (\autoref{ch:ddm}), and that an \(n\)th~degree polynomial has exactly \(n\)~zeros (when counted according to multiplicity), to explain why the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\), for real \(n\times n\) matrices~\(A\) and~\(B\), has \(n\)~eigenvalues iff matrix~\(B\) is \idx{invertible}.
+\begin{exercise}  
+Use the properties of \idx{determinant}s (\autoref{ch:ddm}), and that an \(n\)th~degree polynomial has exactly \(n\)~zeros (when counted according to multiplicity), to explain why the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\), for real \(n\times n\) matrices~\(A\) and~\(B\), has \(n\)~eigenvalues iff matrix~\(B\) is \idx{invertible}.
 \end{exercise}
 
 
 %\begin{verbatim}
 %n=2,A=randn(2);A=0+round(A+A'),B=randn(n);B=0+round(B+B'),[v,d]=eig(A,B)
 %\end{verbatim}
-\begin{exercise} \label{ex:} 
-Consider the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) and let \(\lambda_1\neq\lambda_2\) be \idx{distinct eigenvalues} with corresponding eigenvectors~\(\vv_1\) and~\(\vv_2\), respectively.
+\begin{exercise}  
+Consider the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) and let \(\lambda_1\neq\lambda_2\) be \idx{distinct eigenvalues} with corresponding eigenvectors~\(\vv_1\) and~\(\vv_2\), respectively.
 Invent two real \emph{symmetric} matrices~\(A\) and~\(B\) and record your working which demonstrates that although~\(\vv_1\) and~\(\vv_2\) are not orthogonal, nonetheless \(\tr{\vv_1}B\vv_2=0\).
-\answer{one possibility is \(A=\begin{bmatrix} -1&-1\\-1&1 \end{bmatrix}\) and \(B=\begin{bmatrix} 1&1\\1&0 \end{bmatrix}\)} 
+\answer{one possibility is \(A=\protect\begin{bmat} -1&-1\protect\\-1&1 \protect\end{bmat}\) and \(B=\protect\begin{bmat} 1&1\protect\\1&0 \protect\end{bmat}\)} 
 \end{exercise}
 
 
 \begin{exercise} \label{ex:eennmov} 
-Consider the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) for real \emph{symmetric} \(n\times n\) matrices~\(A\) and~\(B\). 
+Consider the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) for real \emph{symmetric} \(n\times n\) matrices~\(A\) and~\(B\). 
 Let \(\lambda_1\neq\lambda_2\) be \idx{distinct eigenvalues} with corresponding eigenvectors~\(\vv_1\) and~\(\vv_2\), respectively.
 Prove that \(\tr{\vv_1}B\vv_2=0\) always holds.
 \end{exercise}
 
 
 \begin{exercise} \label{ex:eennmre} 
-Prove that if both~\(A\) and~\(B\) are real \emph{symmetric} \(n\times n\) matrices, then the eigenvalues of the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) are all real.
+Prove that if both~\(A\) and~\(B\) are real \emph{symmetric} \(n\times n\) matrices, then the eigenvalues of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) are all real.
 Briefly explain why it is necessary to also have the additional proviso that the eigenvalues of~\(B\) are either all positive or all negative.
 \end{exercise}
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 In view of the preceding \autoref{ex:eennmre},
-invent real symmetric matrices~\(A\) and~\(B\) such that the \idx{generalised eigen-problem} \(A\vv=\lambda B\vv\) has \idx{complex valued} eigenvalues.
+invent real symmetric matrices~\(A\) and~\(B\) such that the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\) has \idx{complex valued} eigenvalues.
 % A=[0 1;1 0], B=[1 0;0 -1] will suffice, or vice versa.
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} 
-Explain briefly how the properties established in the the previous two Exercises~\ref{ex:eennmov} and~\ref{ex:eennmre} generalise important properties of the standard eigen-problem \(A\xv=\lambda\xv\) for symmetric~\(A\).
+\begin{exercise}  
+Explain briefly how the properties established in the previous two 
+\cref{ex:eennmov,ex:eennmre} generalize important properties of the standard eigen-problem \(A\xv=\lambda\xv\) for symmetric~\(A\).
 \end{exercise}
 
 
@@ -4280,7 +4290,7 @@ Explain briefly how the properties established in the the previous two Exercises
 %c=U\f(1:n)
 %expr=exp(r)
 %\end{verbatim}
-\begin{exercise} \label{eg:}
+\begin{exercise} 
 Consider the specified data values~\fv\ at the specified times, and by hand or \script\ fit a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
 Plot the data and the curve you have fitted.
 \begin{enumerate}
@@ -4304,7 +4314,7 @@ f=[-1.00000
   1.03906
   1.21680
   1.31885]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} -1.00000
 \\ 0.12500
 \\ 0.71875
@@ -4321,7 +4331,7 @@ f=[3.250000
    0.673900
    0.300178
    0.046636]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} 3.250000
 \\ 2.041667
 \\ 1.225694
@@ -4338,7 +4348,7 @@ f=[0.16667
     5.81259
    12.88104
    28.87004]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} 0.16667
 \\ 1.38889
 \\ 2.72984
@@ -4355,7 +4365,7 @@ f=[0.75000
   1.30323
   1.55903
   1.85343]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} 0.75000
 \\ 0.89846
 \\ 1.08333
@@ -4380,12 +4390,12 @@ f=[0.75000
 %B=hankel(f(1:n),f(n:2*n-1));
 %lambda=eig(A,B)
 %r=log(lambda)/dt
-%U=bsxfun(@power,lambda,0:n-1).';
+%U=(lambda.^(0:n-1)).';
 %rcond(U)
 %c=U\f(1:n);
 %expr=exp(r);
 %\end{verbatim}
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Consider the specified data values~\fv\ of some decaying \idx{oscillation}s at the specified times (in seconds).
 Use \script\ to fit a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
 Confirm your fit reproduces the data values.
@@ -4401,7 +4411,7 @@ f=[-0.153161
    0.174832
   -0.200418
   -0.092107]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} -0.153161
 \\  0.484787
 \\ -0.124780
@@ -4422,7 +4432,7 @@ f=[1.225432
   -0.028558
    0.033825
    0.026439]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} 1.225432
 \\  0.499044
 \\  0.034164
@@ -4443,7 +4453,7 @@ f=[0.0060901
   -0.0998597
   -0.1742818
   -0.1552607]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} 0.0060901
 \\  0.1753701
 \\  0.2385516
@@ -4464,7 +4474,7 @@ f=[1.297867
   -0.090411
    0.051244
   -0.028936]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \[ \fv=\begin{bmatrix} 1.297867
 \\ -0.800035
 \\  0.487305
@@ -4508,11 +4518,11 @@ f=[1.297867
 %B=hankel(f(1:n),f(n:2*n-1));
 %lambda=eig(A,B)
 %r=log(lambda)/dt
-%U=bsxfun(@power,lambda,0:n-1).';
+%U=(lambda.^(0:n-1)).';
 %rcond(U)
 %c=U\f(1:n)
 %\end{verbatim}
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 In astronomy, Type~Ia supernova explode, peaking in luminosity in a few days, and then their luminosity declines over months. 
 It is conjectured that the decline is powered by the radioactive decay from radioactive Nickel to Cobalt to Iron.
 For the supernova \textsc{sn1991t} six measurements, starting on Julian day 2448366 and taken approximately 8~days apart, give the following luminosity values (in some units) \cite[p.146]{Pereyra2010}:
@@ -4523,7 +4533,7 @@ f=[0.6543
    0.3678
    0.05918
    0.008227]
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \begin{equation*}
 \fv=\begin{bmatrix} 0.6543
 \\ 1.5783
@@ -4554,14 +4564,14 @@ Comment on the result.
 %B=hankel(soi(1:n),soi(n:2*n-1));
 %lambda=eig(A,B)
 %r=log(lambda)/dt
-%U=bsxfun(@power,lambda,0:n-1).';
+%U=(lambda.^(0:n-1)).';
 %rcond(U)
 %c=U\soi(1:n)
 %expr=exp(r);
 %\end{verbatim}
-\begin{exercise} \label{ex:} 
-Recall that \autoref{eg:orthbapp} introduced the phenomenon of \idx{El Nino} which makes a large impact on the world's weather.
-El Nino is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
+\begin{exercise}  
+Recall that \autoref{eg:orthbapp} introduced the phenomenon of \idx{El Ni\~no} which makes a large impact on the world's weather.
+El Ni\~no is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
 \autoref{fig:soiRoundData} plots a (`smoothed') yearly \idx{average} \soi\ each year for fifty years up to 1993.
 Here detect the cycles in the \soi\ by analysing the plotted data as a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
 \begin{enumerate}
@@ -4575,7 +4585,7 @@ soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
 -2.38; -0.59; -5.48; 1.41; 6.41; -1.18; -0.45
 -6.19; 0.89; 6.19; 0.03; -0.16; -6.78; 0.21; 5.84
 1.23; 0.30; -7.22; -0.60; 5.33; 2.36; 0.91 ];
-}}\marginpar{\usebox{\ajrqrbox}}%
+}}\marginajrbox%
 \begin{verbatim}
 year=(1944:1993)';
 soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
@@ -4599,6 +4609,7 @@ soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
 \end{enumerate}
 \end{exercise}
 
+\end{reduce}
 
 
 
@@ -4610,7 +4621,7 @@ soi=[-0.03; 0.74; 6.37; -7.28; 0.44; -0.99; 1.32
 
 
 \begin{exercise} 
-In a few sentences, answer\slash discuss each of the the following.
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item  Given an \(n\times n\) matrix, what leads to the characteristic polynomial being of \(n\)th~degree?
 
@@ -4628,7 +4639,9 @@ In a few sentences, answer\slash discuss each of the the following.
 
 \item How can the singular values of a matrix arise from an eigen-problem?
 
+\begin{reduce}
 \item Describe some scenarios that require fitting a sum of exponentials to data.
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}

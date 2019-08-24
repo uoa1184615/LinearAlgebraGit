@@ -8,7 +8,7 @@
 We want to be able to make sense of statements such as ``king --~man +~women =~queen''.
 To do so we need to define operations on vectors.
 Useful operations on vectors are those which are physically meaningful.
-Then our algebraic manipulations will derive powerful results in applications.
+Then our algebraic manipulations derive powerful results in applications.
 The first two vector operations are addition and scalar multiplication.
 
 
@@ -17,11 +17,13 @@ The first two vector operations are addition and scalar multiplication.
 \begin{example} \label{eg:vecadd} 
 Vectors of the same \idx{size} are added component-wise.
 Equivalently, obtain the same result by geometrically joining the two vectors `head-to-tail' and drawing the vector from the start to the finish.
-\begin{enumerate}
+\begin{enumerate}[ref=\ref{eg:vecadd}(\alph*)]
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[right] at (axis cs:#2,#3) {$#1$};}
-\item\label{eg:vecadda} \((1,3)+(2,-1)=(1+2,3+(-1))=(3,2)\) as illustrated below where (given the two vectors plotted in the margin)
+  
+\item\label[example]{eg:vecadda} 
+\((1,3)+(2,-1)=(1+2,3+(-1))=(3,2)\) as illustrated below where (given the two vectors plotted in the margin)
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, grid
@@ -85,9 +87,9 @@ As below, find the same result by drawing the vector~\((3,2,0)\) from the end of
 \begin{center}
 \temp1{50}\temp1{55}%draw stereo pair
 \end{center}
-\begin{aside}I implement such cross-eyed stereo so that these stereo images are useful when projected on a large screen.\end{aside}
+\begin{aside}I implement such cross-eyed stereo so that these stereo images are useful both printed and when projected on a screen.\end{aside}
 As drawn above, many of the three-D plots in this book are \bfidx{stereo pair}s drawing the plot from two slightly different viewpoints: cross your eyes to merge two of the images, and then focus on the pair of plots to see the three-D effect.
-With practice viewing such three-D stereo pairs becomes less difficult.
+With practice viewing such three-D stereo pairs becomes less difficult!
 
 \item The addition \((1,3)+(3,2,0)\) is not defined and cannot be done as the two vectors have a different number of components, different sizes.
 \end{enumerate}
@@ -96,9 +98,9 @@ With practice viewing such three-D stereo pairs becomes less difficult.
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 To multiply a vector by a \index{scalar multiplication}scalar, a number, multiply each component by the scalar. 
-Equivalently, visualise the result through stretching the vector by a factor of the scalar.
+Equivalently, visualize the result through stretching the vector by a factor of the scalar.
 \begin{enumerate}
 \item Let the vector \(\uv=(3,2)\) then, as illustrated in the margin,
 \marginpar{\begin{tikzpicture} 
@@ -124,7 +126,7 @@ Equivalently, visualise the result through stretching the vector by a factor of 
 (-1.5)\uv =(-1.5\cdot3,-1.5\cdot2) =(-4.5,-3).
 \end{eqnarray*}
 
-\item Let the vector \(\vv=(2,3,1)\) then, as illustrated below in stereo,
+\item Let the vector \(\vv=(2,3,1)\) then, as illustrated below in cross-eyed stereo,
 \begin{eqnarray*}&&
 2\vv=2\begin{bmatrix} 2\\3\\1 \end{bmatrix}
 =\begin{bmatrix} 2\cdot2\\2\cdot3\\2\cdot1 \end{bmatrix}
@@ -157,13 +159,6 @@ Equivalently, visualise the result through stretching the vector by a factor of 
 \begin{activity}
 Combining multiplication and addition, what is \(\uv+2\vv\) for vectors \(\uv=(4,1)\) and \(\vv=(-1,-3)\)?
 \actposs[4]{\((2,-5)\)}{\((1,-8)\)}{\((3,-2)\)}{\((5,-8)\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \((1,-8)\)
-%\item\actans \((2,-5)\)
-%\item \((3,-2)\)
-%\item \((5,-8)\)
-%\end{parts} 
 \end{activity}
 
 
@@ -178,26 +173,26 @@ The \bfidx{scalar multiplication} of~\uv\ by~\(c\), denoted~\(c\uv\),  is the ve
 \begin{equation*}
 c\uv:=(cu_1,cu_2,\ldots,cu_n).
 \end{equation*}
-The \bfidx{negative} of~\uv\, denoted~\(-\uv\), is defined as the scalar multiple \(-\uv=(-1)\uv\), and is a vector of the same \idx{length} as~\uv\ but in exactly the opposite direction.
-The \bfidx{difference} \(\uv-\vv\) is defined as \(\uv+(-\vv)\) and is equivalently the vector drawn from the end of~\vv\ to the end of~\uv.
+The \bfidx{negative} of~\uv\, denoted~\(-\uv\), is defined as the scalar multiple \(-\uv:=(-1)\uv\), and is a vector of the same \idx{length} as~\uv\ but in exactly the opposite direction.
+The \bfidx{difference} \(\uv-\vv\) is defined as the sum \(\uv+(-\vv)\) and is equivalently the vector drawn from the end of~\vv\ to the end of~\uv.
 \end{definition}
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 For the vectors~\uv\ and~\vv\ shown in the margin, draw the vectors
 \(\uv+\vv\), \(\vv+\uv\), \(\uv-\vv\), \(\vv-\uv\), \(\tfrac12\uv\) and~\(-\vv\).
 \marginpar{\vecops01321}
 
 \begin{solution} Drawn below.
-\begin{parts}
+\begin{Parts}
 \item $\uv+\vv$ \vecops11321
 \item $\vv+\uv$ \vecops21321
 \item $\uv-\vv$ \vecops31321
 \item $\vv-\uv$ \vecops41321
 \item $\tfrac12\uv$ \vecops51321
 \item $-\vv$ \vecops61321
-\end{parts}
+\end{Parts}
 \end{solution}
 \end{example}
 
@@ -208,19 +203,12 @@ For the vectors~\uv\ and~\vv\ shown in the margin, draw the vectors
 For the vectors~\uv\ and~\vv\ shown in the margin, what is the result vector that is also shown?
 \marginpar{\vecops45{-2}14}
 \actposs[4]{\(\vv-\uv\)}{\(\uv+\vv\)}{\(\vv+\uv\)}{\(\uv-\vv\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\uv+\vv\)
-%\item \(\vv+\uv\)
-%\item \(\uv-\vv\)
-%\item\actans \(\vv-\uv\)
-%\end{parts}
 \end{activity}
 
 
 
 Using vector addition and \idx{scalar multiplication} we often write vectors in terms of so-called \idx{standard unit vector}s.
-In the plane and drawn in the margin are the two \idx{unit vector}s~\iv\ and~\jv\ (length one) in the direction of the two \idx{coordinate axes}.
+In the plane and drawn in the margin are the two \idx{unit vector}s~\iv\ and~\jv\ defined to be of length one and in the direction of the two \idx{coordinate axes}, respectively.
 \index{i@$\iv$}\index{j@$\jv$}%
 \marginpar{\begin{tikzpicture} 
 \newcommand{\tmp}[4]{
@@ -245,14 +233,14 @@ Then, for example,
 \\&=&3\iv+2\jv \quad(\text{by definition of \iv\ and \jv}).
 \end{eqnarray*}
 \index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
-Similarly, in three dimensional space we often write vectors in terms of the three vectors~\iv, \jv\ and~\kv, each of \idx{length} one, aligned along the three \idx{coordinate axes}.
+Similarly, in three dimensional space we often write vectors in terms of the three vectors~\iv, \jv\ and~\kv, defined to be each of \idx{length} one, aligned along the three \idx{coordinate axes}.
 For example,
 \begin{eqnarray*}
 (2,3,-1)&=&(2,0,0)+(0,3,0)+(0,0,-1)\quad(\text{by addition})
 \\&=&2(1,0,0)+3(0,1,0)-(0,0,1)\quad(\text{by scalar mult})
 \\&=&2\iv+3\jv-\kv \quad(\text{by definition of \iv, \jv\ and \kv}).
 \end{eqnarray*}
-The next definition generalises these standard unit vectors to vectors in~\(\RR^n\).
+The next definition generalizes these standard unit vectors to vectors in~\(\RR^n\).
 
 
 \begin{definition} \label{def:stuniv}
@@ -273,7 +261,7 @@ Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all a
 That is,
 \begin{equation*}
 \ev_1=\begin{bmatrix} 1\\0\\\vdots\\0 \end{bmatrix},\quad
-\ev_2=\begin{bmatrix} 0\\1\\\vdots\\0 \end{bmatrix},\quad\cdots\quad
+\ev_2=\begin{bmatrix} 0\\1\\\vdots\\0 \end{bmatrix},\quad\ldots,\quad
 \ev_n=\begin{bmatrix} 0\\0\\\vdots\\1 \end{bmatrix}.
 \end{equation*}
 In \(\RR^2\) and~\(\RR^3\) the symbols~\index{i@$\iv$|textbf}\iv, \index{j@$\jv$|textbf}\jv\ and~\index{k@$\kv$|textbf}\kv\ are often used as synonyms for~\(\ev_1\), \(\ev_2\) and~\(\ev_3\), respectively (as also illustrated).
@@ -313,12 +301,6 @@ That is, for three examples, the following are equivalent ways of writing the sa
 \begin{activity}
 Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
 \actposs{\((0,3,0,0,1)\)}{\((3,1)\)}{\((5,0,2)\)}{\((0,3,0,1)\)}
-%\begin{parts}
-%\item \((3,1)\)
-%\item \((5,0,2)\)
-%\item \((0,3,0,1)\)
-%\item\actans \((0,3,0,0,1)\)
-%\end{parts}
 \end{activity}
 
 
@@ -328,7 +310,7 @@ Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
 \index{distance|(}
 Defining a `distance' between vectors empowers us to compare vectors concisely.
 
-\begin{example} \label{eg:}
+\begin{example} 
 We would like to say that \((1.2,3.4)\approx(1.5,3)\) to an error~\(0.5\) (as illustrated in the margin).
 Why~\(0.5\)?  Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
 \marginpar{\begin{tikzpicture}
@@ -343,7 +325,7 @@ Why~\(0.5\)?  Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)
 \end{axis}
 \end{tikzpicture}}
 
-Conversely, we would like to recognise that vectors \((1.2,3.4)\) and~\((3.4,1.2)\) are very different (as also illustrated in the margin)---there is a large `distance' between them.
+Conversely, we would like to recognize that vectors \((1.2,3.4)\) and \((3.4,1.2)\) are very different (as also illustrated in the margin)---there is a large `distance' between them.
 Why is there a large `distance'?  Because the difference between the vectors \((1.2,3.4)-(3.4,1.2)=(-2.2,2.2)\) has length \(\sqrt{(-2.2)^2+2.2^2}=2.2\sqrt2=3.1113\) which is relatively large.
 \end{example}
 
@@ -354,8 +336,8 @@ The \bfidx{distance} between vectors~\uv\ and~\vv\ in~\(\RR^n\) is the \idx{leng
 \end{definition}
 
 
-\begin{example} \label{eg:}
-Given three vectors \(\av=3\iv+2\jv-2\kv\), \(\bv=5\iv+5\iv+4\kv\) and \(\cv=7\iv-2\jv+5\kv\) (shown below in stereo): which pair are the closest to each other? and which pair are furthest from each other?
+\begin{example} 
+Given three vectors \(\av=3\iv+2\jv-2\kv\), \(\bv=5\iv+5\jv+4\kv\) and \(\cv=7\iv-2\jv+5\kv\) (shown below in stereo) use the concept of distance between vectors to answer the following: which pair are the closest to each other? and which pair are furthest from each other?
 \begin{center}
 \qview{30}{35} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
@@ -385,22 +367,16 @@ The largest distance of~\(9\) is between~\av\ and~\cv\ so these two are the furt
 Which pair of the following vectors are closest---have the smallest distance between them?  \(\av=(7,3)\), \(\bv=(4,-1)\), \(\cv=(2,4)\)
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
-,axis equal,axis lines=middle, thick]
+,axis equal,axis lines=middle, thick,xmax=7.9]
 \addplot+ [quiver={u=7,v=3},-stealth] coordinates {(0,0)};
-\node[left] at (axis cs:7,3) {$(7,3)$};
+\node[left] at (axis cs:7,3) {$\av=(7,3)$};
 \addplot+ [quiver={u=4,v=-1},-stealth] coordinates {(0,0)};
-\node[right] at (axis cs:4,-1) {$(4,-1)$};
+\node[right] at (axis cs:4,-1) {$\bv=(4,-1)$};
 \addplot+ [quiver={u=2,v=4},-stealth] coordinates {(0,0)};
-\node[right] at (axis cs:2,4) {$(2,4)$};
+\node[right] at (axis cs:2,4) {$\cv=(2,4)$};
 \end{axis}
 \end{tikzpicture}}
 \actposs{\av, \bv}{\av, \cv}{\bv, \cv}{two of the pairs}
-%\begin{parts}
-%\item \av, \bv \actans
-%\item \av, \cv
-%\item \bv, \cv
-%\item two pairs
-%\end{parts}
 \end{activity}
 
 
@@ -418,9 +394,9 @@ Which pair of the following vectors are closest---have the smallest distance bet
 
 We are familiar with lines in the plane, and equations that describe them. 
 Let's now consider such equations from a vector view.
-The insights empower us to generalise the descriptions to lines in space, and then in any number of dimensions.
+The insights empower us to generalize the descriptions to lines in space, and then in any number of dimensions.
 
-\begin{example} \label{eg:}
+\begin{example} 
 Consider the line drawn in the margin in some chosen coordinate system.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -501,12 +477,6 @@ Which one of the following is \emph{not} a valid vector equation for the line pl
 {\((2,2)+(1,1/2)t\)}
 {\((0,1)+(2,1)t\)}
 {\((-2,0)+(-4,-2)t\)}
-%\begin{parts}
-%\item \((2,2)+(1,1/2)t\)
-%\item \((0,1)+(2,1)t\)
-%\item \((-1,1/2)+(2,-1)t\)\actans
-%\item \((-2,0)+(-4,-2)t\)
-%\end{parts}
 \end{activity}
 
 
@@ -519,7 +489,7 @@ A \bfidx{parametric equation} of a line is \(\xv=\pv+t\dv\) where \pv~is the \id
 Beautifully, this definition applies for lines in any number of dimensions by using vectors with the corresponding number of components.
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Given that the line drawn below in space goes through points~\((-4,-3,3)\) and~\((3,2,1)\), find a \idx{parametric equation} of the line.
 \newcommand{\temp}[1]{%
 \qview{37}{42} {%
@@ -558,7 +528,7 @@ A parametric equation of the line is then \(\xv=\pv+t\dv\)\,, specifically
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Given the \idx{parametric equation} of a line in space (in stereo) is \(\xv=(-4+2t,3-t,-1-4t)\), find the value of the parameter~\(t\) that gives each of the following points on the line: \((-1.6,1.8,-5.8)\), \((-3,2.5,-3)\), and \((-6,4,4)\).
 \begin{solution} 
 \begin{itemize}
@@ -597,7 +567,7 @@ To unleash the power of algebra on vectors, we need to know the properties of ve
 Many of the following properties are familiar as they directly correspond to familiar properties of arithmetic operations on scalars.
 Moreover, the proofs show the vector properties follow directly from the familiar properties of arithmetic operations on scalars.
 
-\begin{example} \label{eg:}
+\begin{example} 
 Let vectors \(\uv=(1,2)\), \(\vv=(3,1)\), and \(\wv=(-2,3)\), and let scalars \(a=-\tfrac12\) and \(b=\tfrac52\).
 Verify the following properties hold:
 \begin{enumerate}
@@ -663,25 +633,25 @@ Now let's state and prove these properties in general.
 \begin{theorem} \label{thm:vecops}
 For all vectors~\uv, \vv\ and~\wv\  with \(n\)~components (that is, in~\(\RR^n\)), and for all \idx{scalar}s~\(a\) and~\(b\),
 the following properties hold:
-\begin{enumerate}
-\item\label{thm:vecopsa} \(\uv+\vv=\vv+\uv\) \quad(\idx{commutative law});
-\item\label{thm:vecopsb} \((\uv+\vv)+\wv=\uv+(\vv+\wv)\) \quad(\idx{associative law});
-\item\label{thm:vecopsc} \(\uv+\ov=\ov+\uv=\uv\);
-\item\label{thm:vecopsd} \(\uv+(-\uv)=(-\uv)+\uv=\ov\);
-\item\label{thm:vecopse} \(a(\uv+\vv)=a\uv+a\vv\)\quad(a \idx{distributive law});
-\item\label{thm:vecopsf} \((a+b)\uv=a\uv+b\uv\)\quad(a \idx{distributive law});
-\item\label{thm:vecopsg} \((ab)\uv=a(b\uv)\);
-\item\label{thm:vecopsh} \(1\uv=\uv\);
-\item\label{thm:vecopsi} \(0\uv=\ov\);
-\item\label{thm:vecopsj} \(|a\uv|=|a|\cdot|\uv|\).
+\begin{enumerate}[ref=\ref{thm:vecops}(\alph*)]
+\item\label[theorem]{thm:vecopsa} \(\uv+\vv=\vv+\uv\) \quad(\idx{commutative law});
+\item\label[theorem]{thm:vecopsb} \((\uv+\vv)+\wv=\uv+(\vv+\wv)\) \quad(\idx{associative law});
+\item\label[theorem]{thm:vecopsc} \(\uv+\ov=\ov+\uv=\uv\);
+\item\label[theorem]{thm:vecopsd} \(\uv+(-\uv)=(-\uv)+\uv=\ov\);
+\item\label[theorem]{thm:vecopse} \(a(\uv+\vv)=a\uv+a\vv\)\quad(a \idx{distributive law});
+\item\label[theorem]{thm:vecopsf} \((a+b)\uv=a\uv+b\uv\)\quad(a \idx{distributive law});
+\item\label[theorem]{thm:vecopsg} \((ab)\uv=a(b\uv)\);
+\item\label[theorem]{thm:vecopsh} \(1\uv=\uv\);
+\item\label[theorem]{thm:vecopsi} \(0\uv=\ov\);
+\item\label[theorem]{thm:vecopsj} \(|a\uv|=|a|\cdot|\uv|\).
 \end{enumerate}
 \end{theorem}
 
 \begin{proof} 
-We prove property~\ref{thm:vecopsa}, and leave the proof of other properties as exercises.
+We prove \ref{thm:vecopsa}, and leave the proof of other properties as exercises.
 The approach is to establish the properties of vector operations using the known properties of scalar operations.
  
-Property~\ref{thm:vecopsa} is the commutativity of vector addition.
+\ref{thm:vecopsa} is the commutativity of vector addition.
 \autoref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in just one case, and the margin here shows another case.
 In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \newcommand{\twov}[5]{%
@@ -719,7 +689,7 @@ In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \end{eqnarray*}
 \end{proof}
 
-\begin{example} \label{eg:}
+\begin{example} 
 Which of the following two diagrams best illustrates the \idx{associative law}~\ref{thm:vecopsb}?  Give reasons.
 \begin{center}
 \def\ux{3}\def\uy{-1}\def\vx{2}\def\vy{2}\def\wx{-1}\def\wy{2}
@@ -801,7 +771,7 @@ That these are equal, the brown vector, requires both the commutative and associ
 
 We frequently use the algebraic properties of \autoref{thm:vecops} in rearranging and solving vector equations. 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Find the vector~\xv\ such that \(3\xv-2\uv=6\vv\)\,.
 \begin{solution} 
 Using \autoref{thm:vecops}, all the following equations are equivalent:
@@ -811,7 +781,7 @@ Using \autoref{thm:vecops}, all the following equations are equivalent:
 (3\xv-2\uv)+2\uv&=&6\vv+2\uv
 \quad(\text{add \(2\uv\) to both sides});\\
 3\xv+(-2\uv+2\uv)&=&6\vv+2\uv
-\quad(\text{by \ref{thm:vecopsb}, associativity});\\
+\quad\parbox[t]{10em}{(by \ref{thm:vecopsb}, associativity);}\\
 3\xv+\ov&=&6\vv+2\uv
 \quad(\text{by \ref{thm:vecopsd}});\\
 3\xv&=&6\vv+2\uv
@@ -819,7 +789,7 @@ Using \autoref{thm:vecops}, all the following equations are equivalent:
 \tfrac13(3\xv)&=&\tfrac13(6\vv+2\uv)
 \quad(\text{multiply both sides by }\tfrac13);\\
 \tfrac13(3\xv)&=&\tfrac13(6\vv)+\tfrac13(2\uv)
-\quad(\text{by \ref{thm:vecopse}, distributivity});\\
+\quad\parbox[t]{10em}{(by \ref{thm:vecopse}, distributivity);}\\
 (\tfrac13\cdot3)\xv&=&(\tfrac13\cdot6)\vv+(\tfrac13\cdot2)\uv
 \quad(\text{by \ref{thm:vecopsg}});\\
 1\xv&=&2\vv+\tfrac23\uv
@@ -845,34 +815,35 @@ But exercises and examples in this section often explicitly require full details
 
 
 
-\begin{example} \label{eg:}
+\begin{reduce}
+\begin{example} 
 Rearrange \(3\xv-\av=2(\av+\xv)\) to write vector~\xv\ in terms of~\av: give excruciating detail of the justification using \autoref{thm:vecops}.
 \begin{solution} 
 Using \autoref{thm:vecops}, the following statements are equivalent:
 \begin{eqnarray*}
 3\xv-\av&=&2(\av+\xv)
 \\3\xv-\av&=&2\av+2\xv
-\quad(\text{by \ref{thm:vecopse}, distributivity});
+\quad\text{(by \ref{thm:vecopse}, distributivity);}
 \\(3\xv-\av)+\av&=&(2\av+2\xv)+\av
 \quad(\text{adding \av\ to both sides});
 \\3\xv+(-\av+\av)&=&2\av+(2\xv+\av)
-\quad(\text{by \ref{thm:vecopsb}, associativity});
+\quad\parbox[t]{10em}{(by \ref{thm:vecopsb}, associativity);}
 \\3\xv+\ov&=&2\av+(\av+2\xv)
-\quad(\text{by \ref{thm:vecopsd} and \ref{thm:vecopsa}});
+\quad\parbox[t]{11em}{(by \ref{thm:vecopsd} \& \ref{thm:vecopsa});}
 \\3\xv&=&(2\av+\av)+2\xv
-\quad(\text{by \ref{thm:vecopsc} and \ref{thm:vecopsb}});
+\quad\parbox[t]{11em}{(by \ref{thm:vecopsc} \& \ref{thm:vecopsb});}
 \\3\xv&=&(2\av+1\av)+2\xv
 \quad(\text{by \ref{thm:vecopsh}});
 \\3\xv&=&(2+1)\av+2\xv
-\quad(\text{by \ref{thm:vecopsf}, distributivity});
+\quad\parbox[t]{10em}{(by \ref{thm:vecopsf}, distributivity);}
 \\3\xv+(-2)\xv&=&3\av+2\xv+(-2)\xv
 \quad(\text{sub.\ \(2\xv\) from both sides});
 \\(3+(-2))\xv&=&3\av+(2+(-2))\xv
-\quad(\text{by \ref{thm:vecopsf}, distributivity});
+\quad\parbox[t]{10em}{(by \ref{thm:vecopsf}, distributivity);}
 \\1\xv&=&3\av+0\xv
 \quad(\text{by scalar arithmetic});
 \\\xv&=&3\av+\ov
-\quad(\text{by \ref{thm:vecopsh} and \ref{thm:vecopsi}});
+\quad\parbox[t]{11em}{(by \ref{thm:vecopsh} \& \ref{thm:vecopsi});}
 \\\xv&=&3\av
 \quad(\text{by \ref{thm:vecopsc}}).
 \end{eqnarray*}
@@ -888,6 +859,7 @@ The following statements are equivalent:
 \end{eqnarray*}
 \end{solution}
 \end{example}
+\end{reduce}
 
 
 
@@ -897,18 +869,18 @@ The following statements are equivalent:
 
 
 \sectionExercises
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the pairs of vectors~\uv\ and~\vv\ shown below, draw the vectors \(\uv+\vv\), \(\vv+\uv\), \(\uv-\vv\), \(\vv-\uv\), \(\tfrac12\uv\) and~\(-\vv\).
-\begin{parts}
+\begin{Parts}
 \item\vecops0{-1.}{3.4}{-3.2}{-0.1}
 \item\vecops0{0.5}{1.9}{2.9}{-3.6}
 \item\vecops0{-2.3}{-1.7}{0.3}{-1.5}
 \item\vecops0{-3.2}{-1.6}{5.1}{-1.6}
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following pairs of vectors shown below, use a ruler (or other measuring stick) to directly measure the \idx{distance} between the pair of vectors.
 \newcommand{\mytmp}[4]{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
@@ -917,34 +889,38 @@ For each of the following pairs of vectors shown below, use a ruler (or other me
 \twovec{\noexpand\vec b}{#3}{#4}00
 \end{axis}
 \end{tikzpicture}}
-\begin{parts}
+\begin{Parts}
 \item \mytmp{-2.6}{-1.8}{-0.3}{3.6}
 \answer{\(5.9\)}
 \item \mytmp{-2.3}{0.3}{-2.2}{-1.}
 \answer{\(1.3\)}
+\begin{reduce}
 \item \mytmp{-2.4}{0.4}{-4.5}{-0.3}
 \answer{\(2.2\)}
 \item \mytmp{2.2}{9.7}{-1.4}{4.3}
 \answer{\(6.5\)}
+\end{reduce}
 \item \mytmp{-2.4}{-1.6}{2.}{0.6}
 \answer{\(4.9\)}
 \item \mytmp{0.5}{2.5}{1.4}{-0.9}
 \answer{\(3.5\)}
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following groups of vectors, use the \idx{distance} between vectors to find which pair in the group are closest to each other, and which pair in the group are furthest from each other. 
 \begin{enumerate} \sloppy
 \item \(\uv=(-5,0,3)\), \(\vv=(1,-6,10)\), \(\wv=(-4,4,11)\)
 \answer{\uv~and~\wv\ are closest; \vv~and~\wv\ are furthest.}
 
+\begin{reduce}
 \item \(\uv=(2,2,-1)\), \(\vv=(3,6,-9)\), \(\wv=(1,-2,-9)\)
 \answer{\uv~and~\wv\ are closest; both the other pairs are equal furthest.}
 
 \item \(\uv=(1,1,-3)\), \(\vv=(7,7,-10)\), \(\wv=(-1,4,-9)\)
 \answer{\uv~and~\wv\ are closest; \vv~and~\uv\ are furthest.}
+\end{reduce}
 
 \item \(\uv=3\iv\), \(\vv=4\iv-2\jv+2\kv\), \(\wv=4\iv+2\jv+2\kv\)
 \answer{\vv~and~\wv\ are furthest; both the other pairs are equal closest.}
@@ -952,13 +928,15 @@ For each of the following groups of vectors, use the \idx{distance} between vect
 \item \(\uv=(-5,3,5,6)\), \(\vv=(-6,1,3,10)\), \(\wv=(-4,6,2,15)\)
 \answer{\uv~and\vv\ are closest; \uv~and~\wv\ are furthest.}
 
+\begin{reduce}
 \item \(\uv=(-4,-1,-1,2)\), \(\vv=( -5,-2,-2,1)\), \(\wv=(-3,-2,-2,1)\)
 \answer{all pairs are the same distance apart.}
 
 \item \(\uv=5\ev_1+\ev_3+5\ev_4\), \(\vv=6\ev_1-2\ev_2+3\ev_3+\ev_4\), \(\wv=7\ev_1-2\ev_2-3\ev_3\)
 \answer{\uv~and~\vv\ are closest; \uv~and~\wv\ are furthest.}
+\end{reduce}
 
-\item \(\uv= 2\ev_1+4\ev_1-\ev_3+5\ev_4\), \(\vv=-2\ev_1+8\ev_2-6\ev_3-3\ev_4\), \(\wv=-6\ev_3+11\ev_4\)
+\item \(\uv= 2\ev_1+4\ev_2-\ev_3+5\ev_4\), \(\vv=-2\ev_1+8\ev_2-6\ev_3-3\ev_4\), \(\wv=-6\ev_3+11\ev_4\)
 \answer{\uv~and~\wv\ are closest; \vv~and~\wv\ are furthest.}
 
 \end{enumerate}
@@ -1001,9 +979,9 @@ For each of the following groups of vectors, use the \idx{distance} between vect
 
 
 
-\begin{exercise} \label{ex:} 
-Find a \idx{parametric equation} of the line through the given two points.
-\begin{parts}
+\begin{exercise}  
+Find a \idx{parametric equation} of the line through the given pairs of points.
+\begin{Parts}
 \item \((-11,0,3)\),
    \((-3,-2,2)\)
 \answer{One possibility is \(\xv=(-11+8t,-2t,3-t)\)}
@@ -1012,6 +990,7 @@ Find a \idx{parametric equation} of the line through the given two points.
    \((3,-5,5)\)
 \answer{One possibility is \(\xv=(-4+7t)\iv+(1-6t)\jv+(-2+7t)\kv\)}
 
+\begin{reduce}
 \item \((2.4,5.5,-3.9)\),
    \((1.5,-5.4,-0.5)\)
 \answer{One possibility is \(\xv=(2.4-0.9t,5.5-10.9t,-3.9+3.4t)\)}
@@ -1019,6 +998,7 @@ Find a \idx{parametric equation} of the line through the given two points.
 \item \((0.2,-7.2,-4.6,-2.8)\),
    \((3.3,-1.1,-0.4,-0.3)\)
 \answer{One possibility is \(\xv=(0.2+3.1t)\ev_1 +(-7.2+6.1t)\ev_2 +(-4.6+4.2t)\ev_3+(-2.8+2.5t)\ev_4\)}
+\end{reduce}
 
 \item \((2.2,5.8,4,3,2)\),
    \((-1.1,2.2,-2.4,-3.2,0.9)\)
@@ -1028,16 +1008,18 @@ Find a \idx{parametric equation} of the line through the given two points.
    \((-1.4,0.8,-2.6,3.1,-0.8)\)
 \answer{One possibility is \(\xv=(1.8-3.2t)\ev_1 +(-3.1+3.9t)\ev_2 -(1+1.6t)\ev_3 +(-1.3+4.1t)\ev_4 +(-3.3+2.5t)\ev_5\)}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Verify the algebraic properties of \autoref{thm:vecops} for each of the following sets of vectors and scalars.
 \begin{enumerate}
 \item \(\uv=2.4\iv-0.3\jv\), \(\vv=-1.9\iv+0.5\jv\), \(\wv=-3.5\iv-1.8\jv\), \(a=0.4\) and \(b=1.4\).
+\begin{reduce}
 \item \(\uv=(1/3,14/3)\), \(\vv=(4,4)\), \(\wv=(2/3,-10/3)\), \(a=-2/3\) and \(b=-1\).
+\end{reduce}
 \item \(\uv=-\frac12\jv+\frac32\kv\), \(\vv=2\iv-\jv\), \(\wv=2\iv-\kv\), \(a=-3\) and \(b=\frac12\).
 \item \(\uv=(2,1,4,-2)\), \(\vv=(-3,-2,0,-1)\), \(\wv=(-6,5,4,2)\), \(a=-4\) and \(b=3\).
 \end{enumerate}
@@ -1046,28 +1028,30 @@ Verify the algebraic properties of \autoref{thm:vecops} for each of the followin
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Prove in detail some algebraic properties chosen from \autoref{thm:vecopsb}--\ref{thm:vecopsj} on vector addition and \idx{scalar multiplication}.
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
-For each of the following vectors equations, rearrange the equations to get vector~\xv\ in terms of the other vectors.  Give excruciating detail of the justification using \autoref{thm:vecops}.
+\begin{exercise}  
+For each of the following vector equations, rearrange the equation to get vector~\xv\ in terms of the other vectors.  Give excruciating detail of the justification using \autoref{thm:vecops}.
 \begin{enumerate}
 \item \(\xv+\av=\ov\).
 \item \(2\xv-\bv=3\bv\).
 \item \(3(\xv+\av)=\xv+(\av-2\xv)\).
+\begin{reduce}
 \item \(-4\bv=\xv+3(\av-\xv)\).
+\end{reduce}
 \end{enumerate}
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item What empowers us to write every vector in terms of the standard unit vectors?
 

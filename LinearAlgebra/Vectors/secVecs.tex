@@ -11,7 +11,7 @@ There are more things in heaven and earth, Horatio, than are dreamt of in your p
 
 In the eighteenth century, astronomers needed to describe both the position and velocity of the \idx{planets}. 
 Such a description required quantities which have both a magnitude and a direction.
-Step outside, a wind blowing at~\(8\)\,m/s from the south-west also has both a magnitude and direction.
+Step outside, a wind blowing at~\(8\)\,m/s (metres per second) from the south-west has both a magnitude and direction.
 Quantities that have the properties of both a magnitude and a 
 direction are called \bfidx{vector}s (from the Latin for \emph{carrier}).
 
@@ -42,6 +42,7 @@ So choose an origin for the coordinate system, usually denoted~\(O\), and draw \
 Here the displacement vector~\(\ovect{AB}\) goes three units to the right and one unit up, so we denote it by the ordered pair of numbers~\(\ovect{AB}=(3,1)\).
 \marginpar{\temp1}
 Whereas the displacement vector~\(\ovect{CD}\) goes three units to the left and four units up, so we denote it by the ordered pair of numbers~\(\ovect{CD}=(-3,4)\).
+Our choice of the origin~\(O\) does not affect the number representation of these vectors.
 \end{example}
 
 
@@ -70,13 +71,13 @@ Again, to be able to manipulate such vectors we describe them with numbers, and 
 \marginpar{\temp{1}}
 So draw \idx{coordinate axes} in the plane (or space), as illustrated for the above four \idx{position vector}s.
 Here the \idx{position vector}~\(\ovect{OA}\) goes one unit to the right and two units up so we denote it by \(\ovect{OA}=(1,2)\).
-Similarly, the position vectors \(\ovect{OB}=(4,3)\),  \(\ovect{OC}=(2,-1)\), and  \(\ovect{OB}=(-1,3)\).
-Recognise that the ordered pairs of numbers in the position vectors are exactly the \idx{coordinates} of each of the specified end-points. 
+Similarly, the position vectors \(\ovect{OB}=(4,3)\),  \(\ovect{OC}=(2,-1)\), and  \(\ovect{OD}=(-1,3)\).
+Recognize that the ordered pairs of numbers in the position vectors are exactly the \idx{coordinates} of each of the specified end-points. 
 \end{example}
 
 
-\begin{example}[\idx{velocity vector}] \label{eg:}
-Consider an airplane in level flight at \(900\)\,km/hr to the east-north-east.
+\begin{example}[\idx{velocity vector}] 
+Consider an airplane in level flight at \(900\)\,km/hr (kilometres per hour) to the east-north-east.
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[above] at (axis cs:#2,#3) {#1};}
@@ -163,7 +164,7 @@ two horizontal and one vertical all at right-angles to each other, often labelle
 
 
 
-\begin{definition} \label{def:vecs}
+\begin{definition} \label{def:vecs} 
 Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all at \idx{right-angles} to each other, a \bfidx{vector} is an ordered \(n\)-tuple of real numbers \hlist xn\ equivalently written either as a row in \idx{parentheses} or as a column in \idx{brackets},
 \begin{equation*}
 (\hlist xn)=\begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}
@@ -172,6 +173,7 @@ Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all a
 The real numbers \hlist xn\ are called the \bfidx{components} of the vector, and the number of components is termed its \bfidx{size} (here~\(n\)).
 The \idx{components} are determined such that letting~\(X\) be the point with \idx{coordinates} \((\hlist xn)\) then the \idx{position vector}~\(\ovect{OX}\) has the same magnitude and direction as the vector denoted \((\hlist xn)\).
 \begin{aside}
+% AJR's photo
 \includegraphics[width=\linewidth]{Vectors/RobertRecorde}
 \index{Recorde, Robert}Robert Recorde invented the equal sign circa 1557 ``bicause noe~2 thynges can be moare equalle''.  
 %He also invented the term ``sine'' and the method of extracting the square root by hand.
@@ -179,7 +181,7 @@ The \idx{components} are determined such that letting~\(X\) be the point with \i
 Two vectors of the same \idx{size} are \bfidx{equal},~\(=\), if all their corresponding \idx{components} are equal (vectors with different sizes are never equal).
 \end{definition}
 
-Examples~\ref{eg:disvec} and~\ref{eg:posvec} introduced some vectors and wrote them as a row in parentheses, such as \(\ovect{AB}=(3,1)\).
+\cref{eg:disvec,eg:posvec} introduced some vectors and wrote them as a row in parentheses, such as \(\ovect{AB}=(3,1)\).
 In this book exactly the same thing is meant by the columns in \idx{brackets}: for example,
 \begin{eqnarray*}&&
 \ovect{AB}=(3,1)=\begin{bmatrix} 3\\1 \end{bmatrix},\quad
@@ -188,7 +190,7 @@ In this book exactly the same thing is meant by the columns in \idx{brackets}: f
 \ovect{OC}=(2,-1)=\begin{bmatrix} 2\\-1 \end{bmatrix},\quad
 (-70.71,70.71,2)=\begin{bmatrix} -70.71\\70.71\\2 \end{bmatrix}.
 \end{eqnarray*}
-However, as defined subsequently, a row of numbers within brackets is  quite different: \((3,1)\neq\begin{bmatrix} 3&1 \end{bmatrix}\),  and \((831,344,0)\neq\begin{bmatrix} 831&344&0 \end{bmatrix}\).
+However, as defined subsequently, a row of numbers within brackets is  quite different: for two examples, \((3,1)\neq\begin{bmatrix} 3&1 \end{bmatrix}\),  and \((831,344,0)\neq\begin{bmatrix} 831&344&0 \end{bmatrix}\).
 
 The \emph{ordering} of the \idx{components} is very important.
 \marginpar{\begin{tikzpicture} 
@@ -213,7 +215,7 @@ The set of all vectors with \(n\)~\idx{components} is denoted~\(\RR^n\)\index{Rn
 The vector with all components zero,  \((0,0,\ldots,0)\), is called the \bfidx{zero vector} and denoted by~\ov.
 \end{definition}
 
-\begin{example} \label{eg:}
+\begin{example} 
 \begin{itemize}
 \item All the vectors we can draw and imagine in the two dimensional plane form~\(\RR^2\).  
 Sometimes we write that \(\RR^2\)~is the plane because of this very close connection.
@@ -223,6 +225,7 @@ Again, sometimes we write that \(\RR^3\)~is three dimensional space because of t
 
 \item The set~\(\RR^1\) is the set of all vectors with one component, and that one component is measured along one axis.  
 Hence \(\RR^1\)~is effectively the same as the set of real numbers labelling that axis.
+\blackqed
 \end{itemize}
 \end{example}
 
@@ -253,16 +256,16 @@ The previous statement implicitly specifies that we use five \idx{coordinate axe
 These \idx{word vector}s are in~\(\RR^5\).
 Then
 \begin{enumerate}
-\item ``The dog sat on the mat'' is summarised by the vector \(\wv=(0,1,1,1,0)\).
-\item ``The cat scratched the dog'' is summarised by the vector \(\wv=(1,1,0,0,1)\).
-\item ``The cat and dog sat on the mat'' is summarised by the vector \(\wv=(1,1,1,1,0)\).
-\item ``The dog scratched'' is summarised by the vector \(\wv=(0,1,0,0,1)\).
+\item ``The dog sat on the mat'' is summarized by the vector \(\wv=(0,1,1,1,0)\).
+\item ``The cat scratched the dog'' is summarized by the vector \(\wv=(1,1,0,0,1)\).
+\item ``The cat and dog sat on the mat'' is summarized by the vector \(\wv=(1,1,1,1,0)\).
+\item ``The dog scratched'' is summarized by the vector \(\wv=(0,1,0,0,1)\).
 \item An empty sentence is the \idx{zero vector} \(\wv=(0,0,0,0,0)\).
 \item Together, the two sentences ``The dog sat on the mat.
- The cat scratched the dog.'' are summarised by the vector \(\wv=(1,2,1,1,1)\).
+ The cat scratched the dog.'' are summarized by the vector \(\wv=(1,2,1,1,1)\).
 \end{enumerate}
 Using such crude summary representations of some text, even of entire documents, empowers us to use powerful mathematical techniques to relate documents together, compare and contrast, express similarities, look for type clusters, and so on.
-In application we would not just count words for objects (nouns) and actions (verbs), but also qualifications (adjectives and adverbs).\footnote{Look up Latent Semantic Indexing, such as at \url{https://en.wikipedia.org/wiki/Latent_semantic_indexing} [April 2015]}
+In application we would not just count words for objects (nouns) and actions (verbs), but also qualifications (adjectives and adverbs).\footnote{Look up Latent Semantic Analysis, such as at \url{https://en.wikipedia.org/wiki/Latent_semantic_analysis} [July 2019]}
 
 People generally know and use thousands of words.
 Consequently, in practice, such word vectors typically have thousands of components corresponding to coordinate axes of thousands of distinct words.
@@ -326,34 +329,37 @@ A vector of length one is called a \bfidx{unit vector}.
 (Many people and books denote the length of a vector with a pair of double lines, as in~\(\|\vv\|\).  Either notation is good.)
 \end{definition}
 
-
-\begin{example} \label{eg:}
+\begin{example} 
 Find the \idx{length}s of the following vectors.
-\begin{parts}
-\item \(\av=(-3,4)\)
+\begin{Parts}
+\item \(\eaii=(-3,4)\)
 \begin{solution} 
-\(|\av|=\sqrt{(-3)^2+4^2}=\sqrt{25}=5\). 
+\(|\eaii|=\sqrt{(-3)^2+4^2}=\sqrt{25}=5\). 
 \end{solution}
 
-\item \(\bv=(3,3)\)
+\begin{reduce}
+\item \(\eaii=(3,3)\)
 \begin{solution} 
-\(|\bv|=\sqrt{3^2+3^2}=\sqrt{18}=3\sqrt2\). 
+\(|\eaii|=\sqrt{3^2+3^2}=\sqrt{18}=3\sqrt2\). 
+\end{solution}
+\end{reduce}
+
+\item \(\eaii=(1,-2,3)\)
+\begin{solution} 
+\(|\eaii|=\sqrt{1^2+(-2)^2+3^2}=\sqrt{14}\). 
 \end{solution}
 
-
-\item \(\cv=(1,-2,3)\)
+\begin{reduce}
+\item \(\eaii=(1,-1,-1,1)\)
 \begin{solution} 
-\(|\cv|=\sqrt{1^2+(-2)^2+3^2}=\sqrt{14}\). 
+\(|\eaii|=\sqrt{1^2+(-1)^2+(-1)^2+1^2}=\sqrt4=2\).
 \end{solution}
+\end{reduce}
 
-\item \(\dv=(1,-1,-1,1)\)
-\begin{solution} 
-\(|\dv|=\sqrt{1^2+(-1)^2+(-1)^2+1^2}=\sqrt4=2\).
-\end{solution}
-\end{parts}
+\end{Parts}
 \end{example}
 
-\begin{example} \label{eg:}
+\begin{example} 
 Write down three different vectors, all three with the same number of components, that are (a)~of \idx{length}~\(5\), (b)~of length~\(3\), and (c)~of length~\(-2\).
 \begin{solution} 
 \begin{enumerate}
@@ -372,13 +378,6 @@ A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading t
 \begin{activity}
 What is the \idx{length} of the vector \((2,-3,6)\)\,?
 \actposs[4]{\(7\)}{\(\sqrt{11}\)}{\(5\)}{\(11\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\sqrt{11}\)
-%\item \(5\)
-%\item\actans \(7\)
-%\item \(11\)
-%\end{parts}
 \end{activity}
 
 
@@ -395,7 +394,7 @@ From \autoref{def:veclen}, in~\(\RR^n\),
 \begin{equation*}
 |\ov|=\sqrt{0^2+0^2+\cdots+0^2}=\sqrt{0}=0\,.
 \end{equation*}
-Second, if a vector has length zero then it must be the zero vector.
+Second establish that if a vector has length zero then it must be the zero vector.
 Let vector \(\vv=(\hlist vn)\) in~\(\RR^n\) have zero length.
 By squaring both sides of the \autoref{def:veclen} for length we then know that
 \begin{equation*}
@@ -415,7 +414,7 @@ Hence, the vector~\vv\ must be the zero vector~\ov.
 \sectionExercises
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each case: on the plot draw the \idx{displacement vector}s \(\ovect{AB}\) and~\(\ovect{CD}\), and the \idx{position vector}s of the points~\(A\) and~\(D\).
 \newcommand{\mytemp}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -433,15 +432,17 @@ For each case: on the plot draw the \idx{displacement vector}s \(\ovect{AB}\) an
 \end{axis}
 \end{tikzpicture}}
 
-\begin{parts}
+\begin{Parts}
 \pgfmathsetseed{9091}
 \item \mytemp
 \item \mytemp
 \item \mytemp
 \item \mytemp
+\begin{reduce}
 \item \mytemp
 \item \mytemp
-\end{parts}
+\end{reduce}
+\end{Parts}
 \end{exercise}
 
 
@@ -477,15 +478,17 @@ For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{compon
 \item \mytemp
 \item \mytemp
 \item \mytemp
+\begin{reduce}
 \item \mytemp
 \item \mytemp
 \item \mytemp
+\end{reduce}
 \end{enumerate}
 \end{exercise}
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each case plotted in \autoref{ex:fourvec}:
 from your estimated \idx{components} of each of the four \idx{position vector}s, calculate the \idx{length} (or \idx{magnitude}) of the four vectors. 
 Also use a ruler (or otherwise) to directly measure an estimate of the length of each vector.
@@ -525,8 +528,8 @@ Being consistent about the order of words, represent each of the eight titles by
 
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item Why is a coordinate system important for a vector?
 

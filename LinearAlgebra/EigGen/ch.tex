@@ -12,7 +12,7 @@
 \paragraph{Population modelling} \index{population modelling}
 Suppose two \idx{species} of animals interact: how do their populations evolve in time?  
 Let \(y(t)\) and~\(z(t)\) be the number of \idx{female} animals in each of the species at time~\(t\) in years (biologists usually just count females in population models as females usually determine reproduction). 
-Modelling might deduce the populations interact according to the rule that the population one year later is \(y(t+1)=2y(t)-4z(t)\) and \(z(t+1)=-y(t)+2z(t)\): that is, if it was not for the other species, then for each species the number of females would both double every year (since then \(y(t+1)=2y(t)\) and \(z(t+1)=2z(t)\)); but the other species decreases each of these growths via the~\(-4z(t)\) and~\(-y(t)\) terms.  
+Modelling might deduce the populations interact according to the rule that one year later the population is \(y(t+1)=2y(t)-4z(t)\) and \(z(t+1)=-y(t)+2z(t)\): that is, if it was not for the other species, then for each species the number of females would both double every year (since then \(y(t+1)=2y(t)\) and \(z(t+1)=2z(t)\)); but the other species decreases each of these growths via the~\(-4z(t)\) and~\(-y(t)\) terms.  
 
 Question: can we find special solutions in the form \((y,z)=\xv \lambda^{t}\) for some constant~\(\lambda\)?  
 Let's try by substituting \(y=x_1\lambda^{t}\) and \(z=x_2\lambda^{t}\) into the  equations:
@@ -33,7 +33,7 @@ Then form these last two equations as the matrix-vector equation
 \end{equation*}
 That is, this substitution \((y,z)=\xv \lambda^{t}\) shows the question about finding solutions of the population equations reduces to solving \(A\xv=\lambda \xv\)\,, called an \idx{eigen-problem}.
 
-This chapter develops linear algebra for such \idx{eigen-problem}s that empowers us to predict that the general solution for the population is, in terms of two constants~\(c_1\) and~\(c_2\), that one \idx{species} has female population \(y(t)=2c_14^t+2c_2\) whereas the the second species has female population \(z(t)=-c_14^t+c_2\)\,.
+This chapter develops linear algebra for such \idx{eigen-problem}s that empowers us to predict that the general solution for the population is, in terms of two constants~\(c_1\) and~\(c_2\), that one \idx{species} has female population \(y(t)=2c_14^t+2c_2\) whereas the second species has female population \(z(t)=-c_14^t+c_2\)\,.
 
 %Modelling might deduce the populations interact according to the pair  of \idx{differential equation}s \(\dot y=y-4z\) and \(\dot z=-y+z\) (where the overdot denotes~\(d/dt\)); that is, if it was not for the other species the number of females would both grow according to \(\dot y=y\) and \(\dot z=z\)\,, but the other species decreases their growth via the~\(-2z\) and~\(-y\) terms.  
 %
@@ -89,31 +89,31 @@ Let's use this approach to identify three general difficulties.
 \begin{enumerate}
 \item 
 In this first picture, for matrix
-\( A=\begin{bmatrix} 1&1\\\tfrac18&1 \end{bmatrix}\),
+\( A=\begin{bmat} 1&1\\1/8&1 \end{bmat}\),
 \marginpar{\eRose{1}1{0.125}{1}}%
 \begin{aside}
-The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
+The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}\footnote{Download for R2017b etc.} provides an interactive alternative to this static view.
 \end{aside}%
 the eigenvectors appear to be in directions \(\xv_1\approx\pm(0.9,0.3)\) and \(\xv_2\approx\pm(0.9,-0.3)\) corresponding to eigenvalues \(\lambda_1\approx1.4\) and \(\lambda_2\approx 0.6\)\,.
-(Recall that scalar multiples of an eigenvector are always also eigenvectors, \S\ref{sec:iee}, so we always see \(\pm\)~pairs of eigenvectors in these pictures.)
+(Recall that scalar multiples of an eigenvector are always also eigenvectors, \cref{sec:iee}, so we always see \(\pm\)~pairs of eigenvectors in these pictures.)
 The eigenvectors \(\pm(0.9,0.3)\) are not orthogonal to the other 
 eigenvectors \(\pm(0.9,-0.3)\), not at right-angles---as happens for symmetric matrices (\autoref{thm:orthoevec}).
-This lack of orthogonality in general means we soon generalise the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (\autoref{sec:lisb}).
+This lack of orthogonality in general means we soon generalize the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (\autoref{sec:lisb}).
 
 \item 
 In this second case, for
-\( A=\begin{bmatrix} 0&1\\-1&\tfrac12 \end{bmatrix}\), \marginpar{\eRose01{-1}{0.5}}%
+\( A=\begin{bmat} 0&1\\-1&1/2 \end{bmat}\), \marginpar{\eRose01{-1}{0.5}}%
 there appears to be no (red) vector~\(A\xv\) in the same direction as the corresponding (blue) vector~\xv.
 Thus there appears to be no eigenvectors at all.
 No eigenvectors and eigenvalues is the answer if we require real answers.
 However, in most applications we find it sensible to have \idx{complex valued} eigenvalues and eigenvectors (\autoref{sec:eennm})\index{complex eigenvalue}\index{complex eigenvector}, written using \index{i@$\i$}\(\i=\sqrt{-1}\).
-So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in \autoref{eg:ccevals}). 
+So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in \autoref{eg:ccevals}).% 
 \footnote{In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
 Such a consistent `\idx{rotation}' in~\(A\xv\) is characteristic of matrices with complex valued eigenvalues and eigenvectors.}
 
 \item 
 In this third case, for
-\( A=\begin{bmatrix} 1&1\\0&1 \end{bmatrix}\),
+\( A=\begin{bmat} 1&1\\0&1 \end{bmat}\),
 \marginpar{\eRose1101}%
 there appears to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
 Whereas for symmetric matrices there were always two pairs, here we only appear to have one pair of eigenvectors (\autoref{thm:dimee}).
@@ -125,19 +125,19 @@ Such degeneracy occurs for matrices on the border between reality and complexity
 The first problem of the general lack of orthogonality of the eigenvectors is most clearly seen in the case of triangular matrices (\autoref{def:trim}).
 The reason is  linked to \autoref{thm:rpdet:vi} that the \idx{determinant} of a \idx{triangular matrix} is simply the product of its \idx{diagonal entries}.
 
-\begin{example} \label{eg:}
-Find by algebra the eigenvalues and eigenvectors of the \idx{triangular matrix} \(A=\begin{bmatrix} 2&1\\0&3 \end{bmatrix}\).
+\begin{example} 
+Find by algebra the eigenvalues and eigenvectors of the \idx{triangular matrix} \(A=\begin{bmat} 2&1\\0&3 \end{bmat}\).
 \begin{solution} 
 Recall \autoref{pro:eeh}. 
 \begin{enumerate}
 \item Find all eigenvalues by solving the characteristic equation \(\det(A-\lambda I)=0\)\,. 
-Here \(\det(A-\lambda I)=\det\begin{bmatrix} 2-\lambda&1\\0&3-\lambda \end{bmatrix}\) which being a triangular matrix has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
+Here \(\det(A-\lambda I)=\det\begin{bmat} 2-\lambda&1\\0&3-\lambda \end{bmat}\) which being a triangular matrix has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
 This determinant is zero only for eigenvalues \(\lambda=2\) or~\(3\).
 These are the diagonal entries in the triangular matrix.
 \item For each eigenvalue, find corresponding eigenvectors by solving the system \((A-\lambda I)\xv=\ov\)\,.
 \begin{itemize}
-\item For \(\lambda=2\), the system is \(\begin{bmatrix} 0&1\\0&1 \end{bmatrix}\xv=\ov\) which requires \(x_2=0\)\,.  That is, all eigenvectors are~\(x_1(1,0)\).
-\item For \(\lambda=3\), the system is \(\begin{bmatrix} -1&1\\0&0 \end{bmatrix}\xv=\ov\) which requires \(x_1=x_2\)\,.  That is, all eigenvectors are~\(x_2(1,1)\).
+\item For \(\lambda=2\), the system is \(\begin{bmat} 0&1\\0&1 \end{bmat}\xv=\ov\) which requires \(x_2=0\)\,.  That is, all eigenvectors are~\(x_1(1,0)\).
+\item For \(\lambda=3\), the system is \(\begin{bmat} -1&1\\0&0 \end{bmat}\xv=\ov\) which requires \(x_1=x_2\)\,.  That is, all eigenvectors are~\(x_2(1,1)\).
 \end{itemize}
 The eigenvectors corresponding to the different eigenvalues are not orthogonal as their dot product \((1,0)\cdot(1,1)=1+0=1\neq 0\)\,. 
 Instead the different eigenvectors are at~\(45^\circ\) to each other.
@@ -201,7 +201,7 @@ But as \(A\)~is upper triangular, matrix \((A-\lambda I)\) is upper triangular a
 \end{equation*}
 This expression is zero iff the eigenvalue~\(\lambda\) is one of the diagonal elements of~\(A\).
 
-As an example of the non-orthogonality of eigenvectors, consider the two eigenvalues \(\lambda_1=a_{1,1}\) and \(\lambda_2=a_{2,2}\) with  corresponding eigenvectors \(\xv_1=(1,0,0,\ldots,0)\) and \(\xv_2=(-a_{1,2}/(a_{1,1}-a_{2,2}),1,0,\ldots,0)\).
+As an example of the non-orthogonality of eigenvectors, consider the two eigenvalues \(\lambda_1=a_{1,1}\) and \(\lambda_2=a_{2,2}\), assume distinct, with  corresponding eigenvectors \(\xv_1=(1,0,0,\ldots,0)\) and \(\xv_2=(-a_{1,2}/(a_{1,1}-a_{2,2}),1,0,\ldots,0)\).
 Then the dot product \(\xv_1\cdot\xv_2=-a_{1,2}/(a_{1,1}-a_{2,2})\neq 0\) in general (the dot product is zero only in the special case when \(a_{1,2}=0\)).
 Since the dot product is generally nonzero, \(\xv_1\) and~\(\xv_2\) are generally not orthogonal.
 Similarly for other pairs of eigenvectors corresponding to distinct eigenvalues.
@@ -246,6 +246,7 @@ That is, the eigenspace \(\EE_{4}=\Span\{(\frac1{14},\frac14,1)\}\).
 \end{itemize}
 \end{solution}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix}3&0&0&0
 \\-2&-4&0&0
 \\-3&1&0&0
@@ -297,6 +298,7 @@ That is, the eigenspace \(\EE_{3}=\Span\{(1,-\frac27,-\frac{23}{21},\frac{23}{14
 
 \end{itemize}
 \end{solution}
+\end{reduce}
 
 \item \(\eAii=\begin{bmatrix} -1&1&-8&-5&5
 \\-3&6&4&-3&0
@@ -325,13 +327,6 @@ What are all the eigenvalues of the matrix
  \end{bmatrix}?
 \end{equation*}
 \actposs[4]{\(0,1\)}{\(1\)}{\(0,1,2\)}{\(0,1,2,3\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(1\)
-%\item \(0,1\)\actans
-%\item \(0,1,2\)
-%\item \(0,1,2,3\)
-%\end{parts}
 \end{activity}
 
 
@@ -353,7 +348,7 @@ Correspondingly, the next \autoref{sec:eennm} establishes there are precisely \(
 
 \sectionExercises
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Each of the following pictures applies to some specific real matrix, say called~\(A\).
 The pictures plot~\(A\xv\) adjoined to the end of \idx{unit vector}s~\xv.
 By inspection decide whether the matrix, in each case, has real eigenvalues or \idx{complex eigenvalue}s.
@@ -361,7 +356,8 @@ By inspection decide whether the matrix, in each case, has real eigenvalues or \
 %a=round(eye(2)*5+randn(2)*5)/10,eig(a),num2str(a(:)')
 %\end{verbatim}
 
-\begin{parts}
+\begin{Parts}
+\begin{reduce}
 \item \eRose{0.2}{-1.1}{ 1.3}{ 0.9}
 \answer{complex}
 
@@ -373,6 +369,7 @@ By inspection decide whether the matrix, in each case, has real eigenvalues or \
 
 \item \eRose{-0.7}{-0.2}{ 0.4}{-0.3}
 \answer{complex}
+\end{reduce}
 
 \item \eRose{0.3}{-0.3}{-0.2}{1}
 \answer{real}
@@ -386,7 +383,7 @@ By inspection decide whether the matrix, in each case, has real eigenvalues or \
 \item \eRose{0.8}{ 0.3}{-0.6}{1}
 \answer{complex}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -396,14 +393,14 @@ By inspection decide whether the matrix, in each case, has real eigenvalues or \
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following \index{triangular matrix}triangular matrices, write down all \idx{eigenvalue}s and then find the corresponding \idx{eigenspace}s.
 Show your working.
 %\begin{verbatim}
 %format rat, n=3
 %A=0+tril(round(randn(n)*3)), if rand>0.5, A=A', end, [V,D]=eig(A); DVt=[diag(D) diag(1./max(abs(V)))*V']
 %\end{verbatim}
-\begin{parts}
+\begin{Parts}
 \item \(\begin{bmatrix} 2 & 0
 \\-1 & 4 \end{bmatrix}\)
 \answer{\(\EE_{4}=\Span\{(0,1)\}\), 
@@ -426,6 +423,7 @@ Show your working.
 \(\EE_{-4}=\Span\{(0,2,-5)\}\), 
 \(\EE_{0}=\Span\{(8,-6,-11)\}\).}
 
+\begin{reduce}
 \item \(\begin{bmatrix} 1 & -5 & 0
 \\0 & 0 & -4
 \\0 & 0 & 0 \end{bmatrix}\)
@@ -450,6 +448,7 @@ Show your working.
 \answer{\(\EE_{-2}=\Span\{(1,0,0,0)\}\), 
 \(\EE_{-3}=\Span\{(6,-1,1,0)\}\), 
 \(\EE_{2}=\Span\{(6,9,1,5)\}\).}
+\end{reduce}
 
 \item \(\begin{bmatrix} 8 & -2 & 3 & 2
 \\0 & -6 & 1 & -2
@@ -468,7 +467,7 @@ Show your working.
 \(\EE_{7}=\Span\{(-2,7,0,0)\}\), 
 \(\EE_{3}=\Span\{(-22,3,12,0)\}\).}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 

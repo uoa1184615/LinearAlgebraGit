@@ -14,25 +14,28 @@
 %It is written in the language of mathematics.  
 %Its characters are triangles, circles and other geometrical figures without which it is humanly impossible to understand a single word of it; without these, one is wandering about in a dark labyrinth.
 [Nature] is written in that great book which ever lies before our eyes---I mean the universe---but we cannot understand it if we do not first learn the language and grasp the symbols in which it is written. 
-The book is written in the mathematical language, and the symbols are triangles, \idx{circle}s, and other geometric figures, without whose help it is impossible to comprehend a single word of it; without which one wanders in vain through a dark labyrinth.
+The book is written in the mathematical language, and the symbols are triangles, circles, and other geometric figures, without whose help it is impossible to comprehend a single word of it; without which one wanders in vain through a dark labyrinth.
 %(as quoted by Kline, 1972, pp. 328--329. See also Machamer 1998a, pp. 64--65 for a slightly different translation.)
 \end{quoted}
 
 
 Some of the most fundamental geometric structures in mathematics, especially linear algebra, are the lines or planes through the origin, and higher dimensional analogues.
-For example, a general solution of linear equations often involve linear combinations such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}) and \(y_3\vv_3+y_4\vv_4\) (\autoref{eg:3x4findc}): such combinations for all values of the free variables forms a plane through the origin (\autoref{sec:nvep}).
+For example, a general solution of linear equations often involves linear combinations such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}) and \(y_3\vv_3+y_4\vv_4\) (\autoref{eg:3x4findc}): such combinations for all values of the free variables forms a plane through the origin (\autoref{sec:nvep}).
 The aim of this section is to connect geometric structures, such as lines and planes, to the information in a \idx{singular value decomposition}.
-The structures are called~\idx{subspace}s.
+The structures are called \idx{subspace}s.
 
 
 \subsection{Subspaces are lines, planes, and so on}
 
 \index{subspace|(}
+Let's introduce graphically the concept of a ``subspace''.
+\autoref{def:subspace} then gives the precise algebraic description.
+
 \begin{example} \label{eg:viewsubs}
 The following graphs illustrate the concept of subspaces through examples (imagine the graphs extend to infinitely as appropriate).
-\begin{enumerate}
+\begin{enumerate}[ref=\ref{eg:viewsubs}(\alph*)]
 \newcommand{\PB}[1]{\quad\parbox[b]{11em}{\raggedright #1}}
-\item\label{eg:viewsubsa} \begin{tikzpicture} 
+\item\label[example]{eg:viewsubsa} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
     \addplot[blue,thick] {x/2};
@@ -48,7 +51,7 @@ The following graphs illustrate the concept of subspaces through examples (imagi
 \end{tikzpicture}
 \PB{is \emph{not} a subspace as it does not include the origin.}
 
-\item\label{eg:viewsubsc} \begin{tikzpicture} 
+\item\label[example]{eg:viewsubsc} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {x-x^2/20};
@@ -57,13 +60,14 @@ The following graphs illustrate the concept of subspaces through examples (imagi
 \PB{is \emph{not} a subspace as it curves.}
 
 \item \begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize,xmin=-2.2,xmax=2.2
-    ,axis equal image, axis lines=middle ] 
+\begin{axis}[footnotesize,font=\footnotesize,ymin=-2.2,ymax=2.2
+    ,axis equal, axis lines=middle ] 
     \addplot[blue,smooth,samples=30,domain=0:360,thick] ({2*cos(x)},{2*sin(3*x)});
 \end{axis}
 \end{tikzpicture}
 \PB{is \emph{not} a subspace as it not only curves, but does not include the origin.}
 
+\begin{reduce}
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle ] 
@@ -71,8 +75,9 @@ The following graphs illustrate the concept of subspaces through examples (imagi
 \end{axis}
 \end{tikzpicture}
 \PB{is a subspace.}
+\end{reduce}
 
-\item\label{eg:viewsubsf} \begin{tikzpicture} 
+\item\label[example]{eg:viewsubsf} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,xmin=-4,ymin=-2
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick,domain=0:5] {x/2};
@@ -88,22 +93,22 @@ The following graphs illustrate the concept of subspaces through examples (imagi
     \addplot3[only marks,black] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}
-\PB{is a subspace as it is a line through the origin (marked in these 3D plots).}
+\PB{is a subspace as it is a line through the origin (marked~$\bullet$ in these 3D plots).}
 
-\item\label{eg:viewsubsh} \begin{tikzpicture} 
+\item\label[example]{eg:viewsubsh} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image    ] 
-    \addplot3[surf,shader=interp,samples=2,opacity=0.5] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.5] {-x/6+y/3};
     \addplot3[only marks,black] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}
 \PB{is a subspace as it is a plane through the origin.}
 
-\item\label{eg:viewsubsi} \begin{tikzpicture} 
+\item\label[example]{eg:viewsubsi} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image    ] 
     \addplot3[only marks,black] coordinates {(0,0,0)};
-    \addplot3[surf,shader=interp,samples=2,opacity=0.5] {5+x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.5] {5+x/6+y/3};
 \end{axis}
 \end{tikzpicture}
 \PB{is \emph{not} a subspace as it does not go through the origin.}
@@ -145,28 +150,6 @@ which of the following is a subspace?
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {1-x/3};
 \end{axis} \end{tikzpicture}}
-%\begin{parts}
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,axis equal image, axis lines=middle ] 
-%    \addplot[blue,only marks,samples=11] {-x};
-%\end{axis} \end{tikzpicture}
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,axis equal image, axis lines=middle ] 
-%    \addplot[blue,thick] {x^2/6};
-%\end{axis} \end{tikzpicture}
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,axis equal image, axis lines=middle ] 
-%    \addplot[blue,thick] {x/2};
-%\end{axis} \end{tikzpicture}
-%\item \begin{tikzpicture} 
-%\begin{axis}[footnotesize,font=\footnotesize
-%    ,axis equal image, axis lines=middle ] 
-%    \addplot[blue,thick] {1-x/3};
-%\end{axis} \end{tikzpicture}
-%\end{parts}
 \end{activity}
 
 
@@ -178,7 +161,7 @@ This book uses the `blackboard bold' font, such as \WW\ and~\RR, for names of sp
 % I think we need to use \in by now
 Recall that the mathematical symbol~``\bfidx{$\in$}''\index{in, $\in$|textbf} means~``in'' or ``in the set'' or ``is an element of the set''.
 For two examples: ``\(c\in\RR\)\index{R@\RR}'' means ``\(c\)~is a real number''; whereas ``\(\vv\in\RR^3\)'' means ``\(\vv\)~is a vector with three components.
-Hereafter, this book uses~``\(\in\)'' extensively.
+For conciseness, hereafter this book uses~``\(\in\)'' extensively.
 
 
 \begin{definition} \label{def:subspace} 
@@ -188,11 +171,11 @@ A \bfidx{subspace}~\WW\ of~\(\RR^n\) is a set of vectors with \(\ov\in\WW\), and
 
 
 \begin{example} \label{eg:somsubs}
-Use \autoref{def:subspace} to show why each of the following are subspaces, or not. 
-\begin{enumerate}
-\item All vectors in the line \(y=x/2\) (\autoref{eg:viewsubsa}).
+Use \autoref{def:subspace} to determine whether each of the following are subspaces, or not. 
+\begin{enumerate}[ref=\ref{eg:somsubs}(\alph*)]
+\item All vectors~\((x,y)\) in the line \(y=x/2\) (\autoref{eg:viewsubsa}).
 \begin{solution} 
-The origin~\ov\ is in the line \(y=x/2\) as \(x=y=0\) satifies the equation.
+The origin, the zero vector~\ov, is in the line \(y=x/2\) as \(x=y=0\) satisfies the equation.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
@@ -205,7 +188,7 @@ Let \(\vv=(1,\frac12)s\) be another vector in the line for some parameter~\(s\),
 The three requirements of \autoref{def:subspace} are met, and so this line is a subspace. 
 \end{solution}
 
-\item All vectors \((x,y)\) such that \(y=x-x^2/20\) (\autoref{eg:viewsubsc}).
+\item All vectors \((x,y)\) with end-points on the curve \(y=x-x^2/20\) (\autoref{eg:viewsubsc}).
 \begin{solution} 
 A vector is `in the set' when its end-point lies on a plot of the set, as in the margin.
 \marginpar{\begin{tikzpicture} 
@@ -215,7 +198,7 @@ A vector is `in the set' when its end-point lies on a plot of the set, as in the
     \addplot[red,thick,quiver={u=20,v=0},-stealth] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}%
-To show something is not a subspace, we only need to give one instance when one of the properties fail.
+To show something is not a subspace, we only need to give one instance when any one of the properties fail.
 One instance is that the vector \((20,0)\) is in the curve as \(20-20^2/20=0\)\,, but the scalar multiple of half of this vector \(\frac12(20,0)=(10,0)\) is not as \(10-10^2/20=5\neq0\)\,.
 That is, the curve is not closed under scalar multiplication and hence is not a subspace. 
 \end{solution}
@@ -243,13 +226,13 @@ Hence it is not a subspace.
 \qview{30}{34}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image ,view={\q}{30}   ] 
-    \addplot3[surf,shader=interp,samples=2,opacity=0.5] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.5] {-x/6+y/3};
     \addplot3[only marks,black] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
 \end{center}
 \begin{solution} 
-The origin~\ov\ is in the plane \(z=-x/6+y/3\) as \(x=y=z=0\) satisfies the equation.
+The origin, the zero vector~\ov, is in the plane \(z=-x/6+y/3\) as \(x=y=z=0\) satisfies the equation.
 A vector \(\uv=(u_1,u_2,u_3)\) is in the plane provided \(-u_1+2u_2-6u_3=0\)\,.
 Consider \(c\uv=(cu_1,cu_2,cu_3)\) for which \(-(cu_1)+2(cu_2)-6(cu_3) =c(-u_1+2u_2-6u_3) =c\times0=0\) and hence must also be in the plane.
 Also let vector \(\vv=(v_1,v_2,v_3)\) be in the plane and consider \(\uv+\vv=(u_1+v_1,u_2+v_2,u_3+v_3)\) for which \(-(u_1+v_1)+2(u_2+v_2)-6(u_3+v_3) =-u_1-v_1+2u_2+2v_2-6u_3-6v_3 =(-u_1+2u_2-6u_3) +(-v_1+2v_2-6v_3) =0+0 =0\) and hence must also be in the plane.
@@ -258,23 +241,26 @@ The three requirements of \autoref{def:subspace} are met, and so this plane is a
 
 
 \item All vectors \((x,y,z)\) in the plane \(z=5+x/6+y/3\) (\autoref{eg:viewsubsi}).
-\begin{center}
-\qview{30}{34}{\begin{tikzpicture} 
-\begin{axis}[small,font=\footnotesize
-    ,axis equal image  ,view={\q}{30}  ] 
-    \addplot3[only marks,black] coordinates {(0,0,0)};
-    \addplot3[red,thick,quiver={u=0,v=0,w=5},-stealth] coordinates {(0,0,0)};
-    \addplot3[surf,shader=interp,samples=2,opacity=0.5] {5+x/6+y/3};
-\end{axis}
-\end{tikzpicture}}
-\end{center}
+%\begin{center}
+%\qview{30}{34}{\begin{tikzpicture} 
+%\begin{axis}[small,font=\footnotesize
+%    ,axis equal image  ,view={\q}{30}  ] 
+%    \addplot3[only marks,black] coordinates {(0,0,0)};
+%    \addplot3[red,thick,quiver={u=0,v=0,w=5},-stealth] coordinates {(0,0,0)};
+%    \addplot3[surf,samples=9,opacity=0.5] {5+x/6+y/3};
+%\end{axis}
+%\end{tikzpicture}}
+%\end{center}
+%\begin{solution} 
+%In this case, consider the vector \(\uv=(0,0,5)\) (shown in the above picture): any scalar multiple, say \(2\uv=(0,0,10)\), is not in the plane.
+%That is, vectors in the plane are not closed under scalar multiplication, and hence the plane is not a subspace.
+%\end{solution}
 \begin{solution} 
-In this case, consider the vector \(\uv=(0,0,5)\) (shown in the above picture): any scalar multiple, say \(2\uv=(0,0,10)\), is not in the plane.
-That is, vectors in the plane are not closed under scalar multiplication, and hence the plane is not a subspace.
+The origin is not in the plane as \(\uv=(0,0,0)\) does not satisfy the equation.  Hence this plane is not a subspace.
 \end{solution}
 
 
-\item\label{eg:somsubsf} \(\{\ov\}\).
+\item\label[example]{eg:somsubsf} \(\{\ov\}\) (the set of the zero vector in some~\(\RR^n\)).
 \begin{solution} 
 The zero vector forms a trivial subspace, \(\WW=\{\ov\}\)\,:  firstly, \(\ov\in\WW\);
 secondly, the only vector in~\WW\ is \(\uv=\ov\) for which every scalar multiple \(c\uv=c\ov=\ov\in\WW\);
@@ -282,7 +268,7 @@ and thirdly, a second vector~\vv\ in~\WW\ can only be \(\vv=\ov\) so \(\uv+\vv=\
 The three requirements of \autoref{def:subspace} are met, and so \(\{\ov\}\) is always a subspace. 
 \end{solution}
 
-\item\label{eg:somsubsg} \(\RR^n\).
+\item\label[example]{eg:somsubsg} \(\RR^n\).
 \begin{solution} \sloppy
 Lastly, \(\RR^n\) also is a subspace:
 firstly, \(\ov=(0,0,\ldots,0)\in\RR^n\);
@@ -308,12 +294,6 @@ The sum of which pair proves that the curve plotted in the margin is not a subsp
 {\((0,0),\ (2,2)\)}
 {\((2,2),\ (-2,-2)\)}
 {\((1,\frac14),\ (0,0)\)}
-%\begin{parts}
-%\item \((0,0),\ (2,2)\)
-%\item \((2,2),\ (-2,-2)\)
-%\item \((1,\frac14),\ (0,0)\)
-%\item \((-1,-\frac14),\ (2,2)\)
-%\end{parts}
 \end{activity}
 
 
@@ -321,44 +301,44 @@ The sum of which pair proves that the curve plotted in the margin is not a subsp
 
 In summary:
 \begin{itemize}
-\item in two dimensions~(\(\RR^2\)), subspaces are the origin~\ov, a line through~\ov, or the entire plane~\(\RR^2\);
-\item in three dimensions~(\(\RR^3\)), subspaces are the origin~\ov, a line through~\ov, a plane through~\ov, or the entire space~\(\RR^3\);
-\item and analogously for higher dimensions~(\(\RR^n\)).
+\item in two dimensions (denoted~\(\RR^2\)), subspaces are the origin~\ov, a line through~\ov, or the entire plane~\(\RR^2\);
+\item in three dimensions (denoted~\(\RR^3\)), subspaces are the origin~\ov, a line through~\ov, a plane through~\ov, or the entire space~\(\RR^3\);
+\item and analogously for higher dimensions (denoted~\(\RR^n\)).
 \end{itemize}
 
 
 Recall that the set of all linear combinations of a set of vectors, such as \((-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) (\autoref{eg:homosysiv}), is called the span of that set (\autoref{def:span}).
 
 \begin{theorem} \label{thm:spansubs} 
-Let \hlist\vv k\ be \(k\)~vectors in~\(\RR^n\),
-then \(\Span\{\hlist\vv k\}\) is a \idx{subspace} of~\(\RR^n\).
+Let \hlist\wv k\ be \(k\)~vectors in~\(\RR^n\),
+then \(\Span\{\hlist\wv k\}\) is a \idx{subspace} of~\(\RR^n\).
 \end{theorem}
 
 \begin{proof}
-Denote \(\Span\{\hlist\vv k\}\) by~\WW; we aim to prove it is a subspace (\autoref{def:subspace}).
-First, \(\ov=0\vv_1+0\vv_2+\cdots+0\vv_k\) which is a linear combination of \hlist\vv k\,, and so the zero vector \(\ov\in\WW\).
+Denote \(\Span\{\hlist\wv k\}\) by~\WW; we prove it is a subspace (\autoref{def:subspace}).
+First, \(\ov=0\wv_1+0\wv_2+\cdots+0\wv_k\) which is a linear combination of \hlist\wv k\,, and so the zero vector \(\ov\in\WW\).
 Now let \(\uv,\vv\in\WW\) then by \autoref{def:span} there are coefficients \hlist an\ and \hlist bn\ such that
 \begin{eqnarray*}
-&&\uv=\lincomb a\vv k\,,
-\\&&\vv=\lincomb b\vv k\,.
+&&\uv=\lincomb a\wv k\,,
+\\&&\vv=\lincomb b\wv k\,.
 \end{eqnarray*}
 Secondly, consequently
 \begin{eqnarray*}
 \uv+\vv&=&
-\lincomb a\vv k
-\\&&{}+\lincomb b\vv k
-\\&=&(a_1+b_1)\vv_1+(a_2+b_2)\vv_2+\cdots+(a_k+b_k)\vv_k\,,
-%\\&\in&\Span\{\hlist\vv k\}=\WW.
+\lincomb a\wv k
+\\&&{}+\lincomb b\wv k
+\\&=&(a_1+b_1)\wv_1+(a_2+b_2)\wv_2+\cdots+(a_k+b_k)\wv_k\,,
+%\\&\in&\Span\{\hlist\wv k\}=\WW.
 \end{eqnarray*}
-which is a linear combination of \hlist\vv k\,, and so is in~\WW.
+which is a linear combination of \hlist\wv k\,, and so is in~\WW.
 Thirdly, for any scalar~\(c\),
 \begin{eqnarray*}
-c\uv&=&c(\lincomb a\vv k)
-\\&=&\lincomb {ca}\vv k\,,
-%\\&\in&\Span\{\hlist\vv k\}=\WW.
+c\uv&=&c(\lincomb a\wv k)
+\\&=&\lincomb {ca}\wv k\,,
+%\\&\in&\Span\{\hlist\wv k\}=\WW.
 \end{eqnarray*}
-which is a linear combination of \hlist\vv k\,, and so is in~\WW.
-Hence \(\WW=\Span\{\hlist\vv k\}\) is a subspace.
+which is a linear combination of \hlist\wv k\,, and so is in~\WW.
+Hence \(\WW=\Span\{\hlist\wv k\}\) is a subspace.
 \end{proof}
 
 
@@ -377,20 +357,19 @@ The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2),(0,3,1)\}\), as il
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image  ,view={\q}{30}  ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \addplot3[blue!50!black,thick,quiver={u=3,v=3,w=1/2},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=0,v=3,w=1},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-
 Also,  \(\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) is the  plane \(z=-x/6+y/3\), as illustrated below. 
 The reason is that every \idx{linear combination} of these three vectors fills out the plane: \(a_1(5,1,-1/2)+a_2(0,-3,-1)+a_3(-4,1,1) =(5a_1-4a_3, a_1-3a_2+a_3, -a_1/2-a_2+a_3)\) and so lies in the plane as \(-x/6+y/3-z=-\frac16(5a_1-4a_3)+\frac13(a_1-3a_2+a_3)-(-a_1/2-a_2+a_3) =-\frac56a_1+\frac23a_3+\frac13a_1-a_2+\frac13a_3+\frac12a_1+a_2-a_3 =0\) for all \(a_1\), \(a_2\) and~\(a_3\).
 \begin{center}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
     ,axis equal image  ,view={\q}{35}  ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \addplot3[blue!50!black,thick,quiver={u=5,v=1,w=-1/2},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=0,v=-3,w=-1},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=-4,v=1,w=1},-stealth] coordinates {(0,0,0)};
@@ -409,7 +388,7 @@ hence the plane is \(\Span\{(2,1,0),(-3,0,1)\}\) as illustrated in stereo below.
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-3:3
     ,axis equal image  ,view={\q}{30}  ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/3+y*2/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/3+y*2/3};
     \addplot3[blue!50!black,thick,quiver={u=+2,v=1,w=0},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=-3,v=0,w=1},-stealth] coordinates {(0,0,0)};
 \end{axis}
@@ -426,19 +405,20 @@ Although sometimes we also use the rows of the matrix to be the vectors in the s
 
 
 \begin{definition}\label{def:colsp} 
-    \begin{enumerate}
-        \item\label{def:colspa} The \bfidx{column space} of any $m\times n$ matrix~$A$ is the \idx{subspace} of~$\RR^m$ \idx{span}ned by the \(n\)~\idx{column vector}s of~$A$.
+For every $m\times n$ matrix~$A$:
+    \begin{enumerate}[ref=\ref{def:colsp}(\alph*)]
+        \item\label[definition]{def:colspa} the \bfidx{column space} of~\(A\) is the \idx{subspace} of~$\RR^m$ \idx{span}ned by the \(n\)~\idx{column vector}s of~$A$;%
         \footnote{Some of you will know that the column space is also called the \idx{range}, but for the moment we just use the term column space. \ifcsname r@ch:cipvs\endcsname \autoref{ch:cipvs} establishes and discusses this connection between column space and range.\fi}
         
-		\item\label{def:colspb} The \bfidx{row space} of any $m\times n$ matrix~$A$ is the \idx{subspace} of~$\RR^n$ \idx{span}ned by the \(m\)~\idx{row vector}s of~$A$.  
+		\item\label[definition]{def:colspb} the \bfidx{row space} of~$A$ is the \idx{subspace} of~$\RR^n$ \idx{span}ned by the \(m\)~\idx{row vector}s (transposed) of~$A$.  
     \end{enumerate}
 \end{definition}
 
 
-\begin{example} \label{eg:}
-Examples~\ref{eg:1x2subs}--\ref{eg:planesubs} provide some cases.
+\begin{example} 
+\cref{eg:1x2subs,eg:plsubs,eg:planesubs} provide some cases.
 \begin{itemize}
-\item From \autoref{eg:1x2subs}, the \idx{column space} of \(A=\footnotesize\begin{bmatrix} 1&-2\\\frac12&-1 \end{bmatrix}\) is the line \(y=x/2\)\,.
+\item From \autoref{eg:1x2subs}, the \idx{column space} of \(A=\begin{bmat} 1&-2\\1/2&-1 \end{bmat}\) is the line \(y=x/2\)\,.
 
 The \idx{row space} of this matrix~\(A\) is \(\Span\{(1,-2),(\frac12,-1)\}\).
 \marginpar{\begin{tikzpicture} 
@@ -456,7 +436,7 @@ B=\begin{bmatrix} 3&0\\3&3\\\frac12&1 \end{bmatrix}
 \end{equation*}
 is the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 
-The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0),(3,3),(\frac12,1)\}\) which is a subspace of~\(\RR^2\), whereas the column space is a subspace of~\(\RR^3\).
+The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0),(3,3),(\frac12,1)\}\) which is a subspace of~\(\RR^2\)---the marginal plot shows the three vectors. 
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,ymin=-1.5,ymax=3.5
     ,axis equal, axis lines=middle ] 
@@ -465,6 +445,7 @@ The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0),(3,3),(\frac12,1)\}\) whic
     \addplot[blue,thick,quiver={u=1/2,v=1},-stealth] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}%
+Whereas the column space is a subspace of~\(\RR^3\).
 Here the span is all of~\(\RR^2\) as for each \((x,y)\in\RR^2\) choose  the linear combination \(\frac{x-y}3(3,0)+\frac{y}3(3,3)+0(\frac12,1)=(x-y+y+0,0+y+0)=(x,y)\) so each \((x,y)\) is in the span, and hence all of the \(\RR^2\)~plane is the span.
 That the column space and the row space are both planes is no coincidence (\autoref{thm:rowcolD}).
 
@@ -486,7 +467,7 @@ To see this, consider all linear combinations \(a_1(5,0,-4)+a_2(1,-3,1)+a_3(-\fr
 \qview{73}{75}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,view={\q}{30}
     ,axis equal image    ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-0.8*x-0.6*y};
+    \addplot3[surf,samples=9,opacity=0.4] {-0.8*x-0.6*y};
     \addplot3[blue!50!black,thick,quiver={u=5,v=0,w=-4},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=1,v=-3,w=1},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=-1/2,v=-1,w=1},-stealth] coordinates {(0,0,0)};
@@ -512,19 +493,12 @@ Which one of the following vectors is in the \idx{column space} of the matrix
 {\(\begin{bmatrix} 2\\-3\\-3 \end{bmatrix}\)}
 {\(\begin{bmatrix} 2\\2\\-3 \end{bmatrix}\)}
 {\(\begin{bmatrix} 8\\5\\-2 \end{bmatrix}\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\begin{bmatrix} 2\\-3\\-3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 2\\2\\-3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 8\\2\\-3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 8\\5\\-2 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Is vector \(\bv=(-0.6,0,-2.1,1.9,1.2)\) in the \idx{column space} of matrix
 \begin{equation*}
 A=\begin{bmatrix} 2.8&-3.1&3.4
@@ -537,7 +511,7 @@ What about vector \(\cv=(15.2,5.4,3.8,-1.9,-3.7)\)?
 
 \begin{solution} 
 The question is: can we find a linear combination of the columns of~\(A\) which equals vector~\bv?
-That is, can we find some vector~\xv\ such that \(A\xv=\bv\)?
+That is, can we find some vector~\xv\ of the coefficients in the linear combination such that \(A\xv=\bv\)?
 Answer using our knowledge of linear equations.
 
 Let's use \autoref{pro:gensol} in \script.
@@ -561,7 +535,7 @@ A=[2.8 -3.1 3.4
 z=U'*[-0.6;0;-2.1;1.9;1.2]
 z=U'*[15.2;5.4;3.8;-1.9;-3.7]
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 to find \twodp
 \begin{verbatim}
 U =
@@ -626,21 +600,21 @@ Hence \(\Null A\) is a subspace (\autoref{def:subspace}).
 
 \begin{example} \label{eg:nullsp}
 \begin{itemize}
-\item  \autoref{eg:homosysi} showed that the only solution of the \idx{homogeneous} system \(\footnotesize\begin{cases}
+\item  \autoref{eg:homosysi} showed that the only solution of the \idx{homogeneous} system \(\begin{scases}
 3x_1-3x_2=0\\-x_1-7x_2=0
-\end{cases}\) is \(\xv=\ov\)\,.
+\end{scases}\) is \(\xv=\ov\)\,.
 Thus its set of solutions is~\(\{\ov\}\) which is a subspace (\autoref{eg:somsubsf}).
-Thus \(\{\ov\}\) is the \idx{nullspace} of matrix \(\footnotesize\begin{bmatrix} 3&-3\\-1&-7 \end{bmatrix}\).
+Thus \(\{\ov\}\) is the \idx{nullspace} of matrix \(\begin{bmat} 3&-3\\-1&-7 \end{bmat}\).
 
 \item Recall the \idx{homogeneous} system of linear equations from \autoref{eg:homosysiv} has solutions \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\frac{15}7,0,\frac97,1)t\) for arbitrary \(s\) and~\(t\).
 That is, the set of solutions is \(\Span\{(-2,1,0,0),(-\frac{15}7,0,\frac97,1)\}\).
 Since the set is a span (\autoref{thm:spansubs}), the set of solutions is a subspace of~\(\RR^4\).
-Thus this set of solutions is the \idx{nullspace} of the matrix \(\footnotesize\begin{bmatrix} 1&2&4&-3\\
-1&2&-3&6 \end{bmatrix}\).
+Thus this set of solutions is the \idx{nullspace} of the matrix \(\begin{bmat} 1&2&4&-3\\
+1&2&-3&6 \end{bmat}\).
 
-\item In contrast, \autoref{eg:gjeb} shows that the set of solutions of the \emph{non}-homogeneous system \(\footnotesize\begin{cases}
+\item In contrast, \autoref{eg:gjeb} shows that the set of solutions of the \emph{non}-homogeneous system \(\begin{scases}
 -2v+3w=-1\,,\\2u+v+w=-1\,.
-\end{cases}\)
+\end{scases}\)
 is \((u,v,w)=(-\frac34-\frac14t,\frac12+\frac32t,t)
 =(-\frac34,\frac12,0)+(-\frac14,\frac32,1)t\)
 over all values of parameter~\(t\).
@@ -651,23 +625,19 @@ A \emph{non}-homogeneous system does not form a subspace of solutions.
 \end{example}
 
 
-\begin{example} \label{eg:}
-Given the matrix
-\begin{equation*}
-A=\begin{bmatrix} 3&1&0
-\\-5&-1&-4 \end{bmatrix},
-\end{equation*}
-is vector \(\vv=(-2,6,1)\) in the null space of~\(A\)?  
+\begin{example} 
+Is the vector \(\vv=(-2,6,1)\) in the null space of~\(A=\begin{bmat} 3&1&0
+\\-5&-1&-4 \end{bmat}\)?  
 What about vector \(\wv=(1,-3,2)\)?
 \begin{solution} 
 To test a given vector, just multiply by the matrix and see if the result is zero.
 \begin{itemize}
-\item \(A\vv=\begin{bmatrix} 3\cdot(-2)+1\cdot6+0\cdot1
-\\-5\cdot(-2)-1\cdot6-4\cdot1 \end{bmatrix}
-=\begin{bmatrix} 0\\0 \end{bmatrix}=\ov\), so \(\vv\in\Null A\)\,.
-\item \(A\wv=\begin{bmatrix} 3\cdot1+1\cdot(-3)+0\cdot2
-\\-5\cdot1-1\cdot(-3)-4\cdot2 \end{bmatrix}
-=\begin{bmatrix} 0\\-10 \end{bmatrix}\neq\ov\), so \wv~is not in the nullspace.
+\item \(A\vv=\begin{bmat} 3\cdot(-2)+1\cdot6+0\cdot1
+\\-5\cdot(-2)-1\cdot6-4\cdot1 \end{bmat}
+=\begin{bmat} 0\\0 \end{bmat}=\ov\), so \(\vv\in\Null A\)\,.
+\item \(A\wv=\begin{bmat} 3\cdot1+1\cdot(-3)+0\cdot2
+\\-5\cdot1-1\cdot(-3)-4\cdot2 \end{bmat}
+=\begin{bmat} 0\\-10 \end{bmat}\neq\ov\), so \wv~is not in the nullspace.
 \end{itemize}
 \end{solution}
 \end{example}
@@ -685,13 +655,6 @@ Which vector is in the \idx{nullspace} of the matrix
 {\(\begin{bmatrix} -1\\0\\4 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0\\1\\3 \end{bmatrix}\)}
 {\(\begin{bmatrix} 3\\-4\\0 \end{bmatrix}\)}
-%\partswidth=5em
-%\begin{parts}
-%\item \(\begin{bmatrix} -1\\0\\4 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 0\\1\\3 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 2\\-2\\2 \end{bmatrix}\)
-%\item \(\begin{bmatrix} 3\\-4\\0 \end{bmatrix}\)
-%\end{parts}
 \end{activity}
    
 
@@ -717,21 +680,19 @@ The importance of \idx{orthogonal basis} functions in interpolation and approxim
 \end{quoted}
 
 Given that \idx{subspace}s arise frequently in linear algebra, and that there are many ways of representing the same subspace (as seen in some previous examples), is there a `best' way of representing subspaces?
-The next definition and theorems largely answer this question.
+The next definition and theorems largely answer this challenge.
 
 We prefer to use an \idx{orthonormal set} of vectors to span a \idx{subspace}.
 The virtue is that orthonormal sets have many practically useful properties.
-For example, orthonormal sets underpin \textsc{\idx{jpeg}} images, our understanding of vibrations, and reliable \idx{weather forecast}ing.
-Recall that an orthonormal set is composed of vectors that are both 
-at \idx{right-angles} to each other (their dot products are zero) and all 
-of \idx{unit length} (\autoref{def:orthoset}).
+Because of their beautiful properties, orthonormal sets underpin \textsc{\idx{jpeg}} images, our understanding of vibrations, reliable \idx{weather forecast}ing, and much more.
+Recall that an orthonormal set (\autoref{def:orthoset}) is composed of vectors that are both all at \idx{right-angles} to each other (their dot products are zero) and all of \idx{unit length}.
 
 
 \begin{definition} \label{def:orthobasis} 
 An \bfidx{orthonormal basis} for a \idx{subspace}~\WW\ of~\(\RR^n\) is an \idx{orthonormal set} of vectors that span~\WW.
 \end{definition}
 
-\begin{example} \label{eg:}
+\begin{example} 
 Recall that \(\RR^n\) is itself a subspace of~\(\RR^n\) (\autoref{eg:somsubsg}).
 \begin{enumerate}
 \item The \(n\)~\idx{standard unit vector}s \index{e@$\ev_j$}\hlist\ev n\ in~\(\RR^n\) form a set of \(n\)~orthonormal vectors.
@@ -752,12 +713,6 @@ Which of the following sets is an orthonormal basis for~\(\RR^2\)?
 {\(\{\ov,\iv,\jv\}\)}
 {\(\{(1,1),\ (1,-1)\}\)}
 {\(\{\frac15(3,-4),\ \frac1{13}(12,5)\}\)}
-%\begin{parts}
-%\item \(\{\ov,\iv,\jv\}\)
-%\item \(\{(1,1),\ (1,-1)\}\)
-%\item \(\{\frac15(3,-4),\ \frac1{13}(12,5)\}\)
-%\item \(\{\frac12(1,\sqrt3),\ \frac12(-\sqrt3,1)\}\)
-%\end{parts}
 \end{activity}
 
 
@@ -797,7 +752,7 @@ Confirm that the plane \(-x+2y-2z=0\) has an orthonormal basis \(\{\uv_1,\uv_2\}
 \begin{axis}[small,font=\footnotesize,domain=-1:1
     ,axis equal image ,view={\q}{30}   ] 
     \addplot3[only marks,black] coordinates {(0,0,0)};
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.5] {-x/2+y};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/2+y};
     \addplot3[blue!50!black,thick,quiver={u=-2/3,v=1/3,w=2/3},-stealth] coordinates {(0,0,0)};
     \addplot3[blue!50!black,thick,quiver={u=2/3,v=2/3,w=1/3},-stealth] coordinates {(0,0,0)};
 \end{axis}
@@ -818,8 +773,9 @@ Lastly, from the parametric form of an equation for a plane (\autoref{sec:nvep})
 \begin{procedure}[orthonormal basis for a span]\label{pro:ospan}
 	Let $\{\hlist\av n\}$ be a set of $n$~vectors in~\(\RR^m\), then the following procedure finds an \idx{orthonormal basis} for the \idx{subspace} \(\Span\{\hlist\av n\}\). 
 \begin{enumerate}
-\item Form matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
-\item Factorise~\(A\) into an \svd, $A=\usv$\,, let \(\uv_j\)~denote the columns of~$U$ (\idx{singular vector}s), and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (\autoref{def:rank}).  
+\item Form \(m\times n\) matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
+\item Factorize~\(A\) into an \svd, $A=\usv$\,. 
+Let \(\hlist\uv m\)~denote the \(m\)~columns of~$U$ (\idx{singular vector}s), and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (\autoref{def:rank}).  
 \item Then \(\{\hlist\uv r\}\) is an \idx{orthonormal basis} for the subspace \(\Span\{\hlist\av n\}\).
 \end{enumerate}
 \end{procedure}
@@ -848,9 +804,7 @@ Hence \(\{\hlist \uv r\}\) forms an orthonormal basis for \(\Span\{\hlist\av n\}
 Compute an orthonormal basis for \(\Span\{(1,\frac12),(-2,-1)\}\).
 \begin{solution} 
 Form the matrix whose columns are the given vectors
-\begin{equation*}
-A=\begin{bmatrix} 1&-2\\\frac12&-1 \end{bmatrix},
-\end{equation*}
+\(A=\begin{bmat} 1&-2\\1/2&-1 \end{bmat}\),
 then ask \script\ for an \svd\ and interpret.
 \begin{verbatim}
 A=[1 -2; 1/2 -1]
@@ -860,7 +814,7 @@ A=[1 -2; 1/2 -1]
 A=[1 -2; 1/2 -1]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The computed \svd\ is (\(V\)~is immaterial here)
 \begin{verbatim}
 U =
@@ -883,11 +837,9 @@ Use each of these spans to find two different orthonormal bases for the~plane.
 \begin{solution} 
 \begin{itemize}
 \item Form the matrix whose columns are the given vectors
-\begin{equation*}
-A=\begin{bmatrix} 3&0\\3&3\\\frac12&1 \end{bmatrix},
-\end{equation*}
+\(A=\begin{bmat} 3&0\\3&3\\1/2&1 \end{bmat}\),
 then ask \script\ for the \svd\ and interpret.
-It is often easier to form the matrix in \script\ by entering the vectors as rows and then transposing:
+In \script\ it is often easier to form the matrix by entering the vectors as rows and then transposing (with the dash):
 \begin{verbatim}
 A=[3 3 1/2;0 3 1]'
 [U,S,V]=svd(A)
@@ -896,7 +848,7 @@ A=[3 3 1/2;0 3 1]'
 A=[3 3 1/2;0 3 1]'
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The computed \svd\ is \twodp
 \begin{verbatim}
 U =
@@ -915,7 +867,7 @@ These basis vectors are illustrated as the pair of red vectors in stereo below.
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image ,view={\q}{30}   ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.5] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \addplot3[red,thick,quiver={u=-0.51,v=-0.84,w=-0.20},-stealth] coordinates {(0,0,0)};
     \addplot3[red,thick,quiver={u=0.85,v=-0.44,w=-0.29},-stealth] coordinates {(0,0,0)};
     \addplot3[brown!70!black,thick,quiver={u=-0.99,v=-0.01,w=0.16},-stealth] coordinates {(0,0,0)};
@@ -925,9 +877,7 @@ These basis vectors are illustrated as the pair of red vectors in stereo below.
 \end{center}
 
 \item Similarly, form the matrix 
-\begin{equation*}
-B=\begin{bmatrix} 5&0&-4\\1&-3&1\\-\frac12&-1&1 \end{bmatrix}
-\end{equation*}
+\(B=\begin{bmat} 5&0&-4\\1&-3&1\\-1/2&-1&1 \end{bmat}\),
 then ask \script\ for the \svd\ and interpret.
 Form the matrix in \script\ by entering the vectors as rows and then transposing:
 \begin{verbatim}
@@ -938,7 +888,7 @@ B=[5 1 -1/2; 0 -3 -1; -4 1 1]'
 B=[5 1 -1/2; 0 -3 -1; -4 1 1]'
 [U,S,V]=svd(B)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The computed \svd\ is \twodp
 \begin{verbatim}
 U =
@@ -999,10 +949,10 @@ Extension: recalling \autoref{thm:ranktr}, which of the above is an orthonormal 
 
 
 \begin{example}[\idx{data reduction}] \label{eg:orthbapp}
-Every four or five years the phenomenon of \idx{El Nino} makes a large impact on the world's weather: from drought in Australia to floods in South America.
-We would like to predict El Nino in advance to save lives and economies.
-El Nino is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
-This example seeks patterns in the \soi\ in order to be able to predict the \soi\ and hence predict El Nino.
+Every four or five years the phenomenon of \idx{El Ni\~no} makes a large impact on the world's weather: from drought in Australia to floods in South America.
+We would like to predict El Ni\~no in advance to save lives and economies.
+El Ni\~no is correlated significantly with the difference in atmospheric pressure between Darwin and Tahiti---the so-called \idx{Southern Oscillation Index} (\soi).
+This example seeks patterns in the \soi\ in order to be able to predict the \soi\ and hence predict El Ni\~no.
 
 \begin{figure}
 \centering
@@ -1022,7 +972,7 @@ The challenge of this example is to explore the full details of this signal.
 \caption{the first six windows of the \soi\ data of \autoref{fig:soiRoundData}---displaced vertically for clarity. 
 Each window is of length ten years: 
 lowest, the first window is data 1944--1953;
-second lowest, the second is 1945--1954;
+second lowest, covers 1945--1954;
 third lowest, covers 1946--1955; 
 and so on to the 41st window is data 1984--1993, not shown.}
 \label{fig:soiRoundWind}
@@ -1099,7 +1049,7 @@ A=hankel(soi(1:10),soi(10:50))
 singValues=diag(S)
 plot(U(:,1:4))
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The computed singular values are $44.63,$ $43.01,$ $39.37,$ $36.69,$ $0.03,$ $0.03,$ $0.02,$ $0.02,$ $0.02,$ $0.01$.
 In practice, treat the six small singular values as zero.
 Since there are four `nonzero' singular values, the windows of data lie in a subspace spanned by the first four columns of~\(U\).
@@ -1114,7 +1064,7 @@ The combination of these two cycles leads to the structure of the \soi\ in \auto
 \end{figure}%
 \end{itemize}
 That is, all the structure seen in the fifty year \soi\ data of \autoref{fig:soiRoundData} can be expressed in terms of the  orthonormal basis of the four ten-year vectors plotted in \autoref{fig:soiRoundSubs}.
-This analysis implies the \soi\ data is composed of two cycles of two different frequencies.
+This analysis implies the \soi\ data is composed of two cycles of two different frequencies.%
 \footnote{However, I `smoothed' the \soi\ data for the purposes of this example.  The real \soi\ data is much noisier.  
 Also we would use \(600\)~monthly averages not \(50\)~yearly averages: so a ten year window would be a window of \(120\)~months, and the matrix would be considerably larger \(120\times481\).  
 Nonetheless, the conclusions with the real data, and justified by \autoref{ch:am}, are much the same.}
@@ -1146,25 +1096,24 @@ Write each of these, such as the first one, in the form
 \begin{bmatrix} a_{11}\\a_{21}\\\vdots\\a_{r1} \end{bmatrix}
 =U\av_1\,,
 \end{equation*}
-where matrix \(U=\begin{bmatrix} \uv_1&\uv_2&\cdots&\uv_r \end{bmatrix}\).
-Then the \(n\times s\) matrix
+upon setting matrix \(U:=\begin{bmatrix} \uv_1&\uv_2&\cdots&\uv_r \end{bmatrix}\).
+Then setting the \(n\times s\) matrix
 \begin{eqnarray*}
-V&=&\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_s \end{bmatrix}
+V&:=&\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_s \end{bmatrix}
 \\&=&\begin{bmatrix} U\av_1& U\av_2&\cdots&U\av_s\end{bmatrix}
 \\&=&U\begin{bmatrix} \av_1& \av_2&\cdots&\av_s\end{bmatrix}
 =UA
 \end{eqnarray*}
-for the \(r\times s\) matrix~\(A=\begin{bmatrix} \av_1& \av_2&\cdots&\av_s \end{bmatrix}\).
-By assumption \(r<s\) and so \autoref{thm:feweqns} assures that the homogeneous system \(A\xv=\ov\) has infinitely many solutions, choose any one non-trivial solution \(\xv\neq\ov\)\,.
+for the \(r\times s\) matrix~\(A:=\begin{bmatrix} \av_1& \av_2&\cdots&\av_s \end{bmatrix}\).
+By assumption, \(r<s\) and so \autoref{thm:feweqns} assures that the homogeneous system \(A\xv=\ov\) has infinitely many solutions, choose any one non-trivial solution \(\xv\neq\ov\)\,.
 Consider 
 \begin{eqnarray*}
 V\xv&=& UA\xv\quad(\text{from above})
 \\&=&U\ov\quad(\text{since }A\xv=\ov)
 \\&=&\ov\,.
 \end{eqnarray*}
-Since \cV\ is an orthonormal set, the matrix~\(V\) is orthogonal (\autoref{thm:orthog}).  
-Then premultiplying \(V\xv=\ov\) by~\(\tr V\) gives \(\tr VV\xv=\tr V\ov\) which simplifies to \(I_s\xv=\ov\)\,; that is, \(\xv=\ov\)\,.  
-But this is a contradiction, so we cannot have \(r<s\)\,.
+Premultiplying \(V\xv=\ov\) by~\(\tr V\) gives \(\tr VV\xv=\tr V\ov\), but as the columns of~\cV\ are orthonormal this simplifies to \(I_s\xv=\ov\)\,; that is, \(\xv=\ov\)\,.  
+But \(\xv=\ov\) contradicts \(\xv\neq\ov\)\,, so the assumption cannot be correct, that is, we cannot have \(r<s\)\,.
 
 Second, a corresponding argument establishes we cannot have \(s<r\)\,.
 Hence \(r=s\)\,, and so all orthonormal bases of a given subspace must have the same number of vectors.
@@ -1196,10 +1145,10 @@ Let \WW\ be a \idx{subspace} of~\(\RR^n\), then there exists an orthonormal basi
 \end{theorem}
 
 \begin{proof} 
-If the subspace is \(\WW=\{\ov\}\), then \(\WW=\Span\emptyset\) gives a basis and this trivial case is done.
+In the trivial case when the subspace is \(\WW=\{\ov\}\), then \(\WW=\Span\{\}\) gives a basis and this trivial case is done.
 
 For every other subspace \(\WW\neq\{\ov\}\) there exists a nonzero vector \(\wv\in\WW\).
-Normalise the vector by setting \(\uv_1=\wv/|\wv|\).
+Normalize the vector by setting \(\uv_1=\wv/|\wv|\).
 Then all scalar multiples \(c\uv_1=c\wv/|\wv|=(c/|\wv|)\wv\in\WW\) by closure of~\WW\ under scalar multiplication (\autoref{def:subspace}). 
 Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated below for an example).
 Consequently, either  \(\Span\{\uv_1\}=\WW\) and we are done, or we repeat the following step until the space~\WW\ is spanned.
@@ -1207,7 +1156,7 @@ Consequently, either  \(\Span\{\uv_1\}=\WW\) and we are done, or we repeat the f
 \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
     ,axis equal image, domain=-1:1.6  ,view={\q}{30}  ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \node[above] at (axis cs:1.6,-1,-0.5) {$\WW$};
     \addplot3[blue!50!black,thick,quiver={u=0.702,v=0.702,w=0.117},-stealth,mark=o] coordinates {(0,0,0)};
     \node[above] at (axis cs:0.702,0.702,0.117) {$\uv_1$};
@@ -1225,7 +1174,7 @@ Consequently, either \(\Span\{\hlist{\uv'}{k+1}\}=\WW\) and we are done, or we r
 \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
     ,axis equal image, domain=-1:1.6  ,view={\q}{30}  ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \node[above] at (axis cs:1.6,-1,-0.5) {$\WW$};
     \addplot3[blue!50!black,thick,quiver={u=0.702,v=0.702,w=0.117},-stealth,mark=o] coordinates {(0,0,0)};
     \node[above] at (axis cs:0.702,0.702,0.117) {$\uv_1$};
@@ -1250,15 +1199,17 @@ If the process ever repeats until \(k=n\)\,, then we know \(\WW=\RR^n\) and we a
 
 \paragraph{Ensemble simulation makes better weather forecasts}
 Near the end of the twentieth century \idx{weather forecast}s were becoming amazingly good at predicting the chaotic weather days in advance.
-However, there were notable failures: occasionally the weather forecast would give no hint of storms that developed (such as the severe 1999 storm in Sydney\footnote{\url{http://en.wikipedia.org/wiki/1999_Sydney_hailstorm} [April 2015]})
+However, there were notable failures: occasionally the weather forecast would give no hint of storms that developed (such as the severe 1999 storm in Sydney\footnote{\url{http://en.wikipedia.org/wiki/1999_Sydney_hailstorm} [April 2015]}).
 Why?
 
 Occasionally the weather is both near a `\idx{tipping point}' where small changes may cause a storm, and where the errors in measuring the current weather are of the size of the necessary changes.
-Then the storm would be within the possibilities, but it would not be forecast if the measurements were, by chance error, the `other side' of the tipping point.
+Then the storm would be within the possibilities. 
+But the storm would not be forecast if the measurements were, by chance error, the `other side' of the tipping point (as happened in 1999).
 Meteorologists now mostly overcome this problem by executing on their computers an \idx{ensemble of simulations}, perhaps an ensemble of a hundred different forecast simulations \cite[pp.274--80, e.g.]{Roulstone2013}.
-Such a set of \(100\)~simulations essentially lie in a \idx{subspace} spanned by \(100\)~vectors in the vastly larger space, say~\(\RR^{1000,000,000}\), of the maybe billion variables in the weather model.
-But what happens in the computational simulations is that the ensemble of simulations degenerate in time: so the meteorologists continuously `renormalise' the \idx{ensemble of simulations} by rewriting the ensemble in terms of an \emph{orthonormal basis} of \(100\)~vectors.
-Such an orthonormal basis for the ensemble reasonably ensures unusual storms are retained in the range of possibilities explored by the ensemble forecast.
+Such a set of \(100\)~simulations essentially lie in a \idx{subspace} spanned by \(100\)~vectors in the vastly larger space, say~\(\RR^{1,000,000,000}\), of the maybe billion variables in the weather model.
+But what happens in the computational simulations is that the ensemble of simulations degenerate in time.
+To avoid such degeneracy the meteorologists continuously `renormalize' the \idx{ensemble of simulations} by rewriting the ensemble in terms of an \emph{orthonormal basis} of \(100\)~vectors.
+Such an orthonormal basis for the ensemble reasonably ensures unusual storms are retained in the range of possibilities explored by the ensemble forecast, and hence make weather forecasting much more complete.
 
 
 \index{orthonormal basis|)}
@@ -1271,7 +1222,7 @@ Such an orthonormal basis for the ensemble reasonably ensures unusual storms are
 \index{dimension|(}
 
 \begin{quoted}{\cite{Mandelbrot1982}}
-\emph{physical dimension.} It is an intuitive notion that appears to go back to an archaic state before Greek geometry, yet deserves to be taken up again.
+\ldots\ \emph{physical dimension.} It is an intuitive notion that appears to go back to an archaic state before Greek geometry, yet deserves to be taken up again.
 \end{quoted}
 
 One of the beauties of an \idx{orthonormal basis} is that, being orthonormal, they look just like a rotated version of the \idx{standard unit vector}s.
@@ -1281,7 +1232,7 @@ That is, the two orthonormal basis of a plane could form the two `\idx{standard 
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image    ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \addplot3[red,thick,quiver={u=-0.51,v=-0.84,w=-0.20},-stealth] coordinates {(0,0,0)};
     \addplot3[red,thick,quiver={u=0.85,v=-0.44,w=-0.29},-stealth] coordinates {(0,0,0)};
 \end{axis}
@@ -1290,7 +1241,7 @@ That is, the two orthonormal basis of a plane could form the two `\idx{standard 
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image    ] 
-    \addplot3[surf,shader=interp,samples=2,blue,opacity=0.4] {-x/6+y/3};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
     \addplot3[brown!70!black,thick,quiver={u=-0.99,v=-0.01,w=0.16},-stealth] coordinates {(0,0,0)};
     \addplot3[brown!70!black,thick,quiver={u=-0.04,v=-0.95,w=-0.31},-stealth] coordinates {(0,0,0)};
 \end{axis}
@@ -1305,7 +1256,7 @@ The number of vectors in an \idx{orthonormal basis} for~\WW\ is called the \bfid
 By convention, \(\dim\{\ov\}=0\)\,.
 \end{definition}
 
-\begin{example} \label{eg:}
+\begin{example} 
 \begin{itemize}
 \item \autoref{eg:orthbas1} finds that the linear subspace \(x=y=z\) is spanned by the \idx{orthonormal basis} \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\).  
 With one vector in the basis, the line is one dimensional.
@@ -1313,19 +1264,19 @@ With one vector in the basis, the line is one dimensional.
 \item \autoref{eg:orthbas2} finds that the planar subspace \(-x+2y-2z=0\) is spanned by the \idx{orthonormal basis} \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\).  
 With two vectors in the basis, the plane is two dimensional.
 
-\item  Subspace \(\WW=\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) of \autoref{eg:orthospan} is found to have an \idx{orthonormal basis} of the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
+\item  Subspace \(\WW=\Span\{(5,1,-1/2),(0,-3,-1),(-4,1,1)\}\) of \autoref{eg:orthospan} is found to have an \idx{orthonormal basis} of  vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
 With two vectors in the basis, the subspace is two dimensional; that is, \(\dim\WW=2\)\,.
 
 \item Since the subspace~\(\RR^n\) (\autoref{eg:somsubsg}) has an \idx{orthonormal basis} of the \(n\)~\idx{standard unit vector}s, \index{e@$\ev_j$}\(\{\hlist\ev n\}\), then  \(\dim\RR^n=n\)\,.
 
-\item The \idx{El Nino} windowed data of \autoref{eg:orthbapp} is effectively spanned by four orthonormal vectors.  Despite the apparent complexity of the signal, the data effectively lies in a subspace of dimension four (that of two oscillators).
+\item The \idx{El Ni\~no} windowed data of \autoref{eg:orthbapp} is effectively spanned by four orthonormal vectors.  Despite the apparent complexity of the signal, the data effectively lies in a subspace of dimension four (that of two oscillators).
 \end{itemize}
 \end{example}
 
 
 \begin{theorem} \label{thm:rowcolD} 
 The \idx{row space} and \idx{column space} of a matrix~\(A\) have the same \idx{dimension}.
-Further, given an \svd\ of the matrix, say \(A=\usv\), an \idx{orthonormal basis} for the column space is the first \(\rank A\)~columns of~\(U\), and that for the \idx{row space} is the first \(\rank A\)~columns of~\(V\).
+Further, given an \svd\ of the matrix, say \(A=\usv\) and setting \(r=\rank A\)\,, an \idx{orthonormal basis} for the column space is the first \(r\)~columns of~\(U\), and that for the \idx{row space} is the first \(r\)~columns of~\(V\).
 \end{theorem}
 
 \begin{proof} 
@@ -1334,10 +1285,10 @@ Hence,
 \begin{align*}
 &\text{dimension of the row space of }A
 \\&=\text{dimension of the column space of }\tr A
-\\&=\rank(\tr A) \quad(\text{by Proc.~\ref{pro:ospan}})
+\\&=\rank(\tr A) \quad(\text{by \autoref{pro:ospan}})
 \\&=\rank A \quad(\text{by \autoref{thm:ranktr}})
 \\&=\text{dimension of the column space of }A
-\quad(\text{by Proc.~\ref{pro:ospan}}).
+\quad(\text{by \autoref{pro:ospan}}).
 \end{align*}
 %Hence the row space and the column space have the same dimension.
 
@@ -1349,7 +1300,7 @@ Since the row space of~\(A\) is the column space of~\(\tr A\), an orthonormal ba
 
 
 \begin{example} \label{eg:2x2rcsp}
-Find an \svd\ of the matrix~\(A=\begin{bmatrix} 1&-4\\1/2&-2 \end{bmatrix}\) and compare the \idx{column space} and the \idx{row space} of the matrix.
+Find an \svd\ of the matrix~\(A=\begin{bmat} 1&-4\\1/2&-2 \end{bmat}\) and compare the \idx{column space} and the \idx{row space} of the matrix.
 \begin{solution} 
 Ask \script\ for an \svd\ and interpret:
 \begin{verbatim}
@@ -1360,7 +1311,7 @@ A=[1 -4; 1/2 -4]
 A=[1 -4; 1/2 -4]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 computes the \svd\ 
 \begin{verbatim}
 U =
@@ -1396,17 +1347,10 @@ As illustrated in the margin, the two subspaces, the row space (red) and the col
 \begin{activity}
 Using the \svd\ of \autoref{eg:2x2rcsp}, what is the dimension of the \idx{nullspace} of the matrix~\(\begin{bmatrix} 1&-4\\1/2&-2 \end{bmatrix}\)?
 \actposs[4]1230
-%\partswidth=5em
-%\begin{parts}
-%\item 0
-%\item 1
-%\item 2
-%\item 3
-%\end{parts}
 \end{activity}
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Use the \svd\ of the matrix~\(B\) in \autoref{eg:orthospan} to compare the \idx{column space} and the \idx{row space} of matrix~\(B\).
 \begin{solution} 
 Recall that there are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the column space is  the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
@@ -1417,10 +1361,10 @@ As illustrated below in stereo, the two subspaces, the row space~(red) and the c
 \qview{58}{62}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image,view={\q}{20}    ] 
-    \addplot3[surf,samples=2,blue,opacity=0.3] {-x/6+y/3};
+    \addplot3[surf,samples=3,blue,opacity=0.3] {-x/6+y/3};
     \addplot3[blue,thick,quiver={u=-0.99,v=-0.01,w=0.16},-stealth] coordinates {(0,0,0)};
     \addplot3[blue,thick,quiver={u=-0.04,v=-0.95,w=-0.31},-stealth] coordinates {(0,0,0)};
-    \addplot3[surf,samples=2,red,opacity=0.3] {-0.8*x-0.6*y};
+    \addplot3[surf,samples=3,red,opacity=0.3] {-0.8*x-0.6*y};
     \addplot3[red,thick,quiver={u=-0.78,v=-0.02,w=0.63},-stealth] coordinates {(0,0,0)};
     \addplot3[red,thick,quiver={u=-0.28,v=0.91,w=-0.32},-stealth] coordinates {(0,0,0)};
 \end{axis}
@@ -1436,7 +1380,7 @@ As illustrated below in stereo, the two subspaces, the row space~(red) and the c
 The \bfidx{nullity} of a matrix~\(A\) is the \idx{dimension} of its \idx{nullspace} (defined in \autoref{thm:homosubsp}), and is denoted by \(\nullity(A)\).
 \end{definition}
 
-\begin{example} \label{eg:}
+\begin{example} 
 \autoref{eg:nullsp} finds the \idx{nullspace} of the two matrices
 \begin{equation*}
 \begin{bmatrix} 3&-3\\-1&-7 \end{bmatrix}
@@ -1457,7 +1401,7 @@ svd(N)
 N=[-2 1 0 0; -15/7 0 9/7 1]'
 svd(N)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 which computes the singular values
 \begin{verbatim}
    3.2485
@@ -1487,7 +1431,7 @@ C=[-1 -2 2 1
  2 -5 1 1]
 [U,S,V]=svd(C)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 U =
    0.24   0.78  -0.58
@@ -1518,7 +1462,7 @@ Hence \(\nullity C=2\)\,.
 
 This \autoref{eg:nullitysvd} indicates that the \idx{nullity} is determined by the number of \idx{zero column}s in the \idx{diagonal matrix}~\(S\) of an \svd.
 Conversely, the rank of a matrix is determined by the number of nonzero columns in the diagonal matrix~\(S\) of an \svd.
-Put these two facts together in general and we get the following theorem that helps characterise solutions of linear equations.
+Put these two facts together in general and we get the following theorem that helps characterize solutions of linear equations.
 
 
 
@@ -1536,10 +1480,11 @@ Consequently, \(\rank A+\nullity A=r+(n-r)=n\)\,.
 \end{proof}
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Compute \svd{}s to determine the rank and \idx{nullity} of each of the given matrices.
 %for i=1:999,a=round(randn(ceil(1+4*rand(1,2)))*2);if rank(a)<min(size(a)), A=a, svd(A), break, end,end
 \begin{enumerate}
+\begin{reduce}
 \item \(\begin{bmatrix} 1&-1&2
 \\2&-2&4
  \end{bmatrix}\)
@@ -1555,7 +1500,7 @@ A=[1 -1 2
 2 -2 4]
 svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The resultant singular values are
 \begin{verbatim}
    5.4772
@@ -1564,6 +1509,7 @@ The resultant singular values are
 The one nonzero singular value indicates \(\rank A=1\)\,.
 Since the matrix has three columns, the nullity---the dimension of the nullspace---is \(3-1=2\)\,. 
 \end{solution}
+\end{reduce}
  
 \item \(\begin{bmatrix} 1&-1&-1
 \\1&0&-1
@@ -1582,7 +1528,7 @@ B=[1 -1 -1
 -1 3 1]
 svd(B)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The resultant singular values are
 \begin{verbatim}
    3.7417
@@ -1617,7 +1563,7 @@ C=[0 0 -1 -3 2
  -3 -1 -0 -5 1]
 svd(C)
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 The resultant singular values are
 \begin{verbatim}
    10.8422
@@ -1657,20 +1603,13 @@ The matrix
 computed with \verb|svd()|.
 What is its nullity?
 \actposs[4]2310
-%\partswidth=5em
-%\begin{parts}
-%\item 0
-%\item 1
-%\item 2
-%\item 3
-%\end{parts}
 \end{activity}
 
 
 
 
 
-\begin{example} \label{eg:}
+\begin{example} 
 Each of the following graphs plot all the column vectors of a matrix. What is the \idx{nullity} of each of the matrices?  Give reasons.
 \begin{enumerate}
 \item \begin{tikzpicture} 
@@ -1688,7 +1627,7 @@ Zero.
 These two column vectors in the plane must come from a \(2\times2\) matrix~\(A\).
 Since the two columns are at a non-trivial angle, every point in the plane may be written as a linear combination of \(\av_1\) and~\(\av_2\), hence the column space of~\(A\) is~\(\RR^2\).
 Consequently, \(\rank A=2\)\,. 
-From the rank theorem: \(\nullity A=n-\rank A=2-2=0\)\,. 
+From the Rank \cref{thm:rank}\index{rank theorem}: \(\nullity A=n-\rank A=2-2=0\)\,. 
 \end{solution}
 
 
@@ -1709,7 +1648,7 @@ Two.
 These three column vectors in the plane must come from a \(2\times3\) matrix~\(B\).
 The three vectors are all in a line, so the column space of matrix~\(B\) is a line.
 Consequently, \(\rank B=1\)\,. 
-From the rank theorem: \(\nullity B=n-\rank B=3-1=2\)\,. 
+From the Rank \cref{thm:rank}\index{rank theorem}: \(\nullity B=n-\rank B=3-1=2\)\,. 
 \end{solution}
 
 
@@ -1735,7 +1674,7 @@ One.
 These four column vectors in 3D space must come from a \(3\times4\) matrix~\(C\).
 Since the four columns do not all lie in a line or plane, every point in space may be written as a linear combination of \(\hlist\cv 4\), hence the column space of~\(C\) is~\(\RR^3\).
 Consequently, \(\rank C=3\)\,. 
-From the rank theorem: \(\nullity C=n-\rank C=4-3=1\)\,. 
+From the Rank \cref{thm:rank}\index{rank theorem}: \(\nullity C=n-\rank C=4-3=1\)\,. 
 \end{solution}
 
 \item 
@@ -1743,7 +1682,7 @@ From the rank theorem: \(\nullity C=n-\rank C=4-3=1\)\,.
 \begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,view={\q}{30}
     ,axis equal image  ]
-    \addplot3[surf,shader=interp,samples=2,opacity=0.4] {-x/5+2*y/5};
+    \addplot3[surf,samples=9,opacity=0.4] {-x/5+2*y/5};
     \addplot3[blue,thick,quiver={u=4,v=2,w=0},-stealth] coordinates {(0,0,0)};
     \node[right] at (axis cs:4,2,0) {$\dv_1$};
     \addplot3[blue,thick,quiver={u=0,v=5,w=2},-stealth] coordinates {(0,0,0)};
@@ -1758,39 +1697,40 @@ a \idx{stereo pair}.
 \begin{solution} 
 Two.
 These four column vectors in 3D space must come from a \(3\times4\) matrix~\(D\).
-Since the four columns all lie in a plane (as suggested by the drawn plane), and linear combinations can give every point in the plane, hence the column space of~\(D\) has dimension two.
+Since the four columns all lie in a plane (as indicated by the drawn plane), and linear combinations can give every point in the plane, hence the column space of~\(D\) has dimension two.
 Consequently, \(\rank D=2\)\,. 
-The rank theorem gives \(\nullity D=n-\rank D=4-2=2\)\,. 
+The Rank \cref{thm:rank}\index{rank theorem} gives \(\nullity D=n-\rank D=4-2=2\)\,. 
 \end{solution}
 
 \end{enumerate}
 \end{example}
 
-
-The recognition of these new concepts associated with matrices and \idx{linear equation}s, then empowers us to extend the list of exact properties that ensure a system of linear equations has a unique solution. 
+Recall the list of exact properties that ensure a system of linear equations has a unique solution, \autoref{thm:ftim1}.
+The recognition of these new concepts associated with matrices and \idx{linear equation}s lead us to extend this list. 
 
 \begin{theorem}[Unique Solutions: version~2]  \label{thm:ftim2} 
 For every \(n\times n\) \idx{square matrix}~\(A\), and extending \autoref{thm:ftim1}, the following statements are equivalent:
-\begin{enumerate}
-\item\label{thm:ftim2i} \(A\) is \idx{invertible};
-\item\label{thm:ftim2ii} \(A\xv=\bv\) has a \bfidx{unique solution} for every \(\bv\in\RR^n\);
-\item\label{thm:ftim2iii} \index{homogeneous}\(A\xv=\ov\) has only the zero solution;
-\item\label{thm:ftim2iv} all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
-\item\label{thm:ftim2ivx} the \idx{condition number} of~\(A\) is finite (\(\verb|rcond|>0\));
-\item\label{thm:ftim2v} \(\rank A=n\)\,;
-\item\label{thm:ftim2vi} \(\nullity A=0\)\,;
-\item\label{thm:ftim2vii} the \idx{column vector}s of~\(A\) span~\(\RR^n\);
-\item\label{thm:ftim2viii} the \idx{row vector}s of~\(A\) span~\(\RR^n\).
+\begin{enumerate}[ref=\ref{thm:ftim2}(\alph*)]
+\item\label[theorem]{thm:ftim2i} \(A\) is \idx{invertible};
+\item\label[theorem]{thm:ftim2ii} \(A\xv=\bv\) has a \bfidx{unique solution} for every \(\bv\in\RR^n\);
+\item\label[theorem]{thm:ftim2iii} \index{homogeneous}\(A\xv=\ov\) has only the zero solution;
+\item\label[theorem]{thm:ftim2iv} all \(n\)~\idx{singular value}s of~\(A\) are nonzero;
+\item\label[theorem]{thm:ftim2ivx} the \idx{condition number} of~\(A\) is finite (\(\verb|rcond|>0\));
+\item\label[theorem]{thm:ftim2v} \(\rank A=n\)\,;
+\item\label[theorem]{thm:ftim2vi} \(\nullity A=0\)\,;
+\item\label[theorem]{thm:ftim2vii} the \idx{column vector}s of~\(A\) span~\(\RR^n\);
+\item\label[theorem]{thm:ftim2viii} the \idx{row vector}s of~\(A\) span~\(\RR^n\).
 \end{enumerate}
 \end{theorem}
 \begin{proof} 
 \autoref{thm:ftim1} establishes the equivalence of the statements~\ref{thm:ftim2i}--\ref{thm:ftim2v}.  
-We prove the equivalence of these with the statements~\ref{thm:ftim2vi}--\ref{thm:ftim2viii}.
+We here prove the equivalence of these with the statements~\ref{thm:ftim2vi}--\ref{thm:ftim2viii}.
 \begin{description}
 \item[\ref{thm:ftim2v}$\iff$\ref{thm:ftim2vi}]
 The Rank \autoref{thm:rank} assures us that \(\nullity A=0\) if and only if \(\rank A=n\)\,.
 \item[\ref{thm:ftim2ii}$\implies$\ref{thm:ftim2vii}] 
-By~\ref{thm:ftim2ii} every \(\bv\in\RR^n\) can be written as \(\bv=A\xv\)\,. But \(A\xv\)~is a linear combination of the columns of~\(A\) and so \(\bv\)~is in the span of the columns.  
+By~\ref{thm:ftim2ii} every \(\bv\in\RR^n\) can be written as \(\bv=A\xv\) for some~\xv. 
+But \(A\xv\)~is a linear combination of the columns of~\(A\) and so \(\bv\)~is in the span of the columns.  
 Hence the column vectors of~\(A\) span~\(\RR^n\).
 \item[\ref{thm:ftim2vii}$\implies$\ref{thm:ftim2v}] 
 Suppose \(\rank A=r\) reflecting \(r\)~nonzero singular values in an \svd\ \(A=\usv\).
@@ -1802,6 +1742,7 @@ But the column space is~\(\RR^n\) (statement~\ref{thm:ftim2vii}) which also has 
 But the columns of~\(\tr A\)\ are the rows of~\(A\) so the rows of~\(A\) span~\(\RR^n\).
 Conversely, if the rows of~\(A\) span~\(\RR^n\), then so do the columns of~\(\tr A\), hence \(\rank(\tr A)=n\) which by \autoref{thm:ranktr} implies \(\rank A=n\)\,.
 \end{description}
+This completes the extended theorem.
 \end{proof}
 
 
@@ -1816,10 +1757,10 @@ Conversely, if the rows of~\(A\) span~\(\RR^n\), then so do the columns of~\(\tr
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use your intuitive notion of a \idx{subspace} to decide whether each of the following drawn sets (3D in stereo pair) is a subspace, or not.
 
-\begin{parts}
+\begin{Parts}
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
@@ -1853,6 +1794,7 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \end{tikzpicture}
 \answer{Not a subspace.}
 
+\begin{reduce}
 \item \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
@@ -1886,9 +1828,10 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \end{axis}
 \end{tikzpicture}
 \answer{Subspace.}
+\end{reduce}
 
 \setcounter{i}{\value{enumii}}
-\end{parts}\begin{enumerate}
+\end{Parts}\begin{enumerate}
 \setcounter{enumii}{\value{i}}
 
 \item \qview{28}{32}{\begin{tikzpicture} 
@@ -1900,6 +1843,7 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \end{tikzpicture}}
 \answer{Subspace.}
 
+\begin{reduce}
 \item \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image ,view={\q}{30}   ] 
@@ -1917,12 +1861,13 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \end{axis}
 \end{tikzpicture}}
 \answer{Not a subspace.}
+\end{reduce}
 
 \item \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image  ,view={\q}{30}  ] 
     \addplot3[only marks,black] coordinates {(0,0,0)};
-    \addplot3[surf,shader=interp,samples=2,opacity=0.6] {x/3+y/6};
+    \addplot3[surf,samples=9,opacity=0.5] {x/3+y/6};
 \end{axis}
 \end{tikzpicture}}
 \answer{Subspace.}
@@ -1931,7 +1876,7 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image  ,view={\q}{30}  ] 
     \addplot3[only marks,black] coordinates {(0,0,0)};
-    \addplot3[surf,shader=interp,samples=2,opacity=0.6] {4+x/3+y/6};
+    \addplot3[surf,samples=9,opacity=0.5] {4+x/3+y/6};
 \end{axis}
 \end{tikzpicture}}
 \answer{Not a subspace.}
@@ -1945,11 +1890,12 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \end{tikzpicture}}
 \answer{Not a subspace.}
 
+\begin{reduce}
 \item \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image  ,view={\q}{30}  ] 
     \addplot3[only marks,black] coordinates {(0,0,0)};
-    \addplot3[surf,shader=interp,samples=2,opacity=0.6] {-x/3+y/6};
+    \addplot3[surf,samples=9,opacity=0.5] {-x/3+y/6};
 \end{axis}
 \end{tikzpicture}}
 \answer{Subspace.}
@@ -1962,6 +1908,7 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 \end{axis}
 \end{tikzpicture}}
 \answer{Not a subspace.}
+\end{reduce}
 
 \end{enumerate}
 \end{exercise}
@@ -1970,17 +1917,19 @@ Use your intuitive notion of a \idx{subspace} to decide whether each of the foll
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Use \autoref{def:subspace} to decide whether each of the following is a \idx{subspace}, or not.  Give reasons.
 \begin{enumerate}
 \item All vectors in the line \(y=2x\)\,.
 \answer{Subspace.}
 
+\begin{reduce}
 \item All vectors in the line \(3.2y=0.8x\)\,.
 \answer{Subspace.}
 
 \item All vectors \((x,y)=(t,2+t)\) for all real~\(t\).
 \answer{Not a subspace.}
+\end{reduce}
 
 \item All vectors \((1.3n,-3.4n)\) for all integer~\(n\).
 \answer{Not a subspace.}
@@ -1988,11 +1937,13 @@ Use \autoref{def:subspace} to decide whether each of the following is a \idx{sub
 \item All vectors \((x,y)=(-3.3-0.3t,2.4-1.8t)\) for all real~\(t\).%
 \answer{Not a subspace.}
 
+\begin{reduce}
 \item \(\Span\{(6,-1),(1,2)\}\)
 \answer{Subspace.}
 
 \item All vectors \((x,y)=(6-3t,t-2)\) for all real~\(t\).
 \answer{Subspace.}
+\end{reduce}
 
 \item The vectors \((2,1,-3)t+(5,-\frac12,2)s\) for all real \(s,t\).
 \answer{Subspace.}
@@ -2000,20 +1951,24 @@ Use \autoref{def:subspace} to decide whether each of the following is a \idx{sub
 \item The vectors \((0.9,2.4,1)t-(0.2,0.6,0.3)s\) for all real \(s,t\).
 \answer{Subspace.}
 
+\begin{reduce}
 \item All vectors \((x,y)\) such that \(y=x^3\).
 \answer{Not a subspace.}
 
 \item All vectors \((x,y,z)\) such that \(x=2t\)\,, \(y=t^2\) and \(z=t/2\) for all~\(t\).
 \answer{Not a subspace.}
+\end{reduce}
 
 \item The vectors \((t,n,2t+3n)\) for real~\(t\) and integer~\(n\).
 \answer{Not a subspace.}
 
+\begin{reduce}
 \item \(\Span\{(0,-1,1),(-1,0,2)\}\)
 \answer{Subspace.}
 
 \item The vectors \((2.7,2.6,-0.8,2.1)s+(0.5,0.1,-1,3.3)t\) for all real~\(s,t\).
 \answer{Subspace.}
+\end{reduce}
 
 \item The vectors \((1.4,2.3,1.5,4)+(1.2,-0.8,-1.2,2)t\) for all real~\(t\).
 \answer{Not a subspace.}
@@ -2031,7 +1986,7 @@ Use \autoref{def:subspace} to decide whether each of the following is a \idx{sub
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Let \(\WW_1\)\ and~\(\WW_2\) be any two \idx{subspace}s of~\(\RR^n\) (\autoref{def:subspace}).  
 \begin{enumerate}
 \item Use the definition to prove that the \idx{intersection} of \(\WW_1\)\ and~\(\WW_2\) is also a subspace of~\(\RR^n\).
@@ -2043,7 +1998,7 @@ Let \(\WW_1\)\ and~\(\WW_2\) be any two \idx{subspace}s of~\(\RR^n\) (\autoref{d
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the following matrices, partially solve \idx{linear equation}s to determine whether the given vector~\(\bv_j\) is in the \idx{column space}, and to determine if the given vector~\(\rv_j\) is in the \idx{row space} of the matrix.
 Work small problems by hand, and address larger problems with \script.
 Record your working or \script\ commands and output.
@@ -2058,6 +2013,7 @@ Record your working or \script\ commands and output.
 \answer{\(\bv_{\arabic{enumii}}\) is in column space;
 \(\rv_{\arabic{enumii}}\)~is in row space.}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} -2&1
 \\4&-2 \end{bmatrix}\),
 \(\bv_{\arabic{enumii}}=\begin{bmatrix} 1
@@ -2076,6 +2032,7 @@ Record your working or \script\ commands and output.
 \\1 \end{bmatrix}\)
 \answer{\(\bv_{\arabic{enumii}}\) is not in column space;
 \(\rv_{\arabic{enumii}}\)~is in row space.}
+\end{reduce}
 
 \item \(\eAii=\begin{bmatrix} -2&-4&-5
 \\-6&-2&1 \end{bmatrix}\),
@@ -2099,6 +2056,7 @@ Record your working or \script\ commands and output.
 \answer{\(\bv_{\arabic{enumii}}\) is in column space;
 \(\rv_{\arabic{enumii}}\)~is not in row space.}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} 0&-1&-4
 \\-2&0&4
 \\7&-1&-3
@@ -2125,6 +2083,7 @@ Record your working or \script\ commands and output.
 \\-1 \end{bmatrix}\)
 \answer{\(\bv_{\arabic{enumii}}\) is in column space;
 \(\rv_{\arabic{enumii}}\)~is in row space.}
+\end{reduce}
 
 \item \(\eAii=\begin{bmatrix} -2&1&1&-1
 \\2&-2&-1&0
@@ -2160,7 +2119,7 @@ Record your working or \script\ commands and output.
 \end{exercise}
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 In each of the following, is the given vector in the \idx{nullspace} of the given matrix?
 % A=round(randn(m,n)*3)+0, v=null(A);v=v/max(abs(v));[~,d]=rat(v);v=v*max(d(:)), w=round(randn(n,1)*3)+0,A*w
 \begin{enumerate}
@@ -2176,6 +2135,7 @@ In each of the following, is the given vector in the \idx{nullspace} of the give
 \\1 \end{bmatrix}\)
 \answer{no}
 
+\begin{reduce}
 \item \(\eAii=\begin{bmatrix} -5&0&-2
 \\-6&2&-2
 \\0&-5&-1 \end{bmatrix}\),
@@ -2192,6 +2152,7 @@ In each of the following, is the given vector in the \idx{nullspace} of the give
 \\-10
 \\10 \end{bmatrix}\)
 \answer{yes}
+\end{reduce}
 
 \item \(\eAii=\begin{bmatrix} -3&2&3&1
 \\-3&-2&-1&4
@@ -2218,12 +2179,13 @@ In each of the following, is the given vector in the \idx{nullspace} of the give
 
 
 
-\begin{exercise} \label{ex:} 
-Given the \svd{}s of Exercises~\ref{ex:hsledvs} and~\ref{ex:csledvs}, write down an \idx{orthonormal basis} for the span of the following sets of vectors.
+\begin{exercise}  
+Given the \svd{}s of \cref{ex:hsledvs,ex:csledvs}, write down an \idx{orthonormal basis} for the span of the following sets of vectors.
 \begin{enumerate}
 \item \((-\frac{9}{5},-4)\),\quad \((\frac{12}{5},-3)\)
 \answer{\iv, \jv}
 
+\begin{reduce}
 \item \((-0.96,-0.72)\),\quad \((1.28,0.96)\)
 \answer{\((\frac{4}{5},\frac{3}{5})\)}
 
@@ -2232,6 +2194,7 @@ Given the \svd{}s of Exercises~\ref{ex:hsledvs} and~\ref{ex:csledvs}, write down
 
 \item \((4,4,2)/33\),\quad \((4,4,2)/11\),\quad \((6,6,3)/11\)
 \answer{\((2,2,1)/3\)}
+\end{reduce}
 
 \item \((-\frac{2}{5},\frac{11}{9},\frac{31}{90},\frac{4}{9})\),\quad
 \((-\frac{2}{5},\frac{11}{9},\frac{31}{90},\frac{4}{9})\),\quad
@@ -2274,13 +2237,14 @@ A=[19  -36  -18
   -17   48   24]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(-0.61\clb 0.19\clb 0.77)\), \((-0.77\clb -0.36\clb -0.52)\}\);
-row space \(\{(-0.35\clb 0.84\clb 0.42)\), \((-0.94\clb -0.31\clb -0.15)\}\);
-nullspace \(\{(0\clb 0.45\clb -0.89)\}\).}
+column space \(\{(-0.61, 0.19, 0.77)\), \((-0.77, -0.36, -0.52)\}\);
+row space \(\{(-0.35, 0.84, 0.42)\), \((-0.94, -0.31, -0.15)\}\);
+nullspace \(\{(0, 0.45, -0.89)\}\).}
 
 
+\begin{reduce}
 \item \(\begin{bmatrix} -12&0&-4
 \\-30&-6&4
 \\34&22&8
@@ -2292,10 +2256,10 @@ A=[-12 0 -4
  -50 -10 12]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(-0.15\clb -0.43\clb 0.53\clb -0.72)\), \((-0.07\clb 0.18\clb 0.83\clb 0.52)\), \((-0.94\clb -0.21\clb -0.16\clb 0.21)\}\);
-row space \(\{(0.95\clb 0.30\clb -0.08)\), \((-0.14\clb 0.64\clb 0.75)\), \((0.27\clb -0.71\clb 0.65)\}\);
+column space \(\{(-0.15, -0.43, 0.53, -0.72)\), \((-0.07, 0.18, 0.83, 0.52)\), \((-0.94, -0.21, -0.16, 0.21)\}\);
+row space \(\{(0.95, 0.30, -0.08)\), \((-0.14, 0.64, 0.75)\), \((0.27, -0.71, 0.65)\}\);
 nullspace \(\{\}\).}
 
 
@@ -2310,11 +2274,12 @@ A=[0 0 0 0
  -2 -4 -1 1]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(0.00\clb -0.81\clb -0.48\clb 0.33)\), \((0.00\clb -0.08\clb 0.66\clb 0.74)\}\);
-row space \(\{(-0.35\clb -0.89\clb -0.08\clb 0.27)\), \((-0.48\clb 0.17\clb -0.80\clb -0.32)\}\);
-nullspace \(\{(-0.78\clb 0.36\clb 0.43\clb 0.28)\), \((-0.19\clb -0.22\clb 0.41\clb -0.86)\}\).}
+column space \(\{(0.00, -0.81, -0.48, 0.33)\), \((0.00, -0.08, 0.66, 0.74)\}\);
+row space \(\{(-0.35, -0.89, -0.08, 0.27)\), \((-0.48, 0.17, -0.80, -0.32)\}\);
+nullspace \(\{(-0.78, 0.36, 0.43, 0.28)\), \((-0.19, -0.22, 0.41, -0.86)\}\).}
+\end{reduce}
 
 
 \item \(\begin{bmatrix} -13&9&10&-4&-6
@@ -2328,16 +2293,16 @@ A=[-13 9 10 -4 -6
  -4 -18 10 -8 5]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(0.30\clb 0.80\clb 0.07\clb -0.52)\),  
-\((0.78\clb 0.07\clb 0.22\clb 0.58)\),  
-\((0.14\clb 0.13\clb -0.97\clb 0.16)\}\);
-row space \(\{(-0.20\clb 0.90\clb -0.09\clb 0.17\clb -0.34)\),  
-\((-0.65\clb -0.08\clb 0.67\clb -0.31\clb -0.16)\),  
-\((0.08\clb 0.31\clb -0.18\clb -0.84\clb 0.41)\}\);
-nullspace \(\{(0.73\clb 0.18\clb 0.63\clb -0.10\clb -0.20)\),  
-\((-0.07\clb 0.25\clb 0.33\clb 0.41\clb 0.81)\}\).}
+column space \(\{(0.30, 0.80, 0.07, -0.52)\),  
+\((0.78, 0.07, 0.22, 0.58)\),  
+\((0.14, 0.13, -0.97, 0.16)\}\);
+row space \(\{(-0.20, 0.90, -0.09, 0.17, -0.34)\),  
+\((-0.65, -0.08, 0.67, -0.31, -0.16)\),  
+\((0.08, 0.31, -0.18, -0.84, 0.41)\}\);
+nullspace \(\{(0.73, 0.18, 0.63, -0.10, -0.20)\),  
+\((-0.07, 0.25, 0.33, 0.41, 0.81)\}\).}
 
 
 \item \(\begin{bmatrix} 1&-2&3&9
@@ -2353,13 +2318,14 @@ A=[1 -2 3 9
  1 -7 -2 -6]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(-0.53\clb -0.11\clb -0.64\clb 0.01\clb 0.54)\), \((0.40\clb -0.37\clb 0.03\clb 0.76\clb 0.35)\}\);
-row space \(\{(0.01\clb -0.34\clb -0.30\clb -0.89)\), \((0.21\clb -0.92\clb 0.11\clb 0.32)\}\);
-nullspace \(\{(-0.06\clb -0.01\clb 0.95\clb -0.31)\), \((0.98\clb 0.20\clb 0.04\clb -0.08)\}\).}
+column space \(\{(-0.53, -0.11, -0.64, 0.01, 0.54)\), \((0.40, -0.37, 0.03, 0.76, 0.35)\}\);
+row space \(\{(0.01, -0.34, -0.30, -0.89)\), \((0.21, -0.92, 0.11, 0.32)\}\);
+nullspace \(\{(-0.06, -0.01, 0.95, -0.31)\), \((0.98, 0.20, 0.04, -0.08)\}\).}
 
 
+\begin{reduce}
 \item \(\begin{bmatrix} 9&3&0&-9
 \\15&1&24&-15
 \\-12&-4&0&12
@@ -2375,14 +2341,14 @@ A=[9 3 0 -9
  11 5 -8 -11]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(-0.31\clb -0.74\clb 0.41\clb -0.31\clb 0.10\clb -0.30)\), 
-\((-0.23\clb 0.63\clb 0.31\clb -0.23\clb 0.08\clb -0.62)\}\);
-row space \(\{(-0.64\clb -0.15\clb -0.39\clb 0.64)\), 
-\((-0.25\clb -0.23\clb 0.91\clb 0.25)\}\);
-nullspace \(\{(0.66\clb 0.20\clb 0.03\clb 0.72)\), 
-\((0.30\clb -0.94\clb -0.16\clb -0.01)\}\).}
+column space \(\{(-0.31, -0.74, 0.41, -0.31, 0.10, -0.30)\), 
+\((-0.23, 0.63, 0.31, -0.23, 0.08, -0.62)\}\);
+row space \(\{(-0.64, -0.15, -0.39, 0.64)\), 
+\((-0.25, -0.23, 0.91, 0.25)\}\);
+nullspace \(\{(0.66, 0.20, 0.03, 0.72)\), 
+\((0.30, -0.94, -0.16, -0.01)\}\).}
 
 
 \item \(\begin{bmatrix} -8&17&7&-51&20
@@ -2396,11 +2362,12 @@ A=[-8 17 7 -51 20
  -2 -1 -5 -33 8]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(0.52\clb -0.14\clb -0.79\clb 0.28)\), \((-0.02\clb 0.18\clb -0.37\clb -0.91)\), \((-0.31\clb -0.94\clb -0.09\clb -0.14)\}\);
-row space \(\{(-0.16\clb 0.29\clb 0.13\clb -0.87\clb 0.33)\), \((-0.15\clb 0.67\clb 0.58\clb 0.40\clb 0.17)\), \((-0.75\clb -0.12\clb 0.19\clb -0.11\clb -0.61)\}\);
-nullspace \(\{(0.62\clb 0.05\clb 0.45\clb -0.25\clb -0.59)\), \((-0.05\clb -0.67\clb 0.63\clb 0.02\clb 0.38)\}\).}
+column space \(\{(0.52, -0.14, -0.79, 0.28)\), \((-0.02, 0.18, -0.37, -0.91)\), \((-0.31, -0.94, -0.09, -0.14)\}\);
+row space \(\{(-0.16, 0.29, 0.13, -0.87, 0.33)\), \((-0.15, 0.67, 0.58, 0.40, 0.17)\), \((-0.75, -0.12, 0.19, -0.11, -0.61)\}\);
+nullspace \(\{(0.62, 0.05, 0.45, -0.25, -0.59)\), \((-0.05, -0.67, 0.63, 0.02, 0.38)\}\).}
+\end{reduce}
 
 
 \item \(\begin{bmatrix} -128&6&55&-28&-1
@@ -2414,17 +2381,17 @@ A=[-128 6 55 -28 -1
 -1 6 -1 7 -3]
 [U,S,V]=svd(A)
 }}%
-\marginpar{\usebox{\ajrqrbox\\[2ex]}}%
+\marginajrbox%
 \answer{\twodp\
-column space \(\{(0.94\clb -0.24\clb 0.23\clb -0.01)\), 
-\((-0.32\clb -0.43\clb 0.83\clb -0.14)\), 
-\((-0.08\clb -0.50\clb -0.14\clb 0.85)\), 
-\((0.07\clb 0.71\clb 0.48\clb 0.50)\}\);
-row space \(\{(-0.86\clb -0.03\clb 0.46\clb -0.24\clb 0.01)\), 
-\((0.41\clb -0.62\clb 0.54\clb -0.37\clb 0.15)\), 
-\((0.24\clb 0.44\clb 0.70\clb 0.42\clb -0.30)\), 
-\((-0.20\clb -0.63\clb -0.02\clb 0.75\clb -0.09)\}\);
-nullspace \(\{(0.00\clb 0.18\clb 0.13\clb 0.27\clb 0.94)\}\).}
+column space \(\{(0.94, -0.24, 0.23, -0.01)\), 
+\((-0.32, -0.43, 0.83, -0.14)\), 
+\((-0.08, -0.50, -0.14, 0.85)\), 
+\((0.07, 0.71, 0.48, 0.50)\}\);
+row space \(\{(-0.86, -0.03, 0.46, -0.24, 0.01)\), 
+\((0.41, -0.62, 0.54, -0.37, 0.15)\), 
+\((0.24, 0.44, 0.70, 0.42, -0.30)\), 
+\((-0.20, -0.63, -0.02, 0.75, -0.09)\}\);
+nullspace \(\{(0.00, 0.18, 0.13, 0.27, 0.94)\}\).}
 
 
 \end{enumerate}
@@ -2433,9 +2400,9 @@ nullspace \(\{(0.00\clb 0.18\clb 0.13\clb 0.27\clb 0.94)\}\).}
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For each of the matrices in \autoref{ex:obcrn}, from your computed bases write down the \idx{dimension} of the \idx{column space}, the \idx{row space} and the \idx{nullspace}.
-Comment on how these confirm the \idx{rank theorem}~\ref{thm:rank}.
+Comment on how these confirm the \index{rank theorem}Rank \autoref{thm:rank}.
 \answer{1, 1, 1;
  3, 3, 0;
  2, 2, 2;
@@ -2449,9 +2416,9 @@ Comment on how these confirm the \idx{rank theorem}~\ref{thm:rank}.
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 What are the possible values for \(\nullity(A)\) in the following cases?
-\begin{parts}
+\begin{Parts}
 \item \(A\) is a \(2\times 5\) matrix.
 \answer{3,4,5}
 
@@ -2470,7 +2437,7 @@ What are the possible values for \(\nullity(A)\) in the following cases?
 \item \(A\) is a \(6\times 5\) matrix.
 \answer{0,1,2,3,4,5}
 
-\end{parts}
+\end{Parts}
 \end{exercise}
 
 
@@ -2478,7 +2445,7 @@ What are the possible values for \(\nullity(A)\) in the following cases?
 
 
 
-\begin{exercise}[\cite{Cowen1997}] \label{ex:} 
+\begin{exercise}[\cite{Cowen1997}]  
 Alice and Bob are taking linear algebra. 
 One of the problems in their homework assignment is to find the \idx{nullspace} of a \(4\times5\) matrix~\(A\). 
 In each of the following cases: are their answers consistent with each other?
@@ -2490,7 +2457,7 @@ Give reasons.
 \item Alice's answer is that the nullspace is spanned by 
 \((-2, -2, 0, 2, -6)\), \((1, 5, 4, -3, 11)\), \((3, 5, 2, -4, 13)\), and \((0, -2, -2, 1, -4)\). 
 Bob's answer is that the nullspace is spanned by 
-\((1, 1, 0, -1, 3)\), \((-2, 0, 2, 1, -2)\), and \((-1, 3, 4, 1, 5)\). 
+\((1, 1, 0, -1, 3)\), \((-2, 0, 2, 1, -2)\), and \((-1, 3, 4, 1, 5)\).% 
 \answer{no.}
 
 \item Alice's answer is that the nullspace is spanned by 
@@ -2501,7 +2468,7 @@ Bob's answer is that the nullspace is spanned by
 Bob's answer is that the nullspace is spanned by 
 \((1,-2,1,1,0)\), 
 \((0,4,-1,-1,1)\), 
-\((1,-1,0,-3,-5)\). 
+\((1,-1,0,-3,-5)\).%
 \answer{yes.}
 
 \item Alice's answer is that the nullspace is spanned by 
@@ -2512,7 +2479,7 @@ Bob's answer is that the nullspace is spanned by
 Bob's answer is that the nullspace is spanned by 
 \((0,2,-2,2,-2)\), 
 \((-2,-4,2,0,-1)\), 
-\((1,0,-1,1,-3)\). 
+\((1,0,-1,1,-3)\).% 
 \answer{no.}
 
 \item Alice's answer is that the nullspace is spanned by 
@@ -2523,7 +2490,7 @@ Bob's answer is that the nullspace is spanned by
 Bob's answer is that the nullspace is spanned by 
 \((1,-2,0,-3,4)\), 
 \((2,-1,1,3,2)\), 
-\((3,0,-1,2,3)\). 
+\((3,0,-1,2,3)\).% 
 \answer{no.}
 
 \end{enumerate}
@@ -2538,15 +2505,15 @@ Bob's answer is that the nullspace is spanned by
 
 
 
-\begin{exercise} \label{ex:} 
-Prove that if the columns of a matrix~\(A\) are orthonormal, then they must form an \idx{orthonormal basis} for the \idx{column space} of~\(A\).
+\begin{exercise}  
+Prove that if the columns of a matrix~\(A\) are orthonormal, then the columns must form an \idx{orthonormal basis} for the \idx{column space} of~\(A\).
 % Use an svd for an orthogonal matrix.
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 Let \(A\) be any \(m\times n\) matrix.  
 Use an \svd\ to prove that every vector in the \idx{row space} of~\(A\) is orthogonal to every vector in the \idx{nullspace}.
 \end{exercise}
@@ -2604,7 +2571,7 @@ acc=[5.34; 0.85; -1.90; -1.39; -0.99; 5.64;
 -0.90; 5.86; -1.95; -5.95; 4.75; 1.90; -2.06;
 -1.21; -1.61; 5.16]
 }}%
-\marginpar{\usebox{\ajrqrbox}}%
+\marginajrbox%
 \begin{verbatim}
 time=(0.0625:0.125:9.85)'
 acc=[5.34; 0.85; -1.90; -1.39; -0.99; 5.64;
@@ -2647,15 +2614,15 @@ Given matrix~\(F\) has an \svd, find an \svd\ of matrix~\(E\), and hence prove t
 % cute to use symbol F as it misses the bottom of E
 \end{exercise}
 
-\begin{exercise} \label{ex:} 
+\begin{exercise}  
 For compatibly sized matrices~\(A\) and~\(B\), use their \svd{}s, and the result of the previous \autoref{ex:rankobord} (applied to the matrix \(S_A\tr V_AU_BS_B\)), to prove that \(\rank(AB)\leq\rank A\) and also that \(\rank(AB)\leq\rank B\)\,.
 \end{exercise}
 
 
 
 
-\begin{exercise} \label{ex:} 
-In a few sentences, answer\slash discuss each of the the following.
+\begin{exercise}  
+In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
 \item In \autoref{def:subspace} what causes a subspace to be a line, plane, \ldots, through the origin?
 
