@@ -13,7 +13,7 @@
 
 
 
-The previous \autoref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
+The previous \cref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
 We  continue to do so for small systems.  
 However, such by-hand solutions are tedious for systems bigger than say four equations in four unknowns.  
 For bigger systems with anything from tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious repetitive calculations.
@@ -28,7 +28,7 @@ It is unworthy of excellent persons to lose hours like slaves in the labour of c
 Computers primarily deal with numbers, not algebraic equations, so we have to abstract the coefficients of a system into a numerical data structure.
 We use matrices and vectors.
 \begin{example} 
-The first system of \autoref{eg:2eqs2vars:a}
+The first system of \cref{eg:2eqs2vars:a}
 \begin{equation*}
 \begin{array}{l} x+y=3\\2x-4y=0 \end{array}
 \quad\text{is written}\quad
@@ -50,10 +50,10 @@ is equivalent to \(A\xv=\bv\) for
 The beauty of the form \(A\xv=\bv\) is that the numbers involved in the system are abstracted into the matrix~\(A\) and vector~\bv: \script\ handles such numerical matrices and vectors.
 \begin{aside}
 In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
-\autoref{sec:moaa} then defines a crucial multiplicative meaning to the composite symbol~`\(A\xv\)'. 
+\cref{sec:moaa} then defines a crucial multiplicative meaning to the composite symbol~`\(A\xv\)'. 
 \end{aside}%
-For some of you, writing a system in this \idx{matrix-vector form} \(A\xv=\bv\) (\autoref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
-However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \autoref{sec:moaa} defines and explores such useful operations.
+For some of you, writing a system in this \idx{matrix-vector form} \(A\xv=\bv\) (\cref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
+However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \cref{sec:moaa} defines and explores such useful operations.
 
 \begin{definition}[matrix-vector form] \label{def:matvecsys}
 For every given \idx{system} of \(m\)~\idx{linear equation}s in \(n\)~variables
@@ -88,7 +88,7 @@ x_1+2x_2+x_3=1\,.
 \end{Parts}
 \begin{solution} 
 \begin{enumerate}
-\item The first system, that of \autoref{eg:3eq3var}, is of three equations in three variables (\(m=n=3\)) and is written in the form \(A\xv=\bv\) as
+\item The first system, that of \cref{eg:3eq3var}, is of three equations in three variables (\(m=n=3\)) and is written in the form \(A\xv=\bv\) as
 \begin{equation*}
 \underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
@@ -137,7 +137,7 @@ In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square mat
 
 Checking \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| avoids gross mistakes.
 % such as  ``Lies My Computer Told Me'' \pooliv{p.83}.
-\autoref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
+\cref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
 \footnote{Interestingly, there are incredibly rare pathological matrices for which even \texttt{rcond()} and~\texttt{A\slosh} do fail us \cite[]{Driscoll07}.  
 For example, among \(32\times32\) matrices the probability is about~\(10^{-22}\) of encountering a matrix for which \texttt{rcond()} misleads us by more than a factor of a hundred in using~\texttt{A\slosh}.}
 In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond()| in \cref{pro:unisol} reflect practical realities.
@@ -150,13 +150,13 @@ But, in practice, there is.
 
 
 \begin{table}
-\caption{To realize \autoref{pro:unisol}, and other procedures, we need these basics of \script\ as well as that of \autoref{tbl:mtlbpre}.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbbasics}
+\caption{To realize \cref{pro:unisol}, and other procedures, we need these basics of \script\ as well as that of \cref{tbl:mtlbpre}.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbbasics}
 \hrule
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item The \idx{floating point} numbers are extended by \index{Inf@\texttt{Inf}|textbf}\verb|Inf|, denoting `\idx{infinity}', and \index{NaN@\texttt{NaN}|textbf}\verb|NaN|, denoting `\idx{not a number}' such as the indeterminate~\(0/0\).
 \item \index{[\ldots]@\texttt{[\ldots]}|textbf}\verb|[ ... ; ... ; ... ]| forms both matrices and vectors, or use newlines instead of the semi-colons.
-\item \index{rcond()@\texttt{rcond()}|textbf}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} of~\(A\) (defined precisely by \autoref{def:condnum}).
+\item \index{rcond()@\texttt{rcond()}|textbf}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} of~\(A\) (defined precisely by \cref{def:condnum}).
 \item \index{A\slosh@\texttt{A\slosh}|textbf}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
 \item \index{=@\texttt{=}|textbf}Change one element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
 \item \index{.^@\texttt{.\^}|textbf}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| results in \verb|[1;4;9;16;25]|.
@@ -168,7 +168,7 @@ But, in practice, there is.
 \end{table}
 
 \begin{example} \label{eg:3eq3varc}
-Use \script\ to solve the system (from \autoref{eg:3eq3var})
+Use \script\ to solve the system (from \cref{eg:3eq3var})
 \begin{equation*}
 \begin{array}{l}
 x_1+x_2-x_3=-2\,,\\
@@ -177,14 +177,14 @@ x_1+2x_2+x_3=1\,.
 \end{array}
 \end{equation*}
 \begin{solution} 
-Begin by writing the system in the abstract matrix-vector form \(A\xv=\bv\) as already done by \autoref{eg:matvecsys}.
+Begin by writing the system in the abstract matrix-vector form \(A\xv=\bv\) as already done by \cref{eg:matvecsys}.
 %\,: here the system is written
 %\begin{equation*}
 %\underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 %\underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
 %=\underbrace{\begin{bmatrix} -2\\8\\1 \end{bmatrix}}_\bv .
 %\end{equation*}
-Then the three steps of \autoref{pro:unisol} are the following.
+Then the three steps of \cref{pro:unisol} are the following.
 \begin{enumerate}
 \item Form matrix~\(A\) and {column vector}~\(\bv\) with the \script\ assignments
 \begin{aside}
@@ -196,9 +196,9 @@ algebra which denotes \idx{equal}ity.
 A=[1 1 -1; 1 3 5; 1 2 1]
 b=[-2;8;1]
 \end{verbatim}
-\autoref{tbl:mtlbbasics} summarizes that in \script: each line is one command; the \verb|=|~symbol assigns the value of the right-hand expression to the variable name of the left-hand side; and the \idx{brackets}~\verb|[ ]| construct both matrices and vectors.
+\cref{tbl:mtlbbasics} summarizes that in \script: each line is one command; the \verb|=|~symbol assigns the value of the right-hand expression to the variable name of the left-hand side; and the \idx{brackets}~\verb|[ ]| construct both matrices and vectors.
 \item Check the value of \verb|rcond(A)|: here it is~\(0.018\) which is in the good range.
-\item Since \verb|rcond(A)| is acceptable,  execute \verb|x=A\b| to compute the solution vector~\(\xv=(1,-1,2)\) (and assign it to the variable~\verb|x|, see \autoref{tbl:mtlbbasics}). 
+\item Since \verb|rcond(A)| is acceptable,  execute \verb|x=A\b| to compute the solution vector~\(\xv=(1,-1,2)\) (and assign it to the variable~\verb|x|, see \cref{tbl:mtlbbasics}). 
 \end{enumerate}
 All together that is the four commands
 \begin{verbatim}
@@ -236,7 +236,7 @@ Use \script\ to solve the system \(7x+8y=42\) and \(32x+38y=57\), to find the an
 
 
 \begin{example} \label{eg:3eq3vard}
-Following the previous \autoref{eg:3eq3varc}, solve each of the two systems:
+Following the previous \cref{eg:3eq3varc}, solve each of the two systems:
 \begin{Parts}
 \item \(\begin{array}{l}
 x_1+x_2-x_3=-2\,,\\
@@ -261,7 +261,7 @@ Begin by writing, or at least by imagining, each system in matrix-vector form:
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
 =\underbrace{\begin{bmatrix} -2\\5\\1 \end{bmatrix}}_\bv .
 \end{equation*}
-As the matrices and vectors are modifications of the previous \autoref{eg:3eq3varc} we reduce typing by modifying the matrix and vector of the previous example (using the ability to change an element in a matrix, see \autoref{tbl:mtlbbasics}).
+As the matrices and vectors are modifications of the previous \cref{eg:3eq3varc} we reduce typing by modifying the matrix and vector of the previous example (using the ability to change an element in a matrix, see \cref{tbl:mtlbbasics}).
 \begin{enumerate}
 \item For the first system execute \verb|A(3,2)=-3| and \verb|b(2)=5|
 to see the matrix and vector are now
@@ -295,10 +295,10 @@ A =
      1    -3     1
 \end{verbatim}
 Check: find that \verb|rcond(A)| is zero which is classified as terrible.
-Consequently we cannot compute a solution of this second system of linear equations (as in \autoref{fig:3eq3var}(c)).
+Consequently we cannot compute a solution of this second system of linear equations (as in \cref{fig:3eq3var}(c)).
 \end{enumerate}
-If we were to try~\verb|x=A\b| in this second system, then \script\ would report\footnote{\autoref{sec:im} introduces that the term \index{singular matrix}`singular' means that the matrix does not have a so-called inverse.  The `working \idx{precision}' is the sixteen \idx{significant digits} mentioned in \autoref{tbl:mtlbpre}.}%
-\index{Warning:@\texttt{Warning:}}
+If we were to try~\verb|x=A\b| in this second system, then \script\ would report\footnote{\cref{sec:im} introduces that the term \index{singular matrix}`singular' means that the matrix does not have a so-called inverse.  The `working \idx{precision}' is the sixteen \idx{significant digits} mentioned in \cref{tbl:mtlbpre}.}%
+\index{Matrix is singular \ldots@\texttt{Matrix is singular \ldots}}
 \begin{verbatim}
 Warning: Matrix is singular to working precision. 
 \end{verbatim}
@@ -321,7 +321,7 @@ x_1-2x_2+3x_3+x_4+2x_5&7\,,\\
 \end{equation*}
 
 \begin{solution} 
-Following \autoref{pro:unisol}, form the corresponding matrix and vector, with appropriate zeros, as
+Following \cref{pro:unisol}, form the corresponding matrix and vector, with appropriate zeros, as
 \begin{verbatim}
 A=[1  -2   3   1   2
   -2  -6  -3  -2   2
@@ -356,7 +356,7 @@ that is, the solution \(\xv=(0.82,-1.37,-6.76,17.18,3.27)\) \twodp.
 
 
 \begin{example} 
-What system of linear equations is represented by the following matrix-vector expression?  and what is the result of using \autoref{pro:unisol} for this system?
+What system of linear equations is represented by the following matrix-vector expression?  and what is the result of using \cref{pro:unisol} for this system?
 \begin{equation*}
 \begin{bmatrix} -7&3\\ 7&-5\\1&-2 \end{bmatrix}
 \begin{bmatrix} y\\z \end{bmatrix}
@@ -370,7 +370,7 @@ The corresponding system of linear equations is
 -7y+3z=3\,,\\7y-5z=-2\,,\\y-2z=1\,.
 \end{array}
 \end{equation*}
-Invoking \autoref{pro:unisol}:
+Invoking \cref{pro:unisol}:
 \begin{enumerate}
 \item form matrix~\(A\) and \idx{column vector}~\(\bv\) with
 \begin{verbatim}
@@ -386,6 +386,7 @@ rcond(A)
 
 \item check \verb|rcond(A)|: \script\ gives the message%
 \index{square matrix}\index{Error using@\texttt{Error using}}%
+\index{Input must be a square matrix@\texttt{Input must be a square matrix}}%
 \begin{verbatim}
 Error using rcond
 Input must be a square matrix. 
@@ -395,7 +396,7 @@ As \verb|rcond(A)| does not exist, the procedure cannot give a solution.
 The reason for the procedure not leading to a solution is that a system of three equations in two variables, as here, generally does not have a solution.
 \footnote{If one were to execute \texttt{x=A\slosh b}, then you would find \script\ gives the `answer' \(\xv=(-0.77,-0.73)\) \twodp.
 But this answer is not a solution.
-Instead this answer has another meaning, often sensibly useful, which is explained by \autoref{sec:asie}.
+Instead this answer has another meaning, often sensibly useful, which is explained by \cref{sec:asie}.
 Using \texttt{rcond()} helps us to avoid confusing such an answer with a solution.}
 \end{solution}
 \end{example}
@@ -490,7 +491,7 @@ As before, these coefficients give the decomposition as
 
 
 \begin{example}[\texttt{rcond} avoids disaster] \label{eg:infertemp2}
-In \autoref{eg:infertemp} an American and a European compared temperatures and using measurements from two days discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
+In \cref{eg:infertemp} an American and a European compared temperatures and using measurements from two days discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
 Continuing the story, three days later they again meet and compare the temperatures they experienced: the American reporting that ``for the last three days it has been \(51^\circ\), \(74^\circ\) and~\(81^\circ\)'', whereas the European reports ``why, I recorded it as \(11^\circ\), \(23^\circ\) and~\(27^\circ\)''.
 The marginal figure plots this data with the original two data points, apparently confirming a reasonable linear relationship between the two temperature scales.
 \marginpar{%
@@ -521,7 +522,7 @@ Substituting each of the five pairs of \(T_E\) and~\(T_A\) into this equation gi
 81&=&c_1+27c_2+729c_3+19683c_4+531441c_5\,.
 \end{eqnarray*}
 Form these into the matrix-vector equation \(A\cv=\tv_A\) for the unknown coefficients \(\cv=(c_1,c_2,c_3,c_4,c_5)\).
-In \script\ the vectors of American temperatures~\(\tv_A\), and the \(5\times5\) matrix~\(A\) are constructed below (recall from \autoref{tbl:mtlbbasics} that \verb|te.^p| computes the \verb|p|th~power of each element in the column vector~\verb|te|).
+In \script\ the vectors of American temperatures~\(\tv_A\), and the \(5\times5\) matrix~\(A\) are constructed below (recall from \cref{tbl:mtlbbasics} that \verb|te.^p| computes the \verb|p|th~power of each element in the column vector~\verb|te|).
 \setbox\ajrqrbox\hbox{\qrcode{% plot temperatures, and matrix
 te=[15;26;11;23;27]
 ta=[60;80;51;74;81]
@@ -581,18 +582,18 @@ Disaster: the quartic polynomial relationship is clearly terrible as it is too w
 
 The problem is we forgot \verb|rcond|.
 In \script\ execute~\verb|rcond(A)| and discover \verb|rcond| is \(3\cdot10^{-9}\).
-This value is in the `terrible' range classified by \autoref{pro:unisol}.
+This value is in the `terrible' range classified by \cref{pro:unisol}.
 Thus the solution of the linear equations must not be used: here the marginal plot indeed shows the solution coefficients are not acceptable.
 Always use \verb|rcond| to check for bad systems of linear equations.
 \end{solution}
 \end{example}
 
-The previous \autoref{eg:infertemp2} also illustrates one of the `rules of thumb' in science and engineering: \emph{for data fitting, avoid using polynomials of degree higher than cubic.}
+The previous \cref{eg:infertemp2} also illustrates one of the `rules of thumb' in science and engineering: \emph{for data fitting, avoid using polynomials of degree higher than cubic.}
 \footnote{In finance, a `rule of thumb' is to avoid fitting data with anything high-order than straight lines!}
 
 
 \begin{example}[{Global Positioning System} in space-time] \label{eg:gps3t}
-Now recall \autoref{eg:gps2}.
+Now recall \cref{eg:gps2}.
 Consider the \gps\ receiver in your smart-phone.
 The phone's clock is generally in error; it may only be by a second but the \gps\ needs micro-second \idx{precision}. 
 Because of such a timing unknown, five satellites determine our precise position in space \emph{and} time.
@@ -642,7 +643,7 @@ Given your phone also detects that four other satellites broadcast the following
 \((17,14,10)\) time shift~\(0.033\cdots\)\,s before;
 \((8,21,10)\) time shift~\(0.033\cdots\)\,s before; and
 \((22,9,8)\) time shift~\(0.04\)\,s before.
-Adapting the approach of \autoref{eg:gps2}, use linear algebra to determine your phone's location in space.
+Adapting the approach of \cref{eg:gps2}, use linear algebra to determine your phone's location in space.
 
 \begin{solution} 
 Let your unknown position be~\((x,y,z)\) and the unknown time shift to the phone's clock~\(t\) be found from \(w=300t\)\,.
@@ -671,7 +672,7 @@ Combining the constants on the right-hand side, and moving the \(w\)~terms to th
 \\&&10x-10y-4z+4w=0\,,
 \\&&28x-24y-4z+4w=-20\,.
 \end{eqnarray*}
-Following \autoref{pro:unisol}, solve this system by forming the corresponding matrix and vector as
+Following \cref{pro:unisol}, solve this system by forming the corresponding matrix and vector as
 \begin{verbatim}
 A=[32  -6 -30  0
    18 -22  -8  0
@@ -722,7 +723,7 @@ To solve \idx{linear equation}s with non-square matrices, or with poorly conditi
 \Needspace{7\baselineskip}
 \begin{aside}
 This and the next subsection are not essential, but many further courses currently assume knowledge of the content. 
-\cref{thm:fred,thm:feweqns} are convenient to establish in the next subsection, but could alternatively be established using \autoref{pro:gensol}. 
+\cref{thm:fred,thm:feweqns} are convenient to establish in the next subsection, but could alternatively be established using \cref{pro:gensol}. 
 \end{aside}
 This subsection systematises the algebraic working of \cref{eg:2eqs2vars,eg:3eq3var}.
 The systematic approach empowers by-hand solution of systems of linear equations, together with two general properties on the number of solutions possible.
@@ -732,7 +733,7 @@ In hand calculations we often want to minimize writing, so the discussion here u
 Translating from one to the other is crucial even in a computing era as the computer also primarily deals with arrays of numbers, and we must interpret what those arrays of numbers mean in terms of linear equations.
 
 \begin{example} 
-Recall the system of linear equations of \autoref{eg:3eq3var}:
+Recall the system of linear equations of \cref{eg:3eq3var}:
 \begin{equation*}
 \begin{array}{l}
 x_1+x_2-x_3=-2\,,\\
@@ -740,7 +741,7 @@ x_1+3x_2+5x_3=8\,,\\
 x_1+2x_2+x_3=1\,.
 \end{array}
 \end{equation*}
-The first crucial level of abstraction is to write this in the \idx{matrix-vector form}, \autoref{eg:matvecsys},
+The first crucial level of abstraction is to write this in the \idx{matrix-vector form}, \cref{eg:matvecsys},
 \begin{equation*}
 \underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
@@ -853,7 +854,7 @@ x+2y+z=1\,,\\ 2x-3y=2\,,\\ -3y-z=2\,.
 \end{equation*}
 Confirm with \script.
 \begin{solution} 
-In order to know what the row operations should find, let's first solve the system with \script\ via \autoref{pro:unisol}. 
+In order to know what the row operations should find, let's first solve the system with \script\ via \cref{pro:unisol}. 
 In matrix-vector form the system is
 \begin{equation*}
 \begin{bmatrix} 1&2&1\\2&-3&0\\0&-3&-1 \end{bmatrix}
@@ -893,7 +894,7 @@ x+2y+z=1\\ 0x-7y-2z=0\\ 0x-3y-z=2
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\0&-7&-2\V0\\0&-3&-1\V2 \end{bmatrix}
 \\[0ex plus 1ex]
-\parbox{0.5\linewidth}{This makes the first column have a leading one (\autoref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
+\parbox{0.5\linewidth}{This makes the first column have a leading one (\cref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
 \\[0ex plus 1ex]
 \begin{cases}
 x+2y+z=1\\ 0x+y+\frac27z=0\\ 0x-3y-z=2
@@ -909,7 +910,7 @@ x+0y+\frac37z=1\\ 0x+y+\frac27z=0\\ 0x+0y-\frac17z=2
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&0&\frac37\V1\\0&1&\frac27\V0\\0&0&-\frac17\V2 \end{bmatrix}
 \\[0ex plus 1ex]
-\parbox{0.5\linewidth}{This makes the second column have the second leading one (\autoref{def:rref}).  
+\parbox{0.5\linewidth}{This makes the second column have the second leading one (\cref{def:rref}).  
 Start on the third column by multiplying the third equation\slash row by~\((-7)\).}
 \\[0ex plus 1ex]
 \begin{cases}
@@ -926,9 +927,9 @@ x+0y+0z=7\\ 0x+y+0z=4\\ 0x+0y+z=-14
 &\iff&%\leftrightarrow&
 \begin{bmatrix} 1&0&0\V7\\0&1&0\V4\\0&0&1\V-14 \end{bmatrix}
 \end{eqnarray*}
-This completes the transformation of the equations\slash augmented matrix into a so-called \idx{reduced row echelon form} (\autoref{def:rref}).
+This completes the transformation of the equations\slash augmented matrix into a so-called \idx{reduced row echelon form} (\cref{def:rref}).
 From this form we read off the solution:  the system of equation on the left directly gives \(x=7\)\,, \(y=4\) and \(z=-14\)\,, that is, the solution vector \(\xv=(x,y,z)=(7,4,-14)\) (as computed by \script);
-the transformed augmented matrix on the right tells us exactly the same thing because (\autoref{def:augmat}) it means the same as the matrix-vector 
+the transformed augmented matrix on the right tells us exactly the same thing because (\cref{def:augmat}) it means the same as the matrix-vector 
 \begin{equation*}
 \begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}
 \begin{bmatrix} x\\y\\z \end{bmatrix}
@@ -1080,8 +1081,8 @@ Which one of the following is a \idx{general solution} to the system with \idx{a
 
 
 
-The previous \autoref{eg:rref} shows that given a system of linear equations in \idx{reduced row echelon form} we can either immediately write down all solutions, or immediately determine if none exists.
-Generalizing \autoref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (\autoref{thm:erowop}) to find an equivalent system of equations in \idx{reduced row echelon form}. 
+The previous \cref{eg:rref} shows that given a system of linear equations in \idx{reduced row echelon form} we can either immediately write down all solutions, or immediately determine if none exists.
+Generalizing \cref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (\cref{thm:erowop}) to find an equivalent system of equations in \idx{reduced row echelon form}. 
 From such a form we then write down a general solution.
 
 
@@ -1091,7 +1092,7 @@ From such a form we then write down a general solution.
 \begin{procedure}[\idx{Gauss--Jordan elimination}] \label{pro:gje}
 \ \begin{aside}
 Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script. 
-However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the \idx{singular value decomposition} of \autoref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.
+However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the \idx{singular value decomposition} of \cref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.
 \end{aside}\ 
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
@@ -1103,7 +1104,7 @@ However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the \idx{s
 
 
 \begin{example} \label{eg:gjea}
-Use \idx{Gauss--Jordan elimination}, \autoref{pro:gje}, to find all possible solutions to the system
+Use \idx{Gauss--Jordan elimination}, \cref{pro:gje}, to find all possible solutions to the system
 \begin{equation*}
 \begin{array}{l}
 -x-y=-3\,,\\x+4y=-1\,,\\2x+4y=c\,,
@@ -1161,7 +1162,7 @@ If parameter \(c=\frac{10}3\)\,, then the system is consistent and the first two
 
 
 \begin{example} \label{eg:gjeb}
-Use \idx{Gauss--Jordan elimination}, \autoref{pro:gje}, to find all possible solutions to the  system
+Use \idx{Gauss--Jordan elimination}, \cref{pro:gje}, to find all possible solutions to the  system
 \begin{equation*}
 \begin{cases}
 -2v+3w=-1\,,\\2u+v-w=-1\,.
@@ -1236,15 +1237,15 @@ For every system of linear equations \(A\xv=\bv\)\,, exactly one of the followin
 \end{theorem}
 
 \begin{comment}
-After studying \autoref{sec:svdsgs}, this theorem could alternatively be proved directly from the use of the so-called \idx{singular value decomposition} in solving the linear equation \(A\xv=\bv\)\,.
+After studying \cref{sec:svdsgs}, this theorem could alternatively be proved directly from the use of the so-called \idx{singular value decomposition} in solving the linear equation \(A\xv=\bv\)\,.
 \end{comment}
 
 \begin{proof} 
 First, if there is exactly none or one solution to \(A\xv=\bv\), then the theorem holds. 
 Second, suppose there are two distinct solutions; let them be \(\yv\) and~\(\zv\) so \(A\yv=\bv\) and \(A\zv=\bv\).  
-Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, \autoref{sec:pel}). 
+Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, \cref{sec:pel}). 
 %By distributivity \(A\xv=A(t\xv_1+(1-t)\xv_2) =tA\xv_1+(1-t)A\xv_2 =t\bv+(1-t)\bv =t\bv+\bv-t\bv =\bv\).  
-Consider the first row of~\(A\xv\): by \autoref{def:matvecsys} it is
+Consider the first row of~\(A\xv\): by \cref{def:matvecsys} it is
 \begin{eqnarray*}&&
 a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
 \\&=&a_{11}[ty_1+(1-t)z_1]+a_{12}[ty_2+(1-t)z_2]
@@ -1268,7 +1269,7 @@ Hence, if there are ever two distinct solutions, then there are an infinite numb
 
 
 An important class of linear equations always has at least one solution, never none.
-For example, modify \autoref{eg:gjea} to 
+For example, modify \cref{eg:gjea} to 
 \begin{equation*}
 \begin{array}{l}
 -x-y=0\,,\\x+4y=0\,,\\2x+4y=0\,,
@@ -1307,7 +1308,7 @@ It must have \(\xv=\ov\) as a solution as the system is homogeneous.
 x_1+2x_2+4x_3-3x_4=0\\
 x_1+2x_2-3x_3+6x_4=0
 \end{cases}\) is homogeneous.  
-Use \idx{Gauss--Jordan elimination}, \autoref{pro:gje}, to solve: 
+Use \idx{Gauss--Jordan elimination}, \cref{pro:gje}, to solve: 
 \begin{eqnarray*}
 \begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
@@ -1374,8 +1375,8 @@ Which one of the following systems of equations for \(x\) and~\(y\) is \idx{homo
 
 
 
-As \autoref{eg:homosysiv} illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
-Namely, if the number of equations is less than the number of unknowns (two is less than four in \autoref{eg:homosysiv}), then a homogeneous system always has an infinite number of solutions.
+As \cref{eg:homosysiv} illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
+Namely, if the number of equations is less than the number of unknowns (two is less than four in \cref{eg:homosysiv}), then a homogeneous system always has an infinite number of solutions.
 
 
 \begin{theorem} \label{thm:feweqns} 
@@ -1391,7 +1392,7 @@ Here \(n>m\) and so the number of free variables is at least \(n-m>0\)\,.
 Hence there is at least one free variable and consequently an infinite number of solutions.
 \end{proof}
 
-%After studying \autoref{sec:svdsgs}, this theorem could also be proved directly from the use of the so-called \idx{singular value decomposition} in solving the homogeneous linear equation \(A\xv=\ov\)\,.
+%After studying \cref{sec:svdsgs}, this theorem could also be proved directly from the use of the so-called \idx{singular value decomposition} in solving the homogeneous linear equation \(A\xv=\ov\)\,.
 
 
 
@@ -1408,7 +1409,7 @@ This means we need to discuss and manipulate matrices as a whole, not  get enmes
 This has close intellectual parallels in computing where abstract data structures empower us to encode complex tasks: here the analogous abstract data structures are matrices and vectors, and working with matrices and vectors as objects in their own right empowers linear algebra.
 The next chapter proceeds to develop linear algebra at the matrix level.
 
-But first, the next \autoref{sec:lcss} establishes some necessary fundamental aspects at the vector level.
+But first, the next \cref{sec:lcss} establishes some necessary fundamental aspects at the vector level.
 
 
 
@@ -1469,7 +1470,7 @@ Four: two orderings of rows, and two orderings of the variables.}
 
 
 \begin{exercise}  
-Use \autoref{pro:unisol} in \script\ to try to solve each of the systems of \autoref{ex:somsys}.
+Use \cref{pro:unisol} in \script\ to try to solve each of the systems of \cref{ex:somsys}.
 % surprizingly the following works, except arabic instead of alph
 \answer{\protect\begin{enumerate}[label=(\protect\alph*)]
 \protect\item \((x,y)=(-0.4,-1.2)\)
@@ -1484,7 +1485,7 @@ Use \autoref{pro:unisol} in \script\ to try to solve each of the systems of \aut
 
 
 \begin{exercise} \label{ex:3lineq} 
-Use \autoref{pro:unisol} in \script\ to try to solve each of the following systems.
+Use \cref{pro:unisol} in \script\ to try to solve each of the following systems.
 \begin{enumerate}
 \item \(\begin{array}{l}
 -5x  -3y   +5z=  -3 \\
@@ -1524,7 +1525,7 @@ u   +3v   +2w=  -1\\
 
 
 \begin{exercise}  
-Use \idx{elementary row operation}s (\autoref{thm:erowop}) to solve the systems in \autoref{ex:3lineq}.
+Use \idx{elementary row operation}s (\cref{thm:erowop}) to solve the systems in \cref{ex:3lineq}.
 \answer{As before, except \((u,v,w)=(-2+3t,\tfrac13-\tfrac53t,t\) for all~\(t\).}
 \end{exercise}
 
@@ -1533,7 +1534,7 @@ Use \idx{elementary row operation}s (\autoref{thm:erowop}) to solve the systems 
 
 
 \begin{exercise}  
-Use \autoref{pro:unisol} in \script\ to try to solve each of the following systems.
+Use \cref{pro:unisol} in \script\ to try to solve each of the following systems.
 \begin{enumerate}
 \item \(\begin{array}{l}
 2.2x_1  -2.2x_2  -3.5x_3  -2.2x_4=   2.9\\
@@ -1620,6 +1621,7 @@ Since \protect\verb|rcond| is good, the solution is \(x_1=-0.39\), \(x_2=0.63\) 
 
 
 \item \index{error:@\texttt{error:}}
+\index{matrix must be square@\texttt{matrix must be square}}
 \begin{verbatim}
 >> A=[0.7 1.4; -0.5 -0.9; 1.9 0.7]
 A =
@@ -1725,6 +1727,7 @@ x =
 Since \protect\verb|rcond| is good, the solution is \(x_1=-0.34\), \(x_2=-0.38\), \(x_3=-0.87\) and \(x_4=-1.05\) \twodp.}
 
 \item \index{error:@\texttt{error:}}
+\index{matrix must be square@\texttt{matrix must be square}}
 \begin{verbatim}
 >> A=[1.4 0.9 1.9; -0.9 -0.2 0.4]
 A =
@@ -1971,8 +1974,10 @@ To keep the coefficients manageable, write the quadratic in terms of the number 
 
 \begin{exercise} \label{ex:orb4Periods} 
 \begin{table}
-\caption{\idx{orbital period}s for four \idx{planets} of the \idx{solar system}: the periods are in (Earth) days; the distance is the length of the semi-major axis of the orbits [\idx{Wikipedia}, 2014].}
+\caption{\idx{orbital period}s for four \idx{planets} of the \idx{solar system}: the periods are in (Earth) days; the distance is the length of the semi-major axis of the orbits (\idx{Wikipedia}, 2014).}
 \label{tbl:orb4Periods}
+% the original source of this data is not cited by Wikipedia
+{\footnotesize[\protect\url{https://en.wikipedia.org/wiki/Orbital\_period}]}
 \begin{equation*}
 \begin{array}{p{12ex}rr} \hline
 planet&\text{distance}&\text{period}\\
@@ -1988,11 +1993,11 @@ Mars& 227.94& 686.97\\\hline
 \end{array}
 \end{equation*}
 \end{table}%
-\autoref{tbl:orb4Periods} lists the time taken by a planet to orbit the Sun and a typical distance of the planet from the Sun. 
-Analogous to \autoref{eg:infertemp2}, fit a quadratic polynomial \(T=c_1+c_2R+c_3R^2\) for the period~\(T\) as a function of distance~\(R\).
+\cref{tbl:orb4Periods} lists the time taken by a planet to orbit the Sun and a typical distance of the planet from the Sun. 
+Analogous to \cref{eg:infertemp2}, fit a quadratic polynomial \(T=c_1+c_2R+c_3R^2\) for the period~\(T\) as a function of distance~\(R\).
 Use the data for Mercury, Venus and Earth.
 Then use the quadratic to predict the period of Mars: what is the error in your prediction?
-(\autoref{eg:orbitalPeriods} shows a power law fit is better, and that the power law agrees with \idx{Kepler's law}.)
+(\cref{eg:orbitalPeriods} shows a power law fit is better, and that the power law agrees with \idx{Kepler's law}.)
 %\begin{verbatim}
 %t=[87.97;224.70;365.26]
 %r=[57.91;108.21;149.60]
@@ -2024,7 +2029,7 @@ Nakos~\S1.4 has lots of good ideas (including derivation of cosine rule for tria
 
 \begin{exercise}[{Global Positioning System} in space-time] \label{ex:gps3t} 
 For each case below, and in space-time, suppose you know from five \gps\ satellites that you and your \gps\ receiver are the given measured time shifts away from the given locations of each of the three satellites (locations are in~Mm).  
-Following \autoref{eg:gps3t}, determine both your position and the discrepancy in time between your \gps\ receiver and the satellites \gps\ time.  
+Following \cref{eg:gps3t}, determine both your position and the discrepancy in time between your \gps\ receiver and the satellites \gps\ time.  
 Which case needs another satellite?
 \begin{enumerate}
 \item  
@@ -2092,7 +2097,7 @@ Suppose you are given data at \(n\)~points, equi-spaced in~\(x\).
 Say the known data points are \((1,y_1)\), \((2,y_2)\), \ldots, \((n,y_n)\) for some given \hlist yn.
 Seek a polynomial fit to the data of degree~\((n-1)\); that is, seek the fit \(y=c_1+c_2x+c_3x^2+\cdots+c_{n}x^{n-1}\).
 In \script, form the matrix of the linear equations that need to be solved for the coefficients \hlist cn.  
-According to \autoref{pro:unisol}, for what number~\(n\) of data points is \verb|rcond| good? poor? bad? terrible? 
+According to \cref{pro:unisol}, for what number~\(n\) of data points is \verb|rcond| good? poor? bad? terrible? 
 %a=ones(m,1),for n=2:m, a=[ones(m,1) diag(1:m)*a], rcond(a(1:n,:)), end
 \answer{Good, \(\{1,2\}\); poor, \(\{3,4\}\); bad, \(\{5,6,7\}\); terrible, \(\{8,9,\ldots\}\).}
 \end{exercise}

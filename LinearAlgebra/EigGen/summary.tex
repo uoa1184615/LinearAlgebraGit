@@ -8,7 +8,7 @@
 
 \item In the case of non-symmetric matrices, eigenvectors are usually not orthogonal, \idx{eigenvalue}s and eigenvectors are sometimes \idx{complex valued}, and sometimes there are not as many eigenvectors as we expect.
 
-\itemme The \idx{diagonal entries} of a \idx{triangular matrix} are the only \idx{eigenvalue}s of the matrix (\autoref{thm:trieig}).  
+\itemme The \idx{diagonal entries} of a \idx{triangular matrix} are the only \idx{eigenvalue}s of the matrix (\cref{thm:trieig}).  
 The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{generally} not \idx{orthogonal}.
 
 
@@ -17,21 +17,21 @@ The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{gen
 
 \subsubsection*{Find eigenvalues and eigenvectors of matrices}
 
-\itemme For every \(n\times n\) \idx{square matrix}~\(A\) we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\) (\autoref{thm:geecp}):
+\itemme For every \(n\times n\) \idx{square matrix}~\(A\) we call \(\det(A-\lambda I)\) the \bfidx{characteristic polynomial} of~\(A\) (\cref{thm:geecp}):
 \begin{itemize}
 \item the \idx{characteristic polynomial} of~\(A\) is a polynomial of \(n\)th~degree in~\(\lambda\);
 \item  there are at most \(n\)~\idx{distinct eigenvalues} of~\(A\).
 \end{itemize}
 
-\item For every \(n\times n\) matrix~\(A\) (\autoref{thm:charpolyc}): \begin{itemize}
+\item For every \(n\times n\) matrix~\(A\) (\cref{thm:charpolyc}): \begin{itemize}
 \item the product of the \idx{eigenvalue}s equals~\(\det A\) and equals the \idx{constant term} in the \idx{characteristic polynomial};  
 \item the sum of the \idx{eigenvalue}s equals \((-1)^{n-1}\)~times the \idx{coefficient} of~\(\lambda^{n-1}\) in the \idx{characteristic polynomial} and equals the \bfidx{trace} of the matrix, defined as the sum of the diagonal elements \(a_{11}+a_{22}+\cdots+a_{nn}\)\,.
 \end{itemize}
 
-\item An \idx{eigenvalue}~\(\lambda_0\) of a matrix~\(A\) is said to have \bfidx{multiplicity}~\(m\) if the \idx{characteristic polynomial} factorizes to \(\det(A-\lambda I)=(\lambda-\lambda_0)^mg(\lambda)\) where \(g(\lambda_0)\neq0\) (\autoref{def:eigmult}).
+\item An \idx{eigenvalue}~\(\lambda_0\) of a matrix~\(A\) is said to have \bfidx{multiplicity}~\(m\) if the \idx{characteristic polynomial} factorizes to \(\det(A-\lambda I)=(\lambda-\lambda_0)^mg(\lambda)\) where \(g(\lambda_0)\neq0\) (\cref{def:eigmult}).
 Every eigenvalue of multiplicity \(m\geq2\) may also be called a \bfidx{repeated eigenvalue}.
 
-\itemme \autoref{pro:geneig} finds by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{square matrix}~\(A\):
+\itemme \cref{pro:geneig} finds by hand \idx{eigenvalue}s and \idx{eigenvector}s of a (small) \idx{square matrix}~\(A\):
 \begin{enumerate}
 \item find all \idx{eigenvalue}s (possibly complex) by solving the \bfidx{characteristic equation}, \(\det(A-\lambda I)=0\) ---for an \(n\times n\) matrix there are \(n\)~\idx{eigenvalue}s when counted according to \idx{multiplicity} and allowing \idx{complex eigenvalue}s;
 \item for each \idx{eigenvalue}~\(\lambda\), solve the \idx{homogeneous} \idx{linear equation} \((A-\lambda I)\xv=\ov\) to find the \idx{eigenspace}~\(\EE_\lambda\);
@@ -43,8 +43,8 @@ In \script, for a given square matrix~\verb|A|, execute
 \index{diag()@\texttt{diag()}}\verb|diag(D)|, are the \idx{eigenvalue}s of~\verb|A|. 
 Corresponding to the eigenvalue~\verb|D(j,j)| is an  \idx{eigenvector} \(\vv_j=\verb|V(:,j)|\), the \(j\)th~column of~\verb|V|.  
 
-\itemme If a \idx{non-symmetric matrix} or computation has an error~\(e\), then expect a repeated eigenvalue of multiplicity~\(m\) to appear as \(m\)~eigenvalues all within about~\(e^{1/m}\) of each other.
-Thus when we find or compute \(m\)~eigenvalues all within about~\(e^{1/m}\), then suspect them to actually be one eigenvalue of multiplicity~\(m\).
+\itemme If a \idx{non-symmetric matrix} or computation has an error~\(\epsilon\), then expect a repeated eigenvalue of multiplicity~\(m\) to appear as \(m\)~eigenvalues all within about~\(\epsilon^{1/m}\) of each other.
+Thus when we find or compute \(m\)~eigenvalues all within about~\(\epsilon^{1/m}\), then suspect them to actually be one eigenvalue of multiplicity~\(m\).
 
 \itemhi In modelling populations one often seeks the number of animals of various ages as a function of time.
 Define \(y_j(t)\) to be the number of females in age category~\(j\) at time~\(t\), and form into the vector \(\yv(t)=(\hlist yn)\).
@@ -52,7 +52,7 @@ Then encoding expected births, ageing, and deaths into mathematics leads to the 
 This model empowers predictions.
 
 
-\itemme Suppose the \(n\times n\) \idx{square matrix}~\(A\) governs the dynamics of \(\yv(t)\in\RR^n\) according to \(\yv(t+1)=A\yv(t)\) (\autoref{thm:dynsol}).
+\itemme Suppose the \(n\times n\) \idx{square matrix}~\(A\) governs the dynamics of \(\yv(t)\in\RR^n\) according to \(\yv(t+1)=A\yv(t)\) (\cref{thm:dynsol}).
 \begin{itemize}
 \item Let \hlist\lambda m\ be \idx{eigenvalue}s of~\(A\) and \hlist\vv m\ be corresponding \idx{eigenvector}s, then a solution of \(\yv(t+1)=A\yv(t)\) is the \idx{linear combination}
 \begin{equation*}
@@ -72,7 +72,7 @@ for all constants \hlist cm.
 \end{itemize}
 
 
-\item For every real \(m\times n\) matrix~\(A\), the \idx{singular value}s of~\(A\) are the non-negative \idx{eigenvalue}s of the \((m+n)\times(m+n)\) \idx{symmetric matrix} \(B=\begin{bmat} O_m&A\\\tr A&O_n \end{bmat}\) (\autoref{thm:eigsvd}). 
+\item For every real \(m\times n\) matrix~\(A\), the \idx{singular value}s of~\(A\) are the non-negative \idx{eigenvalue}s of the \((m+n)\times(m+n)\) \idx{symmetric matrix} \(B=\begin{bmat} O_m&A\\\tr A&O_n \end{bmat}\) (\cref{thm:eigsvd}). 
 Writing an \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) as \(\wv=(\uv,\vv)\) gives corresonding singular vectors of~\(A\), \(\uv\in\RR^m\)\ and \(\vv\in\RR^n\).
 
 
@@ -80,7 +80,7 @@ Writing an \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) as \(\wv=(\uv,\vv)\) 
 \ifcsname r@sec:eidd\endcsname%%%%%%%%%%%%%%%%%%%%%%%%
 \item After measuring musical notes, vibrations of complicated buildings, or bio-chemical reactions, we often need to fit exponential functions to the data.
 
-\item \autoref{pro:ei} fits the exponential interpolation \(c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\) to the measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=jh\) for time-spacing~\(h\).
+\item \cref{pro:ei} fits the exponential interpolation \(c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\) to the measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=jh\) for time-spacing~\(h\).
 \begin{enumerate}
 \item From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
 \begin{eqnarray*}&&
@@ -114,7 +114,7 @@ For example, the first \(n\)~data points give the linear system
  \end{bmatrix}\begin{bmatrix} c_1\\c_2\\\vdots\\c_n \end{bmatrix}
  =\begin{bmatrix} f_1\\f_2\\f_3\\\vdots\\f_n \end{bmatrix}
 \end{equation*}
-In \script, construct this matrix with \index{auto-replication}\verb|U=(lambda.^(0:n-1)).'|   (see \autoref{tbl:mtlbnorm}).
+In \script, construct this matrix with \index{auto-replication}\verb|U=(lambda.^(0:n-1)).'|   (see \cref{tbl:mtlbnorm}).
 \end{enumerate}
 \fi%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -122,33 +122,33 @@ In \script, construct this matrix with \index{auto-replication}\verb|U=(lambda.^
 
 
 
-\subsubsection*{Linear independent vectors may form a basis}
+\subsubsection*{Linearly independent vectors may form a basis}
 
-\itemme A set of vectors \(\{\hlist\vv k\}\) is \bfidx{linearly dependent} if there are scalars \hlist ck, at least one of which is nonzero, such that \(\lincomb c\vv k=\ov\) (\autoref{def:lindep}).
+\itemme A set of vectors \(\{\hlist\vv k\}\) is \bfidx{linearly dependent} if there are scalars \hlist ck, at least one of which is nonzero, such that \(\lincomb c\vv k=\ov\) (\cref{def:lindep}).
 A set of vectors that is not linearly dependent is called \bfidx{linearly independent}.
 
-\itemme Every \idx{orthonormal set} of vectors is \idx{linearly independent} (\autoref{thm:ortholi}).
+\itemme Every \idx{orthonormal set} of vectors is \idx{linearly independent} (\cref{thm:ortholi}).
 
-\item A set of vectors \(\{\hlist\vv m\}\) is \idx{linearly dependent} if and only if at least one of the vectors can be expressed as a \idx{linear combination} of the other vectors (\autoref{thm:lindeplc}).
-In particular, a set of two vectors \(\{\vv_1,\vv_2\}\) is linearly dependent if and only if one of the vectors is a multiple of the other.
+\item A set of vectors \(\{\hlist\vv m\}\) is \idx{linearly dependent} if and only if at least one of the vectors can be expressed as a \idx{linear combination} of the other vectors (\cref{thm:lindeplc}).
+In particular, a set of two vectors \(\{\vv_1,\vv_2\}\) is linearly dependent if and only if one of the vectors is a scalar multiple of the other.
 
 \itemhi For every \(n\times n\) matrix~\(A\), let \hlist\lambda m\ be distinct \idx{eigenvalue}s of~\(A\) with corresponding \idx{eigenvector}s \hlist\vv m.
-Then the set \(\{\hlist \vv m\}\) is \idx{linearly independent} (\autoref{thm:indepev}).
+Then the set \(\{\hlist \vv m\}\) is \idx{linearly independent} (\cref{thm:indepev}).
 
 \itemme Let \hlist\vv m\ be vectors in~\(\RR^n\),
 and let the \(n\times m\) matrix \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_m \end{bmatrix}\).  
-Then the set \(\{\hlist\vv m\}\) is \idx{linearly dependent} if and only if the \idx{homogeneous} system \(V\cv=\ov\) has a nonzero solution~\cv\ (\autoref{thm:linhomo}).
+Then the set \(\{\hlist\vv m\}\) is \idx{linearly dependent} if and only if the \idx{homogeneous} system \(V\cv=\ov\) has a nonzero solution~\cv\ (\cref{thm:linhomo}).
 
-\item Every  set of \(m\)~vectors in~\(\RR^n\) is \idx{linearly dependent} when the number of vectors \(m>n\) (\autoref{thm:mgtnli}).
+\item Every  set of \(m\)~vectors in~\(\RR^n\) is \idx{linearly dependent} when the number of vectors \(m>n\) (\cref{thm:mgtnli}).
 
-\itemme A \bfidx{basis} for a \idx{subspace}~\WW\ of~\(\RR^n\) is a set of  vectors that both \idx{span}~\WW\ and is \idx{linearly independent} (\autoref{def:basis}).
+\itemme A \bfidx{basis} for a \idx{subspace}~\WW\ of~\(\RR^n\) is a set of  vectors such that the set both \idx{span}s~\WW\ and is \idx{linearly independent} (\cref{def:basis}).
 
-\item Any two bases for a given \idx{subspace} have the same number of vectors (\autoref{thm:sameDii}).
+\item Any two bases for a given \idx{subspace} have the same number of vectors (\cref{thm:sameDii}).
 
 \item For every \idx{subspace}~\WW\ of~\(\RR^n\),  
-the \bfidx{dimension} of~\WW\ is the number of vectors in any \idx{basis} for~\WW\ (\autoref{thm:dimii}). 
+the \bfidx{dimension} of~\WW\ is the number of vectors in any \idx{basis} for~\WW\ (\cref{thm:dimii}). 
 
-\itemme \autoref{pro:bfs} finds a \idx{basis} for the \idx{subspace} \(\AA=\Span\{\hlist\av n\}\) for every given set of $n$~vectors in~\(\RR^m\), $\{\hlist\av n\}$.
+\itemme \cref{pro:bfs} finds a \idx{basis} for the \idx{subspace} \(\AA=\Span\{\hlist\av n\}\) for every given set of $n$~vectors in~\(\RR^m\), $\{\hlist\av n\}$.
 \begin{enumerate}
 \item Form \(m\times n\) matrix $A:= \begin{bmatrix} \av_1 & \av_2& \cdots&\av_n \end{bmatrix}$. 
 \item Factorize~\(A\) into a \svd, $A=\usv$\,, and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
@@ -157,19 +157,19 @@ the \bfidx{dimension} of~\WW\ is the number of vectors in any \idx{basis} for~\W
 Alternatively, if the rank \(r=n\)\,, then the set \(\{\hlist\av n\}\) is \idx{linearly independent} and span the subspace~\AA, and so is also a \idx{basis} for the \(n\)-dimensional subspace~\AA.
 
 
-\itemme \autoref{pro:bfe} finds a \idx{basis} for a \idx{subspace}~\WW\ specified as the solutions of a system of equations.
+\itemme \cref{pro:bfe} finds a \idx{basis} for a \idx{subspace}~\WW\ specified as the solutions of a system of equations.
 \begin{enumerate}
 \item Rewrite the system of equations as the \idx{homogeneous} system \(A\xv=\ov\) so that the subspace~\WW\ is the \idx{nullspace} of \(m\times n\) matrix~\(A\).
 \item  Find an \svd\ factorization \(A=\usv\) and let \(r=\rank A\) be the number of nonzero \idx{singular value}s (or effectively nonzero when the matrix has experimental errors).
 \item The last \(n-r\) columns of~\(V\) form an \idx{orthonormal basis} for the subspace~\WW.
 \end{enumerate}
 
-\item For every \idx{subspace}~\WW\ of~\(\RR^n\) let \(\cB=\{\hlist\vv k\}\) be a \idx{basis} for~\WW.  
+\item For any \idx{subspace}~\WW\ of~\(\RR^n\) let \(\cB=\{\hlist\vv k\}\) be a \idx{basis} for~\WW.  
 Then there is exactly one way to write each and every vector \(\wv\in\WW\) as a \idx{linear combination} of the \idx{basis} vectors: \(\wv=\lincomb c\vv k\)\,.
 The coefficients \(\hlist ck\) are called the \textbf{\bfidx{coordinates} of~\wv\ with respect to~\cB}, and the \idx{column vector} \([\wv]_{\cB}=(\hlist ck)\) is called the \textbf{\bfidx{coordinate vector} of~\wv\ with respect to~\cB}.
 
 \itemme For every \(n\times n\) \idx{square matrix}~\(A\), and  
-extending \cref{thm:ftim1,thm:ftim2}, the following statements are equivalent (\autoref{thm:ftim3}):
+extending \cref{thm:ftim1,thm:ftim2}, the following statements are equivalent (\cref{thm:ftim3}):
 \begin{itemize}
 \item \(A\) is \idx{invertible};
 \item \(A\xv=\bv\) has a \idx{unique solution} for every \(\bv\in\RR^n\);
@@ -194,16 +194,16 @@ extending \cref{thm:ftim1,thm:ftim2}, the following statements are equivalent (\
 
 \subsubsection*{Diagonalization identifies the transformation}
 
-\item An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalizable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\) (\autoref{def:diagonalise}).
+\item An \(n\times n\) \idx{square matrix}~\(A\) is \bfidx{diagonalizable} if there exists a \idx{diagonal matrix}~\(D\) and an \idx{invertible} matrix~\(P\) such that \(A=PDP^{-1}\), equivalently \(AP=PD\) or \(P^{-1}AP=D\) (\cref{def:diagonalise}).
 
-\itemhi For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalizable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s (\autoref{thm:gendiag}).  
+\itemhi For every \(n\times n\) \idx{square matrix}~\(A\), the matrix~\(A\) is \idx{diagonalizable} if and only if \(A\)~has \(n\)~\idx{linearly independent} \idx{eigenvector}s (\cref{thm:gendiag}).  
 If \(A\)~is \idx{diagonalizable}, with \idx{diagonal matrix} \(D=P^{-1}AP\), then  the \idx{diagonal entries} of~\(D\) are \idx{eigenvalue}s, and the columns of~\(P\) are corresponding \idx{eigenvector}s.
 
-\itemme For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalizable} (\autoref{thm:dlamd}).
+\itemme For every \(n\times n\) \idx{square matrix}~\(A\), if~\(A\) has \(n\)~distinct \idx{eigenvalue}s, then \(A\)~is \idx{diagonalizable} (\cref{thm:dlamd}).
 Consequently, and allowing \idx{complex eigenvalue}s, a real \idx{non-diagonalizable} matrix must be non-symmetric and must have at least one \idx{repeated eigenvalue}.
 
 \itemme For every square matrix~\(A\), and for each \idx{eigenvalue}~\(\lambda_j\) of~\(A\), the corresponding \idx{eigenspace}~\(\EE_{\lambda_j}\) has \idx{dimension} less than or equal to the \idx{multiplicity} of~\(\lambda_j\);
-that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\) (\autoref{thm:dimee}).  
+that is, \(1\leq\dim\EE_{\lambda_j}\leq\text{multiplicity of }\lambda_j\) (\cref{thm:dimee}).  
 
 \item Mathematical models of interaction populations of animals, plants and diseases are often written as \idx{differential equation}s in continuous time.  Letting \(\yv(t)\) be the vector of numbers of each species at time~\(t\), the basic model is a linear system of differential equations \(d\yv/dt=A\yv\)\,. 
 
@@ -215,7 +215,7 @@ Then a \idx{general solution}~\(\xv(t)\) to the \idx{differential equation} syst
 \begin{equation*}
 \xv(t)=c_1\pv_1e^{\lambda_1t}+c_2\pv_2e^{\lambda_2t}+\cdots+c_n\pv_ne^{\lambda_nt}
 \end{equation*}
-for arbitrary constants \hlist cn\ (\autoref{thm:ddtsol}).
+for arbitrary constants \hlist cn\ (\cref{thm:ddtsol}).
 
 
 

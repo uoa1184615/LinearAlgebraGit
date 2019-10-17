@@ -4,7 +4,7 @@ A=double(rgb(:,:,1));
 [U,S,V]=svd(A); 
 figure(1)
 s=diag(S);
-loglog(1:276,s(1:276),'o')
+loglog(1:276,s(1:276),'.')
 ylabel('singular values')
 print -depsc2 'euler1737sing'
 %matlab2tikz('euler1737sing.tex')

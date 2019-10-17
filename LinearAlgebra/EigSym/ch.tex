@@ -7,7 +7,7 @@
 
 \index{symmetric matrix|(}
 
-Recall (\autoref{sec:amwm}) that a \idx{symmetric matrix}~\(A\) is a square matrix such that \(\tr A=A\)\,, that is, \(a_{ij}=a_{ji}\)\,.
+Recall (\cref{sec:amwm}) that a \idx{symmetric matrix}~\(A\) is a square matrix such that \(\tr A=A\)\,, that is, \(a_{ij}=a_{ji}\)\,.
 For example, of the following two matrices, the first is symmetric, but the second is not:
 \begin{equation*}
 \begin{bmatrix} -2&4&0
@@ -24,7 +24,7 @@ Compute some \svd{}s of random symmetric matrices, \(A=\usv\), observe in the \s
 Repeat as often us you like for any size of square matrix that you like  (one example is recorded here to two decimal places).  
 \begin{enumerate}
 \item Generate in \script\ some random symmetric matrix by adding a 
-\idx{random matrix} to its transpose with \index{randn()@\texttt{randn()}}\verb|A=randn(5); A=A+A'| (\autoref{tbl:mtlbops}):
+\idx{random matrix} to its transpose with \index{randn()@\texttt{randn()}}\verb|A=randn(5); A=A+A'| (\cref{tbl:mtlbops}):
 \setbox\ajrqrbox\hbox{\qrcode{% svd symmetric
 A=randn(5); A=A+A'
 [U,S,V]=svd(A)
@@ -69,7 +69,7 @@ Repeat for different random symmetric matrices and observe \(\uv_j=\pm \vv_j\) f
 \index{symmetric matrix}Why, for symmetric matrices, are the columns of~\(U\) (almost) always \(\pm\)~the columns of~\(V\)?
 The answer is connected to the following rearrangement of an \svd.  
 Because \(A=\usv\), post-multiplying by~\(V\) gives \(AV=US\tr VV=US\)\,, and then the \(j\)th~column of the two sides of \(AV=US\) determines \(A\vv_j=\sigma_j\uv_j\)\,.
-\autoref{eg:symsigns} indicates that for symmetric matrices~\(A\) we  find \(\uv_j=\pm\vv_j\) (almost always) so this last equation becomes \(A\vv_j=(\pm \sigma_j)\vv_j\).
+\cref{eg:symsigns} indicates that for symmetric matrices~\(A\) we  find \(\uv_j=\pm\vv_j\) (almost always) so this last equation becomes \(A\vv_j=(\pm \sigma_j)\vv_j\).
 This equation is of the important form \(A\vv=\lambda\vv\)\,.
 \begin{aside}
 The symbol~\bfidx{$\lambda$}\index{lambda, $\lambda$} is the Greek letter lambda, and denotes eigenvalues.
@@ -78,12 +78,12 @@ This form is important because it is the mathematical expression of the followin
 
 \begin{comment}
 Dynamics of two masses on a spring (relate to molecular vibrations), and seek solutions in~\(\cos(ft)\) for eigenvalue \(\lambda=f^2\).  
-As done for three masses in \autoref{eg:eig3vib}---if not omitted.  
+As done for three masses in \cref{eg:eig3vib}---if not omitted.  
 Say symmetry from equal and opposite, claim holds even for gigantic structures with millions of interacting components.
 \end{comment}
 
 
-\paragraph{Solid modelling} Lean with a hand on a table\slash wall: the force changes depending upon the orientation of the surface.  
+\paragraph{Solid modelling} Lean with a hand on a table\slash wall: the force changes depending upon the \idx{orientation} of the surface.  
 Similarly inside any solid: the internal forces\({}=A\vv\) where \(\vv\)~is the orthogonal \idx{unit vector} to the internal `surface'.  
 In this solid-force scenario, the matrix~\(A\) is always symmetric.  
 To know whether a material will break apart under pulling, or to crumble under compression, we need to know where the extreme forces are.  

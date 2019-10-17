@@ -9,11 +9,11 @@
 
 \subsubsection*{Measure changes to matrices}
 
-\itemhi \autoref{pro:ai} approximates matrices.
+\itemhi \cref{pro:ai} approximates matrices.
 For an image stored as scalars in an \(m\times n\) matrix~\(A\).
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
-\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\autoref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and the rest are `small'.
+\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and the rest are `small'.
 \item Then the `best' rank~\(k\) approximation to the image matrix~\(A\) is
 \begin{eqnarray*}
 A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
@@ -24,7 +24,7 @@ A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
 
 \item In \script:
 \begin{itemize}
-\itemme \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm}, \autoref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
+\itemme \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm}, \cref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
 Also, \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
 
 \item \index{scatter()@\texttt{scatter()}}\verb|scatter(x,y,[],c)| draws a 2D scatter plot of points with coordinates in vectors~\verb|x| and~\verb|y|, each point with a colour determined by the corresponding entry of vector~\verb|c|.  
@@ -65,18 +65,18 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 \norm A:=\max_{|\xv|=1}|A\xv|, 
 \quad\text{equivalently }\norm A=\sigma_1
 \end{equation*}
-the largest \idx{singular value} of the matrix~\(A\) (\autoref{def:norm}).
+the largest \idx{singular value} of the matrix~\(A\) (\cref{def:norm}).
 This norm usefully measures the `length' or `\idx{magnitude}' of a matrix, and hence also the `\idx{distance}' between two matrices as~\(\norm{A-B}\).
 
-\itemme For every \(m\times n\) real matrix~\(A\) (\autoref{thm:norm}):
+\itemme For every \(m\times n\) real matrix~\(A\) (\cref{thm:norm}):
 \begin{itemize}
 \item \(\norm A=0\) if and only if \(A=O_{m\times n}\)\,;
 \item \(\norm{I_n}=1\)\,;
 \item \(\norm {A\pm B}\leq\norm{A}+\norm B\), for every \(m\times n\) matrix~\(B\)---like a \idx{triangle inequality};
-\item \(\norm{tA}=|t|\norm{A}\)\,;
+\item \(\norm{tA}=|t|\cdot\norm{A}\)\,;
 \item \(\norm A=\norm{\tr A}\)\,;
 \item \(\norm{Q_mA}=\norm A=\norm{AQ_n}\) for every \(m\times m\) \idx{orthogonal matrix}~\(Q_m\) and every \(n\times n\) \idx{orthogonal matrix}~\(Q_n\);
-\item \(|A\xv|\leq\norm{A}|\xv|\) for all \(\xv\in\RR^n\)---like a \idx{Cauchy--Schwarz inequality}, as is the following;
+\item \(|A\xv|\leq\norm{A}\cdot|\xv|\) for all \(\xv\in\RR^n\)---like a \idx{Cauchy--Schwarz inequality}, as is the following;
 \item \(\norm{AB}\leq\norm A\norm B\) for every \(n\times p\) matrix~\(B\).
 \end{itemize}
 
@@ -85,15 +85,15 @@ Then for every \(k< r\) the matrix
 \begin{equation*}
 A_k:=US_k\tr V =\sigma_1\uv_1\tr\vv_1 +\sigma_2\uv_2\tr\vv_2+\cdots +\sigma_k\uv_k\tr\vv_k
 \end{equation*}
-where \(S_k:=\diag(\hlist\sigma k,0,\ldots,0)\), is a \emph{closest} \idx{rank}~\(k\) matrix approximating~\(A\) (\autoref{thm:am}).
+where \(S_k:=\diag(\hlist\sigma k,0,\ldots,0)\), is a \emph{closest} \idx{rank}~\(k\) matrix approximating~\(A\) (\cref{thm:am}).
 The \idx{distance} between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 
-\item Given a \(m\times n\) data matrix~\(A\) (usually with zero mean when averaged over all rows) with  \svd\ \(A=\usv\), then the \(j\)th column~\(\vv_j\) of~\(V\) is called the \(j\)th~\bfidx{principal vector} and the vector \(\xv_j:=A\vv_j\) is called the \(j\)th~\bfidx{principal components} of the data matrix~\(A\) (\autoref{def:pc}).
+\item Given a \(m\times n\) data matrix~\(A\) (usually with zero mean when averaged over all rows) with  \svd\ \(A=\usv\), then the \(j\)th column~\(\vv_j\) of~\(V\) is called the \(j\)th~\bfidx{principal vector} and the vector \(\xv_j:=A\vv_j\) is called the \(j\)th~\bfidx{principal components} of the data matrix~\(A\) (\cref{def:pc}).
 
-\item Using the \idx{matrix norm} to measure `best', the best \(k\)-dimensional summary of the \(m\times n\) data matrix~\(A\) (usually of zero mean) are the first~\(k\) principal components in the directions of the first~\(k\) principal vectors (\autoref{thm:pc}).
+\item Using the \idx{matrix norm} to measure `best', the best \(k\)-dimensional summary of the \(m\times n\) data matrix~\(A\) (usually of zero mean) are the first~\(k\) principal components in the directions of the first~\(k\) principal vectors (\cref{thm:pc}).
 
 \itemme  
-\autoref{pro:pca} considers the case when you have data values consisting of \(n\)~attributes for each of \(m\)~instances: it finds a good \(k\)-dimensional summary\slash view of the data. 
+\cref{pro:pca} considers the case when you have data values consisting of \(n\)~attributes for each of \(m\)~instances: it finds a good \(k\)-dimensional summary\slash view of the data. 
 \begin{enumerate} \sloppy
 \item Form\slash enter the \(m\times n\) data matrix~\(B\).
 \item \index{data scaling}Scale the data matrix~\(B\) to form \(m\times n\) matrix~\(A\):
@@ -117,20 +117,20 @@ A=(B-mean(B))./std(B);
 
 \subsubsection*{Regularize linear equations}
 
-\itemhi \autoref{pro:appmat} approximates \idx{linear equation}s.
-Suppose the system of \idx{linear equation} \(A\xv=\bv\) arises from experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix entries are of size~\(e\) (here ``\(e\)''~denotes ``error'', not the \idx{exponential}~\(e\))
+\itemhi \cref{pro:appmat} approximates \idx{linear equation}s.
+Suppose the \idx{system} of \idx{linear equation}s \(A\xv=\bv\) arises from an experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
+Suppose the expected error in the matrix and vector \idx{entries} are of size~\(\epsilon\).
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
 \item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same size; and
 \item similarly for the \(m\) components of~\bv.
 \end{itemize}
-Estimate the error~\(e\) corresponding to this matrix~\(A\).
+Estimate the error~\(\epsilon\) corresponding to this matrix~\(A\).
  
 \item Compute an \svd\ \(A=\usv\).
 
-\item Choose `\idx{rank}'~\(k\) to be the number of \idx{singular value}s bigger than the error~\(e\); that is, \(\sigma_1\geq \sigma_2\geq\cdots \geq \sigma_k>e>\sigma_{k+1}\geq \cdots\geq 0\)\,.
+\item Choose `\idx{rank}'~\(k\) to be the number of \idx{singular value}s bigger than the error~\(\epsilon\); that is, \(\sigma_1\geq \sigma_2\geq\cdots \geq \sigma_k>\epsilon>\sigma_{k+1}\geq \cdots\geq 0\)\,.
 Then the best rank~\(k\) approximation to~\(A\) has \svd
 \begin{eqnarray*}
 A_k&=&US_k\tr V
@@ -147,10 +147,10 @@ Use the \svd\ \(A_k=US_k\tr V\).
 
 
 \item In seeking to solve the poorly-posed system \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
-a \bfidx{Tikhonov regularization} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularization parameter} value~\(\alpha>0\) (\autoref{def:Tikreg}).
+a \bfidx{Tikhonov regularization} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularization parameter} value~\(\alpha>0\) (\cref{def:Tikreg}).
 
 \item Solving the \idx{Tikhonov regularization}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the system \(A'\xv=\bv\) where  
-the matrix~\(A'\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\sigma'_i:=\sigma_i+\alpha^2/\sigma_i\) (\autoref{thm:Tikreg}).
+the matrix~\(A'\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\sigma'_i:=\sigma_i+\alpha^2/\sigma_i\) (\cref{thm:Tikreg}).
 
 
 

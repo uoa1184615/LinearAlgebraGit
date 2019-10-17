@@ -28,9 +28,9 @@ We often write \(f:\RR\to\RR\)\index{$\to$|textbf} to denote this functionality:
 
 There is analogous functionality in multiple dimensions with vectors: given any vector 
 \begin{itemize}
-\item multiplication by a diagonal matrix stretches and/or shrinks the vector (\autoref{sec:dmd});
-\item multiplication by an orthogonal matrix rotates and/or reflects the vector (\autoref{sec:omr});
-and \item projection finds a vector's \idx{components} in a subspace (\autoref{sec:proj}).
+\item multiplication by a diagonal matrix stretches and/or shrinks the vector (\cref{sec:dmd});
+\item multiplication by an orthogonal matrix rotates and/or reflects the vector (\cref{sec:omr});
+and \item projection finds a vector's \idx{components} in a subspace (\cref{sec:proj}).
 \end{itemize}
 Correspondingly, we use the notation \(f:\RR^n\to\RR^m\) to mean that the function~\(f\) transforms a given vector with \(n\)~components (in~\(\RR^n\)) into another vector with \(m\)~components (in~\(\RR^m\)) according to some rule. 
 For example, suppose the function~\(f(\xv)\) is to denote multiplication by the matrix
@@ -88,7 +88,7 @@ Either of these prove that \(f\)~is not a linear transformation.
 \end{axis}
 \end{tikzpicture}}
 \begin{solution} 
-To prove not it is sufficient to find just one instance when \autoref{def:lintran} fails. 
+To prove not it is sufficient to find just one instance when \cref{def:lintran} fails. 
 Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1|+|2|=1+2=3\neq T(u+v)\) so the function~\(T\) fails the additivity property~ cref{def:lintran:i} and so is not a linear transformation.
 \end{solution}
 
@@ -120,9 +120,10 @@ Hence \(g\) is a linear transformation.
 \end{tikzpicture}}
 \begin{solution} 
 Because the graph of~\(h(y)\) is a straight line (as shown in the margin) we suspect it may be a linear transformation.
-To prove not it is enough to find one instance when \autoref{def:lintran} fails. 
+To prove not it is enough to find one instance when \cref{def:lintran} fails. 
 Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(0)=2\cdot(-3)=-6\neq h(cu)\) so the function~\(g\) fails the multiplication property~\ref{def:lintran:ii} and hence is not a linear transformation.
-(This function fails because linear transformations have to pass through the origin.)
+
+This function fails because every linear transformation has to pass through the origin: that is, here we need \(h(0)=0\) but this does not hold so~\(h\) is not a linear transform.
 \end{solution}
 
 \begin{reduce}
@@ -135,7 +136,7 @@ Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(
 \end{axis}
 \end{tikzpicture}}
 \begin{solution} 
-No, because the function~\(S\) is here only defined for integers~\ZZ\ (as plotted in the margin) whereas \autoref{def:lintran} requires the function to be defined for all reals.%
+No, because the function~\(S\) is here only defined for integers~\ZZ\ (as plotted in the margin) whereas \cref{def:lintran} requires the function to be defined for all reals.%
 \footnote{More advanced linear algebra generalizes the definition of a linear transformation to non-reals, but not here.}
 \end{solution}
 \end{reduce}
@@ -263,7 +264,7 @@ The ones that pass this test may fail other tests: all we are sure of is that th
 \end{solution}
 
 \item\label{eg:LTthreeDg}
-The previous \autoref{eg:LTtwoDg} illustrated that a linear transformation of the square seems to transform the \idx{unit square} to a \idx{parallelogram}: if a function transforms the unit square to something that is not a \idx{parallelogram}, then the function cannot be a linear transformation.
+The previous \cref{eg:LTtwoDg} illustrated that a linear transformation of the square seems to transform the \idx{unit square} to a \idx{parallelogram}: if a function transforms the unit square to something that is not a \idx{parallelogram}, then the function cannot be a linear transformation.
 Analogously in higher dimensions: for example, if a function transforms the \idx{unit cube} to something which is not a \idx{parallelepiped}, then the function is not a linear transformation.
 Using this information, which of the following illustrated functions, \(f:\RR^3\to\RR^3\), \emph{cannot} be a linear transformation?
 Each of these stereo illustrations plot the \idx{unit cube} in blue (with a `roof' and `door' to help orientate), and the transform of the unit cube in red (with its transformed `roof' and `door').
@@ -408,9 +409,9 @@ For any given nonzero vector \(\wv\in\RR^n\), prove that the projection \(P:\RR^
 But, for any given nonzero vector \(\uv\in\RR^n\), prove that the projection \(Q:\RR^n\to\RR^n\) by \(Q(\wv)=\proj_\wv(\uv)\) is not a linear transformation (as a function of~\wv).
 \begin{solution} 
 \begin{itemize}
-\item For the function~\(P\) consider the two properties of \autoref{def:lintran}.
+\item For the function~\(P\) consider the two properties of \cref{def:lintran}.
 \begin{description}
-\item[\ref{def:lintran:i}] for every \(\uv,\vv\in\RR^n\), from \autoref{def:orthproj1} for a projection, 
+\item[\ref{def:lintran:i}] for every \(\uv,\vv\in\RR^n\), from \cref{def:orthproj1} for a projection, 
 \(P(\uv+\vv)
 =\proj_\wv(\uv+\vv)
 =\wv[\wv\cdot(\uv+\vv)]/|\wv|^2
@@ -452,15 +453,15 @@ and so the projection is not a linear transformation when considered as a functi
 \subsection{Matrices correspond to linear transformations}
 
 One important class of linear transformations are the transformations that can be written as \idx{matrix multiplication}s.
-The reason for the importance is that \autoref{thm:matlintran} establishes all linear transformations may be written as matrix multiplications!
-This in turn justifies why we define matrix multiplication to be as it is (\autoref{sec:amwm}): \emph{matrix multiplication is defined just so that all linear transformations are encompassed}.
+One reason for the importance is that \cref{thm:matlintran} establishes all linear transformations may be written as matrix multiplications!
+This in turn justifies why we define matrix multiplication to be as it is (\cref{sec:amwm}): \emph{matrix multiplication is defined just so that all linear transformations are encompassed}.
 
 \begin{example} 
-But first, the following \autoref{thm:mattranlin} proves, among many other possibilities, that the following transformations we have already met are linear transformations:
+But first, the following \cref{thm:mattranlin} proves, among many other possibilities, that the following transformations we have already met are linear transformations:
 \begin{itemize}
-\item stretching\slash shrinking along \idx{coordinate axes} as these are multiplication by a diagonal matrix (\autoref{sec:dmd});
-\item \index{reflection}\idx{rotations and/or reflection}s as they arise as multiplications by an \idx{orthogonal matrix} (\autoref{sec:omr});
-\item \idx{orthogonal projection} onto a subspace as all such projections may be expressed as multiplication by a matrix (the matrix~\(W\tr W\) in \autoref{thm:projmat}).
+\item stretching\slash shrinking along \idx{coordinate axes} as these are multiplication by a diagonal matrix (\cref{sec:dmd});
+\item \index{reflection}\idx{rotations and/or reflection}s as they arise as multiplications by an \idx{orthogonal matrix} (\cref{sec:omr});
+\item \idx{orthogonal projection} onto a subspace as all such projections may be expressed as multiplication by a matrix (the matrix~\(W\tr W\) in \cref{thm:projmat}).
 \end{itemize}
 \end{example}
 
@@ -470,10 +471,10 @@ Let \(A\) be any given \(m\times n\) matrix and define the transformation \(T_A:
 Then \(T_A\)~is a \idx{linear transformation}.
 \end{theorem}
 \begin{proof} 
-For every pair of vectors \(\uv,\vv\in\RR^n\) and every scalar \(c\in\RR\), consider the two properties of \autoref{def:lintran}.
+For every pair of vectors \(\uv,\vv\in\RR^n\) and every scalar \(c\in\RR\), consider the two properties of \cref{def:lintran}.
 \begin{description}
-\item[\ref{def:lintran:i}.] By the distributivity of matrix-vector multiplication (\autoref{thm:pasm}), \(T_A(\uv+\vv)=A(\uv+\vv)=A\uv+A\vv=T_A(\uv)+T_A(\vv)\).
-\item[\ref{def:lintran:ii}.] By commutativity of scalar multiplication (\autoref{thm:pmm}), \(T_A(c\uv)=A(c\uv)=c(A\uv)=cT_A(\uv)\).
+\item[\ref{def:lintran:i}.] By the distributivity of matrix-vector multiplication (\cref{thm:pasm}), \(T_A(\uv+\vv)=A(\uv+\vv)=A\uv+A\vv=T_A(\uv)+T_A(\vv)\).
+\item[\ref{def:lintran:ii}.] By commutativity of scalar multiplication (\cref{thm:pmm}), \(T_A(c\uv)=A(c\uv)=c(A\uv)=cT_A(\uv)\).
 \end{description}
 Hence \(T_A\)~is a linear transformation.
 \end{proof}
@@ -492,7 +493,7 @@ Hence when the shift~\bv\ is nonzero, there are vectors for which \(S(\uv+\vv)\n
 
 
 
-Now let's establish the important converse to \autoref{thm:mattranlin}: that every linear transformation can be written as a \idx{matrix multiplication}.
+Now let's establish the important converse to \cref{thm:mattranlin}: that every linear transformation can be written as a \idx{matrix multiplication}.
 
 \begin{theorem} \label{thm:matlintran} 
 Let \(T:\RR^n\to\RR^m\) be any \idx{linear transformation}.
@@ -504,12 +505,15 @@ where \index{e@$\ev_j$}\(\ev_j\) are the \idx{standard unit vector}s in~\(\RR^n\
 This matrix~\(A\), often denoted~\([T]\), is called the \bfidx{standard matrix} of the \idx{linear transformation}~\(T\).
 \end{theorem}
 
+The matrix~\([T]\) is called the \emph{standard matrix} because it is defined in terms of the \emph{standard} unit vectors \hlist\ev n\,.
+Later, \cref{thm:ssbc} begins to show how to use non-standard vectors to construct and interpret matrices corresponding a given linear transformation.
+
 \begin{proof} 
 For every vector~\xv\ in~\(\RR^n\) we write \(\xv=(\hlist xn)=\lincomb x\ev n\) for standard unit vectors \hlist\ev n\,.
 Then
 \begin{eqnarray*}
 T(\xv)&=&T(\lincomb x\ev n)
-\\&&(\text{then using the identity of \autoref{ex:genlintran}})
+\\&&(\text{then using the identity of \cref{ex:genlintran}})
 \\&=&x_1T(\ev_1)+x_2T(\ev_2)+\cdots+x_nT(\ev_n)
 \\&=&\begin{bmatrix} T(\ev_1)& T(\ev_2)&\cdots&T(\ev_n) \end{bmatrix}
 \begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}
@@ -625,7 +629,7 @@ Hence the standard matrix
 \end{solution}
 \end{example}
 
-Consider this last \autoref{eg:stretchLT} in the case \(a=1\)\,: then \(H(\uv)=\uv\) is the identity and so the example shows that the \idx{standard matrix} of the \idx{identity transformation} is~\(I_n\).
+Consider this last \cref{eg:stretchLT} in the case \(a=1\)\,: then \(H(\uv)=\uv\) is the identity and so the example shows that the \idx{standard matrix} of the \idx{identity transformation} is~\(I_n\).
 
 
 
@@ -674,21 +678,22 @@ Best to introduce such terms in subsequent abstract vector spaces and a detailed
 Could save 10 pages or so if omitted??
 \end{comment}
 
-In solving \index{inconsistent equations}inconsistent \idx{linear equation}s, 
+In attempting to solve \index{inconsistent equations}inconsistent \idx{linear equation}s, 
 \begin{aside}
 This subsection is an optional extension.
 \end{aside}%
-\(A\xv=\bv\) for some given~\(A\)\,, \autoref{pro:appsol} finds an approximate solution~\xv\ that depends upon the right-hand side~\bv.
+\(A\xv=\bv\) for some given~\(A\)\,, \cref{pro:appsol} constructs a result~\xv, a result that is meant to be a `solution' of sorts, and that depends upon the right-hand side~\bv.
 That is, any given~\bv\ is transformed by the procedure to some result~\xv: the result is a function of the given~\bv.
 This section establishes that the result given by the procedure is a linear transformation of~\bv, and hence there must be a matrix corresponding to the procedure. 
 Let's denote this matrix by~\(A^+\).
-This matrix gives the resulting approximate solution \(\xv=A^+\bv\)\,.
+This matrix gives the result \(\xv=A^+\bv\)\,.
 We call the matrix~\(A^+\) the \idx{pseudo-inverse} of~\(A\).
 
 \begin{example} \label{eg:psinv34}
 Find the \idx{pseudo-inverse} of the matrix \(A=\begin{bmat} 3\\4 \end{bmat}\).
 \begin{solution} 
-Apply \autoref{pro:appsol} to `best' solve \(Ax=\bv\) for any right-hand side~\bv.
+Apply \cref{pro:appsol} to `best' solve \(Ax=\bv\) for every right-hand side~\(\bv=(b_1,b_2)\).
+(I use symbol~\(x\) rather than~\xv\ as here the unknown has only one component and hence is a scalar~\(x\).)
 \begin{enumerate}
 \item This matrix has an \svd\ 
 \begin{equation*}
@@ -731,15 +736,15 @@ That is, although sometimes the pseudo-inverse is useful, beware that  many time
 
 
 \begin{theorem}[pseudo-inverse] \label{thm:lsqlt}
-In the context of a \idx{system} of \idx{linear equation}s \(A\xv=\bv\) with \(m\times n\) matrix~\(A\) vector~\(\bv\in\RR^m\), recall that \autoref{pro:appsol} finds the \idx{smallest solution}~\(\xv\in\RR^n\)\ (\autoref{thm:smallsoln}) to the closest \idx{consistent} system \(A\xv=\bv'\) (\autoref{thm:appsol}).
-\autoref{pro:appsol} forms a \idx{linear transformation} \(T:\RR^m\to\RR^n\), \(\xv=T(\bv)\).
+In the context of a \idx{system} of \idx{linear equation}s \(A\xv=\bv\) with \(m\times n\) matrix~\(A\) vector~\(\bv\in\RR^m\), recall that \cref{pro:appsol} finds the \idx{smallest solution}~\(\xv\in\RR^n\)\ (\cref{thm:smallsoln}) to the closest \idx{consistent} system \(A\xv=\bv'\) (\cref{thm:appsol}).
+\cref{pro:appsol} forms a \idx{linear transformation} \(T:\RR^m\to\RR^n\), \(\xv=T(\bv)\).
 This linear transformation has an \(n\times m\) \idx{standard matrix}~\(A^+\) called the \bfidx{pseudo-inverse}, or \bfidx{Moore--Penrose inverse}, of matrix~\(A\).
 \end{theorem}
 
 \begin{proof} 
 First, for each right-hand side vector~\bv\ in~\(\RR^m\), the procedure gives a result~\xv\ in~\(\RR^n\) and so is some function \(T:\RR^m\to\RR^n\).
-We proceed to confirm that \autoref{pro:appsol} satisfies the two defining properties of a linear transformation (\autoref{def:lintran}).
-For each of any two right-hand side vectors \(\bv^\dag,\bv^\ddag\in\RR^m\) (\bv\ dagger and double-dagger, respectively) let \autoref{pro:appsol} generate similarly daggered intermediaries (\(\zv^\dag,\zv^\ddag,\yv^\dag,\yv^\ddag\)) through to two corresponding least square solutions~\(\xv^\dag,\xv^\ddag\in\RR^n\).
+We proceed to confirm that \cref{pro:appsol} satisfies the two defining properties of a linear transformation (\cref{def:lintran}).
+For each of any two right-hand side vectors \(\bv^\dag,\bv^\ddag\in\RR^m\) (\bv\ dagger and double-dagger, respectively) let \cref{pro:appsol} generate similarly daggered intermediaries (\(\zv^\dag,\zv^\ddag,\yv^\dag,\yv^\ddag\)) through to two corresponding least square solutions~\(\xv^\dag,\xv^\ddag\in\RR^n\).
 That is, \(\xv^\dag=T(\bv^\dag)\) and \(\xv^\ddag=T(\bv^\ddag)\).
 Throughout let the matrix~\(A\) have \svd\ \(A=\usv\) and set \(r=\rank A\)\,.
 \begin{description}
@@ -749,7 +754,7 @@ To check \(T(\bv^\dag+\bv^\ddag)=T(\bv^\dag)+T(\bv^\ddag)\), apply the procedure
 \item solve \(U\zv=\bv\) by \(\zv=\tr U\bv=\tr U(\bv^\dag+\bv^\ddag)=\tr U\bv^\dag+\tr U\bv^\ddag=\zv^\dag+\zv^\ddag\);
 \item \begin{itemize}
 \item for \(i=1,\ldots,r\) set \(y_i=z_i/\sigma_i=(z^\dag_i+z^\ddag_i)/\sigma_i=z^\dag_i/\sigma_i+z^\ddag_i/\sigma_i=y^\dag_i+y^\ddag_i\), and
-\item for \(i=r+1,\ldots,n\) set the free variables \(y_i=0=0+0=y^\dag_i+y^\ddag_i\) to obtain the smallest solution (\autoref{thm:smallsoln}),;
+\item for \(i=r+1,\ldots,n\) set the free variables \(y_i=0=0+0=y^\dag_i+y^\ddag_i\) to obtain the smallest solution (\cref{thm:smallsoln}),;
 \end{itemize}
 and hence \(\yv=\yv^\dag+\yv^\ddag\);
 \item solve \(\tr V\xv=\yv\) with \(\xv=V\yv=V(\yv^\dag+\yv^\ddag)=V\yv^\dag+V\yv^\ddag=\xv^\dag+\xv^\ddag\).
@@ -762,14 +767,14 @@ To check \(T(c\bv^\dag)=cT(\bv^\dag)\) for any scalar~\(c\), apply the procedure
 \item solve \(U\zv=\bv\) by \(\zv=\tr U\bv=\tr U(c\bv^\dag)=c\tr U\bv^\dag=c\zv^\dag\);
 \item \begin{itemize}
 \item for \(i=1,\ldots,r\) set \(y_i=z_i/\sigma_i=(cz^\dag_i)/\sigma_i=c(z^\dag_i/\sigma_i)=cy^\dag_i\), and
-\item for \(i=r+1,\ldots,n\) set the free variables \(y_i=0=c0=cy^\dag_i\) to obtain the smallest solution (\autoref{thm:smallsoln}),
+\item for \(i=r+1,\ldots,n\) set the free variables \(y_i=0=c0=cy^\dag_i\) to obtain the smallest solution (\cref{thm:smallsoln}),
 \end{itemize}
 and hence \(\yv=c\yv^\dag\);
 \item solve \(\tr V\xv=\yv\) with \(\xv=V\yv=V(c\yv^\dag)=cV\yv^\dag=c\xv^\dag\).
 \end{enumerate}
 Since the result \(\xv=c\xv^\dag\), consequently \(T(c\bv^\dag)=cT(\bv^\dag)\).
 \end{description}
-Since \autoref{pro:appsol}, denoted by~\(T\), is a linear transformation \(T:\RR^m\to\RR^n\), \autoref{thm:matlintran} assures us \(T\)~has a corresponding \(n\times m\) standard matrix which we denote~\(A^+\) and which we call the \idx{pseudo-inverse}.
+Since \cref{pro:appsol}, denoted by~\(T\), is a linear transformation \(T:\RR^m\to\RR^n\), \cref{thm:matlintran} assures us \(T\)~has a corresponding \(n\times m\) standard matrix which we denote~\(A^+\) and which we call the \idx{pseudo-inverse}.
 \end{proof}
 
 
@@ -778,7 +783,7 @@ Since \autoref{pro:appsol}, denoted by~\(T\), is a linear transformation \(T:\RR
 \begin{example} 
 Find the \idx{pseudo-inverse} of the matrix \(A=\begin{bmatrix} 5&12 \end{bmatrix}\).
 \begin{solution} 
-Apply \autoref{pro:appsol} to solve \(A\xv=b\) for any right-hand side~\(b\).
+Apply \cref{pro:appsol} to solve \(A\xv=b\) for any right-hand side~\(b\).
 \begin{enumerate}
 \item This matrix has an \svd\ 
 \begin{equation*}
@@ -810,7 +815,7 @@ That is, for every right-hand side~\(b\), this procedure's result is
 
 
 \begin{activity}
-Following the steps of \autoref{pro:appsol}, Find the pseudo-inverse of the matrix {\small\(\begin{bmatrix} 1&1\\2&2 \end{bmatrix}\)} given that this matrix has the \svd
+Following the steps of \cref{pro:appsol}, Find the pseudo-inverse of the matrix {\small\(\begin{bmatrix} 1&1\\2&2 \end{bmatrix}\)} given that this matrix has the \svd
 \begin{equation*}
 \begin{bmatrix} 1&1\\2&2 \end{bmatrix}
 =\begin{bmatrix} \frac1{\sqrt5}&-\frac2{\sqrt5}
@@ -832,11 +837,11 @@ The pseudo-inverse is which of these?
 
 \begin{reduce}
 \begin{example}  
-Recall that \autoref{eg:fourwts} explored how to best determine a  weight from four apparently contradictory measurements.
-The exploration showed that \autoref{pro:appsol} agrees with the traditional method of simple averaging.
+Recall that \cref{eg:fourwts} explored how to best determine a  weight from four apparently contradictory measurements.
+The exploration showed that \cref{pro:appsol} agrees with the traditional method of simple averaging.
 Let's see that the pseudo-inverse implements the simple \idx{average} of the four measurements.
 
-Recall that \autoref{eg:fourwts} sought to solve an \idx{inconsistent system} \(Ax=\bv\)\,, specifically
+Recall that \cref{eg:fourwts} sought to solve an \idx{inconsistent system} \(Ax=\bv\)\,, specifically
 \begin{equation*}
 \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}x
 =\begin{bmatrix} 84.8\\84.1\\84.7\\84.4 \end{bmatrix}.
@@ -895,7 +900,7 @@ x=Vy=1y=\h b_1+\h b_2+\h b_3+\h b_4
 \end{enumerate}
 \def\h{\frac14}%
 Hence the pseudo-inverse of matrix~\(A\) is \(A^+=\begin{bmatrix}  \h&\h&\h&\h\end{bmatrix}\).
-Multiplication by this pseudo-inverse implements the traditional answer of averaging measurements.
+Multiplication by this pseudo-inverse implements the traditional answer of averaging the four measurements.
 \end{example}
 \end{reduce}
 
@@ -905,7 +910,7 @@ Multiplication by this pseudo-inverse implements the traditional answer of avera
 
 
 \begin{example}  
-Recall that \autoref{eg:rstp3} rates three \idx{table tennis} players, Anne, Bob and Chris.  
+Recall that \cref{eg:rstp3} rates three \idx{table tennis} players, Anne, Bob and Chris.  
 The rating involved solving the \idx{inconsistent system} \(A\xv=\bv\) for the particular matrix and vector
 \begin{equation*}
 \begin{bmatrix} 1&-1&0\\1&0&-1\\0&1&-1 \end{bmatrix}\xv
@@ -914,7 +919,7 @@ The rating involved solving the \idx{inconsistent system} \(A\xv=\bv\) for the p
 Find the pseudo-inverse of this matrix~\(A\).
 Use the pseudo-inverse to rate the players in the cases of \cref{eg:rstp,eg:rstp3}.
 \begin{solution} 
-To find the pseudo-inverse, follow \autoref{pro:appsol} with a general right-hand side vector~\bv.
+To find the pseudo-inverse, follow \cref{pro:appsol} with a general right-hand side vector~\bv.
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) in \script\ with \verb|[U,S,V]=svd(A)|:
 \begin{verbatim}
@@ -1000,7 +1005,7 @@ A^+=\frac13\begin{bmatrix} 1&1&0
 \\0& -1&-1 \end{bmatrix}.
 \end{equation*}
 \begin{itemize}
-\item In \autoref{eg:rstp}, Anne beat Bob
+\item In \cref{eg:rstp}, Anne beat Bob
 3-2 games; Anne beat Chris 3-1; Bob beat Chris 3-2 so the right-hand side vector is \(\bv=(1,2,1)\).
 The procedure's ratings are then, as before, 
 \begin{equation*}
@@ -1010,7 +1015,7 @@ The procedure's ratings are then, as before,
 =\begin{bmatrix} 1\\0\\-1 \end{bmatrix}.
 \end{equation*}
 
-\item In \autoref{eg:rstp3},  Bob instead beat Chris 3-1 so the right-hand side vector is \(\bv=(1,2,2)\).
+\item In \cref{eg:rstp3},  Bob instead beat Chris 3-1 so the right-hand side vector is \(\bv=(1,2,2)\).
 The procedure's ratings are then, as before, 
 \begin{equation*}
 \xv=A^+\bv=\frac13\begin{bmatrix} 1&1&0
@@ -1029,10 +1034,10 @@ In some common special cases there are alternative formulas for the pseudo-inver
 
 \begin{example}
 For the \(2\times1\) matrix~\(A=\begin{bmat} 3\\4 \end{bmat}\),
-confirm that \((\tr AA)^{-1}\tr A\) is the pseudo-inverse that was found in \autoref{eg:psinv34}.
+confirm that \((\tr AA)^{-1}\tr A\) is the pseudo-inverse that was found in \cref{eg:psinv34}.
 \begin{solution}
 Here \(\tr AA=3^2+4^2=25\), so its inverse is \((\tr AA)^{-1}=1/25\)\,.
-Then, \((\tr AA)^{-1}\tr A=\frac1{25}\begin{bmatrix} 3&4 \end{bmatrix}=\begin{bmatrix} \tfrac3{25}&\tfrac4{25} \end{bmatrix}\) as found in \autoref{eg:psinv34} for the pseudo-inverse.
+Then, \((\tr AA)^{-1}\tr A=\frac1{25}\begin{bmatrix} 3&4 \end{bmatrix}=\begin{bmatrix} \tfrac3{25}&\tfrac4{25} \end{bmatrix}\) as found in \cref{eg:psinv34} for the pseudo-inverse.
 \end{solution}
 \end{example}
 
@@ -1043,7 +1048,7 @@ For every \(m\times n\) matrix~\(A\) with \(\rank A=n\) (so \(m\geq n\)), the \i
 \end{theorem}
 
 \begin{proof} 
-Apply \autoref{pro:appsol} to the system \(A\xv=\bv\) for an arbitrary \(\bv\in\RR^m\).
+Apply \cref{pro:appsol} to the system \(A\xv=\bv\) for an arbitrary \(\bv\in\RR^m\).
 \begin{enumerate}
 \item Let \(m\times n\) matrix~\(A\) have \svd\ \(A=\usv\).  
 Since \(\rank A=n\) there are \(n\)~nonzero singular values on the diagonal of \(m\times n\) matrix~\(S\), and so \(m\geq n\).
@@ -1066,8 +1071,8 @@ First, since \(\tr A=\tr{(\usv)}=V\tr S\tr U\),
 \tr AA=V\tr S\tr U\usv=V\tr SS\tr V=V(\tr SS)\tr V
 \end{equation*}
 where the \(n\times n\) matrix \((\tr SS)=\diag(\hlist{\sigma^2}n)\).
-Since \(\rank A=n\)\,, the singular values \(\hlist{\sigma}n>0\) and so matrix~\((\tr SS)\) is invertible as it is square and diagonal with all nonzero elements in the diagonal, and the inverse is \((\tr SS)^{-1}=\diag(\hlist{1/\sigma^2}n)\) (\autoref{thm:idm}).
-Second, the \(n\times n\) matrix \((\tr AA)\) is invertible as it has \svd\ \(V(\tr SS)\tr V\) with \(n\)~nonzero singular values (\autoref{thm:ftim1iv}), and so
+Since \(\rank A=n\)\,, the singular values \(\hlist{\sigma}n>0\) and so matrix~\((\tr SS)\) is invertible as it is square and diagonal with all nonzero elements in the diagonal, and the inverse is \((\tr SS)^{-1}=\diag(\hlist{1/\sigma^2}n)\) (\cref{thm:idm}).
+Second, the \(n\times n\) matrix \((\tr AA)\) is invertible as it has \svd\ \(V(\tr SS)\tr V\) with \(n\)~nonzero singular values (\cref{thm:ftim1iv}), and so
 \begin{eqnarray*}
 (\tr AA)^{-1}\tr A
 &=&(V(\tr SS)\tr V)^{-1}V\tr S\tr U
@@ -1093,9 +1098,9 @@ Hence the pseudo-inverse \(A^+=VS^+\tr U=(\tr AA)^{-1}\tr A\).
 For every \idx{invertible} matrix~\(A\), the \idx{pseudo-inverse} \(A^+=A^{-1}\), the inverse.
 \end{theorem}
 \begin{proof} 
-If \(A\) is invertible it must be square, say \(n\times n\), and of \(\rank A=n\) (\autoref{thm:ftim1v}).
-Further, \(\tr A\)~is invertible with inverse~\(\tr{(A^{-1})}\) (\autoref{thm:invpropd}).
-Then the expression from \autoref{thm:pseudonormal} for the pseudo-inverse gives
+If \(A\) is invertible it must be square, say \(n\times n\), and of \(\rank A=n\) (\cref{thm:ftim1v}).
+Further, \(\tr A\)~is invertible with inverse~\(\tr{(A^{-1})}\) (\cref{thm:invpropd}).
+Then the expression from \cref{thm:pseudonormal} for the pseudo-inverse gives
 \begin{equation*}
 A^+=(\tr AA)^{-1}\tr A
 =A^{-1}(\tr A)^{-1}\tr A
@@ -1107,9 +1112,9 @@ A^+=(\tr AA)^{-1}\tr A
 
 
 \paragraph{Computer considerations} 
-Except for easy cases, we (almost) never explicitly compute the \idx{pseudo-inverse} of a matrix.
+Except for easy cases, we (almost) never explicitly compute the \idx{pseudo-inverse} of a matrix.\footnote{Although to check pseudo-inverses of small matrices in examples or exercises one may use the \script\ function \index{pinv()@\texttt{pinv()}}\texttt{pinv()}.}
 In practical computation, forming~\(\tr AA\) and then manipulating it is both expensive and error enhancing: for example, \(\cond(\tr AA)=(\cond A)^2\) so matrix~\(\tr AA\) typically has a much worse \idx{condition number} than matrix~\(A\).
-Computationally there are (almost) always better ways to proceed, such as \autoref{pro:appsol}.
+Computationally there are (almost) always better ways to proceed, such as \cref{pro:appsol}.
 Like an inverse, a \idx{pseudo-inverse} is a theoretical device, rarely a practical tool.
 
 A major point of this subsection is to illustrate how a complicated procedure is conceptually expressible as a linear transformation, and so has associated matrix properties such as being equivalent to multiplication by some matrix---here the pseudo-inverse.
@@ -1139,7 +1144,7 @@ The analogy in linear algebra is that we often apply linear transformations one 
 This section certifies how applying a sequence of linear transformations is equivalent to one grand overall linear transformation.
 
 \begin{example}[simple rotation] 
-Recall \autoref{eg:stmatlt:b} on \idx{rotation} by~\(60^\circ\) (anticlockwise as positive, as illustrated in the margin) with its \idx{standard matrix}
+Recall \cref{eg:stmatlt:b} on \idx{rotation} by~\(60^\circ\) (anticlockwise as positive, as illustrated in the margin) with its \idx{standard matrix}
 \marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
 \begin{equation*}
 [R]=\begin{bmatrix} \frac12&-\frac{\sqrt3}2
@@ -1193,9 +1198,9 @@ Then for every vector~\uv\ in~\(\RR^n\),
 =S\big(T(\uv)\big)
 =S(B\uv)
 =A(B\uv)
-=(AB)\uv\) (using associativity, \autoref{thm:pmma}).
+=(AB)\uv\) (using associativity, \cref{thm:pmma}).
 Hence the effect of \(S\circ T\) is identical to multiplication by the  \(p\times n\) matrix~\((AB)\).
-It is thus a matrix transformation, which is consequently linear (\autoref{thm:mattranlin}), and its standard matrix \([S\circ T]=AB=[S][T]\).
+It is thus a matrix transformation, which is consequently linear (\cref{thm:mattranlin}), and its standard matrix \([S\circ T]=AB=[S][T]\).
 \end{proof}
 
 
@@ -1209,7 +1214,7 @@ From the given formulas for the two given linear transformations we write down t
 \quad\text{and}\quad
 [S]=\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}.
 \end{equation*}
-First, \autoref{thm:stmatcomp} assures us the standard matrix of the composition
+First, \cref{thm:stmatcomp} assures us the standard matrix of the composition
 \begin{eqnarray*}
 [S\circ T]&=&[S][T]
 \\&=&\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}
@@ -1268,7 +1273,7 @@ Then the standard matrix of the composition (as illustrated in the margin)
 \end{itemize}
 \end{solution}
 As an extension, check that although \(R\circ F\) is defined, it is 
-different to~\(F\circ R\): the difference is due to the \idx{non-commutativity} of matrix multiplication (\autoref{sec:fapmo}).
+different to~\(F\circ R\): the difference is due to the \idx{non-commutativity} of matrix multiplication (\cref{sec:fapmo}).
 \end{example}
 
 
@@ -1342,7 +1347,7 @@ which is the standard matrix of the identity transformation.
 Hence \(T\circ S=I\) the identity.
 
 Second, an exactly corresponding argument gives  \(S\circ T=I\).
-By \autoref{def:invLT}, \(S\) and~\(T\) are inverse transformations of each other.
+By \cref{def:invLT}, \(S\) and~\(T\) are inverse transformations of each other.
 \end{solution}
 \end{example}
 
@@ -1383,7 +1388,7 @@ This is the standard matrix of the identity transformation.
 
 
 Because of the exact correspondence between linear transformations and \idx{matrix multiplication}, the \idx{inverse} of a transformation exactly corresponds to the inverse of a matrix.
-In the last \autoref{eg:stormLT}, because \([R][S]=I_3\) we know that the matrices~\([R]\) and~\([S]\) are inverses of each other. 
+In the last \cref{eg:stormLT}, because \([R][S]=I_3\) we know that the matrices~\([R]\) and~\([S]\) are inverses of each other. 
 Correspondingly, the transformations~\(R\) and~\(S\) are inverses of each other.
 
 
@@ -1405,7 +1410,7 @@ Consequently the matrices \([T]\) and~\([T^{-1}]\) are the inverses of each othe
 \begin{example} 
 Estimate the \idx{standard matrix} of the linear transformation~\(T\) illustrated in the margin.  
 \marginpar{\TwoD{1.70}{1.90}{-1.00}{1.70}}%
-Then use \autoref{thm:2x2det} to determine the standard matrix of its 
+Then use \cref{thm:2x2det} to determine the standard matrix of its 
 \idx{inverse transformation}~\(T^{-1}\).
 Hence sketch how the inverse transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a reasonable inverse. 
 \begin{solution} 
@@ -1413,7 +1418,7 @@ The illustrated transformation shows \(T(\iv)\approx(1.7,-1)\) and \(T(\jv)\appr
 \begin{equation*}
 [T]\approx\begin{bmatrix} 1.7&1.9\\-1&1.7 \end{bmatrix}.
 \end{equation*}
-Using \autoref{thm:2x2det} the inverse of this matrix is, since its determinant\({}=1.7\cdot1.7-(-1)\cdot1.9=4.79\),
+Using \cref{thm:2x2det} the inverse of this matrix is, since its determinant\({}=1.7\cdot1.7-(-1)\cdot1.9=4.79\),
 \begin{equation*}
 [T^{-1}]=[T]^{-1}
 =\frac1{4.79} \begin{bmatrix} 1.7&-1.9\\1&1.7 \end{bmatrix}
@@ -1434,7 +1439,7 @@ Thus the inverse does appear to undo the action of the original transformation.
 Determine if the \idx{orthogonal projection} of the plane onto the line at~\(30^\circ\) to the horizontal (illustrated in the margin) is an \idx{invertible} transformation; if it is find its inverse.
 \marginpar{\TwoD{0.75}{0.433}{0.433}{0.25}}%
 \begin{solution} 
-Recall that \autoref{thm:projmat} gives the matrix of an orthogonal projection as~\(W\tr W\) where columns of~\(W\) are an orthonormal basis for the projected space.
+Recall that \cref{thm:projmat} gives the matrix of an orthogonal projection as~\(W\tr W\) where columns of~\(W\) are an orthonormal basis for the projected space.
 Here the projected space is the line at~\(30^\circ\) to the horizontal (illustrated in the margin) which has orthonormal basis of the one vector \(\wv=(\cos 30^\circ,\sin 30^\circ)=(\tfrac{\sqrt3}2,\tfrac12)\).
 Hence the standard matrix of the projection is
 \begin{equation*}
@@ -1443,7 +1448,7 @@ Hence the standard matrix of the projection is
 =\begin{bmatrix} \tfrac34&\tfrac{\sqrt3}4\\
 \tfrac{\sqrt3}4&\tfrac14 \end{bmatrix}.
 \end{equation*}
-From \autoref{thm:2x2det} this matrix is invertible only if the determinant (\(\det=ad-bc\)) is nonzero, but here
+From \cref{thm:2x2det} this matrix is invertible only if the determinant (\(\det=ad-bc\)) is nonzero, but here
 \begin{equation*}
 \det(\wv\tr\wv)=\frac34\cdot\frac14-\frac{\sqrt3}4\cdot\frac{\sqrt3}4
 =\frac3{16}-\frac3{16}=0\,.
@@ -1507,7 +1512,7 @@ In each illustration of a transformation~\(T\), the four corners of the blue \id
 
 
 \begin{exercise}  
-Consider the transformations of \autoref{ex:whichNotLT}: for those transformations that \emph{may} be linear transformations, assume they are and so estimate roughly the \idx{standard matrix} of each such \idx{linear transformation}.
+Consider the transformations of \cref{ex:whichNotLT}: for those transformations that \emph{may} be linear transformations, assume they are and so estimate roughly the \idx{standard matrix} of each such \idx{linear transformation}.
 \end{exercise}
 
 
@@ -1683,7 +1688,7 @@ Which of these \emph{cannot} be that of a \idx{linear transformation}?
 
 \begin{exercise}  
 Let \(T:\RR^n\to\RR^m\) be a \idx{linear transformation}.  
-Prove from the \autoref{def:lintran} that \(T(\ov)=\ov\) and \(T(\uv-\vv)=T(\uv)-T(\vv)\) for every \(\uv,\vv\in\RR^n\).
+Prove from the \cref{def:lintran} that \(T(\ov)=\ov\) and \(T(\uv-\vv)=T(\uv)-T(\vv)\) for every \(\uv,\vv\in\RR^n\).
 \end{exercise}
 
 
@@ -1691,7 +1696,7 @@ Prove from the \autoref{def:lintran} that \(T(\ov)=\ov\) and \(T(\uv-\vv)=T(\uv)
 
 \begin{exercise}[equivalent definition]  
 Consider a function \(T:\RR^n\to\RR^m\).  
-Prove that \(T\)~is a \idx{linear transformation} (\autoref{def:lintran}) if and only if \(T(c_1\vv_1+c_2\vv_2)=c_1T(\vv_1)+c_2T(\vv_2)\) for every \(\vv_1,\vv_2\in\RR^n\) and every scalars~\(c_1,c_2\).
+Prove that \(T\)~is a \idx{linear transformation} (\cref{def:lintran}) if and only if \(T(c_1\vv_1+c_2\vv_2)=c_1T(\vv_1)+c_2T(\vv_2)\) for every \(\vv_1,\vv_2\in\RR^n\) and every scalars~\(c_1,c_2\).
 \end{exercise}
 
 
@@ -1757,7 +1762,7 @@ Consider each of the following vector transformations: if it is a linear transfo
 
 
 \begin{exercise}  
-Use \autoref{pro:appsol} to derive that the \idx{pseudo-inverse} of the general \(2\times 1\) matrix \(A=\begin{bmat} a\\b \end{bmat}\) is the \(1\times 2\) matrix \(A^+=\begin{bmatrix} \tfrac a{a^2+b^2}&\tfrac b{a^2+b^2} \end{bmatrix}\).  
+Use \cref{pro:appsol} to derive that the \idx{pseudo-inverse} of the general \(2\times 1\) matrix \(A=\begin{bmat} a\\b \end{bmat}\) is the \(1\times 2\) matrix \(A^+=\begin{bmatrix} \tfrac a{a^2+b^2}&\tfrac b{a^2+b^2} \end{bmatrix}\).  
 Further, what is the pseudo-inverse of the general \(1\times2\) matrix \(\begin{bmatrix} a&b \end{bmatrix}\)?
 \end{exercise}
 
@@ -1775,7 +1780,7 @@ O_{r\times (n-r)}\\\,\\
 O_{(m-r)\times r}&O_{(m-r)\times (n-r)}\end{bmatrix},
 \end{equation*}
 equivalently \(S=\diag_{m\times n}(\hlist\sigma r,0,\ldots,0)\).
-Derive that, based upon \autoref{pro:appsol}, the \idx{pseudo-inverse} of~\(S\) is the \(n\times m\) diagonal matrix of rank~\(r\),
+Derive that, based upon \cref{pro:appsol}, the \idx{pseudo-inverse} of~\(S\) is the \(n\times m\) diagonal matrix of rank~\(r\),
 \begin{equation*}
 S^+=\begin{bmatrix} \begin{matrix} 1/{\sigma_1}&\cdots&0\\
 \vdots&\ddots&\vdots\\
@@ -1791,7 +1796,7 @@ equivalently \(S^+=\diag_{n\times m}(\hlist{1/\sigma}r,0,\ldots,0)\).
 
 
 \begin{exercise} \label{ex:pisvd} 
-For every \(m\times n\) matrix~\(A\), let \(A=\usv\) be its \svd, and use the result of \autoref{ex:pidiag} to establish that the \idx{pseudo-inverse} \(A^+=VS^+\tr U\).
+For every \(m\times n\) matrix~\(A\), let \(A=\usv\) be its \svd, and use the result of \cref{ex:pidiag} to establish that the \idx{pseudo-inverse} \(A^+=VS^+\tr U\).
 \end{exercise}
 
 
@@ -1813,7 +1818,7 @@ Use the results of \cref{ex:pidiag,ex:pisvd} to prove the following properties o
 
 
 \begin{exercise}  
-Use \script\ and the identity of \autoref{ex:pisvd} to compute the \idx{pseudo-inverse} of each of the following matrices.
+Use \script\ and the identity of \cref{ex:pisvd} to compute the \idx{pseudo-inverse} of each of the following matrices.
 % m=ceil(1+3*rand), n=ceil(1+3*rand), r=ceil(min(m,n)*rand),  A=round(randn(m,r)*3)*round(randn(r,n)*3)/10; a=num2str(A,"%7.1f"), r=rank(A), [U,S,V]=svd(A); Ap=V(:,1:r)*diag(1./diag(S(1:r,1:r)))*U(:,1:r)'; ap=num2str(Ap,"%8.2f")
 \begin{enumerate}
 \item \(\eAii=\begin{bmatrix} 0.2&0.3
@@ -1966,7 +1971,7 @@ Prove that in the case of an \(m\times n\) matrix~\(A\) with \(\rank A=m\) (so \
 
 
 \begin{exercise}  \index{pseudo-inverse}
-Use \autoref{thm:pseudonormal} and the identity in \autoref{ex:pirm} to prove that \((A^+)^+=A\) in the case when \(m\times n\) matrix~\(A\) has \(\rank A=n\)\,.
+Use \cref{thm:pseudonormal} and the identity in \cref{ex:pirm} to prove that \((A^+)^+=A\) in the case when \(m\times n\) matrix~\(A\) has \(\rank A=n\)\,.
 (Be careful as many plausible looking steps are incorrect.)
 \end{exercise}
 
@@ -2067,7 +2072,7 @@ and \([T\circ S]\) does not exist.}
 
 \begin{exercise}  
 For each of the illustrated transformations, estimate the \idx{standard matrix} of the linear transformation. 
-Then use \autoref{thm:2x2det} to determine the standard matrix of its \idx{inverse transformation}.
+Then use \cref{thm:2x2det} to determine the standard matrix of its \idx{inverse transformation}.
 Hence sketch how the \idx{inverse} transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a reasonable inverse. 
 \begin{Parts}
 \item \TwoD{1.10}{-0.30}{0.60}{0.70}
@@ -2092,7 +2097,7 @@ Hence sketch how the \idx{inverse} transforms the \idx{unit square} and write a 
 \begin{exercise}  
 In a few sentences, answer\slash discuss each of the following.
 \begin{enumerate}
-\item How does \autoref{def:lintran} compare with the definition of a subspace?
+\item How does \cref{def:lintran} compare with the definition of a subspace?
 
 \item Why should the linear transformation of a square\slash cube be a parallelogram\slash parallelepiped?
 

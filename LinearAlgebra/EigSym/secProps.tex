@@ -12,7 +12,7 @@
 
 
 This section starts by exploring two properties for eigenvalues of general matrices, and then proceeds to the special case of real symmetric  matrices.
-Symmetric matrices have the beautifully useful properties of always having real eigenvalues and orthogonal eigenvectors.
+Symmetric matrices have the beautifully useful properties of always having real eigenvalues and always having orthogonal eigenvectors.
 
 
 
@@ -20,7 +20,7 @@ Symmetric matrices have the beautifully useful properties of always having real 
 \label{sec:mpmev}
 
 \index{eigenvector|(}
-Recall that \autoref{sec:im} introduced the \idx{inverse} of a matrix (\autoref{def:invertible}).
+Recall that \cref{sec:im} introduced the \idx{inverse} of a matrix (\cref{def:invertible}).
 This first theorem links an eigenvalue of zero to the non-existence of an inverse and hence links a zero eigenvalue to problematic \idx{linear equation}s.
 
 
@@ -28,14 +28,14 @@ This first theorem links an eigenvalue of zero to the non-existence of an invers
 A \idx{square matrix} is \idx{invertible} \idx{iff} \idx{zero} is \emph{not} an \idx{eigenvalue} of the matrix.
 \end{theorem}
 \begin{proof} 
-From \autoref{def:evecval}, zero is an eigenvalue (\(\lambda=0\)) iff \(A\xv=0\xv\) has nonzero solutions~\xv; that is, iff the homogeneous system \(A\xv=\ov\) has nonzero solutions~\xv.
+From \cref{def:evecval}, zero is an eigenvalue (\(\lambda=0\)) iff \(A\xv=0\xv\) has nonzero solutions~\xv; that is, iff the homogeneous system \(A\xv=\ov\) has nonzero solutions~\xv.
 But the Unique Solution \cref{thm:ftim1,thm:ftim2} assure us that this occurs iff matrix~\(A\) is not invertible.
 Consequently a matrix is invertible iff zero is not an eigenvalue.
 \end{proof}
 
 \begin{example} 
 \begin{itemize}
-\item The \(3\times 3\) matrix of \autoref{eg:eig3intro,eg:eig3sp,eg:eig3eig,eg:eig3introval} is not invertible as among its eigenvalues of \(0\), \(1\) and~\(3\) it has zero as an eigenvalue.
+\item The \(3\times 3\) matrix of \cref{eg:eig3intro,eg:eig3sp,eg:eig3eig,eg:eig3introval} is not invertible as among its eigenvalues of \(0\), \(1\) and~\(3\) it has zero as an eigenvalue.
 
 \item The plot in the margin shows (unit) vectors~\xv\ (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined.
 \marginpar{\eRose1{-0.5}{-0.5}1}%
@@ -45,15 +45,15 @@ Consequently a matrix is invertible iff zero is not an eigenvalue.
 There are no directions~\xv\ for which \(A\xv=\ov=0\xv\)\,. 
 Hence zero cannot be an eigenvalue and the matrix~\(A\) must be invertible.
 
-Similarly for \autoref{eg:eig2pic2}.
+Similarly for \cref{eg:eig2pic2}.
 
-\item The \(3\times3\) diagonal matrix of \autoref{eg:espace2d} has eigenvalues of only \(-\tfrac13\) and~\(\tfrac32\).
+\item The \(3\times3\) diagonal matrix of \cref{eg:espace2d} has eigenvalues of only \(-\tfrac13\) and~\(\tfrac32\).
 Since zero is not an eigenvalue, the matrix is invertible.
 
 \begin{reduce}
-\item The \(9\times9\) matrix of the \idx{Sierpinski network} in \autoref{eg:sier2eig} is not invertible as it has zero among its five eigenvalues.
+\item The \(9\times9\) matrix of the \idx{Sierpinski network} in \cref{eg:sier2eig} is not invertible as it has zero among its five eigenvalues.
 
-\item The \(2\times 2\) matrix of \autoref{eg:2evals} is invertible as its eigenvalues are \(\lambda=\frac12,\frac32\), neither of which are zero.
+\item The \(2\times 2\) matrix of \cref{eg:2evals} is invertible as its eigenvalues are \(\lambda=\frac12,\frac32\), neither of which are zero.
 Indeed, the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix},
@@ -62,7 +62,7 @@ A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix},
 as matrix multiplication confirms.
 \end{reduce}
 
-\item The \(2\times2\) \idx{non-symmetric matrix} of \autoref{eg:ccevals} is invertible because zero is not among its eigenvalues of \(\lambda=\pm \i\)\,.
+\item The \(2\times2\) \idx{non-symmetric matrix} of \cref{eg:ccevals} is invertible because zero is not among its eigenvalues of \(\lambda=\pm \i\)\,.
 Indeed, the matrix
 \begin{equation*}
 A=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix},
@@ -84,7 +84,7 @@ Two examples are the following.
 A^2=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}
 =\begin{bmatrix} -1&0\\0&-1 \end{bmatrix}
 \end{equation*}
-is diagonal so its eigenvalues are the \idx{diagonal elements} (\autoref{eg:eigndiag}), namely the only eigenvalue is~\(-1\).
+is diagonal so its eigenvalues are the \idx{diagonal elements} (\cref{eg:eigndiag}), namely the only eigenvalue is~\(-1\).
 Observe that \(A^2\)s eigenvalue, \(-1=(\pm \i)^2\), is the square of the eigenvalues of~\(A\).
 That the eigenvalues of~\(A^2\) are the square of those of~\(A\) holds generally.
 
@@ -94,7 +94,7 @@ A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix},
 \quad\text{has inverse }A^{-1}=\begin{bmatrix} \frac43&\frac23\\\frac23&\frac43 \end{bmatrix}.
 \end{equation*}
 Let's determine the eigenvalues of this \idx{inverse}.
-Its \idx{characteristic equation} (defined in \autoref{pro:eeh}) is
+Its \idx{characteristic equation} (defined in \cref{pro:eeh}) is
 \begin{equation*}
 \det(A^{-1}-\lambda I)
 =\begin{vmatrix} \frac43-\lambda&\frac23\\\frac23&\frac43-\lambda \end{vmatrix}
@@ -123,35 +123,36 @@ Let \(A\) be a \idx{square matrix} with \idx{eigenvalue}~\(\lambda\) and corresp
 \begin{enumerate}[ref=\ref{thm:ematpow}(\alph*)]
 \item\label[theorem]{thm:ematpow:i} For every positive integer~\(n\), \(\lambda^n\) is an \idx{eigenvalue} of~\(A^n\) with corresponding \idx{eigenvector}~\xv.
 \item\label[theorem]{thm:ematpow:ii} If \(A\) is \idx{invertible}, then \(1/\lambda\) is an \idx{eigenvalue} of~\(A^{-1}\) with corresponding \idx{eigenvector}~\xv.
-\item\label[theorem]{thm:ematpow:iii} If \(A\) is \idx{invertible}, then for every integer~\(n\), \(\lambda^n\) is an \idx{eigenvalue} of~\(A^n\) with corresponding \idx{eigenvector}~\xv.
+\item\label[theorem]{thm:ematpow:iii} If \(A\) is \idx{invertible}, then for every integer~\(n\) (including negative~\(n\)), \(\lambda^n\) is an \idx{eigenvalue} of~\(A^n\) with corresponding \idx{eigenvector}~\xv.
 \end{enumerate}
 \end{theorem}
 \begin{proof} 
 Consider each property in turn.
 \begin{description}
-\item[\ref{thm:ematpow:i}.]  
-Firstly, the result hold for power \(n=1\) by \autoref{def:evecval}, that \(A\xv=\lambda\xv\)\,.
-Secondly, for the case of power \(n=2\)  consider \(A^2\xv=(AA)\xv=A(A\xv)=A(\lambda\xv)=\lambda(A\xv)=\lambda(\lambda\xv)=(\lambda^2)\xv\)\,.  
-Hence by \autoref{def:evecval} \(\lambda^2\)~is an eigenvalue of~\(A^2\) corresponding to eigenvector~\xv.
+\item[\ref{thm:ematpow:i}]  
+First, the result holds for power \(n=1\) by \cref{def:evecval}, that \(A\xv=\lambda\xv\)\,.
+Second, for the case of power \(n=2\)  consider \(A^2\xv=(AA)\xv=A(A\xv)=A(\lambda\xv)=\lambda(A\xv)=\lambda(\lambda\xv)=(\lambda^2)\xv\)\,.  
+Hence by \cref{def:evecval} \(\lambda^2\)~is an eigenvalue of~\(A^2\) corresponding to eigenvector~\xv.
+
 Third, use induction to extend to any power: assume the result for \(n=k\) (and proceed to prove it for \(n=k+1\)).
 Consider \(A^{k+1}\xv=(A^kA)\xv=A^k(A\xv)=A^k(\lambda\xv)=\lambda(A^k\xv)=\lambda(\lambda^k\xv)=\lambda^{k+1}\xv\)\,.
-Hence by \autoref{def:evecval} \(\lambda^{k+1}\)~is an eigenvalue of~\(A^{k+1}\) corresponding to eigenvector~\xv.
+Hence by \cref{def:evecval} \(\lambda^{k+1}\)~is an eigenvalue of~\(A^{k+1}\) corresponding to eigenvector~\xv.
 By induction the property~\ref{thm:ematpow:i}.\ holds for all integer \(n\geq1\)\,.
 
-\item[\ref{thm:ematpow:ii}.]  
+\item[\ref{thm:ematpow:ii}]  
 For invertible~\(A\) we know none of the eigenvalues are zero: thus \(1/\lambda\)~exists.
 Pre-multiply \(A\xv=\lambda\xv\) by~\(\frac1\lambda A^{-1}\) to deduce
 \(\frac1\lambda A^{-1}A\xv=\frac1\lambda A^{-1}\lambda\xv\)\,, which gives \(\frac1\lambda I\xv=\frac1\lambda \lambda A^{-1}\xv\)\,, that is, \(\frac1\lambda\xv= A^{-1}\xv\)\,.  
 Consequently, \(1/\lambda\)~is an \idx{eigenvalue} of~\(A^{-1}\) with corresponding \idx{eigenvector}~\xv.
 
-\item[\ref{thm:ematpow:iii}.] Proved by \autoref{ex:ematpow:iii}.  
+\item[\ref{thm:ematpow:iii}] Proved by \cref{ex:ematpow:iii}.  
 \end{description}
 \end{proof}
 
 
 
 \begin{example} \label{eg:2x2sympow}
-Recall from \autoref{eg:2evals} that matrix 
+Recall from \cref{eg:2evals} that matrix 
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix}
 \end{equation*}
@@ -194,11 +195,11 @@ You are given that \(-3\) and~\(2\) are \idx{eigenvalue}s of the matrix \(A=\beg
 
 
 \begin{example} \label{eg:3x3sympow}
-Given that the matrix 
+Consider the matrix 
 \begin{equation*}
-A=\begin{bmatrix} 1&1&0\\1&0&1\\0&1&1 \end{bmatrix}
+A=\begin{bmatrix} 1&1&0\\1&0&1\\0&1&1 \end{bmatrix}.
 \end{equation*}
-has eigenvalues~\(2\), \(1\) and~\(-1\) with corresponding eigenvectors \((1,1,1)\), \((-1,0,1)\) and~\((1,-2,1)\) respectively.
+You are given that this matrix has eigenvalues~\(2\), \(1\) and~\(-1\) with corresponding eigenvectors \((1,1,1)\), \((-1,0,1)\) and~\((1,-2,1)\) respectively.
 Confirm matrix~\(A^2\) has \idx{eigenvalue}s which are these squared, and corresponding to the same eigenvectors.
 Given the inverse
 \begin{equation*}
@@ -252,7 +253,7 @@ has eigenvalues~\(1/2\), \(1=1/1\) and \(-1=1/(-1)\) with corresponding eigenvec
 
 
 \begin{example}[long term age structure] \label{eg:ltas}
-Recall \autoref{eg:matasp} introduced how to use a \idx{Leslie matrix} to predict the future population of an animal.
+Recall \cref{eg:matasp} introduced how to use a \idx{Leslie matrix} to predict the future population of an animal.
 In the example, letting \(\xv=(x_1,x_2,x_3)\) be the current number of \idx{pup}s, \idx{juvenile}s, and mature \idx{female}s respectively, then for the \idx{Leslie matrix}
 \begin{equation*}
 L=\begin{bmatrix} 0&0&4\\\frac12&0&0\\0&\frac13&\frac13 \end{bmatrix}
@@ -262,9 +263,9 @@ Predict what happens after many generations: does the population die out? grow? 
 \begin{solution} 
 Consider what happens after \(n\)~generations for large~\(n\), say \(n=10\) or~\(100\).
 The predicted population is \(\xv^{(n)}=L^n\xv\)\,; that is, the matrix~\(L^n\) transforms the current population to that after \(n\)~generations.
-The stretching and/or shrinking of matrix~\(L^n\) is summarized by its eigenvectors and eigenvalues (\autoref{sec:iee}).
-By \autoref{thm:ematpow} the eigenvalues of~\(L^n\) are~\(\lambda^n\) in terms of the eigenvalues~\(\lambda\) of~\(L\).
-By hand (\autoref{pro:eeh}), the characteristic equation of~\(L\) is
+The stretching and/or shrinking of matrix~\(L^n\) is summarized by its eigenvectors and eigenvalues (\cref{sec:iee}).
+By \cref{thm:ematpow} the eigenvalues of~\(L^n\) are~\(\lambda^n\) in terms of the eigenvalues~\(\lambda\) of~\(L\).
+By hand (\cref{pro:eeh}), the characteristic equation of~\(L\) is
 \begin{eqnarray*}
 \det(L-\lambda I)
 &=&\begin{vmatrix} -\lambda&0&4\\\frac12&-\lambda&0\\0&\frac13&\frac13-\lambda \end{vmatrix}
@@ -273,13 +274,13 @@ By hand (\autoref{pro:eeh}), the characteristic equation of~\(L\) is
 \\&=&(1-\lambda)\big[(\lambda+\tfrac13)^2+\tfrac59\big]=0
 \\\implies&&\lambda=1,(-1\pm \i\sqrt5)/3\,.
 \end{eqnarray*}
-Such complex valued eigenvalues may arise in real applications when the matrix is not symmetric, as here---the next \autoref{thm:realeigsym} proves such complexities do not arise for symmetric matrices.
+Such complex valued eigenvalues may arise in real applications when the matrix is not symmetric, as here---the next \cref{thm:realeigsym} proves such complexities do not arise for symmetric matrices.
 
-But the algebra still works with \idx{complex eigenvalue}s (\autoref{ch:gee}).
-Here, the eigenvalues of~\(L^n\) are~\(\lambda^n\) (\autoref{thm:ematpow}) namely \(1^n=1\) for all~\(n\) and \([(-1\pm \i\sqrt5)/3]^n\).
+But the algebra still works with \idx{complex eigenvalue}s (\cref{ch:gee}).
+Here, the eigenvalues of~\(L^n\) are~\(\lambda^n\) (\cref{thm:ematpow}) namely \(1^n=1\) for all~\(n\) and \([(-1\pm \i\sqrt5)/3]^n\).
 Because the absolute value \(|(-1\pm \i\sqrt5)/3|
-=|-1\pm \i\sqrt5|/3=\sqrt{1+5}/3=\sqrt{6}/3=\sqrt{2/3}=0.8165\), then the absolute value of \([(-1\pm \i\sqrt5)/3]^n\) is~\(0.8165^n\) which becomes negligibly small for large~\(n\); for example, \(0.8165^{34}\approx 0.001\).
-Since the eigenvectors of~\(L^n\) are the same as those of~\(L\) (\autoref{thm:ematpow}), these negligibly small eigenvalues of~\(L^n\) imply that any component in the initial population in the direction of the corresponding eigenvectors is shrunk to zero by~\(L^n\).
+=|-1\pm \i\sqrt5|/3=\sqrt{1+5}/3=\sqrt{6}/3=\sqrt{2/3}=0.81650\) (recall that we take five significant digits to be effectively exact in most practice, \cref{sec:umovc}), then the absolute value of \([(-1\pm \i\sqrt5)/3]^n\) is~\(0.81650^n\) which becomes negligibly small for large~\(n\); for example, \(0.81650^{34}\approx 0.001\).
+Since the eigenvectors of~\(L^n\) are the same as those of~\(L\) (\cref{thm:ematpow}), these negligibly small eigenvalues of~\(L^n\) imply that any component in the initial population in the direction of the corresponding eigenvectors is shrunk to zero by~\(L^n\).
 For large~\(n\), it is only the component in the eigenvector corresponding to eigenvalue \(\lambda=1\) that remains.
 Find the eigenvector by solving \((L-I)\xv=\ov\), namely
 \begin{equation*}
@@ -304,13 +305,12 @@ Thus the model predicts that after many generations the population reaches a ste
 \index{diagonalizable!orthogonally|(}
 
 General matrices may have complex valued eigenvalues (as in 
-\cref{eg:ccevals,eg:ltas}): that real symmetric matrices always have 
-real eigenvalues (such as in all matrices of \cref{eg:2x2sympow,eg:3x3sympow}) is a special property that often reflects the physical reality of many applications.
+\cref{eg:ccevals,eg:ltas}). 
+That real symmetric matrices always have real eigenvalues (such as in all matrices of \cref{eg:2x2sympow,eg:3x3sympow}) is a special property that marvellously often reflects the physical reality of many applications.
 
-To establish the reality of eigenvalues (\autoref{thm:realeigsym}), the proof invokes contradiction. 
-The contradiction is to assume a \idx{complex valued} eigenvalue exists, and then prove it cannot.
-Consequently, the proof of the next \autoref{thm:realeigsym} needs to use some \idx{complex number}s and some properties of complex numbers.
-Recall that any complex number \(z=a+b\i\) has a \idx{complex conjugate} \(\bar z=a-b\i\) (denoted by the overbar), and that a complex number equals its conjugate only if it is real valued (the imaginary part is zero).
+To establish the reality of eigenvalues (\cref{thm:realeigsym}), we have to eliminate the possibility that they are \idx{complex valued} with a non-zero imaginary part.
+Consequently, the proof of the next \cref{thm:realeigsym} needs to use some \idx{complex number}s and some properties of complex numbers.
+Recall that any complex number \(z=a+b\i\) has a \idx{complex conjugate} \(\bar z=a-b\i\) (denoted by the overbar, and similarly for vectors), and that a complex number equals its conjugate only if it is real valued (the imaginary part is zero).
 Such properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex valued matrices and vectors.
 
 
@@ -328,16 +328,36 @@ For every real \idx{symmetric matrix}~\(A\), every \idx{eigenvalue} of~\(A\) is 
 
 \begin{proof} 
 Let \(\lambda\) be any eigenvalue of real matrix~\(A\) with corresponding eigenvector~\xv; that is, \(A\xv=\lambda\xv\) for \(\xv\neq\ov\)\,.
-To create a \idx{contradiction} that establishes the theorem: assume the eigenvalue~\(\lambda\) is complex valued, and so correspondingly is the eigenvector~\xv.
-First,  the complex conjugate~\(\bar\lambda\) must be another eigenvalue of~\(A\), corresponding to an eigenvector which is the complex conjugate~\(\bar\xv\).
-To see this just take the complex conjugate of both sides of \(A\xv=\lambda\xv\)\,:
-\begin{equation*}
-\implies \overline{A\xv}=\overline{\lambda\xv}
-\implies \bar A\bar\xv=\bar\lambda\bar\xv
-\implies A\bar\xv=\bar\lambda\bar\xv
-\end{equation*}
-as matrix~\(A\) is real (\(\bar A=A\)).
-Hence, \(\bar\lambda\) is also an eigenvalue.
+First, involving the complex conjugate~\(\bar\xv\), we establish \(\tr\xv\bar\xv>0\) which is used in the second part of the proof. 
+In general the nonzero eigenvector~\xv\ is complex valued, say 
+\begin{eqnarray*}
+&&\xv=(a_1+b_1\i,a_2+b_2\i,\ldots,a_n+b_n\i)
+\\&\implies&\bar\xv=(a_1-b_1\i,a_2-b_2\i,\ldots,a_n-b_n\i).
+\end{eqnarray*}
+Then the product
+\begin{eqnarray*}
+\tr\xv\bar\xv&=&
+\begin{bmatrix} a_1+b_1\i&a_2+b_2\i&\cdots&a_n+b_n\i \end{bmatrix}
+\begin{bmatrix} a_1-b_1\i\\a_2-b_2\i\\\vdots\\a_n-b_n\i \end{bmatrix}
+\\&=&(a_1+b_1\i)(a_1-b_1\i)+(a_2+b_2\i)(a_2-b_2\i)
+\\&&{}+\cdots+(a_n+b_n\i)(a_n-b_n\i)
+\\&=&(a_1^2+b_1^2)+(a_2^2+b_2^2)+\cdots+(a_n^2+b_n^2)
+\\&>&0
+\end{eqnarray*}
+since \xv~is an eigenvector which necessarily is nonzero and so at least one term in the sum is positive, as required.
+
+%To create a \idx{contradiction} that establishes the theorem: assume the eigenvalue~\(\lambda\) is not real valued (that is, it is complex with a non-zero imaginary part).
+%Since \(A\xv=\lambda\xv\), the eigenvector~\xv\ must have a non-zero imaginary part.
+%Second, the complex conjugate~\(\bar\lambda\) must be an eigenvalue of~\(A\), corresponding to an eigenvector which is the complex conjugate~\(\bar\xv\).
+%If the eigenvalue~\(\lambda\) is real, then its complex conjugate \(\bar\lambda=\lambda\) and so is the same eigenvalue---similarly for~\(\bar\xv\).
+%To see that~\(\bar\lambda\) is an eigenvalue just take the complex conjugate of both sides of \(A\xv=\lambda\xv\)\,:
+%\begin{equation*}
+%\implies \overline{A\xv}=\overline{\lambda\xv}
+%\implies \bar A\bar\xv=\bar\lambda\bar\xv
+%\implies A\bar\xv=\bar\lambda\bar\xv
+%\end{equation*}
+%as matrix~\(A\) is real (\(\bar A=A\)).
+%Hence, \(\bar\lambda\) is also an eigenvalue.
 Second, consider \(\tr\xv A\bar\xv\) in two different ways:
 \begin{eqnarray*}
 \tr\xv A\bar\xv&=&\tr\xv(A\bar\xv)
@@ -349,44 +369,26 @@ Second, consider \(\tr\xv A\bar\xv\) in two different ways:
 \\\tr\xv A\bar\xv&=&(\tr\xv A)\bar\xv
 =\tr{(\tr A\xv)}\bar\xv
 =\tr{(A\xv)}\bar\xv
-\quad\text{(by symmetry)}
+\quad\text{(as \(A\) is symmetric)}
 \\&&{}=\tr{(\lambda\xv)}\bar\xv
 =\lambda\tr\xv\bar\xv\,.
 \end{eqnarray*}
-Equating the two ends of this identity gives \(\bar\lambda\tr\xv\bar\xv=\lambda\tr\xv\bar\xv\)\,.
-Rearrange to \(\bar\lambda\tr\xv\bar\xv-\lambda\tr\xv\bar\xv
-=0\)\,, which factors to \((\bar\lambda-\lambda)\tr\xv\bar\xv
-=0\)\,.
-Because this product is zero, either \(\bar\lambda-\lambda=0\) or \(\tr\xv\bar\xv=0\)\,.
-But we next prove the second is impossible, hence the first must hold; that is, \(\bar\lambda-\lambda=0\)\,, equivalently \(\bar\lambda=\lambda\)\,.
-Consequently, the eigenvalue~\(\lambda\) must be real---it cannot be complex.
-
-Lastly confirm \(\tr\xv\bar\xv\neq0\)\,.  
-The nonzero eigenvector~\xv\ is generally complex, say 
-\begin{eqnarray*}
-&&\xv=(a_1+b_1\i,a_2+b_2\i,\ldots,a_n+b_ni)
-\\&\implies&\bar\xv=(a_1-b_1\i,a_2-b_2\i,\ldots,a_n-b_ni).
-\end{eqnarray*}
-Then the product
-\begin{eqnarray*}
-\tr\xv\bar\xv&=&
-\begin{bmatrix} a_1+b_1\i&a_2+b_2\i&\cdots&a_n+b_ni \end{bmatrix}
-\begin{bmatrix} a_1-b_1\i\\a_2-b_2\i\\\vdots\\a_n-b_ni \end{bmatrix}
-\\&=&(a_1+b_1\i)(a_1-b_1\i)+(a_2+b_2\i)(a_2-b_2\i)
-\\&&{}+\cdots+(a_n+b_ni)(a_n-b_ni)
-\\&=&(a_1^2+b_1^2)+(a_2^2+b_2^2)+\cdots+(a_n^2+b_n^2)
-\\&>&0
-\end{eqnarray*}
-since \xv~is an eigenvector which necessarily is nonzero and so at least one term in the sum is positive.
+Equating the two ends of this identity gives 
+\(\bar\lambda\tr\xv\bar\xv=\lambda\tr\xv\bar\xv\)\,.
+Rearrange to \(\bar\lambda\tr\xv\bar\xv-\lambda\tr\xv\bar\xv=0\)\,, 
+which factors to \((\bar\lambda-\lambda)\tr\xv\bar\xv=0\)\,.
+Because this product is zero, and \(\tr\xv\bar\xv>0\), consequently \(\bar\lambda-\lambda=0\)\,.
+Hence \(\bar\lambda=\lambda\) and so \(\lambda\) cannot have any imaginary part.
+That is, the eigenvalue~\(\lambda\) must be real.
 \end{proof}
 
 
 The other property that we have seen graphically for 2D matrices is that the \idx{eigenvector}s of symmetric matrices are orthogonal.
-For \autoref{eg:2x2powmat}, both the matrices~\(A\) and~\(A^{-1}\) in 
+For \cref{eg:2x2powmat}, both the matrices~\(A\) and~\(A^{-1}\) in 
 the second part are symmetric and from the marginal illustration their eigenvectors are proportional to \((1,1)\) and~\((-1,1)\) which are orthogonal directions---they are at \idx{right-angles} in the illustration.
 
 \begin{example} 
-Recall \autoref{eg:3x3hande} found the \(3\times3\) \idx{symmetric matrix}
+Recall \cref{eg:3x3hande} found the \(3\times3\) \idx{symmetric matrix}
 \begin{equation*}
 \begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}
 \end{equation*}
@@ -430,7 +432,7 @@ Equating the two ends of this identity gives \(\lambda_2\xv_1\cdot\xv_2=\lambda_
 Rearrange to \(\lambda_2\xv_1\cdot\xv_2-\lambda_1\xv_1\cdot\xv_2
 =(\lambda_2-\lambda_1)(\xv_1\cdot\xv_2)=0\)\,.
 Since \(\lambda_1\neq\lambda_2\)\,, the factor \(\lambda_2-\lambda_1\neq0\)\,, and so it follows that the dot product \(\xv_1\cdot\xv_2=0\)\,.
-Hence (\autoref{def:orthovec}) the two eigenvectors are orthogonal.
+Hence (\cref{def:orthovec}) the two eigenvectors are orthogonal.
 \end{proof}
 
 
@@ -691,15 +693,17 @@ Further, when we ask \script\ to compute eigenvalues of an \(n\times n\) matrix,
 Every \(n\times n\) real \idx{symmetric matrix}~\(A\) has at most \(n\)~\idx{distinct eigenvalues}.
 \end{theorem}
 \begin{proof} 
-Invoke the \idx{pigeonhole principle} and \idx{contradiction}. 
-Assume there are more than \(n\)~distinct eigenvalues, then there would be more than \(n\)~eigenvectors corresponding to distinct eigenvalues.
-\autoref{thm:orthoevec} asserts all such eigenvectors are orthogonal. 
-But there cannot be more than \(n\)~vectors in an orthogonal set in~\(\RR^n\) (\autoref{thm:orthcomp}).
+%Invoke the \idx{pigeonhole principle} and 
+Let's use \idx{contradiction}. 
+Assume there are more than \(n\)~distinct eigenvalues.
+Then there would be more than \(n\)~eigenvectors corresponding to distinct eigenvalues.
+\cref{thm:orthoevec} asserts all such eigenvectors are orthogonal. 
+But there cannot be more than \(n\)~vectors in an orthogonal set in~\(\RR^n\) (\cref{thm:orthcomp}).
 Hence the assumption is wrong: there cannot be any more than \text{\(n\)~distinct eigenvalues}.
 \end{proof}
 
 
-The previous theorem establishes there are at most \(n\)~\idx{distinct eigenvalues} (here for symmetric matrices, but \autoref{thm:geecp} establishes it is true for general matrices).  
+The previous theorem establishes there are at most \(n\)~\idx{distinct eigenvalues} (here for symmetric matrices, but \cref{thm:geecp} establishes it is true for general matrices).  
 Now we establish that typically there exist \(n\)~distinct \idx{eigenvalue}s of an \(n\times n\) matrix---here symmetric.
 
 \begin{comment}
@@ -709,27 +713,27 @@ The problem case of repeated singular values and repeated eigenvalues appears to
 
 
 
-\autoref{eg:symsigns} started this chapter by observing that in an \svd\ of a \emph{symmetric} matrix, \(A=\usv\), the columns of~\(U\) appear to be (almost) always plus\slash minus the corresponding columns of~\(V\).
+\cref{eg:symsigns} started this chapter by observing that in an \svd\ of a \emph{symmetric} matrix, \(A=\usv\), the columns of~\(U\) appear to be (almost) always plus\slash minus the corresponding columns of~\(V\).
 Exceptions possibly arise in the degenerate cases when two or more \idx{singular value}s are identical.
 We now prove this close relation between~\(U\) and~\(V\) in all non-degenerate cases.
 
 
 \begin{theorem} \label{thm:smevec}
 Let \(A\) be an \(n\times n\) real \idx{symmetric matrix} with \svd\ \(A=\usv\).
-If all the \idx{singular value}s are distinct or \idx{zero}, \(\sigma_1>\cdots>\sigma_r>\sigma_{r+1}=\cdots=\sigma_n=0\)\,, then \(\vv_j\)~is an \idx{eigenvector} of~\(A\) corresponding to an \idx{eigenvalue} of either \(\lambda_j=+\sigma_j\) or \(\lambda_j=-\sigma_j\) (not both, except for the trivial case of zero).
+If all the \idx{singular value}s are distinct or \idx{zero}, \(\sigma_1>\cdots>\sigma_r>\sigma_{r+1}=\cdots=\sigma_n=0\)\,, then \(\vv_j\)~is an \idx{eigenvector} of~\(A\) corresponding to an \idx{eigenvalue} of either \(\lambda_j=+\sigma_j\) or \(\lambda_j=-\sigma_j\) (not both, except for the trivial case of \(\sigma_j=0\)).
 \end{theorem}
 
 If nonzero singular values are duplicated, then one can always choose an \svd\ so the result of this theorem still holds.
 However, the proof is too involved to give here.
 
-\begin{aside} This proof modifies parts of the proof of the \svd\ \autoref{thm:svd} to the specific case of a symmetric matrix.
+\begin{aside} This proof modifies parts of the proof of the \svd\ \cref{thm:svd} to the specific case of a symmetric matrix.
 \end{aside}
 \begin{proof} 
 First, for any zero singular value, \(\sigma_j=0\)\,, then the result is immediate as from the \svd, \(AV=US\)\, the \(j\)th~column gives \(A\vv_j=0\uv_j=\ov=0\vv_j\) for the nonzero~\(\vv_j\).
 
 Second, for the singular values \(\sigma_j>0\) we use a form of \idx{induction} allied with a \idx{contradiction} to prove \(\uv_j=\pm \vv_j\).
 The induction starts with the case of~\(\uv_1\) and~\(\vv_1\).
-By \idx{contradiction}, suppose \(\uv_1\neq\pm\vv_1\)\,, then we can write \(\uv_1=\vv_1\cos t+\wv\sin t\) for some vector~\wv\ orthogonal to~\(\vv_1\) (\(\wv:=\Perp_{\vv_1}\uv_1\)) and for angle \(0< t<\pi\) (as illustrated in the margin).
+We seek a \idx{contradiction} by assuming \(\uv_1\neq\pm\vv_1\)\,. Since \(\uv_1\) and~\(\vv_1\) are unit vectors, we can write \(\uv_1=\vv_1\cos t+\vv'\sin t\) for some unit vector~\(\vv'\)\ orthogonal to~\(\vv_1\) (\(\vv'\propto\Perp_{\vv_1}\uv_1\)) and for angle \(0< t<\pi\) (as illustrated in the margin).
 \begin{comment}
 Should eliminate the possibility of \(t=\pi\)??
 \end{comment}
@@ -742,23 +746,26 @@ Should eliminate the possibility of \(t=\pi\)??
   \addplot[blue,quiver={u=3/5,v=4/5},-stealth]coordinates {(0,0)};
   \node[right] at (axis cs:0.6,0.8) {$\vec u_1$};
   \addplot[brown,thick,quiver={u=-0.385,v=0.923},-stealth]coordinates {(0,0)};
-  \node[right] at (axis cs:-0.385,0.923) {$\vec w$};
+  \node[right] at (axis cs:-0.385,0.923) {$\vec v'$};
   \node at (axis cs:0.3,0.24) {$t$};
   \end{axis}
 \end{tikzpicture}}
-Multiply by~\(A\) giving the identity \(A\uv_1=A\vv_1\cos t+A\wv\sin t\)\,.
-Now the first column of \(AV=US\) gives \(A\vv_1=\sigma_1\uv_1\)\,.
+Multiply by~\(A\) giving the identity \(A\uv_1=A\vv_1\cos t+A\vv'\sin t\)\,.
+Now the first column of \(AV=US\) gives us that \(A\vv_1=\sigma_1\uv_1\)\,.
 Also for the symmetric matrix \(A=\tr A=\tr{(\usv)}=V\tr S\tr U=VS\tr U\) is an alternative \svd\ of~\(A\):  
-so \(AU=VS\) giving in its first column \(A\uv_1=\sigma_1\vv_1\)\,.
-That is, the identity becomes \(\sigma_1\vv_1=\sigma_1\uv_1\cos t+(A\wv)\sin t\)\,.
-Further, since \wv~is orthogonal to~\(\vv_1\), the proof of the \svd\ \autoref{thm:svd} establishes \(A\wv\)~is orthogonal to~\(\uv_1\).  
-Equate the lengths of both sides: \(\sigma_1^2=\sigma_1^2\cos^2 t+|A\wv|^2\sin^2 t\) which rearranging implies \((\sigma_1^2-|A\wv|^2) \sin^2 t=0\)\,.
-For angles \(0< t<\pi\) this implies \(|A\wv|=\sigma_1\) for a vector orthogonal to~\(\vv_1\) which implies the singular value~\(\sigma_1\) is repeated.  
-This contradicts the supposition; hence \(\uv_1=\pm\vv_1\) (for one of the signs, not both).
+so \(AU=VS\) giving us in its first column that \(A\uv_1=\sigma_1\vv_1\)\,.
+That is, the identity becomes \(\sigma_1\vv_1=\sigma_1\uv_1\cos t+(A\vv')\sin t\)\,.
+Further, since \(\vv'\)~is orthogonal to~\(\vv_1\), the proof of the \svd\ \cref{thm:svd} establishes \(A\vv'\)~is orthogonal to~\(\uv_1\).  
+Equate the lengths of both sides: \(\sigma_1^2=\sigma_1^2\cos^2 t+|A\vv'|^2\sin^2 t\) which rearranging implies \((\sigma_1^2-|A\vv'|^2) \sin^2 t=0\)\,.
+For angles \(0< t<\pi\) this implies \(|A\vv'|=\sigma_1\); that is, \(A\vv'=\sigma_1\uv'\) for the unit vector~\(\vv'\)\ orthogonal to~\(\vv_1\), and for some unit vector~\(\uv'\).
+Hence \(\vv'\)~is a singular vector corresponding to singular value~\(\sigma_1\), and so~\(\vv'\) must also be orthogonal to \hlist[2]\vv n. Thus \(\{\vv',\hlist\vv n\}\) is an orthogonal set of unit vectors.
+This is a set of \(n+1\) orthogonal vectors in \(\RR^n\) which \cref{thm:orthcomp} asserts is a contradiction.  
+Hence the assumption that \(\uv_1\neq\pm\vv_1\) must be wrong.  
+Consequently \(\uv_1=\pm\vv_1\) (for one of the signs, not both).
 
-Recall the \idx{induction} proof for the \svd\ \autoref{thm:svd}  (\autoref{sec:dpsvdt}).  
+Recall the \idx{induction} proof for the \svd\ \cref{thm:svd}  (\cref{sec:dpsvdt}).  
 Here, since \(\uv_1=\pm\vv_1\) we can and do choose \(\bar U=\bar V\)\,.  
-Hence \(B=\tr{\bar U}A\bar V =\tr{\bar V}A\bar V \) is symmetric as \(\tr{B} =\tr{\tr{\bar V}A\bar V} =\tr{\bar V}\tr A\bar V =\tr{\bar V}A\bar V =B\)\,.
+Hence \(B=\tr{\bar U}A\bar V =\tr{\bar V}A\bar V \) is symmetric as \(\tr{B} =\tr{(\tr{\bar V}A\bar V)} =\tr{\bar V}\tr A\bar V =\tr{\bar V}A\bar V =B\)\,.
 Consequently, the same argument applies at all steps in the induction for the proof of an \svd\ and hence establishes \(\uv_j=\pm\vv_j\) (each for one of the signs, not both).
 
 Third and lastly,  from the \(j\)th~column of \(AV=US\)\,, \(A\vv_j=\sigma_j\uv_j=\sigma_j(\pm \vv_j)=\lambda_j\vv_j\) for \idx{eigenvalue}~\(\lambda_j\) one of~\(\pm \sigma_j\) but not both.
@@ -773,7 +780,7 @@ Equivalent to proving the Fundamental Theorem of Algebra that there are \(n\)~ze
 
 
 Recall that for every real matrix~\(A\) an \svd\ is \(A=\usv\).
-But specifically for symmetric~\(A\), the proof of the previous \autoref{thm:smevec} identified that the columns of~\(US\),~\(\sigma_j\uv_j\), are generally the same as~\(\lambda_j\vv_j\) and hence are the columns of~\(VD\) where \(D=\diag(\hlist\lambda n)\).
+But specifically for symmetric~\(A\), the proof of the previous \cref{thm:smevec} identified that the columns of~\(US\),~\(\sigma_j\uv_j\), are generally the same as~\(\lambda_j\vv_j\) and hence are the columns of~\(VD\) where \(D=\diag(\hlist\lambda n)\).
 In which case the \svd\ becomes \(A=VD\tr V\).
 This form of an \svd\ is intimately connected to the following definition.
 
@@ -782,11 +789,11 @@ This form of an \svd\ is intimately connected to the following definition.
 A real \idx{square matrix}~\(A\) is \bfidx{orthogonally diagonalizable} if there exists an \idx{orthogonal matrix}~\(V\) and a \idx{diagonal matrix}~\(D\) such that \(\tr VAV=D\), equivalently \(AV=VD\), equivalently \(A=VD\tr V\) is a \idx{factorization} of~\(A\).
 \end{definition}
 
-The equivalences in this definition arise immediately from the orthogonality of matrix~\(V\) (\autoref{def:orthog}): pre-multiply \(\tr VAV=D\) by~\(V\) gives \(V\tr VAV=AV=VD\); and so on.
+The equivalences in this definition arise immediately from the orthogonality of matrix~\(V\) (\cref{def:orthog}): pre-multiply \(\tr VAV=D\) by~\(V\) gives \(V\tr VAV=AV=VD\); and so on.
 
 \begin{example} \label{eg:1orthdiag}
 \begin{enumerate}[ref=\ref{eg:1orthdiag}(\alph*)]
-\item\label[example]{eg:2x2orthdiag} Recall from \autoref{eg:2x2orthevec} that the \idx{symmetric matrix} \(A=\begin{bmat} 1&3/2\\3/2&-3 \end{bmat}\) has eigenvalues \(\lambda=-\tfrac72,\tfrac32\) with corresponding orthogonal eigenvectors \((1,-3)\) and~\((3,1)\).
+\item\label[example]{eg:2x2orthdiag} Recall from \cref{eg:2x2orthevec} that the \idx{symmetric matrix} \(A=\begin{bmat} 1&3/2\\3/2&-3 \end{bmat}\) has eigenvalues \(\lambda=-\tfrac72,\tfrac32\) with corresponding orthogonal eigenvectors \((1,-3)\) and~\((3,1)\).
 Normalize these eigenvectors to unit length as the columns of the orthogonal matrix
 \begin{eqnarray*}
 V&=&\begin{bmatrix} \frac1{\sqrt{10}} & \frac3{\sqrt{10}}
@@ -803,7 +810,7 @@ V&=&\begin{bmatrix} \frac1{\sqrt{10}} & \frac3{\sqrt{10}}
 \end{eqnarray*}
 Hence this matrix is orthogonally diagonalizable.
 
-\item Recall from \autoref{eg:4x4orthevec} that the symmetric matrix
+\item Recall from \cref{eg:4x4orthevec} that the symmetric matrix
 \begin{equation*}
 B=\begin{bmatrix} -6 & 0 & 1 & 1
 \\ 0 & 0 & 2 & 2
@@ -857,8 +864,8 @@ Consider
 \end{equation*}
 Consequently the matrix~\(A\) is symmetric.
 
-\item \autoref{thm:smevec} establishes the converse for the generic case of distinct singular values.
-If matrix~\(A\) is symmetric, then \autoref{thm:smevec} asserts an \svd\ \(A=\usv\) has matrix~\(U\) such that columns \(\uv_j=\pm\vv_j\)\,.
+\item \cref{thm:smevec} establishes the converse for the generic case of distinct singular values.
+If matrix~\(A\) is symmetric, then \cref{thm:smevec} asserts an \svd\ \(A=\usv\) has matrix~\(U\) such that columns \(\uv_j=\pm\vv_j\)\,.
 That is, we can write \(U=VR\) for diagonal matrix \(R=\diag(\pm1,\pm1,\ldots,\pm1)\) for appropriately chosen signs.
 Then by the \svd\ \(A=\usv=VRS\tr V=VD\tr V\) for diagonal matrix \(D=RS=\diag(\pm\sigma_1,\pm\sigma_2,\ldots,\pm\sigma_n)\) for the same pattern of signs.
 Hence matrix~\(A\) is orthogonally diagonalizable.
@@ -943,7 +950,7 @@ Now let's proceed to see how to implement in algebra this geometric idea of choo
 \label{sec:gqe}
 \index{quadratic equation|(}
 
-\autoref{eg:cuceh} illustrated an ellipse and a \idx{hyperbola}.  These curves are examples of the so-called \bfidx{conic section}s which arise as solutions of the \idx{quadratic equation} in two variables, say~\(x\) and~\(y\),
+\cref{eg:cuceh} illustrated an ellipse and a \idx{hyperbola}.  These curves are examples of the so-called \bfidx{conic section}s which arise as solutions of the \idx{quadratic equation} in two variables, say~\(x\) and~\(y\),
 \begin{equation}
 ax^2+bxy+cy^2+dx+ey+f=0 \label{eq:gqe}
 \end{equation}
@@ -1049,7 +1056,7 @@ The challenge of this subsection is to choose good new coordinates so that a giv
 \end{description}
 
 
-\autoref{eg:cuceh} implicitly has two steps: first, we decide upon an orientation for the \idx{coordinate axes}; second, we decides that the \idx{coordinate system} should be `centred' in the picture.
+\cref{eg:cuceh} implicitly has two steps: first, we decide upon an \idx{orientation} for the \idx{coordinate axes}; second, we decide that the \idx{coordinate system} should be `centred' in the picture.
 Algebra follows the same two steps.
 
 \begin{example}[centre coordinates] 
@@ -1058,7 +1065,7 @@ By shifting coordinates, identify the \idx{conic section} whose equation is
 2x^2+y^2-4x+4y+2=0\,.
 \end{equation*}
 \begin{solution} 
-Group the linear terms with corresponding quadratic powers and seek to rewrite as a perfect square: the equation is
+Group the linear terms with corresponding quadratic powers and seek to rewrite each as a perfect square: the equation is
 \begin{eqnarray*}&&
 (2x^2-4x)+(y^2+4y)+2=0
 \\\iff&&
@@ -1141,7 +1148,7 @@ Then the quadratic terms
 =\tr{\xv'}(\tr VAV)\xv'.
 \end{equation*}
 Thus choose~\(V\) to simplify \(\tr VAV\).
-Because matrix~\(A\) is symmetric, \autoref{thm:symspec} asserts it is orthogonally diagonalizable (using eigenvectors).
+Because matrix~\(A\) is symmetric, \cref{thm:symspec} asserts it is orthogonally diagonalizable (using eigenvectors).
 Indeed, \cref{eg:2x2orthdiag} orthogonally diagonalized this particular matrix~\(A\), via its eigenvalues and eigenvectors, using the orthogonal matrix
 \begin{equation*}
 V=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
@@ -1177,7 +1184,7 @@ x^2-xy+y^2+\tfrac5{2\sqrt2}x-\tfrac7{2\sqrt2}y+\tfrac18=0\,.
 \begin{solution} 
 When there are both the cross-product~\(xy\) and linear terms, it is  easier to first rotate coordinates, and second shift coordinates. 
 \begin{enumerate}
-\item Rewrite the quadratic terms using vector \(\xv=(x,y)\) and splitting the cross-product into two equal halfs:
+\item Rewrite the quadratic terms using vector \(\xv=(x,y)\) and splitting the cross-product into two equal halves:
 \begin{eqnarray*}
 x^2-xy+y^2
 &=&x(x-\tfrac12y)+y(-\tfrac12x+y)
@@ -1188,9 +1195,9 @@ x^2-xy+y^2
 \begin{bmatrix} x\\y \end{bmatrix}
 \\&=&\tr\xv A\xv
 \quad\text{for matrix }A=
-\begin{bmatrix} 1&-\tfrac12\\-\tfrac12&1 \end{bmatrix}.
+\begin{bmat} 1&-1/2\\-1/2&1 \end{bmat}.
 \end{eqnarray*}
-Recall that \autoref{eg:2evals} found the eigenvalues of this matrix are \(\lambda=\tfrac12,\tfrac32\) with corresponding orthonormal eigenvectors \(\vv_1=(1,1)/\sqrt2\) and \(\vv_2=(-1,1)/\sqrt2\), respectively.
+Recall that \cref{eg:2evals} found the eigenvalues of this matrix are \(\lambda=\tfrac12,\tfrac32\) with corresponding orthonormal eigenvectors \(\vv_1=(1,1)/\sqrt2\) and \(\vv_2=(-1,1)/\sqrt2\), respectively.
 \def\temp#1{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle
@@ -1312,11 +1319,11 @@ For all \(\xv\in\RR^n\) consider
 which is the quadratic form associated with the \idx{identity matrix}~\(I_n\).
 
 \begin{reduce}
-\item \autoref{eg:csrc2} found the \idx{hyperbola} satisfying equation \(x^2+3xy-3y^2-\tfrac12=0\)\,.
+\item \cref{eg:csrc2} found the \idx{hyperbola} satisfying equation \(x^2+3xy-3y^2-\tfrac12=0\)\,.
 This equation may be written in terms of a quadratic form as \(\tr\xv A\xv-\tfrac12=0\) for vector \(\xv=(x,y)\) and \idx{symmetric matrix} \(A=\begin{bmat} 1&3/2\\3/2&-3 \end{bmat}\).
 \end{reduce}
 
-\item \autoref{eg:cstrrc2} found the \idx{ellipse} satisfying the equation
+\item \cref{eg:cstrrc2} found the \idx{ellipse} satisfying the equation
 \(x^2-xy+y^2+\tfrac5{2\sqrt2}x-\tfrac7{2\sqrt2}y+\tfrac18=0\) via writing the quadratic part of the equation as \(\tr\xv A\xv\) for vector \(\xv=(x,y)\) and symmetric matrix \(A=\begin{bmat} 1&-1/2\\-1/2&1 \end{bmat}\).
 \end{enumerate}
 \end{example}
@@ -1341,7 +1348,7 @@ Then the quadratic form
 \begin{equation*}
 \tr\xv A\xv=\tr{(V\yv)} A(V\yv)=\tr\yv \tr VAV\yv=\tr\yv D\yv\,,
 \end{equation*}
-since \(\tr VAV=D=\diag(\hlist\lambda n)\) by \autoref{thm:symspec}.
+since \(\tr VAV=D=\diag(\hlist\lambda n)\) by \cref{thm:symspec}.
 Consequently,
 \begin{equation*}
 \tr\xv A\xv=\tr\yv D\yv=\lambda_1y_1^2+\lambda_2y_2^2+\cdots+\lambda_ny_n^2.
@@ -1379,7 +1386,7 @@ The following illustration plots the surface~\(f(x,y)\).
 \end{center}
 Also plotted in black is the curve of values of~\(f(x,y)\) on the unit \idx{circle} \(x^2+y^2=1\) (also shown); that is, \(f(\xv)\)~for unit vectors~\xv.
 Find the maxima and minima of~\(f\) on this unit circle (for unit vectors~\xv).
-Relate to the \idx{eigenvalue}s of \autoref{eg:2x2orthevec}.
+Relate to the \idx{eigenvalue}s of \cref{eg:2x2orthevec}.
 \begin{solution} 
 Let's express the unit vectors as \(\xv=(\cos t,\sin t)\) and consider~\(f\) as a function of~\(t\).
 Then 
@@ -1418,12 +1425,12 @@ Then for all \idx{unit vector}s \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \idx
 \end{theorem}
 
 \begin{proof} 
-Change to an orthogonal coordinate system~\yv\ that diagonalizes the matrix~\(A\) (\autoref{thm:patqform}): say coordinates \(\yv=V\xv\) for orthogonal matrix~\(V\) whose columns are orthogonal eigenvectors of~\(A\) in order so that \(D=\tr VAV=\diag(\hlist\lambda n)\).
+Change to an orthogonal coordinate system~\yv\ that diagonalizes the matrix~\(A\) (\cref{thm:patqform}): say coordinates \(\yv=V\xv\) for orthogonal matrix~\(V\) whose columns are orthogonal eigenvectors of~\(A\) in order so that \(D=\tr VAV=\diag(\hlist\lambda n)\).
 Then the quadratic form 
 \begin{equation*}
 \tr\xv A\xv=\tr{(V\yv)} A(V\yv)=\tr\yv \tr VAV\yv=\tr\yv D\yv\,.
 \end{equation*}
-Since \(V\)~is orthogonal it preserves lengths (\autoref{thm:orthog:iv}) so the unit vector condition \(|\xv|=1\) is the same as \(|\yv|=1\)\,.
+Since \(V\)~is orthogonal it preserves lengths (\cref{thm:orthog:iv}) so the unit vector condition \(|\xv|=1\) is the same as \(|\yv|=1\)\,.
 \begin{enumerate}
 \item To prove the lower bound, consider
 \begin{eqnarray*}
@@ -1438,7 +1445,7 @@ Since \(V\)~is orthogonal it preserves lengths (\autoref{thm:orthog:iv}) so the 
 \\&&{}=\lambda_1|\yv|^2
 =\lambda_1\,.
 \end{eqnarray*}
-Similarly for the upper bound (\autoref{ex:optqform}).  
+Similarly for the upper bound (\cref{ex:optqform}).  
 Thus \(\lambda_1\leq \tr\xv A\xv\leq\lambda_n\) for all unit vectors~\xv.
 
 \item Let \(\vv_1\) be a unit eigenvector of~\(A\) corresponding to the minimal eigenvalue~\(\lambda_1\); that is, \(A\vv_1=\lambda_1\vv_1\) and \(|\vv_1|=1\)\,.
@@ -1452,13 +1459,13 @@ Then, setting \(\xv=\vv_1\)\,, the quadratic form
 \end{equation*}
 Thus the quadratic form~\(\tr\xv A\xv\) takes on the minimum value~\(\lambda_1\) and it occurs when \(\xv=\vv_1\) (at least).
 
-\item \autoref{ex:optqform} proves the maximum value occurs.
+\item \cref{ex:optqform} proves the maximum value occurs.
 \end{enumerate}
 \end{proof}
 
 
 \begin{activity}
-Recall \autoref{eg:3x3hande} found that the \(3\times3\) \idx{symmetric matrix}
+Recall \cref{eg:3x3hande} found that the \(3\times3\) \idx{symmetric matrix}
 \begin{equation*}
 A=\begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}
 \end{equation*}
@@ -1530,7 +1537,7 @@ By assessing whether there are any zero eigenvalues, estimate if the matrix~\(A\
 
 
 \begin{exercise}  
-For each of the following symmetric matrices: from a hand derivation of the \idx{characteristic equation} (defined in \autoref{pro:eeh}), determine whether each matrix has a zero \idx{eigenvalue} or not, and hence determine whether it is \idx{invertible} or not.
+For each of the following symmetric matrices: from a hand derivation of the \idx{characteristic equation} (defined in \cref{pro:eeh}), determine whether each matrix has a zero \idx{eigenvalue} or not, and hence determine whether it is \idx{invertible} or not.
 \begin{Parts}
 \item \(\begin{bmatrix} -1/2 & -3/4
 \\ -3/4 & -1/2 \end{bmatrix}\)
@@ -1700,7 +1707,7 @@ By roughly estimating \idx{eigenvalue}s and \idx{eigenvector}s by eye, identify 
 
 
 \begin{exercise}  
-For the symmetric matrices of \autoref{ex:smoevs}, confirm that \idx{eigenvector}s corresponding to \idx{distinct eigenvalues} are orthogonal (\autoref{thm:orthoevec}).  
+For the symmetric matrices of \cref{ex:smoevs}, confirm that \idx{eigenvector}s corresponding to \idx{distinct eigenvalues} are orthogonal (\cref{thm:orthoevec}).  
 Show your working.
 \end{exercise}
 
@@ -1712,10 +1719,10 @@ Show your working.
 \begin{exercise}  
 For every \(n\times n\) \idx{symmetric matrix},
 \begin{itemize}
-\item  eigenvectors corresponding to distinct eigenvalues are orthogonal (\autoref{thm:orthoevec}), and
+\item  eigenvectors corresponding to distinct eigenvalues are orthogonal (\cref{thm:orthoevec}), and
 \item  there are generally \(n\)~eigenvalues.
 \end{itemize}
-Which of the illustrated 2D examples of \autoref{ex:evecpic} appear to come from symmetric matrices, and which appear to come from non-symmetric matrices?
+Which of the illustrated 2D examples of \cref{ex:evecpic} appear to come from symmetric matrices, and which appear to come from non-symmetric matrices?
 \end{exercise}
 
 
@@ -1724,7 +1731,7 @@ Which of the illustrated 2D examples of \autoref{ex:evecpic} appear to come from
 
 \begin{exercise} \label{ex:smnoevs} 
 For each of the following \emph{non-symmetric} matrices, confirm that \idx{eigenvector}s corresponding to \idx{distinct eigenvalues} are \emph{not} orthogonal.  Show and comment on your working.
-Find eigenvectors by hand for \(2\times 2\) and \(3\times 3\) matrices, and compute with \script\ for \(3\times 3\) matrices and larger (using \verb|eig()| and \verb|V'*V|).
+Find eigenvectors by hand for \(2\times 2\) and \(3\times 3\) matrices, and compute with \script\ for \(4\times 4\) matrices and larger (using \verb|eig()| and \verb|V'*V|).
 %\begin{verbatim}
 %format rat,n=2
 %for i=1:10^n
@@ -1793,8 +1800,8 @@ Find eigenvectors by hand for \(2\times 2\) and \(3\times 3\) matrices, and comp
 
 
 \begin{exercise}  
-For the symmetric matrices of \autoref{ex:smoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
-Confirm that each column of~\(V\) is an \idx{eigenvector} of the matrix (that is, proportional to what the exercise found) and the corresponding \idx{singular value} is the magnitude of the corresponding \idx{eigenvalue} (\autoref{thm:smevec}).
+For the symmetric matrices of \cref{ex:smoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
+Confirm that each column of~\(V\) is an \idx{eigenvector} of the matrix (that is, proportional to what the exercise found) and the corresponding \idx{singular value} is the magnitude of the corresponding \idx{eigenvalue} (\cref{thm:smevec}).
 Show and discuss your working.
 \end{exercise}
 
@@ -1802,7 +1809,7 @@ Show and discuss your working.
 
 
 \begin{exercise}  
-To complement the previous exercise, for each of the \emph{non-symmetric} matrices of \autoref{ex:smnoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
+To complement the previous exercise, for each of the \emph{non-symmetric} matrices of \cref{ex:smnoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
 Confirm that usually each column of~\(V\) is \emph{not} an \idx{eigenvector} of the matrix, and the \idx{singular value}s do \emph{not} appear closely related to the \idx{eigenvalue}s.
 Show and discuss your working.
 \end{exercise}
@@ -1826,9 +1833,9 @@ Prove that for any \(j=1,2,\ldots,n\)\,, the \(j\)th~column of~\(V\),~\(\vv_j\),
 
 
 \begin{exercise} \label{ex:ematpow:iii} 
-Prove \autoref{thm:ematpow:iii} using parts~\ref{thm:ematpow:i} 
+Prove \cref{thm:ematpow:iii} using parts~\ref{thm:ematpow:i} 
 and~\ref{thm:ematpow:ii}: that if matrix~\(A\) is {invertible}, then 
-for every integer~\(n\), \(\lambda^n\) is an \idx{eigenvalue} 
+for every integer~\(n\) (including negative~\(n\)), \(\lambda^n\) is an \idx{eigenvalue} 
 of~\(A^n\) with corresponding \idx{eigenvector}~\xv.
 \end{exercise}
 
@@ -2238,7 +2245,7 @@ Justify your answer.
 
 
 \begin{exercise} \label{ex:optqform} 
-Complete the proof of \autoref{thm:optqform} by detailing the proof of the upper bound, and that the upper bound is achieved for an appropriate unit eigenvector.
+Complete the proof of \cref{thm:optqform} by detailing the proof of the upper bound, and that the upper bound is achieved for an appropriate unit eigenvector.
 \end{exercise}
 
 
