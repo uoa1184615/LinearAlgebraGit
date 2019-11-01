@@ -13,7 +13,7 @@ Singularity is almost invariably a clue.
 
 
 Often we need to approximate the matrix in a linear equation.  
-This is especially so when the matrix itself comes from experimental measurements and so has errors.
+Such approximation is especially likely when the matrix itself comes from experimental measurements and so has errors.
 We do not want such errors to affect results.
 By avoiding division with small \idx{singular value}s, the procedure developed in this section avoids unwarranted magnification of errors.
 Sometimes such error magnification is disastrous, so avoiding it is essential.
@@ -24,11 +24,10 @@ Suppose from measurements in some experiment we want to solve the two linear equ
 0.5x+0.3y=1\quad\text{and}\quad 1.1x+0.7y=2\,,
 \end{equation*}
 where all the \idx{coefficient}s on \emph{both} the left-hand sides and the right-hand sides are determined from experimental measurements.
-In particular, suppose they are measured to \idx{experimental error}s~\(\pm0.05\)\,.
+Suppose they are measured to \idx{experimental error}s~\(\pm0.05\)\,.
 Solve the equations.
 \begin{solution} 
-\begin{itemize}
-\item Using \cref{pro:unisol} in \script, form the matrix and the right-hand side
+Using \cref{pro:unisol} in \script, form the matrix and the right-hand side
 \begin{verbatim}
 A=[0.5 0.3;1.1 0.7]
 b=[1.0;2.0]
@@ -45,7 +44,8 @@ Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) whi
 \end{tikzpicture}}%
 So proceed warily to compute the solution with~\verb|A\b| to find \((x,y)=(5,-5)\) (as illustrated by the intersection of the two lines in the margin).
 
-\item Is this solution reasonable?  No.  Not when the matrix itself has errors.
+
+ Is this solution reasonable?  No.  Not when the matrix itself has errors.
 Let's perturb the matrix~\(A\) by amounts consistent with its experimental error of~\(\pm0.05\) and explore the predicted solutions (the first two perturbations illustrated):%
 \marginpar{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
@@ -76,7 +76,7 @@ Let's perturb the matrix~\(A\) by amounts consistent with its experimental error
 For equally valid matrices~\(A\), to within experimental error, the predicted solutions are all over the place!
 
 
-\item If the matrix itself has errors, then we \emph{must} reconsider \cref{pro:unisol}.
+ If the matrix itself has errors, then we \emph{must} reconsider \cref{pro:unisol}.
 The \svd\ empowers a sensible resolution.
 Compute an \svd\ of the matrix, \(A=\usv\), with \verb|[U,S,V]=svd(A)| to find \twodp
 \setbox\ajrqrbox\hbox{\qrcode{% 2x2 approx
@@ -111,9 +111,8 @@ to deduce \(\yv=(-1.56,y_2)\);
 The four different `answers' computed by~\verb|A\b| above are just four different points (nearly) on this line.
 Other different `answers' computed by~\verb|A\b| would be other points (nearly) on this line.
 
-\item To choose between this infinitude of solutions on the line, extra information must be provided by the context\slash application\slash modelling.  
+ To choose between this infinitude of solutions on the line, extra information must be provided by the context\slash application\slash modelling.  
 For example, often one prefers the solution of smallest length\slash magnitude, obtained by setting \(y_2=0\) (\cref{thm:smallsoln}); that is, \(\xv_{\text{smallest}}=(1.32,0.83)\).
-\end{itemize}
 \end{solution}
 \end{example}
 
@@ -148,14 +147,14 @@ I think it is much more interesting to live with uncertainty than to live with a
 
 \begin{procedure}[approximate linear equations] \label{pro:appmat}
 Suppose the \idx{system} of \idx{linear equation}s \(A\xv=\bv\) arises from an experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix and vector \idx{entries} are of size~\(\epsilon\).
+Suppose the expected error in the matrix and vector \idx{entries} are of \idx{magnitude}~\(\epsilon\).
 \begin{aside}
 Recall that (\cref{thm:erramp}) the symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.
 \end{aside}%
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
-\item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same size; and
+\item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same magnitude; and
 \item similarly for the \(m\) components of~\bv.
 \end{itemize}
 Estimate the error~\(\epsilon\) corresponding to this matrix~\(A\).
@@ -203,7 +202,7 @@ Given the matrix components have errors of about~\(0.02\), what is the effective
 
 The final step in \cref{pro:appmat} arises because in many cases an infinite number of possible solutions are derived.
 The linear algebra cannot presume which is best for your application.
-Consequently, you will have to be aware of the freedom, and make a choice based on extra information from your particular application.
+Consequently, in future applications you will have to be aware of the freedom, and make a choice based on extra information.
 For two examples:
 \begin{itemize}
 \item in a \textsc{ct}-scan\index{CT scan} such as \cref{eg:ctscan} one would usually prefer the greyest result in order to avoid diagnosing artifices;
@@ -290,7 +289,7 @@ Then add an arbitrary multiple of the last column of~\verb|V| to determine a gen
 
 
 This example gives \idx{infinitely many solutions} which are equally valid as far as the linear algebra is concerned.
-In such an example, more information from an application would be needed to choose which to \emph{prefer} among the infinity of solutions.
+In such an example, more information from an application is needed to choose which to \emph{prefer} among the infinity of solutions.
 
 
 
@@ -309,7 +308,7 @@ A=\begin{bmatrix} -1.1&0.1&0.7&-0.1
  \end{bmatrix}
 \end{equation*}
 \begin{solution} 
-Enter the matrix and vector into \script, note the poor \verb|rcond|, and solve with \verb|x=A\b| to determine \(\xv=(0.61,-0.64,-0.65,-0.93)\).
+Enter the matrix and vector into \script, note the poor \verb|rcond|, and solve with \verb|x=A\b| to determine \(\sloppy\xv=(0.61,-0.64,-0.65,-0.93)\).
 \setbox\ajrqrbox\hbox{\qrcode{% 4x4 approx Ax=b
 A=[-1.1 0.1 0.7 -0.1
   0.1 -0.1 1.2 -0.6
@@ -347,7 +346,7 @@ To within experimental error the following matrices approximate~\(A\), and \scri
 \\-1.09 \end{bmatrix}\)
 \end{itemize}
 There are significant differences, mainly in the second component, between these equally valid solutions~\(\xv\), \(\xv'\) and~\(\xv''\).
-The problem is that, relative to the experimental error, there is a small singular value in the matrix~\(A\).
+The problem is again that, relative to the experimental error, there is a small singular value in the matrix~\(A\).
 We must use an \svd\ to find all solutions consistent with the experimental error: compute \verb|[U,S,V]=svd(A)| to find~\twodp
 \begin{verbatim}
 U =
@@ -488,8 +487,7 @@ Re-adopt \cref{pro:appmat}.
 \begin{equation*}
 \yv=(-1.28,-4.66,-21.43,y_4,y_5),
 \end{equation*}
-then the smallest, least square, solution determined with 
-\verb|x=V(:,1:3)*y| is
+then \verb|x=V(:,1:3)*y| determines the smallest, least square, solution
 \begin{equation*}
 \xv=(2.76,-13.66,-0.19,9.03,14.38),
 \end{equation*}
@@ -510,8 +508,7 @@ Re-adopt \cref{pro:appmat}.
 \begin{equation*}
 \yv=(-1.28,-4.66,y_3,y_4,y_5),
 \end{equation*}
-then the smallest, least square, solution determined with 
-\verb|x=V(:,1:2)*y| is
+then \verb|x=V(:,1:2)*y| determines the smallest, least square, solution
 \begin{equation*}
 \xv=(-1.83,1.85,2.39,2.39,2.27),
 \end{equation*}
@@ -571,7 +568,7 @@ In order to find a robust solution, here let's approximate both the matrix and t
 Now invoke \cref{pro:appmat} to approximate the system of linear equations, and solve the approximate problem.
 \begin{enumerate}
 \item
-There is a problem in approximating the matrix: the columns are of wildly different sizes.  
+There is a problem in approximating the matrix: the columns are of wildly different \idx{magnitude}s.  
 In contrast, our mathematical analysis treats all columns the same.  
 The problem is that each column comes from different powers of temperatures.  
 To avoid the problem we must \index{data scaling}scale the temperature data for the matrix.  
@@ -591,9 +588,9 @@ which gives the following system for the coefficients \twodp
 \begin{bmatrix} c_1\\c_2\\c_3\\c_3\\c_4\\c_5 \end{bmatrix}
 =\begin{bmatrix} 60\\80\\51\\74\\81 \end{bmatrix}.
 \end{equation*}
-Now all the components of the matrix are roughly the same size, as required.
+Now all the components of the matrix are roughly the same magnitude, as required.
 
-There is no need to \index{data scaling}scale the right-hand side vector as all components are all roughly the same size, they are all simply `American temperatures'. 
+There is no need to \index{data scaling}scale the right-hand side vector as all components are all roughly the same magnitude, they are all simply `American temperatures'. 
 
 In script\ construct the scaled matrix and right-hand side vector with 
 \begin{verbatim}
@@ -639,7 +636,7 @@ V =
 \item Now choose the effective rank of the matrix to be the number of singular values bigger than the error.
 Here recall that the temperatures in the matrix have been divided by~\(20^\circ\).
 Hence the errors of roughly~\(\pm0.5^\circ\) in each temperature becomes roughly \(\pm0.5/20=\pm0.025\) in the scaled components in the matrix.%
-\footnote{Discerning people will comment that raising to a power also amplifies errors so that the \(j\)th~column has errors more like~\(j\cdot0.5/20\).  However, let's ignore this extra complication here.}
+\footnote{Discerning people may comment that raising to a power also amplifies errors so that the \(j\)th~column has errors more like~\(j\cdot0.5/20\).  However, let's ignore this extra complication here.}
 There are three singular values larger than the error~\(0.025\), so the matrix effectively has rank three.
 The two singular values less than the error~\(0.025\) are effectively zero.
 That is, although it is not necessary to construct, we approximate the matrix~\(A\) by \twodp
@@ -666,7 +663,7 @@ z =
 As matrix~\(A\) has effective rank of three, we approximate the right-hand side data by neglecting the last two components in this~\zv.
 That the last two components in~\zv\ are small compared to the others indicates this neglect is a reasonable approximation.
 
-\item Find \yv\ by solving \(S\yv=\zv\) as a rank three system via \verb|y=z(1:3)./diag(S(1:3,1:3))| to find  \twodp
+\item Find \yv\ by solving \(S\yv=\zv\) as a rank three system via the command \verb|y=z(1:3)./diag(S(1:3,1:3))| to find  \twodp
 \begin{equation*}
 \yv=(-20.19,39.15,1.95,y_4,y_5).
 \end{equation*}
@@ -700,7 +697,7 @@ T_A&=&35.09+22.50\frac{T_E}{20}
 \end{eqnarray*}%
 But choosing the polynomial with smallest coefficients has little meaning in this application.
 Surely we prefer a polynomial with fewer terms, fewer nonzero coefficients.
-Surely we would prefer, say, the quadratic
+Surely we would prefer, say, the quadratic (plotted in the margin)
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,axis lines=middle
     ,xlabel={European, $T_E$},ylabel={American, $T_A$}
@@ -713,9 +710,8 @@ Surely we would prefer, say, the quadratic
 \end{tikzpicture}}
 \begin{equation*}
 T_A=25.93+49.63\frac{T_E}{20} 
--6.45\left(\frac{T_E}{20}\right)^2,
+-6.45\left(\frac{T_E}{20}\right)^2.
 \end{equation*}
-as plotted in the margin.
 
 In this application, let's use the freedom in~\(y_4\) and~\(y_5\) to set two of the coefficients to zero in the quartic.
 Since \(c_4=3.99\) and \(c_5=-5.28\) are the smallest coefficients, and because they correspond to the highest powers in the quartic, it is natural to choose to make them both zero.
@@ -749,12 +745,11 @@ Since the matrix is the first three rows and columns of~\(\tr V\) and the right-
 \item  checking the \idx{condition number}, \verb|rcond(V(1:3,1:3))| is~\(0.05\) which is good, and
 \item then \verb|c=V(1:3,1:3)'\y| determines the coefficients \((c_1,c_2,c_3)=(25.93,49.63,-6.45)\) \twodp.
 \end{itemize}
-That is, a just as good polynomial fit, consistent with errors in the data, is the simpler quadratic polynomial
+That is, a just as good polynomial fit, consistent with errors in the data, is the simpler quadratic polynomial (as plotted previously)
 \begin{equation*}
 T_A=25.93+49.63\frac{T_E}{20} 
--6.45\left(\frac{T_E}{20}\right)^2,
+-6.45\left(\frac{T_E}{20}\right)^2.
 \end{equation*}
-as plotted previously in the margin.
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -818,7 +813,7 @@ As shown in the margin, the 2D region is divided into a \(3\times3\) grid of nin
 \end{axis}
 \end{tikzpicture}}%
 Then measurements are taken of the \idx{X-ray}s not absorbed along the shown nine paths: three horizontal, three vertical, and three diagonal.
-Suppose the measured fractions of X-ray energy are \(\fv=(0.048\clb 0.081\clb 0.042\clb 0.020\clb 0.106\clb 0.075\clb 0.177\clb 0.181\clb 0.105)\).
+Suppose the measured fractions of X-ray energy are \(\sloppy\fv=(0.048, 0.081, 0.042, 0.020, 0.106, 0.075, 0.177, 0.181, 0.105)\).
 Use an \svd\ to find the `greyest' transmission factors \idx{consistent} with the measurements and likely errors.
 %\begin{verbatim}
 %A=[1 1 1 0 0 0 0 0 0 
@@ -941,7 +936,7 @@ Implement \cref{pro:appmat}.
 There is no need to scale the matrix~\(A\) as all entries mean the same, namely simply zero or one depending upon whether  beam passes through the a pixel square.
 However, the entries of~\(A\) are in error in two ways.
 \begin{itemize}
-\item A diagonal beam has a path through a pixel that is up to 41\% longer than horizontal or vertical beam--which is not accounted for.  Further, a beam has finite width so it will also pass through part of some off-diagonal pixels---which is not represented.
+\item A diagonal beam has a path through a pixel that is up to 41\% longer than horizontal or vertical beam--which is not accounted for.  Further, a beam has finite width so it also passes through part of some off-diagonal pixels---which is not represented.
 \item Similarly, a horizontal or vertical beam has finite width and may underrepresent the sides of the pixels it goes through, and/or involve parts of neighbouring pixels---neither effect is represented.
 \end{itemize}
 Consequently the entries in the matrix~\(A\) could easily have error of~\(\pm0.5\).
@@ -983,7 +978,7 @@ V =
 \end{verbatim}
 }%
 
-\item Here choose the rank of the matrix to be effectively seven as two of the nine singular values, namely \(0.51\) and~\(0.00\), are less than or about the size of the expected error, roughly~\(0.5\).
+\item Here choose the rank of the matrix to be effectively seven as two of the nine singular values, namely \(0.51\) and~\(0.00\), are less than or about the magnitude of the expected error, roughly~\(0.5\).
 
 \item Use the rank seven \svd\ to solve the approximate system as in \cref{pro:appsol}.
 \begin{enumerate}
@@ -1033,7 +1028,7 @@ Obtain other equally valid solutions, in the context of the identified error in 
 
 \item Here we aim to make predictions from the \textsc{ct}-scan\index{CT scan}. 
 The `best' solution in this application is the one with least artificial features.
-The smallest magnitude~\xv\ seems to reasonably implement this criterion.
+The smallest \idx{magnitude}~\xv\ seems to reasonably implement this criterion.
 Thus use the above particular~\xv\ to determine the transmission factors, \(r_i=\exp(x_i)\).
 \def\temp#1#2#3#4#5#6#7#8#9{\begin{tikzpicture}
 \begin{axis}[tiny,axis equal image,colormap/blackwhite,axis lines=none]
@@ -1070,8 +1065,7 @@ x y \\
 3 3\\% 15
 };
 \end{axis}
-\end{tikzpicture}}%
-\marginpar{\temp{0.22}{0.46}{0.51}{0.31}{0.95}{0.31}{0.31}{0.28}{0.51}}%
+\end{tikzpicture}}%end-def
 Here use \verb|r=reshape(exp(x),3,3)|\index{reshape()@\texttt{reshape()}} to compute and form into the \(3\times3\) array of pixels
 \begin{equation*}
 \begin{array}{|r|r|r|}
@@ -1080,10 +1074,13 @@ Here use \verb|r=reshape(exp(x),3,3)|\index{reshape()@\texttt{reshape()}} to com
 \\\hline 0.51&0.31&0.51
 \\\hline
 \end{array}
+\quad\mapsto\quad
+\begin{array}{c}
+\temp{0.22}{0.46}{0.51}{0.31}{0.95}{0.31}{0.31}{0.28}{0.51}\end{array}
 \end{equation*}
-as illustrated  with \index{colormap()@\texttt{colormap()}}\verb|colormap(gray),imagesc(r)|
+when illustrated  with \index{colormap()@\texttt{colormap()}}\verb|colormap(gray),imagesc(r)|
 \end{enumerate}
-The \textsc{ct}-scan identifies that there is a significant `hole' in the middle of the body being scanned.
+The \textsc{ct}-scan and linear algebra robustly identifies that there is a significant `hole' in the middle of the body being scanned.
 \end{solution}
 \end{example}
 
@@ -1108,7 +1105,7 @@ The \textsc{ct}-scan identifies that there is a significant `hole' in the middle
 \index{Tikhonov regularization|(}
 
 Regularization of poorly-posed linear equations is a widely invoked practical necessity.
-\begin{aside} This optional extension connects to much established practice that graduates may encounter.\end{aside}%
+\begin{aside} This optional subsection connects to much established practice that graduates may encounter.\end{aside}%
 Many people have invented alternative techniques.
 Many have independently re-invented techniques.
 Perhaps the most common is the so-called \idx{Tikhonov regularization}.
@@ -1126,7 +1123,7 @@ In seeking to solve the poorly-posed \idx{system} \(A\xv=\bv\) for \(m\times n\)
 The greek letter~\(\alpha\) is `alpha' (different to the `proportional to' symbol~\(\propto\)).
 \end{aside}%
 a \bfidx{Tikhonov regularization} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularization parameter} value~\(\alpha>0\).%
-\footnote{Some will notice that a Tikhonov regularization is closely connected to the so-called \idx{normal equation} \(\tr AA\xv=\tr A\bv\)\,.  
+\footnote{Some may notice that a Tikhonov regularization is closely connected to the so-called \idx{normal equation} \((\tr AA)\xv=\tr A\bv\)\,.  
 Tikhonov regularization shares with the \idx{normal equation} some practical limitations as well as some strengths.}
 \end{definition}
 
@@ -1164,7 +1161,7 @@ x=AtA\slosh (A'*b)
 }}%
 \marginajrbox%
 to find the Tikhonov regularized solution is \(\xv=(1.39,0.72)\).%
-\footnote{Interestingly, \(\texttt{rcond}=0.003\) for the Tikhonov system which is worse than \(\texttt{rcond}(A)\).  The regularization only works because pre-multiplying by~\(\tr A\) puts both sides in the row space of~\(A\) (except for numerical error and the small~\(\alpha^2I\) factor).}
+\footnote{Interestingly, \(\texttt{rcond}=0.003\) for the Tikhonov system which is worse than \(\texttt{rcond}(A)\).  The regularization only works at all because pre-multiplying by~\(\tr A\) pushes both sides into the row space of~\(A\) (except for numerical error and the small~\(\alpha^2I\) factor).}
 This solution is reasonably close to the smallest solution found by the \svd\ which is~\((1.32,0.83)\).
 However, Tikhonov regularization gives no hint of the reasonable general solutions found by the \svd\ approach of \cref{eg:2regu}.
 
@@ -1255,7 +1252,7 @@ rcondAtA=rcond(AtA)
 x=AtA\slosh (A'*b)
 }}%
 \marginajrbox%
-which then finds the Tikhonov regularized solution is \(\xv=(0.10,-0.11,-0.30)\).
+which finds the Tikhonov regularized solution is \(\xv=(0.10,-0.11,-0.30)\).
 To two decimal places this is the same as the smallest solution found by an \svd.
 However, Tikhonov regularization gives no hint of the reasonable general solutions found by the \svd\ approach of \cref{eg:3regmata}.
 \end{solution}
@@ -1269,7 +1266,7 @@ The next theorem establishes the connection.
 
 
 \begin{theorem}[Tikhonov regularization] \label{thm:Tikreg}
-Solving \(A\xv=\bv\) with \idx{Tikhonov regularization}, with parameter~\(\alpha>0\), is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the \idx{system} \(A'\xv=\bv\) where  
+Solving \(A\xv=\bv\) by \idx{Tikhonov regularization}, with parameter~\(\alpha>0\), is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the \idx{system} \(A'\xv=\bv\) where  
 %\begin{itemize}
 %\item 
 the matrix~\(A'\) is obtained from~\(A\) by replacing each of its nonzero \idx{singular value}s~\(\sigma_i\) by \(\sigma'_i:=\sigma_i+\alpha^2/\sigma_i\)\,.
@@ -1347,7 +1344,7 @@ Among those equally good nearby solutions may be ones that you prefer in your ap
 \Needspace{5\baselineskip}
 \paragraph{Choose a good regularization parameter}
 \begin{itemize}
-\item One strategy to choose the \idx{regularization parameter}~\(\alpha\) is that the effective change in the matrix, from~\(A\) to~\(A'\), should be about the size of errors expected in~\(A\).%
+\item One strategy to choose the \idx{regularization parameter}~\(\alpha\) is that the effective change in the matrix, from~\(A\) to~\(A'\), should be about the magnitude of errors expected in~\(A\).%
 \footnote{This strategic choice is sometimes called the \idx{discrepancy principle} \cite[\S7]{Kress2015}.}
 Since changes in the matrix are largely measured by the \idx{singular value}s we need to consider the relation between \(\sigma'=\sigma+\alpha^2/\sigma\) and~\(\sigma\).
 \marginpar{\begin{tikzpicture}
@@ -1370,7 +1367,7 @@ The condition number of~\(A\) may be very bad.
 However, as the marginal graph shows the smallest~\(\sigma'\geq2\alpha\).
 Thus, in the regularized system the \idx{condition number} of the effective matrix~\(A'\) is approximately~\(\sigma_1/(2\alpha)\).
 We need to choose the regularization parameter~\(\alpha\) large enough so that \(\frac{\sigma_1}{2\alpha}\times\)(\idx{relative error} in~\bv) is an acceptable \idx{relative error} in the solution~\xv\ (\cref{thm:erramp}).
-It is only when the \idx{regularization parameter}~\(\alpha\) is big enough that the regularization will be effective in finding a \idx{least square} approximation. 
+It is only when the \idx{regularization parameter}~\(\alpha\) is big enough that the regularization is effective in finding a \idx{least square} approximation. 
 
 \end{itemize}
 

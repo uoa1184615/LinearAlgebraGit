@@ -12,7 +12,7 @@
 
 
 This section starts by exploring two properties for eigenvalues of general matrices, and then proceeds to the special case of real symmetric  matrices.
-Symmetric matrices have the beautifully useful properties of always having real eigenvalues and always having orthogonal eigenvectors.
+Symmetric matrices have the beautifully useful properties of always having real eigenvalues and always having \text{orthogonal eigenvectors.}
 
 
 
@@ -30,7 +30,7 @@ A \idx{square matrix} is \idx{invertible} \idx{iff} \idx{zero} is \emph{not} an 
 \begin{proof} 
 From \cref{def:evecval}, zero is an eigenvalue (\(\lambda=0\)) iff \(A\xv=0\xv\) has nonzero solutions~\xv; that is, iff the homogeneous system \(A\xv=\ov\) has nonzero solutions~\xv.
 But the Unique Solution \cref{thm:ftim1,thm:ftim2} assure us that this occurs iff matrix~\(A\) is not invertible.
-Consequently a matrix is invertible iff zero is not an eigenvalue.
+Consequently a matrix is invertible iff zero is not \text{an eigenvalue.}
 \end{proof}
 
 \begin{example} 
@@ -39,9 +39,6 @@ Consequently a matrix is invertible iff zero is not an eigenvalue.
 
 \item The plot in the margin shows (unit) vectors~\xv\ (blue), and for some matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined.
 \marginpar{\eRose1{-0.5}{-0.5}1}%
-%\begin{aside}
-%The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}\footnote{Not included in R2017b.} provides an interactive alternative to this static view.
-%\end{aside}%
 There are no directions~\xv\ for which \(A\xv=\ov=0\xv\)\,. 
 Hence zero cannot be an eigenvalue and the matrix~\(A\) must be invertible.
 
@@ -54,22 +51,19 @@ Since zero is not an eigenvalue, the matrix is invertible.
 \item The \(9\times9\) matrix of the \idx{Sierpinski network} in \cref{eg:sier2eig} is not invertible as it has zero among its five eigenvalues.
 
 \item The \(2\times 2\) matrix of \cref{eg:2evals} is invertible as its eigenvalues are \(\lambda=\frac12,\frac32\), neither of which are zero.
-Indeed, the matrix
+Indeed, matrix multiplication confirms that the matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac12\\-\frac12&1 \end{bmatrix},
-\quad\text{has inverse }A^{-1}=\begin{bmatrix} \frac43&\frac23\\\frac23&\frac43 \end{bmatrix}
+\quad\text{has inverse }A^{-1}=\begin{bmatrix} \frac43&\frac23\\\frac23&\frac43 \end{bmatrix}.
 \end{equation*}
-as matrix multiplication confirms.
 \end{reduce}
 
 \item The \(2\times2\) \idx{non-symmetric matrix} of \cref{eg:ccevals} is invertible because zero is not among its eigenvalues of \(\lambda=\pm \i\)\,.
-Indeed, the matrix
+Indeed, matrix multiplication confirms that the matrix
 \begin{equation*}
 A=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix},
-\quad\text{has inverse }A^{-1}=\begin{bmatrix} 0&-1\\1&0 \end{bmatrix}
+\quad\text{has inverse }A^{-1}=\begin{bmatrix} 0&-1\\1&0 \end{bmatrix}.
 \end{equation*}
-as matrix multiplication confirms.
-
 \end{itemize}
 \end{example}
 
@@ -85,8 +79,8 @@ A^2=\begin{bmatrix} 0&1\\-1&0 \end{bmatrix}\begin{bmatrix} 0&1\\-1&0 \end{bmatri
 =\begin{bmatrix} -1&0\\0&-1 \end{bmatrix}
 \end{equation*}
 is diagonal so its eigenvalues are the \idx{diagonal elements} (\cref{eg:eigndiag}), namely the only eigenvalue is~\(-1\).
-Observe that \(A^2\)s eigenvalue, \(-1=(\pm \i)^2\), is the square of the eigenvalues of~\(A\).
-That the eigenvalues of~\(A^2\) are the square of those of~\(A\) holds generally.
+Observe that the eigenvalue of~\(A^2\), \(-1=(\pm \i)^2\), is the square of the eigenvalues of~\(A\).
+That the eigenvalues of~\(A^2\) are the square of those of~\(A\) \text{holds generally.}
 
 \item Also recall matrix 
 \begin{equation*}
@@ -104,14 +98,14 @@ That is, \((\lambda-\tfrac43)^2=\tfrac49\)\,.
 \marginpar{\eRose1{-0.5}{-0.5}1}
 Taking the square-root of both sides gives \(\lambda-\tfrac43=\pm\tfrac23\)\,; that is, the two eigenvalues of the inverse~\(A^{-1}\) are \(\lambda=\tfrac43\pm\tfrac23=2,\tfrac23\)\,.
 Observe these eigenvalues of the inverse are the reciprocals of the eigenvalues \(\frac12,\frac32\) of~\(A\).
-This reciprocal relation also holds generally.
+This reciprocal relation also \text{holds generally.}
 
 The marginal pictures illustrates the reciprocal relation graphically:
 the first picture shows~\(A\xv\) for various~\xv, the second picture shows \(A^{-1}\xv\).
 \marginpar{\eRose{4/3}{2/3}{2/3}{4/3}}
 The eigenvector directions are the same for both matrix and inverse.
 But in those eigenvector directions where the matrix stretches, the inverse shrinks, and where the matrix shrinks, the inverse stretches.
-In contrast, in directions which are not eigenvectors, the  relationship between~\(A\xv\) and~\(A^{-1}\xv\) is somewhat obscure.
+In contrast, in directions which are not eigenvectors, the  relationship between~\(A\xv\) and~\(A^{-1}\xv\) is \text{somewhat obscure.}
 \end{itemize}
 \end{example}
 
@@ -304,14 +298,13 @@ Thus the model predicts that after many generations the population reaches a ste
 \index{orthogonally diagonalizable|(}
 \index{diagonalizable!orthogonally|(}
 
-General matrices may have complex valued eigenvalues (as in 
-\cref{eg:ccevals,eg:ltas}). 
-That real symmetric matrices always have real eigenvalues (such as in all matrices of \cref{eg:2x2sympow,eg:3x3sympow}) is a special property that marvellously often reflects the physical reality of many applications.
+General real matrices may have non-real complex valued eigenvalues (as in \cref{eg:ccevals,eg:ltas}). 
+That real symmetric matrices always have real eigenvalues (such as in all matrices of \cref{eg:2x2sympow,eg:3x3sympow}) is a special property that marvellously often reflects the physical reality of \text{many applications.}
 
 To establish the reality of eigenvalues (\cref{thm:realeigsym}), we have to eliminate the possibility that they are \idx{complex valued} with a non-zero imaginary part.
 Consequently, the proof of the next \cref{thm:realeigsym} needs to use some \idx{complex number}s and some properties of complex numbers.
-Recall that any complex number \(z=a+b\i\) has a \idx{complex conjugate} \(\bar z=a-b\i\) (denoted by the overbar, and similarly for vectors), and that a complex number equals its conjugate only if it is real valued (the imaginary part is zero).
-Such properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex valued matrices and vectors.
+Recall that any complex number \index{i@$\i$}\(z=a+b\i\) has a \idx{complex conjugate} \(\bar z=a-b\i\) (denoted by the overbar, and similarly for vectors), and that a complex number equals its conjugate only if it is real valued (the imaginary part is zero).
+Such properties of complex numbers and operations also hold for complex valued vectors, complex valued matrices, and arithmetic operations with complex valued matrices \text{and vectors.}
 
 
 \begin{comment}
@@ -329,7 +322,7 @@ For every real \idx{symmetric matrix}~\(A\), every \idx{eigenvalue} of~\(A\) is 
 \begin{proof} 
 Let \(\lambda\) be any eigenvalue of real matrix~\(A\) with corresponding eigenvector~\xv; that is, \(A\xv=\lambda\xv\) for \(\xv\neq\ov\)\,.
 First, involving the complex conjugate~\(\bar\xv\), we establish \(\tr\xv\bar\xv>0\) which is used in the second part of the proof. 
-In general the nonzero eigenvector~\xv\ is complex valued, say 
+In general the nonzero eigenvector~\xv\ is non-real complex valued, say 
 \begin{eqnarray*}
 &&\xv=(a_1+b_1\i,a_2+b_2\i,\ldots,a_n+b_n\i)
 \\&\implies&\bar\xv=(a_1-b_1\i,a_2-b_2\i,\ldots,a_n-b_n\i).
@@ -346,18 +339,6 @@ Then the product
 \end{eqnarray*}
 since \xv~is an eigenvector which necessarily is nonzero and so at least one term in the sum is positive, as required.
 
-%To create a \idx{contradiction} that establishes the theorem: assume the eigenvalue~\(\lambda\) is not real valued (that is, it is complex with a non-zero imaginary part).
-%Since \(A\xv=\lambda\xv\), the eigenvector~\xv\ must have a non-zero imaginary part.
-%Second, the complex conjugate~\(\bar\lambda\) must be an eigenvalue of~\(A\), corresponding to an eigenvector which is the complex conjugate~\(\bar\xv\).
-%If the eigenvalue~\(\lambda\) is real, then its complex conjugate \(\bar\lambda=\lambda\) and so is the same eigenvalue---similarly for~\(\bar\xv\).
-%To see that~\(\bar\lambda\) is an eigenvalue just take the complex conjugate of both sides of \(A\xv=\lambda\xv\)\,:
-%\begin{equation*}
-%\implies \overline{A\xv}=\overline{\lambda\xv}
-%\implies \bar A\bar\xv=\bar\lambda\bar\xv
-%\implies A\bar\xv=\bar\lambda\bar\xv
-%\end{equation*}
-%as matrix~\(A\) is real (\(\bar A=A\)).
-%Hence, \(\bar\lambda\) is also an eigenvalue.
 Second, consider \(\tr\xv A\bar\xv\) in two different ways:
 \begin{eqnarray*}
 \tr\xv A\bar\xv&=&\tr\xv(A\bar\xv)
@@ -379,13 +360,13 @@ Rearrange to \(\bar\lambda\tr\xv\bar\xv-\lambda\tr\xv\bar\xv=0\)\,,
 which factors to \((\bar\lambda-\lambda)\tr\xv\bar\xv=0\)\,.
 Because this product is zero, and \(\tr\xv\bar\xv>0\), consequently \(\bar\lambda-\lambda=0\)\,.
 Hence \(\bar\lambda=\lambda\) and so \(\lambda\) cannot have any imaginary part.
-That is, the eigenvalue~\(\lambda\) must be real.
+That is, the eigenvalue~\(\lambda\) must \text{be real.}
 \end{proof}
 
 
 The other property that we have seen graphically for 2D matrices is that the \idx{eigenvector}s of symmetric matrices are orthogonal.
 For \cref{eg:2x2powmat}, both the matrices~\(A\) and~\(A^{-1}\) in 
-the second part are symmetric and from the marginal illustration their eigenvectors are proportional to \((1,1)\) and~\((-1,1)\) which are orthogonal directions---they are at \idx{right-angles} in the illustration.
+the second part are symmetric and from the marginal illustration their eigenvectors are proportional to \((1,1)\) and~\((-1,1)\) which are orthogonal directions---they are at \idx{right-angles} in \text{the illustration.}
 
 \begin{example} 
 Recall \cref{eg:3x3hande} found the \(3\times3\) \idx{symmetric matrix}
@@ -432,7 +413,7 @@ Equating the two ends of this identity gives \(\lambda_2\xv_1\cdot\xv_2=\lambda_
 Rearrange to \(\lambda_2\xv_1\cdot\xv_2-\lambda_1\xv_1\cdot\xv_2
 =(\lambda_2-\lambda_1)(\xv_1\cdot\xv_2)=0\)\,.
 Since \(\lambda_1\neq\lambda_2\)\,, the factor \(\lambda_2-\lambda_1\neq0\)\,, and so it follows that the dot product \(\xv_1\cdot\xv_2=0\)\,.
-Hence (\cref{def:orthovec}) the two eigenvectors are orthogonal.
+Hence (\cref{def:orthovec}) the two eigenvectors \text{are orthogonal.}
 \end{proof}
 
 
@@ -621,7 +602,7 @@ Then \verb|V'*V| is \twodp
   -0.73  -0.58   1.00   0.49
   -0.13  -0.93   0.49   1.00
 \end{verbatim}
-As the off-diagonal elements are nonzero,  the pairs of dot products \(\vv_i\cdot\vv_j=\tr \vv_i\vv_j\) are nonzero indicating the column vectors are not orthogonal.  
+As the off-diagonal elements are nonzero,  the pairs of dot products \(\vv_i\cdot\vv_j=\tr \vv_i\vv_j\) for \(i\neq j\) are nonzero indicating the column vectors are not orthogonal.  
 Hence the matrix~\verb|A| cannot be symmetric.
 
 \item The \script\ code 
@@ -693,7 +674,6 @@ Further, when we ask \script\ to compute eigenvalues of an \(n\times n\) matrix,
 Every \(n\times n\) real \idx{symmetric matrix}~\(A\) has at most \(n\)~\idx{distinct eigenvalues}.
 \end{theorem}
 \begin{proof} 
-%Invoke the \idx{pigeonhole principle} and 
 Let's use \idx{contradiction}. 
 Assume there are more than \(n\)~distinct eigenvalues.
 Then there would be more than \(n\)~eigenvectors corresponding to distinct eigenvalues.
@@ -704,7 +684,7 @@ Hence the assumption is wrong: there cannot be any more than \text{\(n\)~distinc
 
 
 The previous theorem establishes there are at most \(n\)~\idx{distinct eigenvalues} (here for symmetric matrices, but \cref{thm:geecp} establishes it is true for general matrices).  
-Now we establish that typically there exist \(n\)~distinct \idx{eigenvalue}s of an \(n\times n\) matrix---here symmetric.
+Now we establish that typically there exist \(n\)~distinct \idx{eigenvalue}s of an \(n\times n\) matrix---\text{here symmetric.}
 
 \begin{comment}
 The problem case of repeated singular values and repeated eigenvalues appears to be not adequately dealt with by any first textbook that I have read.
@@ -715,7 +695,7 @@ The problem case of repeated singular values and repeated eigenvalues appears to
 
 \cref{eg:symsigns} started this chapter by observing that in an \svd\ of a \emph{symmetric} matrix, \(A=\usv\), the columns of~\(U\) appear to be (almost) always plus\slash minus the corresponding columns of~\(V\).
 Exceptions possibly arise in the degenerate cases when two or more \idx{singular value}s are identical.
-We now prove this close relation between~\(U\) and~\(V\) in all non-degenerate cases.
+We now prove this close relation between~\(U\) and~\(V\) in all non-\text{degenerate cases.}
 
 
 \begin{theorem} \label{thm:smevec}
@@ -782,7 +762,7 @@ Equivalent to proving the Fundamental Theorem of Algebra that there are \(n\)~ze
 Recall that for every real matrix~\(A\) an \svd\ is \(A=\usv\).
 But specifically for symmetric~\(A\), the proof of the previous \cref{thm:smevec} identified that the columns of~\(US\),~\(\sigma_j\uv_j\), are generally the same as~\(\lambda_j\vv_j\) and hence are the columns of~\(VD\) where \(D=\diag(\hlist\lambda n)\).
 In which case the \svd\ becomes \(A=VD\tr V\).
-This form of an \svd\ is intimately connected to the following definition.
+This form of an \svd\ is intimately connected to the \text{following definition.}
 
 
 \begin{definition} \label{def:odsble} 
@@ -868,7 +848,7 @@ Consequently the matrix~\(A\) is symmetric.
 If matrix~\(A\) is symmetric, then \cref{thm:smevec} asserts an \svd\ \(A=\usv\) has matrix~\(U\) such that columns \(\uv_j=\pm\vv_j\)\,.
 That is, we can write \(U=VR\) for diagonal matrix \(R=\diag(\pm1,\pm1,\ldots,\pm1)\) for appropriately chosen signs.
 Then by the \svd\ \(A=\usv=VRS\tr V=VD\tr V\) for diagonal matrix \(D=RS=\diag(\pm\sigma_1,\pm\sigma_2,\ldots,\pm\sigma_n)\) for the same pattern of signs.
-Hence matrix~\(A\) is orthogonally diagonalizable.
+Hence matrix~\(A\) is \text{orthogonally diagonalizable.}
 \end{itemize}
 We omit proving the degenerate case when nonzero singular values are repeated.
 \end{proof}
@@ -901,7 +881,7 @@ This optional subsection has many uses---although it is not an application itsel
 \end{aside}%
 applicable throughout mathematics, that we often either choose or change to a \idx{coordinate system} in which the mathematical algebra is simplest.
 
-
+\needspace{12\baselineskip}
 \begin{example}[choose useful coordinates] \label{eg:cuceh}
 \newcommand{\myellipse}[1]{\rotatebox{30}{
 \begin{tikzpicture}
@@ -928,19 +908,17 @@ Consider the following two quadratic curves.
 For each curve draw a \idx{coordinate system} in which the algebraic description of the curve would be most straightforward.
 \begin{Parts}
 \item Ellipse \myellipse{none}
-\item Hyperbola \myhyper{none}
-\end{Parts}
-
-\needspace{16\baselineskip}
-\begin{solution} Among several possibilities are the following.
-\begin{Parts}
-\item Ellipse \myellipse{middle}
+\begin{solution} Among several possibilities is the following.\\
+\myellipse{middle}\\
 In this coordinate system the ellipse is algebraically \((x/2)^2+y^2=1\)\,.
-\item Hyperbola \myhyper{middle}
-
-In this coordinate system the hyperbola is algebraically \(y^2=1+2x^2\).
-\end{Parts}
 \end{solution}
+
+\item Hyperbola \myhyper{none}
+\begin{solution} Possibly\\
+\myhyper{middle}\\
+In this coordinate system the hyperbola is algebraically \(y^2=1+2x^2\).
+\end{solution}
+\end{Parts}
 \end{example}
 
 Now let's proceed to see how to implement in algebra this geometric idea of choosing good coordinates to fit a given physical curve. 
@@ -1136,7 +1114,7 @@ To use matrix algebra, and in terms of the vector \(\xv=(x,y)\), recognize that 
 \end{tikzpicture}}%
 \marginpar{\temp0}%
 Suppose we change to some new (dashed) coordinate system with its \idx{standard unit vector}s~\(\vv_1\) and~\(\vv_2\) as illustrated in the margin.
-The vectors in the plane will be written as the \idx{linear combination} \(\xv=\vv_1x'+\vv_2y'\).
+The vectors in the plane may then be written as the \idx{linear combination} \(\xv=\vv_1x'+\vv_2y'\).
 That is, \(\xv=V\xv'\) for new coordinate vector \(\xv'=(x',y')\) and matrix \(V=\begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}\).
 
 In the new coordinate system, related to the old by \(\xv=V\xv'\).
@@ -1303,7 +1281,7 @@ Further motivate the following quadratic forms by mentioning some more applicati
 
 To understand the response and strength of built structures like bridges, buildings and cars, engineers need to analyse the dynamics of energy distribution in the structure.
 The potential energy in such structures is expressed and analysed as the following quadratic form.
-Such quadratic forms are also important in distinguishing maxima from minima in economic optimization.
+Such quadratic forms are also important in distinguishing maxima from minima in \text{economic optimization.}
 
 \begin{definition} \label{def:qufo}
 A \bfidx{quadratic form} in variables \(\xv\in\RR^n\) is a function \(q:\RR^n\to\RR\) that may be written as \(q(\xv)=\tr\xv A\xv\) for some real symmetric \(n\times n\) matrix~\(A\).
@@ -1405,7 +1383,7 @@ From the classic Pythagorean triplet of the \(3:4:5\) triangle, this tangent bei
 =-\tfrac72=-3.5\)\,.
 \end{itemize}
 These maximum and minimum values of~\(f\) seem reasonable from the plot.
-We observe that these extreme values are precisely the two eigenvalues of the matrix~\(A\)---the next theorem shows this connection is no accident.
+Observe that these extreme values are precisely the two eigenvalues of the matrix~\(A\)---the next theorem shows this connection is no accident.
 \end{solution}
 \end{example}
 
@@ -1416,7 +1394,7 @@ We observe that these extreme values are precisely the two eigenvalues of the ma
 \begin{theorem}%[Rayleigh's inequality] %?
 \label{thm:optqform}
 Let~\(A\) be an \(n\times n\) \idx{symmetric matrix} with \idx{eigenvalue}s \(\lambda_1\leq\lambda_2\leq\cdots\leq\lambda_n\) (sorted). 
-Then for all \idx{unit vector}s \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \idx{quadratic form}~\(\tr\xv A\xv\) has the following properties:
+Then for every \idx{unit vector} \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \idx{quadratic form}~\(\tr\xv A\xv\) has the \text{following properties:}
 \begin{enumerate}
 \item \(\lambda_1\leq \tr\xv A\xv\leq\lambda_n\)\,;
 \item the \idx{minimum} of~\(\tr\xv A\xv\) is~\(\lambda_1\), and occurs when \(\xv\) is a unit \idx{eigenvector} corresponding to~\(\lambda_1\);
@@ -1508,7 +1486,7 @@ See \verb|multiDscaling.m|
 
 \begin{exercise}  
 Each plot below shows (unit) vectors~\xv\ (blue), and for some \(2\times 2\) matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
-By assessing whether there are any zero eigenvalues, estimate if the matrix~\(A\) is \idx{invertible} or not.
+By assessing whether there are any zero eigenvalues, estimate if the matrix~\(A\) is \idx{invertible} \text{or not.}
 
 \begin{Parts}
 %\def\eRosesize{small}
@@ -1537,7 +1515,7 @@ By assessing whether there are any zero eigenvalues, estimate if the matrix~\(A\
 
 
 \begin{exercise}  
-For each of the following symmetric matrices: from a hand derivation of the \idx{characteristic equation} (defined in \cref{pro:eeh}), determine whether each matrix has a zero \idx{eigenvalue} or not, and hence determine whether it is \idx{invertible} or not.
+For each of the following symmetric matrices: from a hand derivation of the \idx{characteristic equation} (defined in \cref{pro:eeh}), determine whether each matrix has a zero \idx{eigenvalue} or not, and hence determine whether it is \idx{invertible} \text{or not.}
 \begin{Parts}
 \item \(\begin{bmatrix} -1/2 & -3/4
 \\ -3/4 & -1/2 \end{bmatrix}\)
@@ -1602,7 +1580,8 @@ For each of the following symmetric matrices: from a hand derivation of the \idx
 \begin{exercise} \label{ex:smoevs} 
 For each of the following (symmetric) matrices, find by hand the \idx{eigenvalue}s and \idx{eigenvector}s.  
 Using these eigenvectors, confirm that the eigenvalues of the matrix squared are the square of its eigenvalues.
-If the matrix has an \idx{inverse}, what are the eigenvalues of the inverse?
+If the matrix has an \idx{inverse}, what are the eigenvalues of \text{the inverse?}
+
 %\begin{verbatim}
 %format rat,n=3
 %for i=1:10^n
@@ -1668,7 +1647,7 @@ The inverse has eigenvalues \(-1/4,-2,2/7\).}
 \begin{exercise}  
 Each plot below shows (unit) vectors~\xv\ (blue), and for some \(2\times 2\) matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
 For each plot of a matrix~\(A\) there is a companion plot for the \idx{inverse matrix}~\(A^{-1}\).
-By roughly estimating \idx{eigenvalue}s and \idx{eigenvector}s by eye, identify the pairs of plots corresponding to each matrix and its inverse.
+By roughly estimating \idx{eigenvalue}s and \idx{eigenvector}s by eye, identify the pairs of plots corresponding to each matrix and \text{its inverse.}
 \begin{Parts}
 \item\label{ex:epria} \eRose{1.9}{-1.9}{-1.9}{3.3}
 \item\label{ex:eprib} \eRose{2.7}{1.2}{1.2}{-2.}
@@ -1801,8 +1780,8 @@ Find eigenvectors by hand for \(2\times 2\) and \(3\times 3\) matrices, and comp
 
 \begin{exercise}  
 For the symmetric matrices of \cref{ex:smoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
-Confirm that each column of~\(V\) is an \idx{eigenvector} of the matrix (that is, proportional to what the exercise found) and the corresponding \idx{singular value} is the magnitude of the corresponding \idx{eigenvalue} (\cref{thm:smevec}).
-Show and discuss your working.
+Confirm that each column of~\(V\) is an \idx{eigenvector} of the matrix (that is, proportional to what the exercise found) and the corresponding \idx{singular value} is the \idx{magnitude} of the corresponding \idx{eigenvalue} (\cref{thm:smevec}).
+Show and discuss \text{your working.}
 \end{exercise}
 
 
@@ -1811,7 +1790,7 @@ Show and discuss your working.
 \begin{exercise}  
 To complement the previous exercise, for each of the \emph{non-symmetric} matrices of \cref{ex:smnoevs}, use \script\ to compute an \svd\ (\(\usv\)) of each matrix.
 Confirm that usually each column of~\(V\) is \emph{not} an \idx{eigenvector} of the matrix, and the \idx{singular value}s do \emph{not} appear closely related to the \idx{eigenvalue}s.
-Show and discuss your working.
+Show and discuss \text{your working.}
 \end{exercise}
 
 
@@ -1979,7 +1958,7 @@ That is, find a \idx{square-root} of the matrix.
 \item How many possible answers are there for each of the given matrices?  Why?
 \answer{four, eight and four respectively.}
 
-\item For all symmetric matrices~\(A\), show that if every eigenvalue of~\(A\) is non-negative, then there exists a symmetric matrix~\(X\) such that \(A=X^2\).  
+\item For each symmetric matrix, say~\(A\), show that if every eigenvalue of~\(A\) is non-negative, then there exists a symmetric matrix~\(X\) such that \(A=X^2\).  
 
 \item Continuing the previous part, how many such matrices~\(X\) exist?  Justify your answer.
 
@@ -2160,7 +2139,7 @@ By rotating and shifting to new \idx{coordinate axes}, identify each of the foll
 
 
 \begin{exercise}  
-For each of the following matrices, say~\(A\), consider the \idx{quadratic form} \(q(\xv)=\tr\xv A\xv\).
+For each of the following matrices, say~\(A\), consider the corresponding \idx{quadratic form} \(q(\xv)=\tr\xv A\xv\).
 Find \idx{coordinate axes}, the \idx{principal axes}, such that the quadratic has the \idx{canonical form} in the new coordinates \hlist yn.
 Use eigenvalues and eigenvectors, and use \script\ for the larger matrices.
 Over all unit vectors, what is the \idx{maximum} value of~\(q(\xv)\)? and what is the \idx{minimum} value?
@@ -2237,7 +2216,7 @@ Over all unit vectors, what is the \idx{maximum} value of~\(q(\xv)\)? and what i
 \begin{exercise}  
 For any given \(n\times n\) \idx{symmetric matrix}~\(A\) consider the \idx{quadratic form} \(q(\xv)=\tr\xv A\xv\). 
 For general vectors~\xv, not necessarily unit vectors, what is the \idx{maximum} value of~\(q(\xv)\) in terms of~\(|\xv|\)? and what is the \idx{minimum} value of~\(q(\xv)\)?  
-Justify your answer.
+Justify \text{your answer.}
 \end{exercise}
 
 

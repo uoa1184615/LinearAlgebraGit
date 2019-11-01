@@ -25,7 +25,7 @@ The first reliable method for computing an \svd\ was developed by Golub and Kaha
 Its importance is certified by the many names by which it is invoked 
 in scientific and engineering applications: principal component 
 analysis, singular spectrum analysis, \idx{proper orthogonal decomposition}, \idx{latent semantic indexing}, Schmidt decomposition, correspondence analysis, Lanczos methods, dimension reduction, and so on.
-Let's start seeing what it can do for us.
+Let's start seeing what it can do \text{for us.}
 
 
 
@@ -275,7 +275,7 @@ And then, since the solution is to be called~\xv, we might inappropriately call 
 \end{example}
 Avoid this reverse process as it is wrong.
 Matrix multiplication is \emph{not} commutative (\cref{sec:fapmo}).  
-We must use matrix factorization in the correct order: to solve linear equations use the matrices in a factorization from left to right.
+We must use matrix factorization in the correct order: to solve linear equations use the matrices in a factorization from left \text{to right.}
 
 
 
@@ -316,10 +316,11 @@ Detailed in \cref{sec:psvdt}.
 \end{proof}
 
 Importantly, the singular values are unique (when ordered), although the orthogonal matrices~\(U\) and~\(V\) are not unique (e.g., one may  change the sign of any column in~\(U\) together with its corresponding column in~\(V\)).
-Nonetheless, although there are many possible matrices~\(U\) and~\(V\) in the \svd{}s of a matrix, all such \svd{}s are equivalent in application.
+Nonetheless, although there are many possible matrices~\(U\) and~\(V\) in the \svd{}s of a matrix, all such \svd{}s are equivalent \text{in application.}
 
 Some people may be disturbed by the non-uniqueness of an \svd.  
 But the non-uniqueness is analogous to the non-uniqueness of \idx{Gauss--Jordan elimination} upon re-ordering of equations, and/or re-ordering the variables in the equations (\cref{sec:amss}).
+Do not be disturbed by any non-uniqueness in~\(U\) and~\(V\).
 
 
 \begin{example} \label{eg:2and3sv}
@@ -442,7 +443,7 @@ See  \url{https://www.youtube.com/watch?v=R9UoFyqJca8} for a visualization from 
 Typically, this book either gives an \svd\ (as in the earlier two examples) or asks you to compute an \svd\ in \script\ with \index{svd()@\texttt{svd()}}\verb|[U,S,V]=svd(A)| (\cref{tbl:mtlbsvd}).
 
 The \svd\ \cref{thm:svd} asserts that every matrix is the product of two orthogonal matrices and a \idx{diagonal matrix}.  
-Because, in a matrix's \svd\ \idx{factorization}, the \idx{rotation}s (and/or \idx{reflection}) by the two orthogonal matrices are so `nice', any `badness' or `trickiness' in the matrix is represented in the \idx{diagonal matrix}~\(S\) of the singular values.
+Because, in a matrix's \svd\ \idx{factorization}, the \idx{rotation}s (and/or \idx{reflection}) by the two orthogonal matrices are so `nice', any `badness' or `trickiness' in the matrix is represented in the \idx{diagonal matrix}~\(S\) of the \text{singular values.}
 
 
 \begin{example}[rate sport teams/players] \label{eg:rstp}
@@ -527,7 +528,7 @@ V =
     0.7071    0.4082    0.5774
 \end{verbatim}
 so the three singular values are \(\sigma_1=\sigma_2=1.7321=\sqrt3\) and \(\sigma_3=0\)
-(different computers may give different \(U\) and~\(V\), but any deductions will be equivalent).
+(different computers may give different \(U\) and~\(V\), but any deductions are equivalent).
 The system of equations for the ratings then become
 \begin{equation*}
 A\xv=
@@ -751,7 +752,7 @@ This formula for~\xv\ is a most general solution to the given system.
 is \idx{no solution} (the equations are \index{inconsistent equations}\bfidx{inconsistent});
         
 \item        otherwise (when \(z_i=0\) for every \(i=r+1,\ldots,m\)) determine the $i$th~component of~$\yv$ by
-        $y_i=z_i/\sigma_i$ for $i=1,\ldots,r$  (for which $\sigma_i> 0$), and let $y_i$~be a \idx{free variable} for $i=r+1,\ldots,n$\,. 
+        $y_i=z_i/\sigma_i$ for $i=1,\ldots,r$  (for which $\sigma_i> 0$), whereas for $i=r+1,\ldots,n$ let $y_i$~be a \idx{free variable}. 
 
 \end{itemize}
     
@@ -778,7 +779,7 @@ This \cref{pro:gensol} determines for us that there is either none, one or an in
 
 However,  \script's ``\verb|A\|'' gives one `answer' for all of these cases, even when there is \idx{no solution} or an infinite number of solutions.
 The function \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (\cref{pro:unisol}).
-\cref{sec:asie} addresses what the `answer' by \script\ means in the other cases of no or infinite solutions.
+\cref{sec:asie} addresses what the `answer' by \script\ means in the other cases of no or \text{infinite solutions.}
 
 
 
@@ -792,7 +793,7 @@ It is characteristic of ill-conditioned sets of equations that small percentage 
 \end{quoted}
 
 \index{condition number|(}
-The \script\ function \index{rcond()@\texttt{rcond()}}\verb|rcond()| roughly estimates the reciprocal of what is called the condition number (estimates it to within a factor of two or three).
+The \script\ function \index{rcond()@\texttt{rcond()}}\verb|rcond()| roughly estimates the reciprocal of what is called the condition number (estimates it to within a factor of two or three, usually).
 \begin{comment}
 Avoid introducing \verb|cond()| as it is expensive to compute in practice, and better learning to reinforce the ratio of singular values.
 \end{comment}
@@ -841,7 +842,7 @@ given it has an \svd\ \twodp
 
 In practice, a condition number\({}>10^8\) is effectively infinite (equivalently \(\verb|rcond|<10^{-8}\) is effectively zero, and hence called ``terrible'' by \cref{pro:unisol}).
 The closely related important property of a matrix is the \emph{number} of singular values that are nonzero.
-When applying the following definition in practical computation (e.g., \script), any singular values less than~\(10^{-8}\sigma_1\) are effectively zero.
+When applying the following definition in practical computation (e.g., \script), any singular values less than~\(10^{-8}\sigma_1\) are \text{effectively zero.}
 
 
 \begin{definition} \label{def:rank}
@@ -940,7 +941,7 @@ Use \script\ to find the rank of the matrix
  \end{bmat}\)
 \begin{solution} 
 Enter the matrix into \script\ and compute its singular values with \verb|svd(A)|:%
-\footnote{Some advanced students will know that \script\ provides the \texttt{rank()} function to directly compute the rank.  However, this example is to reinforce its meaning in terms of singular values.}
+\footnote{Some advanced students may know that \script\ provides the \texttt{rank()} function to directly compute the rank.  However, this example is to reinforce its meaning in terms of singular values.}
 \setbox\ajrqrbox\hbox{\qrcode{% find rank also
 A=[1 -2 -1 2 1
  -2 -2 -0 2 -0
@@ -978,7 +979,7 @@ Using the properties of the matrix transpose (\cref{thm:pot}),
 =V(\tr S)\tr U
 \end{equation*}
 which is an \svd\ for~\(\tr A\) since \(U\) and~\(V\) are orthogonal, and \(\tr S\) has the necessary diagonal structure. 
-Since the number of nonzero values along the diagonal of~\(\tr S\) is precisely the same as that of the diagonal of~\(S\), \(\rank(\tr A)=\rank A\)\,.
+Further, since the number of nonzero values along the diagonal of~\(\tr S\) is precisely the same as that of the diagonal of~\(S\), \(\rank(\tr A)=\rank A\)\,.
 \end{proof}
 
 
@@ -993,14 +994,12 @@ From earlier examples, write down an \svd\ of the matrices
 \begin{solution} 
 These matrices are the transpose of the two matrices whose \svd{}s are given in \cref{eg:2and3sv}.
 Hence their \svd{}s are the transpose of the \svd{}s in that example (remembering that the transpose of a product is the product of the transposes but in reverse order, \cref{thm:potd}):
-\begin{equation*}
+\begin{eqnarray*}\bullet&&
 \begin{bmatrix} 10&5\\2&11 \end{bmatrix}=
 \begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}\\ \frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}
 \begin{bmatrix} 10\sqrt2&0\\0&5\sqrt2 \end{bmatrix}
 \tr{\begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}},
-\end{equation*}
-and
-{\small\begin{equation*}
+\\\bullet&&
 \begin{bmatrix} -4&-8&6\\-2&-1&6\\4&-4&0 \end{bmatrix}=
 \begin{bmatrix} -\frac89&-\frac19&-\frac49
 \\-\frac49&\frac49&\frac79
@@ -1009,7 +1008,7 @@ and
 \tr{\begin{bmatrix} \frac13&-\frac23&\frac23
 \\\frac23&\frac23&\frac13
 \\-\frac23&\frac13&\frac23 \end{bmatrix}}.
-\end{equation*}}
+\end{eqnarray*}
 \end{solution}
 \end{example}
 
@@ -1176,7 +1175,7 @@ Optional: this discussion and theorem reinforces why we must check condition num
 This is a great theory.
 But in applications, problems arise in `all shades of grey'.
 Practical issues in applications are better phrased in terms of reliability, uncertainty, and error estimates.
-For example, suppose in an experiment you measure quantities~\bv\ to three \idx{significant digits}, then solve the \idx{linear equation}s \(A\xv=\bv\) to estimate quantities of interest~\xv: how accurate are your estimates of the interesting quantities~\xv? or are your estimates complete nonsense?
+For example, suppose in an experiment you measure quantities~\bv\ to three \idx{significant digits}, then solve the \idx{linear equation}s \(A\xv=\bv\) to estimate quantities of interest~\xv: how accurate are your estimates of the interesting quantities~\xv? or are your estimates \text{complete nonsense?}
 
 
 
@@ -1193,7 +1192,9 @@ Consider the following innocuous looking system of \idx{linear equation}s
 Solve by hand (\cref{pro:gje}) to find the unique solution is \((p,q,r)=(2,-1,1)\).
 
 But, and it is a big but in practical applications, what happens if the right-hand side comes from experimental measurements with a \idx{relative error} of~1\%? 
-\marginpar{\small Recall that the \emph{relative error} of an approximation is \(\frac{|(\text{approx})-(\text{exact})|}{|\text{exact}|}\).}
+\begin{aside}
+Recall that the \emph{relative error} of an approximation, compared to the exact, is \(\big(|(\text{approx})-(\text{exact})|\big)/{|\text{exact}|}\).
+\end{aside}
 Let's explore by writing the system in matrix-vector form and using \script\ to solve with various example errors.
 \begin{enumerate}
 \item First solve the system as stated.  
@@ -1326,8 +1327,8 @@ x=Q\b
 to find the solution \(\xv=(-4.6,5,7,-2.2)\).
 
 Now see the effect on this solution of 1\%~errors in~\bv.
-Since the length \(|\bv|=\verb|norm(b)|=10\) we find the solution for various changes to~\bv\ of size~\(0.1\).
-\begin{itemize}
+Since the length \(|\bv|=\verb|norm(b)|=10\) we find the solution for various changes to~\bv\ of \idx{magnitude}~\(0.1\).
+\begin{itemize}\sloppy
 \item For example, adding the 1\%~error \((0.1,0,0,0)\) to~\bv, the \script\ commands
 \begin{verbatim}
 x1=Q\(b+[0.1;0;0;0])
@@ -1344,10 +1345,10 @@ Here the relative error in solution~\xv\ is exactly the same as the relative err
 \item Lastly, upon adding 1\%~error \((0,0,0,0.1)\) to~\bv, analogous commands show the changed solution is \(\xv''''=(-4.68,4.98,6.96,-2.16)\) which has relative error \(|\xv-\xv''''|/|\xv|=0.0100={}\)1\% yet again.
 
 \end{itemize}
-In this example, and in contrast to the previous \cref{eg:ilsle}, throughout the relative error in solution~\xv\ is exactly the same as the relative error in~\bv.
+In this example, and in contrast to the previous \cref{eg:ilsle}, throughout the relative error in the solution~\xv\ is exactly the same as the relative error in~\bv.
 The reason is that here the matrix~\(Q\) is an \idx{orthogonal matrix}---check by computing \verb|Q'*Q| (\cref{def:orthog}).
 Being orthogonal, multiplication by~\(Q\) only rotates or reflects, and never stretches or distorts (\cref{thm:orthog:i}).
-Consequently errors remain the same size when multiplied by such orthogonal matrices, as seen in this example, and as reflected in the condition number of~\(Q\) being one (as computed via \verb|s=svd(Q)| and then \verb|condQ=s(1)/s(4)|).
+Consequently errors remain the same magnitude when multiplied by such orthogonal matrices, as seen in this example, and as reflected in the condition number of~\(Q\) being one (as computed via \verb|s=svd(Q)| and then \verb|condQ=s(1)/s(4)|).
 \end{solution}
 \end{example}
 
@@ -1358,11 +1359,11 @@ Consequently errors remain the same size when multiplied by such orthogonal matr
 The \idx{condition number} determines the reliability of the solution of a system of \idx{linear equation}s.
 This is why we should always precede the computation of a solution with an estimate of the condition number such as that provided by the reciprocal~\index{rcond()@\texttt{rcond()}}\verb|rcond()| (\cref{pro:unisol}). 
 The next theorem establishes that the condition number characterizes the amplification of errors that occurs in solving a linear system.
-Hence solving a system of linear equations with a large condition number (small \verb|rcond|) means that errors are amplified by a large factor as happens in \cref{eg:ilsle}.
+Hence solving a system of linear equations with a large condition number (small \verb|rcond|) means that errors are amplified by a large factor as happens \text{in \cref{eg:ilsle}.}
 
 \begin{theorem}[error magnification] \label{thm:erramp}
 Consider solving \(A\xv=\bv\) for \(n\times n\) matrix~\(A\) with full \(\rank A=n\)\,.  
-Suppose the right-hand side \bv~has \idx{relative error} of size~\(\epsilon\), 
+Suppose the right-hand side \bv~has \idx{relative error} of \idx{magnitude}~\(\epsilon\), 
 \begin{aside}
 The symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.
 \end{aside}%
@@ -1371,7 +1372,7 @@ then the solution~\xv\ has relative error\({}\leq\epsilon\cond A\)\,, with equal
 
 \begin{proof} 
 Let the length of the right-hand side vector be \(b=|\bv|\).
-Then the error in~\bv\ has size~\(\epsilon b\) since \(\epsilon\)~is the relative error.
+Then the error in~\bv\ has magnitude~\(\epsilon b\) since \(\epsilon\)~is the relative error.
 Following \cref{pro:gensol},
 let \(A=\usv\) be an \svd\ for matrix~\(A\).
 Compute \(\zv=\tr U\bv\)\,: recall that multiplication by orthogonal~\(U\) preserves lengths (\cref{thm:orthog}), so not only is \(|\zv|=b\)\,, but also \zv~will be in error by an amount~\(\epsilon b\) since \bv~has this error. 
@@ -1428,8 +1429,8 @@ But it is not always so; it may happen that small differences in the \idx{initia
 A small error in the former will produce an enormous error in the latter. 
 Prediction becomes impossible, and we have the fortuitous phenomenon.
 \end{quoted}
-The analogue for us in solving linear equations such as \(A\xv=\bv\) is the following: it may happen that a small error in the elements of~\bv\ will produce an enormous error in the final~\xv.
-The condition number warns when this happens by characterizing the amplification. 
+The analogue for us in solving linear equations such as \(A\xv=\bv\) is the following: it may happen that a small error in the elements of~\bv\ produces an enormous error in the final~\xv.
+The condition number warns when this happens by characterizing \text{the amplification.}
 
 
 
@@ -1471,7 +1472,7 @@ A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix}=
 \begin{bmatrix} 10\sqrt2&0\\0&5\sqrt2 \end{bmatrix}
 \tr{\begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}\\ \frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}}.
 \end{equation*}
-We find this \idx{factorization}, \(A=\usv\), by maximizing~\(|A\vv|\) over all \idx{unit vector}s~\vv\ (all vectors of length one).
+Here we find this \idx{factorization}, \(A=\usv\), by maximizing~\(|A\vv|\) over all \idx{unit vector}s~\vv\ (all vectors of length one).
 
 
 \begin{solution} 
@@ -1483,7 +1484,7 @@ The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}
 \end{aside}%
 Plotted in red from the end of each~\vv\ is the vector~\(A\vv\) (scaled down by a factor of ten for clarity).
 Our aim is to find the~\vv\ that maximizes the length of the corresponding adjoined~\(A\vv\).
-By inspection, the longest red vectors~\(A\vv\) occur towards the top-right or the bottom-left, either of these directions~\vv\ are what we first find.
+By inspection, the longest red vectors~\(A\vv\) occur towards the top-right or the bottom-left, either of these directions~\vv\ are what we \text{first find.}
 
 Maximizing \(|A\vv|\) is the same as maximizing~\(|A\vv|^2\) which is what the following considers: since
 \begin{eqnarray*}
@@ -1532,7 +1533,7 @@ Then post-multiply each side by~\(\tr V\) to find an \svd\ is \(A=\usv\).
 
 In this example we could have chosen the negative of~\(\vv_1\) (angle \(t=-\frac{3\pi}4\)), and/or chosen the negative of~\(\vv_2\). 
 The result would still be a valid \svd\ of the matrix~\(A\).
-The orthogonal matrices in an \svd\ are not unique, and need not be. The singular values are unique.
+The orthogonal matrices in an \svd\ are not unique, and need not be. The ordered singular values are unique.
 \end{solution}
 \end{example}
 
@@ -1551,7 +1552,7 @@ A=\begin{bmatrix} 1\\1\\1 \end{bmatrix}
 \begin{bmatrix} \sqrt3\\0\\0 \end{bmatrix}
 \tr{\begin{bmatrix} 1 \end{bmatrix}}=\usv,
 \end{equation*}
-where we do not worry about the elements denoted by dots as they are multiplied by the zeros in the `diagonal'~\(S=(\sqrt3,0,0)\).
+where we do not worry about the elements denoted by dots as they are only multiplied by the zeros in the `diagonal'~\(S=(\sqrt3,0,0)\).
 \begin{solution} 
 We seek to maximize \(|A\vv|^2\) but, since matrix~\(A\) is \(3\times1\), here vector~\vv\ is in~\(\RR^1\).  
 Being of unit magnitude, there are two alternatives: \(\vv=(\pm 1)\). 
@@ -1590,7 +1591,7 @@ We use \idx{induction}
 \ifcsname r@sec:pi\endcsname (\cref{sec:pi}) \fi
 on the \idx{size} \(m\times n\) of the matrix.
 \begin{itemize}
-\item First zero matrices have a trivial \svd, and
+\item First, zero matrices have a trivial \svd, and, further,
 \(m\times 1\) and \(1\times n\) matrices have a straightforward \svd\ (as in \cref{eg:3x1svd}).
 \item For any given \(m\times n\) matrix~\(A\), choose \(\vv_1\) to maximize~\(|A\vv|^2\) among all \idx{unit vector}s \(\vv\) in~\(\RR^n\).
 \item Crucially, we then establish that for every vector~\vv\ orthogonal to~\(\vv_1\), the vector \(A\vv\) is orthogonal to~\(A\vv_1\).
@@ -1607,7 +1608,7 @@ This proof corresponds closely to the proof of the spectral \cref{thm:smevec} fo
 \subsubsection{Detailed proof of the SVD \cref{thm:svd}}
 \label{sec:dpsvdt}
 
-Use \idx{induction} on the \idx{size} \(m\times n\) of the matrix~\(A\): we assume an \svd\ exists for all \((m-1)\times(n-1)\)~matrices, and prove that consequently an \svd\ must exist for all \(m\times n\)~matrices.  There are three base cases to establish: one for \(m\leq n\)\,, one for \(m\geq n\)\,, and one for matrix \(A=O\)\,; then the induction extends to all sized matrices.
+Use \idx{induction} on the \idx{size} \(m\times n\) of the matrix~\(A\): we assume an \svd\ exists for all \((m-1)\times(n-1)\)~matrices, and prove that consequently an \svd\ must exist for all \(m\times n\)~matrices.  There are three base cases to establish: one for \(m\leq n\)\,, one for \(m\geq n\)\,, and one for matrix \(A=O\)\,; then the induction extends to all \text{sized matrices.}
 
 \paragraph{Case $A=O_{m\times n}$:}
 When \(m\times n\) matrix \(A=O_{m\times n}\) then choose \(U=I_m\) (orthogonal), \(S=O_{m\times n}\) (diagonal), and \(V=I_n\) (orthogonal) so then \(\usv=I_mO_{m\times n}\tr I_n=O_{m\times n}=A\)\,.  
@@ -1762,7 +1763,7 @@ AV&=&AV_1\begin{bmatrix} 1&O\\O&\hat V\end{bmatrix}
 \begin{bmatrix} \sigma_1&O \\O&\hat S \end{bmatrix}
 \\&=&US.
 \end{eqnarray*}
-Hence \(A=\usv\). 
+Hence \(A=\usv\) is an \svd\ for~\(A\). 
 \end{enumerate}
 By induction, an \svd\ exists for all \(m\times n\) matrices.
 This argument establishes the \svd\ \cref{thm:svd}.
@@ -2807,8 +2808,7 @@ For any \(m\times n\) matrix~\(A\), use an \svd\ \(A=\usv\) to prove that \(\ran
 Recall \cref{eg:2by2svdx} introduced that finding a singular vector and singular value of a matrix~\(A\) came from maximizing~\(|A\vv|\).
 Each of the following matrices, say~\(A\) for discussion, has plotted \(A\vv\) (red) adjoined the corresponding unit vector~\(\vv\) (blue).
 For each case:
-\begin{enumerate}
-\def\theenumii{\roman{enumii}}
+\begin{enumerate}[label=\roman*.]
 \item by inspection of the plot, estimate a singular vector~\(\vv_1\) that appears to maximize~\(|A\vv_1|\) (to one decimal place say);
 \item estimate the corresponding singular value~\(\sigma_1\) by measuring~\(|A\vv_1|\) on the plot;
 \item set the second singular vector~\(\vv_2\) to be orthogonal to~\(\vv_1\) by swapping components, and making one negative;
@@ -2862,7 +2862,7 @@ In a few sentences, answer\slash discuss each of the following.
 
 \item Why is every condition number greater than or equal to one?
 
-\item When using a computer, why do we often treat computed numbers of size about~\(10^{-16}\) as effectively zero? and computed numbers of size about~\(10^{16}\) as effectively infinity?
+\item When using a computer, why do we often treat computed numbers of magnitude about~\(10^{-16}\) as effectively zero? and computed numbers of magnitude about~\(10^{16}\) as effectively infinity?
 
 \item In estimating the relative error in the solution~\xv\ of \(A\xv=\bv\) in terms of the relative error of~\bv, how does the worst case error arise?
 

@@ -10,9 +10,11 @@
 \or%2=A4 drafting
    \documentclass[10pt,a4paper,twoside]{refrep}
 %   \def\includeonly#1{}%\usepackage{showkeys}%% iff whole book draft
+   \addtolength{\textheight}{-3ex}% better matches OUPs content
    \AtBeginDocument{%
+   \excludeversion{comment}
    \inQRcodesfalse % invoke to omit QR-codes
-   \excludeversion{reduce} % invoke for short version
+%   \excludeversion{reduce} % invoke for short version
    }%end of AtBeginDocument
 \or%3= version on A4
    \documentclass[10pt,a4paper,twoside]{refrep}
@@ -25,14 +27,27 @@
 %   \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
+\or% close to OUP I hope
+   \documentclass[11pt]{book}
+   \usepackage[a4paper,margin=30mm,tmargin=42mm,bmargin=42mm]%
+   {geometry}
+   \parindent=1.1em % lesser indent for paragraphs
+   \setcounter{secnumdepth}{3} % number to subsubsections
+   \AtBeginDocument{%
+   \excludeversion{comment}
+   \excludeversion{draft}
+%   \excludeversion{reduce} % invoke for short version
+   \inQRcodesfalse % invoke to omit QR-codes
+%   \def\titlePageInfo{...}
+   }%end of AtBeginDocument
 \fi
 
 % Specify the version number of the next version.
 % Affects watermark and permutation of activity answers.
-\def\myversion{0.5c}
+\def\myversion{0.5d}
 
 \includeonly{
-%front%,back
+front,back
 %,Vectors/ch
 %,Vectors/secVecs
 %,Vectors/secVecOps

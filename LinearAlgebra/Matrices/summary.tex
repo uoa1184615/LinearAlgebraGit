@@ -10,7 +10,7 @@
 
 \item First, some basic terminology (\cref{sec:bmt}) corresponds to commands in \script.
 \begin{itemize}
-\itemhi A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\)---create in \script\ with \verb|[...;...;...]|.
+\itemhi A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\)---create in \script\ via \verb|[...;...;...]|.
 
 \itemhi The \bfidx{size} of a matrix is written \(m\times n\) where \(m\)~is the number of rows and \(n\)~is the number of columns---compute with \verb|size(A)| for matrix~\verb|A|.
 If \(m=n\)\,, then it is called a \bfidx{square matrix}.
@@ -25,7 +25,7 @@ For a matrix~\(A\), the entry in row~\(i\) and column~\(j\) is denoted by~\(a_{i
 
 \itemme The \bfidx{identity matrix}~\(I_n\) denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones---compute with~\index{eye()@\texttt{eye()}}\verb|eye(n)|.
 Non-square `identity' matrices are denoted \(I_{m\times n}\)---compute with~\verb|eye(m,n)|.
-The symbol~\(I\) denotes an identity matrix whose size is apparent from the context.
+The symbol~\(I\) denotes an identity matrix whose size is apparent from \text{the context.}
 
 \item In \script, \verb|randn(m,n)|~computes a \(m\times n\) matrix with \idx{random entries} (distributed Normally, mean zero, standard deviation one).
 
@@ -54,7 +54,7 @@ A\xv:=
 Multiplication of a vector by a square matrix transforms the vector into another vector in the same space.
 
 \itemme In modelling the age structure of populations, the so-called \idx{Leslie matrix} encodes the birth, ageing, and death in the population (usually of females) to empower predictions of the future population.
-Such prediction often involves repeated matrix-matrix multiplication, that is, computing the powers of a matrix.
+Such prediction often involves repeated matrix-matrix multiplication, that is, computing the powers of \text{a matrix.}
 
 \itemhi For \(m\times n\) matrix~\(A\), and \(n\times p\) matrix~\(B\), the \bfidx{matrix product} \(C=AB\)\,---compute by \verb|C=A*B|---is the \(m\times p\) matrix whose \((i,j)\)th~entry is
 \begin{equation*}
@@ -95,7 +95,7 @@ A symmetric matrix must be a square matrix
 \(\tr{(cA)}=c(\tr A)\);
 \(\tr{(AB)}=\tr B\tr A\) (remember to reverse the order);
 \(\tr{(A^p)}=(\tr A)^p\);
-and \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are symmetric matrices.
+and \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are \text{symmetric matrices.}
 
 
 
@@ -126,7 +126,7 @@ A^{-1}=\frac1{ad-bc}\begin{bmatrix} d&-b\\-c&a \end{bmatrix}.
 
 \item For every {invertible} matrix~\(A\), define \(A^0=I\) and for every positive integer~\(p\) define \(A^{-p}:=(A^{-1})^p=(A^p)^{-1}\)) (\cref{def:invpow}).
 
-\itemhi The \bfidx{diagonal entries} of an \(m\times n\) matrix~\(A\) are  \(a_{11}\clb a_{22}\clb \ldots\clb a_{pp}\) where \(p=\min(m,n)\).
+\itemhi The \bfidx{diagonal entries} of an \(m\times n\) matrix~\(A\) are  \(\sloppy a_{11}, a_{22}, \ldots, a_{pp}\) where \(p=\min(m,n)\).
 A matrix whose \idx{off-diagonal entries} are all zero is called a \bfidx{diagonal matrix}: \(\diag(\hlist vn)\) denotes the \(n\times n\) square matrix with diagonal entries \hlist vn\,; whereas \(\diag_{m\times n}(\hlist vp)\) denotes an \(m\times n\) matrix with diagonal entries \hlist vp\ (\cref{def:diag}).
 
 \item For every \(n\times n\) \idx{diagonal matrix}  \(D=\diag(\hlist dn)\), 
@@ -314,7 +314,7 @@ Further, given an \svd\ of the matrix, say \(A=\usv\) and setting \(r=\rank A\),
         \item solve \(\tr V\xv=\yv\) to obtain a general approximate solution as $\xv=V\yv$.
 \end{enumerate}
 
-\item A robust way to use the results of pairwise competitions to rate a group of players or teams is to approximately solve the set of equations \(x_i-x_j=\text{result}_{ij}\) where \(x_i\) and~\(x_j\) denote the unknown ratings of the players\slash teams to be determined, and \(\text{result}_{ij}\) is the result or score (to~\(i\) over~\(j\)) when the two compete against each other.
+\item A robust way to use the results of pairwise competitions to rate a group of players or teams is to approximately solve the set of equations \(x_i-x_j=\text{result}_{ij}\) where \(x_i\) and~\(x_j\) denote the unknown ratings of the players\slash teams to be determined, and \(\text{result}_{ij}\) is the result or score (to~\(i\) over~\(j\)) when the two compete against \text{each other.}
 
 Beware of Arrow's \idx{Impossibility Theorem} that all 1D ranking systems are flawed!
 

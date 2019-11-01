@@ -9,7 +9,7 @@ We want to be able to make sense of statements such as ``king --~man +~women =~q
 To do so we need to define operations on vectors.
 Useful operations on vectors are those which are physically meaningful.
 Then our algebraic manipulations derive powerful results in applications.
-The first two vector operations are addition and scalar multiplication.
+The first two vector operations are addition and \text{scalar multiplication.}
 
 
 \subsection{Basic operations}
@@ -48,6 +48,7 @@ the vector~\((2,-1)\) is drawn from the end of \((1,3)\), and the end point of t
   \node[below] at (axis cs:0,0) {\quad$O$};
 \end{axis}
 \end{tikzpicture}
+\hfil
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, grid
@@ -63,7 +64,8 @@ the vector~\((2,-1)\) is drawn from the end of \((1,3)\), and the end point of t
 \end{center}
 This result~\((3,2)\) is the same if the vector~\((1,3)\) is drawn from the end of~\((2,-1)\) as shown above-right.
 That is, \((2,-1)+(1,3)=(1,3)+(2,-1)\).
-That the order of addition is immaterial is the \idx{commutative law} of vector addition that is established in general by \cref{thm:vecopsa}.
+That the order of addition is immaterial is the \idx{commutative law} of vector addition. 
+\cref{thm:vecopsa} establishes this law \text{in general.}
 
 \newcommand{\temp}[2]{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,view={#2}{30}
@@ -91,7 +93,7 @@ As below, find the same result by drawing the vector~\((3,2,0)\) from the end of
 As drawn above, many of the three-D plots in this book are \bfidx{stereo pair}s drawing the plot from two slightly different viewpoints: cross your eyes to merge two of the images, and then focus on the pair of plots to see the three-D effect.
 With practice viewing such three-D stereo pairs becomes less difficult!
 
-\item The addition \((1,3)+(3,2,0)\) is not defined and cannot be done as the two vectors have a different number of components, different sizes.
+\item The addition \((1,3)+(3,2,0)\) is not defined and cannot be done as the two vectors have a different number of components, they have different sizes.
 \end{enumerate}
 \end{example}
 
@@ -209,6 +211,7 @@ For the vectors~\uv\ and~\vv\ shown in the margin, what is the result vector tha
 
 Using vector addition and \idx{scalar multiplication} we often write vectors in terms of so-called \idx{standard unit vector}s.
 In the plane and drawn in the margin are the two \idx{unit vector}s~\iv\ and~\jv\ defined to be of length one and in the direction of the two \idx{coordinate axes}, respectively.
+Hence \(\iv=(1,0)\) and \jv=(0,1), as shown.
 \index{i@$\iv$}\index{j@$\jv$}%
 \marginpar{\begin{tikzpicture} 
 \newcommand{\tmp}[4]{
@@ -234,13 +237,14 @@ Then, for example,
 \end{eqnarray*}
 \index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
 Similarly, in three dimensional space we often write vectors in terms of the three vectors~\iv, \jv\ and~\kv, defined to be each of \idx{length} one, aligned along the three \idx{coordinate axes}.
+Hence \(\iv=(1,0,0)\), \(\jv=(0,1,0)\), and \kv=(0,0,1).
 For example,
 \begin{eqnarray*}
 (2,3,-1)&=&(2,0,0)+(0,3,0)+(0,0,-1)\quad(\text{by addition})
 \\&=&2(1,0,0)+3(0,1,0)-(0,0,1)\quad(\text{by scalar mult})
 \\&=&2\iv+3\jv-\kv \quad(\text{by definition of \iv, \jv\ and \kv}).
 \end{eqnarray*}
-The next definition generalizes these standard unit vectors to vectors in~\(\RR^n\).
+The next definition generalizes these standard unit vectors to vectors in~\(\RR^n\) for every size~\(n\).
 
 
 \begin{definition} \label{def:stuniv}
@@ -284,12 +288,12 @@ In \(\RR^2\) and~\(\RR^3\) the symbols~\index{i@$\iv$|textbf}\iv, \index{j@$\jv$
 \end{definition}
 
 That is, for three examples, the following are equivalent ways of writing the same vector:
-\begin{eqnarray*}&&
+\begin{eqnarray*}\bullet&&
 (3,2)=\begin{bmatrix} 3\\2 \end{bmatrix}=3\iv+2\jv=3\ev_1+2\ev_2\,;
-\\&&
+\\\bullet&&
 (2,3,-1)=\begin{bmatrix} 2\\3\\-1 \end{bmatrix}
 =2\iv+3\jv-\kv=2\ev_1+3\ev_2-\ev_3\,;
-\\&&
+\\\bullet&&
 (0,-3.7,0,0.1,-3.9)
 =\begin{bmatrix} 0\\-3.7\\0\\0.1\\-3.9 \end{bmatrix}
 =-3.7\ev_2+0.1\ev_4-3.9\ev_5\,.
@@ -308,11 +312,12 @@ Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
 
 \subsubsection{Distance}
 \index{distance|(}
-Defining a `distance' between vectors empowers us to compare vectors concisely.
+Defining a `distance' between vectors empowers us to concisely compare vectors.
 
 \begin{example} 
 We would like to say that \((1.2,3.4)\approx(1.5,3)\) to an error~\(0.5\) (as illustrated in the margin).
-Why~\(0.5\)?  Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
+Why is the error~\(0.5\)?  
+Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
 \marginpar{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal,axis lines=none,thick]
@@ -433,7 +438,7 @@ Then, for example, the point~\((0,2)\) on the line has position vector  \(\pv+\d
 Other points on the line are also given using the same vectors, \pv\ and~\dv: for example, the point~\((3,\tfrac12)\) has position vector \(\pv-\tfrac12\dv\) (as drawn) because \(\pv-\tfrac12\dv=(2,1)-\tfrac12(-2,1)=(3,\tfrac12)\); and the point~\((-2,3)\) has position vector \(\pv+2\dv=(2,1)+2(-2,1)\).
 In general, every point on the line may be expressed as \(\pv+t\dv\) for some scalar~\(t\).
 
-For any given line, there are many possible choices of~\pv\ and~\dv\ in such a vector representation.
+For every given line, there are many possible choices of~\pv\ and~\dv\ in such a vector representation.
 A different looking, but equally valid form is obtained from any pair of points on the line.
 \marginpar{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -452,11 +457,11 @@ A different looking, but equally valid form is obtained from any pair of points 
 \end{tikzpicture}}%
 For example, one could choose point~\(P\) to be~\((0,2)\) and point~\(Q\) to be~\((3,\tfrac12)\), as drawn in the margin. 
 Let position vector \(\pv=\ovect{OP}=(0,2)\) and the vector \(\dv=\ovect{PQ}=(3,-\tfrac32)\), then every point on the line has position vector \(\pv+t\dv\) for some scalar~\(t\):
-\begin{eqnarray*}&&
+\begin{eqnarray*}\bullet&&
 (2,1)=(0,2)+(2,-1)=(0,2)+\tfrac23(3,-\tfrac32)=\pv+\tfrac23\dv\,;
-\\&&
+\\\bullet&&
 (6,-1)=(0,2)+(6,-3)=(0,2)+2(3,-\tfrac32)=\pv+2\dv\,;
-\\&&
+\\\bullet&&
 (-1,\tfrac52)=(0,2)+(-1,\tfrac12)=(0,2)-\tfrac13(3,-\tfrac32)=\pv-\tfrac13\dv\,.
 \end{eqnarray*}
 Other choices of points~\(P\) and~\(Q\) give other valid vector equations for a given line.
@@ -534,11 +539,11 @@ Given the \idx{parametric equation} of a line in space (in stereo) is \(\xv=(-4+
 \begin{itemize}
 \item For the point \((-1.6,1.8,-5.8)\) we need to find the parameter value~\(t\) such that \(-4+2t=-1.6\), \(3-t=1.8\) and \(-1-4t=-5.8\)\,.
 The first of these requires \(t=(-1.6+4)/2=1.2\), the second requires \(t=3-1.8=1.2\), and the third requires \(t=(-1+5.8)/4=1.2\)\,.
-All three agree that choosing parameter \(t=1.2\) gives the required point.
+All three agree that choosing parameter \(t=1.2\) gives the \text{required point.}
 
 \item For the point \((-3,2.5,-3)\) we need to find the parameter value~\(t\) such that \(-4+2t=-3\), \(3-t=2.5\) and \(-1-4t=-3\)\,.
 The first of these requires \(t=(-3+4)/2=0.5\), the second requires \(t=3-2.5=0.5\), and the third requires \(t=(-1+3)/4=0.5\)\,.
-All three agree that choosing parameter \(t=0.5\) gives the required point.
+All three agree that choosing parameter \(t=0.5\) gives the \text{required point.}
 
 \item For the point \((-6,4,4)\) we need to find the parameter value~\(t\) such that \(-4+2t=-6\), \(3-t=4\) and \(-1-4t=4\)\,.
 The first of these requires \(t=(-6+4)/2=-1\), the second requires \(t=3-4=-1\), and the third requires \(t=(-1-4)/4=-1.25\)\,.
@@ -565,7 +570,7 @@ It seems to be nothing other than that art which they call by the barbarous name
 
 To unleash the power of algebra on vectors, we need to know the properties of vector operations.
 Many of the following properties are familiar as they directly correspond to familiar properties of arithmetic operations on scalars.
-Moreover, the proofs show the vector properties follow directly from the familiar properties of arithmetic operations on scalars.
+Moreover, the proofs show the vector properties follow directly from the familiar properties of arithmetic operations \text{on scalars.}
 
 \begin{example} 
 Let vectors \(\uv=(1,2)\), \(\vv=(3,1)\), and \(\wv=(-2,3)\), and let scalars \(a=-\tfrac12\) and \(b=\tfrac52\).
@@ -676,17 +681,17 @@ In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \end{axis}
 \end{tikzpicture}}%
 \marginpar{\temp01231}
-\begin{eqnarray*}
-&&{\uv+\vv}
-\\&=&(\hlist un)+(\hlist vn)
-\\&=&(u_1+v_1,u_2+v_2,\ldots,u_n+v_n)
+\begin{align*}
+&{\uv+\vv}
+\\&=(\hlist un)+(\hlist vn)
+\\&=(u_1+v_1,u_2+v_2,\ldots,u_n+v_n)
 \quad(\text{by \cref{def:vecops}})
-\\&=&(v_1+u_1,v_2+u_2,\ldots,v_n+u_n)
+\\&=(v_1+u_1,v_2+u_2,\ldots,v_n+u_n)
 \quad(\text{commutative scalar add})
-\\&=&(\hlist vn)+(\hlist un)
+\\&=(\hlist vn)+(\hlist un)
 \quad(\text{by \cref{def:vecops}})
-\\&=&\vv+\uv\,.
-\end{eqnarray*}
+\\&=\vv+\uv\,.
+\end{align*}
 \end{proof}
 
 \begin{example} 
@@ -781,7 +786,7 @@ Using \cref{thm:vecops}, all the following equations are equivalent:
 (3\xv-2\uv)+2\uv&=&6\vv+2\uv
 \quad(\text{add \(2\uv\) to both sides});\\
 3\xv+(-2\uv+2\uv)&=&6\vv+2\uv
-\quad\parbox[t]{10em}{(by \ref{thm:vecopsb}, associativity);}\\
+\quad\text{(by \ref{thm:vecopsb}, associativity);}\\
 3\xv+\ov&=&6\vv+2\uv
 \quad(\text{by \ref{thm:vecopsd}});\\
 3\xv&=&6\vv+2\uv
@@ -789,7 +794,7 @@ Using \cref{thm:vecops}, all the following equations are equivalent:
 \tfrac13(3\xv)&=&\tfrac13(6\vv+2\uv)
 \quad(\text{multiply both sides by }\tfrac13);\\
 \tfrac13(3\xv)&=&\tfrac13(6\vv)+\tfrac13(2\uv)
-\quad\parbox[t]{10em}{(by \ref{thm:vecopse}, distributivity);}\\
+\quad\text{(by \ref{thm:vecopse}, distributivity);}\\
 (\tfrac13\cdot3)\xv&=&(\tfrac13\cdot6)\vv+(\tfrac13\cdot2)\uv
 \quad(\text{by \ref{thm:vecopsg}});\\
 1\xv&=&2\vv+\tfrac23\uv
@@ -808,7 +813,7 @@ The following are equivalent:
 \xv&=&2\vv+\tfrac23\uv
 \quad(\text{dividing both sides by }3).
 \end{eqnarray*}
-But exercises and examples in this section often explicitly require full details and justification.
+But exercises and examples in this section sometimes explicitly require full details and justification.
 \end{solution}
 \end{example}
 
@@ -827,23 +832,23 @@ Using \cref{thm:vecops}, the following statements are equivalent:
 \\(3\xv-\av)+\av&=&(2\av+2\xv)+\av
 \quad(\text{adding \av\ to both sides});
 \\3\xv+(-\av+\av)&=&2\av+(2\xv+\av)
-\quad\parbox[t]{10em}{(by \ref{thm:vecopsb}, associativity);}
+\quad\text{(by \ref{thm:vecopsb}, associativity);}
 \\3\xv+\ov&=&2\av+(\av+2\xv)
-\quad\parbox[t]{11em}{(by \ref{thm:vecopsd} \& \ref{thm:vecopsa});}
+\quad\text{(by \ref{thm:vecopsd} \& \ref{thm:vecopsa});}
 \\3\xv&=&(2\av+\av)+2\xv
-\quad\parbox[t]{11em}{(by \ref{thm:vecopsc} \& \ref{thm:vecopsb});}
+\quad\text{(by \ref{thm:vecopsc} \& \ref{thm:vecopsb});}
 \\3\xv&=&(2\av+1\av)+2\xv
 \quad(\text{by \ref{thm:vecopsh}});
 \\3\xv&=&(2+1)\av+2\xv
-\quad\parbox[t]{10em}{(by \ref{thm:vecopsf}, distributivity);}
+\quad\text{(by \ref{thm:vecopsf}, distributivity);}
 \\3\xv+(-2)\xv&=&3\av+2\xv+(-2)\xv
 \quad(\text{sub.\ \(2\xv\) from both sides});
 \\(3+(-2))\xv&=&3\av+(2+(-2))\xv
-\quad\parbox[t]{10em}{(by \ref{thm:vecopsf}, distributivity);}
+\quad\text{(by \ref{thm:vecopsf}, distributivity);}
 \\1\xv&=&3\av+0\xv
 \quad(\text{by scalar arithmetic});
 \\\xv&=&3\av+\ov
-\quad\parbox[t]{11em}{(by \ref{thm:vecopsh} \& \ref{thm:vecopsi});}
+\quad\text{(by \ref{thm:vecopsh} \& \ref{thm:vecopsi});}
 \\\xv&=&3\av
 \quad(\text{by \ref{thm:vecopsc}}).
 \end{eqnarray*}
@@ -934,7 +939,7 @@ For each of the following groups of vectors, use the \idx{distance} between vect
 
 \item \(\uv=5\ev_1+\ev_3+5\ev_4\), \(\vv=6\ev_1-2\ev_2+3\ev_3+\ev_4\), \(\wv=7\ev_1-2\ev_2-3\ev_3\)
 \answer{\uv~and~\vv\ are closest; \uv~and~\wv\ are furthest.}
-\end{reduce}
+\end{reduce}%
 
 \item \(\uv= 2\ev_1+4\ev_2-\ev_3+5\ev_4\), \(\vv=-2\ev_1+8\ev_2-6\ev_3-3\ev_4\), \(\wv=-6\ev_3+11\ev_4\)
 \answer{\uv~and~\wv\ are closest; \vv~and~\wv\ are furthest.}
@@ -1060,7 +1065,7 @@ In a few sentences, answer\slash discuss each of the following.
 
 \item What is it about the parametric equation of a line that means it does indeed describe a line in space?
 
-\item Comment on why many of the properties (\cref{thm:vecops}) of vector operations appear the same as those for operations with real numbers. 
+\item Comment on why many of the properties of vector operations (\cref{thm:vecops}) appear the same as those for operations with real numbers. 
 
 
 \end{enumerate}

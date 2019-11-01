@@ -24,7 +24,7 @@ For example, \(f(x)=x^2\) means that for every \(x\in\RR\) the function~\(f(x)\)
   \addplot+[blue,no marks]{x^2};
   \end{axis}
 \end{tikzpicture}}%
-We often write \(f:\RR\to\RR\)\index{$\to$|textbf} to denote this functionality: that is, \(f:\RR\to\RR\) means function~\(f\) transforms any given real number into another real number by some specific rule.
+We often write \(f:\RR\to\RR\)\index{$\to$|textbf} to denote this functionality: that is, \(f:\RR\to\RR\) means function~\(f\) transforms any given real number into another real number by some \text{specific rule.}
 
 There is analogous functionality in multiple dimensions with vectors: given any vector 
 \begin{itemize}
@@ -76,7 +76,7 @@ A \idx{transformation}\slash function \(T:\RR^n\to\RR^m\) is called a \bfidx{lin
 \begin{solution} 
 To test Property~\ref{def:lintran:i},  for any real~\(x\) and~\(y\) consider \(f(x+y)=(x+y)^2=x^2+2xy+y^2=f(x)+2xy+f(y)\neq f(x)+f(y)\) in general (it is equal if either are zero, but the test requires equality to hold for every~\(x\) and~\(y\)).  
 Alternatively one could test Property~\ref{def:lintran:ii} and consider \(f(cx)=(cx)^2=c^2x^2=c^2f(x)\neq cf(x)\) for every~\(c\).
-Either of these prove that \(f\)~is not a linear transformation.
+Either of these prove that \(f\)~is not a \text{linear transformation.}
 \end{solution}
 
 \item Is the function \(T(x)=|x|\), \(T:\RR\to\RR\), a linear transformation? 
@@ -89,7 +89,7 @@ Either of these prove that \(f\)~is not a linear transformation.
 \end{tikzpicture}}
 \begin{solution} 
 To prove not it is sufficient to find just one instance when \cref{def:lintran} fails. 
-Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1|+|2|=1+2=3\neq T(u+v)\) so the function~\(T\) fails the additivity property~ cref{def:lintran:i} and so is not a linear transformation.
+Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1|+|2|=1+2=3\neq T(u+v)\) so the function~\(T\) fails the additivity property~\cref{def:lintran:i} and so is not a \text{linear transformation.}
 \end{solution}
 
 \item Is the function \(g:\RR\to\RR\) such that \(g(x)=-x/2\) a linear transformation?
@@ -121,7 +121,7 @@ Hence \(g\) is a linear transformation.
 \begin{solution} 
 Because the graph of~\(h(y)\) is a straight line (as shown in the margin) we suspect it may be a linear transformation.
 To prove not it is enough to find one instance when \cref{def:lintran} fails. 
-Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(0)=2\cdot(-3)=-6\neq h(cu)\) so the function~\(g\) fails the multiplication property~\ref{def:lintran:ii} and hence is not a linear transformation.
+Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(0)=2\cdot(-3)=-6\neq h(cu)\) so the function~\(g\) fails the multiplication property~\ref{def:lintran:ii} and hence is not a \text{linear transformation.}
 
 This function fails because every linear transformation has to pass through the origin: that is, here we need \(h(0)=0\) but this does not hold so~\(h\) is not a linear transform.
 \end{solution}
@@ -231,7 +231,7 @@ In each illustration of a transformation~\(T\), the four corners of the blue \id
 \begin{solution} 
 To \emph{test} we check the addition property~\ref{def:lintran:i}.
 First, with \(\uv=\vv=\ov\) property~\ref{def:lintran:i} requires \(T(\ov+\ov)=T(\ov)+T(\ov)\), but the left-hand side is just~\(T(\ov)\) which cancels with one on the right-hand side to leave that a linear transformation has to satisfy \(T(\ov)=\ov\)\,: all the shown transformations satisfy \(T(\ov)=\ov\) as the (blue) origin point is transformed to the (red) origin point.
-Second, with \(\uv=(1,0)\), \(\vv=(0,1)\) and \(\uv+\vv=(1,1)\) property~\ref{def:lintran:i} requires \(T(1,1)=T(1,0)+T(0,1)\): let's see which do not pass this test.
+Second, with \(\uv=(1,0)\), \(\vv=(0,1)\) and \(\uv+\vv=(1,1)\) property~\ref{def:lintran:i} requires \(T(1,1)=T(1,0)+T(0,1)\): let's see which do not pass \text{this test.}
 \begin{enumerate}
 \item Here \(T(1,1)\approx(-0.3,1.4)\), whereas
 \(T(1,0)+T(0,1)\approx (-1.4,-0.5)+(1.1,1.9)
@@ -394,22 +394,15 @@ Which of the following functions \(f:\RR^3\to\RR^2\) is \emph{not} a linear tran
 {\(f(x,y,z)=(0,0)\)}
 {\(f(x,y,z)=(y,x+z)\)}
 {\(f(x,y,z)=(0,13x+\pi y)\)}
-%\begin{enumerate}
-%\item \(f(x,y,z)=(0,0)\)
-%\item \(f(x,y,z)=(y,x+z)\)
-%\item \(f(x,y,z)=(2.7x+3y,1-2z)\)
-%\item \(f(x,y,z)=(0,13x+\pi y)\)
-%\end{enumerate}
 \end{activity}
 
 
 
 \begin{example} 
-For any given nonzero vector \(\wv\in\RR^n\), prove that the projection \(P:\RR^n\to\RR^n\) by \(P(\uv)=\proj_\wv(\uv)\) is a linear transformation (as a function of~\uv).
-But, for any given nonzero vector \(\uv\in\RR^n\), prove that the projection \(Q:\RR^n\to\RR^n\) by \(Q(\wv)=\proj_\wv(\uv)\) is not a linear transformation (as a function of~\wv).
+For any given nonzero vector \(\wv\in\RR^n\), prove that the projection \(P:\RR^n\to\RR^n\) defined by \(P(\uv):=\proj_\wv(\uv)\) is a linear transformation (as a function of~\uv).
+But, for any given nonzero vector \(\uv\in\RR^n\), prove that the projection \(Q:\RR^n\to\RR^n\) defined by \(Q(\wv):=\proj_\wv(\uv)\) is not a linear transformation (as a function of~\wv).
 \begin{solution} 
-\begin{itemize}
-\item For the function~\(P\) consider the two properties of \cref{def:lintran}.
+For the function~\(P\) consider the two properties of \cref{def:lintran}.
 \begin{description}
 \item[\ref{def:lintran:i}] for every \(\uv,\vv\in\RR^n\), from \cref{def:orthproj1} for a projection, 
 \(P(\uv+\vv)
@@ -431,7 +424,7 @@ But, for any given nonzero vector \(\uv\in\RR^n\), prove that the projection \(Q
 \end{description}
 Hence, the projection~\(P\) is a linear transformation.
 
-\item Now consider \(Q(\wv)=\proj_\wv(\uv)\).
+ Now consider \(Q(\wv)=\proj_\wv(\uv)\).
 For any \(\uv,\wv\in\RR^n\) let's check \(Q(2\wv)
 =\proj_{(2\wv)}(\uv)
 =(2\wv)[(2\wv)\cdot\uv]/|2\wv|^2
@@ -440,7 +433,6 @@ For any \(\uv,\wv\in\RR^n\) let's check \(Q(2\wv)
 =\proj_\wv(\uv)
 =Q(\wv)\neq2Q(\wv)\)
 and so the projection is not a linear transformation when considered as a function of the direction of the transform~\wv\ for some given~\uv.
-\end{itemize}
 \end{solution}
 \end{example}
 
@@ -487,7 +479,7 @@ Prove that a matrix multiplication with a nonzero shift~\bv, \(S:\RR^n\to\RR^m\)
 Just consider the addition property~\ref{def:lintran:i} for the zero vectors \(\uv=\vv=\ov\):  
 on the one hand, \(S(\uv+\vv)=S(\ov+\ov)=S(\ov)=A\ov+\bv=\bv\); 
 on the other hand \(S(\uv)+S(\vv)=S(\ov)+S(\ov)=A\ov+\bv+A\ov+\bv=2\bv\).  
-Hence when the shift~\bv\ is nonzero, there are vectors for which \(S(\uv+\vv)\neq S(\uv)+S(\vv)\) and so \(S\)~is not a linear transformation.
+Hence when the shift~\bv\ is nonzero, there are vectors for which \(S(\uv+\vv)\neq S(\uv)+S(\vv)\) and so \(S\)~is not a \text{linear transformation.}
 \end{solution}
 \end{example}
 
@@ -718,7 +710,7 @@ x=A^+\bv\quad\text{for pseudo-inverse }A^+=\begin{bmatrix} \tfrac3{25}& \tfrac4{
 
 
 \begin{activity}
-By finding the smallest magnitude, \idx{least square}, solution to \(D\xv=\bv\) for matrix \(D=\begin{bmatrix} 5&0\\0&0 \end{bmatrix}\) and arbitrary~\bv, determine that the pseudo-inverse of the \idx{diagonal matrix}~\(D\) is which of the following?
+By finding the smallest \idx{magnitude}, \idx{least square}, solution to \(D\xv=\bv\) for matrix \(D=\begin{bmatrix} 5&0\\0&0 \end{bmatrix}\) and arbitrary~\bv, determine that the pseudo-inverse of the \idx{diagonal matrix}~\(D\) is which of the following?
 \actposs{\(\begin{bmatrix} 0.2&0\\0&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&0.2\\0&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&0\\0.2&0 \end{bmatrix}\)}
@@ -728,11 +720,11 @@ By finding the smallest magnitude, \idx{least square}, solution to \(D\xv=\bv\) 
 
 
 
-A pseudo-inverse~\(A^+\) of a non-invertible matrix~\(A\) is only an `inverse' because the pseudo-inverse builds in extra information that  \emph{you may sometimes choose} to be desirable.
+A pseudo-inverse~\(A^+\) of a non-invertible matrix~\(A\) is only an `inverse' because the pseudo-inverse builds in extra information that  \emph{you may sometimes choose to be desirable}.
 This extra information rationalizes all the contradictions encountered in trying to construct an inverse of a non-invertible matrix.  
 Namely, for some applications \emph{we choose} to desire that the pseudo-inverse solves the \emph{nearest} \idx{consistent} system to the one specified, and \emph{we choose} the smallest of all possibilities then allowed.
 However, although there are many situations where these choices are useful, beware that there are also many situations where such choices are not appropriate.
-That is, although sometimes the pseudo-inverse is useful, beware that  many times the pseudo-inverse is not appropriate.
+That is, although sometimes the pseudo-inverse is useful, beware that  many times the pseudo-inverse is \text{not appropriate.}
 
 
 \begin{theorem}[pseudo-inverse] \label{thm:lsqlt}
@@ -839,7 +831,7 @@ The pseudo-inverse is which of these?
 \begin{example}  
 Recall that \cref{eg:fourwts} explored how to best determine a  weight from four apparently contradictory measurements.
 The exploration showed that \cref{pro:appsol} agrees with the traditional method of simple averaging.
-Let's see that the pseudo-inverse implements the simple \idx{average} of the four measurements.
+Let's see that the pseudo-inverse implements the simple \idx{average} of the \text{four measurements.}
 
 Recall that \cref{eg:fourwts} sought to solve an \idx{inconsistent system} \(Ax=\bv\)\,, specifically
 \begin{equation*}
@@ -921,7 +913,7 @@ Use the pseudo-inverse to rate the players in the cases of \cref{eg:rstp,eg:rstp
 \begin{solution} 
 To find the pseudo-inverse, follow \cref{pro:appsol} with a general right-hand side vector~\bv.
 \begin{enumerate}
-\item Compute an \svd\ \(A=\usv\) in \script\ with \verb|[U,S,V]=svd(A)|:
+\item Compute an \svd\ \(A=\usv\) in \script\ via \verb|[U,S,V]=svd(A)|:
 \begin{verbatim}
 U =
     0.4082   -0.7071    0.5774
@@ -976,7 +968,7 @@ So interpret the equation \(S\yv=\zv\) in detail as
 \\-\frac1{\sqrt2}&-\frac1{\sqrt2}&0
 \\\frac1{\sqrt3}&-\frac1{\sqrt3}&\frac1{\sqrt3} \end{bmatrix}\bv:
 \end{equation*}
-\begin{enumerate}
+\begin{enumerate}\sloppy
 \item the first line requires \(y_1=\frac1{\sqrt3}\begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt6}&-\frac2{\sqrt6} \end{bmatrix}\bv
 =\frac13\begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}&-\sqrt2 \end{bmatrix}\bv\);
 \item the second line requires \(y_2=\frac1{\sqrt3}\begin{bmatrix} -\frac1{\sqrt2}&-\frac1{\sqrt2}&0\end{bmatrix}\bv
@@ -1115,7 +1107,7 @@ A^+=(\tr AA)^{-1}\tr A
 Except for easy cases, we (almost) never explicitly compute the \idx{pseudo-inverse} of a matrix.\footnote{Although to check pseudo-inverses of small matrices in examples or exercises one may use the \script\ function \index{pinv()@\texttt{pinv()}}\texttt{pinv()}.}
 In practical computation, forming~\(\tr AA\) and then manipulating it is both expensive and error enhancing: for example, \(\cond(\tr AA)=(\cond A)^2\) so matrix~\(\tr AA\) typically has a much worse \idx{condition number} than matrix~\(A\).
 Computationally there are (almost) always better ways to proceed, such as \cref{pro:appsol}.
-Like an inverse, a \idx{pseudo-inverse} is a theoretical device, rarely a practical tool.
+Like an inverse, a \idx{pseudo-inverse} is a theoretical device, rarely a \text{practical tool.}
 
 A major point of this subsection is to illustrate how a complicated procedure is conceptually expressible as a linear transformation, and so has associated matrix properties such as being equivalent to multiplication by some matrix---here the pseudo-inverse.
 
@@ -1141,7 +1133,7 @@ connect to normal equation?  Possibly establish the Penrose conditions, \(AA^+A=
 
 To achieve a complex goal we typically decompose the task of attaining the complex goal into a set of smaller simpler tasks and achieve those tasks one after another.
 The analogy in linear algebra is that we often apply linear transformations one after another to build up or solve a complex problem.
-This section certifies how applying a sequence of linear transformations is equivalent to one grand overall linear transformation.
+This section certifies how applying a sequence of linear transformations is equivalent to one grand overall \text{linear transformation.}
 
 \begin{example}[simple rotation] 
 Recall \cref{eg:stmatlt:b} on \idx{rotation} by~\(60^\circ\) (anticlockwise as positive, as illustrated in the margin) with its \idx{standard matrix}
@@ -1225,7 +1217,7 @@ First, \cref{thm:stmatcomp} assures us the standard matrix of the composition
 \\0&-2&-14 \end{bmatrix}.
 \end{eqnarray*}
 However, second, the standard matrix of~\(T\circ S\) does not exist because it would require the multiplication of a \(2\times3\) matrix by a \(4\times 2\) matrix, and such a multiplication is not defined.
-The failure is rooted earlier in the question because \(S:\RR^2\to\RR^4\) and \(T:\RR^3\to\RR^2\) so a result of~\(S\), which is in~\(\RR^4\), cannot be used as an argument to~\(T\), which must be in~\(\RR^3\): the lack of a defined multiplication is a direct reflection of this incompatibility in~`\(T\circ S\)' which means \(T\circ S\) cannot exist.
+The failure is rooted earlier in the question because \(S:\RR^2\to\RR^4\) and \(T:\RR^3\to\RR^2\) so a result of~\(S\), which is in~\(\RR^4\), cannot be used as an argument to~\(T\), which must be in~\(\RR^3\): the lack of a defined multiplication is a direct reflection of this incompatibility in~`\(T\circ S\)' which means \(T\circ S\) \text{cannot exist.}
 \end{solution}
 \end{example}
 
@@ -1264,7 +1256,7 @@ Then the standard matrix of the composition
 \item \((F\circ R)(\iv)=F(R(\iv))\) which first rotates~\(\iv=(1,0)\) to point to the top-right, then reflects in the vertical axis to point to the top-left and thus \((F\circ R)(\iv)=(-\rt,\rt)\).
 \item \((F\circ R)(\jv)=F(R(\jv))\) which first rotates~\(\jv=(0,1)\) to point to the top-left, then reflects in the vertical axis to point to the top-right and thus \((F\circ R)(\jv)=(\rt,\rt)\).
 \end{itemize}
-Then the standard matrix of the composition (as illustrated in the margin)
+Then the standard matrix of the composition is (as illustrated)
 \marginpar{\TwoD{-0.7071}{0.7071}{0.7071}{0.7071}}%
 \begin{equation*}
 [F\circ R]=\begin{bmatrix}(F\circ R)(\iv)&(F\circ R)(\jv)  \end{bmatrix}
@@ -1279,7 +1271,7 @@ different to~\(F\circ R\): the difference is due to the \idx{non-commutativity} 
 
 
 \begin{activity}
-Given the stretching transformation~\(S\) with \idx{standard matrix} \([S]=\diag(2,1/2)\), and the anti-clockwise \idx{rotation}~\(R\) by~\(90^\circ\) with \idx{standard matrix} \([R]=\begin{bmatrix} 0&-1\\1&0 \end{bmatrix}\), what is the standard matrix of the transformation composed of first the stretching and then the rotation?
+Given the stretching transformation~\(S\) with \idx{standard matrix} \([S]=\diag(2,1/2)\), and the anti-clockwise \idx{rotation}~\(R\) by~\(90^\circ\) with \idx{standard matrix} \([R]=\begin{bmatrix} 0&-1\\1&0 \end{bmatrix}\), what is the standard matrix of the transformation composed of first the stretching and then \text{the rotation?}
 \actposs[4]{\(\begin{bmatrix} 0&-\tfrac12\\2&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&\tfrac12\\-2&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&2\\-\tfrac12&0 \end{bmatrix}\)}
@@ -1295,14 +1287,14 @@ Having introduced and characterized the composition of linear transformations, w
 \begin{example}[\idx{inverse transformation}s] 
 \begin{enumerate}
 \item Let \(S\) be \idx{rotation} of the plane by~\(60^\circ\) (anticlockwise as positive), and \(T\)~be rotation of the plane by~\(-60^\circ\) (clockwise as negative).
-Then \(S\circ T\) is first the \(-60^\circ\)~rotation by~\(T\), and second the \(60^\circ\)~rotation by~\(S\): the result is no change.
-Because \(S\circ T\) is effectively the \idx{identity transformation}, we call the rotations~\(S\) and~\(T\) the inverse transformation of each other.
+Then \(S\circ T\) is first the \(-60^\circ\)~rotation by~\(T\), and second the \(60^\circ\)~rotation by~\(S\): the overall result is no change.
+Because \(S\circ T\) is effectively the \idx{identity transformation}, we call the rotations~\(S\) and~\(T\) the inverse transformation of \text{each other.}
 
 \item Let \(R\)~be \idx{reflection} of the plane in the line at~\(30^\circ\) to the horizontal (illustrated in the margin).  
 \marginpar{\TwoDx{0.5}{0.866}{0.866}{-0.5}{%
 \addplot[brown] coordinates {(-0.18,-0.1)(1.30,0.75)};}}%
-Then \(R\circ R\) is first reflection in the line at~\(30^\circ\) by~\(R\), and second another reflection in the line at~\(30^\circ\) by~\(R\): the result is no change.
-Because \(R\circ R\) is effectively the \idx{identity transformation}, the reflection~\(R\) is its own inverse.
+Then \(R\circ R\) is first reflection in the line at~\(30^\circ\) by~\(R\), and second another reflection in the line at~\(30^\circ\) by~\(R\): the overall result is no change.
+Because \(R\circ R\) is effectively the \idx{identity transformation}, the reflection~\(R\) is its \text{own inverse.}
 \end{enumerate}
 \end{example}
 
@@ -1329,7 +1321,7 @@ Argue that \(S\circ T=T\circ S=I\) the identity and so \(S\)
 and~\(T\) are \idx{inverse transformation}s of each other.
 \begin{solution} 
 A basic argument is that rotation by~\(120^\circ\) together with a rotation of~\(240^\circ\) about the same axis, in either order, is the same as a rotation by~\(360^\circ\) about the axis.
-But a \(360^\circ\)~rotation leaves everything unchanged and so must be the identity.
+But a \(360^\circ\)~rotation leaves everything unchanged and so must be \text{the identity.}
 
 Alternatively one could dress up the argument with some algebra as in the following.
 First consider \(T\circ S\):
@@ -1360,7 +1352,7 @@ In some violent weather a storm passes and the strong winds lean a house sideway
 \end{center}
 Estimate the \idx{standard matrix} of the shear transformation shown.
 To restore the house back upright, we need to shear it an equal amount in the opposite direction: hence write down the standard matrix of the \idx{inverse} shear.
-Confirm that the product of the two standard matrices is the standard matrix of the identity.
+Confirm that the product of the two standard matrices is the standard matrix of \text{the identity.}
 \begin{solution} 
 As shown, the unit vectors~\(\ev_1\) and~\(\ev_2\) are unchanged by the storm~\(S\).  
 However, the vertical unit vector~\(\ev_3\) is sheared by the storm to \(S(\ev_3)=(-1,-0.5,1)\).
@@ -1389,7 +1381,7 @@ This is the standard matrix of the identity transformation.
 
 Because of the exact correspondence between linear transformations and \idx{matrix multiplication}, the \idx{inverse} of a transformation exactly corresponds to the inverse of a matrix.
 In the last \cref{eg:stormLT}, because \([R][S]=I_3\) we know that the matrices~\([R]\) and~\([S]\) are inverses of each other. 
-Correspondingly, the transformations~\(R\) and~\(S\) are inverses of each other.
+Correspondingly, the transformations~\(R\) and~\(S\) are inverses of \text{each other.}
 
 
 
@@ -1403,7 +1395,7 @@ As \(T\) is invertible,  let the symbol~\(T^{-1}\)~denote its inverse.
 Since both are linear transformations, they both have standard matrices, \([T]\) and~\([T^{-1}]\).
 Then \([T\circ T^{-1}]=[T][T^{-1}]\)\,; but also \([T\circ T^{-1}]=[I]=I_n\)\,; so \([T][T^{-1}]=I_n\)\,.
 Similarly, \([T^{-1}][T]=[T^{-1}\circ T]=[I]=I_n\)\,.
-Consequently the matrices \([T]\) and~\([T^{-1}]\) are the inverses of each other.
+Consequently the matrices \([T]\) and~\([T^{-1}]\) are the inverses of \text{each other.}
 \end{proof}
 
 
@@ -1412,7 +1404,7 @@ Estimate the \idx{standard matrix} of the linear transformation~\(T\) illustrate
 \marginpar{\TwoD{1.70}{1.90}{-1.00}{1.70}}%
 Then use \cref{thm:2x2det} to determine the standard matrix of its 
 \idx{inverse transformation}~\(T^{-1}\).
-Hence sketch how the inverse transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a reasonable inverse. 
+Hence sketch how the inverse transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a \text{reasonable inverse.}
 \begin{solution} 
 The illustrated transformation shows \(T(\iv)\approx(1.7,-1)\) and \(T(\jv)\approx(1.9,1.7)\) hence its standard matrix is
 \begin{equation*}
@@ -1428,7 +1420,7 @@ This matrix determines that the inverse transforms the corners of the unit squar
 \marginpar{\TwoD{0.35}{-0.40}{0.21}{0.35}}%
 Hence the unit square is transformed as shown in the margin.
 The original transformation, roughly, rotated the unit square clockwise and stretched it: the sketch shows the inverse roughly rotates the unit square anti-clockwise and shrinks it.  
-Thus the inverse does appear to undo the action of the original transformation.
+Thus the inverse does appear to undo the action of the \text{original transformation.}
 \end{solution}
 \end{example}
 
@@ -2073,7 +2065,7 @@ and \([T\circ S]\) does not exist.}
 \begin{exercise}  
 For each of the illustrated transformations, estimate the \idx{standard matrix} of the linear transformation. 
 Then use \cref{thm:2x2det} to determine the standard matrix of its \idx{inverse transformation}.
-Hence sketch how the \idx{inverse} transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a reasonable inverse. 
+Hence sketch how the \idx{inverse} transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a \text{reasonable inverse.}
 \begin{Parts}
 \item \TwoD{1.10}{-0.30}{0.60}{0.70}
 \answer{Inverse\({}\approx\protect\begin{bmat}{0.74}&{0.32}\protect\\{-0.63}&{1.16}\protect\end{bmat}\)}

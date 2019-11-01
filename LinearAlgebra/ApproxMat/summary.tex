@@ -13,7 +13,7 @@
 For an image stored as scalars in an \(m\times n\) matrix~\(A\).
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
-\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and the rest are `small'.
+\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}): typically there are \(k\)~`large' \idx{singular value}s and the rest are `small'.
 \item Then the `best' rank~\(k\) approximation to the image matrix~\(A\) is
 \begin{eqnarray*}
 A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
@@ -25,7 +25,7 @@ A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
 \item In \script:
 \begin{itemize}
 \itemme \index{norm()@\texttt{norm()}}\verb|norm(A)| computes the \idx{matrix norm}, \cref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
-Also, \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
+Also, \verb|norm(v)| for vector~\verb|v| computes the \idx{length}, or \idx{magnitude}, \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
 
 \item \index{scatter()@\texttt{scatter()}}\verb|scatter(x,y,[],c)| draws a 2D scatter plot of points with coordinates in vectors~\verb|x| and~\verb|y|, each point with a colour determined by the corresponding entry of vector~\verb|c|.  
 
@@ -43,7 +43,7 @@ Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(
 \itemme \index{std()@\texttt{std()}}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the row vector of the \idx{standard deviation} over each column of~\(A\).
 
 \item For the element-by-element operations of \verb|+|, \verb|-|, \verb|.*|, \verb|./|, \verb|.^|, and so on, \emph{\script\ automatically replicates scalars and vectors as appropriate}.
-Where this functionality becomes extremely useful is that if either  of the matrices is \(m\times1\) or \(1\times n\) or one of each, then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation then performed. 
+Where this functionality becomes extremely useful is that if either  of the matrices is \(m\times1\) or \(1\times n\) or one of each, then its column\slash row is replicated to a matrix of size~\(m\times n\) and the operation \text{then performed.}
 
 \item  \index{csvread()@\texttt{csvread()}}\verb|csvread('|filename\verb|')| reads data from a file into a matrix.
 When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, then the result is an \(m\times n\) matrix. 
@@ -119,11 +119,11 @@ A=(B-mean(B))./std(B);
 
 \itemhi \cref{pro:appmat} approximates \idx{linear equation}s.
 Suppose the \idx{system} of \idx{linear equation}s \(A\xv=\bv\) arises from an experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix and vector \idx{entries} are of size~\(\epsilon\).
+Suppose the expected error in the matrix and vector \idx{entries} are of magnitude~\(\epsilon\).
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
-\item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same size; and
+\item all \(m\times n\)~\idx{components} in~\(A\) have the same physical units, and they are of roughly the same magnitude; and
 \item similarly for the \(m\) components of~\bv.
 \end{itemize}
 Estimate the error~\(\epsilon\) corresponding to this matrix~\(A\).

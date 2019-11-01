@@ -14,7 +14,7 @@ In \script\ one may invoke \index{det()@\texttt{det()}}\verb|det(A)| to compute 
 You may find this function useful for checking the results of some examples and exercises.
 However, just like computing an \idx{inverse}, computing the determinant is expensive and error prone.  
 In medium to large scale problems avoid computing the determinant.
-In practice, something else is almost always better.
+In practice, something else is almost \text{always better.}
 
 \begin{quoted}{\index{Moler, Cleve}Cleve Moler, MathWorks, 2006}
 The most numerically reliable way to determine whether matrices are singular [not invertible] is to test their singular values. 
@@ -23,6 +23,7 @@ This is far better than trying to compute determinants, which have atrocious sca
 
 Nonetheless, a row\slash column algebraic expansion for a determinant is useful for small matrix problems, as well as for its beautiful  theoretical uses.
 We start with examples of row properties that underpin a row\slash column algebraic expansion.
+We use these properties to step-by-step develop determinants for matrices in a more and more \text{general form.}
 
 
 
@@ -81,7 +82,7 @@ Consider the two matrices with two rows swapped (the first two rows):
 \\1&-1&0
 \\1/5&1/2&1 \end{bmat}\)
 Confirm algebraically that their determinants are the negative of each other.
-Give a geometric reason why this should be so.
+Give a geometric reason why this should \text{be so.}
 \begin{solution} 
 Using~\eqref{eq:dets23b} twice: 
 \begin{itemize}
@@ -338,7 +339,7 @@ Without evaluating the determinant, use \cref{thm:ppdet} to establish that the d
 \begin{vmatrix} 1&x&y\\1&2&3\\1&4&5 \end{vmatrix}=0
 \label{eq:detline2}
 \end{equation}
-is the equation of the straight line in the \(xy\)-plane that passes through the two points~\((2,3)\) and~\((4,5)\).
+is an equation for the straight line in the \(xy\)-plane that passes through the two points~\((2,3)\) and~\((4,5)\).
 \begin{solution} 
 First, the determinant equation~\eqref{eq:detline2} is linear in variables \(x\) and~\(y\) as at most one of \(x\) and~\(y\) occur in each term of the determinant expansion:
 \begin{center}\setlength{\unitlength}{1ex}
@@ -354,7 +355,7 @@ First, the determinant equation~\eqref{eq:detline2} is linear in variables \(x\)
 \end{center}
 Since the equation is linear in \(x\) and~\(y\), any solution set of~\eqref{eq:detline2} must be a straight line.
 Second, equation~\eqref{eq:detline2} is satisfied when \((x,y)=(2,3)\) or when \((x,y)=(4,5)\) as then two rows in the determinant are identical, and so \cref{thm:ppdet:ii} assures us the determinant is zero.
-Thus the solution straight line passes through the two required points.
+Thus the solution straight line passes through the two \text{required points.}
 
 Let's evaluate the determinant to check:
 equation~\eqref{eq:detline2} becomes
@@ -370,7 +371,7 @@ Without evaluating the determinant, use \cref{thm:ppdet} to establish that the d
 \begin{equation*}
 \begin{vmatrix} x&y&z\\-1&-2&2\\3&5&2 \end{vmatrix}=0
 \end{equation*}
-is, in \(xyz\)-space, the \idx{equation of the plane} that passes through the origin and the two points \((-1,-2,2)\) and~\((3,5,2)\).
+is, in \(xyz\)-space, an \idx{equation of the plane} that passes through the origin and the two points \((-1,-2,2)\) and~\((3,5,2)\).
 \begin{solution} 
 As in the previous example, the determinant is linear in~\(x\), \(y\) and~\(z\), so the solutions must be those of a single linear equation, namely a plane in \(xyz\)-space (\cref{sec:nvep}).
 \begin{itemize}
@@ -558,7 +559,7 @@ From the previous part \(\det B=a_{nn}\det A_{nn}\)\,, so we just need to determ
 As illustrated for 3D in the margin, the action of matrix~\(F\) on the unit \(n\)D-cube is that of a simple shear keeping the \((n-1)\)D-cube base unchanged (due to the identity~\(I_{n-1}\) in~\(F\)).
 Since the height orthogonal to the \((n-1)\)D-cube base is unchanged (due to the one in the bottom-right corner of~\(F\)), the action of multiplying by~\(F\) leaves the volume of the unit \(n\)D-cube unchanged at one.
 Hence \(\det F=1\)\,.
-Thus \(\det A=1\det(B)=a_{nn}\det A_{nn}\) as required.
+Thus \(\det A=1\det(B)=a_{nn}\det A_{nn}\) \text{as required.}
 
 Fourth, suppose row~\(i\) of matrix~\(A\) is all zero except for entry~\(a_{ij}\).
 Swap rows~\(i\) and~\(i+1\), then swap rows~\(i+1\) and~\(i+2\), and so on until the original row~\(i\) is in the last row, and the order of all other rows are unchanged: this takes \((n-i)\)~row swaps which changes the sign of the determinant \((n-i)\)~times (\cref{thm:ppdet:iii}), that is, multiplies it by~\((-1)^{n-i}\).
@@ -700,7 +701,7 @@ Thus the following theorem encompasses square diagonal matrices and so generaliz
 
 \begin{theorem}[triangular matrix]\label{thm:rpdet:vi} 
 For every \(n\times n\) \idx{triangular matrix}~\(A\),
-the \idx{determinant} of~\(A\) is the product of the \idx{diagonal entries}, \(\det A=a_{11}a_{22}\cdots a_{nn}\).
+the \idx{determinant} of~\(A\) is the product of the \idx{diagonal entries}, \(\det A=a_{11}a_{22}\cdots a_{nn}\)\,.
 \end{theorem}
 \begin{proof} 
 A little induction proves the determinant of a triangular matrix is the product of its diagonal entries: only consider upper triangular matrices as transposing the matrix caters for lower triangular matrices.
@@ -851,7 +852,7 @@ Let's rewrite the explicit formulas~\eqref{eq:dets23b} for \(2\times2\) and \(3\
 +\begin{vmatrix} 0&b\\c&d \end{vmatrix}.
 \end{eqnarray*}
 That is, the original determinant is the same as the sum of two determinants, each with a zero in the first row and the other row unchanged.
-This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\begin{bmatrix} a&0 \end{bmatrix}+\begin{bmatrix} 0&b \end{bmatrix}\), while the other row is unchanged.
+This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\begin{bmatrix} a&0 \end{bmatrix}+\begin{bmatrix} 0&b \end{bmatrix}\), while the other row \text{is unchanged.}
 
 \item Recall from~\eqref{eq:dets23b} that the \(3\times3\) determinant
 \begin{eqnarray*}
@@ -865,7 +866,7 @@ This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\b
 +\begin{vmatrix} 0&0&c\\d&e&f\\g&h&i \end{vmatrix}.
 \end{eqnarray*}
 That is, the original determinant is the same as the sum of three determinants, each with two zeros in the first row and the other rows unchanged.
-This identity decomposes the first row as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), while the other rows are unchanged.
+This identity decomposes the first row as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), while the other rows \text{are unchanged.}
 \end{itemize}
 This sort of rearrangement of a determinant makes progress because then \cref{thm:rpdet:vii} helps by finding the determinant of the resultant matrices that have an almost all \idx{zero row}.
 \end{example}
@@ -1028,7 +1029,7 @@ But this is precisely the same height and base as the \(n\)D-volume for~\(\det A
 
 Lastly, when it is the \(i\)th~column for which \(\av_i=\bv+\cv\) and all others columns are identical, then swap column~\(i\) with column~\(n\) in all matrices.  
 \cref{thm:ppdet:iii} asserts the signs of the three determinants are changed by this swapping.
-The above proof for the last column case then assures us \((-\det A)=(-\det B)+(-\det C)\); that is, \(\det A=\det B+\det C\)\,, as required. 
+The above proof for the last column case then assures us \((-\det A)=(-\det B)+(-\det C)\); that is, \(\det A=\det B+\det C\)\,, \text{as required.}
 \end{proof}
 
 
@@ -1334,7 +1335,7 @@ The Laplace expansion is generally too computationally expensive for all but sma
 The reason is that computing the determinant of an \(n\times n\) matrix with the Laplace expansion generally takes \(n!\)~operations (the next \cref{thm:detnfac}), and the \idx{factorial} \(n!=n(n-1)\cdots3\cdot2\cdot1\) grows very quickly even for medium~\(n\).
 Even for just a \(20\times20\) matrix the Laplace expansion has over two quintillion terms (\(2\cdot10^{18}\)).
 Exceptional matrices are those with lots of zeros, such as triangular matrices (\cref{thm:rpdet:vi}).
-In any case, remember that except for theoretical purposes there is rarely any need to compute a medium to large determinant.
+In any case, remember that except for theoretical purposes there is rarely any need to compute a medium to \text{large determinant.}
 
 
 
@@ -1509,7 +1510,7 @@ For each pair of given points, \((x_1,y_1)\) and~\((x_2,y_2)\), evaluate the det
 \begin{equation*}
 \det\begin{bmatrix} 1 &x&y\\1&x_1&y_1\\1&x_2&y_2 \end{bmatrix}=0
 \end{equation*}
-to find an equation for the straight line through the two given points in the \(xy\)-plane.
+to find a linear equation for the straight line through the two given points in the \(xy\)-plane.
 Show your working.
 % a:=mat((1,x,y),(1,random(9)-4,random(9)-4),(1,random(9)-4,random(9)-4));det(a);
 \begin{Parts}
@@ -1539,7 +1540,7 @@ Show your working.
 
 
 \begin{exercise}  
-Using mainly the properties of \cref{thm:ppdet} detail an argument that the following determinant equations each give an equation for the line through two given points \((x_1,y_1)\) and~\((x_2,y_2)\) in the \(xy\)-plane.
+Using mainly the properties of \cref{thm:ppdet} detail an argument that the following determinant equations each give a linear equation for the line through two given points \((x_1,y_1)\) and~\((x_2,y_2)\) in the \(xy\)-plane.
 \begin{Parts}
 \item \(\det\begin{bmatrix} 1&x_1&y_1
 \\1&x&y
@@ -1562,7 +1563,7 @@ For each pair of given points, \((x_1,y_1,z_1)\) and~\((x_2,y_2,z_2)\), evaluate
 \begin{equation*}
 \det\begin{bmatrix} x&y&z\\x_1&y_1&z_1\\x_2&y_2&z_2 \end{bmatrix}=0
 \end{equation*}
-to find an equation for the plane in \(xyz\)-space that passes through the two given points and the origin.
+to find a linear equation for the plane in \(xyz\)-space that passes through the two given points and the origin.
 Show your working.
 % a:=mat((x,y,z),(random(9)-4,random(9)-4,random(9)-4),(random(9)-4,random(9)-4,random(9)-4));det(a);
 \begin{Parts}
@@ -1972,10 +1973,10 @@ generally forms an equation for the \idx{conic section} passing through the five
 
 
 \begin{exercise}  
-Consider the task of computing the determinant of a typical \(n\times n\) matrix~\(A\) (`typical' means all its entries are nonzero).  
-Using the Laplace Expansion \cref{thm:letdet} to compute the determinant takes approximately~\(1.72\,n!\) multiplications.
+Consider the task of computing the determinant of a typical \(n\times n\) matrix~\(A\) (`typical' in the sense that all its entries are nonzero).  
+You are given that using the Laplace Expansion \cref{thm:letdet} to compute the determinant takes approximately~\(1.72\,n!\) multiplications.
 On a computer that does about~\(10^9\) multiplications per second, what is the largest sized matrix for which the determinant can be computed by Laplace Expansion in less than an hour?
-Detail your reasons.
+Detail \text{your reasons.}
 \answer{\(n=15\)}
 \end{exercise}
 

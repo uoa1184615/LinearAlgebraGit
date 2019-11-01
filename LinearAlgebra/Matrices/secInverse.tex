@@ -15,7 +15,7 @@ The previous \cref{sec:moaa} introduced addition, subtraction, multiplication, a
 Conspicuously missing from the list is `division' by a matrix---missing because division is complicated.
 This section develops `division' by a matrix as multiplication by the inverse of a matrix.
 The analogue in ordinary arithmetic is that division by ten is the same as multiplying by its reciprocal, one-tenth.
-But the inverse of a matrix looks almost nothing like a reciprocal.
+But the inverse of a matrix looks almost nothing like \text{a reciprocal.}
 
 
 \subsection{Introducing the unique inverse}
@@ -46,7 +46,7 @@ BA=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 \begin{bmatrix} 1&-1\\4&-3 \end{bmatrix}
 =\begin{bmatrix} 1&0\\0&1 \end{bmatrix}=I_2\,.
 \end{equation*}
-That these products are the identity---analogous to the number one in scalar arithmetic---means that the matrix~\(A\) has the same relation to the matrix~\(B\) as a number has to its reciprocal\slash inverse.
+Since the identity matrix is analogous to the number one in scalar arithmetic, that both these products are the identity means that the matrix~\(A\) has the same relation to the matrix~\(B\) as a number has to its reciprocal\slash inverse.
 \marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=12em
     , axis equal , axis lines=middle,
@@ -61,8 +61,7 @@ That these products are the identity---analogous to the number one in scalar ari
 Being the inverse, matrix~\(B\) `undoes' the action of matrix~\(A\)---as illustrated in the margin.
 The first picture shows multiplication by~\(A\) transforms the vector~\((2,1)\) to the vector~\((1,5)\): \(A\begin{bmat} 2\\1 \end{bmat}=\begin{bmat} 1\\5 \end{bmat}\).
 The second picture shows that multiplication by~\(B\) undoes the transform by~\(A\) because \(B\begin{bmat} 1\\5 \end{bmat}=\begin{bmat} 2\\1 \end{bmat}\) the original vector.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=12em
     , axis equal, axis lines=middle,
     , grid, xmax=4.5,ymax=5.5 ]
@@ -103,8 +102,7 @@ First compute
 \begin{align*}
 &AB=\begin{bmatrix} 1&-1&5\\-5&-1&3\\2&2&-6 \end{bmatrix}
 \begin{bmatrix} 0&-\frac14&-\frac18\\\frac32&1&\frac78\\ \frac12&\frac14&\frac38 \end{bmatrix}
-\\&=\footnotesize\let\cdt\cdot\def\cdot{\!\cdt\!}%squeeze it
-\begin{bmatrix} 
+\\&= \begin{bmat} 
 1\cdot0 -1\cdot\frac32 +5\cdot\frac12&
 1\cdot(-\frac14) -1\cdot1 +5\cdot\frac14&
 1\cdot(-\frac18) -1\cdot\frac78 +5\cdot\frac38\\
@@ -114,7 +112,7 @@ First compute
 2\cdot0 +2\cdot\frac32 -6\cdot\frac12&
 2\cdot(-\frac14) +2\cdot1 -6\cdot\frac14&
 2\cdot(-\frac18) +2\cdot\frac78 -6\cdot\frac38
-\end{bmatrix}
+\end{bmat}
 \\&=\begin{bmatrix} 1&0&0\\ 0&1&0\\ 0&0&1 \end{bmatrix}=I_3\,.
 \end{align*}
 Second compute
@@ -122,8 +120,7 @@ Second compute
 &BA=
 \begin{bmatrix} 0&-\frac14&-\frac18\\\frac32&1&\frac78\\ \frac12&\frac14&\frac38 \end{bmatrix}
 \begin{bmatrix} 1&-1&5\\-5&-1&3\\2&2&-6 \end{bmatrix}
-\\&=\footnotesize\let\cdt\cdot\def\cdot{\!\cdt\!}%squeeze it
-\begin{bmatrix}  
+\\&= \begin{bmat}  
       0\cdot1 -\frac14\cdot(-5) -\frac18\cdot2 &
       0\cdot(-1) -\frac14\cdot(-1) -\frac18\cdot2 &
       0\cdot5 -\frac14\cdot3 -\frac18\cdot(-6) \\
@@ -133,7 +130,7 @@ Second compute
 \frac12\cdot1 +\frac14\cdot(-5) +\frac38\cdot2 &
 \frac12\cdot(-1) +\frac14\cdot(-1) +\frac38\cdot2 &
 \frac12\cdot5 +\frac14\cdot3 +\frac38\cdot(-6) 
-\end{bmatrix}
+\end{bmat}
 \\&=\begin{bmatrix} 1&0&0\\ 0&1&0\\ 0&0&1 \end{bmatrix}=I_3\,.
 \end{align*}
 Since both of these products are the identity, then matrix~\(A\) is invertible, and \(B\)~is an inverse of~\(A\).
@@ -164,7 +161,7 @@ Prove that the matrix
 does not have an inverse.
 \begin{solution} 
 Assume there is an inverse matrix
-\(B=\begin{bmatrix} a&b\\c&d \end{bmatrix}\).
+\(B=\begin{bmat} a&b\\c&d \end{bmat}\).
 Then by \cref{def:invertible} the product \(AB=I_2\); that is,
 \begin{eqnarray*}
 AB&=&\begin{bmatrix} 1&-2\\-3&6 \end{bmatrix}
@@ -286,7 +283,7 @@ That is, if the determinant \(ad-bc=0\)\,, then the \(2\times2\) matrix is not i
 \paragraph{Computational considerations} 
 Except for easy cases such as \(2\times2\) matrices, we rarely explicitly compute the \idx{inverse} of a matrix.
 Computationally there are (almost) always better ways such as the \script\ operation~\verb|A\b| of \cref{pro:unisol}.
-The \idx{inverse} is a crucial theoretical device, but rarely a practical computational tool.
+The \idx{inverse} is a crucial theoretical device, but rarely a practical \text{computational tool.}
 
 
 \begin{quoted}{\index{Moler, Cleve}\parbox[t]{0.5\linewidth}{G.~E. Forsythe and C.~B. Moler, 1967 \cite[p.261]{Higham1996}}}
@@ -400,7 +397,7 @@ Remember the reversed order in the identity $(AB)^{-1}=B^{-1}A^{-1}$.
 \end{aside} 
 and \((AB)^{-1}=B^{-1}A^{-1}\);
 \item\label[theorem]{thm:invpropd} matrix \(\tr A\) is invertible and \((\tr A)^{-1}=\tr{(A^{-1})}\);
-\item\label[theorem]{thm:invprope} matrices \(A^p\) are invertible for all \(p=1,2,3,\ldots\) and \((A^p)^{-1}=(A^{-1})^p\).
+\item\label[theorem]{thm:invprope}  for every \(p=1,2,3,\ldots\), matrix \(A^p\) is invertible and \((A^p)^{-1}=(A^{-1})^p\).
 \end{enumerate}
 \end{theorem}
 
@@ -445,7 +442,7 @@ Consider
 \\&=&(A^{-1})^{p-1}A^{-1}\quad(\text{by inductive assumption})
 \\&=&(A^{-1})^p \quad(\text{by power law \cref{thm:pmmg}}).
 \end{eqnarray*}
-By induction, the identity \((A^{p})^{-1}=(A^{-1})^{p}\) holds for exponents \(p=1,2,3,\ldots\)\,. 
+By induction, the identity \((A^{p})^{-1}=(A^{-1})^{p}\) holds for every exponent \(p=1,2,3,\ldots\)\,. 
 \end{description}
 \end{proof}
 
@@ -500,7 +497,7 @@ upon using one of the power laws of \cref{thm:pmmg}.
 
 
 \begin{activity}
-The previous \cref{eg:a2x2negp} gives the inverse of a matrix~\(A\) and determines~\(A^{-2}\): what is~\(A^{-3}\)?
+The previous \cref{eg:a2x2negp} gives the inverse of a matrix~\(A\) and determines~\(A^{-2}\): what then is~\(A^{-3}\)?
 \actposs{\(\begin{bmatrix} -7&3\\-12&5 \end{bmatrix}\)}
 {\(\begin{bmatrix} 3&-7\\5&-12 \end{bmatrix}\)}
 {\(\begin{bmatrix} -7&-12\\3&5 \end{bmatrix}\)}
@@ -646,11 +643,11 @@ Since \verb|rcond| is~\(0.08\) (good by \cref{pro:unisol}), this code uses~\verb
 \index{diagonal matrix|(}
 
 This section and the next \cref{sec:omr} introduce two classes of matrices whose inverses we can easily write down and use.
-Importantly, the subsequent \cref{sec:fisvd} shows that both classes lie at the heart of every matrix via the matrix's singular value decomposition of a matrix!
+Importantly, the subsequent \cref{sec:fisvd} shows that both classes lie at the heart of every matrix via the singular value decomposition of the matrix!
 
-Recall that the identity matrices are zero except for a diagonal of ones from the top-left to the bottom-right of the matrix.
+Recall that identity matrices are zero except for a diagonal of ones from the top-left to the bottom-right of the matrix.
 Because of the nature of \idx{matrix multiplication} it is this diagonal that is special.
-Because of the special nature of this diagonal, this section explores matrices which are zero except for the numbers (not generally ones) in the top-left to bottom-right diagonal.
+Because of the special nature of this diagonal, this section explores matrices which are zero except for the numbers (not generally ones) in the top-left to \text{bottom-right diagonal.}
 
 \begin{example} \label{eg:4diag}
 That is, this section explores the nature of so-called diagonal matrices such as
@@ -750,11 +747,10 @@ Here prepare for using the \svd, but also use diagonal matrices to reinforce the
 
 \begin{reduce}
 \begin{example} 
-Solve \begin{equation*}
-\begin{bmatrix} 3&0\\0&2 \end{bmatrix}
+Solve 
+\(\begin{bmatrix} 3&0\\0&2 \end{bmatrix}
 \begin{bmatrix} x_1\\x_2 \end{bmatrix}
-=\begin{bmatrix} 2\\-5 \end{bmatrix}
-\end{equation*}
+=\begin{bmatrix} 2\\-5 \end{bmatrix}\).
 \begin{solution}
 Algebraically this matrix-vector equation means
 \begin{equation*}
@@ -818,7 +814,7 @@ which interestingly is simply the diagonal of reciprocals of the given matrix.
 
 
 \begin{activity}
-What is the solution to the system \(\begin{bmatrix} 0.4&0\\0&0.1 \end{bmatrix}\xv=\begin{bmatrix} 0.1\\-0.2 \end{bmatrix}\)?
+What is the solution to \(\begin{bmatrix} 0.4&0\\0&0.1 \end{bmatrix}\xv=\begin{bmatrix} 0.1\\-0.2 \end{bmatrix}\)?
 \actposs[4]{\((\frac14,-2)\)}{\((4,-2)\)}{\((\frac14,-\frac12)\)}{\((4,-\frac12)\)}
 \end{activity}
 
@@ -844,9 +840,8 @@ Consider the matrix product
 \\0&\frac1{d_2}&&0
 \\\vdots&&\ddots&\vdots
 \\0&0&\cdots&\frac1{d_n} \end{bmatrix}
-\\&=
-%\footnotesize%squeeze it in one way or another
-\begin{bmat} d_1\frac1{d_1}+0+\cdots+0
+\\&=\begin{bmat} 
+d_1\frac1{d_1}+0+\cdots+0
 &d_10+0\frac1{d_2}+\cdots+0
 &\cdots&d_10+0+\cdots+0\frac1{d_n}
 \\0\frac1{d_1}+d_20+\cdots+0
@@ -1028,7 +1023,7 @@ Consider \(A=\diag(3,2)=\begin{bmat} 3&0\\0&2 \end{bmat}\).
 The marginal pictures shows this matrix stretches the (blue) unit square (drawn with a `roof') by a factor of three horizontally and two vertically (to the red). 
 Recall that \((x_1,x_2)\) denotes the corresponding \idx{column vector}.  
 As seen in the corner points of the graphic in the margin,  \(A\times(1,0)=(3,0)\), \(A\times(0,1)=(0,2)\), \(A\times(0,0)=(0,0)\),  and \(A\times(1,1)=(3,2)\).   
-The `roof' just helps us to track which corner goes where.
+The `roof' just helps us to track which corner \text{goes where.}
 
 \marginpar{\TwoD{1/3}00{1/2}}%
 The inverse \(A^{-1}=\diag(\frac13,\frac12)=\begin{bmat} 1/3&0\\0&1/2 \end{bmat}\) undoes the stretching of the matrix~\(A\) by squashing in both the horizontal and vertical directions (from blue to red).  
@@ -1040,7 +1035,7 @@ The inverse \(A^{-1}=\diag(\frac13,\frac12)=\begin{bmat} 1/3&0\\0&1/2 \end{bmat}
 \begin{example} 
 Consider \(\diag(2,\frac23,-1)=\begin{bmat} 2&0&0\\0&2/3&0\\0&0&-1 \end{bmat}\): 
 the \idx{stereo pair} below illustrates how this diagonal matrix stretches in one direction, squashes in another, and reflects in the vertical.  
-By multiplying the matrix by corner vectors \((1,0,0)\), \((0,1,0)\), \((0,0,1)\), and so on, we see that the blue \idx{unit cube} (with `roof' and `door') maps to the red.
+By multiplying the matrix by the eight corner vectors, \((1,0,0)\), \((0,1,0)\), \((0,0,1)\), and so on, we see that the blue \idx{unit cube} (with `roof' and `door') maps to the red.
 \begin{center}
 \def\unithousesize{small}
 \ThreeD{2}000{2/3}000{-1}
@@ -1111,7 +1106,7 @@ This optional subsubsection is a preliminary to diagonalization.
 \end{aside}%
 Hence we often simplify our mathematical description of real world applications by choosing a \idx{coordinate system} to suit its nature.
 That is, although this book (almost) always draws the \(x\) or \(x_1\)~axis horizontally, and the \(y\) or \(x_2\)~axis vertically, in applications it is often better to draw the axes in some other  directions---directions which are convenient for the application.
-This example illustrates the principle.
+This example illustrates \text{the principle.}
 
 \begin{example} 
 Consider the transformation shown in the margin (it might arise from the deformation of some material and we need to know the internal stretching and shrinking to predict failure).
@@ -1152,14 +1147,14 @@ From the diagonal matrix we first look for a direction in which the transformati
 }}%
 from the marginal graph, this direction must be aligned along the diagonal top-left to bottom-right.
 Second, from the diagonal matrix we look for a direction in which the transformation reflects: from the marginal picture this direction must be aligned along the top-right to bottom-left.
-Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in the margin. 
+Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in \text{the margin.}
 \end{solution}
 \end{example}
 
 
 Finding such \idx{coordinate system}s in which a given real world transformation is diagonal is important in science, engineering, and computer science.
 Systematic methods for such diagonalization are developed in \cref{sec:fisvd,ch:eesm,ch:gee}.
-These rely on understanding the algebra and geometry of not only diagonal matrices, but also rotations, which is our next~topic.
+These rely on understanding the algebra and geometry of not only diagonal matrices, but also rotations, which is our \text{next topic.}
 \end{reduce}
 
 
@@ -1182,10 +1177,10 @@ These rely on understanding the algebra and geometry of not only diagonal matric
 
 Whereas diagonal matrices stretch and squash, the so-called 
 `orthogonal matrices' represent just \idx{rotation}s (and/or \idx{reflection}).
-For example, this section shows that multiplying by the `\idx{orthogonal matrix}'~\(\begin{bmat} 3/5&-4/5\\4/5&3/5 \end{bmat}\) rotates by~\(53.13^\circ\) as shown in the marginal picture.
+This section starts by showing that multiplying by the `\idx{orthogonal matrix}'~\(\begin{bmat} 3/5&-4/5\\4/5&3/5 \end{bmat}\) rotates by~\(53.13^\circ\) as shown in the marginal picture.
 \marginpar{\TwoD{3/5}{-4/5}{4/5}{3/5}}%
-Orthogonal matrices are the best to compute with, such as in solving \idx{linear equation}s, since they all have \(\verb|rcond|=1\)\,.
-To see these and related marvellous properties, we must explore the affect of matrix multiplication on the geometry of lengths and angles.
+Such orthogonal matrices are the best to compute with, such as in solving \idx{linear equation}s, since they all have \(\verb|rcond|=1\)\,.
+To see these and related marvellous properties, we must explore the affect of matrix multiplication on the geometry of lengths \text{and angles.}
 
 
 \index{dot product|(}
@@ -1230,6 +1225,9 @@ If the two vectors are at \idx{right-angles}, then the dot product is zero and t
 \index{orthonormal set|(}
 
 We need sets of \idx{orthogonal} vectors (nonzero vectors which are all at \idx{right-angles} to each other).
+\begin{aside}
+Recall that a \bfidx{set} of objects is denoted by a list of the objects enclosed within braces,~\(\{\ldots\}\).
+\end{aside}%
 One example is the set of \idx{standard unit vector}s \index{e@$\ev_j$}\(\{\hlist\ev n\}\) that are aligned with the \idx{coordinate axes} in~\(\RR^n\).  
 
 \needspace{6\baselineskip}
@@ -1310,14 +1308,16 @@ Which one of the following sets of vectors is \emph{not} an orthogonal set?
 \subsubsection{Orthogonal matrices}
 \index{orthogonal matrix|(}
 
-Now let's see how orthonormal vectors form a so-called orthogonal matrix and its marvellous properties.
+Now let's see how orthonormal vectors form a so-called orthogonal matrix and underlie its marvellous properties.
 
 \begin{example} 
 \cref{eg:orthogduo} showed \(\{(3,4),(-8,6)\}\) is an orthogonal set.  
 The vectors have lengths five and ten, respectively, so dividing each by their length means \(\{(\frac35,\frac45),(-\frac45,\frac35)\}\) is an \idx{orthonormal set}.
-Form the matrix~\(Q\) with these two vectors as its columns:
-\[Q%=\begin{bmatrix} \qv_1&\qv_2 \end{bmatrix}
-=\begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}.\]
+Form the matrix with these two vectors as its columns:
+\(Q%=\begin{bmatrix} \qv_1&\qv_2 \end{bmatrix}
+%=\begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}.
+=\begin{bmat} 3/5&-4/5\\4/5&3/5 \end{bmat}.
+\)
 Then consider
 \begin{equation*}
 \tr QQ=\begin{bmatrix} \frac35&\frac45\\-\frac45&\frac35 \end{bmatrix}
@@ -1430,7 +1430,7 @@ The marginal graph shows a rotation of the \idx{unit square}.
 From the graph estimate roughly the matrix~\(Q\) such that multiplication by~\(Q\) performs the rotation. 
 Confirm that your estimated matrix is orthogonal (approximately).
 \begin{solution} 
-Consider what happens to the standard unit vectors:  multiplying~\(Q\) by~\((1,0)\) gives~\((0.5,-0.9)\) roughly (to one decimal place); whereas multiplying~\(Q\) by~\((0,1)\) gives~\((0.9,0.5)\) roughly.
+Consider what happens to the standard unit vectors as shown in the graph:  multiplying~\(Q\) by~\((1,0)\) gives~\((0.5,-0.9)\) roughly (to one decimal place); whereas multiplying~\(Q\) by~\((0,1)\) gives~\((0.9,0.5)\) roughly.
 To do this the matrix~\(Q\) must have these two vectors as its two columns, that is,
 \begin{equation*}
 Q\approx\begin{bmatrix} 0.5&0.9\\-0.9&0.5 \end{bmatrix}.
@@ -1451,7 +1451,7 @@ Because orthogonal matrices represent rotations, they arise frequently in engine
 Also, the ease in solving equations with orthogonal matrices puts orthogonal matrices at the heart of coding and decoding photographs (\idx{jpeg}), videos (mpeg), signals (\idx{Fourier transform}s), and so on.
 Furthermore, an extension of orthogonal matrices to \idx{complex valued} matrices, the so-called unitary matrices, is at the core of quantum physics and quantum computing.
 Moreover, the next \cref{sec:fisvd} establishes that orthogonal matrices express the \idx{orientation} of the action of \emph{every} matrix and hence are a vital component of solving linear equations in general.
-But to utilize orthogonal matrices across the wide range of applications we need to establish the following properties.
+But to utilize orthogonal matrices across the wide range of applications we need to establish the \text{following properties.}
 
 
 
@@ -1557,7 +1557,7 @@ Look at the consequences of matrix~\(Q\) preserving all lengths and angles when 
 Observe \(Q\ev_j=\qv_j\)\,, the \(j\)th~column of matrix~\(Q\).
 Then for all~\(j\), the length of the \(j\)th~column \(|\qv_j|=|Q\ev_j|=|\ev_j|=1\) by the preservation of the length of the standard unit vector.
 Also, for all~\(i\neq j\) the dot product of columns \(\qv_i\cdot\qv_j=|\qv_i||\qv_j|\cos\theta'=1\cdot1\cdot\cos\frac\pi2=0\) where \(\theta'\)~is the angle between \(\qv_i\) and~\(\qv_j\) which is the angle between \(\ev_i\) and~\(\ev_j\) by preservation, namely the angle~\(\frac\pi2\).
-That is, the columns of~\(Q\) form an orthonormal set. 
+That is, the columns of~\(Q\) form an \text{orthonormal set.}
 
 %\item[\ref{thm:orthog:v}]  Exercise: consider \(\tr{(Q_1Q_2)}Q_1Q_2\).
 \end{description}
@@ -1710,7 +1710,7 @@ Could have a section on GF(2): that is, inverses of 0-1 matrices mod 2??  Releva
 
 
 \begin{exercise} \label{ex:abinv} 
-By direct multiplication, both ways, confirm that for each of the following pairs, matrix~\(B\) is an inverse of matrix~\(A\), or not.
+By direct multiplication, both ways, for each of the following pairs of matrices, confirm whether matrix~\(B\) is an inverse of matrix~\(A\), or not.
 \begin{enumerate}
 % a=round(randn(4)*3)+0, b=inv(a)+0
 \item \(A=\begin{bmatrix} 0&-4
@@ -2014,11 +2014,9 @@ Consider \cref{thm:invprop} on the properties of the inverse. Invoking propertie
 
 \begin{exercise}  
 Recall the properties of the inverse, \cref{thm:invprop}, and matrix operations, \cref{sec:fapmo}.
-\begin{aside}
-This is the \idx{Woodbury generalization} of the \idx{Sherman--Morrison formula}.  
-It is used to update matrices while searching for optima and solutions.
-\end{aside}%
-Use these properties to prove that for every \(n\times n\) invertible matrix~\(A\), and every pair of \(n\times m\) matrices~\(U\) and~\(V\) such that \(I_m+\tr VA^{-1}U\) is invertible, then the matrix \(A+U\tr V\) is invertible and
+Use these properties to prove that for every \(n\times n\) invertible matrix~\(A\), and every pair of \(n\times m\) matrices~\(U\) and~\(V\) such that \(I_m+\tr VA^{-1}U\) is invertible, then the matrix \(A+U\tr V\) is invertible and%
+\footnote{This is the \idx{Woodbury generalization} of the \idx{Sherman--Morrison formula}.  
+It is used to update matrices while searching for optima and solutions.}
 \begin{equation*}
 (A+U\tr V)^{-1}=A^{-1}-(A^{-1}U)(I_m+\tr VA^{-1}U)^{-1}(\tr VA^{-1}).
 \end{equation*}
@@ -2257,8 +2255,8 @@ Hence, where possible solve each system.
 
 \begin{exercise}  
 In each of the following illustrations, the \idx{unit square} (blue, with `roof') is transformed by a \idx{matrix multiplication} to some shape (red).
-Which of these transformations correspond to multiplication by a \idx{diagonal matrix}?  
-For those that are, estimate the \idx{elements} of the diagonal matrix.
+Which of these transformations appear to correspond to multiplication by a \idx{diagonal matrix}?  
+For those that are, estimate the \idx{elements} of the \text{diagonal matrix.}
 % round([randn+0.5 randn(1,2)/2 randn+0.5]*10)/10+0
 \begin{Parts}
 \item \TwoD2001
@@ -2302,8 +2300,8 @@ For those that are, estimate the \idx{elements} of the diagonal matrix.
 
 \begin{exercise}  
 In each of the following stereo illustrations, the \idx{unit cube} (blue) is transformed by a \idx{matrix multiplication} to some shape (red).
-Which of these transformations correspond to multiplication by a \idx{diagonal matrix}?  
-For those that are, estimate the \idx{elements} of the diagonal matrix.
+Which of these transformations appear to correspond to multiplication by a \idx{diagonal matrix}?  
+For those that are, estimate the \idx{elements} of the \text{diagonal matrix.}
 % round((randn(3)/2+diag(rand(3,1)))*10)/10+0
 \begin{enumerate}
 \def\unithousesize{small}
@@ -2643,7 +2641,7 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 
 
 \begin{exercise}  
-Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, solve each of the following systems of \idx{linear equation}s by a matrix-vector multiplication.
+Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, solve each of the following systems of \idx{linear equation}s by a single matrix-vector multiplication.
 \begin{enumerate}
 \item \(\begin{cases}
 \frac35x+\frac45y=5

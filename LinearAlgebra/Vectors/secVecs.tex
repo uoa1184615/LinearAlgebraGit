@@ -2,7 +2,7 @@
 
 \section{Vectors have magnitude and direction}
 \label{sec:vhmd}
-\secttoc
+%\secttoc
 \index{magnitude|(}
 
 \begin{quoted}{(Hamlet I.5:159--167)}
@@ -21,7 +21,7 @@ Given two points in space, say~\(A\) and~\(B\), the displacement vector~\(\ovect
 \newcommand{\tmp}[6]{
   \addplot[blue,thick,quiver={u=#5-#2,v=#6-#3},-stealth] coordinates {(#2,#3)};
   \node[below] at (axis cs:#2,#3) {$#1$};
-  \node[below] at (axis cs:#5,#6) {$#4$};}
+  \node[below] at (axis cs:#5,#6) {$#4$};}%
 \newcommand{\temp}[1]{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal,  xlabel={$x_1$}, ylabel={$x_2$},
@@ -32,8 +32,8 @@ Given two points in space, say~\(A\) and~\(B\), the displacement vector~\(\ovect
   \tmp C2{-1}D{-1}3
   \ifnum0=#1\else\node[below] at (axis cs:0,0) {\quad$O$};\fi
 \end{axis}
-\end{tikzpicture}}
-\marginpar{\temp0}
+\end{tikzpicture}}%
+\marginpar{\temp0}%
 For example, if your home is at position~\(A\) and your school at position~\(B\), then travelling from home to school is to move by the amount of the displacement vector~\(\ovect{AB}\).
 
 To be able to manipulate vectors we describe them with numbers.
@@ -52,7 +52,7 @@ The next important class of vectors are the \bfidx{position vector}s.
 Given some chosen fixed origin in space, then \(\ovect{OA}\)~is the \idx{position vector} of the point~\(A\).
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
-  \node[below] at (axis cs:#2,#3) {$#1$};}
+  \node[below] at (axis cs:#2,#3) {$#1$};}%
 \newcommand{\temp}[1]{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, xlabel={$x_1$}, ylabel={$x_2$},
@@ -101,7 +101,7 @@ Choosing coordinate axes oriented to the East and the North, the direction of th
 Trigonometry then tells us that the Eastward part of the speed of the airplane is \(900\cos(22.5^\circ)=831.5\)\,km/hr, whereas the Northward part of the speed is \(900\sin(22.5^\circ)=344.4\)\,km/hr (as indicated in the margin).
 \marginpar{\temp1}%
 Further, the airplane is in level flight, not going up or down, so in the third direction of space (vertically) its speed component is zero.
-Putting these together forms the velocity vector \((831.5,344.4,0)\) in~km/hr in space.
+Putting these together forms the velocity vector \((831.5,344.4,0)\) in~km/hr \text{in space.}
 
 Another airplane takes off from an airport at~\(360\)\,km/hr to the northwest and climbs at~\(2\)\,m/s.
 The direction northwest is~\(45^\circ\) to the East-West lines and \(45^\circ\) to the North-South lines.  
@@ -118,7 +118,7 @@ Trigonometry then tells us that the Westward speed of the airplane is \(360\cos(
 \end{tikzpicture}}%
 But West is the opposite direction to East, so if the coordinate system treats East as positive, then West must be negative.
 Consequently, together with the climb in the vertical, the velocity vector is \((-254.6\)\,km/hr,\(254.6\)\,km/hr,\(2\,\)m/s\()\).
-But it is best to avoid mixing units within a vector, so here convert all speeds to~m/s: here \(360\)\,km/hr upon dividing by~\(3600\)\,secs/hr and multiplying by \(1000\)\,m/km gives \(360\)\,km/hr\({}=100\)\,m/s.
+But we should avoid mixing units within a vector, so here convert all speeds to~m/s: here \(360\)\,km/hr upon dividing by~\(3600\)\,secs/hr and multiplying by \(1000\)\,m/km gives \(360\)\,km/hr\({}=100\)\,m/s.
 Then the North and West speeds are both \(100\cos(\tfrac\pi4)=70.71\)\,m/s.
 Consequently, the \idx{velocity vector} of the climbing airplane should be described as \((-70.71,70.71,2)\) in~m/s.
 \end{example}
@@ -233,12 +233,13 @@ Hence \(\RR^1\)~is effectively the same as the set of real numbers labelling tha
 As just introduced for the zero vector~\ov, this book generally denotes vectors by a bold letter (except for \idx{displacement vector}s).
 The other common notation you may see elsewhere is to denote vectors by a small over-arrow such as in the ``zero vector~\(\arrowvec0\)\,''.
 Less commonly, some books and articles use an over- or under-tilde~(\(\sim\)) to denote vectors.
-Be aware of this different notation in reading other books.
+Be aware of this different notation in reading \text{other books.}
 
 
 
 Question: why do we need vectors with \(n\)~components, in~\(\RR^n\), when the world around us is only three dimensional?
-Answer: because vectors can encode much more than spatial structure as in the next example. 
+Answer: because vectors can encode much more than just spatial structure.
+The next example illustrates another use \text{of vectors.}
 
 
 \begin{example}[\idx{linguistic vector}s] \label{eg:deflsv}
@@ -250,10 +251,10 @@ Consider the following four sentences.
 \item The dog scratched.
 \end{enumerate}
 These four sentences involve up to three objects, cat, dog and mat, and two actions, sat and scratched.  
-Some characteristic of the sentences is captured simply by counting the number of times each of these three objects and two actions appear in each sentence, and then forming a vector from the counts.
-Let's use vectors \(\wv=(N_{\text{cat}}, N_{\text{dog}}, N_{\text{mat}}, N_{\text{sat}}, N_{\text{scratched}})\) where the various~\(N\) are the counts of each word (\wv~for words). 
+Some characteristic of each of the sentences is captured simply by counting the number of times each of these three objects and two actions appear in each sentence, and then forming a vector from the counts.
+Let's use vectors \(\sloppy\wv=(N_{\text{cat}}, N_{\text{dog}}, N_{\text{mat}}, N_{\text{sat}}, N_{\text{scratched}})\) where the various~\(N\) are the counts of each word (\wv~for words). 
 The previous statement implicitly specifies that we use five \idx{coordinate axes}, perhaps labelled ``cat'', ``dog'', ``mat'', ``sat'' and ``scratched'', and that distance along each axis represents the number of times the corresponding word is used.
-These \idx{word vector}s are in~\(\RR^5\).
+These \idx{word vector}s are in~\(\RR^5\) as there are five components in each vector~\wv.
 Then
 \begin{enumerate}
 \item ``The dog sat on the mat'' is summarized by the vector \(\wv=(0,1,1,1,0)\).
@@ -269,7 +270,7 @@ In application we would not just count words for objects (nouns) and actions (ve
 
 People generally know and use thousands of words.
 Consequently, in practice, such word vectors typically have thousands of components corresponding to coordinate axes of thousands of distinct words.
-To cope with such vectors of many components, modern linear algebra has been developed to powerfully handle problems involving vectors with thousands, millions or even an `infinite number' of components.
+To cope with such vectors of many components, modern linear algebra has been developed to powerfully handle problems involving vectors with thousands, millions, or even an `infinite number' of components.
 \end{example}
 
 \begin{table}
@@ -278,16 +279,16 @@ To cope with such vectors of many components, modern linear algebra has been dev
 \paragraph{King -- man + woman = queen}
 \begin{quoted}{Technology Review, 2015}
 Computational linguistics has dramatically changed the way researchers study and understand language. 
-The ability to number-crunch huge amounts of words for the first time has led to entirely new ways of thinking about words and their relationship to one another.
+The ability to number-crunch huge amounts of words for the first time has led to entirely new ways of thinking about words and their relationship to \text{one another.}
 
 This number-crunching shows exactly how often a word appears close to other words, an important factor in how they are used. 
 So the word Olympics might appear close to words like running, jumping, and throwing but less often next to words like electron or stegosaurus.  
-This set of relationships can be thought of as a multidimensional vector that describes how the word Olympics is used within a language, which itself can be thought of as a vector space.  
+This set of relationships can be thought of as a multidimensional vector that describes how the word Olympics is used within a language, which itself can be thought of as a \text{vector space.}
 
 And therein lies this massive change. 
 This new approach allows languages to be treated like vector spaces with precise mathematical properties. 
 Now the study of language is becoming a problem of vector space mathematics.
-\footnote{\url{http://www.technologyreview.com/view/541356} [Oct 2015]}
+\footnote{\url{http://www.technologyreview.com/view/541356} [Oct 2019]}
 \end{quoted}
 \end{minipage}
 \hrule
@@ -297,7 +298,7 @@ Now the study of language is becoming a problem of vector space mathematics.
 
 
 \begin{activity}
-Given \idx{word vector}s \(\wv=(N_{\text{cat}}\clb N_{\text{dog}}\clb N_{\text{mat}}\clb N_{\text{sat}}\clb N_{\text{scratched}})\) as in \cref{eg:deflsv},
+Given \idx{word vector}s \(\sloppy\wv=(N_{\text{cat}}, N_{\text{dog}}, N_{\text{mat}}, N_{\text{sat}}, N_{\text{scratched}})\) as in \cref{eg:deflsv},
 which of the following has word vector \(\wv=(2,2,0,2,1)\)?
 \actposs[1]
 {``A dog sat.  A cat scratched the dog.  The cat sat.''}
@@ -320,8 +321,11 @@ which of the following has word vector \(\wv=(2,2,0,2,1)\)?
 
 \begin{definition}[Pythagoras] \label{def:veclen}
 For every \idx{vector} \(\vv=(\hlist vn)\) in~\(\RR^n\),
-define the \bfidx{length} (or \bfidx{magnitude}) of vector~\vv\  to be the real number~(\(\geq0\))
+define the \bfidx{length}, or \bfidx{magnitude}, of a vector~\vv\  to be the real number~(\(\geq0\))
 \index{$\vert\cdot\vert$|textbf} 
+\begin{aside}
+Remember that the term \emidx{size} denotes the number of components in a vector (\cref{def:vecs}) and so ``size'' should not be used for the length\slash magnitude of a vector.
+\end{aside}
 \begin{equation*}
 |\vv|:=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\,.
 \end{equation*}
@@ -360,13 +364,13 @@ Find the \idx{length}s of the following vectors.
 \end{example}
 
 \begin{example} 
-Write down three different vectors, all three with the same number of components, that are (a)~of \idx{length}~\(5\), (b)~of length~\(3\), and (c)~of length~\(-2\).
+Write down three different vectors, all three with the same number of components, for each of the following cases: (a)~of \idx{length}~\(5\), (b)~of length~\(3\), and (c)~of length~\(-2\).
 \begin{solution} 
 \begin{enumerate}
 \item Humans knew of the \(3:4:5\) right-angled triangle thousands of years ago, so perhaps one answer could be \((3,4)\), \((-4,3)\) and~\((5,0)\).
 \item One answer might be \((3,0,0)\), \((0,3,0)\) and~\((0,0,3)\). 
-A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading to an answer of \((1,2,2)\), \((2,-1,2)\) and~\((-2,2,1)\).
-\item Since the length of a vector is~\(\sqrt{\cdots}\) which is always positive or zero, the length cannot be negative, so there is no possible answer to this last request.
+A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading to an answer of perhaps~\((1,2,2)\), \((2,-1,2)\) and~\((-2,2,1)\).
+\item Since the length of a vector is~\(\sqrt{\cdots}\) which is always positive or zero, the length cannot be negative, so there is no possible answer to this last case.
 \end{enumerate}
  
 \end{solution}

@@ -16,7 +16,7 @@
 The previous \cref{sec:isle} solved some example systems of linear equations by hand algebraic manipulation.  
 We  continue to do so for small systems.  
 However, such by-hand solutions are tedious for systems bigger than say four equations in four unknowns.  
-For bigger systems with anything from tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious repetitive calculations.
+For bigger systems with anything from tens to millions of equations---which are typical in applications---we use computers to find solutions because computers are ideal for tedious \text{repetitive calculations.}
 
 
 \subsection{Compute a system's solution}
@@ -40,8 +40,8 @@ That is, the system \(\begin{cases} x+y=3\\2x-4y=0 \end{cases}\)
 is equivalent to \(A\xv=\bv\) for
 \begin{itemize}
 \item the so-called coefficient matrix \(A=\begin{bmatrix} 1&1\\2&-4 \end{bmatrix}\), 
-\item right-hand side vector \(\bv=(3,0)\), and 
-\item vector of variables \(\xv=(x,y)\).
+\item the right-hand side vector \(\bv=(3,0)\), and 
+\item the vector of unknown variables \(\xv=(x,y)\).
 \end{itemize}
 
 \end{example}
@@ -52,8 +52,8 @@ The beauty of the form \(A\xv=\bv\) is that the numbers involved in the system a
 In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
 \cref{sec:moaa} then defines a crucial multiplicative meaning to the composite symbol~`\(A\xv\)'. 
 \end{aside}%
-For some of you, writing a system in this \idx{matrix-vector form} \(A\xv=\bv\) (\cref{def:matvecsys} below) will appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
-However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \cref{sec:moaa} defines and explores such useful operations.
+For some of you, writing a system in this \idx{matrix-vector form} \(A\xv=\bv\) (\cref{def:matvecsys} below) may appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
+However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \cref{sec:moaa} defines and explores such \text{useful operations.}
 
 \begin{definition}[matrix-vector form] \label{def:matvecsys}
 For every given \idx{system} of \(m\)~\idx{linear equation}s in \(n\)~variables
@@ -130,7 +130,7 @@ Which of the following systems correspond to the matrix-vector equation
 In \script, to solve the matrix-vector system \(A\xv=\bv\) for a \idx{square matrix}~\(A\), use commands listed in \cref{tbl:mtlbpre,tbl:mtlbbasics} to:
 \begin{enumerate}
 \item form matrix~\(A\) and \idx{column vector}~\(\bv\);
-\item check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| exists and is not too small, \(1\geq\text{good} >10^{-2} >\text{poor} >10^{-4} >\text{bad} >10^{-8} >\text{terrible}\), (\verb|rcond(A)| is always between zero and one inclusive);
+\item check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| exists and is not too small, \(1\geq\text{good} >10^{-2} >\text{poor} >10^{-4} >\text{bad} >10^{-8} >\text{terrible}\), (\verb|rcond(A)| is always between zero and one, inclusive);
 \item if \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| both exists and is acceptable, then execute \verb|x=A\b|\index{A\slosh@\texttt{A\slosh}} to compute the solution vector~\(\xv\). 
 \end{enumerate}
 \end{procedure}
@@ -140,7 +140,7 @@ Checking \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| avoids gross mistakes.
 \cref{sec:svdsgs} discovers what \verb|rcond()| is, and why \verb|rcond()| avoids mistakes.%
 \footnote{Interestingly, there are incredibly rare pathological matrices for which even \texttt{rcond()} and~\texttt{A\slosh} do fail us \cite[]{Driscoll07}.  
 For example, among \(32\times32\) matrices the probability is about~\(10^{-22}\) of encountering a matrix for which \texttt{rcond()} misleads us by more than a factor of a hundred in using~\texttt{A\slosh}.}
-In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond()| in \cref{pro:unisol} reflect practical realities.
+In practice, decisions about acceptability are rarely black and white, and so the qualitative ranges of \verb|rcond()| in \cref{pro:unisol} reflect \text{practical realities.}
 
 \begin{quoted}{Jan L.~A. van de Snepscheut\index{van de Snepscheut, Jan L.~A.}}
 In theory, there is no difference between theory and practice. 
@@ -157,7 +157,7 @@ But, in practice, there is.
 \item The \idx{floating point} numbers are extended by \index{Inf@\texttt{Inf}|textbf}\verb|Inf|, denoting `\idx{infinity}', and \index{NaN@\texttt{NaN}|textbf}\verb|NaN|, denoting `\idx{not a number}' such as the indeterminate~\(0/0\).
 \item \index{[\ldots]@\texttt{[\ldots]}|textbf}\verb|[ ... ; ... ; ... ]| forms both matrices and vectors, or use newlines instead of the semi-colons.
 \item \index{rcond()@\texttt{rcond()}|textbf}\verb|rcond(A)|  of a \idx{square matrix}~\(A\) \emph{estimates} the reciprocal of the so-called \idx{condition number} of~\(A\) (defined precisely by \cref{def:condnum}).
-\item \index{A\slosh@\texttt{A\slosh}|textbf}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but it may not be a solution unless \verb|rcond(A)| exists and is not small;
+\item \index{A\slosh@\texttt{A\slosh}|textbf}\verb|x=A\b| computes an `answer' to \(A\xv=\bv\)\,---but to be a solution requires \verb|rcond(A)| to both exist and be not small;
 \item \index{=@\texttt{=}|textbf}Change one element of an array or vector by assigning a new value with assignments \verb|A(i,j)=...| or \verb|b(i)=...| where \verb|i| and~\verb|j| denote some indices.
 \item \index{.^@\texttt{.\^}|textbf}For a vector (or matrix) \verb|t| and an exponent~\verb|p|, the operation \verb|t.^p| computes the \verb|p|th~power of each element in the vector; for example, if \verb|t=[1;2;3;4;5]| then \verb|t.^2| results in \verb|[1;4;9;16;25]|.
 \item The function \index{ones()@\texttt{ones()}|textbf}\verb|ones(m,1)| gives a (column) vector of \(m\)~ones, \((1,1,\ldots,1)\).
@@ -188,7 +188,7 @@ Then the three steps of \cref{pro:unisol} are the following.
 \begin{enumerate}
 \item Form matrix~\(A\) and {column vector}~\(\bv\) with the \script\ assignments
 \begin{aside}
-Beware that the symbol~``\texttt{=}'' in \script\ is a procedural 
+Remember that the symbol~``\texttt{=}'' in \script\ is a procedural 
 assignment of a value---very different in nature to the~``\(=\)'' in 
 algebra which denotes \idx{equal}ity.
 \end{aside}%
@@ -224,7 +224,7 @@ Such \idx{qr-code}s in the margin encode these commands for you to possibly scan
 
 \begin{activity}
 % for i=1:9999,a=0+round(randn(2)*50); if ismember(abs(det(a)),[1 2 5 10]), break, end, end,  a=a, b=0+round(randn(2,1)*50), x=a\b, a'\b
-Use \script\ to solve the system \(7x+8y=42\) and \(32x+38y=57\), to find the answer for \((x,y)\) is
+Use \script\ to solve the system \(7x+8y=42\) and \(32x+38y=57\), to find the answer for \((x,y)\) is which of the following?
 \actposs[4]{\(\begin{bmatrix} 114\\-94.5 \end{bmatrix}\)}
 {\(\begin{bmatrix} -94.5\\114 \end{bmatrix}\)}
 {\(\begin{bmatrix} 73.5\\342 \end{bmatrix}\)}
@@ -330,7 +330,7 @@ A=[1  -2   3   1   2
   -2  -2   1   1  -2 ]
 b=[7;-1;-9;-3;5]
 \end{verbatim}
-Check: first find \verb|rcond(A)| is acceptably~\(0.020\), and so then compute the solution via \verb|x=A\b| to find the result
+Check: first find \verb|rcond(A)| is acceptably~\(0.020\), and so then compute the solution via \verb|x=A\b| to obtain the result
 \setbox\ajrqrbox\hbox{\qrcode{% solve 5 eqns in 5 variables
 A=[1  -2   3   1   2
   -2  -6  -3  -2   2
@@ -416,7 +416,7 @@ Solving linear equations helps: \begin{itemize}
 &=&\frac{A(x+2)+B(x-1)}{(x-1)(x+2)}
 \\&=&\frac{(A+B)x+(2A-B)}{(x-1)(x+2)}
 \end{eqnarray*}
-and this equals \(\frac3{(x-1)(x+2)}\) only if both \(A+B=0\) and \(2A-B=3\)\,; 
+and, by comparing numerators, this equals \(\frac3{(x-1)(x+2)}\) only if both \(A+B=0\) and \(2A-B=3\)\,; 
 \item solving these two linear equations gives the required \(A=1\) and \(B=-1\) to determine the decomposition \(\frac3{(x-1)(x+2)}=\frac1{x-1}-\frac1{x+2}\)\,.
 \end{itemize}
 
@@ -643,7 +643,7 @@ Given your phone also detects that four other satellites broadcast the following
 \((17,14,10)\) time shift~\(0.033\cdots\)\,s before;
 \((8,21,10)\) time shift~\(0.033\cdots\)\,s before; and
 \((22,9,8)\) time shift~\(0.04\)\,s before.
-Adapting the approach of \cref{eg:gps2}, use linear algebra to determine your phone's location in space.
+Adapting the approach of \cref{eg:gps2}, use linear algebra to determine your phone's location \text{in space.}
 
 \begin{solution} 
 Let your unknown position be~\((x,y,z)\) and the unknown time shift to the phone's clock~\(t\) be found from \(w=300t\)\,.
@@ -657,15 +657,15 @@ Then the five equations from the five satellites are, respectively,
 \end{eqnarray*}
 Expand all the squares in these equations:
 \begin{eqnarray*}
-&&x^2-12x+36+y^2-24y+144+z^2-46z+529\\&&{}=w^2+24w+144\,,
-\\&&x^2-26x+169+y^2-40y+400+z^2-24z+144\\&&{}=w^2+24w+144\,,
-\\&&x^2-34x+289+y^2-28y+196+z^2-20z+100\\&&{}=w^2+20w+100\,,
-\\&&x^2-16x+64+y^2-42y+441+z^2-20z+100\\&&{}=w^2+20w+100\,,
-\\&&x^2-44x+484+y^2-18y+81+z^2-16z+64\\&&{}=w^2+24w+144\,.
+&&x^2-12x+36+y^2-24y+144+z^2-46z+529=w^2+24w+144\,,
+\\&&x^2-26x+169+y^2-40y+400+z^2-24z+144=w^2+24w+144\,,
+\\&&x^2-34x+289+y^2-28y+196+z^2-20z+100=w^2+20w+100\,,
+\\&&x^2-16x+64+y^2-42y+441+z^2-20z+100=w^2+20w+100\,,
+\\&&x^2-44x+484+y^2-18y+81+z^2-16z+64=w^2+24w+144\,.
 \end{eqnarray*}
-As before, these are a system of \idx{nonlinear equation}s and so outside the remit of the course, but a little algebra brings them within.
+As before, these form a system of \idx{nonlinear equation}s and so appear outside the remit of the course, but a little algebra brings them within.
 Subtract the last equation, say, from each of the first four equations: then \emph{all} of the nonlinear squares of variables cancel leaving a linear system.
-Combining the constants on the right-hand side, and moving the \(w\)~terms to the left gives the system of four linear equations
+Combining the constants on the right-hand side, and moving the \(w\)~terms to the left gives this system of four linear equations:
 \begin{eqnarray*}
 &&32x-6y-30z+0w=-80\,,
 \\&&18x-22y-8z+0w=-84\,,
@@ -727,10 +727,10 @@ This and the next subsection are not essential, but many further courses current
 \end{aside}
 This subsection systematises the algebraic working of \cref{eg:2eqs2vars,eg:3eq3var}.
 The systematic approach empowers by-hand solution of systems of linear equations, together with two general properties on the number of solutions possible.
-The algebraic methodology invoked here also reinforces algebraic skills that will help in further courses.
+The algebraic methodology invoked here also reinforces algebraic skills that will help in \text{further courses.}
 
 In hand calculations we often want to minimize writing, so the discussion here uses two forms side-by-side for the linear equations: one form with all symbols recorded for best clarity; and beside it, one form where only coefficients are recorded for quickest writing.
-Translating from one to the other is crucial even in a computing era as the computer also primarily deals with arrays of numbers, and we must interpret what those arrays of numbers mean in terms of linear equations.
+Translating from one to the other is crucial even in a computing era as the computer also primarily deals with arrays of numbers, and we must interpret what those arrays of numbers mean in terms of \text{linear equations.}
 
 \begin{example} 
 Recall the system of linear equations of \cref{eg:3eq3var}:
@@ -827,7 +827,8 @@ We just address the system of equations form as the augmented matrix form is equ
 \item Let vector~\xv\ satisfy \(\lincomb axn=b\)\,.
 Then \(\lincomb{ca}xn=c(\lincomb axn)=cb\) and so~\xv\ satisfies \(c\)~times the equation.
 When the constant~\(c\) is nonzero, the above can be reversed through dividing by~\(c\).
-Hence multiplying an equation by a nonzero constant~\(c\) does not change the possible solutions.
+Hence multiplying an equation by a nonzero constant~\(c\) does not change the \text{possible solutions.}
+
 \item 
 Let vector~\xv\ satisfy both \(\lincomb axn=b\) and \(\lincomb{a'}xn=b'\).
 Then
@@ -839,7 +840,8 @@ Then
 \end{eqnarray*}
 That is, \xv~also satisfies the equation formed by adding \(c\)~times the first to the second.
 Conversely, every vector~\xv\ that satisfies both \(\lincomb axn=b\) and \((a'_1+ca_1)x_1+(a'_2+ca_2)x_2+\cdots+(a'_n+ca_n)x_n=b'+cb\), by adding \((-c)\)~times the first to the second as above, also satisfies \(\lincomb{a'}xn=b'\).
-Hence adding a multiple of an equation to another does not change the possible solutions.
+Hence adding a multiple of an equation to another does not change the \text{possible solutions.}
+
 \end{enumerate}
 \end{proof}
 
@@ -928,7 +930,7 @@ x+0y+0z=7\\ 0x+y+0z=4\\ 0x+0y+z=-14
 \begin{bmatrix} 1&0&0\V7\\0&1&0\V4\\0&0&1\V-14 \end{bmatrix}
 \end{eqnarray*}
 This completes the transformation of the equations\slash augmented matrix into a so-called \idx{reduced row echelon form} (\cref{def:rref}).
-From this form we read off the solution:  the system of equation on the left directly gives \(x=7\)\,, \(y=4\) and \(z=-14\)\,, that is, the solution vector \(\xv=(x,y,z)=(7,4,-14)\) (as computed by \script);
+From this form we read off the solution:  the system of equations on the left directly gives \(x=7\)\,, \(y=4\) and \(z=-14\)\,, that is, the solution vector \(\xv=(x,y,z)=(7,4,-14)\) (as computed by \script);
 the transformed augmented matrix on the right tells us exactly the same thing because (\cref{def:augmat}) it means the same as the matrix-vector 
 \begin{equation*}
 \begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}
@@ -1083,7 +1085,7 @@ Which one of the following is a \idx{general solution} to the system with \idx{a
 
 The previous \cref{eg:rref} shows that given a system of linear equations in \idx{reduced row echelon form} we can either immediately write down all solutions, or immediately determine if none exists.
 Generalizing \cref{eg:erowops}, the following Gauss--Jordan procedure uses elementary row operations (\cref{thm:erowop}) to find an equivalent system of equations in \idx{reduced row echelon form}. 
-From such a form we then write down a general solution.
+From such a form we then write down a \text{general solution.}
 
 
 
@@ -1225,7 +1227,7 @@ That is, the solutions are \((u,v,w)=(-\frac34-\frac14t,\frac12+\frac32t,t)\) fo
 
 The number of possible solutions to a system of equations is fundamental.  
 We need to know all the possibilities.
-As seen in previous examples, the following theorem says there are only three possibilities for linear equations.
+As seen in previous examples, the following theorem says there are only three possibilities for \text{linear equations.}
 
 \begin{theorem} \label{thm:fred}
 For every system of linear equations \(A\xv=\bv\)\,, exactly one of the following is true:
@@ -1243,7 +1245,7 @@ After studying \cref{sec:svdsgs}, this theorem could alternatively be proved dir
 \begin{proof} 
 First, if there is exactly none or one solution to \(A\xv=\bv\), then the theorem holds. 
 Second, suppose there are two distinct solutions; let them be \(\yv\) and~\(\zv\) so \(A\yv=\bv\) and \(A\zv=\bv\).  
-Then consider \(\xv=t\yv+(1-t)\zv\) for all~\(t\) (a parametric description of the line through~\yv\ and~\zv, \cref{sec:pel}). 
+Then consider \(\xv=t\yv+(1-t)\zv\) for every~\(t\) (a parametric description of the line through~\yv\ and~\zv, \cref{sec:pel}). 
 %By distributivity \(A\xv=A(t\xv_1+(1-t)\xv_2) =tA\xv_1+(1-t)A\xv_2 =t\bv+(1-t)\bv =t\bv+\bv-t\bv =\bv\).  
 Consider the first row of~\(A\xv\): by \cref{def:matvecsys} it is
 \begin{eqnarray*}&&
@@ -1261,8 +1263,8 @@ a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
 \\&=&b_1\,.
 \end{eqnarray*}
 Similarly for all rows of~\(A\xv\): that is, each row in \(A\xv\) equals the corresponding element of~\bv.
-Consequently, \(A\xv=\bv\) for all~\(t\). 
-Hence, if there are ever two distinct solutions, then there are an infinite number of solutions: \(\xv=t\yv+(1-t)\zv\) for all~\(t\).
+Consequently, \(A\xv=\bv\) for every~\(t\). 
+Hence, if there are ever two distinct solutions, then there are an infinite number of solutions: \(\xv=t\yv+(1-t)\zv\) for every~\(t\).
 \end{proof}
 
 
@@ -1376,7 +1378,7 @@ Which one of the following systems of equations for \(x\) and~\(y\) is \idx{homo
 
 
 As \cref{eg:homosysiv} illustrates, a further subclass of homogeneous systems is immediately known to have an infinite number of solutions.
-Namely, if the number of equations is less than the number of unknowns (two is less than four in \cref{eg:homosysiv}), then a homogeneous system always has an infinite number of solutions.
+Namely, if the number of equations is less than the number of unknowns (two is less than four in \cref{eg:homosysiv}), then a homogeneous system always has an infinite number \text{of solutions.}
 
 
 \begin{theorem} \label{thm:feweqns} 
@@ -1397,7 +1399,7 @@ Hence there is at least one free variable and consequently an infinite number of
 
 
 \paragraph{Prefer a matrix/vector level}
-\begin{quoted}{\cite[\S2]{Higham2015b}}
+\begin{quoted}{\cite{Higham2015b} [\S2]}
 Working at the element level in this way leads to a profusion of symbols, superscripts, and subscripts that tend to obscure the mathematical structure and hinder insights being drawn into the underlying process.
 One of the key developments in the last century was the recognition that it is much more profitable to work at the matrix level.
 \end{quoted}
@@ -1407,7 +1409,7 @@ This is working at the `element level' commented on by Higham.
 But as Higham also comments, we need to work more at a whole matrix level.
 This means we need to discuss and manipulate matrices as a whole, not  get enmeshed in the intricacies of the element operations.
 This has close intellectual parallels in computing where abstract data structures empower us to encode complex tasks: here the analogous abstract data structures are matrices and vectors, and working with matrices and vectors as objects in their own right empowers linear algebra.
-The next chapter proceeds to develop linear algebra at the matrix level.
+The next chapter proceeds to develop linear algebra at the \text{matrix level.}
 
 But first, the next \cref{sec:lcss} establishes some necessary fundamental aspects at the vector level.
 
@@ -1803,7 +1805,7 @@ x=A\b
 \begin{exercise}  
 Which of the following systems are in \idx{reduced row echelon form}?
 For those that are, determine all solutions, if any.
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{array}{l}
 x_1=-194\\
 x_2=564\\
@@ -1853,7 +1855,7 @@ c-\frac14d=-\frac72
 %
 %\end{answer}
 %
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 

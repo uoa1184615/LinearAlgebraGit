@@ -11,9 +11,9 @@
 
 \index{image compression|(}
 
-Photographs and other images take a lot of storage.
+Photographs and other images require a lot of storage.
 Reducing the amount of storage for an image is essential, both for storage and for transmission.
-The well-known \idx{jpeg} format for compressing photographs is incredibly useful: the \svd\ provides a related effective method of compression.
+The well-known \idx{jpeg} format for compressing photographs is incredibly useful: the \svd\ provides a related effective method \text{of compression.}
 
 \begin{comment} 
 Introduce digital {image compression} by \svd{}s \pooliv{p.607--8} \holti{p.336--7}  \cite[\S07]{Davis99a}  \cite[Ch.~9, 11]{Chartier2015}.
@@ -57,7 +57,7 @@ A=\begin{bmat} 0&1&1&1&0
 \\0&1&1&1&0 \end{bmat}.
 \end{equation*}
 \begin{solution} 
-Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vectors set the magnitude (for the moment, here these are not singular vectors and \(\sigma_j\)~are not singular values---but subsequently such a meaning will be restored).
+Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vectors set the magnitude (for the moment, here these are not singular vectors and \(\sigma_j\)~are not singular values---but subsequently such a meaning is restored).
 \begin{enumerate}
 \item Arbitrarily start by addressing together the first and last rows of the image (as illustrated): they are computed by choosing  \(\uv_1=(1,0,0,0,1)\) and \(\vv_1=(0,1,1,1,0)\), and using the rank one matrix
 \marginpar{\input{ApproxMat/bulls1.ltx}}
@@ -91,22 +91,22 @@ Here we set all coefficients \(\sigma_1=\sigma_2=\sigma_3=1\) and let the vector
 \end{eqnarray*}
 
 \item Lastly put the dot in the middle of the image (to form the original image): choose  \(\uv_3=\vv_3=(0,0,1,0,0)\), and compute the rank three matrix
-\begin{eqnarray*}
-&&\uv_1\tr\vv_1+\uv_2\tr\vv_2+\uv_3\tr\vv_3
-\\&=&\uv_1\tr\vv_1+\uv_2\tr\vv_2
+\begin{align*}
+&\uv_1\tr\vv_1+\uv_2\tr\vv_2+\uv_3\tr\vv_3
+\\&=\uv_1\tr\vv_1+\uv_2\tr\vv_2
 +\begin{bmat} 0\\0\\1\\0\\0 \end{bmat}
 \begin{bmat} 0&0&1&0&0 \end{bmat}
-\\&=&\uv_1\tr\vv_1+\uv_2\tr\vv_2+\begin{bmat} 0&0&0&0&0
+\\&=\uv_1\tr\vv_1+\uv_2\tr\vv_2+\begin{bmat} 0&0&0&0&0
 \\0&0&0&0&0
 \\0&0&1&0&0
 \\0&0&0&0&0
 \\0&0&0&0&0 \end{bmat}
-\\&=&\begin{bmat} 0&1&1&1&0
+\\&=\begin{bmat} 0&1&1&1&0
 \\1&0&0&0&1
 \\1&0&1&0&1
 \\1&0&0&0&1
 \\0&1&1&1&0 \end{bmat}.
-\end{eqnarray*}
+\end{align*}
 
 \end{enumerate}
 \end{solution}
@@ -146,7 +146,7 @@ Consider any image stored as scalars in an \(m\times n\) matrix~\(A\).%
 As yet there is no one outstanding, clear and efficient generalization of the \svd\ to represent a 3D array of numbers, nor for \(n\)D with \(n\geq3\) (search the internet for Tensor Rank Decomposition).}
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
-\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}): typically there will be \(k\)~`large' \idx{singular value}s and all the rest are `small'.
+\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}): typically there are \(k\)~`large' \idx{singular value}s and all the rest are `small'.
 \item Then the `best' rank~\(k\) approximation to the image matrix~\(A\) is (using the subscript~\(k\) on the matrix name to denote the rank~\(k\) approximation)
 \begin{eqnarray*}
 A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
@@ -244,15 +244,21 @@ Subsequent theory confirms that the relative error is characterised by \(\sigma_
 
 
 
-\begin{activity}
+\begin{activity}\ 
 %r=2
 %a=randn(4)
 %[u,s,v]=svd(a);
 %u=round(abs(u)*2)/2,v=round(abs(v)*2)/2
 %A=u(:,1:r)*v(:,1:r)'
 %[U,S,V]=svd(A)
-A given image, shown in the margin, has matrix with \svd\ \twodp
 \marginpar{\input{ApproxMat/acttwo.ltx}}%
+\\
+\begin{tabular}{@{}p{0.49\linewidth}p{0.5\linewidth}@{}}
+Consider the image shown in the margin.
+The image has matrix with \svd\ given to the right \twodp.
+What rank representation exactly reproduces the matrix\slash image?
+\actposs[4]2134
+&
 \begin{verbatim}
 U =
   -0.72   0.48   0.50  -0.00
@@ -270,14 +276,13 @@ V =
   -0.48   0.83  -0.11   0.26
   -0.62  -0.55  -0.21   0.51
 \end{verbatim}
-What rank representation will exactly reproduce the matrix\slash image?
-\actposs[4]2134
+\end{tabular}
 \end{activity}
 
 
 
 
-
+% Omit because Russian Museum wanted payment for use,  Oct 2019
 %\begin{example} \label{eg:euler1737}
 %In the margin is a \(326\times277\) greyscale image of \idx{Euler} at 30~years old.  
 %\marginpar{\raggedright
@@ -362,7 +367,7 @@ Blaise Pascal, 1623--62
 % AJR's photograph
 As such the image is coded as \(80\,884\)~numbers.
 Let's find a good approximation to the image that uses much fewer numbers, and hence takes less storage.
-That is, we effectively compress the image for storage or transmission.
+That is, we effectively compress the image for storage \text{or transmission.}
 
 \begin{solution} 
 We use an \svd\ to approximate the image of Pascal to controllable levels of approximation.
@@ -386,8 +391,8 @@ Then convert into a greyscale image matrix~\verb|A| by averaging the
 red-green-blue values via the function \index{mean()@\texttt{mean()}}\verb|mean(rgb,3)| which computes the \idx{mean} over the third dimension of the array (over the three colours).
 
 \item Compute an \svd, \(A=\usv\), of the matrix~\verb|A| with the usual command \verb|[U,S,V]=svd(A)|.
-Here orthogonal~\verb|U| is \(292\times292\), \(292\times277\) diagonal \(\sloppy\verb|S|=\diag(36\,822, 7073,  \ldots,1.2859, 1.1291)\), and orthogonal~\verb|V| is \(277\times277\).
-Such matrices are far too big to record in this text.
+Here orthogonal~\verb|U| is \(292\times292\), diagonal \(\sloppy\verb|S|=\diag(36\,822, 7073,  \ldots,1.2859, 1.1291)\) is \(292\times277\), and orthogonal~\verb|V| is \(277\times277\).
+Such matrices are far too big to record in \text{this text.}
 \setbox\ajrqrbox\hbox{\qrcode{% approx Pascal
 rgb=imread('pascal.png');
 A=mean(rgb,3);
@@ -405,6 +410,7 @@ axis equal, axis off
 \label{fig:pascalsing}
 \centering
 %\includegraphics[width=\linewidth]{ApproxMat/pascalsing}
+% if following revised need to add "mark size=0.6pt"
 \input{ApproxMat/pascalsing.ltx}
 \end{figure}
 \item \cref{fig:pascalsing} plots the nonzero singular values from largest to smallest: they cover a range of five orders of magnitude (the vertical axis is logarithmic).
@@ -446,7 +452,7 @@ The \svd\ provides an effective flexible data compression.
 \begin{itemize}
 \item \index{norm()@\texttt{norm()}|textbf}\verb|norm(A)| computes the \idx{matrix norm} of \cref{def:norm}, namely the largest \idx{singular value} of the matrix~\(A\).
 
-Also recall that (\cref{tbl:mtlbpre}) \verb|norm(v)| for a vector~\verb|v| computes the \idx{length} \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
+Also recall that (\cref{tbl:mtlbpre}) \verb|norm(v)| for a vector~\verb|v| computes the \idx{length}, or \idx{magnitude}, \(\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\).
 
 %Whereas, \verb|norm(A,'fro')| computes the \idx{Frobenius norm}~\(\norm A_F\) defined such that \(\norm A_F^2=\sum_{i,j}a_{ij}^2\).
 
@@ -472,10 +478,10 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the \idx{mean} over the \verb|p|th~index to give an array of \idx{size} \(m_1\times\cdots\times m_{p-1}\times m_{p+1}\times\cdots\times m_\ell\).
 
 \item \index{std()@\texttt{std()}|textbf}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the \idx{row vector} of the \idx{standard deviation} over each column of~\(A\).  
-That is, for each column of~\(A\), the corresponding elements of \verb|std(A)| is proportional to the \emph{spread} in values of that column.
+That is, for each column of~\(A\), the corresponding elements of \verb|std(A)| is proportional to the \emph{spread} in values of \text{that column.}
 
 \item For the element-by-element operations of \verb|+|, \verb|-|, \verb|.*|, \verb|./|, \verb|.^|, and so on, \index{auto-replication}\emph{\script\ auto-replicates scalars and vectors as appropriate}. 
-Where this auto-replication becomes extremely useful is that if either of the matrices is \(m\times1\) or \(1\times n\), or one of each, then first its column\slash row is replicated to a matrix of size~\(m\times n\), and second the operation performed. 
+Where this auto-replication becomes extremely useful is that if either of the matrices is \(m\times1\) or \(1\times n\), or one of each, then first its column\slash row is replicated to a matrix of size~\(m\times n\), and second the \text{operation performed.}
 
 \emph{The general rule} is that if all the non-\(1\) sizes of the operands agree, then the dimensions of size~\(1\) in each operand are replicated as needed to match the other operand.
 
@@ -519,7 +525,7 @@ Where this auto-replication becomes extremely useful is that if either of the ma
 We need to define what `best' means in the approximation \cref{pro:ai} and then show the procedure achieves this best.
 %Recall diagonal matrices, orthogonal matrices and properties, rank, \svd\ factorization, and how to approximate \idx{inconsistent} right-hand side vectors.
 %To proceed to understand \idx{image compression}, 
-We need a measure of the \idx{magnitude} of matrices and distances between matrices.
+We need a measure of the \idx{magnitude} of matrices and of distances between matrices.
 
 In linear algebra we use a pair of double vertical bars,~\(\norm{\cdot}\), to  denote the magnitude of a matrix. 
 The double vertical bars avoid a notational clash with the well-established use of~\(|\cdot|\) for the determinant of a matrix (\cref{ch:ddm}).
@@ -546,7 +552,7 @@ From \cref{def:norm}, the norm of the matrix~\(A\) is then the \idx{length} of t
 \begin{aside}
 The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}\footnote{Download for R2017b etc.} provides an interactive alternative to such static views.
 \end{aside}%
-For each matrix, use the plot to roughly estimate their norm.
+For each matrix, use the plot to roughly estimate \text{their norm.}
 \begin{enumerate}[ref=\ref{eg:g2x2norm}(\alph*)]
 \item\label[example]{eg:g2x2norm:a} \(\eAii=\begin{bmatrix} 0.5&0.5\\-0.6&1.2 \end{bmatrix}\)\\
 \marginpar{\eRose{0.5}{0.5}{-0.6}{1.2}}
@@ -700,9 +706,7 @@ svd(B)
 norm(B)
 }}%
 \marginajrbox%
-\begin{equation*}\sloppy
-(10.1086,7.6641,3.2219,0.8352),
-\end{equation*}
+\(\sloppy(10.1086,7.6641,3.2219,0.8352)\),
 so \(\norm{B}=\sigma_1=10.1086\)\,.
 Alternatively, executing \index{norm()@\texttt{norm()}}\verb|norm(B)| directly gives  \(\norm{B}=10.1086\)\,.
 \end{solution}
@@ -720,14 +724,14 @@ Alternatively, executing \index{norm()@\texttt{norm()}}\verb|norm(B)| directly g
 
 
 The \cref{def:norm} of the \idx{magnitude}\slash norm of a matrix may appear a little strange. 
-But, in addition to some other marvellously useful properties, the norm nonetheless has all the familiar properties of a magnitude\slash length.
-Recall from \cref{ch:v} that for vectors:
+But, in addition to some other marvellously useful properties, the norm nonetheless has all the familiar properties of a \idx{magnitude}\slash length.
+Recall from \cref{ch:v} that \text{for vectors:}
 \begin{itemize}
 \item \(|\vv|=0\) if and only if \(\vv=\ov\) (\cref{thm:veclen0});
 \item \(|\uv\pm\vv|\leq|\uv|+|\vv|\) (the \idx{triangle inequality} of \cref{thm:triscal});
 \item \(|t\vv|=|t|\cdot|\vv|\) (\cref{thm:triscal}).
 \end{itemize}
-Analogous properties hold for the matrix norm as established in the next theorem.
+Analogous `magnitude' properties hold for the matrix norm as established in the next theorem.
 
 
 
@@ -846,11 +850,13 @@ The `distance' between matrices~\(B\) and~\(C\) is, via the matrix~\(A\) of \cre
 \end{solution}
 
 
-\item Recall from \cref{eg:2by2svd} that the matrix
+\item Find the distances between the matrix
 \begin{equation*}
 A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix}
+\quad\text{and }B=\begin{bmatrix} 4&-4\\-3&3 \end{bmatrix},
+\quad\text{and } A_1=\begin{bmatrix} 6&6\\8&8 \end{bmatrix}.
 \end{equation*}
-has an \svd\ of
+Recall from \cref{eg:2by2svd} that the matrix~\(A\) has an \svd\ of
 \begin{equation*}
 \usv=\begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}
 \begin{bmatrix} 10\sqrt2&0\\0&5\sqrt2 \end{bmatrix}
@@ -940,9 +946,9 @@ A=\begin{bmat} 0&1&1&1&0
 and its rank two and three approximations~\(A_2\) and~\(A_3\).
 Find \(\norm{A-A_2}\) and~\(\norm{A-A_3}\).
 \begin{solution} 
-\begin{itemize}
-\item \cref{eg:bullseyemat} found \(A_3=A\) hence \(\norm{A-A_3}=\norm{O_5}=0\)\,.
-\item Although \(\norm{A-A_2}\) is nontrivial, finding it is straightforward using \svd{}s.
+\cref{eg:bullseyemat} found \(A_3=A\) hence \(\norm{A-A_3}=\norm{O_5}=0\)\,.
+
+Although \(\norm{A-A_2}\) is nontrivial, finding it is straightforward using \svd{}s.
 Recall that, from the given \svd\ \(A=\usv\),
 \begin{eqnarray*}
 A_2&=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2
@@ -975,8 +981,7 @@ A-A_2&=&U\begin{bmatrix} \sigma_1&0&0&0&0
 This is an \svd\ for \(A-A_2\), albeit with the singular values out of order, with singular values of~\(0\), \(0\), \(\sigma_3=0.64\), and \(\sigma_4=\sigma_5=0\)\,.
 The largest of these singular values,~\(\sigma_3\), gives the norm \(\norm{A-A_2}=0.64\) \twodp.
 
-One might further comment that the relative error in the approximate~\(A_2\) is \(\norm{A-A_2}/\norm{A} =\sigma_3/\sigma_1 =0.64/2.68 =0.24 =24\%\) \twodp.
-\end{itemize}
+To be discussed later, the relative error in the approximate~\(A_2\) is \(\norm{A-A_2}/\norm{A} =\sigma_3/\sigma_1 =0.64/2.68 =0.24 =24\%\) \twodp.
 \end{solution}
 \end{example}
 \end{reduce}
@@ -1052,10 +1057,10 @@ Hence the assumption is wrong: there is no rank~\(k\) matrix more closely approx
 
 
 \begin{example}[the letter \texttt{R}] 
-In displays with low resolution, letters and numbers are displayed with noticeable \idx{pixel pattern}s: for example, the letter~\verb|R| is pixellated in the margin.
+In digital displays with low resolution, letters and numbers are displayed with noticeable \idx{pixel pattern}s: for example, the letter~\verb|R| is pixellated in the margin.
 \marginpar{\input{ApproxMat/R.ltx}}%
 Let's see how such \idx{pixel pattern}s are best approximated by matrices of different ranks.
-(This example is illustrative: it is not a practical \idx{image compression} since the required singular vectors are more complicated than a small-sized pattern of pixels.)
+(This example is illustrative: it is not a practical \idx{image compression} since the required singular vectors are more complicated than a small-sized pattern \text{of pixels.)}
 \begin{solution} 
 Use \cref{pro:ai}.
 First, form and enter into \script\ the \(7\times5\) matrix of the pixel pattern as illustrated in the margin
@@ -1333,15 +1338,13 @@ Could introduce the Frobenius norm here, but would confuse some, and there is no
 
 
 
-\begin{draft}
-\subsubsection {Application: identify similar protein structures}
-\label{sec:aicps}
 
 \begin{comment}
-As an exercise or an application could introduce the Kabsch algorithm (Wikipedia) for calculating the optimal rotation matrix that minimizes the root mean squared deviation between two paired sets of points.  It is useful in graphics, cheminformatics to compare molecular structures, and also bioinformatics for comparing protein structures.
+\subsubsection {Application: identify similar protein structures}
+\label{sec:aicps}
+As an exercise or an application, could introduce the Kabsch algorithm (Wikipedia) for calculating the optimal rotation matrix that minimizes the root mean squared deviation between two paired sets of points.  It is useful in graphics, cheminformatics to compare molecular structures, and also bioinformatics for comparing protein structures.
 \end{comment}
 
-\end{draft}
 
 
 
@@ -1409,7 +1412,7 @@ table[x=x,y=y, meta=S, row sep=\\] {
 \end{array}
 \end{equation*}
 The item properties\slash attributes are the points \((h,v)\) in 2D as illustrated in the margin (\(h\)~for horizontal, and \(v\)~for vertical).
-But we humans always prefer simple one dimensional summaries: we do it all the time when we rank sport teams, schools, web pages, political parties, and so on.
+But we humans always prefer simple one dimensional summaries: we do it all the time when we rank sport teams, schools, web pages, political parties, and \text{so on.}
 
 Challenge: is there a one dimensional summary of these six item's data that clearly separates the blue from the red?
 Using just one of the attributes~\(h\) or~\(v\) on their own would not suffice:
@@ -1521,7 +1524,7 @@ table[x=x,y=y, meta=S, row sep=\\] {
 A\vv_1=\sigma_1\uv_1=(-4.24,-0.71,-0.71,0.71,0.71,4.24)
 \end{equation*}
 which neatly separates the blue items (negative) from the red (positive).
-In essence, the product~\(A\vv_1\) orthogonally projects (\cref{sec:proj}) the items' \((h,v)\)~data onto the subspace \(\Span\{\vv_1\}\) as illustrated in the margin. 
+In essence, the product~\(A\vv_1\) orthogonally projects (\cref{sec:proj}) the items' \((h,v)\)~data onto the subspace \(\Span\{\vv_1\}\) as illustrated in \text{the margin.}
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -1589,7 +1592,7 @@ The data is~4D: each instance of thirty Iris flowers is characterised by the fou
 Our challenge is to plot a 2D picture of this data in such a way that separates the flowers as best as possible.
 For high-D data (although 4D is not really that high), simply plotting one characteristic against another is rarely useful.
 For example,  \cref{fig:eaid} plots the attributes of sepal widths versus sepal lengths: the plot shows the three species being intermingled together rather than reasonably separated.
-Our aim is to instead plot \cref{fig:eaidpca} which successfully separates the three species.
+Our aim is to instead plot \cref{fig:eaidpca} which successfully separates the \text{three species.}
 
 \begin{figure}
 \centering
@@ -1696,7 +1699,7 @@ The above command \index{scatter()@\texttt{scatter()}}\verb|scatter(x,y,[],s)|  
 \item If we were on a walk to a scenic lookout to get a view of the countryside, then the scenic lookout would be in the countryside: it is no good going to a lookout a long way away from the scene we wish to view.
 Correspondingly, to best view a dataset we typically look it at from the very centre of the data, namely from its mean.
 That is, here we use an \svd\ of the data matrix only after subtracting the mean of each attribute.
-Then the \svd\ analyses the variations from the mean.
+Then the \svd\ analyses the variations from \text{the mean.}
 
 Here the mean Iris sepal length and width is \(5.81\)\,cm and~\(3.09\)\,cm (the black~``+'' in \cref{fig:eaid}), and the mean petal length and width is \(3.69\)\,cm and~\(1.22\)\,cm.
 The \idx{row vector} of these means are computed in \script\ by \index{mean()@\texttt{mean()}}\verb|mean(iris(:,1:4))|, giving \(\begin{bmatrix} 5.81&3.09&3.69&1.22 \end{bmatrix}\).
@@ -1801,7 +1804,7 @@ The reason for this mathematical transposition is that throughout science and en
 \cref{tbl:eaid} has this most common structure.
 Thus in this sort of application, the mathematics we do needs to reflect this most common structure.
 Hence many vectors in this subsection appear as row vectors.
-When they do appear, they are called row vectors: the term vector on its own still means a column vector.
+When they do appear, they are called row vectors: the term vector on its own still means a \text{column vector.}
 
 \index{Iris|)}
 
@@ -1841,7 +1844,7 @@ A_k:=US_k\tr V
 is the best rank~\(k\) approximation to~\(A\) in the matrix norm.
 Letting matrix \(U=\begin{bmatrix} u_{ij} \end{bmatrix}\), write the \(i\)th~row of~\(A_k\) as
 \((\sigma_1u_{i1})\tr\vv_1 +(\sigma_2u_{i2})\tr\vv_2+\cdots +(\sigma_ku_{ik})\tr\vv_k\) and hence the transpose of each row of~\(A_k\) lies in the \(k\)D~subspace \(\Span\{\hlist\vv k\}\).
-This establishes that these are principal vectors.
+This establishes that these are \text{principal vectors.}
 
 Since \(\{\hlist\vv k\}\) is an \idx{orthonormal set}, we now use them as standard unit vectors of a coordinate system for the \(k\)D~subspace.
 From the above linear combination, the components of the \(i\)th~data point approximation in this subspace coordinate system are \(\sigma_1u_{i1},\sigma_2u_{i2},\ldots,\sigma_ku_{ik}\).
@@ -1871,7 +1874,7 @@ How many \idx{dimension}s should you expect to be needed for a good view of the 
 \begin{example}[\idx{wine recognition}] \label{eg:winepca}
 From the \cite{Dua2019} repository\footnote{\url{http://archive.ics.uci.edu/ml/datasets/Wine} \cite[]{Dua2019}} download the data file \verb|wine.data| and its description file \verb|wine.names|.
 The wine data has 178~rows of different wine samples, and 14~columns of attributes of which the first column is the cultivar class number and the remaining 13~columns are the amounts of different chemicals measured in the wine.
-Question: is there a two-\idx{dimension}al view of these chemical measurements that largely separates the cultivars?
+Question: is there a two-\idx{dimension}al view of these chemical measurements that largely separates \text{the cultivars?}
 
 \begin{solution} 
 Use an \svd\ to find the best two-dimensional, rank two, view of the data.
@@ -1896,7 +1899,7 @@ scatter(A*V(:,1),A*V(:,2),[],wine(:,1))
 }}%
 \marginajrbox%
 The scatter plot, \cref{fig:wine12}, shows that if we just plot the first two chemicals, alcohol and malic acid, then the three cultivars are inextricably intermingled.
-Our aim is to automatically draw \cref{fig:winepca} in which the three cultivars are largely separated.
+Our aim is to automatically draw \cref{fig:winepca} in which the three cultivars are \text{largely separated.}
 \begin{figure}
 \centering
 \input{ApproxMat/wine12.ltx}
@@ -1912,13 +1915,13 @@ Then \idx{auto-replication} (\cref{tbl:mtlbnorm}) provides a convenient method t
 A=wine(:,2:14)-mean(wine(:,2:14));
 \end{verbatim}
 
-But now a further issue arises: the values in the columns are of widely different magnitudes; moreover, each column has different physical units (in contrast, the Iris flower measurements were all cm).
+But now a further issue arises: the values in the columns are of widely different \idx{magnitude}s; moreover, each column has different physical units (in contrast, the Iris flower measurements were all cm).
 In practice we \emph{must not} mix together quantities with different physical units. 
 The general rule, after making each column zero mean, is to \index{data scaling}scale each column by dividing by its \idx{standard deviation}, equivalently by its root-mean-square.
-This scaling does two practically useful things: 
+This scaling does two practically \text{useful things:}
 \begin{itemize}
-\item since the \idx{standard deviation} measures the spread of data in a column, it has the same physical units as the column of data, so dividing by it renders the results dimensionless, and so suitable for mixing with other scaled columns;
-\item also the spread of data in each column is now comparable to each other, namely around about size one, instead of some columns being of the order of one-tenths and other columns being in the hundreds.
+\item since the \idx{standard deviation} measures the spread of data in a column, it has the same physical units as the column of data, so dividing by it renders the results dimensionless, and so suitable for mixing with other \text{scaled columns;}
+\item also the spread of data in each column is now comparable to each other, namely around about magnitude one, instead of some columns being of the order of one-tenths and other columns being in the hundreds.
 \end{itemize}
 In \script\ (\cref{tbl:mtlbnorm}), \index{std()@\texttt{std()}}\verb|std(X)| computes the \idx{row vector} of the \idx{standard deviation} of each column of~\verb|X|.
 Then \idx{auto-replication}  provides a convenient method to do the division by these standard deviations as it replicates the row vector to suit the number of rows in the data.
@@ -2024,7 +2027,7 @@ When the data is most spread out in~\(k\)D, then (roughly) it retains the most i
 \index{latent semantic indexing|(}
 %\begin{example}[\idx{latent semantic indexing}] \label{eg:bktitlepca}
 
-\begin{quoted}{\cite[p.579]{Berry95}}
+\begin{quoted}{\cite{Berry95}}%[p.579]
 This ability to retrieve relevant information based upon meaning rather than literal term usage is the main motivation for using \textsc{lsi} [latent semantic indexing].
 \end{quoted}
 
@@ -2032,7 +2035,7 @@ Information searches based upon word matching results in surprisingly poor retri
 Instead, the so-called method of latent semantic indexing improves 
 retrieval by replacing individual words with nearness of \idx{word vector}s. 
 The word vectors being derived via the \idx{singular value decomposition}.
-This section introduces such latent semantic indexing via a very small example. 
+This section introduces such latent semantic indexing via a very \text{small example.}
 
 
 The Society for Industrial and Applied Mathematics (\textsc{siam}) reviews many mathematical books.
@@ -2449,7 +2452,7 @@ Project this query into the 3D~space of \idx{principal components} with the prod
 \temp1
 Books~2 and~14 appear close to the direction of the query vector and so should be returned as a match: these books are no surprise as each  have both \emph{Application} and \emph{Theory} in their titles.
 But the above plot also suggests Book~5 is near to the direction of the query vector, and so is also worth considering despite not having either of the search words in its title!
-The power of this latent semantic indexing is that it extracts additional titles that are relevant to the query yet share no common words with the query---as commented at the start of this section.
+The power of this latent semantic indexing is that it extracts additional titles that are relevant to the query yet share no common words with the query---as commented at the start of \text{this section.}
 
 The angles, in 3D, between this query vector and the book title vectors confirm the graphical appearance claimed above.
 Recall that the \idx{dot product} determines the angle between vectors (\cref{thm:anglev}).
@@ -2477,7 +2480,7 @@ Consequently, it is at moderate angle~\(40^\circ\) to the 3D~query vector \(\qv=
 Such a significant \idx{cosine} suggests that Book~5 is also of interest.
 
 If we were to compute the angles in the original 14D~space of the full dictionary~\eqref{eq:lsidict}, then the title of Book~5 would be orthogonal to the query, because it has no words in common, and so Book~5 would not be flagged as of interest.
-The principal component analysis reduces the dimensionality to those relatively few directions that are important, and it is in these important directions that the title of Book~5 appears promising for the query.
+The principal component analysis reduces the dimensionality to those relatively few directions that are important, and it is in these important directions that the title of Book~5 appears promising for \text{the query.}
 
 \item All the other book titles have angles greater than~\(62^\circ\) and so are significantly less related to the query.
 \end{itemize}
@@ -2489,7 +2492,7 @@ This application of \idx{principal components} to analysing a few book titles is
 In practice one would analyse the many thousands of words used throughout hundreds or thousands of documents. 
 Moreover, one would be interested in not just plotting the documents in a 2D~plane or 3D~space, but in representing the documents in say a 70D~space of seventy principal components.
 \cite{Berry95} reviews how such statistically derived principal \idx{word vector}s are a more robust indicator of meaning than individual terms.  
-Hence this \svd\ analysis of documents becomes an effective way of retrieving information from a search without requiring the results actually match any of the words in the search request---the results just need to match cognate words.
+Hence this \svd\ analysis of documents becomes an effective way of retrieving information from a search without requiring the results actually match any of the words in the search request---the results just need to match \text{cognate words.}
 
 
 
@@ -2609,8 +2612,8 @@ Argue that there exists an \svd\ which establishes that the norm \(\|A\|=\max_{i
 
 
 
-\begin{exercise}  \ \\
-\marginpar{\input{ApproxMat/G.ltx}}%
+\begin{exercise}  \ 
+\marginpar{\input{ApproxMat/G.ltx}}\\%
 \begin{tabular}{@{}ll@{}}
 \parbox[b]{0.8\linewidth}{
 The margin shows a \(7\times5\) pixel image of the letter~\texttt{G}.
@@ -2638,7 +2641,7 @@ Whereas mostly we deal with the smooth geometry of lines, planes and curves,
 the subject of \idx{fractal} geometry recognizes that there is much in the world around us that has a rich fractured structure: from clouds, and rocks, to the cardiovascular system within each of us.
 \marginpar{\input{ApproxMat/SierTri4.ltx}}
 The Sierpinski triangle, illustrated in the margin, is a simple fractal.
-Generate such fractals using recursion as in the following \script\ code\footnote{Many of you will know that a for-loop would more concisely compute the recursion; if so, then do so.}:
+Generate such fractals using recursion as in the following \script\ code\footnote{Many of you may know that a for-loop would more concisely compute the recursion; if so, then do so.}:
 the recursion is that the next generation image~\(A\) is computed from the previous generation~\(A\).
 \begin{verbatim}
 A=1
@@ -2665,12 +2668,12 @@ axis equal,axis off
 \begin{enumerate}
 \item Add code to this recursion to compute and print the \idx{singular value}s of each generation of the \idx{Sierpinski triangle} image.
 What do you conjecture about the number of distinct singular values as a function of generation number~\(k\)?
-Test your conjecture for more iterations in the recursion.
+Test your conjecture for more iterations in \text{the recursion.}
 
 \item Returning to the \(16\times16\) Sierpinski triangle formed after four iterations, use an \svd\ to form the best rank five approximation of the Sierpinski triangle (as illustrated in the margin, it has a beautiful structure).  
 \marginpar{\input{ApproxMat/SierTri4-5.ltx}}%
 Comment on why such a rank five approximation may be a reasonable one to draw.  
-What is the next rank for an approximation that is reasonable to draw?  Justify your answer.
+What is the next rank for an approximation that is reasonable to draw?  Justify \text{your answer.}
 \answer{Because of the jumps in the singular values, ranks~\(5\) and~\(11\) are suitable.}
 
 \item Modify the code to compute and draw the \(256\times256\) image of the \idx{Sierpinski triangle}.
@@ -2723,22 +2726,18 @@ Illustrated in the margin is another \idx{fractal} generated by recursion.
 
 
 
-\Needspace{15\baselineskip}
-\begin{exercise}\ \\ \label{ex:lovelace} 
-\begin{tabular}{@{}p{\marginparwidth}p{0.55\linewidth}@{}}
-\raggedright
-Ada Lovelace (1815--52)
-\includegraphics[width=\linewidth]{ApproxMat/Lovelace_Ada} 
-&
-This is an image of Countess \index{Lovelace, Ada}Ada Lovelace: the first computer programmer, she invented, developed and wrote programs for \index{Babbage, Charles}Charles Babbage's analytical engine.
-Download the \(249\times178\) image.
+\begin{exercise} \label{ex:lovelace} 
+Countess \index{Lovelace, Ada}Ada Lovelace (1815--52) is recognized as the first computer programmer. She invented, developed and wrote programs for \index{Babbage, Charles}Charles Babbage's analytical engine.
+Download the \(249\times178\) image of Ada Lovelace at the web address below.
+\footnote{\protect\url{https://www.maa.org/press/periodicals/convergence/portrait-gallery} [Oct 2019] provides many other portraits to be downloaded for corresponding exercises.}
 Using an \svd, draw various rank approximations to the image.
-Using the matrix norm to measure errors, what is the smallest rank to reproduce the image to an error of~5\%? and of~1\%?
-\end{tabular}\\
+Using the matrix norm to measure errors, what is the smallest rank to reproduce the image of Ada Lovelace to an error of~5\%? and of~1\%?
+\\
 \url{http://www.maa.org/sites/default/files/images/upload_library/46/Portraits/Lovelace_Ada.jpg} 
-[Sep 2019]
+[Oct 2019]
 \answer{ranks 6, 24}
 \end{exercise}
+
 
 
 
@@ -2768,15 +2767,15 @@ The scheme is to set the unimportant singular values recursively
 \end{equation*}
 These ratios achieve two things: first, the singular values are decreasing as is necessary to maintain the order of the singular vectors in the standard computation of an \svd; second the ratios are sufficiently different enough to be robustly detected in an image.
 \begin{itemize}
-\item Download the \(249\times178\) image~\(A\).
+\item Download the \(249\times178\) image~\(A\) from the web address given in \cref{ex:lovelace}.
 
 \item Compute an \svd, \(A=\usv\).
 
 \item Change the singular values matrix~\(S\) to~\(S'\) with the first \(32\)~singular values unchanged, and the next \(40\)~singular values encoding the message.
 The \script\ function \index{cumprod()@\texttt{cumprod()}}\verb|cumprod()| neatly computes the recursive product.
 
-\item Using the first \(72\)~columns of~\(U\) and~\(V\), compute and draw the new image \(B=\verb|round|(US'\tr V)\) (as shown in the margin it is essentially the same as the original),
-\marginpar{\includegraphics[width=\linewidth]{ApproxMat/steganographic}}%
+\item Using the first \(72\)~columns of~\(U\) and~\(V\), compute and draw the new image \(B=\verb|round|(US'\tr V)\)---it should appear visually the same as the original---%
+%\marginpar{\includegraphics[width=\linewidth]{ApproxMat/steganographic}}%
 % generated by AJR's code steganographic.m
 where \verb|round()| is the \script\ function that rounds the real values to the nearest \idx{integer} (greyscale values should be in the range zero to~255). 
 
@@ -2785,13 +2784,21 @@ It is this image that contains the hidden message.
 \item To check the hidden message is recoverable, compute an \svd\ of the new image, \(B=QD\tr R\).
 Compare the singular values in~\(D\), say \hlist\delta{72}, with those of~\(S'\): comment on the effect of the rounding in the computation of~\(B\).
 Invent and test \script\ commands to extract the hidden message: 
-perhaps use \index{log()@\texttt{log()}}\index{diff()@\texttt{diff()}}\verb|diff(log( ))| to undo much of the recursive product in the singular values.
+perhaps use \index{log()@\texttt{log()}}\index{diff()@\texttt{diff()}}\verb|diff(log( ))| to undo much of the recursive product in the \text{singular values.}
 
 \item Report on all code, its role, and the results.
 
 \end{itemize}
 \end{exercise}
 \end{reduce}
+
+
+
+
+
+
+
+
 
 
 
@@ -2808,7 +2815,7 @@ Exercises on colour images, perhaps rounding 0-1 images such as fingerprints, al
 \begin{exercise}  
 As in \cref{eg:bks6q}, consider the 2D~plot of the six books. Add to the plot the \idx{word vector} corresponding to a query for books relevant to ``Introduction''.
 Using angle to measure closeness, which book is closest to ``Introduction''?  
-Confirm by computing the angles, in the 2D~plane, between ``Introduction'' and all six books.
+Confirm by computing the angles, in the 2D~plane, between ``Introduction'' and all \text{six books.}
 \answer{Book~1: angles \(8^\circ\), \(75^\circ\), \(43^\circ\), \(15^\circ\), \(98^\circ\), \(120^\circ\).}
 \end{exercise}
 
@@ -2817,7 +2824,7 @@ Confirm by computing the angles, in the 2D~plane, between ``Introduction'' and a
 \begin{exercise}  
 As in \cref{eg:bks6q}, consider the 2D~plot of the six books. Add to the plot the \idx{word vector} corresponding to a query for books relevant to ``Application and Method''.
 Using angle to measure closeness, which book is closest to ``Application and Method''?  
-Confirm by computing, in the 2D~plane, the angles between ``Application and Method'' and all six books.
+Confirm by computing, in the 2D~plane, the angles between ``Application and Method'' and all \text{six books.}
 \answer{Book~3: angles \(35^\circ\), \(32^\circ\), \(1^\circ\), \(29^\circ\), \(54^\circ\), \(76^\circ\).}
 \end{exercise}
 
@@ -2900,7 +2907,7 @@ Discuss how such an ``or'' query might be phrased in terms of the angle between 
 There are about~17 meaningful words common to more than one review: create a list of such words.
 Then form corresponding \idx{word vector}s for each review.
 Use an \svd\ to best plot these reviews in 2D.
-Discuss any patterns in the results.
+Discuss any patterns in \text{the results.}
 \end{exercise}
 
 \end{reduce}

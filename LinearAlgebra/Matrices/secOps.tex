@@ -10,7 +10,7 @@ Is the design here inconsistent with previous chapters??
 \end{comment}
 
 This section introduces basic matrix concepts, operations and algebra.
-Many of you will have met some of it in previous study.
+You may have met some of it in \text{previous study.}
 
 
 \subsection{Basic matrix terminology}
@@ -289,7 +289,7 @@ This product is only defined when the number of columns of matrix~\(A\) are the 
 Then you might wonder about solving problems such as find the unknown~\(f(x)\) such that \(\int_0^1 A(x,y)f(y)\,dy=\sin\pi x\) for given `continuous matrix' \(A(x,y):=\min(x,y)\big[1-\max(x,y)\big]\); 
 you may check that here the solution is \(f=\pi^2\sin\pi x\)\,.
 Such notions are a useful generalization of our linear algebra: they are called \idx{integral equations}; the main structures and patterns developed by this course also apply to such integral equations.}
-If not, then the product cannot be used.
+If not, then the product cannot \text{be used.}
 
 \begin{example} \label{eg:matvecmul}
 Let matrices
@@ -332,8 +332,7 @@ Which of the following is the result of the matrix-vector product
 \paragraph{Geometric interpretation}
 Multiplication of a vector by a \emph{\idx{square matrix}} transforms the vector into another in the same space. 
 The margin shows the example of~\(A\xv\) from \cref{eg:matvecmul}.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid, xmin=-1,xmax=3.5,ymax=1
@@ -353,8 +352,7 @@ A\yv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 =\begin{bmatrix} 5\\ -1 \end{bmatrix},
 \end{equation*}
 as illustrated in the second marginal picture.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid, xmin=-1,xmax=6.5,ymax=1.9,ymin=-2.5
@@ -374,8 +372,7 @@ A\zv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 =\begin{bmatrix} 1\\ 4 \end{bmatrix},
 \end{equation*}
 as illustrated in the third marginal picture.
-\marginpar{%
-\begin{tikzpicture}[]
+\marginpar{\begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid, xmin=-3.5,xmax=2.5,ymax=4.9,ymin=-0.5
@@ -424,7 +421,7 @@ He lived circa 1175 to 1250, travelled extensively from Pisa, and is considered 
 \end{aside}%
 Each \idx{kitten} becomes fertile after it has aged a month, when it becomes \idx{adult} and is called a buck (male) or doe (\idx{female}).
 The new bucks and does then also start breeding.
-How many rabbits are there after six months?
+How many rabbits are there after \text{six months?}
 
 Let's count just the females, the does, and the female kittens.
 At the start of any month let there be \(x_1\)~kittens (female) and \(x_2\)~does.
@@ -445,7 +442,9 @@ Then our model is that
 \quad\text{for }L=\begin{bmatrix} 0&1\\1&1 \end{bmatrix},
 \end{equation*}
 called a \idx{Leslie matrix}.
-\marginpar{Named after Patrick~H. Leslie, Leslie matrices are widely used in ecology to model the evolution over time of a population of organisms.}
+\begin{aside}
+Named after Patrick~H. Leslie, Leslie matrices are widely used in ecology to model the evolution over time of a population of organisms.
+\end{aside}
 \begin{itemize}
 \item At the start there is one adult pair, one doe, and no female kittens, so the \idx{initial population} is \(\xv=(0,1)\).
 \item After one month,  females \(\xv'=L\xv=\begin{bmat} 0&1\\1&1 \end{bmat}\begin{bmat} 0\\1 \end{bmat}=\begin{bmat} 1\\1 \end{bmat}\).
@@ -719,7 +718,7 @@ That is, the powers of the Leslie matrix help predict what happens two, three, o
 The operations so far defined for matrices correspond directly to analogous operations for scalars.
 The transpose has no corresponding analogue.
 At first mysterious, the transpose occurs frequently---often due to it linking the dot product of vectors with matrix multiplication.
-The transpose also reflects symmetry in applications (\cref{ch:eesm}), such as Newton's law that every action has an equal and opposite reaction.
+The transpose also reflects symmetry in applications (\cref{ch:eesm}), such as \idx{Newton's law} that every action has an equal and \text{opposite reaction.}
 
 \begin{example} \label{eg:mattrans}
 Let matrices
@@ -813,7 +812,7 @@ Consider the transpose
 E=\begin{bmatrix} a&b\\c&d \end{bmatrix}.
 \end{equation*}
 The top-left and bottom-right elements are always the same.
-The top-right and bottom-left elements will be the same if and only if \(b=c\).
+The top-right and bottom-left elements are the same if and only if \(b=c\).
 That is, the \(2\times 2\) matrix~\(E\) is symmetric if and only if \(b=c\)\,.
 \end{solution}
 \end{example}
@@ -848,7 +847,7 @@ Which one of the following matrices is a \idx{symmetric matrix}?
 \subsubsection{Compute in \script}
 
 \script\ empowers us to compute all these operations quickly, especially for the large problems found in applications: after all, \script[1]\ is an abbreviation of \emph{Mat}rix \emph{Lab}oratory.
-\cref{tbl:mtlbops} summarizes the \script\ version of the operations introduced so far, and used in the rest of this book.
+\cref{tbl:mtlbops} summarizes the \script\ version of the operations introduced so far, and used in the rest of \text{this book.}
 
 \begin{table}
 \caption{As well as the basics of \script\ listed in \cref{tbl:mtlbpre,tbl:mtlbbasics},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbops}
@@ -860,7 +859,7 @@ Which one of the following matrices is a \idx{symmetric matrix}?
 \item \index{+,-,*@\texttt{+,-,*}|textbf}\verb|+,-,*| is matrix\slash vector\slash scalar addition, \idx{subtraction}, and multiplication, but only provided the sizes of the two operands are compatible.
 %\item As well as enclosing subscripts, parentheses,~\verb|()|, control the order of evaluation of a complicated expression.
 \item \verb|A^p| for scalar~\(p\) computes the \(p\)th~power of square matrix~\(A\) (in contrast to~\verb|A.^p| which  computes the \(p\)th~power of \emph{each element} of~\(A\), \cref{tbl:mtlbbasics}).
-\item The character single \bfidx{quote},~\verb|A'|, \idx{transpose}s the matrix~\(A\).  
+\item The character single \bfidx{quote}\slash\bfidx{dash},~\verb|A'|, \idx{transpose}s the matrix~\(A\).  
 But when using \idx{complex number}s be wary: \verb|A'|~is the \idx{complex conjugate} transpose (which is what we usually want); whereas \verb|A.'|~is the transpose without complex conjugation.
 \item Predefined matrices include:
 \begin{itemize}
@@ -1112,7 +1111,7 @@ C =
 \end{verbatim}
 Without going into excruciating arithmetic detail this product is hard to check.
 However, we can check several things such as \(c_{11}\) comes from the first row of~\(A\) times the first column of~\(B\) by computing \verb|A(1,:)*B(:,1)| and seeing it does give~\(0.62\) as required.
-Also check that the two columns of~\(C\) may be viewed as the two \idx{matrix-vector product}s \(A\bv_1\) and~\(A\bv_2\) by comparing~\(C\) with \verb|[A*B(:,1) A*B(:,2)]| and seeing they are the same.
+Also check that the two columns of~\(C\) may be viewed as the two \idx{matrix-vector product}s \(A\bv_1\) and~\(A\bv_2\) by comparing~\(C\) with \verb|[A*B(:,1) A*B(:,2)]| and seeing they are \text{the same.}
 
 Recall that in a \idx{matrix product} the number of columns of the left matrix have to be the same as the number of rows of the right matrix.
 \script\ gives an error message if this is not the case, such as occurs  upon asking it to compute~\verb|B*A| when \script[1] reports
@@ -1130,8 +1129,8 @@ error: operator *: nonconformant arguments
 
 The caret symbol,~\verb|^|, computes \idx{matrix power}s in \script, such as the cube~\verb|A^3|. 
 But such matrix powers only makes sense and works for square matrices~\(A\).%
-\footnote{Here we define matrix powers for only integer power. \script\ will compute the power of a square matrix for any real\slash complex exponent, but its meaning involves matrix exponentials and logarithms that we do not explore here.}
-For example, if matrix~\(A\) was \(3\times4\)\,, then \(A^2=AA\) would involve multiplying a \(3\times4\) matrix by a \(3\times4\) matrix: since the number of columns of the left~\(A\) is not the same as the number of rows of the right~\(A\) such a multiplication is not allowed.
+\footnote{Here we define matrix powers for only integer power. \script\ computes the power of a square matrix for any real\slash complex exponent, but its meaning involves matrix exponentials and matrix logarithms that we do not explore here.}
+For example, if matrix~\(A\) was \(3\times4\)\,, then \(A^2=AA\) would involve multiplying a \(3\times4\) matrix by a \(3\times4\) matrix: since the number of columns of the left~\(A\),~4, is not the same as the number of rows of the right~\(A\),~3, such a multiplication is \text{not allowed.}
 
 
 
@@ -1240,7 +1239,7 @@ For example, when you go home, to enter your house you first open the door, seco
 You cannot swap the order and try to walk in before opening the door---these operations do not commute.
 Similarly, for another example, I often teach classes on the third floor of a building next to my office: after finishing classes, first I walk downstairs to ground level, and second I cross the road to my office.
 If I try to cross the road before going downstairs, then the force of gravity has something very painful to say about the outcome---the operations do not commute.
-Similar to these analogues, the result of a matrix multiplication depends upon the order of the matrices in the multiplication.
+Similar to these analogues, the result of a matrix multiplication depends upon the order of the matrices in \text{the multiplication.}
 
 
 \begin{theorem}[Properties of \idx{addition} and \idx{scalar multiplication}] \label{thm:pasm}
@@ -1384,9 +1383,9 @@ For example, to establish \(A^pA^q=A^{p+q}\) start from the definition of matrix
 \begin{eqnarray*}
 A^pA^q&=&(\underbrace{AA\cdots A}_{p\text{ times}})
 (\underbrace{AA\cdots A}_{q\text{ times}})
-\\&&\quad(\text{using associativity, \cref{thm:pmma}})
+\\&&\quad(\text{then using associativity, \cref{thm:pmma}})
 \\&=&\underbrace{AA\cdots A}_{p+q\text{ times}}
-\\&=&A^{p+q}.
+=A^{p+q}.
 \end{eqnarray*}
 
 \end{description}
@@ -1443,12 +1442,12 @@ Let matrices \(A\) and~\(B\) be of sizes such that the following expressions are
 \begin{enumerate}[ref=\ref{thm:pot}(\alph*)]
 \item\label[theorem]{thm:pota} \(\tr{(\tr A)}=A\);
 \item\label[theorem]{thm:potb} \(\tr{(A\pm B)}=\tr A\pm \tr B\);
-\item\label[theorem]{thm:potc} \(\tr{(cA)}=c(\tr A)\) for any \idx{scalar}~\(c\);
+\item\label[theorem]{thm:potc} \(\tr{(cA)}=c(\tr A)\) for every \idx{scalar}~\(c\);
 \item\label[theorem]{thm:potd} \(\tr{(AB)}=\tr B\tr A\);
 \begin{aside}
 Remember the reversed order in the identity \(\tr{(AB)}=\tr B\tr A\).
 \end{aside}
-\item\label[theorem]{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for all positive integer exponents~\(p\);\index{matrix power}
+\item\label[theorem]{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for every positive integer exponent~\(p\);\index{matrix power}
 \footnote{With care, this property also holds for all scalar exponents~\(p\)---although this book only considers integer exponents~\(p\), see \cref{def:invpow}.}
 \item\label[theorem]{thm:potf} \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are symmetric matrices.\index{symmetric matrix}
 \end{enumerate}
@@ -2028,7 +2027,7 @@ two-thirds of the female newborns survive to be one year old;
 two-thirds of female one year olds survive to be two years old;
 one-half of female two year olds survive to be three years old;
 each year, each female aged two or three years gives birth to two female offspring;
-female Tasmanian Devils survive for four years, at most.
+female Tasmanian Devils survive for four years, \text{at most.}
 
 Analogous to \cref{eg:matasp} define a vector \(\xv\) in~\(\RR^4\) to be the number of females of specified ages.
 Use the above information to write down the \idx{Leslie matrix}~\(L\) that predicts the number in the next year,~\(\xv'\), from the number in any year,~\xv.
@@ -2130,7 +2129,7 @@ For each of the following matrices, are they symmetric?
 \begin{exercise}  
 Use \script\ to generate some random matrices of a suitable \idx{size} of your choice, and some random scalars (see \cref{tbl:mtlbops}).
 Choose some suitable exponents.
-Recalling that in \script\ the dash~\verb|'| performs the transpose, confirm the matrix \idx{transpose} properties of \cref{thm:pot}.
+Recalling that in \script\ the quote\slash dash~\verb|'| performs the transpose, confirm the matrix \idx{transpose} properties of \cref{thm:pot}.
 Record all your commands and the output from \script.
 \end{exercise}
 

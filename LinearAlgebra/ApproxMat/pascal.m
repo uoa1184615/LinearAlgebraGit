@@ -1,4 +1,5 @@
 % read and process the Pascal picture 292x277
+% AJR, Oct 2019
 rgb=imread('pascal.png');
 A=double(rgb(:,:,1));
 n=min(size(A))
@@ -8,6 +9,7 @@ s=diag(S);
 loglog(1:n,s(1:n),'.')
 ylabel('singular values')
 %print -depsc2 'pascalsing'
+% need to manually add "mark size=0.6pt"
 matlab2tikz('pascalsing.tex','showInfo',false ...
 ,'noSize',true,'parseStrings',false ...
 )
