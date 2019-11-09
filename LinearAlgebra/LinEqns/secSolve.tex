@@ -48,10 +48,8 @@ is equivalent to \(A\xv=\bv\) for
 
 
 The beauty of the form \(A\xv=\bv\) is that the numbers involved in the system are abstracted into the matrix~\(A\) and vector~\bv: \script\ handles such numerical matrices and vectors.
-\begin{aside}
-In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
-\cref{sec:moaa} then defines a crucial multiplicative meaning to the composite symbol~`\(A\xv\)'. 
-\end{aside}%
+\footnote{In this chapter, the two character symbol `\(A\xv\)' is just a shorthand for all the left-hand sides of the linear equations in a system.
+\cref{sec:moaa} then defines a crucial multiplicative meaning to the composite symbol~`\(A\xv\)'.}
 For some of you, writing a system in this \idx{matrix-vector form} \(A\xv=\bv\) (\cref{def:matvecsys} below) may appear to be just some mystic rearrangement of symbols---such an interpretation is sufficient for this chapter.
 However, those of you who have met matrix multiplication will recognise that \(A\xv=\bv\) is an expression involving natural operations for matrices and vectors: \cref{sec:moaa} defines and explores such \text{useful operations.}
 
@@ -88,16 +86,15 @@ x_1+2x_2+x_3=1\,.
 \end{Parts}
 \begin{solution} 
 \begin{enumerate}
-\item The first system, that of \cref{eg:3eq3var}, is of three equations in three variables (\(m=n=3\)) and is written in the form \(A\xv=\bv\) as
+\item The first system, that of \cref{eg:3eq3var}, is of three equations in three variables (\(m=n=3\)) and is written in the form \(A\xv=\bv\), for square matrix~\(A\), as
 \begin{equation*}
 \underbrace{\begin{bmatrix} 1&1&-1\\ 1&3&5\\1&2&1 \end{bmatrix}}_A
 \underbrace{\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}}_\xv
-=\underbrace{\begin{bmatrix} -2\\8\\1 \end{bmatrix}}_\bv 
+=\underbrace{\begin{bmatrix} -2\\8\\1 \end{bmatrix}}_\bv .
 \end{equation*}
-for square matrix~\(A\).
 
 \item The second system has three variables called \(r\), \(s\) and~\(t\) and two equations.
-Variables `missing' from an equation are represented as zero times that variable, thus the system
+Variables `missing' from an equation are represented as zero times that variable, thus the system, for \(2\times3\) matrix~\(A\),
 \begin{equation*}
 \begin{array}{l} -2r+3s+0t=6\,,\\0r+s-4t=-\pi\,, \end{array}
 \quad\text{is}\quad
@@ -105,7 +102,6 @@ Variables `missing' from an equation are represented as zero times that variable
 \underbrace{\begin{bmatrix} r\\s\\t \end{bmatrix}}_\xv
 =\underbrace{\begin{bmatrix} 6\\-\pi \end{bmatrix}}_\bv 
 \end{equation*}
-for \(2\times3\) matrix~\(A\).
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -117,7 +113,7 @@ Which of the following systems correspond to the matrix-vector equation
 \begin{equation*}
 \begin{bmatrix} -1&3\\1&2 \end{bmatrix}\begin{bmatrix} u\\w \end{bmatrix}=\begin{bmatrix} 1\\0 \end{bmatrix}?
 \end{equation*}
-\actposs{\(\begin{matrix} -u+3w=1\\u+2w=0 \end{matrix}\)}
+\actposs[4]{\(\begin{matrix} -u+3w=1\\u+2w=0 \end{matrix}\)}
 {\(\begin{matrix} -x+3y=1\\x+2y=0 \end{matrix}\)}
 {\(\begin{matrix} -u+w=1\\3u+2w=0 \end{matrix}\)}
 {\(\begin{matrix} -x+y=1\\3x+2y=0 \end{matrix}\)}
@@ -187,11 +183,9 @@ Begin by writing the system in the abstract matrix-vector form \(A\xv=\bv\) as a
 Then the three steps of \cref{pro:unisol} are the following.
 \begin{enumerate}
 \item Form matrix~\(A\) and {column vector}~\(\bv\) with the \script\ assignments
-\begin{aside}
-Remember that the symbol~``\texttt{=}'' in \script\ is a procedural 
+(Remember that the symbol~``\texttt{=}'' in \script\ is a procedural 
 assignment of a value---very different in nature to the~``\(=\)'' in 
-algebra which denotes \idx{equal}ity.
-\end{aside}%
+algebra which denotes \idx{equal}ity.)
 \begin{verbatim}
 A=[1 1 -1; 1 3 5; 1 2 1]
 b=[-2;8;1]
@@ -219,7 +213,6 @@ Such \idx{qr-code}s in the margin encode these commands for you to possibly scan
 \fi
 \end{solution}
 \end{example}
-
 
 
 \begin{activity}
@@ -488,21 +481,21 @@ As before, these coefficients give the decomposition as
 
 
 
-
-
-\begin{example}[\texttt{rcond} avoids disaster] \label{eg:infertemp2}
-In \cref{eg:infertemp} an American and a European compared temperatures and using measurements from two days discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
-Continuing the story, three days later they again meet and compare the temperatures they experienced: the American reporting that ``for the last three days it has been \(51^\circ\), \(74^\circ\) and~\(81^\circ\)'', whereas the European reports ``why, I recorded it as \(11^\circ\), \(23^\circ\) and~\(27^\circ\)''.
-The marginal figure plots this data with the original two data points, apparently confirming a reasonable linear relationship between the two temperature scales.
-\marginpar{%
+\needlines8
+\begin{wrapfigure}[8]r{0pt}
 \begin{tikzpicture}[]
-\begin{axis}[footnotesize,width=1.15\marginparwidth
+\begin{axis}[footnotesize%,width=1.15\marginparwidth
     ,xlabel={European, $T_E$},ylabel={American, $T_A$}
     ,xmin=5,xmax=35,ymin=41,ymax=95]
     \addplot+[only marks] coordinates {
     (26,80) (15,60) (11,51) (23,74) (27,81) };
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example}[\texttt{rcond} avoids disaster] \label{eg:infertemp2}
+In \cref{eg:infertemp} an American and a European compared temperatures and using measurements from two days discovered the approximation that the American temperature \(T_A=1.82\,T_E+32.73\) where \(T_E\)~denotes the European temperature.
+Continuing the story, three days later they again meet and compare the temperatures they experienced: the American reporting that ``for the last three days it has been \(51^\circ\), \(74^\circ\) and~\(81^\circ\)'', whereas the European reports ``why, I recorded it as \(11^\circ\), \(23^\circ\) and~\(27^\circ\)''.
+The graph to the right plots this data with the original two data points, apparently confirming a reasonable linear relationship between the two temperature scales.
 
 Let's fit a polynomial to this temperature data.
 \begin{solution}
@@ -551,6 +544,20 @@ c =
     0.1310
    -0.0017
 \end{verbatim}
+
+\begin{wrapfigure}[7]r{0pt}
+\begin{tikzpicture}[]
+\begin{axis}[footnotesize%,width=1.15\marginparwidth
+    ,xlabel={European, $T_E$},ylabel={American, $T_A$}
+    ,xmin=5,xmax=35,ymin=41,ymax=95]
+    \addplot+[only marks] coordinates {
+    (26,80) (15,60) (11,51) (23,74) (27,81) };
+    \addplot+[domain=5:35,no marks] {
+    -163.55+46.519*x-3.6920*x^2+0.13095*x^3-1.6888e-03*x^4
+    };
+\end{axis}
+\end{tikzpicture}
+\end{wrapfigure}
 Job done---or is it?
 To check, let's plot the predictions of the quartic polynomial~\eqref{eq:infertemp2} with these coefficients.
 In \script\ we may plot a graph with the following
@@ -564,27 +571,15 @@ ylim([41 95])
 t=linspace(5,35);
 plot(t,c(1)+c(2)*t+c(3)*t.^2+c(4)*t.^3+c(5)*t.^4)
 \end{verbatim}
-and see a graph like the marginal one.
+and see a graph like the one to the right.
 Disaster: the quartic polynomial relationship is clearly terrible as it is too wavy and nothing like the straight line we know it should be (\(T_A=\frac95T_E+32\)).
-\marginpar{%
-\begin{tikzpicture}[]
-\begin{axis}[footnotesize,width=1.15\marginparwidth
-    ,xlabel={European, $T_E$},ylabel={American, $T_A$}
-    ,xmin=5,xmax=35,ymin=41,ymax=95]
-    \addplot+[only marks] coordinates {
-    (26,80) (15,60) (11,51) (23,74) (27,81) };
-    \addplot+[domain=5:35,no marks] {
-    -163.55+46.519*x-3.6920*x^2+0.13095*x^3-1.6888e-03*x^4
-    };
-\end{axis}
-\end{tikzpicture}
-}
 
 The problem is we forgot \verb|rcond|.
 In \script\ execute~\verb|rcond(A)| and discover \verb|rcond| is \(3\cdot10^{-9}\).
 This value is in the `terrible' range classified by \cref{pro:unisol}.
-Thus the solution of the linear equations must not be used: here the marginal plot indeed shows the solution coefficients are not acceptable.
+Thus the solution of the linear equations must not be used: here the marginal plot above-right shows the solution coefficients are not acceptable.
 Always use \verb|rcond| to check for bad systems of linear equations.
+\aqed\par
 \end{solution}
 \end{example}
 
@@ -720,11 +715,9 @@ A variant of \textsc{ge} [Gaussian Elimination] was used by the Chinese around t
 
 To solve \idx{linear equation}s with non-square matrices, or with poorly conditioned matrices we need to know many more details about linear algebra.
 
-\Needspace{7\baselineskip}
-\begin{aside}
 This and the next subsection are not essential, but many further courses currently assume knowledge of the content. 
 \cref{thm:fred,thm:feweqns} are convenient to establish in the next subsection, but could alternatively be established using \cref{pro:gensol}. 
-\end{aside}
+
 This subsection systematises the algebraic working of \cref{eg:2eqs2vars,eg:3eq3var}.
 The systematic approach empowers by-hand solution of systems of linear equations, together with two general properties on the number of solutions possible.
 The algebraic methodology invoked here also reinforces algebraic skills that will help in \text{further courses.}
@@ -790,10 +783,9 @@ Such variations to the augmented matrix are valid, but you must remember your co
 \end{solution}
 \end{example}
 
-
 \begin{activity}
 Which of the following \emph{cannot} be an \idx{augmented matrix} for the system \(p+4q=3\) and \(-p+2q=-2\)\,?
-\actposs{\(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)}
+\actposs[4]{\(\begin{bmatrix} 2&-1\V3\\4&1\V-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 1&4\V3\\-1&2\V-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} -1&2\V-2\\1&4\V3 \end{bmatrix}\)}
 {\(\begin{bmatrix} 4&1\V3\\2&-1\V-2 \end{bmatrix}\)}
@@ -881,54 +873,54 @@ x=A\slosh b
 
 Second, use elementary row operations.
 Let's write the working in both full symbolic equations and in augmented matrix form in order to see the correspondence between the two---you would not have to do both, either one would suffice.
-\begin{eqnarray*}
+\begin{align*}&&
 \begin{cases}
 x+2y+z=1\\ 2x-3y+0z=2\\ 0x-3y-z=2
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff %\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\2&-3&0\V2\\0&-3&-1\V2 \end{bmatrix}
-\\[0ex plus 1ex]
-\parbox{0.5\linewidth}{Add \((-2)\) times the first equation\slash row to the second.}
-\\[0ex plus 1ex]
+\\[0ex plus 1ex]&
+\parbox{0.4\linewidth}{Add \((-2)\) times the first equation\slash row to the second.}
+\quad&
 \begin{cases}
 x+2y+z=1\\ 0x-7y-2z=0\\ 0x-3y-z=2
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff %\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\0&-7&-2\V0\\0&-3&-1\V2 \end{bmatrix}
-\\[0ex plus 1ex]
-\parbox{0.5\linewidth}{This makes the first column have a leading one (\cref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
-\\[0ex plus 1ex]
+\\[0ex plus 1ex]&
+\parbox{0.4\linewidth}{This makes the first column have a leading one (\cref{def:rref}).  Start on the second column by dividing the second equation\slash row by~\((-7)\).}
+\quad&
 \begin{cases}
 x+2y+z=1\\ 0x+y+\frac27z=0\\ 0x-3y-z=2
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff %\leftrightarrow&
 \begin{bmatrix} 1&2&1\V1\\0&1&\frac27\V0\\0&-3&-1\V2 \end{bmatrix}
-\\[0ex plus 1ex]
-\parbox{0.5\linewidth}{Now subtract twice the second equation\slash row from the first, and add three times the second to the third.}
-\\[0ex plus 1ex]
+\\[0ex plus 1ex]&
+\parbox{0.4\linewidth}{Now subtract twice the second equation\slash row from the first, and add three times the second to the third.}
+\quad&
 \begin{cases}
 x+0y+\frac37z=1\\ 0x+y+\frac27z=0\\ 0x+0y-\frac17z=2
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff %\leftrightarrow&
 \begin{bmatrix} 1&0&\frac37\V1\\0&1&\frac27\V0\\0&0&-\frac17\V2 \end{bmatrix}
-\\[0ex plus 1ex]
-\parbox{0.5\linewidth}{This makes the second column have the second leading one (\cref{def:rref}).  
+\\[0ex plus 1ex]&
+\parbox{0.4\linewidth}{This makes the second column have the second leading one (\cref{def:rref}).  
 Start on the third column by multiplying the third equation\slash row by~\((-7)\).}
-\\[0ex plus 1ex]
+\quad&
 \begin{cases}
 x+0y+\frac37z=1\\ 0x+y+\frac27z=0\\ 0x+0y+z=-14
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff %\leftrightarrow&
 \begin{bmatrix} 1&0&\frac37\V1\\0&1&\frac27\V0\\0&0&1\V-14 \end{bmatrix}
-\\[0ex plus 1ex]
-\parbox{0.5\linewidth}{Now subtract \(3/7\)~of the third equation\slash row from the first, and \(2/7\) from the second.}
-\\[0ex plus 1ex]
+\\[0ex plus 1ex]&
+\parbox{0.4\linewidth}{Now subtract \(3/7\)~of the third equation\slash row from the first, and \(2/7\) from the second.}
+\quad&
 \begin{cases}
 x+0y+0z=7\\ 0x+y+0z=4\\ 0x+0y+z=-14
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff %\leftrightarrow&
 \begin{bmatrix} 1&0&0\V7\\0&1&0\V4\\0&0&1\V-14 \end{bmatrix}
-\end{eqnarray*}
+\end{align*}
 This completes the transformation of the equations\slash augmented matrix into a so-called \idx{reduced row echelon form} (\cref{def:rref}).
 From this form we read off the solution:  the system of equations on the left directly gives \(x=7\)\,, \(y=4\) and \(z=-14\)\,, that is, the solution vector \(\xv=(x,y,z)=(7,4,-14)\) (as computed by \script);
 the transformed augmented matrix on the right tells us exactly the same thing because (\cref{def:augmat}) it means the same as the matrix-vector 
@@ -993,10 +985,8 @@ Hence there are no solutions to the system.
 \\0&1&-1\V-2
 \\0&0&0\V0
 \end{bmatrix}\)
-\begin{solution} 
-This augmented matrix is the same as the previous except for a zero in the bottom right entry. 
-It is in \rref\ with leading ones in the first and second columns.
-\marginpar{\begin{tikzpicture}
+
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,height=5cm
 , view={20}{45}, axis equal image,zmin=-1,zmax=1
 , xlabel={$x_1$},ylabel={$x_2$},zlabel={$x_3$},label shift={-1.5ex}
@@ -1015,21 +1005,24 @@ x y z c \\
 };
 \addplot3[only marks,black,domain=-1:1,samples y=0]  ({1+x},{-2+x},{x});
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+This augmented matrix is the same as the previous except for a zero in the bottom right entry. 
+It is in \rref\ with leading ones in the first and second columns.
 Explicitly, the corresponding system of linear equations is
 \begin{equation*}
 x_1-x_3=1\,,\quad x_2-x_3=-2\,,\quad 0=0\,.
 \end{equation*}
 The last equation, \(0=0\)\,, is is always satisfied.
-Hence the first two equations determine solutions to the system: letting the free variable \(x_3=s\) for arbitrary~\(s\) the two equations give solutions \(\xv=(1+s,-2+s,s)\) (as illustrated in the margin).
+Hence the first two equations determine solutions to the system: letting the free variable \(x_3=s\) for arbitrary~\(s\) the two equations give solutions \(\xv=(1+s,-2+s,s)\) (as illustrated to the right).
 \end{solution}
+\end{figbox}
 \end{reduce}
 
 \item \(\begin{cases} x+2y=3\\ 0x+y=-2
 \end{cases}\)
-\begin{solution} 
-This system is not in \rref: 
-\marginpar{\begin{tikzpicture}[]
+
+\begin{figbox}{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
     , axis equal image, axis lines=middle,
     , xlabel={$x$},ylabel={$y$}, thick, no marks, grid, ymax=2.5
@@ -1037,10 +1030,14 @@ This system is not in \rref:
     \addplot{(3-x)/2};
     \addplot{-2+0*x};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+This system is not in \rref: 
 although there are two leading ones multiplying \(x\) and~\(y\) in the first and the second equation respectively, the variable~\(y\) does not have zero coefficients in the first equation.  
-(A solution to this system exists, shown  in the margin, but the question does not ask for it.)
+(A solution to this system exists, shown to the right, but the question does not ask for it.)
 \end{solution}
+\end{figbox}
+
 
 \item \(\begin{bmatrix} -1&4&1&6\V-1
 \\3&0&1&-2\V-2
@@ -1052,10 +1049,9 @@ This augmented matrix is not in \rref\ as there are no leading ones.
 \end{example}
 
 
-
 \begin{activity}
 Which one of the following augmented matrices is \emph{not} in \idx{reduced row echelon form}?
-\actposs{\(\begin{bmatrix} 1&1&0\V0
+\actposs[4]{\(\begin{bmatrix} 1&1&0\V0
 \\0&-1&1\V-1 \end{bmatrix}\)}
 {\(\begin{bmatrix} 1&0&1\V2
 \\0&1&0\V1 \end{bmatrix}\)}
@@ -1092,10 +1088,8 @@ From such a form we then write down a \text{general solution.}
 
 \needspace{7\baselineskip}
 \begin{procedure}[\idx{Gauss--Jordan elimination}] \label{pro:gje}
-\ \begin{aside}
-Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \verb|A\| in \script. 
-However, when \verb|rcond| indicates \verb|A\| is inappropriate, then the \idx{singular value decomposition} of \cref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.
-\end{aside}\ 
+\footnote{Computers and graphics calculators perform Gauss--Jordan elimination for you; for example, \texttt{A$\backslash$} in \script. 
+However, when \texttt{rcond} indicates \texttt{A$\backslash$} is inappropriate, then the \idx{singular value decomposition} of \cref{sec:fisvd} is a far better choice than such Gauss--Jordan elimination.}
 \begin{enumerate}
 \item Write down either the full symbolic form of the \idx{system} of \idx{linear equation}s, or the \idx{augmented matrix} of the system of \idx{linear equation}s.
 \item Use \idx{elementary row operation}s to reduce the \idx{system}\slash\idx{augmented matrix} to \idx{reduced row echelon form}.
@@ -1116,45 +1110,45 @@ depending upon the parameter~\(c\).
 
 \begin{solution} 
 Here write both the full symbolic equations and the augmented matrix form---you would only have to do one.
-\begin{eqnarray*}
+\begin{align*}&&
 \begin{cases}
 -x-y=-3\\x+4y=-1\\2x+4y=c
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} -1&-1\V-3\\1&4\V-1\\2&4\V c \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Multiply the first by~\((-1)\).}
-\\
+\\&
+\parbox{0.4\linewidth}{Multiply the first by~\((-1)\).}
+\quad&
 \begin{cases}
 x+y=3\\x+4y=-1\\2x+4y=c
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&1\V3\\1&4\V-1\\2&4\V c \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Subtract the first from the second, and twice the first from the third.}
-\\
+\\&
+\parbox{0.4\linewidth}{Subtract the first from the second, and twice the first from the third.}
+\quad&
 \begin{cases}
 x+y=3\\0x+3y=-4\\0x+2y=c-6
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&1\V3\\0&3\V-4\\0&2\V c-6 \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Divide the second by three.}
-\\
+\\&
+\parbox{0.4\linewidth}{Divide the second by three.}
+\quad&
 \begin{cases}
 x+y=3\\0x+y=-\frac43\\0x+2y=c-6
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&1\V3\\0&1\V-\frac43\\0&2\V c-6 \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Subtract the second from the first, and twice the second from the third.}
-\\
+\\&
+\parbox{0.4\linewidth}{Subtract the second from the first, and twice the second from the third.}
+\quad&
 \begin{cases}
 x+0y=\frac{13}3\\0x+y=-\frac43\\0x+0y=c-\frac{10}3
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&0\V\frac{13}3\\0&1\V-\frac43\\0&0\V c-\frac{10}3 \end{bmatrix}
-\end{eqnarray*}
+\end{align*}
 The system is now in reduced row echelon form.
 The last row immediately tells us that there is no solution for parameter \(c\neq\frac{10}3\) as the equation would then be inconsistent.
 If parameter \(c=\frac{10}3\)\,, then the system is consistent and the first two rows give that the only solution is \((x,y)=(\frac{13}3,-\frac43)\).
@@ -1173,45 +1167,45 @@ Use \idx{Gauss--Jordan elimination}, \cref{pro:gje}, to find all possible soluti
 
 \begin{solution} 
 Here write both the full symbolic equations and the augmented matrix form---you would choose one or the other representations.
-\begin{eqnarray*}
+\begin{align*}&&
 \begin{cases}
 0u-2v+3w=-1\\2u+v-w=-1
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 0&-2&3\V-1\\2&1&1\V-1 \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Swap the two rows to get a nonzero top-left entry.}
-\\
+\\&
+\parbox{0.4\linewidth}{Swap the two rows to get a nonzero top-left entry.}
+\quad&
 \begin{cases}
 2u+v-w=-1\\0u-2v+3w=-1
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 2&1&-1\V-1\\0&-2&3\V-1 \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Divide the first row by two.}
-\\
+\\&
+\parbox{0.4\linewidth}{Divide the first row by two.}
+\quad&
 \begin{cases}
 u+\frac12v-\frac12w=-\frac12\\0u-2v+3w=-1
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&\frac12&-\frac12\V-\frac12\\0&-2&3\V-1 \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Divide the second row by~\((-2)\).}
-\\
+\\&
+\parbox{0.4\linewidth}{Divide the second row by~\((-2)\).}
+\quad&
 \begin{cases}
 u+\frac12v-\frac12w=-\frac12\\0u+v-\frac32w=\frac12
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&\frac12&-\frac12\V-\frac12\\0&1&-\frac32\V\frac12 \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Subtract half the second row from the first.}
-\\
+\\&
+\parbox{0.4\linewidth}{Subtract half the second row from the first.}
+\quad&
 \begin{cases}
 u+0v+\frac14w=-\frac34\\0u+v-\frac32w=\frac12
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&0&\frac14\V-\frac34\\0&1&-\frac32\V\frac12 \end{bmatrix}
-\end{eqnarray*}
+\end{align*}
 The system is now in reduced row echelon form.  
 The third column is that of a free variable so set the third component \(w=t\) for arbitrary~\(t\).
 Then the first row gives \(u=-\frac34-\frac14t\)\,, and the second row gives \(v=\frac12+\frac32t\)\,.
@@ -1248,20 +1242,18 @@ Second, suppose there are two distinct solutions; let them be \(\yv\) and~\(\zv\
 Then consider \(\xv=t\yv+(1-t)\zv\) for every~\(t\) (a parametric description of the line through~\yv\ and~\zv, \cref{sec:pel}). 
 %By distributivity \(A\xv=A(t\xv_1+(1-t)\xv_2) =tA\xv_1+(1-t)A\xv_2 =t\bv+(1-t)\bv =t\bv+\bv-t\bv =\bv\).  
 Consider the first row of~\(A\xv\): by \cref{def:matvecsys} it is
-\begin{eqnarray*}&&
+\begin{align*}&
 a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n
-\\&=&a_{11}[ty_1+(1-t)z_1]+a_{12}[ty_2+(1-t)z_2]
-\\&&{}
+\\&=a_{11}[ty_1+(1-t)z_1]+a_{12}[ty_2+(1-t)z_2]
 +\cdots+a_{1n}[ty_n+(1-t)z_n]
-\\&&\quad(\text{then rearrange this scalar expression})
-\\&=&t[a_{11}y_1+a_{12}y_2+\cdots+a_{1n}y_n]
-\\&&{}
+\\&\quad(\text{then rearrange this scalar expression})
+\\&=t[a_{11}y_1+a_{12}y_2+\cdots+a_{1n}y_n]
 +(1-t)[a_{11}z_1+a_{12}z_2+\cdots+a_{1n}z_n]
-\\&=&t[\text{first row of }A\yv]
+\\&=t[\text{first row of }A\yv]
 +(1-t)[\text{first row of }A\zv]
-\\&=&tb_1+(1-t)b_1 \quad(\text{as }A\yv=\bv\text{ and }A\zv=\bv)
-\\&=&b_1\,.
-\end{eqnarray*}
+\\&=tb_1+(1-t)b_1 \quad(\text{as }A\yv=\bv\text{ and }A\zv=\bv)
+\\&=b_1\,.
+\end{align*}
 Similarly for all rows of~\(A\xv\): that is, each row in \(A\xv\) equals the corresponding element of~\bv.
 Consequently, \(A\xv=\bv\) for every~\(t\). 
 Hence, if there are ever two distinct solutions, then there are an infinite number of solutions: \(\xv=t\yv+(1-t)\zv\) for every~\(t\).
@@ -1311,49 +1303,49 @@ x_1+2x_2+4x_3-3x_4=0\\
 x_1+2x_2-3x_3+6x_4=0
 \end{cases}\) is homogeneous.  
 Use \idx{Gauss--Jordan elimination}, \cref{pro:gje}, to solve: 
-\begin{eqnarray*}
+\begin{align*}&&
 \begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
 x_1+2x_2-3x_3+6x_4=0
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&2&4&-3\V0
 \\1&2&-3&6\V0
  \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Subtract the first row from the second.}
-\\
+\\&
+\parbox{0.3\linewidth}{Subtract the first row from the second.}
+\ &
 \begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
 0x_1+0x_2-7x_3+9x_4=0
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&2&4&-3\V0
 \\0&0&-7&9\V0
  \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Divide the second row by~\((-7)\).}
-\\
+\\&
+\parbox{0.3\linewidth}{Divide the second row by~\((-7)\).}
+\ &
 \begin{cases}
 x_1+2x_2+4x_3-3x_4=0\\
 0x_1+0x_2+x_3-\frac97x_4=0
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&2&4&-3\V0
 \\0&0&1&-\frac97\V0
  \end{bmatrix}
-\\
-\parbox{0.5\linewidth}{Subtract four times the second row from the first.}
-\\
+\\&
+\parbox{0.3\linewidth}{Subtract four times the second row from the first.}
+\ &
 \begin{cases}
 x_1+2x_2+0x_3+\frac{15}7x_4=0\\
 0x_1+0x_2+x_3-\frac97x_4=0
 \end{cases}
-&\iff&%\leftrightarrow&
+&\iff
 \begin{bmatrix} 1&2&0&\frac{15}7\V0
 \\0&0&1&-\frac97\V0
  \end{bmatrix}
-\end{eqnarray*}
+\end{align*}
 The system is now in reduced row echelon form.  
 The second and fourth columns are those of \idx{free variable}s so set the second and fourth component \(x_2=s\) and \(x_4=t\) for arbitrary \(s\) and~\(t\).
 Then the first row gives \(x_1=-2s-\frac{15}7t\)\,, and the second row gives \(x_3=\frac97t\)\,.
@@ -1361,7 +1353,6 @@ That is, the solutions are \(\xv=(-2s-\frac{15}7t,s,\frac97t,t) =(-2,1,0,0)s+(-\
 These solutions include \(\xv=\ov\) via the choice \(s=t=0\).
 \end{enumerate}
 \end{example}
-
 
 
 
@@ -1488,7 +1479,7 @@ Use \cref{pro:unisol} in \script\ to try to solve each of the systems of \cref{e
 
 \begin{exercise} \label{ex:3lineq} 
 Use \cref{pro:unisol} in \script\ to try to solve each of the following systems.
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{array}{l}
 -5x  -3y   +5z=  -3 \\
    2x   +3y  -z = -5\\
@@ -1522,7 +1513,7 @@ u   +3v   +2w=  -1\\
 %\(\)
 %\end{answer}
 %
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -1866,7 +1857,7 @@ c-\frac14d=-\frac72
 For the following rational expressions, express the task of finding the \idx{partial fraction} decomposition as a system of linear equations.
 Solve the system to find the decomposition.  
 Record your working.
-\begin{enumerate}
+\begin{Parts}
 \item 
 \begin{equation*}
 \frac{-x^2+2x-5}{x^2(x-1)}
@@ -1892,7 +1883,7 @@ Record your working.
 \end{equation*}
 \answer{\(\frac{19/8}{x-1}-\frac{1/2}{(x-1)^2}+\frac{13/8}{x+1} -\frac{9/4}{(x+1)^2}+\frac{3/2}{(x+1)^3}\)}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 \end{reduce}
 

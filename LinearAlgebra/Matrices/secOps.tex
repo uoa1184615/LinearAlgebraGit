@@ -116,12 +116,12 @@ Alternatively these column vectors may be written as
 \item Lastly, two matrices are \bfidx{equal}~(\(=\)) if they both have the same \idx{size} \emph{and} their corresponding \idx{entries} are equal.
 Otherwise the matrices are not equal.
 For example, consider matrices
-\begin{eqnarray*}&&
-A=\begin{bmatrix} 2&\pi\\3&9 \end{bmatrix},\quad
-B=\begin{bmatrix} \sqrt4&\pi\\2+1&3^2 \end{bmatrix},\\&&
-C=\begin{bmatrix} 2&\pi \end{bmatrix},\quad
+\begin{align*}&
+A=\begin{bmatrix} 2&\pi\\3&9 \end{bmatrix},&&
+B=\begin{bmatrix} \sqrt4&\pi\\2+1&3^2 \end{bmatrix},&&
+C=\begin{bmatrix} 2&\pi \end{bmatrix},&&
 D=\begin{bmatrix} 2\\\pi \end{bmatrix}=(2,\pi).
-\end{eqnarray*}
+\end{align*}
 The matrices \(A=B\) because they are the same size and their  corresponding entries are equal, such as \(a_{11}=2=\sqrt4=b_{11}\)\,.
 Matrix~\(A\) cannot be equal to~\(C\) because their sizes are different.
 Matrices \(C\) and~\(D\) are not equal, despite having the same \idx{elements} in the same order, because they have different sizes: \(1\times 2\) and \(2\times 1\) respectively.
@@ -214,7 +214,7 @@ A-A=O\,.
 
 \begin{activity}
 Given the two matrices \(A=\begin{bmatrix} 3&-2\\1&-1 \end{bmatrix}\) and \(B=\begin{bmatrix} 2&1\\3&2 \end{bmatrix}\), which of the following is the matrix \(\begin{bmatrix} 5&-1\\-2&-3 \end{bmatrix}\)?
-\actposs[2]{none of the others}{\(A+B\)}{\(A-B\)}{\(B-A\)}
+\actposs{none of the others}{\(A+B\)}{\(A-B\)}{\(B-A\)}
 \end{activity}
 
 
@@ -328,11 +328,8 @@ Which of the following is the result of the matrix-vector product
 
 
 
-
-\paragraph{Geometric interpretation}
-Multiplication of a vector by a \emph{\idx{square matrix}} transforms the vector into another in the same space. 
-The margin shows the example of~\(A\xv\) from \cref{eg:matvecmul}.
-\marginpar{\begin{tikzpicture}[]
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid, xmin=-1,xmax=3.5,ymax=1
@@ -342,17 +339,21 @@ The margin shows the example of~\(A\xv\) from \cref{eg:matvecmul}.
     \addplot[red,quiver={u=0,v=-7},-stealth, thick] coordinates {(0,0)};
     \node[right] at (axis cs:0,-6) {$A\xv$};
 \end{axis}
-\end{tikzpicture}%\\[2ex]
-}%
+\end{tikzpicture}
+\end{wrapfigure}
+\paragraph{Geometric interpretation}
+Multiplication of a vector by a \emph{\idx{square matrix}} transforms the vector into another in the same space. 
+The right graph shows the example of~\(A\xv\) from \cref{eg:matvecmul}.
+
 For another vector \(\yv=(1,1)\) and the same matrix~\(A\) the product
-\begin{equation*}
+\begin{align*}&
 A\yv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 \begin{bmatrix} 1\\1 \end{bmatrix}
 =\begin{bmatrix} 3\cdot1+2\cdot1\\ (-2)\cdot1+1\cdot1 \end{bmatrix}
 =\begin{bmatrix} 5\\ -1 \end{bmatrix},
-\end{equation*}
-as illustrated in the second marginal picture.
-\marginpar{\begin{tikzpicture}[]
+&&
+\begin{tikzpicture}%
+[baseline={([yshift={-6ex}]current bounding box.north)}]
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid, xmin=-1,xmax=6.5,ymax=1.9,ymin=-2.5
@@ -362,17 +363,12 @@ as illustrated in the second marginal picture.
     \addplot[red,quiver={u=5,v=-1},-stealth, thick] coordinates {(0,0)};
     \node[below] at (axis cs:5,-1) {$A\yv$};
 \end{axis}
-\end{tikzpicture}%\\[2ex]
-}%
-Similarly, for the vector \(\zv=(-1,2)\) and the same matrix~\(A\) the product
-\begin{equation*}
-A\zv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
-\begin{bmatrix} -1\\2 \end{bmatrix}
-=\begin{bmatrix} 3\cdot(-1)+2\cdot2\\ (-2)\cdot(-1)+1\cdot2 \end{bmatrix}
-=\begin{bmatrix} 1\\ 4 \end{bmatrix},
-\end{equation*}
-as illustrated in the third marginal picture.
-\marginpar{\begin{tikzpicture}[]
+\end{tikzpicture}
+\end{align*}
+as illustrated in the second right-hand picture.
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}[]
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid, xmin=-3.5,xmax=2.5,ymax=4.9,ymin=-0.5
@@ -383,7 +379,15 @@ as illustrated in the third marginal picture.
     \node[right] at (axis cs:1,4) {$A\zv$};
 \end{axis}
 \end{tikzpicture}
-}%
+\end{wrapfigure}
+Similarly, for the vector \(\zv=(-1,2)\) and the same matrix~\(A\) the product
+\begin{equation*}
+A\zv=\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
+\begin{bmatrix} -1\\2 \end{bmatrix}
+=\begin{bmatrix} 3\cdot(-1)+2\cdot2\\ (-2)\cdot(-1)+1\cdot2 \end{bmatrix}
+=\begin{bmatrix} 1\\ 4 \end{bmatrix},
+\end{equation*}
+as illustrated in the third right-hand picture.
 Such a geometric interpretation underlies the use of matrix multiplication in video and picture processing, for example.
 Such video\slash picture processing employs stretching and shrinking (\cref{sec:dmd}), rotations (\cref{sec:omr}), among more general transformations (\cref{sec:ilt}).
 
@@ -409,16 +413,16 @@ Multiplication by the identity matrix leaves the vector unchanged (\cref{thm:pmm
 
 
 \begin{reduce}
-\begin{example}[\idx{rabbit}s multiply]
-In 1202 
-\marginpar{\includegraphics[width=\marginparwidth]{Matrices/rabbit}}%
+\begin{wrapfigure}l{0pt}
+\includegraphics[width=\marginparwidth]{Matrices/rabbit}
 % AJR's photo of rabbit at Woods Hole in 1981
-\idx{Fibonacci} famously considered the breeding of \idx{rabbit}s---such as the following question.
-One pair of rabbits can give birth to another pair of rabbits (called \idx{kitten}s) every month, say.
-\begin{aside}
+\end{wrapfigure}
+\begin{example}[\idx{rabbit}s multiply]
+In 1202 \idx{Fibonacci}\footnote{%
 Fibonacci's real name is Leonardo Bonacci. 
 He lived circa 1175 to 1250, travelled extensively from Pisa, and is considered to be one of the most talented Western mathematicians of the Middle Ages.
-\end{aside}%
+} famously considered the breeding of \idx{rabbit}s---such as the following question.
+One pair of rabbits can give birth to another pair of rabbits (called \idx{kitten}s) every month, say.
 Each \idx{kitten} becomes fertile after it has aged a month, when it becomes \idx{adult} and is called a buck (male) or doe (\idx{female}).
 The new bucks and does then also start breeding.
 How many rabbits are there after \text{six months?}
@@ -441,10 +445,8 @@ Then our model is that
 =L\xv
 \quad\text{for }L=\begin{bmatrix} 0&1\\1&1 \end{bmatrix},
 \end{equation*}
-called a \idx{Leslie matrix}.
-\begin{aside}
-Named after Patrick~H. Leslie, Leslie matrices are widely used in ecology to model the evolution over time of a population of organisms.
-\end{aside}
+called a \idx{Leslie matrix}.\footnote{%
+Named after Patrick~H. Leslie, Leslie matrices are widely used in ecology to model the evolution over time of a population of organisms.}
 \begin{itemize}
 \item At the start there is one adult pair, one doe, and no female kittens, so the \idx{initial population} is \(\xv=(0,1)\).
 \item After one month,  females \(\xv'=L\xv=\begin{bmat} 0&1\\1&1 \end{bmat}\begin{bmat} 0\\1 \end{bmat}=\begin{bmat} 1\\1 \end{bmat}\).
@@ -537,25 +539,25 @@ B=\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix},
 \end{equation*}
 then the matrix multiplication~\(AB\) may be done as the matrix~\(A\) multiplying each of the three columns in~\(B\).
 That is, in detail write
-\begin{eqnarray*}
-AB&=&A\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix}
-\\&=&A\begin{bmatrix} 5 \V -6 \V 4\\ -1 \V -3 \V -3 \end{bmatrix}
-\\&=&\begin{bmatrix} A\begin{bmatrix} 5\\-1 \end{bmatrix} \W
+\begin{align*}
+AB&=A\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix}
+=A\begin{bmatrix} 5 \V -6 \V 4\\ -1 \V -3 \V -3 \end{bmatrix}
+=\begin{bmatrix} A\begin{bmatrix} 5\\-1 \end{bmatrix} \W
 A\begin{bmatrix} -6\\-3 \end{bmatrix} \W
 A\begin{bmatrix} 4\\-3 \end{bmatrix} \end{bmatrix}
-\\&=&\begin{bmatrix} \begin{bmatrix} 13\\-11 \end{bmatrix} \W
+\\&=\begin{bmatrix} \begin{bmatrix} 13\\-11 \end{bmatrix} \W
 \begin{bmatrix} -24\\9 \end{bmatrix} \W
 \begin{bmatrix}6\\-11 \end{bmatrix} \end{bmatrix}
-\\&=&\begin{bmatrix}  13& -24&6\\-11 &9&-11\end{bmatrix}.
-\end{eqnarray*}
+=\begin{bmatrix}  13& -24&6\\-11 &9&-11\end{bmatrix}.
+\end{align*}
 Conversely, the product~\(BA\) cannot be done because if we try the same procedure then
-\begin{eqnarray*}
-BA&=&B\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
-\\&=&B\begin{bmatrix} \begin{bmatrix} 3 \\ -2 \end{bmatrix}\W 
+\begin{equation*}
+BA=B\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
+=B\begin{bmatrix} \begin{bmatrix} 3 \\ -2 \end{bmatrix}\W 
 \begin{bmatrix} 2 \\ 1 \end{bmatrix} \end{bmatrix}
-\\&=&\begin{bmatrix} B\begin{bmatrix} 3 \\ -2 \end{bmatrix}\W 
+=\begin{bmatrix} B\begin{bmatrix} 3 \\ -2 \end{bmatrix}\W 
 B\begin{bmatrix} 2 \\ 1 \end{bmatrix} \end{bmatrix},
-\end{eqnarray*}
+\end{equation*}
 and neither of these matrix-vector products can be done as, for example,
 \begin{equation*}
 B\begin{bmatrix} 3 \\ -2 \end{bmatrix}
@@ -570,32 +572,31 @@ Hence the product~\(BA\) is not defined.
 
 
 \begin{example} 
-Let matrices
+For the following two matrices, compute, if possible, \(CD\) and~\(DC\), and compare these products:
 \begin{equation*}
 C=\begin{bmatrix} -4 & -1\\ -4 & -1\\ 1 & 4 \end{bmatrix},\quad
 D=\begin{bmatrix} -2 & -1 & -3\\ 1 & 3 & 0 \end{bmatrix}.
 \end{equation*}
-Compute, if possible, \(CD\) and~\(DC\); compare these products.
 \begin{solution} 
 \begin{itemize}
 \item On the one hand,
-\begin{eqnarray*}
-CD&=&C\begin{bmatrix} -2 & -1 & -3\\ 1 & 3 & 0 \end{bmatrix}
-\\&=&\begin{bmatrix} C\begin{bmatrix} -2\\1 \end{bmatrix}\W
+\begin{equation*}
+CD=C\begin{bmatrix} -2 & -1 & -3\\ 1 & 3 & 0 \end{bmatrix}
+=\begin{bmatrix} C\begin{bmatrix} -2\\1 \end{bmatrix}\W
 C\begin{bmatrix} -1\\3 \end{bmatrix}\W
 C\begin{bmatrix} -3\\0 \end{bmatrix}
  \end{bmatrix}
-\\&=&\begin{bmatrix} 7&1&12\\7&1&12\\2&11&-3 \end{bmatrix}.
-\end{eqnarray*}
+=\begin{bmatrix} 7&1&12\\7&1&12\\2&11&-3 \end{bmatrix}.
+\end{equation*}
 
 \item Conversely,
-\begin{eqnarray*}
-DC&=&D\begin{bmatrix} -4 & -1\\ -4 & -1\\ 1 & 4 \end{bmatrix}
-\\&=&\begin{bmatrix}  D\begin{bmatrix} -4\\-4\\1 \end{bmatrix}\W
+\begin{equation*}
+DC=D\begin{bmatrix} -4 & -1\\ -4 & -1\\ 1 & 4 \end{bmatrix}
+=\begin{bmatrix}  D\begin{bmatrix} -4\\-4\\1 \end{bmatrix}\W
 D\begin{bmatrix} -1\\-1\\4 \end{bmatrix}
 \end{bmatrix}
-\\&=&\begin{bmatrix} 9&-9\\-16&-4 \end{bmatrix}.
-\end{eqnarray*}
+=\begin{bmatrix} 9&-9\\-16&-4 \end{bmatrix}.
+\end{equation*}
 \end{itemize}
 Interestingly, \(CD\neq DC\)\,---they are not even of the same size!
 \end{solution}
@@ -652,9 +653,7 @@ Which one of the following \idx{matrix product}s is not defined?
 \begin{example} 
 Matrix multiplication leads to powers of a square matrix.
 Let matrix
-\begin{equation*}
-A=\begin{bmatrix} 3&2\\-2&1 \end{bmatrix},
-\end{equation*}
+\(A=\begin{bmatrix} 3&2\\-2&1 \end{bmatrix}\),
 then by~\(A^2\) we mean the product
 \begin{equation*}
 AA=\begin{bmatrix} 3&2\\-2&1 \end{bmatrix}\begin{bmatrix} 3&2\\-2&1 \end{bmatrix}=\begin{bmatrix} 5&8\\-8&-3 \end{bmatrix},
@@ -1261,17 +1260,8 @@ The proofs directly match those of the corresponding vector properties and are s
 \end{proof}
 
 
-
-\begin{example}[geometry of associativity]
-Many properties of \idx{matrix multiplication} have a useful geometric interpretation such as that discussed for matrix-vector products.
-Recall the earlier \cref{eg:poppred} invoked the associativity \cref{thm:pmma}.
-For another example, consider the two matrices and vector
-\begin{equation*}
-A=\begin{bmatrix} 1&1\\1&0 \end{bmatrix},\quad
-B=\begin{bmatrix} 2&0\\2&-1 \end{bmatrix},\quad
-\xv=\begin{bmatrix} 1\\1 \end{bmatrix}.
-\end{equation*}
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid,xmin=0,xmax=3.9,ymax=2.9 ]
@@ -1282,16 +1272,21 @@ B=\begin{bmatrix} 2&0\\2&-1 \end{bmatrix},\quad
     \addplot[brown,quiver={u=3,v=2},-stealth, thick] coordinates {(0,0)};
     \node[above] at (axis cs:3,2) {$A(B\xv)$};
 \end{axis}
-\end{tikzpicture}}%
-Now the transform \(\xv'=B\xv=(2,1)\), and then transforming with~\(A\) gives \(\xv''=A\xv'=A(B\xv)=(3,2)\), as illustrated in the margin.
-This is the same results as forming the product
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example}[geometry of associativity]
+Many properties of \idx{matrix multiplication} have a useful geometric interpretation such as that discussed for matrix-vector products.
+Recall the earlier \cref{eg:poppred} invoked the associativity \cref{thm:pmma}.
+For another example, consider the two matrices and vector
 \begin{equation*}
-AB=\begin{bmatrix} 1&1\\1&0 \end{bmatrix} 
-\begin{bmatrix} 2&0\\2&-1 \end{bmatrix}
-=\begin{bmatrix} 4&-1\\2&0 \end{bmatrix}
+A=\begin{bmatrix} 1&1\\1&0 \end{bmatrix},\quad
+B=\begin{bmatrix} 2&0\\2&-1 \end{bmatrix},\quad
+\xv=\begin{bmatrix} 1\\1 \end{bmatrix}.
 \end{equation*}
-and then computing \((AB)\xv=(3,2)\) as also illustrated in the margin.
-\marginpar{\begin{tikzpicture}
+Now the transform \(\xv'=B\xv=(2,1)\), and then transforming with~\(A\) gives \(\xv''=A\xv'=A(B\xv)=(3,2)\), as illustrated to the above-right.
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,width=12em
     , axis equal image, axis lines=middle,
     , grid,xmin=0,xmax=3.9,ymax=2.9 ]
@@ -1302,7 +1297,15 @@ and then computing \((AB)\xv=(3,2)\) as also illustrated in the margin.
     \addplot[brown,quiver={u=3,v=2},-stealth, thick] coordinates {(0,0)};
     \node[above] at (axis cs:3,2) {$(AB)\xv$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+This is the same results as forming the product
+\begin{equation*}
+AB=\begin{bmatrix} 1&1\\1&0 \end{bmatrix} 
+\begin{bmatrix} 2&0\\2&-1 \end{bmatrix}
+=\begin{bmatrix} 4&-1\\2&0 \end{bmatrix}
+\end{equation*}
+and then computing \((AB)\xv=(3,2)\) as also illustrated to the right.
 Such associativity asserts that \(A(B\xv)=(AB)\xv\)\,: that is, the geometric transform of~\xv\ by matrix~\(B\) followed by the transform of matrix~\(A\) is the same result as just transforming by the matrix formed from the product~\(AB\)---as assured by \cref{thm:pmma}.
 \end{example}
 
@@ -1443,10 +1446,7 @@ Let matrices \(A\) and~\(B\) be of sizes such that the following expressions are
 \item\label[theorem]{thm:pota} \(\tr{(\tr A)}=A\);
 \item\label[theorem]{thm:potb} \(\tr{(A\pm B)}=\tr A\pm \tr B\);
 \item\label[theorem]{thm:potc} \(\tr{(cA)}=c(\tr A)\) for every \idx{scalar}~\(c\);
-\item\label[theorem]{thm:potd} \(\tr{(AB)}=\tr B\tr A\);
-\begin{aside}
-Remember the reversed order in the identity \(\tr{(AB)}=\tr B\tr A\).
-\end{aside}
+\item\label[theorem]{thm:potd} \(\tr{(AB)}=\tr B\tr A\) ---remember the reversed order in this identity;
 \item\label[theorem]{thm:pote} \(\tr{(A^p)}=(\tr A)^p\) for every positive integer exponent~\(p\);\index{matrix power}
 \footnote{With care, this property also holds for all scalar exponents~\(p\)---although this book only considers integer exponents~\(p\), see \cref{def:invpow}.}
 \item\label[theorem]{thm:potf} \(A+\tr A\),  \(\tr AA\) and \(A\tr A\) are symmetric matrices.\index{symmetric matrix}
@@ -2013,16 +2013,17 @@ Prove parts: \ref{thm:pmmbb}, distributivity; \ref{thm:pmmc}, scalar associativi
 Use the other parts of \cref{thm:pmm} to prove part~\ref{thm:pmmg} that \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square matrix~\(A\), scalar~\(c\), and for positive integer exponents~\(p\) and~\(q\).
 \end{exercise}
 
-
+\begin{wrapfigure}l{8em}
+% AJR's photo of Tassie Devil
+\includegraphics[width=\linewidth]{Matrices/tasmanianDevil}
+Tasmanian Devil
+\end{wrapfigure}
 \begin{exercise}[\idx{Tasmanian Devil}s]  
 % adapted from SACE Math Meths 2013
 % Wikipedia says four years breeding seasons typical, 
 % 2 females born per year is OK
 % 60% of pups do not survive to maturity
 Ecologists studying a colony of Tasmanian Devils, an Australian marsupial, observed the following:
-\marginpar{\includegraphics[width=\marginparwidth]{Matrices/tasmanianDevil}
-% AJR's photo of Tassie Devil
-Tasmanian Devil}
 two-thirds of the female newborns survive to be one year old;
 two-thirds of female one year olds survive to be two years old;
 one-half of female two year olds survive to be three years old;

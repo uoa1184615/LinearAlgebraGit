@@ -125,10 +125,8 @@ Scientists and engineers implicitly use this same `\idx{smallest change}' approa
 
 
 
-
-\begin{activity}
-Consider the inconsistent equations \(3x=1\) and \(4x=3\) formed as the system (illustrated in the margin)
-\marginpar{\begin{tikzpicture}
+\begingroup
+\def\temp{\begin{tikzpicture}
   \begin{axis}[small,font=\footnotesize
   ,axis equal image,axis lines=middle,samples=2 ,domain=-1:4.9]
   \addplot[blue,no marks]{4/3*x};
@@ -137,7 +135,9 @@ Consider the inconsistent equations \(3x=1\) and \(4x=3\) formed as the system (
   \addplot[red,mark=*] coordinates {(1,3)};
   \node[above] at (axis cs:1,3) {$(1,3)$};
   \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{activity}[\temp]
+Consider the inconsistent equations \(3x=1\) and \(4x=3\) formed as the system (illustrated to the right)
 \begin{equation*}
 \begin{bmatrix} 3\\4 \end{bmatrix}x=\begin{bmatrix} 1\\3 \end{bmatrix},
 \quad\text{and given }
@@ -150,17 +150,11 @@ is an \svd\ \idx{factorization} of the \(2\times 1\) matrix.
 Following the procedure of the previous \cref{eg:fourwts}, what is the `best' \idx{approximate solution} to these inconsistent equations?
 \actposs[4]{\(x=3/5\)}{\(x=1/3\)}{\(x=4/7\)}{\(x=3/4\)}
 \end{activity}
+\endgroup
 
 
 
-
-
-\begin{example} \label{eg:rstp3}
-Recall the \idx{table tennis} \idx{player rating} \cref{eg:rstp2}.
-There we found that we could not solve the equations to find some ratings because the equations were \idx{inconsistent}.
-In our new terminology of the previous \cref{sec:sbd}, the right-hand side vector~\bv\ is not in the \idx{column space} of the matrix~\(A\) (\cref{def:colsp}): 
-the stereo picture below illustrates the 2D column space spanned by the three columns of~\(A\) and that the vector~\bv, of the results, lies outside the \text{column space.}
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{58}{63}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,axis equal image,view={\q}{35}
   ,zmin=-2,zmax=2]
@@ -176,7 +170,13 @@ the stereo picture below illustrates the 2D column space spanned by the three co
     \node[] at (axis cs:1,2,1.5) {$\bv$};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:rstp3}
+Recall the \idx{table tennis} \idx{player rating} \cref{eg:rstp2}.
+There we found that we could not solve the equations to find some ratings because the equations were \idx{inconsistent}.
+In our new terminology of the previous \cref{sec:sbd}, the right-hand side vector~\bv\ is not in the \idx{column space} of the matrix~\(A\) (\cref{def:colsp}): 
+the stereo picture to the right illustrates the 2D column space spanned by the three columns of~\(A\) and that the vector~\bv, of the results, lies outside the \text{column space.}
+
 Now reconsider Step~3 in \cref{eg:rstp2}.
 \begin{enumerate} \addtocounter{enumi}2
 \item We need to interpret and `solve' \(S\yv=\zv\) which here is
@@ -199,7 +199,7 @@ Hence we find an \idx{approximate solution} to the \idx{player rating}s via solv
    -2.0412\\-2.1213\\0
 \end{bmatrix}.
 \end{equation*}
-Here, via \verb|y=z(1:2)./diag(S(1:2,1:2))|, a general solution is \(\yv=(-1.1785,-1.2247,y_3)\).
+Here, via \verb|y=z(1:2)./diag(S(1:2,1:2))|, a general solution is that vector \(\yv=(-1.1785,-1.2247,y_3)\).
 Varying the \idx{free variable}~\(y_3\) gives equally good approximate solutions.
 
 \item Lastly, solve \(\tr V\xv=\yv\)\,, via computing \verb|x=V(:,1:2)*y|, to determine
@@ -521,9 +521,9 @@ Setting vector \(\bv'=A\xv\) for each, which one minimizes the \idx{distance} be
 
 \begin{theorem}[\bfidx{smallest change}] \label{thm:appsol} 
 All \idx{approximate solution}s obtained by \cref{pro:appsol} solve the linear \idx{system} \(A\xv=\bv'\) for the unique \idx{consistent} right-hand side vector~\(\bv'\) 
-\begin{aside} The dash on~\(\bv'\)\ is to suggest an approximation to~\bv. \end{aside}%
 that minimizes the \idx{distance}~\(|\bv'-\bv|\).
 \end{theorem}
+(The dash on~\(\bv'\)\ is to suggest an approximation to~\bv.)
 \begin{proof} 
 Find an \svd\ \(A=\usv\) of \(m\times n\) matrix~\(A\).
 Then \cref{pro:appsol} computes \(\zv=\tr U\bv\in\RR^m\), that is, \(\bv=U\zv\) as \(U\)~is orthogonal.
@@ -993,9 +993,7 @@ How do we make sense of such differences in computed answers?
 Recall that systems of linear equations may not have \idx{unique solution}s (as in the rating examples): what does~\verb|A\b|\index{A\slosh@\texttt{A\slosh}} compute when there are an infinite number of solutions?
 \begin{itemize}
 \item For systems of equations with the number of equations not equal to the number of variables, \(m\neq n\)\,, the \script[2] operation~\verb|A\b| computes for you the \emph{\idx{smallest solution}}
-\begin{aside}
-A \emph{smallest solution} is a solution that is of least \idx{magnitude}, smallest norm.
-\end{aside}
+(that is, a solution that is of least \idx{magnitude}, smallest norm)
 of all valid solutions (\cref{thm:smallsoln}): often `exact' when \(m<n\)\,, or approximate when \(m>n\) (\cref{thm:appsol}).  
 Using~\verb|A\b| is the most efficient computationally, but using the \svd\ helps us understand what \text{it does.}
 
@@ -1006,9 +1004,10 @@ But \script[2]'s choice of the smallest valid solution is often \text{more appea
 \end{itemize}
 
 \begin{theorem}[\bfidx{smallest solution}] \label{thm:smallsoln}
-Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by invoking \cref{pro:gensol} or \cref{pro:appsol}, respectively, and then setting to \idx{zero} the \idx{free variable}s, \(y_{r+1}=\cdots=y_n=0\).
+Obtain the {smallest solution}, whether exact or as an approximation, to a system of \idx{linear equation}s by invoking \cref{pro:gensol} or \cref{pro:appsol}, respectively, and then setting to \idx{zero} the \idx{free variable}s, that is, \(y_{r+1}=\cdots=y_n=0\).
 \end{theorem}
-\begin{proof} %Direct from \svd\ and that orthogonal matrices are rotations.
+\begin{proof} 
+%Direct from \svd\ and that orthogonal matrices are rotations.
 We obtain all possible solutions, whether exact (\cref{pro:gensol}) or approximate (\cref{pro:appsol}), from solving \(\xv=V\yv\)\,.
 Since multiplication by orthogonal~\(V\) preserves lengths (\cref{thm:orthog}), the lengths of~\xv\ and~\yv\ are the same: consequently, \(|\xv|^2=|\yv|^2=y_1^2+\cdots+y_r^2+y_{r+1}^2+\cdots+y_n^2\).  
 Now, in both \cref{pro:gensol} and \cref{pro:appsol} the variables \hlist yr\ are fixed but \(y_{r+1},\ldots,y_n\) are free to vary.
@@ -1016,16 +1015,7 @@ Hence the smallest \(|\yv|^2\)~is obtained by setting \(y_{r+1}=\cdots=y_n=0\)\,
 Then this gives the particular solution~\(\xv=V\yv\)\ of smallest~\(|\xv|\).
 \end{proof}
 
-
-\begin{example} 
-In the \idx{table tennis} ratings of \cref{eg:rstp3} the procedure found the ratings were any of
-\begin{equation*}
-\xv=\begin{bmatrix} 1\\\frac13\\-\frac43 \end{bmatrix}
-+\frac{y_3}{\sqrt3}\begin{bmatrix} 1\\1\\1 \end{bmatrix},
-\end{equation*}
-as illustrated in stereo below (blue).
-Verify \(|\xv|\) is a \idx{minimum} only when the \idx{free variable} \(y_3=0\) (a disc in the plot).
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{28}{33}{\begin{tikzpicture}
     \begin{axis}[footnotesize,font=\footnotesize,view={\q}{30}
     ,xlabel=$x_1$,ylabel=$x_2$,zlabel={$x_3$},label shift={-1.5ex}]
@@ -1034,7 +1024,16 @@ Verify \(|\xv|\) is a \idx{minimum} only when the \idx{free variable} \(y_3=0\) 
     \addplot3[red,mark=*] coordinates {(0,0,0) (1,1/3,-4/3)};
     \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} 
+In the \idx{table tennis} ratings of \cref{eg:rstp3} the procedure found the ratings were any of
+\begin{equation*}
+\xv=\begin{bmatrix} 1\\\frac13\\-\frac43 \end{bmatrix}
++\frac{y_3}{\sqrt3}\begin{bmatrix} 1\\1\\1 \end{bmatrix},
+\end{equation*}
+as illustrated in stereo below (blue).
+Verify \(|\xv|\) is a \idx{minimum} only when the \idx{free variable} \(y_3=0\) (a disc in the plot).
+
 \begin{solution} 
 \begin{eqnarray*}
 |\xv|^2&=&\xv\cdot\xv
@@ -1056,18 +1055,21 @@ Hence the length~\(|\xv|\) is minimized by the free variable \(y_3=0\)\,.
 
 
 \begin{reduce}
-\begin{example}[closest point to the origin] 
-What is the point on the line \(3x_1+4x_2=25\) that is closest to the origin?
-I am sure you could think of several methods, perhaps inspired by the marginal graph, but here use an \svd\ and \cref{thm:smallsoln}.
-Confirm the \script[2] computation~\verb|A\b|\index{A\slosh@\texttt{A\slosh}} gives this same closest point, but \script[1] gives a different `answer' (one that is not relevant here).
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
   ,xlabel={$x_1$}, ylabel={$x_2$}
   ,axis lines=middle ,samples=2 ,domain=-1:9]
   \addplot[blue,no marks,thick]{(25-3*x)/4};
   \addplot[red,mark=*] coordinates {(0,0)(3,4)};
   \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example}[closest point to the origin] 
+What is the point on the line \(3x_1+4x_2=25\) that is closest to the origin?
+I am sure you could think of several methods, perhaps inspired by the marginal graph, but here use an \svd\ and \cref{thm:smallsoln}.
+Confirm the \script[2] computation~\verb|A\b|\index{A\slosh@\texttt{A\slosh}} gives this same closest point, but \script[1] gives a different `answer' (one that is not relevant here).
+
 \begin{solution} 
 The point on the line \(3x_1+4x_2=25\) closest to the origin, is the smallest solution of \(3x_1+4x_2=25\)\,.  
 Rephrase as the matrix vector system \(A\xv=b\) for matrix \(A=\begin{bmatrix} 3&4 \end{bmatrix}\) and \(b=25\), and apply \cref{pro:gensol}.
@@ -1099,7 +1101,7 @@ In \script[1] (R2017b), \verb|x=[3 4]\25| gives \(\xv=(0,6.25)\) which the margi
 
 \begin{activity}
 What is the closest point to the origin of the plane \(2x+3y+6z=98\)\,? 
-Use the \svd\
+Use the following \svd:
 \begin{equation*}
 \begin{bmatrix} 2&3&6 \end{bmatrix}
 =\begin{bmatrix} 1 \end{bmatrix}
@@ -1108,7 +1110,7 @@ Use the \svd\
 \\\frac37&\frac67&-\frac27
 \\\frac67&-\frac27&\frac37 \end{bmatrix}}.
 \end{equation*}
-\actposs{\((4,6,12)\)}{\((2,3,6)\)}{\((-3,6,-2)\)}{\((-12,-4,6)\)}
+\actposs[4]{\((4,6,12)\)}{\((2,3,6)\)}{\((-3,6,-2)\)}{\((-12,-4,6)\)}
 \end{activity}
 
 
@@ -1191,16 +1193,18 @@ If there is any ambiguity about the answer, then the answer computed should be t
 \fi
 \end{axis}
 \end{tikzpicture}}
+\needlines7
+\begin{wrapfigure}[7]r{0pt} \temp0 \end{wrapfigure}
 Let's analyse a toy example, as real-life examples have millions of unknowns and equations.%
 \footnote{For those interested in reading further, \cite{Kress2015} [\S8] introduces the advanced, highly mathematical, approach to computerized tomography.}
-\marginpar{\temp0}%
 Suppose we divide a cross-section of a body into nine squares (large pixels) in a \(3\times3\) grid.
-Inside each square the body's material has some unknown density represented by transmission factors, \hlist r9\ as shown in the margin.
+Inside each square the body's material has some unknown density represented by transmission factors, \hlist r9\ as shown to the right.
 The \textsc{ct}-scan\index{CT scan} is to find these transmission factors.
 The factor~\(r_j\) is the fraction of the incident \idx{X-ray} that emerges after passing through the \(j\)th~square: typically, smaller~\(r_i\) corresponds to higher density in \text{the body.}
 
-As indicated next in the margin, six \idx{X-ray} measurements are made through the body where \hlist f6\ denote the fraction of energy in the measurements relative to the incident power of the X-ray beam.
-\marginpar{\temp1}%
+\needlines8
+\begin{wrapfigure}[8]r{0pt} \temp1 \end{wrapfigure}
+As indicated next to the right, six \idx{X-ray} measurements are made through the body where \hlist f6\ denote the fraction of energy in the measurements relative to the incident power of the X-ray beam.
 Thus we need to solve six equations for the nine unknown transmission factors:
 \begin{eqnarray*}
 &&
@@ -1212,10 +1216,8 @@ r_1r_4r_7=f_4\,,\quad
 r_2r_5r_8=f_5\,,\quad
 r_3r_6r_9=f_6\,.\quad
 \end{eqnarray*}
-Turn such \idx{nonlinear equation}s into linear equations that we can handle by taking the \idx{logarithm} (to any base, but here say the \idx{natural logarithm} to base~\(e\)) of both sides of all equations:
-\begin{aside}
-Computers almost always use ``\idx{log}'' to denote the \idx{natural logarithm}, so we do too.  Herein, unsubscripted ``log'' means the same as ``ln''.
-\end{aside}
+Turn such \idx{nonlinear equation}s into linear equations that we can handle by taking the \idx{logarithm} (to any base, but here say the \idx{natural logarithm} to base~\(e\)) of both sides of all equations
+(computers almost always use ``\idx{log}'' to denote the \idx{natural logarithm}, so we do too.  Herein, unsubscripted ``log'' means the same as ``ln''):
 \begin{equation*}
 r_ir_jr_k=f_l \iff (\ln r_i)+(\ln r_j)+(\ln r_k)=(\ln f_l).
 \end{equation*}
@@ -1265,7 +1267,9 @@ x=A\b
 r=reshape(exp(x),3,3)
 colormap(gray),imagesc(r)
 \end{verbatim}
+
 \index{colormap()@\texttt{colormap()}}%
+
 \def\temp#1#2#3#4#5#6#7#8#9{\begin{tikzpicture}
 \begin{axis}[tiny,axis equal image,colormap/blackwhite,axis lines=none]
 \addplot[patch,patch type=rectangle
@@ -1313,15 +1317,15 @@ These are logarithms so to get the corresponding physical transmission factors c
 \begin{equation*}
 \rv=\exp(\xv)=(.66,.68,.91,.63,.65,.87,.53,.55,.74),
 \end{equation*}
-although it is perhaps more appealing to put these factors into the shape of the \(3\times3\) array of pixels as in (and as illustrated in the margin)
-\marginpar{\temp{0.66}{0.68}{0.91}{0.63}{0.65}{0.87}{0.53}{0.55}{0.74}}%
-\begin{equation*}
+although it is perhaps more appealing to put these factors into the shape of the \(3\times3\) array of pixels as in (and as illustrated to the right)
+\begin{align*}&
 \begin{bmatrix} r_1&r_4&r_7\\r_2&r_5&r_8\\r_3&r_6&r_9 \end{bmatrix}
 =\begin{bmatrix} 0.66&0.63&0.53
 \\0.68&0.65&0.55
 \\0.91&0.87&0.74
  \end{bmatrix}.
-\end{equation*}
+&&\raisebox{-5ex}{\temp{0.66}{0.68}{0.91}{0.63}{0.65}{0.87}{0.53}{0.55}{0.74}}
+\end{align*}
 \script[2]'s answer predicts that there is less transmitting, more absorbing, denser, material to the top-right; and more transmitting, less absorbing, less dense, material to the bottom-left.
 
 \item 
@@ -1410,10 +1414,12 @@ Obtain the nonzero values via \verb|y=z(1:5)./diag(S(1:5,1:5))| to find
 \yv=(1.16,-0.30, 0.18, 0.03,-0.39,0,0,0,0)
 \end{equation*}
 
-\item Then,  via \verb|x=V(:,1:5)*y|, solve \(\tr V\xv=\yv\) to determine the \idx{smallest solution} is
-\(\xv= (-0.42\), \(-0.39\), \(-0.09\),\( -0.47\), \(-0.44\), \(-0.14\), \(-0.63\), \(-0.60\), \(-0.30)\).
-\marginpar{\temp{0.66}{0.68}{0.91}{0.63}{0.65}{0.87}{0.53}{0.55}{0.74}}%
+\item 
+\begin{figbox}{\temp{0.66}{0.68}{0.91}{0.63}{0.65}{0.87}{0.53}{0.55}{0.74}}
+Then,  via \verb|x=V(:,1:5)*y|, solve \(\tr V\xv=\yv\) to determine the \idx{smallest solution} is
+\(\sloppy\xv= (-0.42,-0.39,-0.09,-0.47,-0.44,-0.14,-0.63,-0.60,-0.30)\).
 This is the same answer as computed by \script[2]'s \verb|A\b| to give the pixel image shown that has minimal artifices.
+\end{figbox}
 \end{enumerate}
 In practice, \emph{each} slice of a real \textsc{ct}-scan\index{CT scan} would involve finding the absorption of tens of millions of pixels.
 That is, a \textsc{ct}-scan needs to best solve many systems of tens of millions of equations in tens of millions of unknowns!
@@ -1426,7 +1432,7 @@ That is, a \textsc{ct}-scan needs to best solve many systems of tens of millions
 %
 %Artificial \idx{neural network}s are often invoked in machine learning, artificial intelligence, knowledge discovery, and data mining.
 %In essence, neural networks attempt to fit data (knowledge) by a computational procedure---one that can be understood mathematically.
-%A common computational model of a neuron is that of the \idx{sigmoidal function} \(g(x)=1/(1+e^{-x})\) as plotted in the margin.
+%A common computational model of a neuron is that of the \idx{sigmoidal function} \(g(x)=1/(1+e^{-x})\) as plotted to the right.
 %\marginpar{%
 %\begin{tikzpicture}[baseline]
 %  \begin{axis}[footnotesize,font=\footnotesize
@@ -1463,15 +1469,14 @@ onto a vector, parallel and perpendicular components, work done
 orthogonal projections onto subspace, orthogonal decomposition thm,
 \end{comment}
 
-Reconsider \begin{aside}
-This optional section does usefully support least square approximation, and provides examples of transformations for the next \cref{sec:ilt}.
-Such orthogonal projections are extensively used in applications.
-\end{aside}%
-the task of making a minimal change to the right-hand side of a \idx{system} of \idx{linear equation}s, and let's connect it to the so-called orthogonal projection.
+Reconsider the task of making a minimal change to the right-hand side of a \idx{system} of \idx{linear equation}s, and let's connect it to the so-called orthogonal projection.
 This important connection occurs because of the geometry that the closest point on a line or plane to another given point is the one which forms a right-angle; that is, it forms an \text{orthogonal vector.}
 
+This optional section does usefully support least square approximation, and provides examples of transformations for the next \cref{sec:ilt}.
+Such orthogonal projections are extensively used in applications.
 
-\needspace{5\baselineskip}
+
+\needlines6
 \subsubsection{Project onto a direction}
 %\label{sec:poad}
 
@@ -1498,23 +1503,26 @@ This important connection occurs because of the geometry that the closest point 
   \fi
   \end{axis}
 \end{tikzpicture}}
+\begin{wrapfigure}r{0pt} \temp0 \end{wrapfigure}
 \begin{example} \label{eg:incon1}
 Consider `solving' the \idx{inconsistent system} \(\av x=\bv\) where \(\av=(2,1)\) and \(\bv=(3,4)\); that is, solve
 \begin{equation*}
 \begin{bmatrix} 2\\1 \end{bmatrix}x=\begin{bmatrix} 3\\4 \end{bmatrix}.
 \end{equation*}
-\marginpar{\temp0}%
-As illustrated in the margin, the impossible task is to find some multiple of the vector \(\av=(2,1)\) (all multiples plotted) that equals \(\bv=(3,4)\).
+As illustrated to the right, the impossible task is to find some multiple of the vector \(\av=(2,1)\) (all multiples plotted) that equals \(\bv=(3,4)\).
 It cannot be done.
 Question: how may we change the right-hand side vector~\bv\ so that the task is possible?  
 A partial answer is to replace~\bv\ by some vector~\(\bv'\) which is in the \idx{column space} of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\).
 But we could choose any~\(\bv'\) in the column space, so any answer for the multiple~\(x\) would be possible! Surely any answer is not acceptable.
-\marginpar{\temp1}%
-Instead, often the preferred answer is, out of all vectors in the column space of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\),  find the vector~\(\bv'\) in the column space \emph{which is closest to}~\bv---as illustrated in the margin here where it looks like \(\bv'=(4,2)\).
+
+\begin{wrapfigure}r{0pt} \temp1 \end{wrapfigure}
+Instead, often the preferred answer is, out of all vectors in the column space of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\),  find the vector~\(\bv'\) in the column space \emph{which is closest to}~\bv---as illustrated to the right here where it looks like \(\bv'=(4,2)\).
 
 The \svd\ approach of \cref{pro:appsol} to find~\(\bv'\) and~\(x\) is the following.
 \begin{enumerate}
-\item Use \verb|[U,S,V]=svd([2;1])| to find here the \svd\ factorization \(A=\usv=\begin{bmat} 0.89&-0.45\\0.45&0.89 \end{bmat} \begin{bmat} 2.24\\0 \end{bmat}\tr{\begin{bmat} 1 \end{bmat}}\) \twodp.
+\item Use \verb|[U,S,V]=svd([2;1])| to find here the \svd\ factorization \begin{equation*}
+A=\usv=\begin{bmatrix} 0.89&-0.45\\0.45&0.89 \end{bmatrix} \begin{bmatrix} 2.24\\0 \end{bmatrix}\tr{\begin{bmatrix} 1 \end{bmatrix}}\quad \twodp.
+\end{equation*}
 \item Then \(\zv=\tr U\bv=(4.47,2.24)\).
 \item Treat the second component of \(Sy=\zv\) as an error---it is the magnitude \(|\bv-\bv'|\)---to deduce \(y=4.47/2.24=2.00\) \twodp\ from the first component.
 \item Then  \(x=Vy=1y=2\) solves the changed problem.
@@ -1522,13 +1530,13 @@ The \svd\ approach of \cref{pro:appsol} to find~\(\bv'\) and~\(x\) is the follow
 From this solution, the vector \(\bv'=\av x=(2,1)2=(4,2)\), as is recognizable in the graphs.
 \end{example}
 
+\begin{wrapfigure}r{0pt} \temp2 \end{wrapfigure}
 Now let's derive the same result but with two differences:
 firstly, use more elementary arguments, not the \svd; 
 and secondly, derive the result for general vectors~\av\ and~\bv\ (although continuing to use the same illustration).
-\marginpar{\temp2}%
 Start with the crucial observation that the closest point\slash vector~\(\bv'\) in the \idx{column space} of \(A=\begin{bmatrix} \av \end{bmatrix}\) is such that \(\bv-\bv'\) is at \idx{right-angles}, orthogonal, to~\av.
 (If \(\bv-\bv'\) were not orthogonal, then we would be able to slide~\(\bv'\) along the line \(\Span\{\av\}\) to reduce the \idx{length} of \(\bv-\bv'\).)
-Thus we form a right-angle triangle with hypotenuse of length~\(|\bv|\) and angle~\(\theta\) as shown in the margin.
+Thus we form a right-angle triangle with hypotenuse of length~\(|\bv|\) and angle~\(\theta\) as shown to the right.
 Trigonometry then gives the adjacent length \(|\bv'|=|\bv|\cos\theta\)\,.
 But the angle~\(\theta\) is that between the given vectors~\av\ and~\bv, so the dot product gives the \idx{cosine} as \(\cos\theta={\av\cdot\bv}/({|\av||\bv|})\)  (\cref{thm:anglev}).
 Hence the adjacent length \begin{equation*}
@@ -1539,11 +1547,16 @@ To approximately solve \(\av x=\bv\)\,, replace the inconsistent \(\av x=\bv\) b
 Then as \(x\) is a scalar we solve this consistent equation via the ratio of lengths,  \(x=|\bv'|/|\av|={\av\cdot\bv}/|\av|^2\).
 For \cref{eg:incon1}, this gives `solution' \(x=(2,1)\cdot(3,4)/(2^2+1^2)=10/5=2\) \text{as before.}
 
-\marginpar{\temp3}%
+\needlines8
+\begin{wrapfigure}[7]r{0pt} \temp3 \end{wrapfigure}
 A crucial part of such solutions is the general formula for \(\bv'=\av x=\av(\av\cdot\bv)/|\av|^2\).
-Geometrically the formula gives the `shadow'~\(\bv'\) of vector~\bv\ when projected by a `sun' high above the line of the vector~\av, as illustrated schematically in the margin.
+Geometrically the formula gives the `shadow'~\(\bv'\) of vector~\bv\ when projected by a `sun' high above the line of the vector~\av, as illustrated schematically to the right.
 As such, the formula is called an \text{orthogonal projection.}
+\vspace{1\baselineskip}
+
 \endgroup% delimits definition of \temp
+
+
 
 \begin{definition}[orthogonal projection onto 1D] \label{def:orthproj1}
 Let \(\uv,\vv\in\RR^n\) and vector \(\uv\neq\ov\)\,, then the \bfidx{orthogonal projection} of~\vv\ onto~\uv\ is
@@ -1592,10 +1605,14 @@ Draw a line perpendicular to~\uv\ that passes through the tip of~\vv.
 Then \(\proj_\uv(\vv)\) is the shown brown vector.
 To `best solve' \(\uv x=\vv\)\,, approximate the equation \(\uv x=\vv\) by \(\uv x=\proj_\uv(\vv)\).
 Since \(\proj_\uv(\vv)\) is smaller than~\uv\ and the same direction, \(0<x<1\)\,.
+\aqed
+
 \item \projuv132{-2}{-1}{1}1qp\\
 Vector~\qv\ in \(\proj_\qv(\pv)\) gives the direction of a line, so we can and do project onto the negative direction of~\qv.
 To `best solve' \(\qv x=\pv\)\,, approximate the equation \(\qv x=\pv\) by \(\qv x=\proj_\qv(\pv)\).
 Since the brown vector \(\proj_\qv(\pv)\) is smaller than~\qv\ and in the opposite direction, \(-1<x<0\)\,.
+\aqed
+
 \end{Parts} 
 \end{solution}
 \end{example}
@@ -1650,7 +1667,7 @@ Then `best solve' equation \(\pv x=\qv\) by the approximation \(\pv x=\proj_\pv(
 \begin{activity}
 Use projection to best solve the inconsistent equation \((1,4,8)x=(4,4,2)\). 
 The best answer is which of the following?
-\actposs{\(x=4/9\)}{\(x=10/13\)}{\(x=4\)}{\(x=21/4\)}
+\actposs[4]{\(x=4/9\)}{\(x=10/13\)}{\(x=4\)}{\(x=21/4\)}
 \end{activity}
 
 
@@ -1684,20 +1701,10 @@ For every vector \(\vv\in\RR^n\), the \bfidx{orthogonal projection} of vector~\v
 
 \begin{example} \label{eg:orthproj}
 \begin{enumerate}[ref=\ref{eg:orthproj}(\alph*)]
-\item Let \XX\ be the \(xy\)-plane in \(xyz\)-space, find \(\proj_\XX(3,-4,2)\).
-\begin{solution} 
-An orthonormal basis for the \(xy\)-plane (blue plane in the stereo picture below) are the two unit vectors \(\iv=(1,0,0)\) and \(\jv=(0,1,0)\). 
-Hence
-\begin{eqnarray*}
-\proj_\WW(3,-4,2)
-&=&\iv(\iv\cdot(3,-4,2))+\jv(\jv\cdot(3,-4,2))
-\\&=&\iv (3+0+0)+\jv (0-4+0) 
-\\&=&(3,-4,0)
-\qquad(\text{shown in brown}).
-\end{eqnarray*}
-That is, just set the third component of~\((3,-4,2)\) to zero.
-\begin{center}
-\qview{58}{62}{\begin{tikzpicture} 
+\item 
+Let \XX\ be the \(xy\)-plane in \(xyz\)-space, find \(\proj_\XX(3,-4,2)\).
+
+\begin{figbox}{\qview{58}{62}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,axis equal image
 ,font=\footnotesize,view={\q}{20}
 ,xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-2ex}
@@ -1711,13 +1718,25 @@ That is, just set the third component of~\((3,-4,2)\) to zero.
     coordinates {(0,0,0)};
     \node[right,brown] at (axis cs:3,-4,0) {$(3,-4,0)$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+\begin{solution} 
+An orthonormal basis for the \(xy\)-plane (blue plane in the stereo picture to the right) are the two unit vectors \(\iv=(1,0,0)\) and \(\jv=(0,1,0)\). 
+Hence
+\begin{align*}
+\proj_\WW(3,-4,2)
+&=\iv(\iv\cdot(3,-4,2))+\jv(\jv\cdot(3,-4,2))
+\\&=\iv (3+0+0)+\jv (0-4+0) 
+\\&=(3,-4,0)
+\qquad(\text{shown in brown}).
+\end{align*}
+That is, just set the third component of~\((3,-4,2)\) to zero.
 \end{solution}
+\end{figbox}
+
 
 %\item Set subspace \(\WW=\Span\{(1,2,2)\clb (2,1,-2)\}\) and determine \(\proj_\WW(3,-4,2)\).
 %\begin{solution} 
-%Although the two vectors in the span are orthogonal (blue in the marginal picture), they are not unit vectors.  
+%Although the two vectors in the span are orthogonal (blue to the rightal picture), they are not unit vectors.  
 %Normalize the vectors by dividing by their length \(\sqrt{1^2+2^2+2^2}=\sqrt{2^2+1^2+(-2)^2}=3\) to find the vectors \(\wv_1=(\frac13,\frac23,\frac23)\) and  \(\wv_2=(\frac23,\frac13,-\frac23)\) are an orthonormal basis for~\WW\ (blue plane).
 %\marginpar{\begin{tikzpicture} 
 %\begin{axis}[footnotesize,axis equal image,font=\tiny,view={65}{30}
@@ -1746,7 +1765,7 @@ That is, just set the third component of~\((3,-4,2)\) to zero.
 %\end{eqnarray*}
 %\end{solution}
 %
-\item For the subspace \(\WW=\Span\{(2,-2,1)\clb (2,1,-2)\}\), determine the \(\proj_\WW(3,2,1)\) (illustrated below).
+\item 
 \def\temp#1{\qview{73}{77}{\begin{tikzpicture} 
 \begin{axis}[small,axis equal image
 ,font=\footnotesize,view={\q}{30}
@@ -1766,23 +1785,28 @@ That is, just set the third component of~\((3,-4,2)\) to zero.
 \fi
 \end{axis}
 \end{tikzpicture}}}%
-\begin{center}\temp1\end{center}
+
+\begin{figbox}{\temp1}
+For the subspace \(\WW=\Span\{(2,-2,1)\clb (2,1,-2)\}\), determine the \(\proj_\WW(3,2,1)\) (illustrated to the right).
+\end{figbox}
+
+\begin{figbox}{\temp2}
 \begin{solution} 
 Although the two vectors in the span are orthogonal (blue in the stereo picture above), they are not unit vectors.  
 Normalize the vectors by dividing by their length \(\sqrt{2^2+(-2)^2+1^2}=\sqrt{2^2+1^2+(-2)^2}=3\) to find the vectors \(\wv_1=(\frac23,-\frac23,\frac13)\) and  \(\wv_2=(\frac23,\frac13,-\frac23)\) are an orthonormal basis for~\WW\ (a plane).
 Hence 
 \begin{align*}
-&\proj_\WW(3,2,1)
-\\&=\wv_1(\wv_1\cdot(3,2,1))+\wv_2(\wv_2\cdot(3,2,1))
+\proj_\WW(3,2,1)
+&=\wv_1(\wv_1\cdot(3,2,1))+\wv_2(\wv_2\cdot(3,2,1))
 \\&=\wv_1(2-\tfrac43+\tfrac13)
 +\wv_2(2+\tfrac23-\tfrac23)
 \\&=\wv_1+2\wv_2
 \\&=(\tfrac23,-\tfrac23,\tfrac13)+2(\tfrac23,\tfrac13,-\tfrac23)
 \\&=(2,0,-1) 
-\qquad(\text{shown in brown below}).
+\qquad(\text{shown in brown}).
 \end{align*}%
-\begin{center}\temp2\end{center}
 \end{solution}
+\end{figbox}
 
 \item\label[example]{eg:orthproj:iii} Recall the \idx{table tennis} ranking \cref{eg:rstp2,eg:rstp3}.
 To rank the players we seek to solve the matrix-vector system, $A\xv=\bv$\,,
@@ -1795,7 +1819,7 @@ To rank the players we seek to solve the matrix-vector system, $A\xv=\bv$\,,
         \end{bmatrix}.
     \end{displaymath}
 Letting \AA~denote the \idx{column space} of matrix~\(A\), determine \(\proj_\AA(\bv)\).
-\begin{solution} 
+\begin{solution} \
 \def\temp#1{\qview{18}{22}{\begin{tikzpicture} 
 \begin{axis}[axis equal image,view={\q}{30}
 ,small,font=\footnotesize,zmin=-2,zmax=2]
@@ -1824,9 +1848,11 @@ Letting \AA~denote the \idx{column space} of matrix~\(A\), determine \(\proj_\AA
 \fi
 \end{axis}
 \end{tikzpicture}}}%
+
+\begin{figbox}{\temp1}
 We need to find an orthonormal basis for the column space (the illustrated plane spanned by the three shown column vectors)---an \svd\ gives it to us.
-\begin{center}\temp1\end{center}
 \cref{eg:rstp} found an \svd\  \(A=\usv\), in \script\ via  \verb|[U,S,V]=svd(A)|, to be
+\end{figbox}
 \begin{verbatim}
 U =
     0.4082   -0.7071    0.5774
@@ -1841,15 +1867,18 @@ V =
    -0.7071    0.4082    0.5774
     0.7071    0.4082    0.5774
 \end{verbatim}
+\begin{figbox}{\temp2}
 Since there are only two nonzero singular values, the column space~\AA\ is 2D and spanned by the first two orthonormal columns of matrix~\(U\):
-that is, an orthonormal basis for~\AA\ is the two vectors (as illustrated below)
+that is, an orthonormal basis for~\AA\ is the two vectors (as illustrated)
 \begin{eqnarray*}
 &&\uv_1=\begin{bmatrix} 0.4082\\-0.4082\\-0.8165 \end{bmatrix}
 =\frac1{\sqrt6}\begin{bmatrix} 1\\-1\\-2 \end{bmatrix},
 \\&&\uv_2=\begin{bmatrix} -0.7071\\-0.7071\\-0.0000 \end{bmatrix}
 =\frac1{\sqrt2}\begin{bmatrix} -1\\-1\\0 \end{bmatrix}.
 \end{eqnarray*}
-\begin{center}\temp2\end{center}
+\end{figbox}
+
+\begin{figbox}{\temp3}
 Hence the projection of the right-hand side~\bv\ onto the column space~\AA\ is
 \begin{align*}
 &\proj_\AA(1,2,2)
@@ -1859,9 +1888,10 @@ Hence the projection of the right-hand side~\bv\ onto the column space~\AA\ is
 \\&=-\tfrac5{\sqrt6}\uv_1-\tfrac3{\sqrt2}\uv_2
 \\&=\tfrac16(-5,5,10)+\tfrac12(3,3,0)
 \\&=\tfrac13(2,7,5) 
-\qquad(\text{shown in brown below}).
+\qquad(\text{shown in brown}).
 \end{align*}%
-\begin{center}\temp3\end{center}
+\end{figbox}
+
 \end{solution}
 
 
@@ -1872,7 +1902,7 @@ This plane is not a subspace as it does not pass through the origin.
 \end{solution}
 
 
-\item\label[example]{eg:orthogproj:v} Use an \svd\ to find the projection of the vector \((1,2,2)\) onto the plane \(2x-\frac12y+4z=0\) (illustrated below).
+\item\label[example]{eg:orthogproj:v} 
 \def\temp#1{\qview{63}{67}{\begin{tikzpicture} 
 \begin{axis}[small,axis equal image,font=\footnotesize,view={\q}{30}
 ,xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-1.5ex}
@@ -1894,7 +1924,11 @@ This plane is not a subspace as it does not pass through the origin.
 \fi
 \end{axis}
 \end{tikzpicture}}}%
-\begin{center}\temp1\end{center}
+\begin{figbox}{\temp1}
+Use an \svd\ to find the projection of the vector \((1,2,2)\) onto the plane \(2x-\frac12y+4z=0\) (illustrated to the right).
+\vspace{3\baselineskip}
+\end{figbox}
+
 \begin{solution} 
 This plane does pass through the origin so it forms a subspace, call it~\PP\ (illustrated above).
 To project we need two orthonormal basis vectors.
@@ -1918,9 +1952,12 @@ S =
         0
 V = -1
 \end{verbatim}
+
+\begin{figbox}{\temp2}
 The first column~\(\uv_1=(-4,1,-8)/9\) of orthogonal matrix~\(U\) is in the direction of a normal to the plane as it must since it must be in the span of~\((2,-\tfrac12,4)\).
 Since matrix~\(U\) is orthogonal, the last two columns (say \(\uv_2\) and~\(\uv_3\), drawn in blue below) are not only orthonormal, but also orthogonal to~\(\uv_1\) and hence an orthonormal basis for the plane~\PP.
-\begin{center}\temp2\end{center}
+\end{figbox}
+
 Hence the projection of the given vector onto the plane is
 \begin{align*}
 \proj_\PP(1,2,2)
@@ -1930,10 +1967,13 @@ Hence the projection of the given vector onto the plane is
 \\&{}+0.1539(-0.8889,0.0684,0.4530)
 \\&=(0.1111,2.2222,0.2222)
 \\&=\tfrac19(1,10,2)
-\qquad(\text{shown in brown below}).
+\qquad(\text{shown in brown}).
 \end{align*}
+\begin{figbox}{\temp3}
 This answer may be computed in \script\ via the two dot products \verb|cs=U(:,2:3)'*[1;2;2]|, giving the two coefficients \(2.2308\) and~\(0.1539\), and then the linear combination \verb|proj=U(:,2:3)*cs|\,.
-\begin{center}\temp3\end{center}
+\vspace{1\baselineskip}
+\end{figbox}
+
 \end{solution}
 \end{enumerate}
 \end{example}
@@ -1942,7 +1982,7 @@ This answer may be computed in \script\ via the two dot products \verb|cs=U(:,2:
 
 \begin{activity}
 Determine which of the following is \(\proj_\WW(1,1,-2)\) for the subspace \(\WW=\Span\{(2,3,6), (-3,6,-2)\}\).
-\actposs{\((-\frac57,\frac37,-\frac87)\)}
+\actposs[4]{\((-\frac57,\frac37,-\frac87)\)}
 {\((-\frac17,\frac97,\frac47)\)}
 {\((\frac17,-\frac97,-\frac47)\)}
 {\((\frac57,-\frac37,\frac87)\)}
@@ -2069,10 +2109,10 @@ To confirm that \cref{pro:appsol} solves \(A\xv=\proj_\AA(\bv)\) we check that t
 \end{example}
 
 
-\begin{aside}
 \cref{sec:ilt} uses orthogonal projection as an example of a linear transformation. 
 The section shows that a linear transformation always corresponds to multiplying by a specific matrix, which for orthogonal projection is here~\(W\tr W\).
-\end{aside}
+
+
 There is an useful feature of \cref{eg:orthogproj:v,eg:roundrobin2}.
 In both we use \script\ to compute the projection in two steps: 
 letting matrix~\(W\) denote the matrix of appropriate columns of orthogonal~\verb|U| (respectively \(W=\verb|U(:,2:3)|\) and \(W=\verb|U(:,1:3)|\)), first the examples compute \verb|cs=W'*b|, that is, the vector \(\cv=\tr W\bv\)\,; and second the examples compute \verb|proj=W*cs|, that is, \(\proj_\WW(\bv)=W\cv\)\,.
@@ -2116,10 +2156,10 @@ w_{n#1}w_{1#1}& w_{n#1}w_{2#1}&\cdots& w_{n#1}w_{n#1}
 \\&&{}+\ww k.
 \end{eqnarray*}
 So the \((i,j)\)th entry of this sum is
-\begin{eqnarray*}
-&&w_{i1}w_{j1}+w_{i2}w_{j2}+\cdots+w_{ik}w_{jk}
-\\&=&w_{i1}(\tr W)_{1j}+w_{i2}(\tr W)_{2j}+\cdots+w_{ik}(\tr W)_{kj} \,,
-\end{eqnarray*}
+\begin{align*}
+&w_{i1}w_{j1}+w_{i2}w_{j2}+\cdots+w_{ik}w_{jk}
+\\&=w_{i1}(\tr W)_{1j}+w_{i2}(\tr W)_{2j}+\cdots+w_{ik}(\tr W)_{kj} \,,
+\end{align*}
 which, from \cref{def:matprod} again, is the \((i,j)\)th~entry of the product~\(W\tr W\).
 Hence \(\proj_\WW(\vv)=(W\tr W)\vv\)\,.
 \end{proof}
@@ -2193,7 +2233,7 @@ Then the projection
 
 \begin{activity}
 The projection \(\proj_\uv(\vv)\) for vectors \(\uv=(2,6,3)\) and \(\vv=(1,4,8)\) could be done by premultiplying by which of the following matrices?
-\actposs{\(\begin{bmatrix} \frac{4}{49}&\frac{12}{49}&\frac{6}{49}
+\actposs[4]{\(\begin{bmatrix} \frac{4}{49}&\frac{12}{49}&\frac{6}{49}
 \\\frac{12}{49}&\frac{36}{49}&\frac{18}{49}
 \\\frac{6}{49}&\frac{18}{49}&\frac{9}{49} \end{bmatrix}\)}
 {\(\begin{bmatrix} \frac{2}{63}&\frac{8}{63}&\frac{16}{63}
@@ -2238,11 +2278,12 @@ W=\begin{bmatrix} \wv_1&\wv_2 \end{bmatrix}
 =\frac13\begin{bmatrix} 2&2\\-2&1\\1&-2 \end{bmatrix}.
 \end{equation*}
 Hence the matrix of the projection is
-\begin{eqnarray*}
-W\tr W&=&\frac13\begin{bmatrix} 2&2\\-2&1\\1&-2 \end{bmatrix}
+\begin{equation*}
+W\tr W
+=\frac13\begin{bmatrix} 2&2\\-2&1\\1&-2 \end{bmatrix}
 \frac13\begin{bmatrix} 2&-2&1\\ 2&1&-2\end{bmatrix}
-\\&=&\frac19\begin{bmatrix} 8&-2&-2\\-2&5&-4\\-2&-4&5 \end{bmatrix}.
-\end{eqnarray*}
+=\frac19\begin{bmatrix} 8&-2&-2\\-2&5&-4\\-2&-4&5 \end{bmatrix}.
+\end{equation*}
 \end{solution}
 
 
@@ -2250,14 +2291,16 @@ W\tr W&=&\frac13\begin{bmatrix} 2&2\\-2&1\\1&-2 \end{bmatrix}
 \begin{equation*}
 A=\begin{bmatrix} 1&-1&0\\ 1&0&-1\\ 0&1&-1 \end{bmatrix}.
 \end{equation*}
+
 \begin{solution} 
 The \svd\ of \cref{eg:orthproj:iii} determines an orthonormal basis of the column space is \(\uv_1=(1,-1,-2)/\sqrt6\) and \(\uv_2=(-1,-1,0)/\sqrt2\).
 Hence the matrix of the projection is
-\begin{eqnarray*}
-W\tr W&=&\begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt2}\\-\frac1{\sqrt6}&-\frac1{\sqrt2}\\-\frac2{\sqrt6}&0 \end{bmatrix}
+\begin{equation*}
+W\tr W 
+= \begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt2}\\-\frac1{\sqrt6}&-\frac1{\sqrt2}\\-\frac2{\sqrt6}&0 \end{bmatrix}
 \begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt6}&-\frac2{\sqrt6}\\ -\frac1{\sqrt2}&-\frac1{\sqrt2}&0\end{bmatrix}
-\\&=&\begin{bmatrix} \frac23&\frac13&-\frac13\\\frac13&\frac23&\frac13\\-\frac13&\frac13&\frac23 \end{bmatrix}.
-\end{eqnarray*}
+=\begin{bmatrix} \frac23&\frac13&-\frac13\\\frac13&\frac23&\frac13\\-\frac13&\frac13&\frac23 \end{bmatrix}.
+\end{equation*}
 Alternatively, recall the \svd\ of matrix~\(A\) from \cref{eg:rstp}, and recall that the first two columns of~\verb|U| are the orthonormal basis vectors.  
 Hence matrix \(W=\verb|U(:,1:2)|\) and so \script\ computes the matrix of the projection,~\(W\tr W\), via \verb|WWT=U(:,1:2)*U(:,1:2)'| to give the answer
 \setbox\ajrqrbox\hbox{\qrcode{% project matrix tournament
@@ -2331,11 +2374,8 @@ Because orthogonal projection has such a close connection to the geometry underl
 For any \idx{subspace}~\WW\ of interest, it is often useful to be able to discuss the set of vectors orthogonal to all those in~\WW, called the \idx{orthogonal complement}.
 Such a set forms a subspace, called~\(\WW^\perp\), read as ``W~\idx{perp}'', as illustrated below and defined by \cref{def:orthsubsp}.
 \begin{enumerate}
-\item \begin{tabular}{cc}
-\parbox[t]{0.5\linewidth}{Given the blue subspace~\WW\ in~\(\RR^2\) (the origin is a black dot), consider the set of all vectors at \idx{right-angles} to~\WW\ (drawn arrows).  Move the base of these vectors to the origin, and then they all lie in the red subspace~\(\WW^\perp\).}
-&
-\begin{tikzpicture}%
-[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
+\item 
+\begin{figbox}{\begin{tikzpicture}%
   \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal ,axis x line=none ,axis y line=none
   ,samples=6, domain=-1:1, ymax=1, ymin=-1]
@@ -2348,14 +2388,14 @@ Such a set forms a subspace, called~\(\WW^\perp\), read as ``W~\idx{perp}'', as 
   quiver={u=-cos(9950*exp(x))/3,v=cos(9950*exp(x))*2/3}, 
   -stealth,update limits] {x/2};
   \end{axis}
-\end{tikzpicture}
-\end{tabular}
+\end{tikzpicture}}
+Given the blue subspace~\WW\ in~\(\RR^2\) (the origin is a black dot), consider the set of all vectors at \idx{right-angles} to~\WW\ (drawn arrows).  Move the base of these vectors to the origin, and then they all lie in the red subspace~\(\WW^\perp\).
+\vspace{2\baselineskip}
+\end{figbox}
 
-\item \begin{tabular}{cc}
-\parbox[t]{0.5\linewidth}{Given the blue plane subspace~\WW\ in~\(\RR^3\) (the origin is a black dot),  the red line subspace~\(\WW^\perp\) contains all vectors orthogonal to~\WW\ (when drawn with their base at the origin).}
-&
-\begin{tikzpicture}%
-[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}] 
+
+\item 
+\begin{figbox}{\begin{tikzpicture}%
 \begin{axis}[width=15em,height=15em,scale only axis
 ,axis equal image,view={70}{30},font=\footnotesize
 ,domain=-2:2
@@ -2366,14 +2406,13 @@ Such a set forms a subspace, called~\(\WW^\perp\), read as ``W~\idx{perp}'', as 
   \addplot3[red,thick] ({x/2},{x},{x});
   \node[left] at (axis cs:1,2,2) {$\WW^\perp$};
 \end{axis}
-\end{tikzpicture}
-\end{tabular}
+\end{tikzpicture}}
+Given the blue plane subspace~\WW\ in~\(\RR^3\) (the origin is a black dot),  the red line subspace~\(\WW^\perp\) contains all vectors orthogonal to~\WW\ (when drawn with their base at the origin).
+\vspace{2.5\baselineskip}
+\end{figbox}
 
-\item \begin{tabular}{cc}
-\parbox[t]{0.5\linewidth}{Conversely, given the blue line subspace~\WW\ in~\(\RR^3\) (the origin is a black dot),  the red plane subspace~\(\WW^\perp\) contains all vectors orthogonal to~\WW\ (when drawn with their base at the origin).}
-&
-\begin{tikzpicture}%
-[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}] 
+\item 
+\begin{figbox}{\begin{tikzpicture}%
 \begin{axis}[width=15em,height=15em,scale only axis
 ,axis equal image,view={70}{30},font=\footnotesize
 ,domain=-2:2
@@ -2384,8 +2423,10 @@ Such a set forms a subspace, called~\(\WW^\perp\), read as ``W~\idx{perp}'', as 
   \addplot3[blue,thick] ({x/2},{x},{x});
   \node[left] at (axis cs:1,2,2) {$\WW$};
 \end{axis}
-\end{tikzpicture}
-\end{tabular}
+\end{tikzpicture}}
+Conversely, given the blue line subspace~\WW\ in~\(\RR^3\) (the origin is a black dot),  the red plane subspace~\(\WW^\perp\) contains all vectors orthogonal to~\WW\ (when drawn with their base at the origin).
+\vspace{2.5\baselineskip}
+\end{figbox}
 \end{enumerate}
 
 
@@ -2423,9 +2464,8 @@ The set of all vectors \(\uv\in\RR^n\) (together with~\ov) that are each orthogo
 \ 
 \begin{enumerate}[ref=\ref{eg:orthsubsp}(\alph*)]
 \item\label[example]{eg:orthsubsp:a} Given the subspace \(\WW=\Span\{(3,4)\}\), find its orthogonal complement \(\WW^\perp\). 
-\begin{solution} 
-Every vector in~\WW\ is of the form \(\wv=(3c,4c)\).
-\marginpar{\begin{tikzpicture}
+
+\begin{figbox}{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal,axis lines=none
   ,samples=2, domain=-1:1, ymax=1, ymin=-1]
@@ -2435,7 +2475,9 @@ Every vector in~\WW\ is of the form \(\wv=(3c,4c)\).
   \addplot[red,thick] {-4/3*x};
   \node[right] at (axis cs:-0.4,0.6) {$\WW^\perp$};
   \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+Every vector in~\WW\ is of the form \(\wv=(3c,4c)\).
 For any vector \(\vv=(u,v)\in\RR^2\) the dot product 
 \begin{equation*}
 \wv\cdot\vv
@@ -2446,22 +2488,11 @@ This dot product is zero for all~\(c\) if and only if \(3u+4v=0\)\,.
 That is, when \(u=-4v/3\)\,. 
 Hence \(\vv=(-\tfrac43v,v)=(-\tfrac43,1)v\), for every~\(v\), and so \(\WW^\perp=\Span\{(-\tfrac43,1)\}\).
 \end{solution}
+\end{figbox}
 
 
-\item Describe the \idx{orthogonal complement}~\(\XX^\perp\) to the subspace \(\XX=\Span\{(4,-4,7)\}\).
-\begin{solution} 
-Every vector in~\WW\ is of the form \(\wv=(4,-4,7)c\).
-Seek all vectors~\vv\ such that \(\wv\cdot\vv=0\)\,.  
-For vectors \(\vv=(v_1,v_2,v_3)\) the dot product
-\begin{equation*}
-\wv\cdot\vv
-=c(4,-4,7)\cdot(v_1,v_2,v_3)
-=c(4v_1-4v_2+7v_3)
-\end{equation*}
-is zero for all~\(c\) if and only if \(4v_1-4v_2+7v_3=0\)\,. 
-That is, the orthogonal complement is all vectors~\vv\ in the plane \(4v_1-4v_2+7v_3=0\)  (illustrated in stereo below).
-\begin{center}
-\qview{18}{22}{\begin{tikzpicture} 
+\item 
+\begin{figbox}{\qview{18}{22}{\begin{tikzpicture} 
 \begin{axis}[small,scale only axis
 ,axis equal image,font=\footnotesize
 ,xlabel={$v_1$},ylabel={$v_2$},zlabel={$v_3$},label shift={-2ex}
@@ -2472,9 +2503,21 @@ That is, the orthogonal complement is all vectors~\vv\ in the plane \(4v_1-4v_2+
   \addplot3[blue,thick] ({x},{-x},{7*x/4});
   \node[above] at (axis cs:1,-1,1.7) {$\WW$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+Describe the \idx{orthogonal complement}~\(\XX^\perp\) to the subspace \(\XX=\Span\{(4,-4,7)\}\).
+\begin{solution} 
+Every vector in~\WW\ is of the form \(\wv=(4,-4,7)c\).
+Seek all vectors~\vv\ such that \(\wv\cdot\vv=0\)\,.  
+For vectors \(\vv=(v_1,v_2,v_3)\) the dot product
+\begin{align*}
+\wv\cdot\vv
+&=c(4,-4,7)\cdot(v_1,v_2,v_3)
+\\&=c(4v_1-4v_2+7v_3)
+\end{align*}
+is zero for all~\(c\) if and only if \(4v_1-4v_2+7v_3=0\)\,. 
+That is, the orthogonal complement is all vectors~\vv\ in the plane \(4v_1-4v_2+7v_3=0\)  (illustrated in stereo).
 \end{solution}
+\end{figbox}
 
 
 \item Describe the \idx{orthogonal complement} of the set \(\WW=\{(t,t^2): t\in\RR\}\).
@@ -2499,14 +2542,7 @@ For vectors \(\vv=(v_1,v_2,v_3)\) these two equations become the pair
 2v_1-2v_2+v_3=0 \quad\text{and}\quad 2v_1+v_2-2v_3=0\,.
 \end{eqnarray*}
 Adding twice the second to the first, and subtracting the first from the second give the equivalent pair
-\begin{equation*}
-6v_1-3v_3=0\quad\text{and}\quad 3v_2-3v_3=0\,.
-\end{equation*}
-Both are satisfied for all \(v_3=t\) with \(v_1=t/2\) and \(v_2=t\)\,.
-Therefore all possible \(\vv\)~in the complement~\(\WW^\perp\) are those in the form of the line \(\vv=(\tfrac12t,t,t)\).
-That is, \(\WW^\perp=\Span\{(\tfrac12,1,1)\}\) (as illustrated below in stereo).
-\begin{center}
-\qview{68}{72}{\begin{tikzpicture} 
+\par\begin{figbox}{\qview{68}{72}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,axis equal image,view={\q}{30}
 ,xlabel={$v_1$},ylabel={$v_2$},zlabel={$v_3$},label shift={-2ex}
 ,domain=-2:2,y domain=-2:2,zmax=2,zmin=-2]
@@ -2519,8 +2555,15 @@ That is, \(\WW^\perp=\Span\{(\tfrac12,1,1)\}\) (as illustrated below in stereo).
     \addplot3[red,thick] ({x},{2*x},{2*x});
     \node[left] at (axis cs:1,2,2) {$\WW^\perp$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+\begin{equation*}
+6v_1-3v_3=0\quad\text{and}\quad 3v_2-3v_3=0\,.
+\end{equation*}
+Both are satisfied for all \(v_3=t\) with \(v_1=t/2\) and \(v_2=t\)\,.
+Therefore all possible \(\vv\)~in the complement~\(\WW^\perp\) are those in the form of the line \(\vv=(\tfrac12t,t,t)\).
+That is, \(\WW^\perp=\Span\{(\tfrac12,1,1)\}\) (as illustrated in stereo).
+\aqed
+\end{figbox}
 \end{solution}
 
 \end{enumerate}
@@ -2530,7 +2573,7 @@ That is, \(\WW^\perp=\Span\{(\tfrac12,1,1)\}\) (as illustrated below in stereo).
 
 \begin{activity}
 Which of the following vectors are in the \idx{orthogonal complement} of the vector space spanned by~\((3,-1,1)\)?
-\actposs{\((3,5,-4)\)}{\((-1,-1,1)\)}{\((1,3,-1)\)}{\((6,-2,2)\)}
+\actposs[4]{\((3,5,-4)\)}{\((-1,-1,1)\)}{\((1,3,-1)\)}{\((6,-2,2)\)}
 \end{activity}
 
 
@@ -2684,9 +2727,8 @@ Lastly, that the \(\Null(A)\) in~\(\RR^n\) is the orthogonal complement of the \
 \ 
 \begin{enumerate}[ref=\ref{eg:nulltrw}(\alph*)]
 \item\label[example]{eg:nulltrw:a} Let the subspace \(\WW=\Span\{(2,-1)\}\). Find the \idx{orthogonal complement}~\(\WW^\perp\). 
-\begin{solution} 
-Here the subspace~\WW\ is the column space of the matrix \(W=\begin{bmat} 2\\-1 \end{bmat}\).
-\marginpar{\begin{tikzpicture}
+
+\begin{figbox}{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal ,axis lines=middle ,xlabel={$u$},ylabel={$v$}
   ,samples=2, domain=-2.2:2.2, ymax=2.2, ymin=-2.2]
@@ -2696,7 +2738,9 @@ Here the subspace~\WW\ is the column space of the matrix \(W=\begin{bmat} 2\\-1 
   \addplot[red,thick] {2*x};
   \node[below] at (axis cs:1,2) {\quad$\WW^\perp$};
   \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+Here the subspace~\WW\ is the column space of the matrix \(W=\begin{bmat} 2\\-1 \end{bmat}\).
 To find \(\WW^\perp=\Null(\tr W)\), solve \(\tr W\vv=\ov\)\,, that is, for vectors \(\vv=(u,v)\)
 \begin{equation*}
 \begin{bmatrix} 2&-1 \end{bmatrix}\vv=2u-v=0\,.
@@ -2704,19 +2748,12 @@ To find \(\WW^\perp=\Null(\tr W)\), solve \(\tr W\vv=\ov\)\,, that is, for vecto
 All solutions are \(v=2u\) (as illustrated).
 Hence \(\vv=(u,2u)=(1,2)u\), and so \(\WW^\perp=\Span\{(1,2)\}\).
 \end{solution}
+\end{figbox}
+
 
 \item\label[example]{eg:nulltrw:b} Describe the subspace of~\(\RR^3\) whose \idx{orthogonal complement} is the plane \(-\tfrac12x-y+2z=0\)\,. 
-\begin{solution} 
-The equation of the plane in \(\RR^3\) may be written 
-\begin{equation*}
-\begin{bmatrix} -\tfrac12&-1&2 \end{bmatrix}
-\begin{bmatrix} x\\y\\z \end{bmatrix}=0\,,
-\quad\text{that is } \tr W\vv=0
-\end{equation*}
-for matrix \(W=\begin{bmatrix} \wv_1 \end{bmatrix}\) and vectors \(\wv_1=(-\tfrac12,-1,2)\) and \(\vv=(x,y,z)\).
-Since the plane is the nullspace of matrix~\(\tr W\), the plane must be the orthogonal complement of the line \(\WW=\Span\{\wv_1\}\) (as illustrated below).
-\begin{center}
-\qview{38}{42}{\begin{tikzpicture} 
+
+\begin{figbox}{\qview{38}{42}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,scale only axis
 ,xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-2ex}
 ,axis equal image,font=\footnotesize
@@ -2728,9 +2765,18 @@ Since the plane is the nullspace of matrix~\(\tr W\), the plane must be the orth
   \addplot3[blue,thick] ({-x/4},{-x/2},{x});
   \node[above] at (axis cs:-0.25,-0.5,1) {$\WW$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+\begin{solution} 
+The equation of the plane in \(\RR^3\) may be written 
+\begin{equation*}
+\begin{bmatrix} -\tfrac12&-1&2 \end{bmatrix}
+\begin{bmatrix} x\\y\\z \end{bmatrix}=0\,,
+\end{equation*}
+that is  \(\tr W\vv=0\)
+for matrix \(W=\begin{bmatrix} \wv_1 \end{bmatrix}\) and vectors \(\wv_1=(-\tfrac12,-1,2)\) and \(\vv=(x,y,z)\).
+Since the plane is the nullspace of matrix~\(\tr W\), the plane must be the orthogonal complement of the line \(\WW=\Span\{\wv_1\}\) (as illustrated below).
 \end{solution}
+\end{figbox}
 
 
 \item\label[example]{eg:nulltrw:c} Find the \idx{orthogonal complement} to the \idx{column space} of matrix
@@ -2874,9 +2920,7 @@ Since the \idx{dimension} of the whole space is the sum of the dimension of a \i
 \begin{example} \label{eg:perp2}
 Recall from \cref{eg:orthsubsp:a} that subspace \(\WW=\Span\{(3,4)\}\) has \idx{orthogonal complement} \(\WW^\perp=\Span\{(-4,3)\}\), as illustrated.
 
-\begin{adjustbox}{valign=t,minipage={\linewidth}}
-\begin{wrapfigure}R{0pt} 
-      \begin{tikzpicture}%
+\begin{figbox}{\begin{tikzpicture}%
 [baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
   \begin{axis}[small,font=\footnotesize
   ,axis equal image,axis lines=middle
@@ -2901,13 +2945,12 @@ Recall from \cref{eg:orthsubsp:a} that subspace \(\WW=\Span\{(3,4)\}\) has \idx{
   \node[right] at (axis cs:-1.7,-1.3) {proj};
   \node[left] at (axis cs:-3.2,-1.5) {perp};
   \end{axis}
-\end{tikzpicture}
-\end{wrapfigure}
-\strut{}%
+\end{tikzpicture}}
 As shown, for example,  write the brown vector \((2,4)=(3.2,2.4)+(-1.2,1.6)=\proj_\WW(2,4)+\Perp\), where here the vector \(\Perp=(-1.2,1.6)\in\WW^\perp\).
 Indeed, any vector can be written as a component in subspace~\WW\ and a component in the orthogonal complement~\(\WW^\perp\) (\cref{thm:odt}).
 \quad For another example,  write the green vector \((-5,1)=(-2.72,-2.04)+(-2.28,3.04)=\proj_\WW(-5,1)+\Perp\), where in this case the vector \(\Perp=(-2.28,3.04)\in\WW^\perp\).
-\end{adjustbox}
+\aqed
+\end{figbox}
 \end{example}
 
 
@@ -2953,13 +2996,7 @@ Then
 \\&=&(4,1,3)-\wv_1(-8-3+18)/7
 \\&=&(4,1,3)-\wv_1=(30,10,15)/7\,.
 \end{eqnarray*}
-For \((x,y,z)=(30,10,15)/7\) we find
-\begin{equation*}
--2x-3y+6z=\tfrac17(-60-30+90)=\tfrac170=0\,.
-\end{equation*}
-Hence \(\Perp_\WW(4,1,3)\) lies in the plane \(-2x-3y+6z=0\) (which is the orthogonal complement~\(\WW^\perp\), as illustrated in stereo below).
-\begin{center}
-\qview{48}{52}{\begin{tikzpicture} 
+\begin{figbox}{\qview{48}{52}{\begin{tikzpicture} 
 \begin{axis}[small,axis equal image,font=\footnotesize
 ,xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-2ex}
 ,domain=-5:5,view={\q}{25} ]
@@ -2974,8 +3011,15 @@ Hence \(\Perp_\WW(4,1,3)\) lies in the plane \(-2x-3y+6z=0\) (which is the ortho
   \addplot3[quiver={u=-2/7,v=-3/7,w=6/7},brown] coordinates {(30/7,10/7,15/7)};
   \node[below,font=\tiny] at (axis cs:4.29,1.43,2.14) {perp};%{$(\frac{30}7,\frac{10}7,\frac{15}7)$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+For \((x,y,z)=(30,10,15)/7\) we find
+\begin{align*}
+-2x-3y+6z&=\tfrac17(-60-30+90)\\&=\tfrac170=0\,.
+\end{align*}
+Hence \(\Perp_\WW(4,1,3)\) lies in the plane \(-2x-3y+6z=0\) (which is the orthogonal complement~\(\WW^\perp\), as illustrated in stereo to the right).
+\aqed
+
+\end{figbox}
 \end{solution}
 
 
@@ -2989,10 +3033,8 @@ Then
 \\&=&(-5,-1,6)-\wv_1(10+3+36)/7
 \\&=&(-5,-1,6)-\wv_17=(-3,2,0).
 \end{eqnarray*}
-For \((x,y,z)=(-3,2,0)\) we find \(-2x-3y+6z=6-6+0=0\)\,.
-Hence \(\Perp_\WW(-5,-1,6)\) lies in the plane \(-2x-3y+6z=0\) (which is the orthogonal complement~\(\WW^\perp\), as illustrated below in stereo).
-\begin{center}
-\qview{8}{12}{\begin{tikzpicture} 
+
+\begin{figbox}{\qview{8}{12}{\begin{tikzpicture} 
 \begin{axis}[small,axis equal image,font=\footnotesize
 ,xlabel={$x$},ylabel={$y$},zlabel={$z$},label shift={-2ex}
 ,domain=-5:5,view={\q}{20} ]
@@ -3007,8 +3049,11 @@ Hence \(\Perp_\WW(-5,-1,6)\) lies in the plane \(-2x-3y+6z=0\) (which is the ort
   \addplot3[quiver={u=-2,v=-3,w=6},brown] coordinates {(-3,2,0)};
   \node[below,font=\tiny] at (axis cs:-3,2,0) {perp};%{$(-3,2,0)$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+For \((x,y,z)=(-3,2,0)\) we find \(-2x-3y+6z=6-6+0=0\)\,.
+Hence \(\Perp_\WW(-5,-1,6)\) lies in the plane \(-2x-3y+6z=0\) (which is the orthogonal complement~\(\WW^\perp\), as illustrated to the right in stereo).
+\aqed
+\end{figbox}
 \end{solution}
 
 \item\label[example]{eg:perpn:c} Let the subspace \(\XX=\Span\{(2,-2,1)\clb (2,1,-2)\}\).
@@ -3017,7 +3062,7 @@ Determine the \idx{perpendicular component} of each of the two vectors \(\yv=(3,
 Computing \(\proj_\XX\) needs an orthonormal basis for~\XX\ (\cref{def:orthproj}).
 The two vectors in the span are orthogonal, so normalize them to \(\wv_1=(2,-2,1)/3\) and \(\wv_2=(2,1,-2)/3\).
 \begin{itemize}
-\item Then for the first vector \(\yv=(3,2,1)\),
+\item Then for the first vector \(\yv=(3,2,1)\) (illustrated below in brown),
 \begin{eqnarray*}
 \Perp_\XX(\yv)
 &=&\yv-\proj_\XX(\yv)
@@ -3027,7 +3072,6 @@ The two vectors in the span are orthogonal, so normalize them to \(\wv_1=(2,-2,1
 \\&=&(3,2,1)-(2,-2,1)/3-(4,2,-4)/3
 \\&=&(1,2,2)
 \end{eqnarray*}
-(as illustrated below in brown).
 \begin{center}
 \qview{63}{67}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,view={\q}{30},axis equal image
@@ -3065,6 +3109,7 @@ The two vectors in the span are orthogonal, so normalize them to \(\wv_1=(2,-2,1
 \\&=&(3,-3,-3)-(2,-2,1)-(2,1,-2)
 \\&=&(-1,-2,-2).
 \end{eqnarray*}
+\aqed
 \end{itemize}
 \end{solution}
 
@@ -3105,7 +3150,7 @@ To establish this identity, use the same argument as in the proof of \cref{thm:o
 \tr WW
 &=&\begin{bmatrix} \tr\wv_1\\\tr\wv_2\\\vdots\\\tr\wv_k \end{bmatrix}
 \begin{bmatrix} \wv_1&\wv_2&\cdots&\wv_k \end{bmatrix}
-\\&=&\begin{bmatrix} \tr\wv_1\wv_1&\tr\wv_1\wv_2&\cdots&\tr\wv_1\wv_k 
+=\begin{bmatrix} \tr\wv_1\wv_1&\tr\wv_1\wv_2&\cdots&\tr\wv_1\wv_k 
 \\ \tr\wv_2\wv_1&\tr\wv_2\wv_2&\cdots&\tr\wv_2\wv_k 
 \\\vdots&\vdots&\ddots&\vdots
 \\ \tr\wv_k\wv_1&\tr\wv_k\wv_2&\cdots&\tr\wv_k\wv_k \end{bmatrix}
@@ -3113,7 +3158,7 @@ To establish this identity, use the same argument as in the proof of \cref{thm:o
 \\ \wv_2\cdot\wv_1&\wv_2\cdot\wv_2&\cdots&\wv_2\cdot\wv_k 
 \\\vdots&\vdots&\ddots&\vdots
 \\ \wv_k\cdot\wv_1&\wv_k\cdot\wv_2&\cdots&\wv_k\cdot\wv_k \end{bmatrix}
-\\&=&I_k
+=I_k
 \end{eqnarray*}
 as vectors \hlist\wv k\ are an orthonormal set (from \cref{def:orthoset}, the dot product \(\wv_i\cdot\wv_j=0\) for \(i\neq j\) and \(|\wv_i|^2=\wv_i\cdot\wv_i=1\)).
 %First show \(\Perp_\WW(\vv)\) is orthogonal to each basis vector.
@@ -3719,7 +3764,7 @@ Among others, these particular nine universities are listed by the Center in the
 The other three columns give just three of the attributes used to create their ranked list.}
 \label{tbl:top25USA}
 \begin{equation*}
-\begin{array}{p{10em}rrr}
+\begin{array}{p{17em}rrr}
 \hline
 Institution& 
 \parbox{4em}{\raggedright Research fund(M\$)}& 
@@ -3739,10 +3784,8 @@ University of California, Santa Barbara&218&11&1205\\
 \end{array}
 \end{equation*}
 \end{table}%
-\cref{tbl:top25USA} lists nine of the US universities ranked by some organization in 2013, in the order they list.
-\begin{aside}
-I neither condone nor endorse such naive one dimensional ranking of complex multi-faceted institutions.  This exercise simply illustrates a technique that deconstructs such a credulous endeavour.
-\end{aside}%
+\cref{tbl:top25USA} lists nine of the US universities ranked by some organization in 2013, in the order they list.%
+\footnote{I neither condone nor endorse such naive one dimensional ranking of complex multi-faceted institutions.  This exercise simply illustrates a technique that deconstructs such a credulous endeavour.}
 The table also lists three of the attributes used to generate the ranked list.
 Find a formula that approximately reproduces the listed ranking from the three \text{given attributes.}
 \begin{enumerate}
@@ -3904,14 +3947,11 @@ Draw an image of your predictions.  Which region is the most absorbing (least tr
 \answer{The middle bottom is most absorbing.}
 \end{exercise}
 
-
-
-\begin{exercise} \label{ex:ctscan3x3d} 
-In an effort to remove the need for requiring the `smallest', most washed out, \textsc{ct}-scan\index{CT scan}, you make three more measurements, as illustrated in the margin, so that you obtain nine equations for the nine unknowns.
-\marginpar{\begin{tikzpicture} 
+\needlines8
+\begin{wrapfigure}[8]r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
-,axis equal image,axis lines=none
-]
+,axis equal image,axis lines=none, xmin=-1.2]
   \addplot[] coordinates {(0,0)(3,0)(3,1)(0,1)(0,2)(3,2)(3,3)(0,3)
   (0,0)(1,0)(1,3)(2,3)(2,0)(3,0)(3,3)};
   \node at (axis cs:0.5,0.5) {\large$r_3$};
@@ -3936,7 +3976,10 @@ In an effort to remove the need for requiring the `smallest', most washed out, \
   \node[left] at (axis cs:-0.7,+0.3) {$f_7$};
   \node[left] at (axis cs:+0.3,-0.7) {$f_9$};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{exercise} \label{ex:ctscan3x3d} 
+In an effort to remove the need for requiring the `smallest', most washed out, \textsc{ct}-scan\index{CT scan}, you make three more measurements, as illustrated to the right, so that you obtain nine equations for the nine unknowns.
 %\begin{verbatim}
 %A=[1 1 1 0 0 0 0 0 0 
 % 0 0 0 1 1 1 0 0 0 
@@ -3956,6 +3999,8 @@ In an effort to remove the need for requiring the `smallest', most washed out, \
 \item Write down the nine equations for the transmission factors in terms of the fraction of X-ray energy measured after passing through the body.
 Take \idx{logarithm}s to form a system of linear equations.
 
+\fixwrapenum
+
 \item Encode the matrix~\(A\) of the system and check \index{rcond()@\texttt{rcond()}}\verb|rcond(A)|: curses, \verb|rcond| is terrible, so we must still use an \svd.
 
 \item Suppose the measured fractions of X-ray energy are \(\sloppy\fv=(0.05, 0.35, 0.33, 0.31, 0.05, 0.36, 0.07, 0.32, 0.51)\).
@@ -3972,11 +4017,9 @@ Use an \svd\ to find the `greyest' transmission factors consistent with the meas
 \end{exercise}
 
 
-
-
-\begin{exercise} \label{ex:ctscan4x4d} 
-Use a little higher resolution in \idx{computed tomography}: suppose the two dimensional `body' is notionally divided into sixteen regions as illustrated in the margin.
-\marginpar{\begin{tikzpicture} 
+\needlines8
+\begin{wrapfigure}[8]r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
 ,axis equal image,axis lines=none ]
   \addplot[] coordinates {(0,0)(4,0)(4,1)(0,1)(0,2)(4,2)(4,3)(0,3)(0,4)(4,4)
@@ -4014,7 +4057,10 @@ Use a little higher resolution in \idx{computed tomography}: suppose the two dim
   \node[left] at (axis cs:-1.1,+0.8) {$f_{9}$};
   \node[left] at (axis cs:+0.9,-1.2) {$f_{13}$};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{exercise} \label{ex:ctscan4x4d} 
+Use a little higher resolution in \idx{computed tomography}: suppose the two dimensional `body' is notionally divided into sixteen regions as illustrated to the right.
 Suppose a \textsc{ct}-scan\index{CT scan} takes thirteen measurements of the intensity of an \idx{X-ray} after passing through the shown paths, and that the fraction of the \idx{X-ray} energy that is measured is \(\sloppy\fv=(0.29, 0.33, 0.07, 0.35, 0.36, 0.07, 0.31, 0.32, 0.62, 0.40, 0.06, 0.47, 0.58)\).
 \setbox\ajrqrbox\hbox{\qrcode{% measured factors
 f=[0.29
@@ -4062,9 +4108,13 @@ f=[0.29
 %x=A\b
 %r=reshape(exp(x),4,4)
 %\end{verbatim}
+
 \begin{enumerate}
 \item Write down the thirteen equations for the sixteen transmission factors in terms of the fraction of \idx{X-ray} energy measured after passing through the body.
 Take \idx{logarithm}s to form a system of linear equations.
+
+\fixwrapenum
+
 \item Encode the matrix~\(A\) of the system and find it has rank twelve.
 \item Use an \svd\ to find the `greyest' transmission factors consistent with the measurements.
 \item In which square pixel is the `lump' of dense material?

@@ -56,17 +56,15 @@ Give a geometric reason for why its determinant has to be zero.
 Using~\eqref{eq:dets23b}, \(\det A =1\cdot\frac12\cdot1 +\frac12\cdot\frac15\cdot0 +\frac15\cdot1\cdot\frac12
 -\frac15\cdot\frac12\cdot0 -1\cdot\frac15\cdot\frac12 -\frac12\cdot1\cdot1 =\frac12+\frac1{10}-\frac1{10}-\frac12=0\)\,.
 
-%\Needspace{12ex}
-%\begin{wrapfigure}{r}{0pt} % does not work in a list
-%\ThreeD1{0.5}{0.2}1{0.5}{0.2}{0}{0.5}1
-%\end{wrapfigure}
-Geometrically, consider the image of the unit cube under multiplication by this matrix~\(A\) illustrated in stereo below. 
-\begin{center}
+\begin{wrapfigure}{r}{0pt} 
 \ThreeD1{0.5}{0.2}1{0.5}{0.2}{0}{0.5}1
-\end{center}
+\end{wrapfigure}
+Geometrically, consider the image of the unit cube under multiplication by this matrix~\(A\) illustrated in stereo to the right. 
 Because the first two rows of~\(A\) are identical the first two components of~\(A\xv\) are always identical and hence all points are mapped onto the plane \(x_1=x_2\)\,.  
 The image of the cube thus has zero thickness and hence zero volume.
 By \cref{def:detarea}, \(\det A=0\)\,.
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -411,7 +409,6 @@ which has two zeros in its last row.
 \item Using~\eqref{eq:dets23b},
 \begin{eqnarray*}
 \det A&=& (-2)(-3)2+(-1)(-2)\cdot0+(-1)1\cdot0
-\\&&{}
 -(-1)(-3)0-(-2)(-2)0-(-1)1\cdot2
 \\&=&2\big[(-2)(-3)-(-1)1\big]=2\cdot7=14\,.
 \end{eqnarray*}
@@ -425,22 +422,24 @@ F=\begin{bmatrix} 1&0&-\frac12\\0&1&-1\\0&0&1 \end{bmatrix},
 just multiply out and see that the last column of~\(F\) `fills in' the last column of~\(A\) from that of~\(B\).
 Consider the geometry of the two transformations arising from multiplication by~\(F\) and by~\(B\).
 \begin{itemize}
-\item Multiplication by~\(F\) shears the \idx{unit cube} as illustrated below.
-\begin{center}
-\ThreeD10{-0.5}01{-1}001
-\end{center}
+
+\item 
+\begin{figbox}{\ThreeD10{-0.5}01{-1}001}
+Multiplication by~\(F\) shears the \idx{unit cube} as illustrated to the right.
 Thus the volume of the unit cube after multiplication by~\(F\) is the square base of \idx{area} one, times the height of one, which is a volume of one.
 Consequently, by \cref{def:detarea}, \(\det F=1\)\,.
+\end{figbox}
 
-\item As illustrated  below, multiplication by~\(B\) has two components.
-\begin{center}
-\ThreeD{-2}{-1}01{-3}000{2}
-\end{center}
+
+\item 
+\begin{figbox}{\ThreeD{-2}{-1}01{-3}000{2}}
+As illustrated  to the right, multiplication by~\(B\) has two components.
 Firstly,  the \(2\times2\) top-left sub-matrix, being bordered by zeros, maps the \idx{unit square} in the \(x_1x_2\)-plane into the base parallelogram in the \(x_1x_2\)-plane.
 The shape of the parallelogram is determined by the top-left sub-matrix \(\begin{bmat} -2&-1\\1&-3 \end{bmat}\) (to be called the \(A_{33}\)~minor) acting on the \idx{unit square}.
 Thus the \idx{area} of the parallelogram is \(\det A_{33}=(-2)(-3)-(-1)1=7\)\,.
 Secondly, the~\(2\) in the bottom corner of~\(B\) stretches objects vertically by a factor of~\(2\) to form a parallelepiped of height~\(2\).
 Thus the volume of the parallelepiped, \(\det B\) by \cref{def:detarea}, is \(2\cdot\det A_{33}=2\cdot 7=14\)\,.
+\end{figbox}
 
 \end{itemize}
 By the product \cref{thm:detprod},
@@ -489,12 +488,7 @@ Also, the expression \((-1)^{i+j}a_{ij}\det A_{ij}=0\) as \(a_{ij}=0\)\,.
 Consequently, the identity \(\det A=(-1)^{i+j}a_{ij}\det A_{ij}\) holds.
 The rest of this proof addresses the case \(a_{ij}\neq 0\)\,.
 
-Second, consider the special case when the last row \emph{and} last column of matrix~\(A\) is all zero except for~\(a_{nn}\neq0\); that is, 
-\begin{equation*}
-A=\begin{bmatrix} A_{nn}&\ov\\\tr\ov&a_{nn} \end{bmatrix}
-\end{equation*}
-for the minor~\(A_{nn}\) and \(\ov\in\RR^{n-1}\).
-\marginpar{%
+\begin{wrapfigure}[8]r{0pt}
 \begin{tikzpicture}
 \def\a{1} \def\b{0.2} \def\c{0}
 \def\d{0.5} \def\e{1.5} \def\f{0}
@@ -521,10 +515,17 @@ for the minor~\(A_{nn}\) and \(\ov\in\RR^{n-1}\).
   (0,0,0) (\a,\d,\g) (\a+\b,\d+\e,\g+\h) 
   (\a+\b,\d+\e,\g+\h) (\b,\e,\h) (0,0,0)};
 \end{axis}
-\end{tikzpicture}}
-Recall \cref{def:detarea}: the image of the \(n\)D-cube under multiplication by the matrix~\(A\) is the image of the \((n-1)\)D-cube under multiplication by~\(A_{nn}\) extended orthogonally a length~\(a_{nn}\) in the orthogonal direction~\(\ev_n\) (as illustrated in the margin in 3D).
+\end{tikzpicture}
+\end{wrapfigure}
+Second, consider the special case when the last row \emph{and} last column of matrix~\(A\) is all zero except for~\(a_{nn}\neq0\); that is, 
+\begin{equation*}
+A=\begin{bmatrix} A_{nn}&\ov\\\tr\ov&a_{nn} \end{bmatrix}
+\end{equation*}
+for the minor~\(A_{nn}\) and \(\ov\in\RR^{n-1}\).
+Recall \cref{def:detarea}: the image of the \(n\)D-cube under multiplication by the matrix~\(A\) is the image of the \((n-1)\)D-cube under multiplication by~\(A_{nn}\) extended orthogonally a length~\(a_{nn}\) in the orthogonal direction~\(\ev_n\) (as illustrated in 3D to the above-right).
 The volume of the \(n\)D-image is thus \(a_{nn}\times{}\)(volume of the \((n-1)\)D-image).
 Consequently, \(\det A=a_{nn}\det A_{nn}\)\,.
+
 \begin{comment}
 The above glosses over details for when \(a_{nn}<0\).
 \end{comment}
@@ -537,10 +538,10 @@ for the minor~\(A_{nn}\), and where \(\av'_n=(a_{1n},a_{2n},\ldots,a_{n-1,n})\).
 Define the two \(n\times n\)~matrices
 \begin{equation*}
 F:=\begin{bmatrix} I_{n-1}&\av'_n/a_{nn}\\\tr\ov& 1 \end{bmatrix}
-\quad\text{and }
+\quad\text{and}\quad
 B:=\begin{bmatrix} A_{nn}&\ov\\\tr\ov&a_{nn} \end{bmatrix}.
 \end{equation*}
-Then \(A=FB\) since
+Then \(A=FB\) since the product
 \begin{eqnarray*}
 FB&=&\begin{bmatrix} I_{n-1}&\av'_n/a_{nn}\\\tr\ov& 1 \end{bmatrix}
 \begin{bmatrix} A_{nn}&\ov\\\tr\ov&a_{nn} \end{bmatrix}
@@ -548,15 +549,18 @@ FB&=&\begin{bmatrix} I_{n-1}&\av'_n/a_{nn}\\\tr\ov& 1 \end{bmatrix}
 I_{n-1}\ov+\av'_n/a_{nn}\cdot a_{nn}\\
 \tr\ov A_{nn}+1\cdot\tr\ov &
 \tr\ov\ov+1\cdot a_{nn}  \end{bmatrix}
-\\&=&\begin{bmatrix} A_{nn} &
+=\begin{bmatrix} A_{nn} &
 \av'_n\\
 \tr\ov  &
 a_{nn}  \end{bmatrix} =A\,.
 \end{eqnarray*}
+
+\begin{wrapfigure}r{0pt}
+\def\unithouseviews{30}\ThreeD10{0.5}01{0.4}001
+\end{wrapfigure}
 By \cref{thm:detprod}, \(\det A=\det(FB)=\det(F)\det(B)\).
 From the previous part \(\det B=a_{nn}\det A_{nn}\)\,, so we just need to determine~\(\det F\).
-\marginpar{\def\unithouseviews{30}\ThreeD10{0.5}01{0.4}001}
-As illustrated for 3D in the margin, the action of matrix~\(F\) on the unit \(n\)D-cube is that of a simple shear keeping the \((n-1)\)D-cube base unchanged (due to the identity~\(I_{n-1}\) in~\(F\)).
+As illustrated for 3D to the right, the action of matrix~\(F\) on the unit \(n\)D-cube is that of a simple shear keeping the \((n-1)\)D-cube base unchanged (due to the identity~\(I_{n-1}\) in~\(F\)).
 Since the height orthogonal to the \((n-1)\)D-cube base is unchanged (due to the one in the bottom-right corner of~\(F\)), the action of multiplying by~\(F\) leaves the volume of the unit \(n\)D-cube unchanged at one.
 Hence \(\det F=1\)\,.
 Thus \(\det A=1\det(B)=a_{nn}\det A_{nn}\) \text{as required.}
@@ -578,7 +582,7 @@ From the row and column swapping, \(\det A=(-1)^{n-i}(-1)^{n-j}\det C =(-1)^{2n-
 
 \begin{example} \label{eg:rpdet}
 Use \cref{thm:rpdet:vii} to evaluate the determinant of the following matrices.  
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{bmat} -3&-3&-1\\-3&2&0\\0&0&2 \end{bmat}\)
 \begin{solution} 
 There are two zeros in the bottom row so the determinant is \((-1)^62\det\begin{bmat} -3&-3\\-3&2 \end{bmat}=2(-6-9)=-30\)\,. 
@@ -601,7 +605,7 @@ There are two zeros in the middle column so the determinant is \((-1)^34\det\beg
 There are two zeros in the first column so the determinant is \((-1)^22\det\begin{bmat} -2&-3\\2&4 \end{bmat}=2(-8+6)=-4\)\,. 
 \end{solution}
 
-\end{enumerate}
+\end{Parts}
 %\begin{comment}
 %\begin{verbatim}
 %a=round(randn(3)*3);i=ceil(3*rand(1,2));a((1:3)~=i(2),i(1))=0,det(a)
@@ -654,7 +658,7 @@ The last row is all zero except for the last element of~\(3\), so
 \\0&2\end{bmatrix}
 \\&&(\text{then as the last row is zero except the~\(2\)})
 \\&=&3\cdot1\cdot5(-1)^42\det\begin{bmatrix}2\end{bmatrix}
-\\&=&3\cdot1\cdot5\cdot2\cdot2=60\,.
+=3\cdot1\cdot5\cdot2\cdot2=60\,.
 \end{eqnarray*}
 \end{solution}
 \end{example}
@@ -755,7 +759,7 @@ Which of the following matrices is \emph{not} a \idx{triangular matrix}?
 \begin{example} 
 Find the determinant of those of the following matrices which are triangular.
 %a=triu(round(randn(5)*3))
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{bmat}-1&-1&-1&-5
 \\0&-4&1&4
 \\0&0&7&0
@@ -831,26 +835,26 @@ Nonetheless, if we magically know to swap the 2nd and 4th~columns, the 1st and 2
 But each row and column swap changes the sign so the determinant of the original matrix is~\((-1)^316=-16\). 
 \end{solution}
 \end{reduce}
-\end{enumerate}
+\end{Parts}
 \end{example}
 
 
 
 The above case of triangular matrices is a short detour from the main development of this section which is to derive a formula for determinants in general.
-The following two examples introduce the next property we need before establishing a general formula for determinants.
+The following two examples introduce the next property we need before establishing a general formula \text{for determinants.}
 
 
 \begin{example} 
 Let's rewrite the explicit formulas~\eqref{eq:dets23b} for \(2\times2\) and \(3\times3\) determinants explicitly as the sum of simpler determinants.
 \begin{itemize}
 \item Recall that the \(2\times2\) determinant
-\begin{eqnarray*}
+\begin{equation*}
 \begin{vmatrix} a&b\\c&d \end{vmatrix}
-&=&ad-bc
-\\&=&(ad-0c)+(0d-bc)
-\\&=&\begin{vmatrix} a&0\\c&d \end{vmatrix}
+=ad-bc
+=(ad-0c)+(0d-bc)
+=\begin{vmatrix} a&0\\c&d \end{vmatrix}
 +\begin{vmatrix} 0&b\\c&d \end{vmatrix}.
-\end{eqnarray*}
+\end{equation*}
 That is, the original determinant is the same as the sum of two determinants, each with a zero in the first row and the other row unchanged.
 This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\begin{bmatrix} a&0 \end{bmatrix}+\begin{bmatrix} 0&b \end{bmatrix}\), while the other row \text{is unchanged.}
 
@@ -866,7 +870,7 @@ This identity decomposes the first row as \(\begin{bmatrix} a&b \end{bmatrix}=\b
 +\begin{vmatrix} 0&0&c\\d&e&f\\g&h&i \end{vmatrix}.
 \end{eqnarray*}
 That is, the original determinant is the same as the sum of three determinants, each with two zeros in the first row and the other rows unchanged.
-This identity decomposes the first row as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), while the other rows \text{are unchanged.}
+This identity decomposes the first row as \(\begin{bmatrix} a&b&c \end{bmatrix}=\begin{bmatrix} a&0&0 \end{bmatrix}+\begin{bmatrix} 0&b&0 \end{bmatrix}+\begin{bmatrix} 0&0&c \end{bmatrix}\), whereas the other rows \text{are unchanged.}
 \end{itemize}
 This sort of rearrangement of a determinant makes progress because then \cref{thm:rpdet:vii} helps by finding the determinant of the resultant matrices that have an almost all \idx{zero row}.
 \end{example}
@@ -875,9 +879,9 @@ This sort of rearrangement of a determinant makes progress because then \cref{th
 A \(2\times2\) example of a more general summation property is furnished by the determinant of matrix \(A=\begin{bmatrix} a_{11}&b_1+c_1\\a_{21}&b_2+c_2 \end{bmatrix}\).
 \begin{eqnarray*}
 \det A&=&a_{11}(b_2+c_2)-a_{21}(b_1+c_1)
-\\&=&a_{11}b_2+a_{11}c_2-a_{21}b_1-a_{21}c_1
+=a_{11}b_2+a_{11}c_2-a_{21}b_1-a_{21}c_1
 \\&=&(a_{11}b_2-a_{21}b_1)+(a_{11}c_2-a_{21}c_1)
-\\&=&\det\begin{bmatrix} a_{11}&b_1\\a_{21}&b_2 \end{bmatrix}
+=\det\begin{bmatrix} a_{11}&b_1\\a_{21}&b_2 \end{bmatrix}
 +\det\begin{bmatrix} a_{11}&c_1\\a_{21}&c_2 \end{bmatrix}
 \\&=&\det B+\det C\,,
 \end{eqnarray*}
@@ -899,7 +903,7 @@ Further, the same sum property holds when ``column'' is replaced by ``row'' thro
 We establish the theorem for matrix columns.
 Then the same property holds for the rows because \(\det(\tr A)=\det(A)\) (\cref{thm:dettr}).
 As a prelude to the general geometric proof, consider the \(2\times 2\) case and the second column (as also established algebraically by \cref{eg:cpdet2}).  
-Write the matrices in terms of their column vectors, and draw the determinant parallelogram areas as shown  below: let
+Write the matrices in terms of their column vectors, and draw the determinant parallelogram areas as shown  below: let the three matrices be
 \def\a{2.5} \def\b{0.5} \def\ab{3}
 \def\c{0.5} \def\d{1.7} \def\cd{2.2}
 \def\bi{1} \def\abi{3.5}
@@ -1050,12 +1054,12 @@ Write the first row of~\(A\) as the sum
 \begin{bmatrix}-2&1&-1\end{bmatrix} &=&\begin{bmatrix}-2&0&0\end{bmatrix}+\begin{bmatrix}0&1&-1\end{bmatrix} \\&=&\begin{bmatrix}-2&0&0\end{bmatrix}+\begin{bmatrix}0&1&0\end{bmatrix}+\begin{bmatrix}0&0&-1\end{bmatrix}.
 \end{eqnarray*}
 Then using \cref{thm:rpdet:v} twice, the determinant
-\begin{eqnarray*}&&\hspace{-1em}
+\begin{eqnarray*}
 \begin{vmatrix}   -2&1&-1
 \\   1 & -6 & -1
 \\   2 &  1 & 0
 \end{vmatrix}
-\\&=&\begin{vmatrix}   -2&0&0
+&=&\begin{vmatrix}   -2&0&0
 \\   1 & -6 & -1
 \\   2 &  1 & 0
 \end{vmatrix}
@@ -1077,12 +1081,12 @@ Then using \cref{thm:rpdet:v} twice, the determinant
 \end{vmatrix}
 \end{eqnarray*}
 Each of these last three matrices has the first row zero except for one element, so \cref{thm:rpdet:vii} applies to each of the three determinants to give
-\begin{eqnarray*}&&\hspace{-1em}
+\begin{eqnarray*}
 \begin{vmatrix}   -2&1&-1
 \\   1 & -6 & -1
 \\   2 &  1 & 0
 \end{vmatrix}
-\\&=&(-1)^2(-2)\begin{vmatrix}    -6 & -1
+&=&(-1)^2(-2)\begin{vmatrix}    -6 & -1
 \\  1 & 0
 \end{vmatrix}
 +(-1)^3(1)\begin{vmatrix}    1 &  -1
@@ -1110,7 +1114,7 @@ For example, let's use the last column as it usefully already has a zero entry: 
 \\   1 & -6 & -1
 \\   2 &  1 & 0
 \end{vmatrix}
-\\&&\quad(\text{so by \cref{thm:rpdet:vii}})
+\quad(\text{so by \cref{thm:rpdet:vii}})
 \\&=&(-1)^4(-1)\begin{vmatrix}
   1 & -6 
 \\   2 &  1 
@@ -1171,13 +1175,13 @@ Then the \idx{determinant} of~\(A\) can be computed via expansion in any row~\(i
 We establish the expansion for matrix rows: then the same property holds for the columns because \(\det(\tr A)=\det(A)\) (\cref{thm:dettr}).
 First prove the expansion for a first row expansion, and then second for any row.
 So first use the sum \cref{thm:rpdet:v} \((n-1)\)~times to deduce
-\begin{eqnarray*}&&\hspace{-1em}
+\begin{align*}&
 \begin{vmatrix} a_{11}&a_{12}&\cdots&a_{1n}
 \\ a_{21}&a_{22}&\cdots&a_{2n}
 \\ \vdots&\vdots&\ddots&\vdots
 \\ a_{n1}&a_{n2}&\cdots&a_{nn}
 \end{vmatrix}
-\\&=&
+\\&=
 \begin{vmatrix} a_{11}&0&\cdots&0
 \\ a_{21}&a_{22}&\cdots&a_{2n}
 \\ \vdots&\vdots&\ddots&\vdots
@@ -1188,8 +1192,8 @@ So first use the sum \cref{thm:rpdet:v} \((n-1)\)~times to deduce
 \\ \vdots&\vdots&\ddots&\vdots
 \\ a_{n1}&a_{n2}&\cdots&a_{nn}
 \end{vmatrix}
-\\&\vdots&
-\\&=&
+\\&\ \vdots
+\\&=
 \begin{vmatrix} a_{11}&0&\cdots&0
 \\ a_{21}&a_{22}&\cdots&a_{2n}
 \\ \vdots&\vdots&\ddots&\vdots
@@ -1200,23 +1204,21 @@ So first use the sum \cref{thm:rpdet:v} \((n-1)\)~times to deduce
 \\ \vdots&\vdots&\ddots&\vdots
 \\ a_{n1}&a_{n2}&\cdots&a_{nn}
 \end{vmatrix}
-\\&&{}
 +\cdots
 +\begin{vmatrix} 0&0&\cdots&a_{1n}
 \\ a_{21}&a_{22}&\cdots&a_{2n}
 \\ \vdots&\vdots&\ddots&\vdots
 \\ a_{n1}&a_{n2}&\cdots&a_{nn}
 \end{vmatrix}
-\end{eqnarray*}
+\end{align*}
 As each of these \(n\)~determinants has the first row zero except for one element,  \cref{thm:rpdet:vii} applies to give
-\begin{eqnarray*}
-&&\hspace{-1em}
+\begin{align*}&
 \begin{vmatrix} a_{11}&a_{12}&\cdots&a_{1n}
 \\ a_{21}&a_{22}&\cdots&a_{2n}
 \\ \vdots&\vdots&\ddots&\vdots
 \\ a_{n1}&a_{n2}&\cdots&a_{nn}
 \end{vmatrix}
-\\&=&
+\\&=
 (-1)^2a_{11}\begin{vmatrix} 
  a_{22}&\cdots&a_{2n}
 \\ \vdots&\ddots&\vdots
@@ -1227,19 +1229,19 @@ As each of these \(n\)~determinants has the first row zero except for one elemen
 \\ \vdots&\ddots&\vdots
 \\ a_{n1}&\cdots&a_{nn}
 \end{vmatrix}
-\\&&{}
+\\&\quad{}
 +\cdots
 +(-1)^{n+1}a_{1n}\begin{vmatrix}  
 a_{21}&a_{22}&\cdots&a_{2,n-1}
 \\ \vdots&\vdots&\ddots&\vdots
 \\ a_{n1}&a_{n2}&\cdots&a_{n,n-1}
 \end{vmatrix}
-\\&=&(-1)^2a_{11}\det A_{11}
+\\&=(-1)^2a_{11}\det A_{11}
 +(-1)^3a_{12}\det A_{12}
-\\&&{}
+%\\&&{}
 +\cdots
 +(-1)^{n+1}a_{1n}\det A_{1n}\,,
-\end{eqnarray*}
+\end{align*}
 which is the case \(i=1\) of formula~\eqref{eq:detlet}.
 
 Second, for the general \(i\)th~row expansion, let a new matrix~\(B\) be obtained from~\(A\) by swapping the \(i\)th~row up \((i-1)\)~times to form the first row of~\(B\) and leaving the other rows from~\(A\) in the same order.
@@ -1248,12 +1250,10 @@ Apply formula~\eqref{eq:detlet} to the first row of~\(B\) (just proved) to give
 \begin{eqnarray*}
 \det B&=&(-1)^2b_{11}\det B_{11}
 +(-1)^3b_{12}\det B_{12}
-\\&&{}
 +\cdots
 +(-1)^{n+1}b_{1n}\det B_{1n}
 \\&=&(-1)^2a_{i1}\det A_{i1}
 +(-1)^3a_{i2}\det A_{i2}
-\\&&{}
 +\cdots
 +(-1)^{n+1}a_{in}\det A_{in}\,.
 \end{eqnarray*}
@@ -1262,12 +1262,10 @@ But by \cref{thm:ppdet:iii} each of the \((i-1)\)~row swaps in forming~\(B\) cha
 \det A&=&(-1)^{i-1}\det B
 \\&=&(-1)^{i-1+2}a_{i1}\det A_{i1}
 +(-1)^{i-1+3}a_{i2}\det A_{i2}
-\\&&{}
 +\cdots
 +(-1)^{i-1+n+1}a_{in}\det A_{in}
 \\&=&(-1)^{i+1}a_{i1}\det A_{i1}
 +(-1)^{i+2}a_{i2}\det A_{i2}
-\\&&{}
 +\cdots
 +(-1)^{i+n}a_{in}\det A_{in}\,,
 \end{eqnarray*}
@@ -1284,20 +1282,17 @@ Use the Laplace expansion~\eqref{eq:detlet} to find the determinant of the follo
 \\1&2&-1&-1
 \\0&-1&-1&1 \end{bmatrix}\)
 \begin{solution} 
-The first column has two zeros, so expand in the first column:
+The first column has two zeros, so expand in the first column (using~\eqref{eq:dets23b} for these \(3\times3\) matrices):
 \begin{eqnarray*}
 \det&=&(-1)^3(-1)\det\begin{bmatrix}2&1&2
 \\2&-1&-1
 \\-1&-1&1 \end{bmatrix}
-\\&&{}
 +(-1)^4(1)\det\begin{bmatrix}2&1&2
 \\2&-1&-2
 \\-1&-1&1 \end{bmatrix}
-\\&&(\text{using~\eqref{eq:dets23b} for these \(3\times3\) matrices})
 \\&=&(-2+1-4-2-2-2)
-\\&&{}
 +(-2+2-4-2-4-2)
-\\&=&-23\,.
+=-23\,.
 \end{eqnarray*}
 \end{solution}
 
@@ -1311,12 +1306,12 @@ The last column has three zeros, so expand in the last column:
 \det&=&(-1)^8(3)\det\begin{bmatrix}-3&-1&1
 \\-2&0&-2
 \\-3&-2&0 \end{bmatrix}
-\\&&(\text{expand in the middle row (say) due to its zero})
+\qquad\parbox[c]{11em}{(expand in the middle row, say, due to its zero)}
 \\&=&3\left\{ (-1)^3(-2)\det\begin{bmatrix} -1&1\\-2&0 \end{bmatrix}
-\right.\\&&\left.\quad{}
+%\right.\\&&\left.\quad{}
 +(-1)^5(-2)\det\begin{bmatrix} -3&-1\\-3&-2 \end{bmatrix} \right\}
 \\&=&3\left\{2(0+2)+2(6-3)\right\}
-\\&=&30\,.
+=30\,.
 \end{eqnarray*}
 \end{solution}
 

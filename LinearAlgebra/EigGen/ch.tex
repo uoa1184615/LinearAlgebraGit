@@ -87,40 +87,44 @@ Rearranging the equation \(A\xv=\lambda\xv\) as the \idx{homogeneous} \idx{syste
 Recall that \cref{sec:iee} introduced one way to visually estimate eigenvectors and eigenvalues of a given \(2\times2\) matrix~\(A\) \cite[]{Schonefeld1995}. 
 The graphical method is to plot many \idx{unit vector}s~\xv, and at the end of each~\xv\ to adjoin the vector~\(A\xv\).
 Since eigenvectors satisfy \(A\xv=\lambda\xv\) for some \idx{scalar} eigenvalue~\(\lambda\), we visually identify eigenvectors as those~\xv\ for which~\(A\xv\) points in the same (or opposite) direction as~\xv.
+\footnote{Recall that the \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} (download for R2017b etc.) provides an interactive alternative to the static views shown herein.}
 Let's use this approach to identify three \text{general difficulties.}
 
 \begin{enumerate}
 \item 
+\begin{figbox}{\eRose{1}1{0.125}{1}}
 In this first picture, for matrix
 \( A=\begin{bmat} 1&1\\1/8&1 \end{bmat}\),
-\marginpar{\eRose{1}1{0.125}{1}}%
-\begin{aside}
-The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)}\footnote{Download for R2017b etc.} provides an interactive alternative to this static view.
-\end{aside}%
 the eigenvectors appear to be in directions \(\xv_1\approx\pm(0.9,0.3)\) and \(\xv_2\approx\pm(0.9,-0.3)\) corresponding to eigenvalues \(\lambda_1\approx1.4\) and \(\lambda_2\approx 0.6\)\,.
 (Recall that scalar multiples of an eigenvector are always also eigenvectors, \cref{sec:iee}, so we always see \(\pm\)~pairs of eigenvectors in these pictures.)
 The eigenvectors \(\pm(0.9,0.3)\) are not orthogonal to the other 
 eigenvectors \(\pm(0.9,-0.3)\), not at right-angles---as happens for symmetric matrices (\cref{thm:orthoevec}).
 This lack of orthogonality in general means we soon generalize the concept of orthogonal sets of vectors to a new concept of \idx{linearly independent} sets (\cref{sec:lisb}).
+\end{figbox}
 
 \item 
+\begin{figbox}{\eRose01{-1}{0.5}}
 In this second case, for
-\( A=\begin{bmat} 0&1\\-1&1/2 \end{bmat}\), \marginpar{\eRose01{-1}{0.5}}%
+\( A=\begin{bmat} 0&1\\-1&1/2 \end{bmat}\),
 there appears to be no (red) vector~\(A\xv\) in the same direction as the corresponding (blue) vector~\xv.
 Thus there appears to be no eigenvectors at all.
 No eigenvectors and eigenvalues is the answer if we require real answers.
 However, in most applications we find it sensible to have non-real \idx{complex valued} eigenvalues and eigenvectors (\cref{sec:eennm})\index{complex eigenvalue}\index{complex eigenvector}, written using \index{i@$\i$}\(\i=\sqrt{-1}\).
 So although we cannot see them graphically, for this matrix there are two \idx{complex eigenvalue}s and two families of \idx{complex eigenvector}s (analogous to those found in \cref{eg:ccevals}).% 
-\footnote{In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
-Such a consistent `\idx{rotation}' in~\(A\xv\) is characteristic of matrices with non-real complex valued eigenvalues and eigenvectors.}
+\end{figbox}
+
+In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.  
+Such a consistent `\idx{rotation}' in~\(A\xv\) is characteristic of matrices with non-real complex valued eigenvalues and eigenvectors.
 
 \item 
+\begin{figbox}{\eRose1101}
 In this third case, for
 \( A=\begin{bmat} 1&1\\0&1 \end{bmat}\),
-\marginpar{\eRose1101}%
 there appears to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
 Whereas for symmetric matrices there were always two pairs, here we only appear to have one pair of eigenvectors (\cref{thm:dimee}).
 Such degeneracy occurs for matrices on the border between reality \text{and complexity.}
+\vspace{1\baselineskip}
+\end{figbox}
 
 \end{enumerate}
 

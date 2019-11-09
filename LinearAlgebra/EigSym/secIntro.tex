@@ -22,9 +22,7 @@ The marvellously useful properties developed here result from asking for which v
 Let \(A\) be a \idx{square matrix}.  
 A \idx{scalar}~\(\lambda\) (lambda) is called an \bfidx{eigenvalue} of~\(A\) if 
 there is a nonzero vector~\xv\ such that \(A\xv=\lambda\xv\)\,. 
-\begin{aside}
-The prefix ``eigen-'' comes from the German word for `owning' or `belonging to' in relation to the originating matrix.
-\end{aside}
+\footnote{The prefix ``eigen-'' comes from the German word for `owning' or `belonging to' in relation to the originating matrix. }
 Such a vector~\xv\ is called an \bfidx{eigenvector} of~\(A\) corresponding to the eigenvalue~\(\lambda\).   
 \end{definition}
 
@@ -119,7 +117,7 @@ because the two are at an angle, \((1,\frac12)\)~is not \text{an eigenvector.}
 \begin{center}
 \begin{tabular}{cc}
 \begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
+\begin{axis}[footnotesize%,font=\footnotesize
     ,axis equal image, axis lines=middle, thick
     ,ymax=1.5,xtick={0.5,1,1.5},ytick={0.5,1,1.5}]
     \addplot[quiver={u=1,v=0.5},blue,-stealth] 
@@ -127,12 +125,12 @@ because the two are at an angle, \((1,\frac12)\)~is not \text{an eigenvector.}
     \node[right] at (axis cs:0.4,0.2) {$\xv=(1,\tfrac12)$};
     \addplot[quiver={u=x-0.5*y,v=-0.5*x+y},red,-stealth] 
     coordinates {(1,0.5)};
-    \node[above] at (axis cs:1.3,0.5) {$A\xv=(\frac34,0)$};
+    \node[above] at (axis cs:1.2,0.5) {$A\xv=(\frac34,0)$};
 \end{axis}
 \end{tikzpicture}
 &
 \begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
+\begin{axis}[footnotesize%,font=\footnotesize
     ,axis equal image, axis lines=middle, thick
     ,xtick={0.5,1,1.5},ytick={0.5,1,1.5}]
     \addplot[quiver={u=1,v=1},blue,-stealth] 
@@ -157,8 +155,8 @@ This eigenvalue of~\(\frac12\) is seen graphically by the (red) vector~\(A\xv\) 
 \begin{activity} \label{act:eig}
 For some matrix~\(A\), the following pictures plot a vector~\xv\ and the corresponding product~\(A\xv\), head-to-tail.
 Which picture indicates that~\xv\ is an eigenvector of the matrix?
-\actposs{\begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
+\actposs[4]{\begin{tikzpicture} 
+\begin{axis}[footnotesize%,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}{0.85}{0.52}00
@@ -166,7 +164,7 @@ Which picture indicates that~\xv\ is an eigenvector of the matrix?
 \end{axis}
 \end{tikzpicture}}
 {\begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
+\begin{axis}[footnotesize%,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}1000
@@ -174,7 +172,7 @@ Which picture indicates that~\xv\ is an eigenvector of the matrix?
 \end{axis}
 \end{tikzpicture}}
 {\begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
+\begin{axis}[footnotesize%,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}{0.52}{0.85}00
@@ -182,7 +180,7 @@ Which picture indicates that~\xv\ is an eigenvector of the matrix?
 \end{axis}
 \end{tikzpicture}}
 {\begin{tikzpicture} 
-\begin{axis}[footnotesize,font=\footnotesize
+\begin{axis}[footnotesize%,font=\footnotesize
     ,xmin=-0.5,ymin=-0.5,xmax=2,ymax=2
     ,axis equal image, axis lines=middle ,xtick={0},ytick={0}]
     \twovec{\noexpand\xv}0100
@@ -201,18 +199,18 @@ Further, for the picture in \cref{act:eig} that indicates~\xv\ is an eigenvector
 As in the next example, we sometimes plot for many directions~\xv\ a diagram of vector~\(A\xv\) adjoined head-to-tail to vector~\xv.
 Then inspection estimates the eigenvectors and corresponding eigenvalues \cite[]{Schonefeld1995}.
 
-\begin{example}[graphical eigenvectors one] \label{eg:eig2pic1}
-\ \\
-\begin{tabular}{@{}cc@{}}
+\needlines9
+\begin{wrapfigure}r{0pt}
 \def\eRosesize{small}%
-\eRose1{-0.5}{-0.5}1 &
-\parbox[t]{0.45\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some symmetric matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
-Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.}
-\end{tabular}
-\begin{aside}
-The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
-(Download from the internet if using a recent version of \script[1].)
-\end{aside}%
+\eRose1{-0.5}{-0.5}1
+\end{wrapfigure}
+\begin{example}[graphical eigenvectors one] \label{eg:eig2pic1}
+The plot on the right shows many unit vectors~\xv\  (blue), and for some symmetric matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
+Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.
+
+(The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} provides an interactive alternative to this static view.
+Download from the internet if using a recent version of \script[1].)
+
 \begin{solution} 
 We seek vectors~\xv\ such that~\(A\xv\) is in the same direction (to graphical accuracy).
 It appears that vectors at~\(45^\circ\) to the axes are the only ones for which \(A\xv\) is in the same direction as~\xv:  \begin{itemize}
@@ -224,13 +222,15 @@ Any multiple of these eigenvectors are also eigenvectors so we may report the di
 \end{solution}
 \end{example}
 
-\begin{example}[graphical eigenvectors two] \label{eg:eig2pic2} \ \\
-\begin{tabular}{@{}cc@{}}
+\needlines6
+\begin{wrapfigure}[6]r{0pt}
 \def\eRosesize{small}%
-\eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[t]{0.4\linewidth}{The plot on the left shows many unit vectors~\xv\  (blue), and for some symmetric matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. }
-\end{tabular}\\
+\eRose{1}{-0.5}{-0.5}{-0.2}
+\end{wrapfigure}
+\begin{example}[graphical eigenvectors two] \label{eg:eig2pic2}
+The plot on the right shows many unit vectors~\xv\  (blue), and for some symmetric matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate which directions~\xv\ are eigenvectors, and for each eigenvector estimate the corresponding eigenvalue.
+
 \begin{solution} 
 We seek vectors~\xv\ such that~\(A\xv\) is in the same direction (to graphical accuracy):  \begin{itemize}
 \item the two (blue) vectors \(\pm(0.9,-0.3)\) appear stretched a little by a factor about~\(1.2\) (red) so we estimate eigenvectors are \(\xv\propto(0.9,-0.3)\) and the corresponding eigenvalue is \(\lambda\approx1.2\)\,;
@@ -288,13 +288,12 @@ In \cref{eg:eig3intro} any nonzero multiple of \((1,-2,1)\), positive or negativ
 In the diagonal matrices of \cref{eg:eigndiag}, a straightforward extension of the working shows any nonzero multiple of the standard unit vector~\(\ev_j\) is an eigenvector corresponding to the eigenvalue~\(d_j\).
 Let's collect all possible eigenvectors into a \idx{subspace}. 
 
+Hereafter, ``\index{iff|textbf}iff'' is short for ``if and only if''.
+
 
 \begin{theorem} \label{thm:espacedef} 
 Let \(A\) be a \idx{square matrix}. 
 A \idx{scalar}~\(\lambda\) is an \idx{eigenvalue} of~\(A\) iff the \idx{homogeneous} linear \idx{system} \((A-\lambda I)\xv=\ov\) has nonzero solutions~\(\xv\).  
-\begin{aside}
-Hereafter, ``\index{iff|textbf}iff'' is short for ``if and only if''.
-\end{aside}%
 The set of all \idx{eigenvector}s corresponding to any one eigenvalue~\(\lambda\), together with the \idx{zero vector}, is a \idx{subspace}; the subspace is called the \bfidx{eigenspace} of~\(\lambda\) and is denoted by~\(\EE_\lambda\).
 \end{theorem}
 
@@ -361,25 +360,26 @@ Which line, in the \(xy\)-plane, is the \idx{eigenspace} corresponding to the ei
 
 
 
-
-\begin{example}[graphical \idx{eigenspace}s] \label{eg:eig2sp2} \ \\
-\begin{tabular}{@{}cc@{}}
-\eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[t]{18em}{The plot on the left shows \idx{unit vector}s~\xv\  (blue), and for the matrix~\(A\) of \cref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
-Estimate and draw the eigenspaces of matrix~\(A\).}
-\end{tabular}
-\begin{solution} \ \\
+\begin{wrapfigure}r{0pt}
+\begin{tabular}c
+\eRose{1}{-0.5}{-0.5}{-0.2}
+\\
 \def\eRoseHook{%
 \addplot[brown,domain=-1.5:1.5,very thick] ({0.34*x},{0.94*x});
 \node[right] at (axis cs:0.41,1.13) {$\EE_{-0.4}$};
 \addplot[brown,domain=-2.6:2.6,very thick] ({0.94*x},{-0.34*x});
 \node[above] at (axis cs:-2.1,0.75) {$\EE_{1.2}$};
 }%
-\begin{tabular}{@{}cc@{}}
-\eRose{1}{-0.5}{-0.5}{-0.2} &
-\parbox[t]{19em}{\cref{eg:eig2pic2} found directions in which \(A\xv\) is aligned with~\xv.
-Then the corresponding eigenspace (brown) is every vector in the line aligned with that direction, including the opposite direction.}
+\eRose{1}{-0.5}{-0.5}{-0.2}
 \end{tabular}
+\end{wrapfigure}
+\begin{example}[graphical \idx{eigenspace}s] \label{eg:eig2sp2} 
+The plot on the above-right shows \idx{unit vector}s~\xv\  (blue), and for the matrix~\(A\) of \cref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
+Estimate and draw the eigenspaces of matrix~\(A\).
+\begin{solution}
+\cref{eg:eig2pic2} found directions in which \(A\xv\) is aligned with~\xv.
+Then the corresponding eigenspace (brown in below-right) is every vector in the line aligned with that direction, including the opposite direction.
+\aqed
 \end{solution}
 \end{example}
 
@@ -627,10 +627,8 @@ That these three solutions combine together form a general solution of the syste
 
 
 
-
-\begin{example}[\idx{Sierpinski network}] \label{eg:sier2eig}
-Consider three triangles formed into a triangle (as shown in the margin)---perhaps because triangles make strong structures, or perhaps because of a hierarchical computer\slash social network.
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=none ]
     \addplot[blue,mark=*,domain=40:400,samples=10
@@ -641,7 +639,10 @@ Consider three triangles formed into a triangle (as shown in the margin)---perha
     ({cos(\x)+0.347*cos(2*\x)}
     ,{sin(\x)-0.347*sin(2*\x)});
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example}[\idx{Sierpinski network}] \label{eg:sier2eig}
+Consider three triangles formed into a triangle (as shown to the right)---perhaps because triangles make strong structures, or perhaps because of a hierarchical computer\slash social network.
 The marginal picture is called a \emidx{network} because it is formed from a set of nodes (the discs) connected by links (the lines).
 Let's analyse the matrix used to represent such a network.
  
@@ -679,7 +680,6 @@ A-A'
 [V,D]=eig(A)
 \end{verbatim}
 To two decimal places so that the results fit the page, the computation may give
-{\small%??
 \begin{verbatim}
 V =
  -0.41  0.51 -0.16 -0.21 -0.45  0.18 -0.40  0.06  0.33
@@ -702,7 +702,6 @@ D =
      0     0     0     0     0     0     0 -0.70     0
      0     0     0     0     0     0     0     0 -0.00
 \end{verbatim}
-}%
 The five eigenvalues are \(-5.00\), \(-4.30\), \(-3.00\), \(-0.70\) and~\(0.00\) (to two decimal places).
 Three of the eigenvalues are repeated as a consequence of the geometric symmetry in the network (different from the symmetry in the matrix).
 The following are \text{the eigenspaces.}
@@ -741,7 +740,7 @@ Thus the eigenspace
 \end{equation*}
 and so eigenvalue \(\lambda=-0.70\) has multiplicity two.
 
-\item Lastly, corresponding to eigenvalue \(\lambda=0\) are eigenvectors \(\xv\propto(0.33,0.33,0.33,0.33,0.33,0.33,0.33,0.33,0.33)\); 
+\item Lastly, corresponding to eigenvalue \(\lambda=0\) are eigenvectors \(\sloppy\xv\propto(0.33,0.33,0.33,0.33,0.33,0.33,0.33,0.33,0.33)\); 
 that is, the eigenspace \(\EE_{0}=\Span\{(1,1,1,1,1,1,1,1,1)\}\),
 and so eigenvalue \(\lambda=0\) has multiplicity one.
 
@@ -794,7 +793,7 @@ A challenge for an advanced learner is to find the two smallest connected networ
 Why write ``the computation may give'' in \cref{eg:sier2eig}?  
 The reason is associated with the duplicated eigenvalues.
 What is important is the \idx{eigenspace}.
-When an eigenvalue of a \idx{symmetric matrix} is duplicated (or triplicated) in the diagonal~\(D\) then there are many choices of eigenvectors that form an \idx{orthonormal basis} (\cref{def:orthobasis}) of the eigenspace (the same holds for \idx{singular vector}s of a duplicated singular value).
+When an eigenvalue of a \idx{symmetric matrix} is duplicated in the diagonal~\(D\) (or triplicated), then there are many choices of eigenvectors that form an \idx{orthonormal basis} (\cref{def:orthobasis}) of the eigenspace (the same holds for \idx{singular vector}s of a duplicated singular value).
 Different algorithms may report different orthonormal bases of the same eigenspace.
 The bases given in \cref{eg:sier2eig} are just one possibility for \text{each eigenspace.}
 
@@ -1004,15 +1003,15 @@ A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 \begin{solution} 
 To find all eigenvalues, find all solutions of the characteristic equation \(\det(A-\lambda I)=0\)\,.  
 Using~\eqref{eq:dets23},
-\begin{eqnarray*}
-&&\det(A-\lambda I)
-\\&&{}=\begin{vmatrix} 1-\lambda&-1&0\\-1&2-\lambda&-1\\0&-1&1-\lambda \end{vmatrix}
-\\&&{}=(1-\lambda)^2(2-\lambda)+0+0-0-(1-\lambda)-(1-\lambda)
-\\&&{}=(1-\lambda)\left[(1-\lambda)(2-\lambda)-2\right]
-\\&&{}=(1-\lambda)\left[2-3\lambda+\lambda^2-2\right]
-\\&&{}=(1-\lambda)\left[-3\lambda+\lambda^2\right]
-\\&&{}=(1-\lambda)(-3+\lambda)\lambda\,.
-\end{eqnarray*}
+\begin{align*}
+\det(A-\lambda I)
+&{}=\begin{vmatrix} 1-\lambda&-1&0\\-1&2-\lambda&-1\\0&-1&1-\lambda \end{vmatrix}
+\\&{}=(1-\lambda)^2(2-\lambda)+0+0-0-(1-\lambda)-(1-\lambda)
+\\&{}=(1-\lambda)\left[(1-\lambda)(2-\lambda)-2\right]
+\\&{}=(1-\lambda)\left[2-3\lambda+\lambda^2-2\right]
+\\&{}=(1-\lambda)\left[-3\lambda+\lambda^2\right]
+\\&{}=(1-\lambda)(-3+\lambda)\lambda\,.
+\end{align*}
 So the characteristic equation is \((1-\lambda)(-3+\lambda)\lambda=0\)\,. 
 In this factored form we see the \emph{only} solutions are the three eigenvalues \(\lambda=0,1,3\) as previously identified.
 \end{solution}
@@ -1031,9 +1030,9 @@ Follow the steps of \cref{pro:eeh}.
 \begin{enumerate}
 \item Solve \(\det(A-\lambda I)=0\) for the eigenvalues.
 Using~\eqref{eq:dets23},
-\begin{align*}&
+\begin{align*}
 \det(A-\lambda I)
-\\&= \begin{vmatrix} -2-\lambda&0&-6\\0&4-\lambda&6\\-6&6&-9-\lambda \end{vmatrix}
+&= \begin{vmatrix} -2-\lambda&0&-6\\0&4-\lambda&6\\-6&6&-9-\lambda \end{vmatrix}
 \\&=(-2-\lambda)(4-\lambda)(-9-\lambda)+0\cdot6\cdot(-6)+(-6)\cdot0\cdot 6
 \\&\qquad{}
 -(-6)(4-\lambda)(-6)-(-2-\lambda)\cdot6\cdot6-0\cdot0\cdot(-9-\lambda)
@@ -1048,10 +1047,12 @@ This determinant is zero only for the three eigenvalues \(\lambda=0,-7,14\).
 \begin{enumerate}
 \item For eigenvalue \(\lambda=0\) solve \((A-\lambda I)\vv=\ov\)\,.  
 That is,
-\begin{eqnarray*}
-(A-0I)\vv&=&\begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}\vv
-\\&=&\begin{bmatrix} -2v_1-6v_3\\4v_2+6v_3\\-6v_1+6v_2-9v_3 \end{bmatrix}=\ov\,.
-\end{eqnarray*}
+\begin{equation*}
+(A-0I)\vv
+=\begin{bmatrix} -2&0&-6\\0&4&6\\-6&6&-9 \end{bmatrix}\vv
+=\begin{bmatrix} -2v_1-6v_3\\4v_2+6v_3\\-6v_1+6v_2-9v_3 \end{bmatrix}
+=\ov\,.
+\end{equation*}
 The first row says \(v_1=-3v_3\)\,, the second row says \(v_2=-\frac32v_3\)\,.  
 Substituting these into the left-hand side of the third row gives
 \(-6v_1+6v_2-9v_3=18v_3-9v_3-9v_3=0\) for every~\(v_3\) which confirms there are nonzero solutions to form eigenvectors.
@@ -1059,10 +1060,12 @@ Eigenvectors may be written in the form \(\vv=(-3v_3,-\frac32v_3,v_3)\); that is
 
 \item For eigenvalue \(\lambda=7\) solve \((A-\lambda I)\vv=\ov\)\,.  
 That is,
-\begin{eqnarray*}
-(A-7I)\vv&=&\begin{bmatrix} -9&0&-6\\0&-3&6\\-6&6&-16 \end{bmatrix}\vv
-\\&=&\begin{bmatrix} -9v_1-6v_3\\-3v_2+6v_3\\-6v_1+6v_2-16v_3 \end{bmatrix}=\ov\,.
-\end{eqnarray*}
+\begin{equation*}
+(A-7I)\vv
+=\begin{bmatrix} -9&0&-6\\0&-3&6\\-6&6&-16 \end{bmatrix}\vv
+=\begin{bmatrix} -9v_1-6v_3\\-3v_2+6v_3\\-6v_1+6v_2-16v_3 \end{bmatrix}
+=\ov\,.
+\end{equation*}
 The first row says \(v_1=-\frac23v_3\)\,, 
 the second row says \(v_2=2v_3\)\,.  
 Substituting these into the left-hand side of the third row gives
@@ -1072,10 +1075,12 @@ Eigenvectors may be written in the form
 
 \item For eigenvalue \(\lambda=-14\) solve \((A-\lambda I)\vv=\ov\)\,.  
 That is,
-\begin{eqnarray*}
-(A+14I)\vv&=&\begin{bmatrix} 12&0&-6\\0&18&6\\-6&6&5 \end{bmatrix}\vv
-\\&=&\begin{bmatrix} 12v_1-6v_3\\18v_2+6v_3\\-6v_1+6v_2+5v_3 \end{bmatrix}=\ov\,.
-\end{eqnarray*}
+\begin{equation*}
+(A+14I)\vv
+=\begin{bmatrix} 12&0&-6\\0&18&6\\-6&6&5 \end{bmatrix}\vv
+=\begin{bmatrix} 12v_1-6v_3\\18v_2+6v_3\\-6v_1+6v_2+5v_3 \end{bmatrix}
+=\ov\,.
+\end{equation*}
 The first row says \(v_1=\frac12v_3\)\,, 
 the second row says \(v_2=-\frac13v_3\)\,.  
 Substituting these into the left-hand side of the third row gives
@@ -1098,10 +1103,10 @@ There are many applications where this reality \text{is crucial.}
 
 \begin{example} \label{eg:ccevals}
 Find the eigenvalues and a corresponding eigenvector for the \idx{non-symmetric matrix} \(A=\begin{bmat} 0&1\\-1&0 \end{bmat}\).
-\begin{aside}
-This example aims to recall basic properties of \idx{complex number}s as a prelude to the proof of the reality of eigenvalues for every symmetric matrix.  
+
+(This example aims to recall basic properties of \idx{complex number}s as a prelude to the proof of the reality of eigenvalues for every symmetric matrix.) 
 %It reinforces that matrix symmetry is a crucial part of the next section.
-\end{aside}
+
 
 
 \begin{solution} 

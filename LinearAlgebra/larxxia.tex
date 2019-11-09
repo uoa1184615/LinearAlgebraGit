@@ -1,4 +1,4 @@
-\ifcase3
+\ifcase4
 \or%1=A5 drafting
    \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
@@ -27,12 +27,14 @@
 %   \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
-\or% close to OUP I hope
-   \documentclass[11pt]{book}
-   \usepackage[a4paper,margin=30mm,tmargin=42mm,bmargin=42mm]%
+\or%4= close to OUP I hope
+   \documentclass[11pt,twoside]{book}
+   \usepackage[a4paper,margin=31mm%
+   ,tmargin=41mm,bmargin=41mm]%
    {geometry}
-   \parindent=1.1em % lesser indent for paragraphs
    \setcounter{secnumdepth}{3} % number to subsubsections
+   \let\MakeUppercase\sf
+   \def\includeonly#1{} % do all by disabling includeonly
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
@@ -40,11 +42,13 @@
    \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
+% These are used by refrep so need to supply
+   \def\secshape{}% refrep uses this so null it
 \fi
 
 % Specify the version number of the next version.
 % Affects watermark and permutation of activity answers.
-\def\myversion{0.5d}
+\def\myversion{0.6a}
 
 \includeonly{
 front,back
@@ -115,7 +119,7 @@ front,back
 
 
 
-\usepackage{linearAlgebra}[2019/08/20]
+\usepackage{linearAlgebra}[2019/11/05]
 \def\aNsMod{2}% typeset every second answer to exercises
 %% An environment to control/show a reduced/shortened version
 %\newenvironment{reduce}{\color{gray}}{}% grey planned omissions

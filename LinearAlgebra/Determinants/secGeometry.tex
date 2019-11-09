@@ -20,13 +20,16 @@ Consider the square matrix \(A=\begin{bmat} 1/2&1\\0&1 \end{bmat}\).
 Use matrix-vector multiplication to find the image of the \idx{unit square} under the transformation by~\(A\).
 How much is the \idx{area} of the unit square scaled up/down?  
 Compare with the determinant.
+
+\begin{wrapfigure}[5]r{0pt} \TwoD{0.5}101 \end{wrapfigure}
 \begin{solution} 
 Consider the corner points of the unit square, under multiplication by~\(A\): 
-\marginpar{\TwoD{0.5}101}%
-using the `{mapsto}' symbol~\index{$\mapsto$}$\mapsto$ to denote that vector~\xv\ transforms to~\(A\xv\), \((0,0)\mapsto(0,0)\), \((1,0)\mapsto(\frac12,0)\), \((0,1)\mapsto(1,1)\), and \((1,1)\mapsto(\frac32,1)\), as shown in the marginal picture 
+using the `{mapsto}' symbol~\index{$\mapsto$}$\mapsto$ to denote that vector~\xv\ transforms to~\(A\xv\), \((0,0)\mapsto(0,0)\), \((1,0)\mapsto(\frac12,0)\), \((0,1)\mapsto(1,1)\), and \((1,1)\mapsto(\frac32,1)\), as illustrated to the right  
 (the `roof' is only plotted to uniquely identify the sides).
 The resultant parallelogram has area of~\(\frac12\) as its base is~\(\frac12\) and its height is~\(1\).
 This parallelogram area of~\(\tfrac12\) is the same as the determinant since here~\eqref{eq:dets23b} gives \(\det A=\frac12\cdot1-0\cdot1=\frac12\)\,. 
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -36,13 +39,16 @@ Consider the square matrix \(B=\begin{bmat} -1&1\\1&1 \end{bmat}\).
 Use matrix-vector multiplication to find the image of the \idx{unit square} under the transformation by~\(B\).
 How much is the unit \idx{area} scaled up/down?  
 Compare with the determinant.
+
+\begin{wrapfigure}[6]r{0pt} \TwoD{-1}111 \end{wrapfigure}
 \begin{solution} 
 Consider the corner points of the unit square, under multiplication by~\(B\): 
-\marginpar{\TwoD{-1}111}%
-\((0,0)\mapsto(0,0)\)\index{$\mapsto$}, \((1,0)\mapsto(-1,1)\), \((0,1)\mapsto(1,1)\), and \((1,1)\mapsto(0,2)\), as shown in the marginal picture.
+\((0,0)\mapsto(0,0)\)\index{$\mapsto$}, \((1,0)\mapsto(-1,1)\), \((0,1)\mapsto(1,1)\), and \((1,1)\mapsto(0,2)\), as shown to the right.
 Through multiplication by the matrix~\(B\), the unit square is expanded, rotated and reflected.
 The resultant square has area of~\(2\) as its sides are all of length~\(\sqrt2\).
 This area has the same magnitude as the determinant since here~\eqref{eq:dets23b} gives \(\det B=(-1)\cdot1-1\cdot1=-2\)\,.
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -61,15 +67,18 @@ Let the square matrix \(C=\begin{bmat} 2&0&0\\1&1&0\\0&0&3/2 \end{bmat}\).
 Use matrix-vector multiplication to find the image of the \idx{unit cube} under the transformation by~\(C\).
 How much is the volume of the unit cube scaled up/down?  
 Compare with the determinant.
-\begin{solution} 
-Consider the corner points of the unit cube under multiplication by~\(C\): \((0,0,0)\mapsto(0,0,0)\)\index{$\mapsto$}, \((1,0,0)\mapsto(2,1,0)\), \((0,1,0)\mapsto(0,1,0)\),  \((0,0,1)\mapsto(0,0,\frac32)\), and so on, as shown below (in stereo):
-\begin{equation*}
+
+\begin{wrapfigure}[7]r{0pt}
 \def\unithousesize{small}
 \ThreeD20011000{1.5}
-\end{equation*}
+\end{wrapfigure}
+\begin{solution} 
+Consider the corner points of the unit cube under multiplication by~\(C\): \((0,0,0)\mapsto(0,0,0)\)\index{$\mapsto$}, \((1,0,0)\mapsto(2,1,0)\), \((0,1,0)\mapsto(0,1,0)\),  \((0,0,1)\mapsto(0,0,\frac32)\), and so on, as shown right (in stereo).
 Through multiplication by the matrix~\(C\), the unit cube is deformed to a parallelepiped.
 The resultant parallelepiped has volume of~\(3\) as it has height~\(\frac32\) and the parallelogram base has area~\(2\cdot1\).
 This volume is the same  as the matrix determinant since~\eqref{eq:dets23b} gives \(\det C=2\cdot1\cdot\frac32+0+0-0-0-0=3\)\,.
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -78,10 +87,7 @@ This volume is the same  as the matrix determinant since~\eqref{eq:dets23b} give
 
 
 
-\Needspace{15\baselineskip}
-\paragraph{Determinants determine area transformation}
-Consider multiplication by the general \(2\times2\) matrix \(A=\begin{bmat} a&b\\c&d \end{bmat}\).
-
+\needlines{10}
 \begin{wrapfigure}{r}{0pt} 
 \begin{tikzpicture} 
 \def\a{2} \def\b{0.5} \def\ab{2.5}
@@ -104,7 +110,9 @@ Consider multiplication by the general \(2\times2\) matrix \(A=\begin{bmat} a&b\
 \end{axis}
 \end{tikzpicture}
 \end{wrapfigure}
-Under multiplication by this matrix~\(A\) the \idx{unit square} becomes the \idx{parallelogram} shown with four corners at \((0,0)\), \((a,c)\), \((b,d)\) and \((a+b,c+d)\).
+\paragraph{Determinants determine area transformation}
+Consider multiplication by the general \(2\times2\) matrix \(A=\begin{bmat} a&b\\c&d \end{bmat}\).
+Under multiplication by this matrix~\(A\) the \idx{unit square} becomes the \idx{parallelogram}, as illustrated to the right, with four corners at \((0,0)\), \((a,c)\), \((b,d)\) and \((a+b,c+d)\).
 Let's determine the \idx{area} of the parallelogram by that of the containing rectangle (brown) less the two small rectangles and the four triangles.
 The two small rectangles have the same area, namely~\(bc\).
 The two triangles on the left and the right also have the same area, namely~\(\frac12bd\).
@@ -115,11 +123,12 @@ Thus, under multiplication by matrix~\(A\) the image of the unit square is the p
 \\&=&ac+ad+bc+bd-2bc-bd-ac
 \\&=&ad-bc=\det A\,.
 \end{eqnarray*}
+
 This picture is the case when the matrix does not also reflect the image:  if the matrix also reflects, as in \cref{eg:detarea2}, then the determinant is the negative of the area.
 In either case, the area of the unit square after transforming by the matrix~\(A\) is the \idx{magnitude}~\(|\det A|\).
 
 
-\Needspace{7\baselineskip}
+\needlines6
 \begin{wrapfigure}{r}{0pt}
 \begin{tikzpicture} 
 \def\a{2.0} \def\b{0.5} \def\c{0.3} \def\ab{2.5}\def\ac{2.3}\def\bc{0.8}
@@ -182,29 +191,31 @@ Such `two-handedness' holds in every dimension (higher than~1D).
 Such left-hand and right-hand versions are the mirror image, the reflection, of each other.
 Here, a negative determinant indicates the transformation of a geometric object changes a `left-hand' version to a `right-hand' version, or vice-versa.
 
-
+\begin{wrapfigure}r{0pt} \TwoD{-0.7}0{1}{0.8} \end{wrapfigure}
 \begin{example} 
-Roughly estimate the determinant of the matrix that transforms the \idx{unit square} to the \idx{parallelogram} as shown in the margin.
-\marginpar{\TwoD{-0.7}0{1}{0.8}}
+Roughly estimate the determinant of the matrix that transforms the \idx{unit square} to the \idx{parallelogram} as shown to the right.
 \begin{solution} 
 The image is a parallelogram with a vertical base of length about~\(0.8\) and a horizontal height of about~\(0.7\) so the area of the image is about~\(0.8\times0.7=0.56\approx 0.6\)\,.
 But the image has been reflected as one cannot rotate and/or stretch the unit square to get the image (remember the origin is fixed under matrix multiplication): thus the determinant must be negative.
 Our estimate for the matrix determinant is~\(-0.6\)\,.
+\aqed
+
 \end{solution}
 \end{example}
 
 
 
-\begin{activity}
-Roughly estimate the determinant of the matrix that transforms the \idx{unit square} to the rectangle as shown in the margin.
-\marginpar{\TwoD{1.2}{1.2}{-0.9}{1.6}}
+\begin{activity}[\TwoD{1.2}{1.2}{-0.9}{1.6}]
+Roughly estimate the determinant of the matrix that transforms the \idx{unit square} to the rectangle as shown to the right.
 \actposs[4]{\(3\)}{\(2\)}{\(2.5\)}{\(4\)}
+\vspace{1\baselineskip}
 \end{activity}
 
 
 
 
 Basic properties of a determinant follow direct from \cref{def:detarea}.
+
 
 
 \begin{theorem} \label{thm:basicdet}
@@ -219,13 +230,15 @@ Further, \(\det Q=\det(\tr Q)\).
 \begin{proof} Use \cref{def:detarea}.
 %Direct from definition, and that an orthogonal matrix is a rotation and so preserves $n$D-volumes (\(\det Q=\det(\tr Q)=-1\) if \(Q\)~also involves a reflection).
 \begin{description}
-\Needspace{8\baselineskip}
-\item[\ref{thm:basicdet:i}]
+\needlines8
+\item[\ref{thm:basicdet:i}]\ \\
+\begin{figbox}{\def\unithouseviews{30}\ThreeD30002000{0.5}}
 The unit $n$D-cube in~\(\RR^n\) has edges \hlist\ev n\ (the unit vectors).
-Multiplying each of these edges by the diagonal matrix \(D=\diag(d_{11},d_{22},\ldots,d_{nn})\) maps the unit $n$D-cube to a $n$D-`rectangle' with edges \(d_{11}\ev_1,d_{22}\ev_2,\ldots,d_{nn}\ev_n\) (as illustrated in the margin).
-\marginpar{\def\unithouseviews{30}\ThreeD30002000{0.5}}
+Multiplying each of these edges by the diagonal matrix \(D=\diag(d_{11},d_{22},\ldots,d_{nn})\) maps the unit $n$D-cube to a $n$D-`rectangle' with edges \(d_{11}\ev_1,d_{22}\ev_2,\ldots,d_{nn}\ev_n\) (as illustrated to the right).
 Being a $n$D-rectangle with all edges orthogonal, its $n$D-volume is the product of the length of the sides; that is, \(|\det D|=|d_{11}|\cdot|d_{22}|\cdots |d_{nn}|\).
 The $n$D-cube is reflected only if there are an odd number of negative \idx{diagonal elements}, hence the sign of the determinant is such that \(\det D=d_{11}d_{22}\cdots d_{nn}\)\,.
+
+\end{figbox}
 
 \item[\ref{thm:basicdet:ii}]
 Multiplication by an orthogonal matrix~\(Q\) is a rotation and/or reflection as it preserves all lengths and angles (\cref{thm:orthog:iv}).
@@ -243,8 +256,11 @@ Multiplication by the matrix~\((kA)\) then forms a $n$D-parallelepiped which is 
 In~\(\RR^n\) its $n$D-volume is then \(|k|^n\)-times bigger; that is,
 \(|\det(kA)|=|k|^n|\det A|=|k^n\det A|\).
 If the scalar~\(k\) is negative then the \idx{orientation} of the image is reversed (reflected) only in odd~\(n\) dimensions; that is, the sign of the determinant is multiplied by~\((-1)^n\).
-\marginpar{\TwoD{-1}00{-1}}%
-(For example, the unit square shown in the margin is transformed through multiplication by~\((-1)I_2\) and the effect is the same as rotation by~\(180^\circ\), without any reflection as \((-1)^2=1\)\,.)
+
+\begin{figbox}{\TwoD{-1}00{-1}}
+For example, the unit square shown to the right is transformed through multiplication by~\((-1)I_2\) and the effect is the same as rotation by~\(180^\circ\), without any reflection as \((-1)^2=1\)\,.
+\end{figbox}
+
 Hence for all real~\(k\), the orientation is such that \(\det(kA)=k^n\det A\). 
 \end{description}
 \end{proof}
@@ -306,7 +322,7 @@ Then use \cref{thm:basicdet} to deduce the determinants of the following matrice
 \begin{eqnarray*}
 \det Q&=&\tfrac13\tfrac23\tfrac23+(-\tfrac23)\tfrac13(-\tfrac23)
 +\tfrac23\tfrac23\tfrac13
-\\&&{}-\tfrac23\tfrac23(-\tfrac23)
+-\tfrac23\tfrac23(-\tfrac23)
 -\tfrac13\tfrac13\tfrac13-(-\tfrac23)\tfrac23\tfrac23
 \\&=&\tfrac1{27}(4+4+4+8-1+8)=1\,.
 \end{eqnarray*}
@@ -346,16 +362,19 @@ This is a factor of~\(|\det A|\) times the original volume.
 Crucially, this property that \idx{matrix multiplication} multiplies all sizes of hyper-cubes by the determinant holds for all other shapes and sizes, not just hyper-cubes.
 Let's see a specific example before proving the \text{general theorem.}
 
-\begin{example} 
-Multiplication by some specific matrix transforms the (blue) triangle~\(C\) to the (red) triangle~\(C'\) as shown in the margin.  By finding the ratio of the \idx{area}s, estimate the \idx{magnitude} of the determinant of the matrix.
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
     \begin{axis}[footnotesize,axis equal image, axis lines=middle]
     \addplot[patch,fill=blue,opacity=0.4] coordinates {(0,0)(0,1)(1,1)};
     \node at (axis cs:0.25,0.75) {$C$};
     \addplot[patch,fill=red ,opacity=0.4] coordinates {(0,0)(1.5,0.5)(1.5,-1)};
     \node at (axis cs:1.25,-0.5) {$C'$};
     \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} 
+Multiplication by some specific matrix transforms the (blue) triangle~\(C\) to the (red) triangle~\(C'\) as shown to the right.  By finding the ratio of the \idx{area}s, estimate the \idx{magnitude} of the determinant of the matrix.
+
 \begin{solution} 
 The (blue) triangle~\(C\) has vertical height one and horizontal base one, so has area~\(0.5\)\,.
 The mapped (red) triangle~\(C'\) has vertical base of~\(1.5\) and horizontal height of~\(1.5\) so its area is~\(\frac12\times1.5\times1.5=1.125\)\,.
@@ -376,9 +395,9 @@ Then
 \end{equation*}
 with the negative sign when matrix~\(A\) changes the \idx{orientation}.
 \end{theorem}
-\begin{proof} 
-The geometric proof is analogous to integration in calculus \cite[p.402]{Hannah96}. 
-\marginpar{\begin{tikzpicture} 
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,axis equal image
     ,view={0}{90},restrict z to domain=0.5:2.5
     ,domain=-0.5:0.5,y domain=0:1]
@@ -389,8 +408,11 @@ The geometric proof is analogous to integration in calculus \cite[p.402]{Hannah9
         ({x+1.5*y},{-x+y/3},{2*(x^2-y^2+y^4<0)});
     \node at (axis cs:1,0.25,1) {$C'$};
 \end{axis}
-\end{tikzpicture}}
-In two dimensions, as drawn in the margin,  we divide a given region~\(C\) into  many small squares of side length~\(k\), each of area~\(k^2\):  each of these transforms to a small \idx{parallelogram} of area~\(k^2|\det A|\) (by \cref{thm:basicdet:iii}), then the sum of the transformed areas is just \(|\det A|\)~times the  original area of~\(C\).
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{proof} 
+The geometric proof is analogous to integration in calculus \cite[p.402]{Hannah96}. 
+In two dimensions, as drawn to the right,  we divide a given region~\(C\) into  many small squares of side length~\(k\), each of area~\(k^2\):  each of these transforms to a small \idx{parallelogram} of area~\(k^2|\det A|\) (by \cref{thm:basicdet:iii}), then the sum of the transformed areas is just \(|\det A|\)~times the  original area of~\(C\).
 
 In  \(n\)-dimensions, divide a given region~\(C\) into  many small $n$D-cubes of side length~\(k\), each of $n$D-volume~\(k^n\):  each of these transforms to a small $n$D-parallelepiped of $n$D-volume~\(k^n|\det A|\) (by \cref{thm:basicdet:iii}), then the sum of the transformed $n$D-volume is just \(|\det A|\)~times the  $n$D-volume of~\(C\). 
 \end{proof}
@@ -410,25 +432,27 @@ Check that the determinant of their product is the product of their determinants
 First, \cref{eg:detarea1,eg:detarea2} computed \(\det A=\tfrac12\) and \(\det B=-2\)\,.
 Thus the product of their determinants is \(\det(A)\det(B)=-1\)\,.
 
+\begin{wrapfigure}r{0pt} \TwoD{0.5}{1.5}11 \end{wrapfigure}
 Secondly, calculate the matrix product
-\marginpar{\TwoD{0.5}{1.5}11}%
 \begin{equation*}
 AB=\begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix}
 \begin{bmatrix} -1&1\\1&1 \end{bmatrix}
 =\begin{bmatrix} \tfrac12&\tfrac32\\1&1 \end{bmatrix},
 \end{equation*}
-whose multiplicative action upon the unit square is illustrated in the margin.
+whose multiplicative action upon the unit square is illustrated to the right.
 By~\eqref{eq:dets23b}, \(\det(AB)=\frac12\cdot1-\frac32\cdot1=-1\)\,, as required.
  
+\begin{wrapfigure}r{0pt} \TwoD{-0.5}{0}{0.5}2 \end{wrapfigure}
 Thirdly, we should also check the other product (as the question does not specify the order of the product):
-\marginpar{\TwoD{-0.5}{0}{0.5}2}%
 \begin{equation*}
 BA=\begin{bmatrix} -1&1\\1&1 \end{bmatrix}
 \begin{bmatrix} \tfrac12&1\\0&1 \end{bmatrix}
 =\begin{bmatrix} -\tfrac12&0\\\tfrac12&2 \end{bmatrix},
 \end{equation*}
-whose multiplicative action upon the unit square is illustrated in the margin.
+whose multiplicative action upon the unit square is illustrated to the right.
 By~\eqref{eq:dets23b}, \(\det(BA)=-\frac12\cdot2-0\cdot\frac12=-1\)\,, as required.
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -436,7 +460,7 @@ By~\eqref{eq:dets23b}, \(\det(BA)=-\frac12\cdot2-0\cdot\frac12=-1\)\,, as requir
 
 \begin{theorem} \label{thm:detprod} 
 For every two \index{square matrix}\(n\times n\) matrices \(A\) and~\(B\), \(\det(AB)=\det(A)\det(B)\).
-Further, for all \(n\times n\) matrices \hlist A\ell, \(\det(A_1A_2\cdots A_\ell)=\det(A_1)\det(A_2)\cdots\det(A_\ell)\).
+Also, for all \(n\times n\) matrices \hlist A\ell, \(\det(A_1A_2\cdots A_\ell)=\det(A_1)\det(A_2)\cdots\det(A_\ell)\).
 \end{theorem}
 
 
@@ -523,18 +547,18 @@ We now proceed to link the determinant of a matrix to the \idx{singular value}s 
 
 \begin{example} 
 Recall \cref{eg:3by3svd} showed that the following matrix has the given \svd:
-\begin{eqnarray*}
-A&=&\begin{bmatrix}-4&-2&4
+\begin{equation*}
+A=\begin{bmatrix}-4&-2&4
 \\-8&-1&-4
 \\6&6&0\end{bmatrix}
-\\&=&\begin{bmatrix} \frac13&-\frac23&\frac23
+=\begin{bmatrix} \frac13&-\frac23&\frac23
 \\\frac23&\frac23&\frac13
 \\-\frac23&\frac13&\frac23 \end{bmatrix}
 \begin{bmatrix} 12&0&0\\0&6&0\\0&0&3 \end{bmatrix}
 \tr{\begin{bmatrix} -\frac89&-\frac19&-\frac49
 \\-\frac49&\frac49&\frac79
 \\-\frac19&-\frac89&\frac49 \end{bmatrix}}.
-\end{eqnarray*}
+\end{equation*}
 Use this \svd\ to find the magnitude~\(|\det A|\).
 \begin{solution} 
 Given the \svd\ \(A=\usv\), the Product \cref{thm:detprod} gives \(\det A=\det(U)\det(S)\det(\tr V)\).
@@ -561,7 +585,7 @@ Consider an \svd\ of the matrix \(A=\usv\).
 \cref{thm:basicdet,thm:detprod} empower the following identities:
 \begin{eqnarray*}
 \det A&=&\det(\usv)
-\\&=&\det(U)\det(S)\det(\tr V)
+=\det(U)\det(S)\det(\tr V)
 \quad(\text{by \cref{thm:detprod}})
 \\&=&(\pm 1)\det(S)(\pm 1)
 \quad(\text{by \cref{thm:basicdet:ii}})
@@ -602,7 +626,6 @@ Consider the following matrix and its \svd:
 A&=\begin{bmatrix} -2&-4&5
 \\-6&0&-6
 \\5&4&-2 \end{bmatrix}
-\\&
 =\begin{bmatrix} \frac13&-\frac23&\frac23
 \\\frac23&\frac23&\frac13
 \\-\frac23&\frac13&\frac23 \end{bmatrix}
@@ -661,7 +684,7 @@ Use an \svd\ of the \(n\times n\) matrix, say \(A=\usv\).
 Then \cref{thm:basicdet,thm:detprod} empowers the following:
 \begin{eqnarray*}
 \det A&=&\det(\usv)
-\\&=&\det(U)\det(S)\det(\tr V)\quad(\text{by \cref{thm:detprod}})
+=\det(U)\det(S)\det(\tr V)\quad(\text{by \cref{thm:detprod}})
 \\&=&\det(\tr U)\det(S)\det(V)\quad(\text{by \cref{thm:basicdet:ii}})
 \\&=&\det(\tr U)(\sigma_1\sigma_2\cdots\sigma_n)\det(V)\quad(\text{by \cref{thm:basicdet:i}})
 \\&=&\det(\tr U)\det(\tr S)\det(V)\quad(\text{by \cref{thm:basicdet:i}})
@@ -688,9 +711,7 @@ Its transpose, \(\tr A=\begin{bmat} a&d&g\\b&e&h\\c&f&i \end{bmat}\), from the r
 \end{picture}
 \end{equation*}
 has determinant
-\begin{equation*}
-\det\tr A=aei+dhc+gbf-gec-ahf-dbi =\det A\,.
-\end{equation*}
+\(\det\tr A=aei+dhc+gbf-gec-ahf-dbi =\det A\)\,.
 \end{example}
 
 
@@ -709,14 +730,14 @@ multiplying by the matrix `squashes' the unit
 \index{nD-cube@$n$D-cube}$n$D-cube into a \index{nD-parallelepiped@$n$D-parallelepiped}$n$D-\idx{parallelepiped} of zero thickness. 
 Such extreme squashing cannot be \text{uniquely undone.}
 
+\begin{wrapfigure}[5]r{0pt} 
+\ThreeD{1}{0.5}{0}{0}{0.5}{1}{0}{0}{0}
+\end{wrapfigure}
 \begin{example} \label{eg:detzerorow}
 Consider multiplication by the matrix 
 \(A=\begin{bmat} 1&1/2&0
 \\0&1/2&1 \\0&0&0 \end{bmat}\),
-whose effect on the \idx{unit cube} is illustrated below:
-\begin{center}
-\ThreeD{1}{0.5}{0}{0}{0.5}{1}{0}{0}{0}
-\end{center}
+whose effect on the \idx{unit cube} is illustrated to the right.
 As illustrated, this matrix squashes the unit cube onto the \(x_1x_2\)-plane (\(x_3=0\)).
 Consequently the resultant volume is zero and so \(\det A=0\)\,.
 Because many points in 3D space are squashed onto the same point in the \(x_3=0\) plane, the action of the matrix cannot be undone.  
@@ -890,7 +911,7 @@ For each of the following matrices, use~\eqref{eq:dets23b} to find all the value
 \begin{exercise}  
 Find the determinants of each of the following matrices.
 % A=0+round(diag(randn(1,4)*3)),deta=det(A)
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{bmatrix} -3&0&0&0
 \\0&-4&0&0
 \\0&0&1&0
@@ -961,7 +982,7 @@ Find the determinants of each of the following matrices.
 \answer{\(-8704\)}
 \end{reduce}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 

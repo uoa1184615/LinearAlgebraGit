@@ -22,9 +22,11 @@ Equivalently, obtain the same result by geometrically joining the two vectors `h
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[right] at (axis cs:#2,#3) {$#1$};}
   
-\item\label[example]{eg:vecadda} 
-\((1,3)+(2,-1)=(1+2,3+(-1))=(3,2)\) as illustrated below where (given the two vectors plotted in the margin)
-\marginpar{\begin{tikzpicture} 
+\item\label[example]{eg:vecadda} Let's add the two vectors shown below-left:
+\((1,3)+(2,-1)=(1+2,3+(-1))=(3,2)\) as illustrated below-middle where 
+the vector~\((2,-1)\) is drawn from the end of \((1,3)\), and the end point of the result determines the vector addition~\((3,2)\).
+\begin{center}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, grid
   ,ymin=-1.5,xmin=-0.5,xmax=3.5,ymax=3.5
@@ -33,9 +35,8 @@ Equivalently, obtain the same result by geometrically joining the two vectors `h
   \tmp {(2,-1)}2{-1}
   \node[below] at (axis cs:0,0) {\quad$O$};
 \end{axis}
-\end{tikzpicture}}
-the vector~\((2,-1)\) is drawn from the end of \((1,3)\), and the end point of the result determines the vector addition~\((3,2)\), as shown below-left.
-\begin{center}
+\end{tikzpicture}
+\hfil
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, grid
@@ -82,16 +83,18 @@ That the order of addition is immaterial is the \idx{commutative law} of vector 
 \fi
 \end{axis}
 \end{tikzpicture}}
-\item \((3,2,0)+(-1,3,2)=(3+(-1),2+3,0+2)=(2,5,2)\)  as illustrated below where (given the two vectors as plotted in the margin) 
-\marginpar{\temp0{55}}
+\needlines{6}%
+\begin{figbox}{\temp0{55}}
+\item \((3,2,0)+(-1,3,2)=(3+(-1),2+3,0+2)=(2,5,2)\)  as illustrated below where (given the two vectors as plotted to the right) 
 the vector~\((-1,3,2)\) is drawn from the end of~\((3,2,0)\), and the end point of the result determines the vector addition~\((2,5,2)\).
 As below, find the same result by drawing the vector~\((3,2,0)\) from the end of~\((-1,3,2)\).
+\end{figbox}
 \begin{center}
-\temp1{50}\temp1{55}%draw stereo pair
+ \temp1{50}\temp1{55}%draw stereo pair
 \end{center}
-\begin{aside}I implement such cross-eyed stereo so that these stereo images are useful both printed and when projected on a screen.\end{aside}
-As drawn above, many of the three-D plots in this book are \bfidx{stereo pair}s drawing the plot from two slightly different viewpoints: cross your eyes to merge two of the images, and then focus on the pair of plots to see the three-D effect.
+As drawn above, many of the three-D plots in this book are \bfidx{stereo pair}s drawing the plot from two slightly different viewpoints\footnote{I implement such cross-eyed stereo so that these stereo images are useful both printed and when projected on a screen.}: cross your eyes to merge two of the images, and then focus on the pair of plots to see the three-D effect.
 With practice viewing such three-D stereo pairs becomes less difficult!
+\footnote{To help keeping your eyes crossed while you try to focus on the plots, hold a finger or pen in front of your nose so that your right-eye sight across the top of the finger\slash pen aligns with the centre of the left-picture, and simultaneously your left-eye sight  across the top of the finger\slash pen aligns with the centre of the right-picture.}
 
 \item The addition \((1,3)+(3,2,0)\) is not defined and cannot be done as the two vectors have a different number of components, they have different sizes.
 \end{enumerate}
@@ -104,8 +107,8 @@ With practice viewing such three-D stereo pairs becomes less difficult!
 To multiply a vector by a \index{scalar multiplication}scalar, a number, multiply each component by the scalar. 
 Equivalently, visualize the result through stretching the vector by a factor of the scalar.
 \begin{enumerate}
-\item Let the vector \(\uv=(3,2)\) then, as illustrated in the margin,
-\marginpar{\begin{tikzpicture} 
+\needlines{4}
+\item \begin{figbox}{\begin{tikzpicture} 
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[above] at (axis cs:#2,#3) {$#1$};}
@@ -120,6 +123,7 @@ Equivalently, visualize the result through stretching the vector by a factor of 
   \node[below] at (axis cs:0,0) {\quad$O$};
 \end{axis}
 \end{tikzpicture}}
+Let the vector \(\uv=(3,2)\) then, as illustrated to the right,
 \begin{eqnarray*}&&
 2\uv=2(3,2) =(2\cdot3,2\cdot2) =(6,4),
 \\&&
@@ -127,6 +131,7 @@ Equivalently, visualize the result through stretching the vector by a factor of 
 \\&&
 (-1.5)\uv =(-1.5\cdot3,-1.5\cdot2) =(-4.5,-3).
 \end{eqnarray*}
+\end{figbox}
 
 \item Let the vector \(\vv=(2,3,1)\) then, as illustrated below in cross-eyed stereo,
 \begin{eqnarray*}&&
@@ -180,13 +185,15 @@ The \bfidx{difference} \(\uv-\vv\) is defined as the sum \(\uv+(-\vv)\) and is e
 \end{definition}
 
 
-
+\begin{wrapfigure}r{0pt}
+\vecops01321
+\end{wrapfigure}
 \begin{example} 
-For the vectors~\uv\ and~\vv\ shown in the margin, draw the vectors
+For the vectors~\uv\ and~\vv\ shown to the right, draw the vectors
 \(\uv+\vv\), \(\vv+\uv\), \(\uv-\vv\), \(\vv-\uv\), \(\tfrac12\uv\) and~\(-\vv\).
-\marginpar{\vecops01321}
 
 \begin{solution} Drawn below.
+\needlines{9}
 \begin{Parts}
 \item $\uv+\vv$ \vecops11321
 \item $\vv+\uv$ \vecops21321
@@ -199,21 +206,17 @@ For the vectors~\uv\ and~\vv\ shown in the margin, draw the vectors
 \end{example}
 
 
-
-
-\begin{activity}
-For the vectors~\uv\ and~\vv\ shown in the margin, what is the result vector that is also shown?
-\marginpar{\vecops45{-2}14}
+%\begin{wrapfigure}r{0pt} \vecops45{-2}14 \end{wrapfigure}
+\begin{activity}[\vecops45{-2}14]
+For the vectors~\uv\ and~\vv\ shown to the right, what is the result vector that is also shown?
 \actposs[4]{\(\vv-\uv\)}{\(\uv+\vv\)}{\(\vv+\uv\)}{\(\uv-\vv\)}
+\vspace{1ex}
 \end{activity}
 
 
 
-Using vector addition and \idx{scalar multiplication} we often write vectors in terms of so-called \idx{standard unit vector}s.
-In the plane and drawn in the margin are the two \idx{unit vector}s~\iv\ and~\jv\ defined to be of length one and in the direction of the two \idx{coordinate axes}, respectively.
-Hence \(\iv=(1,0)\) and \jv=(0,1), as shown.
-\index{i@$\iv$}\index{j@$\jv$}%
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \newcommand{\tmp}[4]{
   \addplot[#4,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[above] at (axis cs:#2,#3) {$\quad#1$};}
@@ -228,7 +231,11 @@ Hence \(\iv=(1,0)\) and \jv=(0,1), as shown.
   \tmp {\jv}01{blue,thick}
   \tmp {(3,2)}32{brown,thick}
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}\end{wrapfigure}%
+Using vector addition and \idx{scalar multiplication} we often write vectors in terms of so-called \idx{standard unit vector}s.
+In the plane, as drawn right, are the two \idx{unit vector}s~\iv\ and~\jv\ defined to be of length one and in the direction of the two \idx{coordinate axes}, respectively.
+Hence \(\iv=(1,0)\) and \jv=(0,1), as shown.
+\index{i@$\iv$}\index{j@$\jv$}%
 Then, for example,
 \begin{eqnarray*}
 (3,2)&=&(3,0)+(0,2)\quad(\text{by addition})
@@ -247,9 +254,7 @@ For example,
 The next definition generalizes these standard unit vectors to vectors in~\(\RR^n\) for every size~\(n\).
 
 
-\begin{definition} \label{def:stuniv}
-Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all at \idx{right-angles} to each other, the \bfidx{standard unit vector}s \index{e@$\ev_j$|textbf}\(\hlist\ev n\) are the vectors of \idx{length} one in the direction of the corresponding coordinate axis (as illustrated in the margin for~\(\RR^2\) and below for~\(\RR^3\)).
-\marginpar{\begin{tikzpicture} 
+\begin{figbox}{\begin{tikzpicture} 
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[above] at (axis cs:#2,#3) {$\qquad#1$};}
@@ -262,13 +267,17 @@ Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all a
   \node[below] at (axis cs:0,0) {\quad$O$};
 \end{axis}
 \end{tikzpicture}}%
+\begin{definition} \label{def:stuniv}
+Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all at \idx{right-angles} to each other, the \bfidx{standard unit vector}s \index{e@$\ev_j$|textbf}\(\hlist\ev n\) are the vectors of \idx{length} one in the direction of the corresponding coordinate axis (as illustrated to the right for~\(\RR^2\) and below for~\(\RR^3\)).
 That is,
 \begin{equation*}
 \ev_1=\begin{bmatrix} 1\\0\\\vdots\\0 \end{bmatrix},\quad
 \ev_2=\begin{bmatrix} 0\\1\\\vdots\\0 \end{bmatrix},\quad\ldots,\quad
 \ev_n=\begin{bmatrix} 0\\0\\\vdots\\1 \end{bmatrix}.
 \end{equation*}
-In \(\RR^2\) and~\(\RR^3\) the symbols~\index{i@$\iv$|textbf}\iv, \index{j@$\jv$|textbf}\jv\ and~\index{k@$\kv$|textbf}\kv\ are often used as synonyms for~\(\ev_1\), \(\ev_2\) and~\(\ev_3\), respectively (as also illustrated).
+In \(\RR^2\) and~\(\RR^3\) the symbols~\index{i@$\iv$|textbf}\iv, \index{j@$\jv$|textbf}\jv\ and~\index{k@$\kv$|textbf}\kv\ are often used as synonyms for~\(\ev_1\), \(\ev_2\) and~\(\ev_3\), respectively (as illustrated below).
+\end{definition}
+\end{figbox}
 \begin{center}
 \qview{50}{55}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,view={\q}{30}
@@ -285,7 +294,6 @@ In \(\RR^2\) and~\(\RR^3\) the symbols~\index{i@$\iv$|textbf}\iv, \index{j@$\jv$
 \end{axis}
 \end{tikzpicture}}
 \end{center}
-\end{definition}
 
 That is, for three examples, the following are equivalent ways of writing the same vector:
 \begin{eqnarray*}\bullet&&
@@ -304,7 +312,7 @@ That is, for three examples, the following are equivalent ways of writing the sa
 
 \begin{activity}
 Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
-\actposs{\((0,3,0,0,1)\)}{\((3,1)\)}{\((5,0,2)\)}{\((0,3,0,1)\)}
+\actposs[4]{\((0,3,0,0,1)\)}{\((3,1)\)}{\((5,0,2)\)}{\((0,3,0,1)\)}
 \end{activity}
 
 
@@ -314,11 +322,8 @@ Which of the following is the same as the vector \(3\ev_2+\ev_5\)?
 \index{distance|(}
 Defining a `distance' between vectors empowers us to concisely compare vectors.
 
-\begin{example} 
-We would like to say that \((1.2,3.4)\approx(1.5,3)\) to an error~\(0.5\) (as illustrated in the margin).
-Why is the error~\(0.5\)?  
-Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
-\marginpar{\begin{tikzpicture}
+\needlines{7}
+\begin{wrapfigure}r{0pt}\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal,axis lines=none,thick]
 \addplot+ [quiver={u=1.2,v=3.4},-stealth] coordinates {(0,0)};
@@ -328,9 +333,13 @@ Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) 
 \addplot+ [quiver={u=3.4,v=1.2},-stealth] coordinates {(0,0)};
 \node[below] at (axis cs:3.4,1.2) {$(3.4,1.2)$};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}\end{wrapfigure}
+\begin{example} 
+We would like to say that \((1.2,3.4)\approx(1.5,3)\) to an error~\(0.5\) (as illustrated to the right).
+Why is the error~\(0.5\)?  
+Because the \idx{difference} between the vectors \((1.5,3)-(1.2,3)=(0.3,-0.4)\) has length \(\sqrt{0.3^2+(-0.4)^2}=0.5\)\,.
 
-Conversely, we would like to recognize that vectors \((1.2,3.4)\) and \((3.4,1.2)\) are very different (as also illustrated in the margin)---there is a large `distance' between them.
+Conversely, we would like to recognize that vectors \((1.2,3.4)\) and \((3.4,1.2)\) are very different (as also illustrated)---there is a large `distance' between them.
 Why is there a large `distance'?  Because the difference between the vectors \((1.2,3.4)-(3.4,1.2)=(-2.2,2.2)\) has length \(\sqrt{(-2.2)^2+2.2^2}=2.2\sqrt2=3.1113\) which is relatively large.
 \end{example}
 
@@ -340,10 +349,8 @@ This concept of distance between two vectors~\uv\ and~\vv, directly correspondin
 The \bfidx{distance} between vectors~\uv\ and~\vv\ in~\(\RR^n\) is the \idx{length} of their \idx{difference}, \(|\uv-\vv|\).
 \end{definition}
 
-
-\begin{example} 
-Given three vectors \(\av=3\iv+2\jv-2\kv\), \(\bv=5\iv+5\jv+4\kv\) and \(\cv=7\iv-2\jv+5\kv\) (shown below in stereo) use the concept of distance between vectors to answer the following: which pair are the closest to each other? and which pair are furthest from each other?
-\begin{center}
+\needlines{8}
+\begin{wrapfigure}r{0pt}
 \qview{30}{35} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
 ,axis equal,axis lines=box,view={\q}{25}]
@@ -352,7 +359,10 @@ Given three vectors \(\av=3\iv+2\jv-2\kv\), \(\bv=5\iv+5\jv+4\kv\) and \(\cv=7\i
 \threev7{-2}5\cv
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} 
+Given three vectors \(\av=3\iv+2\jv-2\kv\), \(\bv=5\iv+5\jv+4\kv\) and \(\cv=7\iv-2\jv+5\kv\) (shown right in stereo) use the concept of distance between vectors to answer the following: which pair are the closest to each other? and which pair are furthest from each other?
+\par
 \begin{solution} 
 Compute the distances between each pair.
 \begin{itemize}
@@ -365,12 +375,8 @@ The largest distance of~\(9\) is between~\av\ and~\cv\ so these two are the furt
 \end{solution}
 \end{example}
 
-
-
-\begin{activity}
-%for i=1:999,x=0+round(randn(3,2)*3);y=[0 1 -1;-1 0 1;1 -1 0]*x;d=sqrt(y.^2*[1;1]);if std(d)<0.5, x=x,d=d,break, end, end
-Which pair of the following vectors are closest---have the smallest distance between them?  \(\av=(7,3)\), \(\bv=(4,-1)\), \(\cv=(2,4)\)
-\marginpar{\begin{tikzpicture}
+\begingroup
+\def\temp{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal,axis lines=middle, thick,xmax=7.9]
 \addplot+ [quiver={u=7,v=3},-stealth] coordinates {(0,0)};
@@ -381,9 +387,12 @@ Which pair of the following vectors are closest---have the smallest distance bet
 \node[right] at (axis cs:2,4) {$\cv=(2,4)$};
 \end{axis}
 \end{tikzpicture}}
+\begin{activity}[\temp]
+%for i=1:999,x=0+round(randn(3,2)*3);y=[0 1 -1;-1 0 1;1 -1 0]*x;d=sqrt(y.^2*[1;1]);if std(d)<0.5, x=x,d=d,break, end, end
+Which pair of the following vectors are closest---have the smallest distance between them?  \(\av=(7,3)\), \(\bv=(4,-1)\), \(\cv=(2,4)\)
 \actposs{\av, \bv}{\av, \cv}{\bv, \cv}{two of the pairs}
 \end{activity}
-
+\endgroup
 
 
 \index{distance|)}
@@ -401,22 +410,22 @@ We are familiar with lines in the plane, and equations that describe them.
 Let's now consider such equations from a vector view.
 The insights empower us to generalize the descriptions to lines in space, and then in any number of dimensions.
 
-\begin{example} 
-Consider the line drawn in the margin in some chosen coordinate system.
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}[6]r{0pt} \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, domain=-1.5:5.9
   ,xlabel={$x$},ylabel={$y$}
   ] 
 \addplot+[thick,no marks] {2-x/2};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} 
+Consider the line drawn to the right in some chosen coordinate system.
 Recall one way to find an equation of the line is to find the intercepts with the axes, here at \(x=4\) and at \(y=2\)\,, then write down \(\frac x4+\frac y2=1\) as an equation of the line.
 Algebraic rearrangement gives various other forms, such as \(x+2y=4\) or \(y=2-x/2\)\,.
 
-The alternative is to describe the line with vectors.
-Choose any point~\(P\) on the line, such as~\((2,1)\) as drawn in the margin.
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, domain=-1.5:5.9
   ,xlabel={$x$},ylabel={$y$}
@@ -431,16 +440,19 @@ Choose any point~\(P\) on the line, such as~\((2,1)\) as drawn in the margin.
 \addplot[red,thick,quiver={u=1,v=-1/2},-stealth] coordinates {(2,1)};
 \node[above] at (axis cs:3,0.3) {$\quad-\tfrac12\dv$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}%
+The alternative is to describe the line with vectors.
+Choose any point~\(P\) on the line, such as~\((2,1)\) as drawn to the right.
 Then view every other point on the line as having \idx{position vector} that is the vector \idx{sum} of~\(\ovect{OP}\) and a vector aligned along the line.
 Denote~\(\ovect{OP}\) by~\pv\ as drawn.
 Then, for example, the point~\((0,2)\) on the line has position vector  \(\pv+\dv\) for vector \(\dv=(-2,1)\) because \(\pv+\dv=(2,1)+(-2,1)=(0,2)\).
 Other points on the line are also given using the same vectors, \pv\ and~\dv: for example, the point~\((3,\tfrac12)\) has position vector \(\pv-\tfrac12\dv\) (as drawn) because \(\pv-\tfrac12\dv=(2,1)-\tfrac12(-2,1)=(3,\tfrac12)\); and the point~\((-2,3)\) has position vector \(\pv+2\dv=(2,1)+2(-2,1)\).
 In general, every point on the line may be expressed as \(\pv+t\dv\) for some scalar~\(t\).
 
-For every given line, there are many possible choices of~\pv\ and~\dv\ in such a vector representation.
-A different looking, but equally valid form is obtained from any pair of points on the line.
-\marginpar{\begin{tikzpicture} 
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, domain=-1.5:5.9
   ,xlabel={$x$},ylabel={$y$}
@@ -454,8 +466,11 @@ A different looking, but equally valid form is obtained from any pair of points 
 \addplot[red,thick,quiver={u=3,v=-1.5},-stealth] coordinates {(0,2)};
 \node[above] at (axis cs:2,1) {$\dv$};
 \end{axis}
-\end{tikzpicture}}%
-For example, one could choose point~\(P\) to be~\((0,2)\) and point~\(Q\) to be~\((3,\tfrac12)\), as drawn in the margin. 
+\end{tikzpicture}
+\end{wrapfigure}
+For every given line, there are many possible choices of~\pv\ and~\dv\ in such a vector representation.
+A different looking, but equally valid form is obtained from any pair of points on the line.
+For example, one could choose point~\(P\) to be~\((0,2)\) and point~\(Q\) to be~\((3,\tfrac12)\), as drawn to the right. 
 Let position vector \(\pv=\ovect{OP}=(0,2)\) and the vector \(\dv=\ovect{PQ}=(3,-\tfrac32)\), then every point on the line has position vector \(\pv+t\dv\) for some scalar~\(t\):
 \begin{eqnarray*}\bullet&&
 (2,1)=(0,2)+(2,-1)=(0,2)+\tfrac23(3,-\tfrac32)=\pv+\tfrac23\dv\,;
@@ -468,22 +483,22 @@ Other choices of points~\(P\) and~\(Q\) give other valid vector equations for a 
 \end{example}
 
 
-
-\begin{activity}
-Which one of the following is \emph{not} a valid vector equation for the line plotted in the margin?
-\marginpar{\begin{tikzpicture} 
+\begingroup
+\def\temp{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-3.5:3.5
   ,axis equal, axis lines=middle,xlabel={$x$},ylabel={$y$}
   ] 
 \addplot+[thick,no marks] {1+x/2};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{activity}[\temp]
+Which one of the following is \emph{not} a valid vector equation for the line plotted to the right?
 \actposs{\((-1,1/2)+(2,-1)t\)}
 {\((2,2)+(1,1/2)t\)}
 {\((0,1)+(2,1)t\)}
 {\((-2,0)+(-4,-2)t\)}
 \end{activity}
-
+\endgroup
 
 
 
@@ -493,9 +508,7 @@ A \bfidx{parametric equation} of a line is \(\xv=\pv+t\dv\) where \pv~is the \id
 
 Beautifully, this definition applies for lines in any number of dimensions by using vectors with the corresponding number of components.
 
-
-\begin{example} 
-Given that the line drawn below in space goes through points~\((-4,-3,3)\) and~\((3,2,1)\), find a \idx{parametric equation} of the line.
+{%begingroup
 \newcommand{\temp}[1]{%
 \qview{37}{42} {%
 \begin{tikzpicture} 
@@ -517,7 +530,10 @@ Given that the line drawn below in space goes through points~\((-4,-3,3)\) and~\
 \addplot3[brown,samples=2,no marks,domain=-0.3:1.5] ({-4+7*\x},{-3+5*\x},{3-2*\x});
 \end{axis}
 \end{tikzpicture}}}
-\begin{center}\temp0\end{center}
+\begin{wrapfigure}[5]r{0pt}\temp0\end{wrapfigure}
+\begin{example} 
+Given that the line drawn to the right in space goes through points~\((-4,-3,3)\) and~\((3,2,1)\), find a \idx{parametric equation} of the line.
+\vspace{3ex}
 \begin{solution} 
 Let's call the points~\((-4,-3,3)\) and~\((3,2,1)\) as \(P\) and~\(Q\), respectively, and as shown below.
 First,  choose a point on the line, say~\(P\), and set its position vector \(\pv=\ovect{OP}=(-4,-3,3)=-4\iv-3\jv+3\kv\), as drawn.
@@ -527,14 +543,14 @@ A parametric equation of the line is then \(\xv=\pv+t\dv\)\,, specifically
 \xv&=&(-4\iv-3\jv+3\kv)+t(7\iv+5\jv-2\kv)
 \\&=&(-4+7t)\iv+(-3+5t)\jv+(3-2t)\kv.
 \end{eqnarray*}
-\begin{center}\temp1\end{center}
+\hfill\temp1 \aqed
 \end{solution}
 \end{example}
-
+}%endgroup
 
 
 \begin{example} 
-Given the \idx{parametric equation} of a line in space (in stereo) is \(\xv=(-4+2t,3-t,-1-4t)\), find the value of the parameter~\(t\) that gives each of the following points on the line: \((-1.6,1.8,-5.8)\), \((-3,2.5,-3)\), and \((-6,4,4)\).
+Given the \idx{parametric equation} of a line in space is \(\sloppy\xv=(-4+2t,3-t,-1-4t)\), find the value of the parameter~\(t\) that gives each of the following points on the line: \((-1.6,1.8,-5.8)\), \((-3,2.5,-3)\), and \((-6,4,4)\).
 \begin{solution} 
 \begin{itemize}
 \item For the point \((-1.6,1.8,-5.8)\) we need to find the parameter value~\(t\) such that \(-4+2t=-1.6\), \(3-t=1.8\) and \(-1-4t=-5.8\)\,.
@@ -655,10 +671,7 @@ the following properties hold:
 \begin{proof} 
 We prove \ref{thm:vecopsa}, and leave the proof of other properties as exercises.
 The approach is to establish the properties of vector operations using the known properties of scalar operations.
- 
-\ref{thm:vecopsa} is the commutativity of vector addition.
-\cref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in just one case, and the margin here shows another case.
-In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
+
 \newcommand{\twov}[5]{%
   \pgfmathparse{#2*0.9+#4}\let\h\pgfmathresult
   \pgfmathparse{#3*0.9+#5}\let\v\pgfmathresult
@@ -680,7 +693,10 @@ In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
   \twov{\noexpand\uv+\noexpand\vv=\noexpand\vv+\noexpand\uv\noexpand\hspace*{4em}}{#2+#4}{#3+#5}00
 \end{axis}
 \end{tikzpicture}}%
-\marginpar{\temp01231}
+\begin{figbox}{\temp01231}
+\ref{thm:vecopsa} is the commutativity of vector addition.
+\cref{eg:vecadda} shows graphically how the equality \(\uv+\vv=\vv+\uv\) in just one case, and the margin here shows another case.
+In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \begin{align*}
 &{\uv+\vv}
 \\&=(\hlist un)+(\hlist vn)
@@ -690,13 +706,14 @@ In general, let vectors \(\uv=(\hlist un)\) and \(\vv=(\hlist vn)\) then
 \quad(\text{commutative scalar add})
 \\&=(\hlist vn)+(\hlist un)
 \quad(\text{by \cref{def:vecops}})
-\\&=\vv+\uv\,.
+\\&=\vv+\uv\,.  
 \end{align*}
+\ \end{figbox}
 \end{proof}
 
-\begin{example} 
-Which of the following two diagrams best illustrates the \idx{associative law}~\ref{thm:vecopsb}?  Give reasons.
-\begin{center}
+
+
+\begin{wrapfigure}r{0pt}
 \def\ux{3}\def\uy{-1}\def\vx{2}\def\vy{2}\def\wx{-1}\def\wy{2}
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
@@ -721,7 +738,7 @@ Which of the following two diagrams best illustrates the \idx{associative law}~\
 \addplot[brown,thick,quiver={u=\ux+\vx+\wx,v=\uy+\vy+\wy},-stealth] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}
-\hfil
+\qquad
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none, 
@@ -758,17 +775,21 @@ Which of the following two diagrams best illustrates the \idx{associative law}~\
 \node[above] at (axis cs:\hf,\vf) {$\uv$};
 \end{axis}
 \end{tikzpicture}
-\end{center}
+\end{wrapfigure}
+\begin{example} 
+Which of these two diagrams best illustrates the \idx{associative law}~\ref{thm:vecopsb}?  Give reasons.
 \begin{solution} 
 The left diagram.
+
 \begin{itemize}
 \item In the left diagram, the two red vectors represent \(\uv+\vv\) (left) and \(\vv+\wv\) (right).
 Thus the left-red followed by the blue~\wv\ represents \((\uv+\vv)+\wv\), whereas the \uv\ followed by the right-red represents \(\uv+(\vv+\wv)\).
 The brown vector shows they are equal: \((\uv+\vv)+\wv=\uv+(\vv+\wv)\).
-
-\item The right-hand diagram invokes the commutative law as well.
+\fixwrapitem
+\item The right-hand of the two diagrams invokes the commutative law as well.
 The top-left part of the diagram shows \((\vv+\wv)+\uv\), whereas the bottom-right part shows \((\uv+\vv)+\wv\).
 That these are equal, the brown vector, requires both the commutative and associative laws.
+\aqed
 \end{itemize}
 \end{solution}
 \end{example}
@@ -1042,14 +1063,12 @@ Prove in detail some algebraic properties chosen from \cref{thm:vecopsb}--\ref{t
 
 \begin{exercise}  
 For each of the following vector equations, rearrange the equation to get vector~\xv\ in terms of the other vectors.  Give excruciating detail of the justification using \cref{thm:vecops}.
-\begin{enumerate}
+\begin{Parts}
 \item \(\xv+\av=\ov\).
 \item \(2\xv-\bv=3\bv\).
 \item \(3(\xv+\av)=\xv+(\av-2\xv)\).
-\begin{reduce}
 \item \(-4\bv=\xv+3(\av-\xv)\).
-\end{reduce}
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 

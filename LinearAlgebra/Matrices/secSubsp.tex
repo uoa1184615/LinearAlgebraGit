@@ -173,40 +173,48 @@ A \bfidx{subspace}~\WW\ of~\(\RR^n\) is a set of vectors with \(\ov\in\WW\), and
 \begin{example} \label{eg:somsubs}
 Use \cref{def:subspace} to determine whether each of the following are subspaces, or not. 
 \begin{enumerate}[ref=\ref{eg:somsubs}(\alph*)]
-\item All vectors~\((x,y)\) in the line \(y=x/2\) (\cref{eg:viewsubsa}).
-\begin{solution} 
-The origin, the zero vector~\ov, is in the line \(y=x/2\) as \(x=y=0\) satisfies the equation.
-\marginpar{\begin{tikzpicture} 
+\item 
+All vectors~\((x,y)\) in the line \(y=x/2\) (\cref{eg:viewsubsa}).
+
+\begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
     \addplot[blue,thick] {x/2};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+The origin, the zero vector~\ov, is in the line \(y=x/2\) as \(x=y=0\) satisfies the equation.
 The line \(y=x/2\) is composed of vectors in the form \(\uv=(1,\frac12)t\) for some parameter~\(t\).
 Then for any \(c\in\RR\)\,, \(c\uv=c(1,\frac12)t=(1,\frac12)(ct)=(1,\frac12)t'\) for new parameter \(t'=ct\)\,; hence \(c\uv\)~is in the line.
 Let \(\vv=(1,\frac12)s\) be another vector in the line for some parameter~\(s\), then \(\uv+\vv=(1,\frac12)t+(1,\frac12)s=(1,\frac12)(t+s)=(1,\frac12)t'\) for new parameter \(t'=t+s\)\,; hence \(\uv+\vv\) is in the line.
 The three requirements of \cref{def:subspace} are met, and so this line is \text{a subspace.}
+\aqed
+
 \end{solution}
+\end{figbox}
 
 \item All vectors \((x,y)\) with end-points on the curve \(y=x-x^2/20\) (\cref{eg:viewsubsc}).
-\begin{solution} 
-A vector is `in the set' when its end-point lies on a plot of the set, as in the margin.
-\marginpar{\begin{tikzpicture} 
+
+\begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-5:25
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {x-x^2/20};
     \addplot[red,thick,quiver={u=20,v=0},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+A vector is `in the set' when its end-point lies on a plot of the set, as to the right.
 To show something is not a subspace, we only need to give one instance when any one of the properties fail.
 One instance is that the vector \((20,0)\) is in the curve as \(20-20^2/20=0\)\,, but the scalar multiple of half of this vector \(\frac12(20,0)=(10,0)\) is not as \(10-10^2/20=5\neq0\)\,.
 That is, the curve is not closed under scalar multiplication and hence is not \text{a subspace.}
+\aqed
+
 \end{solution}
+\end{figbox}
 
 \item All vectors \((x,y)\) in the line \(y=x/2\) for \(x,y\geq0\) (\cref{eg:viewsubsf}).
-\begin{solution} 
-A vector is `in the set' when its end-point lies on a plot of the set, as in the margin.
-\marginpar{\begin{tikzpicture} 
+
+\begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,xmin=-4,ymin=-2
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick,domain=0:5] {x/2};
@@ -214,23 +222,27 @@ A vector is `in the set' when its end-point lies on a plot of the set, as in the
     \addplot[red,thick,quiver={u=2,v=1},-stealth] coordinates {(0,0)};
     \addplot[brown,thick,quiver={u=-2,v=-1},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{solution} 
+A vector is `in the set' when its end-point lies on a plot of the set, as to the right.
 Although vectors \((x,y)\) in the line \(y=x/2\) for \(x,y\geq0\) includes the origin and is closed under addition, it fails the scalar multiplication test.
 For example, \(\uv=(2,1)\) is in the line, but the scalar multiple \((-1)\uv=(-2,-1)\) is not.
 Hence it is not \text{a subspace.}
+\aqed
+
 \end{solution}
+\end{figbox}
 
 
 \item All vectors \((x,y,z)\) in the plane \(z=-x/6+y/3\) (\cref{eg:viewsubsh}).
-\begin{center}
-\qview{30}{34}{\begin{tikzpicture} 
+
+\begin{figbox}{\qview{30}{34}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image ,view={\q}{30}   ] 
     \addplot3[surf,samples=9,opacity=0.5] {-x/6+y/3};
     \addplot3[only marks,black] coordinates {(0,0,0)};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
 \begin{solution} 
 The origin, the zero vector~\ov, is in the plane \(z=-x/6+y/3\) as \(x=y=z=0\) satisfies the equation.
 A vector \(\uv=(u_1,u_2,u_3)\) is in the plane provided \(-u_1+2u_2-6u_3=0\)\,.
@@ -238,23 +250,10 @@ Consider \(c\uv=(cu_1,cu_2,cu_3)\) for which \(-(cu_1)+2(cu_2)-6(cu_3) =c(-u_1+2
 Also let vector \(\vv=(v_1,v_2,v_3)\) be in the plane and consider \(\uv+\vv=(u_1+v_1,u_2+v_2,u_3+v_3)\) for which \(-(u_1+v_1)+2(u_2+v_2)-6(u_3+v_3) =-u_1-v_1+2u_2+2v_2-6u_3-6v_3 =(-u_1+2u_2-6u_3) +(-v_1+2v_2-6v_3) =0+0 =0\) and hence must also be in the plane.
 The three requirements of \cref{def:subspace} are met, and so this plane is \text{a subspace.}
 \end{solution}
+\end{figbox}
 
 
 \item All vectors \((x,y,z)\) in the plane \(z=5+x/6+y/3\) (\cref{eg:viewsubsi}).
-%\begin{center}
-%\qview{30}{34}{\begin{tikzpicture} 
-%\begin{axis}[small,font=\footnotesize
-%    ,axis equal image  ,view={\q}{30}  ] 
-%    \addplot3[only marks,black] coordinates {(0,0,0)};
-%    \addplot3[red,thick,quiver={u=0,v=0,w=5},-stealth] coordinates {(0,0,0)};
-%    \addplot3[surf,samples=9,opacity=0.5] {5+x/6+y/3};
-%\end{axis}
-%\end{tikzpicture}}
-%\end{center}
-%\begin{solution} 
-%In this case, consider the vector \(\uv=(0,0,5)\) (shown in the above picture): any scalar multiple, say \(2\uv=(0,0,10)\), is not in the plane.
-%That is, vectors in the plane are not closed under scalar multiplication, and hence the plane is not a subspace.
-%\end{solution}
 \begin{solution} 
 The origin is not in the plane as \(\uv=(0,0,0)\) does not satisfy the equation.  Hence this plane is not a subspace.
 \end{solution}
@@ -282,21 +281,22 @@ The three requirements of \cref{def:subspace} are met, and so \(\RR^n\) is alway
 \end{example}
 
 
-
-\begin{activity}
-The following pairs of vectors are all in the set shown in the margin (in the sense that their end-points lie on the plotted curve).  
-\marginpar{\begin{tikzpicture} 
+\begingroup
+\def\temp{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle, grid ] 
     \addplot[blue,thick,domain=-2.1:2.1] {x^3/4};
-\end{axis} \end{tikzpicture}}%
-The sum of which pair proves that the curve plotted in the margin is not a subspace?
+\end{axis} \end{tikzpicture}}
+\needlines6
+\begin{activity}[\temp]
+The following pairs of vectors are all in the set shown to the right (in the sense that their end-points lie on the plotted curve).  
+The sum of which pair proves that the curve plotted to the right is not a subspace?
 \actposs{\((-1,-\frac14)\clb (2,2)\)}
 {\((0,0)\clb (2,2)\)}
 {\((2,2)\clb (-2,-2)\)}
 {\((1,\frac14)\clb (0,0)\)}
 \end{activity}
-
+\endgroup
 
 
 
@@ -333,11 +333,11 @@ Secondly, consequently
 \end{eqnarray*}
 which is a linear combination of \hlist\wv k\,, and so is in~\WW.
 Thirdly, for every scalar~\(c\),
-\begin{eqnarray*}
-c\uv&=&c(\lincomb a\wv k)
-\\&=&\lincomb {ca}\wv k\,,
+\begin{equation*}
+c\uv=c(\lincomb a\wv k)
+=\lincomb {ca}\wv k\,,
 %\\&\in&\Span\{\hlist\wv k\}=\WW.
-\end{eqnarray*}
+\end{equation*}
 which is a linear combination of \hlist\wv k\,, and so is in~\WW.
 Hence \(\WW=\Span\{\hlist\wv k\}\) is a subspace.
 \end{proof}
@@ -351,10 +351,7 @@ That is, the \(y\)-component is half the \(x\)-component and hence it lies on th
 \(\Span\{(1,\frac12)\clb (-2,-1)\}\) is also the subspace \(y=x/2\) since every linear combination \(a_1(1,\frac12)+a_2(-2,-1)=(a_1-2a_2,a_1/2-a_2)\) satisfies that the \(y\)-component is half the \(x\)-component and hence the linear combination lies on the line \(y=x/2\).
 \end{example}
 
-
-\begin{example} \label{eg:plsubs}
-The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2)\clb (0,3,1)\}\), as illustrated in stereo below, since every \idx{linear combination} of these two vectors fills out the plane: \(a_1(3,3,1/2)+a_2(0,3,1) =(3a_1,3a_1+3a_2,a_1/2+a_2)\) and so lies in the plane as \(-x/6+y/3-z=-\frac163a_1+\frac13(3a_1+3a_2)-(a_1/2+a_2) =-\frac12a_1+a_1+a_2-\frac12a_1-a_2=0\) for all \(a_1\) and~\(a_2\) (although such arguments do not establish that the linear combinations cover the whole plane---we need \cref{thm:homosubsp}).
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image  ,view={\q}{30}  ] 
@@ -363,10 +360,11 @@ The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2)\clb (0,3,1)\}\), a
     \addplot3[blue!50!black,thick,quiver={u=0,v=3,w=1},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
-Also,  \(\Span\{(5,1,-1/2)\clb (0,-3,-1)\clb (-4,1,1)\}\) is the  plane \(z=-x/6+y/3\), as illustrated below. 
-The reason is that every \idx{linear combination} of these three vectors fills out the plane: \(a_1(5,1,-1/2)+a_2(0,-3,-1)+a_3(-4,1,1) =(5a_1-4a_3, a_1-3a_2+a_3, -a_1/2-a_2+a_3)\) and so lies in the plane as \(-x/6+y/3-z=-\frac16(5a_1-4a_3)+\frac13(a_1-3a_2+a_3)-(-a_1/2-a_2+a_3) =-\frac56a_1+\frac23a_3+\frac13a_1-a_2+\frac13a_3+\frac12a_1+a_2-a_3 =0\) for all \(a_1\), \(a_2\) and~\(a_3\).
-\begin{center}
+\end{wrapfigure}
+\begin{example} \label{eg:plsubs}
+The plane \(z=-x/6+y/3\) may be written as \(\Span\{(3,3,1/2)\clb (0,3,1)\}\), as illustrated in stereo to the right, since every \idx{linear combination} of these two vectors fills out the plane: \(a_1(3,3,1/2)+a_2(0,3,1) =(3a_1,3a_1+3a_2,a_1/2+a_2)\) and so lies in the plane as \(-x/6+y/3-z=-\frac163a_1+\frac13(3a_1+3a_2)-(a_1/2+a_2) =-\frac12a_1+a_1+a_2-\frac12a_1-a_2=0\) for all \(a_1\) and~\(a_2\) (although such arguments do not establish that the linear combinations cover the whole plane---we need \cref{thm:homosubsp}).
+
+\begin{wrapfigure}r{0pt}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
     ,axis equal image  ,view={\q}{35}  ] 
@@ -376,16 +374,15 @@ The reason is that every \idx{linear combination} of these three vectors fills o
     \addplot3[blue!50!black,thick,quiver={u=-4,v=1,w=1},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+Also,  \(\Span\{(5,1,-1/2)\clb (0,-3,-1)\clb (-4,1,1)\}\) is the  plane \(z=-x/6+y/3\), as illustrated to the right. 
+The reason is that every \idx{linear combination} of these three vectors fills out the plane: \(a_1(5,1,-1/2)+a_2(0,-3,-1)+a_3(-4,1,1) =(5a_1-4a_3, a_1-3a_2+a_3, -a_1/2-a_2+a_3)\) and so lies in the plane as \(-x/6+y/3-z=-\frac16(5a_1-4a_3)+\frac13(a_1-3a_2+a_3)-(-a_1/2-a_2+a_3) =-\frac56a_1+\frac23a_3+\frac13a_1-a_2+\frac13a_3+\frac12a_1+a_2-a_3 =0\) for all \(a_1\), \(a_2\) and~\(a_3\).
+\aqed
+
 \end{example}
 
-\begin{example} \label{eg:planesubs}
-Find a set of two vectors that spans the plane \(x-2y+3z=0\)\,.
-\begin{solution} 
-Write the equation for this plane as \(x=2y-3z\)\,, say, then vectors in the plane are all of the form \(\uv=(x,y,z)=(2y-3z,y,z) =(2,1,0)y+(-3,0,1)z\)\,.
-That is, all vectors in the plane may be written as a linear combination of the two vectors \((2,1,0)\) and~\((-3,0,1)\),
-hence the plane is \(\Span\{(2,1,0)\clb (-3,0,1)\}\) as illustrated in stereo below. 
-\begin{center}
+
+\begin{wrapfigure}r{0pt}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-3:3
     ,axis equal image  ,view={\q}{30}  ] 
@@ -394,7 +391,15 @@ hence the plane is \(\Span\{(2,1,0)\clb (-3,0,1)\}\) as illustrated in stereo be
     \addplot3[blue!50!black,thick,quiver={u=-3,v=0,w=1},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:planesubs}
+Find a set of two vectors that spans the plane \(x-2y+3z=0\)\,.
+\begin{solution} 
+Write the equation for this plane as \(x=2y-3z\)\,, say, then vectors in the plane are all of the form \(\uv=(x,y,z)=(2y-3z,y,z) =(2,1,0)y+(-3,0,1)z\)\,.
+That is, all vectors in the plane may be written as a linear combination of the two vectors \((2,1,0)\) and~\((-3,0,1)\),
+hence the plane is \(\Span\{(2,1,0)\clb (-3,0,1)\}\) as illustrated in stereo to the right. 
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -419,17 +424,20 @@ For every $m\times n$ matrix~$A$:
 \begin{example} 
 \cref{eg:1x2subs,eg:plsubs,eg:planesubs} provide some cases.
 \begin{itemize}
-\item From \cref{eg:1x2subs}, the \idx{column space} of \(A=\begin{bmat} 1&-2\\1/2&-1 \end{bmat}\) is the line \(y=x/2\)\,.
-
-The \idx{row space} of this matrix~\(A\) is \(\Span\{(1,-2)\clb (\frac12,-1)\}\).
-\marginpar{\begin{tikzpicture} 
+\item 
+\begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=middle] 
     \addplot[blue,thick] {-2*x};
 \end{axis}
-\end{tikzpicture}}%
-This row space is the set of all vectors of the form \((1,-2)s+(\frac12,-1)t=(s+t/2,-2s-t)=(1,-2)(s+t/2)=(1,-2)t'\) is the line \(y=-2x\) as illustrated in the margin.
+\end{tikzpicture}}
+From \cref{eg:1x2subs}, the \idx{column space} of \(A=\begin{bmat} 1&-2\\1/2&-1 \end{bmat}\) is the line \(y=x/2\)\,.
+
+The \idx{row space} of this matrix~\(A\) is \(\Span\{(1,-2)\clb (\frac12,-1)\}\).
+This row space is the set of all vectors of the form \((1,-2)s+(\frac12,-1)t=(s+t/2,-2s-t)=(1,-2)(s+t/2)=(1,-2)t'\) is the line \(y=-2x\) as illustrated to the right.
 That the row space and the column space are both lines, albeit different lines, is not a coincidence (\cref{thm:rowcolD}).
+\end{figbox}
+
 
 \item \cref{eg:plsubs} shows that the \idx{column space} of matrix
 \begin{equation*}
@@ -437,18 +445,20 @@ B=\begin{bmatrix} 3&0\\3&3\\\frac12&1 \end{bmatrix}
 \end{equation*}
 is the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 
-The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0)\clb (3,3)\clb (\frac12,1)\}\) which is a subspace of~\(\RR^2\)---the marginal plot shows the three vectors. 
-\marginpar{\begin{tikzpicture} 
+\begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,ymin=-1.5,ymax=3.5
     ,axis equal, axis lines=middle ] 
     \addplot[blue,thick,quiver={u=3,v=0},-stealth] coordinates {(0,0)};
     \addplot[blue,thick,quiver={u=3,v=3},-stealth] coordinates {(0,0)};
     \addplot[blue,thick,quiver={u=1/2,v=1},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0)\clb (3,3)\clb (\frac12,1)\}\) which is a subspace of~\(\RR^2\)---the right-hand plot shows the three vectors. 
 Whereas the column space is a subspace of~\(\RR^3\).
 Here the span is all of~\(\RR^2\) as for each \((x,y)\in\RR^2\) choose  the linear combination \(\frac{x-y}3(3,0)+\frac{y}3(3,3)+0(\frac12,1)=(x-y+y+0,0+y+0)=(x,y)\) so each \((x,y)\) is in the span, and hence all of the \(\RR^2\)~plane is the span.
 That the column space and the row space are both planes is no coincidence (\cref{thm:rowcolD}).
+\end{figbox}
+
 
 \item \cref{eg:plsubs} also shows that the column space of matrix
 \begin{equation*}
@@ -456,6 +466,15 @@ C=\begin{bmatrix} 5&0&-4\\1&-3&1\\-\frac12&-1&1 \end{bmatrix}
 \end{equation*}
 is also the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 
+\begin{figbox}{\qview{73}{75}{\begin{tikzpicture} 
+\begin{axis}[small,font=\footnotesize,view={\q}{30}
+    ,axis equal image    ] 
+    \addplot3[surf,samples=9,opacity=0.4] {-0.8*x-0.6*y};
+    \addplot3[blue!50!black,thick,quiver={u=5,v=0,w=-4},-stealth] coordinates {(0,0,0)};
+    \addplot3[blue!50!black,thick,quiver={u=1,v=-3,w=1},-stealth] coordinates {(0,0,0)};
+    \addplot3[blue!50!black,thick,quiver={u=-1/2,v=-1,w=1},-stealth] coordinates {(0,0,0)};
+\end{axis}
+\end{tikzpicture}}}
 Now, \(\Span\{(5,0,-4)\clb (1,-3,1)\clb (-\frac12,-1,1)\}\) is the \idx{row space} of matrix~\(C\).
 It is not readily apparent but we can check that this space is the plane \(4x+3y+5z=0\) as illustrated below in stereo.
 To see this, consider all linear combinations \(a_1(5,0,-4)+a_2(1,-3,1)+a_3(-\frac12,-1,1)
@@ -464,18 +483,9 @@ To see this, consider all linear combinations \(a_1(5,0,-4)+a_2(1,-3,1)+a_3(-\fr
 =4(5a_1+a_2-a_3/2)+3(-3a_2-a_3)+5(-4a_1+a_2+a_3)
 =20a_1+4a_2-2a_3-9a_2-3a_3-20a_1+5a_2+5a_3
 =0\)\,.
-\begin{center}
-\qview{73}{75}{\begin{tikzpicture} 
-\begin{axis}[small,font=\footnotesize,view={\q}{30}
-    ,axis equal image    ] 
-    \addplot3[surf,samples=9,opacity=0.4] {-0.8*x-0.6*y};
-    \addplot3[blue!50!black,thick,quiver={u=5,v=0,w=-4},-stealth] coordinates {(0,0,0)};
-    \addplot3[blue!50!black,thick,quiver={u=1,v=-3,w=1},-stealth] coordinates {(0,0,0)};
-    \addplot3[blue!50!black,thick,quiver={u=-1/2,v=-1,w=1},-stealth] coordinates {(0,0,0)};
-\end{axis}
-\end{tikzpicture}}%
-\end{center}
 Again, it is no coincidence that the row and column spaces of~\(C\) are both planes (\cref{thm:rowcolD}).
+
+\end{figbox}
 \end{itemize}
 \end{example}
 
@@ -644,7 +654,7 @@ To test a given vector, just multiply by the matrix and see if the result is zer
 \end{example}
 
 
-
+\needlines8
 \begin{activity}
 Which vector is in the \idx{nullspace} of the matrix
 \begin{equation*}
@@ -721,13 +731,8 @@ Which of the following sets is an orthonormal basis for~\(\RR^2\)?
 
 \begin{example} \label{eg:orthbas1}
 Find an orthonormal basis for the line \(x=y=z\) in~\(\RR^3\).
-\begin{solution} 
-This line is a subspace as it passes through~\ov.
-A parametric description of the line is \(\xv=(x,y,z)=(t,t,t)=(1,1,1)t\) for every~\(t\). 
-So the subspace is spanned by~\(\{(1,1,1)\}\)\,.
-But this is not an orthonormal basis as it is not of unit length, so divide by its length \(|(1,1,1)|=\sqrt{1^2+1^2+1^2}=\sqrt3\)\,.
-That is, \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\) is an orthonormal basis for the subspace, as illustrated in stereo below.
-\begin{center}
+
+\begin{wrapfigure}r{0pt}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-1:1
     ,axis equal image, height=4.5cm ,view={\q}{30}   ] 
@@ -737,8 +742,16 @@ That is, \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\) is an orthonormal basis for 
   \threev{0.577}{0.577}{0.577}{}
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{solution} 
+This line is a subspace as it passes through~\ov.
+A parametric description of the line is \(\xv=(x,y,z)=(t,t,t)=(1,1,1)t\) for every~\(t\). 
+So the subspace is spanned by~\(\{(1,1,1)\}\)\,.
+But this is not an orthonormal basis as it is not of unit length, so divide by its length \(|(1,1,1)|=\sqrt{1^2+1^2+1^2}=\sqrt3\)\,.
+That is, \(\{(1/{\sqrt3},1/{\sqrt3},1/{\sqrt3})\}\) is an orthonormal basis for the subspace, as illustrated in stereo to the right.
 The only other orthonormal basis is the unit vector in the opposite direction,~\(\{(-1/{\sqrt3},-1/{\sqrt3},-1/{\sqrt3})\}\).
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -746,10 +759,7 @@ The only other orthonormal basis is the unit vector in the opposite direction,~\
 For \idx{subspace}s that are planes in~\(\RR^n\), orthonormal bases have more details to confirm as in the next example.
 The \svd\ then empowers us to find such bases as in the next \cref{pro:ospan}.
 
-
-\begin{example} \label{eg:orthbas2}
-Confirm that the plane \(-x+2y-2z=0\) has an orthonormal basis \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\}\) as illustrated in stereo below.
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-1:1
     ,axis equal image ,view={\q}{30}   ] 
@@ -759,12 +769,17 @@ Confirm that the plane \(-x+2y-2z=0\) has an orthonormal basis \(\{\uv_1,\uv_2\}
     \addplot3[blue!50!black,thick,quiver={u=2/3,v=2/3,w=1/3},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:orthbas2}
+Confirm that the plane \(-x+2y-2z=0\) has an orthonormal basis \(\{\uv_1,\uv_2\}\) where \(\uv_1=(-\frac23,\frac13,\frac23)\), and \(\uv_2=(\frac23,\frac23,\frac13)\}\) as illustrated in stereo to the right.
+
 \begin{solution} 
 First, the given set is of unit vectors as the lengths are \(|\uv_1|=\sqrt{\frac49+\frac19+\frac49}=1\) and \(|\uv_2|=\sqrt{\frac49+\frac49+\frac19}=1\)\,.
 Second, the set is orthonormal as their dot product is zero: \(\uv_1\cdot\uv_2=-\frac49+\frac29+\frac29=0\)\,.
 Third, they both lie in the plane as we check by substituting their components in the equation: for~\(\uv_1\), \(-x+2y-2z=\frac23+2(\frac13)-2(\frac23)=\frac23+\frac23-\frac43=0\)\,; and for~\(\uv_2\), \(-x+2y-2z=-\frac23+2(\frac23)-2(\frac23)=-\frac23+\frac43-\frac23=0\)\,.
 Lastly, from the parametric form of an equation for a plane (\cref{sec:nvep}) we know that all linear combinations of \(\uv_1\) and~\(\uv_2\) span the plane.
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -863,10 +878,8 @@ S =
       0      0
 V = ...
 \end{verbatim}
-There are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the plane is the set of the first two columns of matrix~\(U\), namely  \((-0.51,-0.84,-0.20)\) and \((0.85,-0.44,-0.29)\).
-These basis vectors are illustrated as the pair of red vectors in \text{stereo below.}
-\begin{center}
-\qview{28}{32} {\begin{tikzpicture} 
+
+\begin{figbox}{\qview{28}{32} {\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image ,view={\q}{30}   ] 
     \addplot3[surf,samples=9,opacity=0.4] {-x/6+y/3};
@@ -875,8 +888,11 @@ These basis vectors are illustrated as the pair of red vectors in \text{stereo b
     \addplot3[brown!70!black,thick,quiver={u=-0.99,v=-0.01,w=0.16},-stealth] coordinates {(0,0,0)};
     \addplot3[brown!70!black,thick,quiver={u=-0.04,v=-0.95,w=-0.31},-stealth] coordinates {(0,0,0)};
 \end{axis}
-\end{tikzpicture}}%
-\end{center}
+\end{tikzpicture}}}
+There are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the plane is the set of the first two columns of matrix~\(U\), namely  \((-0.51,-0.84,-0.20)\) and \((0.85,-0.44,-0.29)\).
+These basis vectors are illustrated as the pair of red vectors in \text{stereo below.}
+
+\end{figbox}
 
 \item Similarly, form the matrix 
 \(B=\begin{bmat} 5&0&-4\\1&-3&1\\-1/2&-1&1 \end{bmat}\),
@@ -905,6 +921,7 @@ V = ...
 \end{verbatim}
 There are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the plane spanned by the three vectors is the set of the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
 These are the pair of brown vectors in the above stereo illustration.
+\aqed
 \end{itemize} 
 \end{solution}
 \end{example}
@@ -1129,9 +1146,6 @@ Some books do not appear to establish that every subspace is a span of something
 
 \paragraph{An existential issue} 
 How do we know that every \idx{subspace} has an orthonormal basis? 
-\begin{aside}
-The following optional theorem and proof settles an existential issue.
-\end{aside}%
 We know many subspaces, such as row and column spaces, have an orthonormal basis because they are the span of rows and columns of a matrix, and then \cref{pro:ospan} assures us they have an orthonormal basis.
 But do all subspaces have an orthonormal basis?  
 The following theorem certifies that \text{they do.}
@@ -1145,12 +1159,7 @@ Let \WW\ be a \idx{subspace} of~\(\RR^n\), then there exists an orthonormal basi
 \begin{proof} 
 In the trivial case when the subspace is \(\WW=\{\ov\}\), then \(\WW=\Span\{\}\) gives a basis and this trivial case is done.
 
-For every other subspace \(\WW\neq\{\ov\}\) there exists a nonzero vector \(\wv\in\WW\).
-Normalize the vector by setting \(\uv_1=\wv/|\wv|\).
-Then all scalar multiples \(c\uv_1=c\wv/|\wv|=(c/|\wv|)\wv\in\WW\) by closure of~\WW\ under scalar multiplication (\cref{def:subspace}). 
-Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated below for an example).
-Consequently, either  \(\Span\{\uv_1\}=\WW\) and we are done, or we repeat the following step until the space~\WW\ is spanned.
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
     ,axis equal image, domain=-1:1.6  ,view={\q}{30}  ] 
@@ -1161,14 +1170,14 @@ Consequently, either  \(\Span\{\uv_1\}=\WW\) and we are done, or we repeat the f
     \addplot3[blue] coordinates {(-1,-1,-1/6)(1.5,1.5,1/4)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+For every other subspace \(\WW\neq\{\ov\}\) there exists a nonzero vector \(\wv\in\WW\).
+Normalize the vector by setting \(\uv_1=\wv/|\wv|\).
+Then all scalar multiples \(c\uv_1=c\wv/|\wv|=(c/|\wv|)\wv\in\WW\) by closure of~\WW\ under scalar multiplication (\cref{def:subspace}). 
+Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated to the right for an example).
+Consequently, either  \(\Span\{\uv_1\}=\WW\) and we are done, or we repeat the following step until the space~\WW\ is spanned.
 
-Given orthonormal vectors \hlist\uv k\ such that the set \(\Span\{\hlist\uv k\}\subset\WW\), so \(\Span\{\hlist\uv k\}\neq\WW\).  
-Then there must exist a vector \(\wv\in\WW\) which is not in the set \(\Span\{\hlist\uv k\}\).
-By the closure of subspace~\WW\ under addition and scalar multiplication (\cref{def:subspace}), the set \(\Span\{\hlist\uv k,\wv\}\subseteq\WW\).
-\cref{pro:ospan}, on the orthonormal basis for a span, then assures us that an \svd\ gives an orthonormal basis \(\{\hlist{\uv'}{k+1}\}\) for the set \(\Span\{\hlist\uv k,\wv\}\subseteq\WW\) (as illustrated for an example).
-Consequently, either \(\Span\{\hlist{\uv'}{k+1}\}=\WW\) and we are done, or we repeat the process of this paragraph with \(k\)~bigger \text{by one.}
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{28}{32}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
     ,axis equal image, domain=-1:1.6  ,view={\q}{30}  ] 
@@ -1185,7 +1194,12 @@ Consequently, either \(\Span\{\hlist{\uv'}{k+1}\}=\WW\) and we are done, or we r
     \node[right] at (axis cs:0.969,-0.131,-0.205) {$\uv'_2$};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+Given orthonormal vectors \hlist\uv k\ such that the set \(\Span\{\hlist\uv k\}\subset\WW\), so \(\Span\{\hlist\uv k\}\neq\WW\).  
+Then there must exist a vector \(\wv\in\WW\) which is not in the set \(\Span\{\hlist\uv k\}\).
+By the closure of subspace~\WW\ under addition and scalar multiplication (\cref{def:subspace}), the set \(\Span\{\hlist\uv k,\wv\}\subseteq\WW\).
+\cref{pro:ospan}, on the orthonormal basis for a span, then assures us that an \svd\ gives an orthonormal basis \(\{\hlist{\uv'}{k+1}\}\) for the set \(\Span\{\hlist\uv k,\wv\}\subseteq\WW\) (as illustrated for an example).
+Consequently, either \(\Span\{\hlist{\uv'}{k+1}\}=\WW\) and we are done, or we repeat the process of this paragraph with \(k\)~bigger \text{by one.}
 
 The process must terminate because \(\WW\subseteq\RR^n\). 
 If the process ever repeats until \(k=n\)\,, then we know \(\WW=\RR^n\) and we are done as \(\RR^n\) is spanned by the \(n\)~standard unit vectors.
@@ -1223,10 +1237,7 @@ Such an orthonormal basis for the ensemble reasonably ensures unusual storms are
 \ldots\ \emph{physical dimension.} It is an intuitive notion that appears to go back to an archaic state before Greek geometry, yet deserves to be taken up again.
 \end{quoted}
 
-One of the beauties of an \idx{orthonormal basis} is that, being orthonormal, they look just like a rotated version of the \idx{standard unit vector}s.
-For example, in a \emph{plane} the two orthonormal basis of the plane could form the two `\idx{standard unit vector}s' of a coordinate system in that plane.
-\cref{eg:orthospan} found the plane \(z=-x/6+y/3\) could have the following two orthonormal bases: either of these orthonormal bases, or indeed any other pair of orthonormal vectors, could act as a pair of `standard unit vectors' of the given \text{planar subspace.}
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image    ] 
@@ -1244,7 +1255,10 @@ For example, in a \emph{plane} the two orthonormal basis of the plane could form
     \addplot3[brown!70!black,thick,quiver={u=-0.04,v=-0.95,w=-0.31},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture} 
-\end{center}
+\end{wrapfigure}
+One of the beauties of an \idx{orthonormal basis} is that, being orthonormal, they look just like a rotated version of the \idx{standard unit vector}s.
+For example, in a \emph{plane} any two orthonormal basis vectors of the plane could form the two `\idx{standard unit vector}s' of a coordinate system in that plane---as suggested by the illustration.
+\cref{eg:orthospan} found the plane \(z=-x/6+y/3\) could have the following two orthonormal bases: either of these orthonormal bases, or indeed any other pair of orthonormal vectors, could act as a pair of `standard unit vectors' of the given \text{planar subspace.}
 Similarly in other dimensions for other subspaces.
 Just as~\(\RR^n\) is called \(n\)-dimensional and has \(n\)~\idx{standard unit vector}s, so we analogously define the dimension of any subspace.
 
@@ -1324,7 +1338,8 @@ V =
 \end{verbatim}
 There is one nonzero singular value---the matrix has rank one---so an orthonormal basis for the column space is the first column of matrix~\(U\), namely \((-0.89,-0.45)\) \twodp.
 
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-1.5:1.5
 %    ,width=16em
     ,axis equal image, axis lines=middle    ] 
@@ -1333,10 +1348,13 @@ There is one nonzero singular value---the matrix has rank one---so an orthonorma
     \addplot[samples=2,red,opacity=0.4,thick] ({-0.24*x},{0.97*x});
     \addplot[red,thick,quiver={u=-0.24,v=0.97},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
 Complementing this, as there is one nonzero singular value---the matrix has rank one---so an orthonormal basis for the row space is the first column of matrix~\(V\), namely \((-0.24,0.97)\).
-As illustrated in the margin, the two subspaces, the row space (red) and the column space (blue), are different but of the same dimension.
+As illustrated to the right, the two subspaces, the row space (red) and the column space (blue), are different but of the same dimension.
 (As in general, here the row and column spaces are not orthogonal.)
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -1350,12 +1368,11 @@ Using the \svd\ of \cref{eg:2x2rcsp}, what is the dimension of the \idx{nullspac
 
 \begin{example} 
 Use the \svd\ of the matrix~\(B\) in \cref{eg:orthospan} to compare the \idx{column space} and the \idx{row space} of matrix~\(B\).
+
 \begin{solution} 
 Recall that there are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the column space is  the first two columns of matrix~\(U\), namely the vectors  \((-0.99,-0.01,0.16)\) and \((-0.04,-0.95,-0.31)\).
 
-Complementing this, as there are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the row space is the set of the first two columns of matrix~\(V\), namely the vectors  \((-0.78,-0.02, 0.63)\) and \((-0.28, 0.91,-0.32)\).
-As illustrated below in stereo, the two subspaces, the row space~(red) and the column space~(blue), are different but of the same dimension.
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{58}{62}{\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize,domain=-1.4:1.4
     ,axis equal image,view={\q}{20}    ] 
@@ -1367,7 +1384,11 @@ As illustrated below in stereo, the two subspaces, the row space~(red) and the c
     \addplot3[red,thick,quiver={u=-0.28,v=0.91,w=-0.32},-stealth] coordinates {(0,0,0)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+Complementing this, as there are two nonzero singular values---the matrix has rank two---so an orthonormal basis for the row space is the set of the first two columns of matrix~\(V\), namely the vectors  \((-0.78,-0.02, 0.63)\) and \((-0.28, 0.91,-0.32)\).
+As illustrated to the right in stereo, the two subspaces, the row space~(red) and the column space~(blue), are different but of the same dimension.
+\aqed
+
 \end{solution}
 \end{example}
 

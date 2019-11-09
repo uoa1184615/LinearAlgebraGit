@@ -7,12 +7,11 @@
 
 
 The dot product of \cref{sec:dpdal} is not the only way to multiply vectors.
-\begin{aside}
-This section is optional for us, 
-but is vital in many topics of science and engineering.
-\end{aside}%
 In the three dimensions of the world we live in there is a second way to multiply vectors, called the cross product.
 But for more than three dimensions, qualitatively different techniques are developed in \text{subsequent chapters.}
+
+This section is optional for us, 
+but is vital in many topics of science and engineering.
 
 
 \subsubsection{Area of a parallelogram}
@@ -59,10 +58,8 @@ In application, sometimes this right-hand side expression is negative because ve
 Thus in general the \idx{parallelogram area}\({}=|v_1w_2-v_2w_1|\).
 
 
-
-\begin{example} 
-What is the \idx{area} of the parallelogram (illustrated in the margin) whose edges are formed by the vectors~\((3,2)\) and~\((-1,4)\)?
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}[6]r{0pt}
+\begin{tikzpicture} 
 \def\a{3} \def\b{-1} 
 \def\c{2} \def\d{4} 
 \begin{axis}[footnotesize,font=\footnotesize,axis equal image, axis lines=middle
@@ -75,18 +72,18 @@ What is the \idx{area} of the parallelogram (illustrated in the margin) whose ed
     coordinates {(0,0)(\a,\c)};
     \node[above] at (axis cs:\b,\d) {$(\b,\d)\qquad$};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}\end{wrapfigure}
+\begin{example} 
+What is the \idx{area} of the parallelogram (illustrated to the right) whose edges are formed by the vectors~\((3,2)\) and~\((-1,4)\)?
 \begin{solution} 
 The parallelogram area\({}=|3\cdot4-2\cdot(-1)|=|12+2|=14\)\,.  
-The illustration indicates that this area must be about right as with imagination one could cut the area and move it about to form a rectangle roughly~\(3\) by~\(5\), and hence the area should be roughly~\(15\).
+The illustration indicates that this area must be about right as with imagination one could cut the area and move the parts about to form a rectangle roughly~\(3\) by~\(5\), and hence the area should be roughly~\(15\).
 \end{solution}
 \end{example}
 
 
-
-\begin{activity}  
-What is the \idx{area} of the parallelogram (illustrated in the margin) whose edges are formed by the vectors~\((5,3)\) and~\((2,-2)\)?
-\marginpar{\begin{tikzpicture} 
+\begingroup
+\def\temp{\begin{tikzpicture} 
 \def\a{5} \def\b{2} \def\ab{7}
 \def\c{3} \def\d{-2} \def\cd{1}
 \begin{axis}[footnotesize,font=\footnotesize
@@ -101,9 +98,12 @@ What is the \idx{area} of the parallelogram (illustrated in the margin) whose ed
     \node[right] at (axis cs:\b,\d) {$(\b,\d)$};
 \end{axis}
 \end{tikzpicture}}
+\begin{activity}[\temp] 
+What is the \idx{area} of the parallelogram (illustrated to the right) whose edges are formed by the vectors~\((5,3)\) and~\((2,-2)\)?
 \actposs[4]{\(16\)}{\(4\)}{\(11\)}{\(19\)}
+\vspace{1ex}
 \end{activity}
-
+\endgroup
 
 Interestingly, we meet this expression for \idx{area}, \(v_1w_2-v_2w_1\), in another context: that of equations for a plane and its \text{normal vector.}
 
@@ -173,7 +173,7 @@ Since the plane goes through point~\((1,1,2)\), the constant\({}=1-1+3\cdot2=6\)
 Use the procedure of \cref{eg:nviax} to derive a \idx{normal vector} to the plane described in parametric form as \(\xv=(4,-1,-2)+(1,-2,1)s+(2,-3,-2)t\).  
 Which of the following is your computed normal vector?
 %pqr=0+round(randn(3)*2),n=cross(pqr(2,:),pqr(3,:))
-\actposs{\((7,4,1)\)}{\((5,6,7)\)}{\((-4,4,-10)\)}{\((2,-2,5)\)}
+\actposs[4]{\((7,4,1)\)}{\((5,6,7)\)}{\((-4,4,-10)\)}{\((2,-2,5)\)}
 \end{activity}
 
 
@@ -270,12 +270,12 @@ The cross products of this \cref{eg:cpijk} most clearly demonstrate the orthogon
 
 \begin{activity} 
 Use \cref{def:cp} to find the cross product of \((-4,1,-1)\) and \((-2,2,1)\) is which one of the following:
-\actposs{\((3,6,-6)\)}{\((-3,-6,6)\)}{\((3,-6,-6)\)}{\((-3,-6,6)\)}
+\actposs[4]{\((3,6,-6)\)}{\((-3,-6,6)\)}{\((3,-6,-6)\)}{\((-3,-6,6)\)}
 \end{activity}
 
 
 
-
+\needlines9
 \subsubsection{Geometry of a cross product}
 
 
@@ -296,32 +296,24 @@ Consequently, the \idx{length} of this cross product equals the area of the para
 \end{example}
 
 
-
-\begin{activity}
-Using property~\ref{thm:cpgb} of the next theorem, in which direction is the cross product \(\vv\times\wv\) for the two vectors illustrated in stereo below?
-\begin{center}
-\qview{30}{35}{\begin{tikzpicture} 
+\begingroup
+\def\temp{\qview{30}{35}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,axis equal,view={\q}{30}
     ,xlabel={$x_1$},ylabel={$x_2$},zlabel={$x_3$},label shift={-1.5ex}
     ]
     \threev[above]20{0.5}{\vec v};
     \threev[above]102{\vec w};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
-\actposs[4]{\(-\jv\)}{\(+\iv\)}{\(+\jv\)}{\(-\iv\)}
+\end{tikzpicture}}}
+\begin{activity}[\temp]
+Using property \ref{thm:cpgb} of the next theorem, in which direction is the cross product \(\vv\times\wv\) for the two vectors illustrated in stereo to the right?
+\actposs{\(-\jv\)}{\(+\iv\)}{\(+\jv\)}{\(-\iv\)}
 \end{activity}
+\endgroup
 
 
 
-
-\begin{theorem}[cross product geometry] \label{thm:cpg}
-Let \vv\ and~\wv\ be two vectors in~\(\RR^3\):
-\begin{enumerate}[ref=\ref{thm:cpg}(\alph*)]
-\item\label[theorem]{thm:cpga} the vector~\(\vv\times\wv\) is \idx{orthogonal} to both~\vv\ and~\wv;
-
-\item\label[theorem]{thm:cpgb} the \index{cross product direction}direction of~\(\vv\times\wv\) is in the \bfidx{right-hand sense}%
-\marginpar{\begin{tikzpicture}
+\begin{figbox}{\begin{tikzpicture}
   \begin{axis}[small,thick, axis lines=none,ymax=1.3,ymin=-0.3,xmin=-0.3,xmax=1.3]
     \addplot graphics [xmin=0,xmax=1,ymin=0,ymax=1]
       {Vectors/right-hand-rule.jpg};
@@ -333,18 +325,28 @@ Let \vv\ and~\wv\ be two vectors in~\(\RR^3\):
     \addplot[blue,quiver={u=-0.4,v=-0.6,scale arrows=1.07},-stealth] coordinates {(0.55,0.55)};
     \node[below] at (axis cs:0.15,-0.05) {$\vv\times\wv$};
   \end{axis}
-\end{tikzpicture}}
-in that if \vv~is in the direction of your thumb, and \wv~is in the direction of your straight index finger, then \(\vv\times\wv\) is in the direction of your bent second\slash longest finger---all on your right-hand as illustrated in \text{the margin;} 
+\end{tikzpicture}}%
+\begin{theorem}[cross product geometry] \label{thm:cpg}
+Let \vv\ and~\wv\ be two vectors in~\(\RR^3\):
+\begin{enumerate}[ref=\ref{thm:cpg}(\alph*)]
+\item\label[theorem]{thm:cpga} the vector~\(\vv\times\wv\) is \idx{orthogonal} to both~\vv\ and~\wv;
+
+\item\label[theorem]{thm:cpgb} 
+the \index{cross product direction}direction of~\(\vv\times\wv\) is in the \bfidx{right-hand sense}%
+in that if \vv~is in the direction of your thumb, and \wv~is in the direction of your straight index finger, then \(\vv\times\wv\) is in the direction of your bent second\slash longest finger---all on your right-hand as illustrated to \text{the right;} 
 
 \item\label[theorem]{thm:cpgc} \(|\vv\times\wv|=|\vv|\,|\wv|\sin\theta\) where \(\theta\)~is the \idx{angle} between vectors~\vv\ and~\wv\ (\(0\leq\theta\leq\pi\), equivalently \(0^\circ\leq\theta\leq180^\circ\)); and
 
 \item\label[theorem]{thm:cpgd} the \idx{length}~\(|\vv\times\wv|\) is the \idx{area} of the parallelogram\index{parallelogram area} with edges~\vv\ and~\wv.
 \end{enumerate}
 \end{theorem}
+\end{figbox}
+
 
 
 \begin{proof} 
 Let \(\vv=(v_1,v_2,v_3)\) and \(\wv=(w_1,w_2,w_3)\).
+
 \begin{description}
 \item[\ref{thm:cpga}] Recall that two vectors are orthogonal if their dot product is zero (\cref{def:orthovec}).
 To determine orthogonality between~\vv\ and the cross product \(\vv\times\wv\), consider
@@ -415,8 +417,8 @@ Take the square-root of both sides to determine \(|\vv\times\wv|=\pm|\vv||\wv|\s
 But \(\sin\theta\geq0\) since the angle \(0\leq\theta\leq\pi\)\,, and all the lengths are also\({}\geq0\)\,, so only the plus case applies.
 That is, the length \(|\vv\times\wv|=|\vv||\wv|\sin\theta\) \text{as required.}
 
-\item[\ref{thm:cpgd}] Consider the plane containing the vectors~\vv\ and~\wv, 
-\marginpar{\rotatebox{20}{\begin{tikzpicture} 
+\item[\ref{thm:cpgd}] \ \\
+\begin{figbox}{\rotatebox{20}{\begin{tikzpicture} 
 \def\a{1} \def\b{0.7} 
 \def\c{0} \def\d{1.5} 
 \begin{axis}[axis equal image, axis lines=middle,xtick={0},ytick={0}
@@ -431,19 +433,16 @@ That is, the length \(|\vv\times\wv|=|\vv||\wv|\sin\theta\) \text{as required.}
     \node[left] at (axis cs:\b,\d) {$\wv$};
     \node[above] at (axis cs:0,0) {$\qquad\theta$};
 \end{axis}
-\end{tikzpicture}}}%
-and hence containing the parallelogram formed by these vectors---as illustrated in the margin.
+\end{tikzpicture}}}
+Consider the plane containing the vectors~\vv\ and~\wv, 
+and hence containing the parallelogram formed by these vectors---as illustrated to the right.
 Using vector~\vv\ as the base of the parallelogram, with length~\(|\vv|\), by basic trigonometry the height of the parallelogram is then \(|\wv|\sin\theta\).
 Hence the area of the parallelogram is the product 
-\(\text{base}\cdot\text{height}=|\vv||\wv|\sin\theta=|\vv\times\wv|\) by the previous part~\ref{thm:cpgc}.
+\(\text{base}\cdot\text{height}=|\vv||\wv|\sin\theta=|\vv\times\wv|\) by the previous part~\ref{thm:cpgc}.\end{figbox}
 \end{description}
 \end{proof}
 
-
-\begin{example} \label{eg:apvw}
-Find the \idx{area} of the parallelogram\index{parallelogram area} with edges formed by vectors
-\(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as in stereo below.
-\begin{center}
+\begin{wrapfigure}[7]r{0pt}
 \qview{30}{34}{\begin{tikzpicture} 
 \def\a{-2} \def\b{2} 
 \def\c{0} \def\d{2} 
@@ -461,7 +460,10 @@ Find the \idx{area} of the parallelogram\index{parallelogram area} with edges fo
     {((\a)+(\b),(\c)+(\d),0)((\a)+(\b),(\c)+(\d),\e+\f)};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:apvw}
+Find the \idx{area} of the parallelogram\index{parallelogram area} with edges formed by vectors
+\(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as illustrated in stereo.
 \begin{solution} 
 The area is the length of the cross product
 \begin{eqnarray*}
@@ -473,17 +475,12 @@ The area is the length of the cross product
 \end{eqnarray*}
 Then the parallelogram area \(|\vv\times\wv|=\sqrt{(-2)^2+4^2+(-4)^2}
 =\sqrt{4+16+16}=\sqrt{36}=6\)\,.
+\aqed\par
 \end{solution}
 \end{example}
 
-
-
-\begin{activity}
-% u=0+round(randn(1,3)*3), v=0+round(randn(1,3)*3), uv=cross(u,v), area=norm(uv)
-What is the \idx{area} of the parallelogram\index{parallelogram area} (in stereo below) with edges formed by vectors
-\(\vv=(-2,1,0)\) and \(\wv=(2,0,-1)\)?
-\begin{center}
-\qview{30}{34}{\begin{tikzpicture} 
+\begingroup
+\def\temp{\qview{30}{34}{\begin{tikzpicture} 
 \def\a{-2} \def\b{2} 
 \def\c{-1} \def\d{0} 
 \def\e{0} \def\f{-1}
@@ -499,21 +496,20 @@ What is the \idx{area} of the parallelogram\index{parallelogram area} (in stereo
     \addplot3[gray] coordinates 
     {((\a)+(\b),(\c)+(\d),0)((\a)+(\b),(\c)+(\d),\e+\f)};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
-\actposs[4]{\(3\)}{\(1\)}{\(\sqrt{5}\)}{\(5\)}
+\end{tikzpicture}}}
+\begin{activity}[\temp]
+% u=0+round(randn(1,3)*3), v=0+round(randn(1,3)*3), uv=cross(u,v), area=norm(uv)
+What is the \idx{area} of the parallelogram\index{parallelogram area} (in stereo to the right) with edges formed by vectors
+\(\vv=(-2,1,0)\) and \(\wv=(2,0,-1)\)?
+\actposs{\(3\)}{\(1\)}{\(\sqrt{5}\)}{\(5\)}
 \end{activity}
+\endgroup
 
 
 
 
 
-
-\begin{example} \label{eg:cpnvp}
-Find a \idx{normal vector} to the plane containing the two vectors \(\vv=-2\iv+3\jv+2\kv\) and \(\wv=2\iv+2\jv+3\kv\) ---illustrated below.
-Hence find an \idx{equation of the plane} given parametrically as \(\xv=-2\iv-\jv+3\kv+(-2\iv+3\jv+2\kv)s+(2\iv+2\jv+3\kv)t\)\,.
-\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{26}{31}{\begin{tikzpicture} 
 \def\a{-2} \def\b{2} 
 \def\c{3} \def\d{2} 
@@ -528,7 +524,12 @@ Hence find an \idx{equation of the plane} given parametrically as \(\xv=-2\iv-\j
     \node[below] at (axis cs:1,2,-2) {$\nv$};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:cpnvp}
+Find a \idx{normal vector} to the plane containing the two vectors \(\vv=-2\iv+3\jv+2\kv\) and \(\wv=2\iv+2\jv+3\kv\) ---illustrated below.
+Hence find an \idx{equation of the plane} given parametrically as \(\xv=-2\iv-\jv+3\kv+(-2\iv+3\jv+2\kv)s+(2\iv+2\jv+3\kv)t\)\,.
+\index{i@$\iv$}\index{j@$\jv$}\index{k@$\kv$}%
+
 \begin{solution} 
 Use \cref{def:cp} of the cross-product to find a normal vector:
 \begin{eqnarray*}
@@ -547,6 +548,7 @@ An equation of the plane through \(-2\iv-\jv+3\kv\) is then given by the dot pro
 \\\text{that is,}&& x+2y-2z+10=0
 \end{eqnarray*}
 is the required normal equation of the plane.
+\aqed
 \end{solution}
 \end{example}
 
@@ -614,7 +616,6 @@ The first vector is \(3(\iv+\jv+\kv)\) so by \cref{thm:cppb},
 \end{align*}
 \end{solution}
 \end{example}
-
 
 
 \begin{activity}  
@@ -696,11 +697,10 @@ Use such algebraic manipulation, and the identities among \idx{standard unit vec
 \end{tikzpicture}
 }}
 
-Consider the \idx{parallelepiped} with edges formed by three vectors~\uv, \vv\ and~\wv\ in~\(\RR^3\), as illustrated in stereo below.
+
+\begin{wrapfigure}r{0pt} \pppd0\end{wrapfigure}
+Consider the \idx{parallelepiped} with edges formed by three vectors~\uv, \vv\ and~\wv\ in~\(\RR^3\), as illustrated in stereo to the right.
 Our challenge is to derive that the volume of the parallelepiped is~\(|\uv\cdot(\vv\times\wv)|\).
-\begin{center}
-\pppd0
-\end{center}
 
 \index{volume, parallelepiped}%
 Let's use that we know the volume of the parallelepiped is the area of its base times its height.
@@ -708,11 +708,12 @@ Let's use that we know the volume of the parallelepiped is the area of its base 
 \item The base of the parallelepiped is the \idx{parallelogram} formed with edges~\vv\ and~\wv.
 Hence the base has area~\(|\vv\times\wv|\) (\cref{thm:cpgd}).
 
-\item The height of the parallelepiped is then that part of~\uv\ in the direction of a \idx{normal vector} to~\vv\ and~\wv.
-We know that \(\vv\times\wv\) is orthogonal to both~\vv\ and~\wv\ (\cref{thm:cpga}), so by trigonometry the height must be \(|\uv|\cos\theta\) for angle~\(\theta\) between~\uv\ and \(\vv\times\wv\), as illustrated below.
-\begin{center}
-\pppd1
-\end{center}
+\item 
+\begin{figbox}{\pppd1}
+The height of the parallelepiped is then that part of~\uv\ in the direction of a \idx{normal vector} to~\vv\ and~\wv.
+We know that \(\vv\times\wv\) is orthogonal to both~\vv\ and~\wv\ (\cref{thm:cpga}), so by trigonometry the height must be \(|\uv|\cos\theta\) for angle~\(\theta\) between~\uv\ and \(\vv\times\wv\), as illustrated.
+\end{figbox}
+
 To cater for cases where \(\vv\times\wv\) points in the opposite direction to that shown, the height is~\(|\uv||\cos\theta|\).
 The \idx{dot product}  determines this \idx{cosine} (\cref{thm:anglev}):
 \begin{equation*}
@@ -739,10 +740,7 @@ For every three vectors \uv, \vv\ and~\wv\ in~\(\RR^3\), the \bfidx{scalar tripl
 
 
 
-
-\begin{example} \label{eg:stppv}
-Use the \idx{scalar triple product} to find the volume of the parallelepiped formed by vectors \(\uv=(0,2,1)\), \(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as illustrated in stereo below.
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{30}{34}{\begin{tikzpicture} 
 \def\ua{0}\def\ub{2}\def\uc{1}
 \def\va{-2}\def\vb{0}\def\vc{1}
@@ -761,7 +759,10 @@ Use the \idx{scalar triple product} to find the volume of the parallelepiped for
     \node[below] at (axis cs:\wa,\wb,\wc) {$\vec w$};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:stppv}
+Use the \idx{scalar triple product} to find the volume of the parallelepiped formed by vectors \(\uv=(0,2,1)\), \(\vv=(-2,0,1)\) and \(\wv=(2,2,1)\)---as illustrated in stereo to the right.
+
 \begin{solution} 
 \cref{eg:apvw} found the cross product \(\vv\times\wv=-2\iv+4\jv-4\kv\)\,.
 So the scalar triple product \(\uv\cdot(\vv\times\wv)=(2\jv+\kv)\cdot(-2\iv+4\jv-4\kv)=8-4=4\)\,.

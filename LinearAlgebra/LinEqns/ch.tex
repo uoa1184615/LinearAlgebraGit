@@ -16,16 +16,10 @@ One vital use in science and engineering is in the scientific task of taking sca
 In computing science this task is often called `\idx{data mining}', `\idx{knowledge discovery}' or `\idx{artificial intelligence}'---although  the algebraic relation is then typically discussed as a computational procedure.
 But always appearing within such tasks are linear equations to \text{be solved.}
 
-\begin{example}[scientific \idx{inference}] \label{eg:infertemp}
-Two colleagues, an American and a European, discuss the weather; in particular, they discuss the temperature.
-\begin{aside}
-I am sure you can guess where we are going with this example, but let's pretend we do not know.
-\end{aside}
-The American says ``yesterday the temperature was~\(80^\circ\) but today is much cooler at~\(60^\circ\)''.
-The European says, ``that's not what I heard, I heard the temperature was~\(26^\circ\) and today is~\(15^\circ\)''.
-(The marginal figure plots these two data points.)
-\marginpar{\begin{tikzpicture}[]
-\begin{axis}[footnotesize,width=1.15\marginparwidth
+\needlines8
+\begin{wrapfigure}[8]r{0pt}
+\begin{tikzpicture}[]
+\begin{axis}[footnotesize%,width=1.15\marginparwidth
     ,xlabel={European},ylabel={American}
     ,xmin=5,xmax=35,ymin=45,ymax=95]
     \addplot+[only marks] coordinates {(26,80) (15,60)};
@@ -33,7 +27,14 @@ The European says, ``that's not what I heard, I heard the temperature was~\(26^\
     \node at (axis cs:10,50) {?};
     \node at (axis cs:30,90) {?};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example}[scientific \idx{inference}] \label{eg:infertemp}
+Two colleagues, an American and a European, discuss the weather; in particular, they discuss the temperature.
+(I am sure you can guess where we are going with this example, but let's pretend we do not know.)
+The American says ``yesterday the temperature was~\(80^\circ\) but today is much cooler at~\(60^\circ\)''.
+The European says, ``that's not what I heard, I heard the temperature was~\(26^\circ\) and today is~\(15^\circ\)''.
+(The graph to the right plots these two data points.)
 ``Hmmmm, we must be using a different temperature scale'', they say.
 Being scientists they start to use linear algebra to \emph{infer}, from the two days of temperature data, a general relation between their temperature scales---a relationship valid over a wide range of temperatures (denoted by the question marks in the marginal figure).
 Let's assume that, in terms of the European temperature\(~T_E\), the American temperature \(T_A=T_E\cdot c+d\) for some constants\(~c\) and\(~d\) they and we aim to find.
@@ -46,15 +47,19 @@ To find the constants\(~c\) and\(~d\):
 \item subtract the second equation from the first to deduce \(80-60=26c+d-15c-d\) which simplifies to \(20=11c\), that is, \(c=20/11=1.82\) to two decimal places \twodp;
 \item use this value of\(~c\) in either equation, say the second, gives \(60=\frac{20}{11}15+d\) which rearranges to \(d=360/11=32.73\)  to two decimal places \twodp.
 \end{itemize}
-\marginpar{\begin{tikzpicture}[]
-\begin{axis}[footnotesize,width=1.15\marginparwidth
+
+\needlines8
+\begin{wrapfigure}[8]r{0pt}
+\begin{tikzpicture}[]
+\begin{axis}[footnotesize%,width=1.15\marginparwidth
     ,xlabel={European, $T_E$},ylabel={American, $T_A$}
     ,xmin=5,xmax=35,ymin=45,ymax=95]
     \addplot+[only marks] coordinates {(26,80) (15,60)};
     \addplot+[blue,domain=5:35,no marks] {1.82*x+32.73};
 \end{axis}
-\end{tikzpicture}}%
-We deduce that the temperature relationship is \(T_A=1.82\,T_E+32.73\) (as plotted in the marginal figure).
+\end{tikzpicture}
+\end{wrapfigure}
+We deduce that the temperature relationship is \(T_A=1.82\,T_E+32.73\) (as plotted to the right).
 The two colleagues now \emph{predict} that they will be able to use this formula to translate their temperature into that of the other, and vice~versa.
 
 You may quite rightly object that the two colleagues \emph{assumed} a linear relation, they do \emph{not know} it is linear.

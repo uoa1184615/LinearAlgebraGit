@@ -83,17 +83,17 @@ Writing an \idx{eigenvector}~\(\wv\in\RR^{m+n}\)\ of~\(B\) as \(\wv=(\uv,\vv)\) 
 \item \cref{pro:ei} fits the exponential interpolation \(c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\) to the measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=jh\) for time-spacing~\(h\).
 \begin{enumerate}
 \item From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
-\begin{eqnarray*}&&
+\begin{align*}&
 A=\begin{bmatrix} f_2&f_3&\cdots&f_{n+1}
 \\f_3&f_4&\cdots&f_{n+2}
 \\\vdots&\vdots&&\vdots
 \\f_{n+1}&f_{n+2}&\cdots&f_{2n} \end{bmatrix},
-\\&&
+&&
 B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \\f_2&f_3&\cdots&f_{n+1}
 \\\vdots&\vdots&&\vdots
 \\f_{n}&f_{n+1}&\cdots&f_{2n-1} \end{bmatrix}.
-\end{eqnarray*}
+\end{align*}
 Use \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| in \script.
 
 \item Find the eigenvalues of the so-called \bfidx{generalized eigen-problem} \(A\vv=\lambda B\vv\)\,: 

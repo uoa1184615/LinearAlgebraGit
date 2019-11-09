@@ -41,8 +41,9 @@ The apparent differences arise only because you choose \idx{exponential}s to rep
 In general, when we cannot immediately distinguish identical solutions, all algebraic manipulation becomes immensely more difficult due to algebraic ambiguity.
 To avoid such immense difficulties we need to introduce, in both calculus and linear algebra, the concept of \text{linear independence.}
 
-Linear independence empowers us, often implicitly, to use a non-orthogonal \idx{coordinate system} in a \idx{subspace}.
-\marginpar{\begin{tikzpicture}
+\needlines6
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \newcommand{\ppoint}[2]{
     \pgfmathparse{#1*3+#2*1}\let\h\pgfmathresult
     \pgfmathparse{#1*1+#2*2}\let\v\pgfmathresult
@@ -68,10 +69,12 @@ Linear independence empowers us, often implicitly, to use a non-orthogonal \idx{
 \ppoint{-2}3
 \ppoint00
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+Linear independence empowers us, often implicitly, to use a non-orthogonal \idx{coordinate system} in a \idx{subspace}.
 We replace orthogonal \idx{unit vector}s by any suitable set of basis vectors.
 For example, in the plane any two vectors at an angle to each other suffice to be able to describe uniquely every vector (point) in the plane.
-As illustrated in the margin, every point in the plane (end point of a vector) is a unique \idx{linear combination} of the two drawn basis vectors~\(\vv_1\) and~\(\vv_2\).
+As illustrated to the right, every point in the plane (end point of a vector) is a unique \idx{linear combination} of the two drawn basis vectors~\(\vv_1\) and~\(\vv_2\).
 Such a pair of basis vectors, termed a linearly independent pair, avoids the  difficulties of \text{algebraic ambiguity.}
 
 
@@ -80,7 +83,8 @@ Such a pair of basis vectors, termed a linearly independent pair, avoids the  di
 
 This section defines ``linearly dependent'' and ``linearly independent'', and then relates the concept to homogeneous linear equations, orthogonality, and sets of eigenvectors.
 
-\begin{example}[2D \idx{non-orthogonal coordinates}] \label{eg:2dnoc}
+
+\begingroup
 \def\temp#1{\begin{tikzpicture}% following top aligns tikzpicture
 [baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
 \begin{axis}[footnotesize,font=\footnotesize
@@ -116,12 +120,13 @@ This section defines ``linearly dependent'' and ``linearly independent'', and th
 \fi
 \end{axis}
 \end{tikzpicture}}%
-\marginpar{\temp0}
-Show that every vector in the plane~\(\RR^2\) can be written uniquely as a \idx{linear combination} of the two vectors \(\vv_1=(2,1)\) and \(\vv_2=(1,2)\) that are shown in the margin.
+\begin{wrapfigure}r{0pt} \temp0 \end{wrapfigure}
+\begin{example}[2D \idx{non-orthogonal coordinates}] \label{eg:2dnoc}
+Show that every vector in the plane~\(\RR^2\) can be written uniquely as a \idx{linear combination} of the two vectors \(\vv_1=(2,1)\) and \(\vv_2=(1,2)\) that are shown to the right.
 
 \begin{solution} 
 Let's start with some specific example vectors.
-\def\tmpp#1#2{\parbox[t]{13em}{\raggedright #2} \temp{#1}}
+\def\tmpp#1#2{\parbox[t]{20em}{\raggedright #2} \temp{#1}}
 \begin{enumerate}
 \item \tmpp1{The vector \((0,2)\) may be written as the linear combination \((0,2)=-\frac23\vv_1+\frac43\vv_2\) as shown.} 
 
@@ -133,9 +138,8 @@ Let's start with some specific example vectors.
 
 \end{enumerate}
 
-Now proceed to consider a general vector \((x,y)\) and seek it as a linear combination of~\(\vv_1\) and~\(\vv_2\), namely \((x,y)=c_1\vv_1+c_2\vv_2\)\,.
-That is, let's write each and every point in the plane as a linear combination of~\(\vv_1\) and~\(\vv_2\) as illustrated in the margin.
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \begin{axis}[small,font=\footnotesize
   ,axis lines=middle, axis equal image, view={0}{90}
   ,xmax=5.5,ymax=5.5,xmin=-5.5,ymin=-5.5
@@ -148,7 +152,10 @@ That is, let's write each and every point in the plane as a linear combination o
 \addplot[blue,quiver={u=1,v=2},-stealth,thick] coordinates {(0,0)};
 \node[above] at (axis cs:1,2) {$\vv_2$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+Now proceed to consider a general vector \((x,y)\) and seek it as a linear combination of~\(\vv_1\) and~\(\vv_2\), namely \((x,y)=c_1\vv_1+c_2\vv_2\)\,.
+That is, let's write each and every point in the plane as a linear combination of~\(\vv_1\) and~\(\vv_2\) as illustrated to the right.
 Rewrite the equation in matrix-vector form as
 \begin{equation*}
 \begin{bmatrix} \vv_1&\vv_2 \end{bmatrix}
@@ -170,12 +177,12 @@ Equivalently, \cref{thm:ftim2iii} asserts the system has a unique solution~\cv--
 It is this last statement that leads to the upcoming \cref{def:lindep} of \idx{linearly independent} vectors.
 \end{solution}
 \end{example}
+\endgroup
 
 
 
-\begin{activity}
-The vector shown in the margin is which of the following \idx{linear combination}s of shown vectors~\(\vv_1\) and~\(\vv_2\)?
-\marginpar{\begin{tikzpicture}
+{%group
+\def\temp{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis lines=middle, axis equal image
   ,xmax=2.3,ymax=2.3
@@ -188,25 +195,21 @@ The vector shown in the margin is which of the following \idx{linear combination
 %\node[right] at (axis cs:-2.5,1) {$(-2.5,1)$};
 \end{axis}
 \end{tikzpicture}}
+\begin{activity}[\temp]
+The vector shown to the right is which of the following \idx{linear combination}s of shown vectors~\(\vv_1\) and~\(\vv_2\)?
 \actposs{\(-2\vv_1 +1.5\vv_2\)}
 {\(-2.5\vv_1 +2\vv_2\)}
 {\(-1.5\vv_1 +\vv_2\)}
 {\(-\vv_1 +\vv_2\)}
 \end{activity}
+}
 
 
 
 
 
 
-
-
-\begin{example}[3D failure] 
-Show that vectors in~\(\RR^3\) are not written uniquely as a \idx{linear combination} of \(\vv_1=(-1,1,0)\), \(\vv_2=(1,-2,1)\) and \(\vv_3=(0,1,-1)\). 
-
-One reason for the failure is that these three vectors only span a plane, as shown below in stereo.  
-The solution here looks at the different issue of unique representation.
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \qview{113}{117}{\begin{tikzpicture}
 \begin{axis}[small,font=\small
   ,xlabel={$x$}, ylabel={$y$}, zlabel={$z$},label shift={-2ex}
@@ -222,7 +225,13 @@ The solution here looks at the different issue of unique representation.
 \node[below] at (axis cs:0,1,-1) {$\vv_3$};
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example}[3D failure] 
+Show that vectors in~\(\RR^3\) are not written uniquely as a \idx{linear combination} of \(\vv_1=(-1,1,0)\), \(\vv_2=(1,-2,1)\) and \(\vv_3=(0,1,-1)\). 
+
+One reason for the failure is that these three vectors only span a plane, as shown to the right in stereo.  
+The solution here looks at the different issue of unique representation.
+
 \begin{solution} 
 As one example, consider the vector~\((1,0,-1)\):
 \begin{eqnarray*}
@@ -445,8 +454,8 @@ Invoke \cref{thm:lindeplc} to deduce whether the following sets are linearly ind
 Since \((1,-2,1)=-(-1,1,0)-(0,1,-1)\) the set must be linearly dependent.
 \end{solution}
 
-\item The set of two vectors shown in the margin.
-\marginpar{\begin{tikzpicture}
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis lines=none, axis equal image
   ]
@@ -457,12 +466,18 @@ Since \((1,-2,1)=-(-1,1,0)-(0,1,-1)\) the set must be linearly dependent.
 \addplot[black,mark=*] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}
+The set of two vectors shown to the right.
+
 \begin{solution} 
 Since they are not proportional to each other, we cannot write either as a scalar multiple of the other, and so the pair are linearly independent. 
-\end{solution}
+\aqed
 
-\item The set of two vectors shown in the margin.
-\marginpar{\begin{tikzpicture}
+\end{solution}
+\end{figbox}
+
+
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis lines=none, axis equal image
   ]
@@ -473,9 +488,15 @@ Since they are not proportional to each other, we cannot write either as a scala
 \addplot[black,mark=*] coordinates {(0,0)};
 \end{axis}
 \end{tikzpicture}}
+The set of two vectors shown to the right.
+
 \begin{solution} 
 Since they appear proportional to each other, \(\vv_2\approx (-3)\vv_1\)\,,  so the pair appear linearly dependent. 
+\aqed
+
 \end{solution}
+\end{figbox}
+
 
 \begin{reduce}
 \item \(\{(1,3,0,-1),\ (1,0,-4,2),\ (-2,3,0,-3),\ (0,6,-4,-2)\}\)
@@ -521,12 +542,12 @@ Now subtract \(\lambda_{k+1}\times\) the original linear combination:
 \\&&{}
 -\left(\lincomb c{\lambda_{k+1}\vv}{k}
 +c_{k+1}\lambda_{k+1}\vv_{k+1}\right)=\ov
-\\&&\implies\\&&
+\\\implies&&
 c_1(\lambda_1-\lambda_{k+1})\vv_1+c_2(\lambda_2-\lambda_{k+1})\vv_2+\cdots
 \\&&{}
 +c_k(\lambda_k-\lambda_{k+1})\vv_k
 +c_{k+1}\underbrace{(\lambda_{k+1}-\lambda_{k+1})}_{=0}\vv_{k+1}=\ov
-\\&&\implies\\&&
+\\\implies&&
 \lincomb{c'}\vv k=\ov
 \end{eqnarray*}
 for coefficients \(c'_j=c_j(\lambda_j-\lambda_{k+1})\).
@@ -864,9 +885,8 @@ So every vector in~\WW\ can be written as \((x,-x-z,z)=(x,-x,0)+(0,-z,z)=(-x)(-1
 That is, \(\Span\{(-1,1,0)\clb (0,1,-1)\}=\WW\).
 Hence \(\{(-1,1,0)\clb (0,1,-1)\}\) is a basis for the plane~\WW.
 
-\item Find a basis for the line given parametrically as \(x=2.1t\)\,, \(y=1.3t\) and \(z=-1.1t\) (shown below in stereo).
-\begin{center}
-\qview{30}{34} {\begin{tikzpicture}
+\item 
+\begin{figbox}{\qview{30}{34} {\begin{tikzpicture}
 \begin{axis}[small,font=\footnotesize, view={\q}{30}
   ,xlabel={$x$}, ylabel={$y$}, zlabel={$z$},label shift={-2ex}
   ,domain=-2:2,axis equal image
@@ -875,19 +895,22 @@ Hence \(\{(-1,1,0)\clb (0,1,-1)\}\) is a basis for the plane~\WW.
 \addplot3[blue,thick,quiver={u=2.1,v=1.3,w=-1.1},-stealth,mark=*] coordinates {(0,0,0)};
 \node[below] at (axis cs:2.1,1.3,-1.1) {$(2.1,1.3,-1.1)$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+Find a basis for the line given parametrically as \(x=2.1t\)\,, \(y=1.3t\) and \(z=-1.1t\) (shown to the right in stereo).
+
 \begin{solution} 
 The vectors in the line may be written as \(\xv=(x,y,z) =(2.1t,1.3t,-1.1t) =(2.1,1.3,-1.1)t\)\,.
 Since the parameter~\(t\) may vary over all values, vectors in the line form \(\Span\{(2.1,1.3,-1.1)\}\). 
 Since \(\{(2.1,1.3,-1.1)\}\) is a linearly independent set of vectors (\cref{eg:lindepc}), it thus forms a basis for the vectors in the \text{given line.}
+\aqed
+
 \end{solution}
+\end{figbox}
 
 
-\item Find a basis for the line given parametrically as \(x=5.7t-0.6\) and \(y=6.8t+2.4\)\,.
-\begin{solution} 
-The vectors in the line may be written as \(\xv=(5.7t-0.6,6.8t+2.4)\)\,.
-\marginpar{\begin{tikzpicture}
+
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis lines=middle, axis equal image
   ,xlabel={$x$}, ylabel={$y$}
@@ -895,22 +918,23 @@ The vectors in the line may be written as \(\xv=(5.7t-0.6,6.8t+2.4)\)\,.
 \addplot  ({5.7*x-0.6},{6.8*x+2.4});
 \end{axis}
 \end{tikzpicture}}
-But this does not form a subspace as it does not include the zero vector~\ov\ (as illustrated in the margin). 
+Find a basis for the line given parametrically as \(x=5.7t-0.6\) and \(y=6.8t+2.4\)\,.
+
+\begin{solution} 
+The vectors in the line may be written as \(\xv=(5.7t-0.6,6.8t+2.4)\)\,.
+But this does not form a subspace as it does not include the zero vector~\ov\ (as illustrated to the right). 
 %the \(x\)-component is only zero for some positive~\(t\) whereas the \(y\)-component is only zero for some negative~\(t\) so they are never zero for the same value of parameter~\(t\).
 Since this line is not a subspace, it cannot have a basis.
+\aqed
+
 \end{solution}
+\end{figbox}
 
 
 
 
-\item Find a basis for the plane \(3x-2y+z=0\)\,.
-\begin{solution} 
-Writing the equation of the plane as \(z=-3x+2y\) we then write the plane parametrically (\cref{sec:nvep}) as the vectors \(\xv=(x,y,-3x+2y) =(x,0,-3x)+(0,y,2y) =x(1,0,-3) +y(0,1,2)\).
-Since \(x\) and~\(y\) may vary over all values, the plane is the subspace \(\Span\{(1,0,-3)\clb (0,1,2)\}\) (as illustrated below in stereo).
-Since \((1,0,-3)\) and \((0,1,2)\) are not proportional to each other, they form a linearly independent set.
-Hence \(\{(1,0,-3)\clb (0,1,2)\}\) is a basis for \text{the plane.}
-\begin{center}
-\qview{30}{34} {\begin{tikzpicture}
+\item 
+\begin{figbox}{\qview{30}{34} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize, view={\q}{30}
   ,xlabel={$x$}, ylabel={$y$}, zlabel={$z$},label shift={-2ex}
   ,no marks ,domain=-2:2 ] 
@@ -920,9 +944,18 @@ Hence \(\{(1,0,-3)\clb (0,1,2)\}\) is a basis for \text{the plane.}
 \addplot3[blue,thick,quiver={u=0,v=1,w=2},-stealth] coordinates {(0,0,0)};
 \node[above] at (axis cs:0,1,2) {$(0,1,2)$};
 \end{axis}
-\end{tikzpicture}}
-\end{center}
+\end{tikzpicture}}}
+Find a basis for the plane \(3x-2y+z=0\)\,.
+
+\begin{solution} 
+Writing the equation of the plane as \(z=-3x+2y\) we then write the plane parametrically (\cref{sec:nvep}) as the vectors \(\xv=(x,y,-3x+2y) =(x,0,-3x)+(0,y,2y) =x(1,0,-3) +y(0,1,2)\).
+Since \(x\) and~\(y\) may vary over all values, the plane is the subspace \(\Span\{(1,0,-3)\clb (0,1,2)\}\) (as illustrated above-right in stereo).
+Since \((1,0,-3)\) and \((0,1,2)\) are not proportional to each other, they form a linearly independent set.
+Hence \(\{(1,0,-3)\clb (0,1,2)\}\) is a basis for \text{the plane.}
+
 \end{solution}
+\end{figbox}
+
 
 
 
@@ -953,7 +986,7 @@ Which of the following sets of vectors form a basis for~\(\RR^2\), but is not an
 \ifnum#1>3\addplot[blue,quiver={u=-2,v=-0.5},-stealth,thick] coordinates {(0,0)};\fi
 \end{axis}
 \end{tikzpicture}}
-\actposs{\temp3}{\temp1}{\temp2}{\temp4}
+\actposs[4]{\temp3}{\temp1}{\temp2}{\temp4}
 \end{activity}
 
 
@@ -988,12 +1021,12 @@ Write each of these, such as the first one, in the form
 where \(n\times r\) matrix \(U=\begin{bmatrix} \uv_1&\uv_2&\cdots&\uv_r \end{bmatrix}\).
 Similarly for the other equations \(\vv_2=\cdots=U\av_2\) through to \(\vv_s=\cdots=U\av_s\)\,.
 Then the \(n\times s\) matrix
-\begin{eqnarray*}
-V&=&\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_s \end{bmatrix}
-\\&=&\begin{bmatrix} U\av_1& U\av_2&\cdots&U\av_s\end{bmatrix}
-\\&=&U\begin{bmatrix} \av_1& \av_2&\cdots&\av_s\end{bmatrix}
+\begin{equation*}
+V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_s \end{bmatrix}
+=\begin{bmatrix} U\av_1& U\av_2&\cdots&U\av_s\end{bmatrix}
+=U\begin{bmatrix} \av_1& \av_2&\cdots&\av_s\end{bmatrix}
 =UA
-\end{eqnarray*}
+\end{equation*}
 for the \(r\times s\) matrix~\(A=\begin{bmatrix} \av_1& \av_2&\cdots&\av_s \end{bmatrix}\).
 By assumption \(r<s\) and so \cref{thm:feweqns} assures us that the homogeneous system \(A\xv=\ov\) has infinitely many solutions, choose any non-trivial solution \(\xv\neq\ov\)\,.
 Consider 
@@ -1046,7 +1079,7 @@ Recall \cref{def:dim} defined \(\dim\WW\) to be the number of vectors in any ort
 
 \begin{activity}
 Which of the following sets forms a basis for a subspace of \idx{dimension} two?
-\actposs[1]{\(\{(1,-2,1)\clb (1,0,-1)\}\)}
+\actposs[2]{\(\{(1,-2,1)\clb (1,0,-1)\}\)}
 {\(\{(1,2)\}\)}
 {\(\{(1,1,-2)\clb (2,2,-4)\}\)}
 {\(\{(-1,0,2)\clb (0,0,1)\clb (-1,2,0)\}\)}
@@ -1232,7 +1265,7 @@ Since \((1,-2,0)\) and~\((0,3,1)\) are not proportional to each other, they are 
 
 \begin{activity}
 Which of the following is \emph{not} a basis for the line \(3x+7y=0\)?
-\actposs{\(\{(3,7)\}\)}
+\actposs[4]{\(\{(3,7)\}\)}
 {\(\{(-7,3)\}\)}
 {\(\{(-\frac73,1)\}\)}
 {\(\{(1,-\frac37)\}\)}
@@ -1334,10 +1367,9 @@ In essence it says that every basis, whether orthogonal or not, can be used to f
 
 
 
-\needspace{4\baselineskip}
-\begin{example}[a tale of two \idx{coordinate system}s] 
-In the margin are plotted three vectors and the origin.
-\marginpar{\begin{tikzpicture}
+\needlines6
+\begin{wrapfigure}[6]r{0pt}
+\begin{tikzpicture}
 \newcommand{\ppoint}[3]{
     \pgfmathparse{#1*3+#2*1}\let\h\pgfmathresult
     \pgfmathparse{#1*1+#2*2}\let\v\pgfmathresult
@@ -1357,12 +1389,16 @@ In the margin are plotted three vectors and the origin.
 \ppoint{-2}3{\noexpand\cv}
 \ppoint00{}
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example}[a tale of two \idx{coordinate system}s] 
+to the right are plotted three vectors and the origin.
 Take the view that these are fixed physically meaningful vectors: the issue of this example is how do we code such vectors in mathematics.
+\\\ \\\ 
 
-\begin{tabular}{@{}cc@{}}
+\needlines8
+\begin{wrapfigure}r{0pt}
 \begin{tikzpicture}%
-[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
 \newcommand{\ppoint}[3]{
     \pgfmathparse{#1*3+#2*1}\let\h\pgfmathresult
     \pgfmathparse{#1*1+#2*2}\let\v\pgfmathresult
@@ -1384,15 +1420,15 @@ Take the view that these are fixed physically meaningful vectors: the issue of t
 \ppoint00{}
 \end{axis}
 \end{tikzpicture}
-&\parbox[t]{0.5\linewidth}{
-In the orthogonal \idx{standard coordinate system} these three vectors and the origin have coordinates as plotted on the left by their end-points.
-Consequently, we write \(\av=(7,4)\), \(\bv=(0,-5)\) and \(\cv=(-3,4)\).}
-\end{tabular}
+\end{wrapfigure}
+In the orthogonal \idx{standard coordinate system} these three vectors and the origin have coordinates as plotted on the right by their end-points.
+Consequently, we write \(\av=(7,4)\), \(\bv=(0,-5)\) and \(\cv=(-3,4)\).
+\\\ \\\ \\\ \\\
 
-
-\begin{tabular}{@{}cc@{}}
+\needlines7
+\begin{wrapfigure}r{0pt}
 \begin{tikzpicture}%
-[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
+%[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
 \newcommand{\ppoint}[3]{
     \pgfmathparse{#1*3+#2*1}\let\h\pgfmathresult
     \pgfmathparse{#1*1+#2*2}\let\v\pgfmathresult
@@ -1422,10 +1458,10 @@ Consequently, we write \(\av=(7,4)\), \(\bv=(0,-5)\) and \(\cv=(-3,4)\).}
 \ppoint00{}
 \end{axis}
 \end{tikzpicture}
-&\parbox[t]{0.5\linewidth}{
+\end{wrapfigure}
 Now use the (red) basis \(\cB=\{\vv_1,\vv_2\}\) to form a non-orthogonal \idx{coordinate system} (represented by the dotted grid).
-Then in this system the three vectors have coordinates \(\av=(2,1)\), \(\bv=(1,-3)\) and \(\cv=(-2,3)\).}
-\end{tabular}
+Then in this system the three vectors have coordinates \(\av=(2,1)\), \(\bv=(1,-3)\) and \(\cv=(-2,3)\).
+
 
 But surely we cannot say both \(\av=(7,4)\) and \(\av=(2,1)\): it appears nonsense.
 The reason for the different coordinate numbers representing the one vector~\av\ is that the underlying coordinate systems are different.
@@ -1475,8 +1511,6 @@ Consequently, there is exactly one way to write a vector \(\wv\in\WW\) as a {lin
 
 
 \begin{example}  
-\begin{enumerate}
-\item 
 \newcommand{\ppoint}[3]{%
     \pgfmathparse{#1*2-#2*1}\let\h\pgfmathresult
     \pgfmathparse{-#1*1+#2*2}\let\v\pgfmathresult
@@ -1505,29 +1539,29 @@ Consequently, there is exactly one way to write a vector \(\wv\in\WW\) as a {lin
 \ppoint{-1}{-1}{d}
 \end{axis}
 \end{tikzpicture}}%
-Consider the diagram of six labelled vectors drawn below.\par
-\begin{center}
-\begin{tabular}{cc}
-\cbase0
-&\parbox[t]{0.4\linewidth}{
-Estimate the coordinates of the four shown vectors~\av, \bv, \cv\ and~\dv\ in the shown basis \(\cB=\{\vv_1,\vv_2\}\).}
-\end{tabular}
-\end{center}
+\begin{enumerate}
+\item 
+\begin{figbox}{\cbase0}
+Consider the diagram to the right of six labelled vectors.
+Estimate the coordinates of the four shown vectors~\av, \bv, \cv\ and~\dv\ in the shown basis \(\cB=\{\vv_1,\vv_2\}\).
+\vspace{3\baselineskip}
+\end{figbox}
+
+\begin{figbox}{\cbase1}
 \begin{solution}
 Draw in a grid corresponding to multiples of~\(\vv_1\) and~\(\vv_2\) in both directions, and parallel to~\(\vv_1\) and~\(\vv_2\),  as shown below.
 Then from the grid, estimate that \(\av\approx3\vv_1+2\vv_2\) hence the coordinates \([\av]_\cB\approx(3,2)\).
-\par
-\begin{tabular}{@{}c@{\ }c@{}}
-\cbase1
-&\parbox[t]{0.4\linewidth}{
 Similarly, \(\bv\approx \vv_1-2\vv_2\) hence the coordinates \([\bv]_\cB\approx(1,-2)\).
 Also, \(\cv\approx -2\vv_1+0.5\vv_2\) hence the coordinates \([\cv]_\cB\approx(-2,0.5)\).
 And lastly,  \(\dv\approx -\vv_1-\vv_2\) hence the coordinates \([\dv]_\cB\approx(-1,-1)\).
-}
-\end{tabular}
-\end{solution}
+\aqed
 
-\item 
+\end{solution}
+\end{figbox}
+
+
+
+
 \renewcommand{\ppoint}[3]{%
     \pgfmathparse{#1*1-#2*2}\let\h\pgfmathresult
     \pgfmathparse{-#1*2-#2*2}\let\v\pgfmathresult
@@ -1556,36 +1590,30 @@ And lastly,  \(\dv\approx -\vv_1-\vv_2\) hence the coordinates \([\dv]_\cB\appro
 \ppoint{0}{0.5}{d}
 \end{axis}
 \end{tikzpicture}}%
+\item 
+\begin{figbox}{\cbase0}
 Consider the same four vectors but with a pair of different basis vectors:  let's see that although the vectors are the same, the coordinates in the different basis are different.
-\begin{center}
-\begin{tabular}{cc}
-\cbase0
-&\parbox[t]{0.4\linewidth}{
-Estimate the coordinates of the four shown vectors~\av, \bv, \cv\ and~\dv\ in the shown basis \(\cW=\{\wv_1,\wv_2\}\).}
-\end{tabular}
-\end{center}
+Estimate the coordinates of the four shown vectors~\av, \bv, \cv\ and~\dv\ in the shown basis \(\cW=\{\wv_1,\wv_2\}\).
+\vspace{2\baselineskip}
+\end{figbox}
+
+\begin{figbox}{\cbase1}
 \begin{solution}
 Draw in a grid corresponding to multiples of~\(\wv_1\) and~\(\wv_2\) in both directions, and parallel to~\(\wv_1\) and~\(\wv_2\),  as shown below.
 Then from the grid, estimate that \(\av\approx\wv_1-1.5\wv_2\) hence the coordinates \([\av]_\cW\approx(1,-1.5)\).
-\par
-\begin{tabular}{@{}c@{\ }c@{}}
-\cbase1
-&\parbox[t]{0.4\linewidth}{
 Similarly, \(\bv\approx 3\wv_1-0.5\wv_2\) hence the coordinates \([\bv]_\cW\approx(3,-0.5)\).
 Also, \(\cv\approx -2.5\wv_1+\wv_2\) hence the coordinates \([\cv]_\cW\approx(-2.5,1)\).
 And lastly,  \(\dv\approx 0.5\wv_2\) hence the coordinates \([\dv]_\cW\approx(0,0.5)\).
-}
-\end{tabular}
+\aqed
+
 \end{solution}
+\end{figbox}
 
 \end{enumerate}
 \end{example}
 
 
-
-
-\begin{activity}
-For the vector~\xv\ shown in the margin, estimate the coordinates of~\xv\ in the shown basis \(\cB=\{\bv_1,\bv_2\}\).
+\begingroup
 \newcommand{\ppoint}[3]{%
     \pgfmathparse{#1*1-#2*1}\let\h\pgfmathresult
     \pgfmathparse{-#1*1+#2*3}\let\v\pgfmathresult
@@ -1594,7 +1622,7 @@ For the vector~\xv\ shown in the margin, estimate the coordinates of~\xv\ in the
     \noexpand\node[right] at (axis cs:\h,\v) {$\noexpand\vec #3$};
     }\tempe
     }%
-\marginpar{\begin{tikzpicture}
+\def\temp{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
   , axis lines=none, axis equal image
   ,xmax=1.9,ymax=3.9,xmin=-1.9,ymin=-1.9
@@ -1605,13 +1633,15 @@ For the vector~\xv\ shown in the margin, estimate the coordinates of~\xv\ in the
 \node[above] at (axis cs:-1,3) {$\bv_2$};
 \ppoint32{x}
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+\begin{activity}[\temp]
+For the vector~\xv\ shown to the right, estimate the coordinates of~\xv\ in the shown basis \(\cB=\{\bv_1,\bv_2\}\).
 \actposs{\([\xv]_\cB=(3,2)\)}
 {\([\xv]_\cB=(1,4)\)}
 {\([\xv]_\cB=(2,3)\)}
 {\([\xv]_\cB=(4,1)\)}
 \end{activity}
-
+\endgroup
 
 
 
@@ -1708,7 +1738,7 @@ The poor \verb|rcond| indicates that~\cB\ is a poor basis in \text{practical app
 
 \begin{activity}
 What are the coordinates in the \idx{basis}~\(\cB=\{(1,1)\clb (1,-1)\}\)\ of the vector~\dv\ where \([\dv]_\cE=(2,-4)\) in the \idx{standard basis}~\cE?
-\actposs{\([\dv]_\cB=(-1,3)\)}
+\actposs[4]{\([\dv]_\cB=(-1,3)\)}
 {\([\dv]_\cB=(-2,6)\)}
 {\([\dv]_\cB=(1,3)\)}
 {\([\dv]_\cB=(3,-1)\)}
@@ -2160,7 +2190,7 @@ For each diagram, estimate roughly the \idx{components} of each of the four vect
 \end{axis}
 \end{tikzpicture}
 \answer{$(#2,#3)$, $(#4,#5)$, $(#6,#7)$, $(#8,#9)$}}%
-\begin{enumerate}
+\begin{Parts}
 \item \def\px{2} \def\py{-1} \def\qx{1} \def\qy{2} 
 \cbase0{-2}{-3}{ 1}{-3}{-3}{-1}{ 3}{ 2}
 
@@ -2184,7 +2214,7 @@ For each diagram, estimate roughly the \idx{components} of each of the four vect
 \cbase0{0.7}{ 1.6}{ 1.2}{ 0.5}{-0.4}{-0.3}{ 1.4}{2}
 \end{reduce}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 

@@ -7,7 +7,7 @@
 \index{linear equation|(}
 \index{regularization|(}
 
-\begin{quoted}{\parbox{15em}{Sherlock Holmes, in The Boscombe Valley Mystery, by Sir Arthur Conan Doyle, 1892}}
+\begin{quoted}{\parbox[t]{15em}{Sherlock Holmes, in The Boscombe Valley Mystery, by Sir Arthur Conan Doyle, 1892}}
 Singularity is almost invariably a clue.
 \end{quoted}
 
@@ -26,14 +26,9 @@ Suppose from measurements in some experiment we want to solve the two linear equ
 where all the \idx{coefficient}s on \emph{both} the left-hand sides and the right-hand sides are determined from experimental measurements.
 Suppose they are measured to \idx{experimental error}s~\(\pm0.05\)\,.
 Solve the equations.
-\begin{solution} 
-Using \cref{pro:unisol} in \script, form the matrix and the right-hand side
-\begin{verbatim}
-A=[0.5 0.3;1.1 0.7]
-b=[1.0;2.0]
-\end{verbatim}
-Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) which previously we would call only just outside the `good' range (\cref{pro:unisol}).
-\marginpar{\begin{tikzpicture}
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle,domain=-5:10
   ]
@@ -41,13 +36,25 @@ Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) whi
   \addplot[red] {(2-1.1*x)/0.7};
   \addplot[black,mark=*] coordinates {(5,-5)};
   \end{axis}
-\end{tikzpicture}}%
-So proceed warily to compute the solution with~\verb|A\b| to find \((x,y)=(5,-5)\) (as illustrated by the intersection of the two lines in the margin).
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{solution} 
+Using \cref{pro:unisol} in \script, form the matrix and the right-hand side
+\begin{verbatim}
+A=[0.5 0.3;1.1 0.7]
+b=[1.0;2.0]
+\end{verbatim}
+Then check the condition number with \verb|rcond(A)| to find it is~\(0.007\) which previously we would call only just outside the `good' range (\cref{pro:unisol}).
+So proceed warily to compute the solution with~\verb|A\b| to find \((x,y)=(5,-5)\) (as illustrated by the intersection of the two lines to the above-right).
 
 
  Is this solution reasonable?  No.  Not when the matrix itself has errors.
 Let's perturb the matrix~\(A\) by amounts consistent with its experimental error of~\(\pm0.05\) and explore the predicted solutions (the first two perturbations illustrated):%
-\marginpar{\begin{tikzpicture}
+\begin{align*}
+&A=\begin{bmatrix} 0.47&0.29\\1.06&0.68 \end{bmatrix}
+\implies \xv =\texttt{A$\backslash$b} 
+=\begin{bmatrix} 8.2\\-9.8 \end{bmatrix};
+&&\raisebox{-10ex}{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle,domain=-5:10
   ]
@@ -55,8 +62,11 @@ Let's perturb the matrix~\(A\) by amounts consistent with its experimental error
   \addplot[red] {(2-1.06*x)/0.68};
   \addplot[black,mark=*] coordinates {(8.2,-9.8)};
   \end{axis}
-\end{tikzpicture}}%
-\marginpar{\begin{tikzpicture}
+\end{tikzpicture}}
+\\&A=\begin{bmatrix} 0.45&0.32\\1.05&0.67 \end{bmatrix}
+\implies \xv=\texttt{A$\backslash$b}
+=\begin{bmatrix} -0.9\\4.3 \end{bmatrix};
+&&\raisebox{-10ex}{\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize ,axis equal image
   , xlabel={$x$}, ylabel={$y$}, axis lines=middle,domain=-5:10
   ]
@@ -64,15 +74,11 @@ Let's perturb the matrix~\(A\) by amounts consistent with its experimental error
   \addplot[red] {(2-1.05*x)/0.67};
   \addplot[black,mark=*] coordinates {(-0.9,4.3)};
   \end{axis}
-\end{tikzpicture}}%
-\begin{eqnarray*}
-&&A=\begin{bmatrix} 0.47&0.29\\1.06&0.68 \end{bmatrix}
-\implies \xv=\verb|A\b|=(8.2,-9.8);
-\\&&A=\begin{bmatrix} 0.45&0.32\\1.05&0.67 \end{bmatrix}
-\implies \xv=\verb|A\b|=(-0.9,4.3);
-\\&&A=\begin{bmatrix} 0.46&0.31\\1.06&0.73 \end{bmatrix}
-\implies \xv=\verb|A\b|=(15.3,-19.4).
-\end{eqnarray*}
+\end{tikzpicture}}
+\\&A=\begin{bmatrix} 0.46&0.31\\1.06&0.73 \end{bmatrix}
+\implies \xv=\texttt{A$\backslash$b}
+=\begin{bmatrix} 15.3\\-19.4 \end{bmatrix}.
+\end{align*}
 For equally valid matrices~\(A\), to within experimental error, the predicted solutions are all over the place!
 
 
@@ -129,7 +135,7 @@ By checking how well the equations are satisfied, which of the following \emph{c
 %for i=1:999, A=round(5+rand(2)*10)/10; if abs(cond(A)-200)<100,break, end,end, A=A,condA=cond(A)
 %x=[5;0]+round([0.806;-0.592]*randn*10)/5,res=A*x-[4;3]
 %\end{verbatim}
-\actposs{\((5.6,0.8)\)}{\((3.6,1)\)}{\((5,0)\)}{\((6.6,-1.2)\)}
+\actposs[4]{\((5.6,0.8)\)}{\((3.6,1)\)}{\((5,0)\)}{\((6.6,-1.2)\)}
 \end{activity}
 
 
@@ -148,9 +154,8 @@ I think it is much more interesting to live with uncertainty than to live with a
 \begin{procedure}[approximate linear equations] \label{pro:appmat}
 Suppose the \idx{system} of \idx{linear equation}s \(A\xv=\bv\) arises from an experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
 Suppose the expected error in the matrix and vector \idx{entries} are of \idx{magnitude}~\(\epsilon\).
-\begin{aside}
-Recall that (\cref{thm:erramp}) the symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.
-\end{aside}%
+(Recall that (\cref{thm:erramp}) the symbol~\idx{$\epsilon$} is the Greek letter epsilon, and often denotes errors.)
+
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
@@ -528,20 +533,20 @@ To appropriately solve systems of linear equations we must know the level of err
 
 
 
-
-\begin{example}[translating temperatures] 
-Recall \cref{eg:infertemp2} attempts to fit a quartic polynomial to observations (plotted in the margin) of the relation between Celsius and Fahrenheit temperature. 
-The attempt failed because \verb|rcond| is too small.
-Let's try again now that we can cater for matrices with errors.
-Recall the data between temperatures reported by a European and an American are the following:
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,axis lines=middle
     ,xlabel={European, $T_E$},ylabel={American, $T_A$}
     ,xmin=5,xmax=35,ymin=41,ymax=95]
     \addplot+[only marks] coordinates {
     (26,80) (15,60) (11,51) (23,74) (27,81) };
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}\end{wrapfigure}
+\begin{example}[translating temperatures] 
+Recall \cref{eg:infertemp2} attempts to fit a quartic polynomial to observations (plotted to the right) of the relation between Celsius and Fahrenheit temperature. 
+The attempt failed because \verb|rcond| is too small.
+Let's try again now that we can cater for matrices with errors.
+Recall the data between temperatures reported by a European and an American are the following:
 \begin{equation*}
 \begin{array}{l|rrrrr}
 T_E&15&26&11&23&27\\
@@ -663,7 +668,7 @@ z =
 As matrix~\(A\) has effective rank of three, we approximate the right-hand side data by neglecting the last two components in this~\zv.
 That the last two components in~\zv\ are small compared to the others indicates this neglect is a reasonable approximation.
 
-\item Find \yv\ by solving \(S\yv=\zv\) as a rank three system via the command \verb|y=z(1:3)./diag(S(1:3,1:3))| to find  \twodp
+\item Via the command \verb|y=z(1:3)./diag(S(1:3,1:3))|, find \yv\ by solving \(S\yv=\zv\) as a rank three system to find \twodp
 \begin{equation*}
 \yv=(-20.19,39.15,1.95,y_4,y_5).
 \end{equation*}
@@ -694,11 +699,9 @@ T_A&=&35.09+22.50\frac{T_E}{20}
 \\&&{}
 +3.99\left(\frac{T_E}{20}\right)^3
 -5.28\left(\frac{T_E}{20}\right)^4.
-\end{eqnarray*}%
-But choosing the polynomial with smallest coefficients has little meaning in this application.
-Surely we prefer a polynomial with fewer terms, fewer nonzero coefficients.
-Surely we would prefer, say, the quadratic (plotted in the margin)
-\marginpar{\begin{tikzpicture}
+\end{eqnarray*}
+
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,axis lines=middle
     ,xlabel={European, $T_E$},ylabel={American, $T_A$}
     ,xmin=5,xmax=35,ymin=41,ymax=94 ]
@@ -708,10 +711,14 @@ Surely we would prefer, say, the quadratic (plotted in the margin)
     \addplot+[domain=6:33,no marks] { 25.93+49.63*(x/20)-6.45*(x/20)^2 };
 \end{axis}
 \end{tikzpicture}}
+But choosing the polynomial with smallest coefficients has little meaning in this application.
+Surely we prefer a polynomial with fewer terms, fewer nonzero coefficients.
+Surely we would prefer, say, the quadratic (plotted to the right)
 \begin{equation*}
 T_A=25.93+49.63\frac{T_E}{20} 
 -6.45\left(\frac{T_E}{20}\right)^2.
 \end{equation*}
+\end{figbox}
 
 In this application, let's use the freedom in~\(y_4\) and~\(y_5\) to set two of the coefficients to zero in the quartic.
 Since \(c_4=3.99\) and \(c_5=-5.28\) are the smallest coefficients, and because they correspond to the highest powers in the quartic, it is natural to choose to make them both zero.
@@ -778,14 +785,11 @@ T_A=25.93+49.63\frac{T_E}{20}
 %\end{example}
 
 
-
-
-\begin{example} \label{eg:ctscan3x3d2}
-Recall that \cref{ex:ctscan3x3d} introduced extra `diagonal' measurements into a 2D \index{CT scan}\textsc{ct}-scan.
-As shown in the margin, the 2D region is divided into a \(3\times3\) grid of nine blocks.
-\marginpar{\begin{tikzpicture} 
+\needlines9
+\begin{wrapfigure}[9]r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[small,font=\footnotesize
-,axis equal image,axis lines=none
+,axis equal image,axis lines=none,xmin=-1.5
 ]
   \addplot[] coordinates {(0,0)(3,0)(3,1)(0,1)(0,2)(3,2)(3,3)(0,3)
   (0,0)(1,0)(1,3)(2,3)(2,0)(3,0)(3,3)};
@@ -811,7 +815,11 @@ As shown in the margin, the 2D region is divided into a \(3\times3\) grid of nin
   \node[left] at (axis cs:-0.7,+0.3) {$f_7$};
   \node[left] at (axis cs:+0.3,-0.7) {$f_9$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} \label{eg:ctscan3x3d2}
+Recall that \cref{ex:ctscan3x3d} introduced extra `diagonal' measurements into a 2D \index{CT scan}\textsc{ct}-scan.
+As shown to the right, the 2D region is divided into a \(3\times3\) grid of nine blocks.
 Then measurements are taken of the \idx{X-ray}s not absorbed along the shown nine paths: three horizontal, three vertical, and three diagonal.
 Suppose the measured fractions of X-ray energy are \(\sloppy\fv=(0.048, 0.081, 0.042, 0.020, 0.106, 0.075, 0.177, 0.181, 0.105)\).
 Use an \svd\ to find the `greyest' transmission factors \idx{consistent} with the measurements and likely errors.
@@ -1105,11 +1113,13 @@ The \textsc{ct}-scan and linear algebra robustly identifies that there is a sign
 \index{Tikhonov regularization|(}
 
 Regularization of poorly-posed linear equations is a widely invoked practical necessity.
-\begin{aside} This optional subsection connects to much established practice that graduates may encounter.\end{aside}%
 Many people have invented alternative techniques.
 Many have independently re-invented techniques.
 Perhaps the most common is the so-called \idx{Tikhonov regularization}.
 This section introduces and discusses Tikhonov regularization.
+
+This optional subsection connects to much established practice that graduates may encounter.
+
 
 \begin{quoted}{\idx{Wikipedia} (2015)}
 In statistics, the method is known as ridge regression, and with multiple independent discoveries, it is also variously known as the Tikhonov--Miller method, the Phillips--Twomey method, the constrained linear inversion method, and the method of linear regularization.
@@ -1119,12 +1129,10 @@ In statistics, the method is known as ridge regression, and with multiple indepe
 
 \begin{definition} \label{def:Tikreg}
 In seeking to solve the poorly-posed \idx{system} \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
-\begin{aside}
-The greek letter~\(\alpha\) is `alpha' (different to the `proportional to' symbol~\(\propto\)).
-\end{aside}%
 a \bfidx{Tikhonov regularization} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularization parameter} value~\(\alpha>0\).%
 \footnote{Some may notice that a Tikhonov regularization is closely connected to the so-called \idx{normal equation} \((\tr AA)\xv=\tr A\bv\)\,.  
 Tikhonov regularization shares with the \idx{normal equation} some practical limitations as well as some strengths.}
+(The greek letter~\(\alpha\) is `alpha', and is different to the `proportional to' symbol~\(\propto\).)
 \end{definition}
 
 
@@ -1344,10 +1352,8 @@ Among those equally good nearby solutions may be ones that you prefer in your ap
 \Needspace{5\baselineskip}
 \paragraph{Choose a good regularization parameter}
 \begin{itemize}
-\item One strategy to choose the \idx{regularization parameter}~\(\alpha\) is that the effective change in the matrix, from~\(A\) to~\(A'\), should be about the magnitude of errors expected in~\(A\).%
-\footnote{This strategic choice is sometimes called the \idx{discrepancy principle} \cite[\S7]{Kress2015}.}
-Since changes in the matrix are largely measured by the \idx{singular value}s we need to consider the relation between \(\sigma'=\sigma+\alpha^2/\sigma\) and~\(\sigma\).
-\marginpar{\begin{tikzpicture}
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis lines=middle,ymin=0,xmin=0,axis equal image
   ,xlabel={$\sigma$},ylabel={$\sigma'=\sigma+\alpha^2/\sigma$}
@@ -1358,9 +1364,13 @@ Since changes in the matrix are largely measured by the \idx{singular value}s we
 \addplot[red,dashed,domain=0:4.8] {x};
 \end{axis}
 \end{tikzpicture}}
-From the marginal graph the small \idx{singular value}s are changed by a lot, but these are the ones for which we want~\(\sigma'\) large in order to give a `\idx{least square}' approximation.
+One strategy to choose the \idx{regularization parameter}~\(\alpha\) is that the effective change in the matrix, from~\(A\) to~\(A'\), should be about the magnitude of errors expected in~\(A\).
+(This strategic choice is sometimes called the \idx{discrepancy principle} \cite[\S7]{Kress2015}.)
+Since changes in the matrix are largely measured by the \idx{singular value}s we need to consider the relation between \(\sigma'=\sigma+\alpha^2/\sigma\) and~\(\sigma\).
+From the graph to the right, the small \idx{singular value}s are changed by a lot, but these are the ones for which we want~\(\sigma'\) large in order to give a `\idx{least square}' approximation.
 Significantly, the marginal graph also shows that singular values larger than~\(\alpha\) change by less than~\(\alpha\).
 Thus the parameter~\(\alpha\) should not be much larger than the expected error in the elements of the matrix~\(A\).
+\end{figbox}
 
 \item Another consideration is the effect of regularization upon errors in the right-hand side vector.
 The condition number of~\(A\) may be very bad.

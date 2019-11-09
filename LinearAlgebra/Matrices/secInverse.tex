@@ -47,7 +47,10 @@ BA=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 =\begin{bmatrix} 1&0\\0&1 \end{bmatrix}=I_2\,.
 \end{equation*}
 Since the identity matrix is analogous to the number one in scalar arithmetic, that both these products are the identity means that the matrix~\(A\) has the same relation to the matrix~\(B\) as a number has to its reciprocal\slash inverse.
-\marginpar{\begin{tikzpicture}[]
+\marginpar{}%
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=12em
     , axis equal , axis lines=middle,
     , grid, xmax=4.5,ymax=5.5 ]
@@ -56,12 +59,8 @@ Since the identity matrix is analogous to the number one in scalar arithmetic, t
     \addplot[red,quiver={u=1,v=5},-stealth, thick] coordinates {(0,0)};
     \node[right] at (axis cs:1,5) {$A(2,1)$};
 \end{axis}
-\end{tikzpicture}}%
-
-Being the inverse, matrix~\(B\) `undoes' the action of matrix~\(A\)---as illustrated in the margin.
-The first picture shows multiplication by~\(A\) transforms the vector~\((2,1)\) to the vector~\((1,5)\): \(A\begin{bmat} 2\\1 \end{bmat}=\begin{bmat} 1\\5 \end{bmat}\).
-The second picture shows that multiplication by~\(B\) undoes the transform by~\(A\) because \(B\begin{bmat} 1\\5 \end{bmat}=\begin{bmat} 2\\1 \end{bmat}\) the original vector.
-\marginpar{\begin{tikzpicture}[]
+\end{tikzpicture}
+\begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=12em
     , axis equal, axis lines=middle,
     , grid, xmax=4.5,ymax=5.5 ]
@@ -71,7 +70,12 @@ The second picture shows that multiplication by~\(B\) undoes the transform by~\(
     \node[right] at (axis cs:1,5) {$(1,5)$};
 \end{axis}
 \end{tikzpicture}
-}%
+\end{wrapfigure}
+Being the inverse, matrix~\(B\) `undoes' the action of matrix~\(A\)---as illustrated to the right.
+The first picture shows multiplication by~\(A\) transforms the vector~\((2,1)\) to the vector~\((1,5)\): \(A\begin{bmat} 2\\1 \end{bmat}=\begin{bmat} 1\\5 \end{bmat}\).
+The second picture shows that multiplication by~\(B\) undoes the transform by~\(A\) because \(B\begin{bmat} 1\\5 \end{bmat}=\begin{bmat} 2\\1 \end{bmat}\) the original vector.
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -392,10 +396,7 @@ Let \(A\) and~\(B\) be \idx{invertible} matrices of the same size, then:
 \item\label[theorem]{thm:invpropa}  matrix \(A^{-1}\) is invertible and \((A^{-1})^{-1}=A\)\,;
 \item\label[theorem]{thm:invpropb} if scalar \(c\neq0\)\,, then matrix~\(cA\) is invertible and \((cA)^{-1}=\frac1cA^{-1}\);
 \item\label[theorem]{thm:invpropc} 
-matrix \(AB\) is invertible\begin{aside}
-Remember the reversed order in the identity $(AB)^{-1}=B^{-1}A^{-1}$.
-\end{aside} 
-and \((AB)^{-1}=B^{-1}A^{-1}\);
+matrix \(AB\) is invertible and \((AB)^{-1}=B^{-1}A^{-1}\) ---remember the reversed order in this identity;
 \item\label[theorem]{thm:invpropd} matrix \(\tr A\) is invertible and \((\tr A)^{-1}=\tr{(A^{-1})}\);
 \item\label[theorem]{thm:invprope}  for every \(p=1,2,3,\ldots\), matrix \(A^p\) is invertible and \((A^p)^{-1}=(A^{-1})^p\).
 \end{enumerate}
@@ -495,7 +496,7 @@ upon using one of the power laws of \cref{thm:pmmg}.
 \end{example}
 
 
-
+\needlines6
 \begin{activity}
 The previous \cref{eg:a2x2negp} gives the inverse of a matrix~\(A\) and determines~\(A^{-2}\): what then is~\(A^{-3}\)?
 \actposs{\(\begin{bmatrix} -7&3\\-12&5 \end{bmatrix}\)}
@@ -688,10 +689,10 @@ Diagonal matrices may also have zeros on the diagonal, as well as the
 required zeros for the \idx{off-diagonal entries}.
 
 
-\needspace{9\baselineskip}
+\needlines5
 \begin{activity}
 Which of the following matrices are not diagonal?
-\actposs{\(\begin{bmatrix} 1&0&0
+\actposs[4]{\(\begin{bmatrix} 1&0&0
 \\0&0&0
 \\0&2&0
 \\0&0&0 \end{bmatrix}\)}
@@ -1016,30 +1017,30 @@ The next \cref{sec:omr} introduces matrices that rotate.
 
 
 
-
+\begin{wrapfigure}r{0pt} \TwoD3002 \end{wrapfigure}
 \begin{example} 
 Consider \(A=\diag(3,2)=\begin{bmat} 3&0\\0&2 \end{bmat}\). 
-\marginpar{\TwoD3002}%
-The marginal pictures shows this matrix stretches the (blue) unit square (drawn with a `roof') by a factor of three horizontally and two vertically (to the red). 
+The  picture to the right shows this matrix stretches the (blue) unit square (drawn with a `roof') by a factor of three horizontally and two vertically (to the red). 
 Recall that \((x_1,x_2)\) denotes the corresponding \idx{column vector}.  
-As seen in the corner points of the graphic in the margin,  \(A\times(1,0)=(3,0)\), \(A\times(0,1)=(0,2)\), \(A\times(0,0)=(0,0)\),  and \(A\times(1,1)=(3,2)\).   
+As seen in the corner points of the graphic to the right,  \(A\times(1,0)=(3,0)\), \(A\times(0,1)=(0,2)\), \(A\times(0,0)=(0,0)\),  and \(A\times(1,1)=(3,2)\).   
 The `roof' just helps us to track which corner \text{goes where.}
 
-\marginpar{\TwoD{1/3}00{1/2}}%
+\begin{wrapfigure}r{0pt} \TwoD{1/3}00{1/2} \end{wrapfigure}
 The inverse \(A^{-1}=\diag(\frac13,\frac12)=\begin{bmat} 1/3&0\\0&1/2 \end{bmat}\) undoes the stretching of the matrix~\(A\) by squashing in both the horizontal and vertical directions (from blue to red).  
+\aqed
+
 \end{example}
 
 
 
-
-\begin{example} 
-Consider \(\diag(2,\frac23,-1)=\begin{bmat} 2&0&0\\0&2/3&0\\0&0&-1 \end{bmat}\): 
-the \idx{stereo pair} below illustrates how this diagonal matrix stretches in one direction, squashes in another, and reflects in the vertical.  
-By multiplying the matrix by the eight corner vectors, \((1,0,0)\), \((0,1,0)\), \((0,0,1)\), and so on, we see that the blue \idx{unit cube} (with `roof' and `door') maps to the red.
-\begin{center}
+\begin{wrapfigure}r{0pt}
 \def\unithousesize{small}
 \ThreeD{2}000{2/3}000{-1}
-\end{center}
+\end{wrapfigure}
+\begin{example} 
+Consider \(\diag(2,\frac23,-1)=\begin{bmat} 2&0&0\\0&2/3&0\\0&0&-1 \end{bmat}\): 
+the \idx{stereo pair} to the right illustrates how this diagonal matrix stretches in one direction, squashes in another, and reflects in the vertical.  
+By multiplying the matrix by the eight corner vectors, \((1,0,0)\), \((0,1,0)\), \((0,0,1)\), and so on, we see that the blue \idx{unit cube} (with `roof' and `door') maps to the red.
 \end{example}
 
 One great aspect of a diagonal matrix is that it is easy to separate its effects into each coordinate direction.  
@@ -1061,20 +1062,22 @@ For example, the above \(3\times3\) matrix is the same as the combined effects o
 
 
 
-
+\begin{wrapfigure}r{0pt} \TwoD{3/2}00{-1/2} \end{wrapfigure}
 \begin{example} 
-From the illustration in the margin, estimate the diagonal matrix that transforms the blue unit square to the red rectangle. 
-\marginpar{\TwoD{3/2}00{-1/2}}
+From the illustration to the right, estimate the diagonal matrix that transforms the blue unit square to the red rectangle. 
+
 \begin{solution} 
 In the illustration, the horizontal is stretched by a factor of~\(3/2\), whereas the vertical is squashed by `stretching' with a factor of~\(1/2\), as well as being reflected (minus sign). 
 Hence the matrix is
 \(\diag(\frac32,-\frac12)=\begin{bmat} 3/2&0\\0&-1/2 \end{bmat}\).
+\aqed
+
 \end{solution}
 \end{example}
 
 
 
-\needspace{18\baselineskip}
+\needlines{18}
 \begin{activity}
 Which of the following diagrams represents the transformation from the (blue) unit square to the (red) rectangle by the matrix \(\diag(-1.3,0.7)\)?
 \actposs{\TwoD{-1.3}00{0.7}}
@@ -1086,10 +1089,10 @@ Which of the following diagrams represents the transformation from the (blue) un
 
 
 
+\begin{wrapfigure}r{0pt} \TwoD{-1}00{-1} \end{wrapfigure}
 \paragraph{Some diagonal matrices rotate}
 Now consider the transformation of multiplying by matrix \(\begin{bmat} -1&0\\0&-1 \end{bmat}\):
-\marginpar{\TwoD{-1}00{-1}}%
-the two \idx{reflection}s of this diagonal matrix, the two~\(-1\)s, have  the same effect as one \idx{rotation}, here by~\(180^\circ\), as shown to the left.
+the two \idx{reflection}s of this diagonal matrix, the two~\(-1\)s, have  the same effect as one \idx{rotation}, here by~\(180^\circ\), as shown to the right.
 Matrices that rotate are incredibly useful and is the topic of the next \cref{sec:omr}.
 
 
@@ -1099,55 +1102,66 @@ Matrices that rotate are incredibly useful and is the topic of the next \cref{se
 
 \begin{reduce}
 \subsubsection{Sketch convenient coordinates}
+This optional subsubsection is a preliminary to diagonalization.
+
 One of the fundamental principles of applying mathematics in science and engineering
 is that the real world---nature---does its thing irrespective of our mathematical description.
-\begin{aside}
-This optional subsubsection is a preliminary to diagonalization.
-\end{aside}%
 Hence we often simplify our mathematical description of real world applications by choosing a \idx{coordinate system} to suit its nature.
 That is, although this book (almost) always draws the \(x\) or \(x_1\)~axis horizontally, and the \(y\) or \(x_2\)~axis vertically, in applications it is often better to draw the axes in some other  directions---directions which are convenient for the application.
 This example illustrates \text{the principle.}
 
+
+\begin{wrapfigure}r{0pt} 
+\TwoDx{1.04}{-0.72}{-0.72}{1.46}{} 
+\end{wrapfigure}
 \begin{example} 
-Consider the transformation shown in the margin (it might arise from the deformation of some material and we need to know the internal stretching and shrinking to predict failure).
-\marginpar{\TwoDx{1.04}{-0.72}{-0.72}{1.46}{}}%
+Consider the transformation shown to the right (it might arise from the deformation of some material and we need to know the internal stretching and shrinking to predict failure).
 The drawing has no \idx{coordinate axes} shown because it supposed to be some transformation in nature. 
 Now we impose on nature our mathematical description.
 Draw approximate coordinate axes, with origin at the common point at the lower-left corner, so the transformation becomes that of the diagonal matrix \(\diag(\frac12,2)=\begin{bmat} 1/2&0\\0&2 \end{bmat}\).
 
-\begin{solution} 
-From the diagonal matrix we first look for a direction in which the transformation squashes---`stretching' by a factor of~\(1/2\): from the marginal graph, this direction must be towards the top-right (or bottom-left).
-\marginpar{\TwoDx{1.04}{-0.72}{-0.72}{1.46}{%
+\needlines6
+\begin{wrapfigure}r{0pt}
+\TwoDx{1.04}{-0.72}{-0.72}{1.46}{%
 \addplot[black,quiver={u=1.2,v=0.9},-stealth] coordinates {(0,0)};
 \node[right] at (axis cs:1.2,0.9) {$x_1$};
 \addplot[black,quiver={u=-0.9,v=1.2},-stealth] coordinates {(0,0)};    
 \node[above] at (axis cs:-0.9,1.2) {$x_2$};
-}}%
+}
+\end{wrapfigure}
+\begin{solution} 
+From the diagonal matrix we first look for a direction in which the transformation squashes---`stretching' by a factor of~\(1/2\): from the marginal graph, this direction must be towards the top-right (or bottom-left).
 Second, from the diagonal matrix we look for a direction in which the transformation stretches by a factor of two: from the marginal picture this direction must be aligned to the top-left (or bottom-right).
 Because the top-right corner of the square is stretched a little in this second direction, the first direction must be aimed a little lower than this corner.
-Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in the margin. 
+Hence, coordinate axes that make the transformation the given diagonal matrix are as shown to the right. 
+\aqed
+
 \end{solution}
 \end{example}
 
 
+\begin{wrapfigure}r{0pt} \TwoDx1{-2}{-2}1{} \end{wrapfigure}
 \begin{example} 
-Consider the transformation shown in the margin.
-\marginpar{\TwoDx1{-2}{-2}1{}}%
+Consider the transformation shown to the right.
 It has no \idx{coordinate axes} shown because it supposed to be some transformation in nature. 
 Now impose on nature our mathematical description.
 Draw approximate coordinate axes, with origin at the common corner point, so the transformation becomes that of the diagonal matrix \(\diag(3,-1)=\begin{bmat} 3&0\\0&-1 \end{bmat}\).
 
-\begin{solution} 
-From the diagonal matrix we first look for a direction in which the transformation stretches by a factor of three: 
-\marginpar{\TwoDx1{-2}{-2}1{%
+\needlines6
+\begin{wrapfigure}r{0pt}
+\TwoDx1{-2}{-2}1{%
 \addplot[black,quiver={u=-3,v=3},-stealth] coordinates {(1.5,-1.5)};
 \node[right] at (axis cs:-1.5,1.5) {$x_1$};
 \addplot[black,quiver={u=-3,v=-3},-stealth] coordinates {(1.5,1.5)};    
 \node[left] at (axis cs:-1.5,-1.5) {$x_2$};
-}}%
+}\end{wrapfigure}
+\begin{solution} 
+From the diagonal matrix we first look for a direction in which the transformation stretches by a factor of three: 
 from the marginal graph, this direction must be aligned along the diagonal top-left to bottom-right.
 Second, from the diagonal matrix we look for a direction in which the transformation reflects: from the marginal picture this direction must be aligned along the top-right to bottom-left.
 Hence, coordinate axes that make the transformation the given diagonal matrix are as shown in \text{the margin.}
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -1175,10 +1189,10 @@ These rely on understanding the algebra and geometry of not only diagonal matric
 
 \index{rotation|(}
 
+\begin{wrapfigure}r{0pt} \TwoD{3/5}{-4/5}{4/5}{3/5} \end{wrapfigure}
 Whereas diagonal matrices stretch and squash, the so-called 
 `orthogonal matrices' represent just \idx{rotation}s (and/or \idx{reflection}).
-This section starts by showing that multiplying by the `\idx{orthogonal matrix}'~\(\begin{bmat} 3/5&-4/5\\4/5&3/5 \end{bmat}\) rotates by~\(53.13^\circ\) as shown in the marginal picture.
-\marginpar{\TwoD{3/5}{-4/5}{4/5}{3/5}}%
+This section starts by showing that multiplying by the `\idx{orthogonal matrix}'~\(\begin{bmat} 3/5&-4/5\\4/5&3/5 \end{bmat}\) rotates by~\(53.13^\circ\) as shown to the right.
 Such orthogonal matrices are the best to compute with, such as in solving \idx{linear equation}s, since they all have \(\verb|rcond|=1\)\,.
 To see these and related marvellous properties, we must explore the affect of matrix multiplication on the geometry of lengths \text{and angles.}
 
@@ -1225,28 +1239,25 @@ If the two vectors are at \idx{right-angles}, then the dot product is zero and t
 \index{orthonormal set|(}
 
 We need sets of \idx{orthogonal} vectors (nonzero vectors which are all at \idx{right-angles} to each other).
-\begin{aside}
-Recall that a \bfidx{set} of objects is denoted by a list of the objects enclosed within braces,~\(\{\ldots\}\).
-\end{aside}%
+(Recall that a \bfidx{set} of objects is denoted by a list of the objects enclosed within braces,~\(\{\ldots\}\).)
 One example is the set of \idx{standard unit vector}s \index{e@$\ev_j$}\(\{\hlist\ev n\}\) that are aligned with the \idx{coordinate axes} in~\(\RR^n\).  
 
-\needspace{6\baselineskip}
-\begin{example} \label{eg:orthogduo}
-The set of two vectors \(\{(3,4),(-8,6)\}\) shown in the margin
-\marginpar{\begin{tikzpicture} 
+\needlines6
+\begin{wrapfigure}r{0pt} 
+\begin{tikzpicture} 
 \begin{axis}[axis equal, axis lines=middle,footnotesize]
     \addplot[quiver={u=3,v=4},blue,-stealth,thick] coordinates {(0,0)};
     \addplot[quiver={u=-8,v=6},blue,-stealth,thick] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} \label{eg:orthogduo}
+The set of two vectors \(\{(3,4),(-8,6)\}\) shown to the right
 is an \idx{orthogonal set} as the two vectors have dot product\({}=3\cdot(-8)+4\cdot6=-24+24=0\) and hence are orthogonal.
 \end{example}
 
-
-\begin{example} \label{eg:orthogtrio}
-Let vectors \(\qv_1=(1,-2,2)\), \(\qv_2=(2,2,1)\) and \(\qv_3=(-2,1,2)\), illustrated in stereo below. 
-Is \(\{\qv_1,\qv_2,\qv_3\}\) an \idx{orthogonal set}?
-\begin{center}\qview{46}{50}{
+\begin{wrapfigure}r{0pt}
+\qview{46}{50}{
 \begin{tikzpicture} 
 \begin{axis}[axis equal,footnotesize,font=\footnotesize
   ,view={\q}{30}]
@@ -1255,13 +1266,20 @@ Is \(\{\qv_1,\qv_2,\qv_3\}\) an \idx{orthogonal set}?
 \threev[left]{-2}{1}{2}{\qv_3}
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:orthogtrio}
+Let vectors \(\qv_1=(1,-2,2)\), \(\qv_2=(2,2,1)\) and \(\qv_3=(-2,1,2)\), illustrated in stereo to the right. 
+Is \(\{\qv_1,\qv_2,\qv_3\}\) an \idx{orthogonal set}?
 
 \begin{solution} 
 Yes, because all the pairwise dot products are zero: \(\qv_1\cdot\qv_2=2-4+2=0\)\,; \(\qv_1\cdot\qv_3=-2-2+4=0\)\,; \(\qv_2\cdot\qv_3=-4+2+2=0\)\,. 
 Hence every pair of vectors are orthogonal. 
+\aqed
+
 \end{solution}
 \end{example}
+
+
 
 \begin{definition} \label{def:orthoset} 
 A set of nonzero vectors \(\{\hlist\qv k\}\) in~\(\RR^n\) is called an \bfidx{orthogonal set} if all pairs of distinct vectors in the set are \idx{orthogonal}: that is, \(\qv_i\cdot\qv_j=0\) whenever \(i\neq j\) for \(i,j=1,2,\ldots,k\)\,.
@@ -1359,7 +1377,6 @@ For which of the following values of~\(p\) is the matrix \(Q=\begin{bmatrix} \fr
 \end{activity}
 
 
-
 \begin{example} \label{eg:3dorthog}
 In the following equation, check that the matrix is orthogonal. Use its orthogonality to solve the equation \(Q\xv=\bv\):
 \begin{equation*}
@@ -1368,11 +1385,14 @@ In the following equation, check that the matrix is orthogonal. Use its orthogon
 \\-\frac23&\frac13&\frac23 \end{bmatrix}\xv
 =\begin{bmatrix} 0\\2\\-1 \end{bmatrix}.
 \end{equation*} 
-The \idx{stereo pair} below illustrates the rotation of the \idx{unit cube} under multiplication by the matrix~\(Q\): every point~\xv\ in the (blue) unit cube (with `roof and door'), is mapped to the point~\(Q\xv\) to form the (red)~result.
-\begin{center}
+
+\begin{wrapfigure}r{0pt}
 \def\unithousesize{footnotesize,height=5.5cm}
 \ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}
-\end{center}
+\end{wrapfigure}
+The \idx{stereo pair} to the right illustrates the rotation of the \idx{unit cube} under multiplication by this matrix~\(Q\): every point~\xv\ in the (blue) unit cube (with `roof and door'), is mapped to the point~\(Q\xv\) to form the (red)~result.
+
+
 \begin{solution} In \script\ (recall the single quote (prime) gives the transpose, \cref{tbl:mtlbops}),
 \begin{verbatim}
 Q=[1,-2,2;2,2,1;-2,1,2]/3
@@ -1423,12 +1443,15 @@ Here this equation gives the solution to be
 \end{example}
 
 
-\begin{example} \label{eg:introt}
-The marginal graph shows a rotation of the \idx{unit square}. 
+\begin{wrapfigure}r{0pt}
 \def\unithousesize{footnotesize,grid} 
-\marginpar{\TwoD{0.513}{0.857}{-0.858}{0.513}}%
+\TwoD{0.513}{0.857}{-0.858}{0.513}
+\end{wrapfigure}
+\begin{example} \label{eg:introt}
+The graph to the right shows a rotation of the \idx{unit square}. 
 From the graph estimate roughly the matrix~\(Q\) such that multiplication by~\(Q\) performs the rotation. 
 Confirm that your estimated matrix is orthogonal (approximately).
+
 \begin{solution} 
 Consider what happens to the standard unit vectors as shown in the graph:  multiplying~\(Q\) by~\((1,0)\) gives~\((0.5,-0.9)\) roughly (to one decimal place); whereas multiplying~\(Q\) by~\((0,1)\) gives~\((0.9,0.5)\) roughly.
 To do this the matrix~\(Q\) must have these two vectors as its two columns, that is,
@@ -1615,7 +1638,6 @@ Using \cref{thm:orthog:iv}, which transformations appear to be that of multiplyi
 \end{Parts}
 \end{solution}
 \end{example}
-
 
 
 

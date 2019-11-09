@@ -68,7 +68,6 @@ Use the Laplace Expansion \cref{thm:letdet} to give the first row expansion, in 
 \begin{eqnarray*}
 \det(A-\lambda I)
 &=&(a_{11}-\lambda)\det (A_{11}-\lambda I_{11})
-\\&&{}
 -a_{12}\det (A_{12}-\lambda I_{12})
 \\&&{}
 +\cdots-(-1)^{n}a_{1n}\det (A_{1n}-\lambda I_{1n}).
@@ -79,12 +78,10 @@ Consequently, the first row expansion of
 \begin{eqnarray*}
 \det(A-\lambda I)
 &=&(a_{11}-\lambda)(\text{poly degree }n-1)
-\\&&{}
 -a_{12}(\text{poly degree }\leq n-2)
 \\&&{}
 +\cdots-(-1)^{n}a_{1n}(\text{poly degree }\leq n-2)
 \\&=&(a_{11}-\lambda)(\text{poly degree }n-1)
-\\&&{}
 +(\text{poly degree }\leq n-2)
 \\&=&(\text{poly degree }n)
 \end{eqnarray*}
@@ -130,10 +127,8 @@ The characteristic polynomial is
 \\1&-2-\lambda&0
 \\8&2&6-\lambda \end{bmatrix}
 \\&=&(4-\lambda)(-2-\lambda)(6-\lambda)+0+2
-\\&&{}
 -(-2-\lambda)8-0-(-2)(6-\lambda)
 \\&=&-48+4\lambda+8\lambda^2-\lambda^3+2
-\\&&{}
 +16+8\lambda+12+2\lambda
 \\&=&-\lambda^3+8\lambda^2+2\lambda-18\,.
 \end{eqnarray*}
@@ -187,16 +182,12 @@ Then the previous identity gives
 \begin{eqnarray*}
 \det(A-\lambda I)
 &=&(a_{11}-\lambda)\big[(-1)^{n-1}\lambda^{n-1}
-\\&&\quad{}
 +(-1)^{n-2}(a_{22}+\cdots+a_{nn})\lambda^{n-2} 
 \\&&\quad{}
 +(\text{poly degree }\leq n-3)\big]
-\\&&{}
 +(\text{poly degree }\leq n-2)
 \\&=&(-1)^{n}\lambda^{n}
-%\\&&{}
 +(-1)^{n-1}(a_{11}+a_{22}+\cdots+a_{nn})\lambda^{n-1} 
-\\&&{}
 +(\text{poly degree }\leq n-2).
 \end{eqnarray*}
 Hence the coefficient \(c_{n-1}=(-1)^{n-1}(a_{11}+a_{22}+\cdots+a_{nn})\).
@@ -234,12 +225,11 @@ The two zeros in the last row suggest a last row expansion:
 \det \eAii&=&(-1)^61\det\begin{bmatrix}-2&3&-2
 \\-1&-2&2
 \\2&0&1 \end{bmatrix}
-\\&&{}
 +(-1)^8(-3)\det\begin{bmatrix}-2&-1&3
 \\-1&3&-2
 \\2&-3&0\end{bmatrix}
 \\&=&(4+12+0-8-0+3)
-\\&&{}-3(0+4+9-18+12-0)
+-3(0+4+9-18+12-0)
 =-10\,.
 \end{eqnarray*}
 This is the constant term in the characteristic polynomial.
@@ -295,18 +285,18 @@ Since the last row is nearly all zero, let's start with a last row expansion (al
 \\0&0&-1&0&0
 \\0&-5&0&-4&3
 \\0&-3&0&-4&0\end{bmatrix}
-\\&&(\text{using a 3rd row expansion})
 \\&=&-3(-1)^6(-1)\det\begin{bmatrix}0&0&3&0
 \\-2&0&0&-2
 \\0&-5&-4&3
 \\0&-3&-4&0\end{bmatrix}
-\\&&(\text{using a 1st column expansion})
+\quad(\text{using a 3rd row expansion})
 \\&=&3(-1)^3(-2)\det\begin{bmatrix}0&3&0
 \\-5&-4&3
 \\-3&-4&0\end{bmatrix}
-\\&&(\text{using a 3rd column expansion})
+\quad(\text{using a 1st column expansion})
 \\&=&6(-1)^53\det\begin{bmatrix}0&3
 \\-3&-4\end{bmatrix}
+\quad(\text{using a 3rd column expansion})
 \\&=&-18(0+9)=-162\,.
 \end{eqnarray*}
 This is the constant term in the characteristic polynomial.
@@ -360,10 +350,9 @@ The only eigenvalue is \(\lambda=3\) with multiplicity two.
 \\-1&-\lambda&-1
 \\0&-3&1-\lambda\end{bmatrix}
 \\&=&(1+\lambda)\lambda(1-\lambda)+0-6
-\\&&{}
 -0+3(1+\lambda)+(1-\lambda)
 \\&=&-\lambda^3+3\lambda-2
-\\&=&-(\lambda-1)^2(\lambda+2)=0\,.
+=-(\lambda-1)^2(\lambda+2)=0\,.
 \end{eqnarray*}
 Eigenvalues are \(\lambda=1\) with multiplicity two, and \(\lambda=-2\) with multiplicity one.
 \end{solution}
@@ -378,10 +367,10 @@ Eigenvalues are \(\lambda=1\) with multiplicity two, and \(\lambda=-2\) with mul
 &=&\det\begin{bmatrix}-1-\lambda&0&-2
 \\0&-3-\lambda&2
 \\0&-2&1-\lambda\end{bmatrix}
-\\&=&(-1-\lambda)\det\begin{bmatrix} -3-\lambda&2
+=(-1-\lambda)\det\begin{bmatrix} -3-\lambda&2
 \\-2&1-\lambda \end{bmatrix}
 \\&=&-(1+\lambda)\big[(-3-\lambda)(1-\lambda)+4\big]
-\\&=&-(\lambda+1)\big[\lambda^2+2\lambda+1\big]
+=-(\lambda+1)\big[\lambda^2+2\lambda+1\big]
 \\&=&-(\lambda+1)^3=0\,.
 \end{eqnarray*}
 The only eigenvalue is \(\lambda=-1\) with multiplicity three.
@@ -398,10 +387,9 @@ The only eigenvalue is \(\lambda=-1\) with multiplicity three.
 \\-5&3-\lambda&-5
 \\5&-2&-2-\lambda\end{bmatrix}
 \\&=&(2-\lambda)(3-\lambda)(-2-\lambda)+0-10
-\\&&{}
 +5(3-\lambda)-10(2-\lambda)-0
 \\&=&-\lambda^3+3\lambda^2+9\lambda-27
-\\&=&-(\lambda-3)^2(\lambda+3)=0\,.
+=-(\lambda-3)^2(\lambda+3)=0\,.
 \end{eqnarray*}
 Eigenvalues are \(\lambda=3\) with multiplicity two, and \(\lambda=-3\) with multiplicity one.
 \end{solution}
@@ -413,8 +401,8 @@ The characteristic equation is
 \begin{eqnarray*}
 \det(E-\lambda I)
 &=&\det\begin{bmatrix} -\lambda&1\\-1&1-\lambda \end{bmatrix}
-\\&=&-\lambda(1-\lambda)+1
-\\&=&\lambda^2-\lambda+1=0\,.
+=-\lambda(1-\lambda)+1
+=\lambda^2-\lambda+1=0\,.
 \end{eqnarray*}
 This \idx{quadratic equation} does not factor easily so use the formula 
 \begin{equation*}
@@ -438,7 +426,8 @@ for \(\i=\sqrt{-1}\), are two eigenvalues (non-real complex valued) each of mult
 \begin{example} \label{eg:multeval}
 Use \index{eig()@\texttt{eig()}}\verb|eig()| in \script\  to find the \idx{eigenvalue}s and their \idx{multiplicity} for the following matrices.
 Recall (\cref{tbl:mtlbeig}) that executing just \verb|eig(A)| gives a column vector of eigenvalues of~\(A\), repeated according to their \idx{multiplicity}. 
-\begin{enumerate}
+
+\begin{Parts}
 \item \(\begin{bmatrix}2&2&-1
 \\0&1&-2
 \\0&-1&0\end{bmatrix}\)
@@ -456,6 +445,7 @@ ans =
 \end{verbatim}
 So the eigenvalue \(\lambda=2\) has multiplicity two, and the eigenvalue \(\lambda=-1\) has multiplicity one.
 \end{solution}
+
 
 \item \(\begin{bmatrix}-2&-2&-5&0
 \\0&-2&2&1
@@ -486,6 +476,7 @@ ans =
 \end{verbatim}
 There are two complex-valued eigenvalues, evidently \(1\pm\sqrt2\i\), each of multiplicity one, and also the (real) eigenvalue \(\lambda=-3\) which has multiplicity two.
 \end{solution}
+
 
 \begin{reduce}
 \item \(\begin{bmatrix}3&-1&-2&1&-2
@@ -555,7 +546,7 @@ There is one eigenvalue of multiplicity one, \(\lambda=4\).
 The last three components of~\verb|ans| appears to indicate the eigenvalue \(\lambda=-1\) with multiplicity three.
 \end{solution}
 
-\end{enumerate}
+\end{Parts}
 \end{example}
 
 
@@ -594,13 +585,7 @@ If an \idx{eigenvalue} is repeated in the diagonal of~\verb|D| (\idx{multiplicit
 For the matrix \(A=\begin{bmatrix}2&0&-1
 \\-5&3&-5
 \\5&-2&-2\end{bmatrix}\), which one of the following vectors satisfy \((A-3I)\xv=\ov\) and hence is an eigenvector of~\(A\) corresponding to eigenvalue~\(3\)?
-\actposs{\(\xv=(1,5,-1)\)}{\(\xv=(1,5,5)\)}{\(\xv=(0,1,0)\)}{\(\xv=(-1,0,1)\)}
-%\begin{enumerate}
-%\item \(\xv=(1,5,5)\)
-%\item \(\xv=(0,1,0)\)
-%\item \(\xv=(-1,0,1)\)
-%\item \(\xv=(1,5,-1)\)
-%\end{enumerate}
+\actposs[4]{\(\xv=(1,5,-1)\)}{\(\xv=(1,5,5)\)}{\(\xv=(0,1,0)\)}{\(\xv=(-1,0,1)\)}
 \end{activity}
 
 
@@ -686,15 +671,15 @@ D =
 \end{verbatim}
 The diagonal matrix~\verb|D| confirms that the eigenvalues are \(\lambda=-2\) (multiplicity one) and \(\lambda=1\) (multiplicity two). 
 The first column of~\verb|V| confirms the eigenspace 
-\begin{eqnarray*}
-\EE_{-2}&=&\Span\{(-0.5774,-0.5774,-0.5774)\}
-\\&=&\Span\{(1,1,1)\}.
-\end{eqnarray*}
+\begin{equation*}
+\EE_{-2}=\Span\{(-0.5774,-0.5774,-0.5774)\}
+=\Span\{(1,1,1)\}.
+\end{equation*}
 Whereas the last two columns of~\verb|V| confirm the eigenspace 
-\begin{eqnarray*}
-\EE_1&=&\Span\{(0.7071,0,-0.7071),(-0.7071,0,0.7071)\}
-\\&=&\Span\{(-1,0,1)\}.
-\end{eqnarray*}
+\begin{equation*}
+\EE_1=\Span\{(0.7071,0,-0.7071),(-0.7071,0,0.7071)\}
+=\Span\{(-1,0,1)\}.
+\end{equation*}
 \end{solution}
 
 \item[\ref{eg:faem:c}]
@@ -762,15 +747,14 @@ A=\begin{bmatrix}0&3&0&0&0
 Adopt \cref{pro:geneig}.
 \begin{enumerate}
 \item The characteristic equation is
-\begin{eqnarray*}
-&&\det(A-\lambda I)
-\\&=&\begin{vmatrix}-\lambda&3&0&0&0
+\begin{align*}
+&\det(A-\lambda I)
+\\&=\begin{vmatrix}-\lambda&3&0&0&0
 \\1&-\lambda&3&0&0
 \\0&1&-\lambda&3&0
 \\0&0&1&-\lambda&3
 \\0&0&0&1&-\lambda\end{vmatrix}
-\\&&(\text{then by first row expansion~\eqref{eq:detlet}})
-\\&=&(-\lambda)\begin{vmatrix}-\lambda&3&0&0
+\\&=(-\lambda)\begin{vmatrix}-\lambda&3&0&0
 \\1&-\lambda&3&0
 \\0&1&-\lambda&3
 \\0&0&1&-\lambda\end{vmatrix}
@@ -778,29 +762,29 @@ Adopt \cref{pro:geneig}.
 \\0&-\lambda&3&0
 \\0&1&-\lambda&3
 \\0&0&1&-\lambda\end{vmatrix}
-\\&&(\text{then by first row and first column, respectively})
-\\&=&(-\lambda)^2\begin{vmatrix}-\lambda&3&0
+\quad(\text{by first row expansion~\eqref{eq:detlet}})
+\\&=(-\lambda)^2\begin{vmatrix}-\lambda&3&0
 \\1&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
 -(-\lambda)3\begin{vmatrix}1&3&0
 \\0&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
-\\&&{}
 -3\begin{vmatrix}-\lambda&3&0
 \\1&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
-\\&&(\text{then by common factor, and first column expansion})
-\\&=&(\lambda^2-3)\begin{vmatrix}-\lambda&3&0
+\quad\parbox[c]{7em}{({by first row and first column, respectively})}
+\\&=(\lambda^2-3)\begin{vmatrix}-\lambda&3&0
 \\1&-\lambda&3
 \\0&1&-\lambda\end{vmatrix}
 +3\lambda\begin{vmatrix}-\lambda&3
 \\1&-\lambda\end{vmatrix}
-\\&&(\text{then using~\eqref{eq:dets23b}})
-\\&=&(\lambda^2-3)\big[(-\lambda)^3+0+0-0+3\lambda+3\lambda\big]
+\quad\parbox[c]{10em}{(by common factor, and first column expansion)}
+\\&=(\lambda^2-3)\big[(-\lambda)^3+0+0-0+3\lambda+3\lambda\big]
 +3\lambda(\lambda^2-3)
-\\&=&(\lambda^2-3)(-\lambda^3+9\lambda)
-\\&=&-\lambda(\lambda^2-3)(\lambda^2-9)=0\,.
-\end{eqnarray*}
+\quad(\text{using~\eqref{eq:dets23b}})
+\\&=(\lambda^2-3)(-\lambda^3+9\lambda)
+=-\lambda(\lambda^2-3)(\lambda^2-9)=0\,.
+\end{align*}
 The five eigenvalues are thus \(\lambda=0,\pm\sqrt3,\pm3\)\,, all of multiplicity one.
 
 \item Consider each eigenvalue in turn.
@@ -922,11 +906,11 @@ These also agree with the hand calculation.
 
 
 Albeit hidden in \cref{eg:multeval}, \idx{repeated eigenvalue}s are exquisitely sensitive to errors in either the matrix or the computation.
-\begin{aside}
-This optional subsection does not prove the sensitivity: it uses examples to introduce and illustrate.
-\end{aside}
 If the matrix or the computation has an error~\idx{$\epsilon$}\index{error~$\epsilon$}, then expect a repeated eigenvalue of \idx{multiplicity}~\(m\) to appear as \(m\)~eigenvalues all within about~\(\epsilon^{1/m}\) of each other.
 Consequently, when we find or compute \(m\)~eigenvalues all within about~\(\epsilon^{1/m}\), then \emph{suspect} them to be one eigenvalue of multiplicity~\(m\).
+
+This optional subsection does not prove the sensitivity: it uses examples to introduce and illustrate.
+
 
 \begin{example} 
 Explore the eigenvalues of the matrix
@@ -1130,7 +1114,7 @@ The \idx{characteristic equation} of~\(B\) is
 \end{equation*}
 Rearrange this equation to \((\lambda-a)^2=10^{-8}\).  
 Taking square roots gives \(\lambda-a=\pm 10^{-4}\), that is, the eigenvalues of~\(B\) are \(\lambda=a\pm10^{-4}\).
-Because a perturbation to the \idx{symmetric matrix} of \idx{magnitude}~\(10^{-4}\) only changes the eigenvalues by a similar amount, the eigenvalues are \emph{not} sensitive.
+Because a perturbation to the \idx{symmetric matrix} of \idx{magnitude}~\(10^{-4}\) only changes the eigenvalues by a similar amount, the eigenvalues are \text{\emph{not} sensitive.}
 \end{example}
 
 
@@ -1306,11 +1290,14 @@ Such a model empowers predictions.
 
 
 
-\Needspace{6\baselineskip}
+\needlines6
+\begin{wrapfigure}l{0pt}
+\includegraphics{EigGen/P1030879}
+% AJR's photo of an orangutan in Kalimantan
+\end{wrapfigure}
 \begin{example}[orangutans] \label{eg:orang}
 From the following  extract of the \idx{Wikipedia} (2014) entry on \idx{orangutan}s \cite[]{CawthonLang2005} derive a mathematical model for the \idx{age structure} of the orangutans from one year to the next.
-% AJR's photo of an orangutan in Kalimantan
-\marginpar{\includegraphics{EigGen/P1030879}}
+
 \begin{quote}
 Gestation lasts for 9~months, with females giving birth to their first offspring between the ages of 14 and 15~years. Female orangutans have [seven to] eight-year intervals between births, the longest interbirth intervals among the great apes. \ldots\  Infant orangutans are completely dependent on their mothers for the first two years of their lives. The mother will carry the infant during travelling, as well as feed it and sleep with it in the same night nest. For the first four months, the infant is carried on its belly and never relieves physical contact. In the following months, the time an infant spends with its mother decreases. When an orangutan reaches the age of two, its climbing skills improve and it will travel through the canopy holding hands with other orangutans, a behaviour known as ``buddy travel". Orangutans are \idx{juvenile}s from about two to five years of age and will start to temporarily move away from their mothers.  Juveniles are usually weaned at about four years of age. Adolescent orangutans will socialize with their peers while still having contact with their mothers. Typically, orangutans live over 30~years in both the wild and captivity.
 \end{quote}
@@ -1430,8 +1417,8 @@ y5=A*y4
 =\begin{bmatrix} 3.55\\20.75\\20.70 \end{bmatrix}\ \twodp.
 \end{eqnarray*}
   
-\item Lastly, the rule \(\yv(t+1)=A\yv(t)\) with time \(t=4\)~years gives (to complete the marginal plot)
-\marginpar{\begin{tikzpicture}
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \def\temp#1{\addplot+ table[x=t,y=y#1,row sep=\\] {
     t       y1     y2      y3 \\
     0.00    0.00   30.00   15.00 \\
@@ -1450,7 +1437,8 @@ xlabel={$t$\,yrs},ylabel={$y_j$},axis lines=middle
 \temp2
 \temp3
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+Lastly, the rule \(\yv(t+1)=A\yv(t)\) with time \(t=4\)~years gives (to complete the plot on the right)
 \begin{eqnarray*}
 \yv(5)&=&A\yv(4)
 \\&=&\begin{bmatrix} \frac45&0&\frac1{15}
@@ -1460,9 +1448,12 @@ xlabel={$t$\,yrs},ylabel={$y_j$},axis lines=middle
 =\begin{bmatrix} 4.22\\19.38\\21.40 \end{bmatrix}\ \twodp.
 \end{eqnarray*}
 Thus after five years the mathematical model predicts about \(4\)~juveniles, \(19\)~adolescents, and \(21\)~adults (on average).
+\end{figbox}
+
 \end{enumerate}
 The five-year population of \(44\)~females (\(45\)~if you add all the fractions) is the same as the starting population.
 This nearly static total population is no accident, as we next see, and is one reason why orangutans are \text{critically endangered.}
+
 %\emph{Interpret} Two of the three modes decay like~\(e^{-t/5}\) so after ten years or so they are negligible. 
 %What emerges is the remaining mode with age structure of  20\%~juveniles, 40\%~adolescents, and 40\%~adults.
 %A further prediction is that this population remains constant.
@@ -1488,9 +1479,9 @@ A vector \(\yv(t)\in\RR^2\) changes with time~\(t\) according to the model
 \end{equation*}
 First, what is \(\yv(3)\) if the \idx{initial value} \(\yv(0)=(0,1)\)?
 Second, find a general formula for~\(\yv(t)\) from every initial~\(\yv(0)\).
-\begin{solution} 
-First, given \(\yv(0)=(0,1)\) just compute (as drawn in the margin)
-\marginpar{\begin{tikzpicture}
+
+\begin{wrapfigure}[5]r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,domain=0:3, 
 xlabel={time $t$},ylabel={$y_j$},axis lines=middle
 ,only marks,samples=4,xmax=3.9]
@@ -1499,7 +1490,10 @@ xlabel={time $t$},ylabel={$y_j$},axis lines=middle
 \addplot+ {0.25*(-1)^x*2+0.25*3^x*2};
 \addlegendentry{$y_2(t)$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{solution} 
+First, given \(\yv(0)=(0,1)\) just compute (as drawn to the right)
 \begin{eqnarray*}
 \yv(1)&=&A\yv(0)=\begin{bmatrix} 1&-1\\-4&1 \end{bmatrix}
 \begin{bmatrix} 0\\1 \end{bmatrix}
@@ -1578,16 +1572,10 @@ In general, as here, as time~\(t\) increases, the solution~\(\yv(t)\) grows like
 
 \begin{activity}
 For \cref{eg:2x2map}, what is the \idx{particular solution} when \(\yv(0)=(1,1)\)?
-\actposs[1]{\(\yv=\frac34\cdot(-1)^t(1,2)-\frac14\cdot3^t(-1,2)\)}
+\actposs[2]{\(\yv=\frac34\cdot(-1)^t(1,2)-\frac14\cdot3^t(-1,2)\)}
 {\(\yv=-\frac14\cdot(-1)^t(1,2)+\frac34\cdot3^t(-1,2)\)}
 {\(\yv=\frac34\cdot(-1)^t(-1,2)-\frac14\cdot3^t(1,2)\)}
 {\(\yv=4\cdot3^t(-1,2)\)}
-%\begin{enumerate}
-%\item \(\yv=\frac34\cdot(-1)^t(1,2)-\frac14\cdot3^t(-1,2)\)\actans
-%\item \(\yv=-\frac14\cdot(-1)^t(1,2)+\frac34\cdot3^t(-1,2)\)
-%\item \(\yv=\frac34\cdot(-1)^t(-1,2)-\frac14\cdot3^t(1,2)\)
-%\item \(\yv=4\cdot3^t(-1,2)\)
-%\end{enumerate}
 \end{activity}
 
 
@@ -1655,13 +1643,25 @@ For what value(s) of~\(a\) does \cref{thm:dynsol} \emph{not} provide a \idx{gene
 \end{activity}
 
 
-
-
 \begin{example} \label{eg:2x2ccgrow}
 Consider the dynamics of \(\yv(t+1)=A\yv(t)\) for matrix \(A=\begin{bmat} 1&3\\-1&1 \end{bmat}\).
 First, what is \(\yv(3)\) when the \idx{initial value} \(\yv(0)=(1,0)\)?
 Second, find a \idx{general solution}.
 % and interpret its behaviour in time~\(t\).
+
+\needlines6
+\begin{wrapfigure}[3]r{0pt}
+\begin{tikzpicture}
+\begin{axis}[footnotesize,font=\footnotesize, 
+xlabel={time $t$},ylabel={$y_j$},axis lines=middle
+,only marks,xmax=3.9,legend pos=south west]
+\addplot+ coordinates {(0,1)(1,1)(2,-2)(3,-8)};
+\addlegendentry{$y_1(t)$};
+\addplot+ coordinates {(0,0)(1,-1)(2,-2)(3,0)};
+\addlegendentry{$y_2(t)$};
+\end{axis}
+\end{tikzpicture}
+\end{wrapfigure}
 \begin{solution} 
 First, just compute (as illustrated)
 \begin{eqnarray*}
@@ -1675,16 +1675,6 @@ First, just compute (as illustrated)
 \begin{bmatrix} -2\\-2 \end{bmatrix}
 =\begin{bmatrix} -8\\0 \end{bmatrix}.
 \end{eqnarray*}
-\marginpar{\begin{tikzpicture}
-\begin{axis}[footnotesize,font=\footnotesize, 
-xlabel={time $t$},ylabel={$y_j$},axis lines=middle
-,only marks,xmax=3.9,legend pos=south west]
-\addplot+ coordinates {(0,1)(1,1)(2,-2)(3,-8)};
-\addlegendentry{$y_1(t)$};
-\addplot+ coordinates {(0,0)(1,-1)(2,-2)(3,0)};
-\addlegendentry{$y_2(t)$};
-\end{axis}
-\end{tikzpicture}}%
 Interestingly, after three steps in time~\(\yv(3)\) is~\((-8)\) times the initial~\(\yv(0)\).
 This suggest after six steps in time \(\yv(6)\) is \((-8)^2=64\) times the initial~\(\yv(0)\), and so on.
 Perhaps the solution grows in \idx{magnitude} roughly like~\(2^t\) but in some irregular manner---let's see via a \text{general solution.}
@@ -1739,7 +1729,7 @@ For example, this complex formula predicts at time step \(t=1\)
 +\tfrac12(1-\i\sqrt3)\begin{bmatrix} 1\\-\frac \i{\sqrt3} \end{bmatrix}
 \\&=&\frac12\begin{bmatrix} 1+\i\sqrt3+1-\i\sqrt3\\
 \frac \i{\sqrt3}-1-\frac \i{\sqrt3}-1 \end{bmatrix}
-\\&=&\begin{bmatrix} 1\\-1 \end{bmatrix},
+=\begin{bmatrix} 1\\-1 \end{bmatrix},
 \end{eqnarray*}
 as computed directly at the start of this example.
 \end{solution}
@@ -1777,8 +1767,9 @@ grows in magnitude roughly like~\(2^t\) as both components grow like~\(2^t\).
 It is a `rough' growth because the components \(\cos(\theta t)\) and~\(\sin(\theta t)\)  cause `\idx{oscillation}s' in time~\(t\).
 Nonetheless the overall growth like \(|\lambda_1|^t=|\lambda_2|^t=2^t\) is inexorable---and seen previously in the \idx{particular solution} where we observe \(\yv(3)\) is eight times the magnitude of~\(\yv(0)\).
 \end{itemize}
-In general, for both real or \idx{complex eigenvalue}s~\(\lambda\), a term involving the factor~\(\lambda^t\), as time~\(t\) increases,
-\marginpar{\begin{tikzpicture}
+
+\begin{wrapfigure}[5]r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,domain=0:10, 
 xlabel={time $t$},ylabel={$|\lambda|^t$},axis lines=middle
 ,only marks,samples=11,ymin=0,xmax=11.5]
@@ -1789,11 +1780,14 @@ xlabel={time $t$},ylabel={$|\lambda|^t$},axis lines=middle
 \addplot+ {1^x};
 \addlegendentry{$|\lambda|=1$};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+In general, for both real or \idx{complex eigenvalue}s~\(\lambda\), a term involving the factor~\(\lambda^t\), as time~\(t\) increases,
 \begin{itemize}
 \item grows to \idx{infinity} if \(|\lambda|>1\)\,,
 \item decays to zero if \(|\lambda|<1\)\,, and
 \item remains the same \idx{magnitude} if \(|\lambda|=1\)\,.
+\vspace{1\baselineskip}
 \end{itemize}
 
 
@@ -1801,7 +1795,7 @@ xlabel={time $t$},ylabel={$|\lambda|^t$},axis lines=middle
 
 \begin{activity}
 For which of the following values of~\(\lambda\), as time~\(t\) increases, does \(\lambda^t\) grow in an oscillatory fashion?
-\actposs{\(\lambda=-\frac45+\i\frac45\)}
+\actposs[4]{\(\lambda=-\frac45+\i\frac45\)}
 {\(\lambda=-0.8\)}
 {\(\lambda=1.5\)}
 {\(\lambda=\frac35+\i\frac45\)}
@@ -1917,15 +1911,18 @@ Such a static population means that the orangutans \emph{are always} sensitive t
 
 
 
-
+\begin{wrapfigure}l{0pt}
+\includegraphics{EigGen/P1040280}
+% AJR's photo of a serval at Adelaide Zoo
+\end{wrapfigure}
 \begin{example}[servals grow] \label{eg:serval} 
 The \idx{serval} is a member of the cat family that lives in Africa.
 Given next is an extract from \idx{Wikipedia} (2014) of a serval's Reproduction and Life History \cite[pp.~142--151]{Sunquist2002}.
-% AJR's photo of a serval at Adelaide Zoo
-\marginpar{\includegraphics{EigGen/P1040280}}
+
 \begin{quote}
 Kittens are born shortly before the peak breeding period of local rodent populations. A serval is able to give birth to multiple litters throughout the year, but commonly does so only if the earlier litters die shortly after birth. Gestation lasts from~66 to 77~days and commonly results in the birth of two kittens, although sometimes as few as one or as many as four have been recorded.
 
+\end{quote}\ \vspace{-1.5\baselineskip}\begin{quote}%fudge for wrapfig
 The kittens are born in dense vegetation or sheltered locations such as abandoned aardvark burrows. If such an ideal location is not available, a place beneath a shrub may be sufficient. The kittens weigh around~250\,gm at birth, and are initially blind and helpless, with a coat of greyish woolly hair. They open their eyes at~9 to 13~days of age, and begin to take solid food after around a month. At around six months, they acquire their permanent canine teeth and begin to hunt for themselves; they leave their mother at about 12~months of age. They may reach sexual maturity from~12 to 25~months of~age.
 
 Life expectancy is about 10~years in the wild.
@@ -2058,9 +2055,6 @@ Ensure application-like.
 \index{eigen-problem|(}
 
 Recall that \cref{ch:eesm} starts by illustrating the close connection between the \svd\ of a symmetric matrix and the eigenvalues and eigenvectors of that symmetric matrix.
-%\begin{aside}
-%This optional section connects the \svd\ of a general matrix to a symmetric eigen-problem, in principle.
-%\end{aside}%
 This subsection establishes that an \svd\ of a general matrix is closely connected to the eigenvalues and eigenvectors of a specific matrix of double the size.   
 The connection depends upon determinants and solving linear systems and so, in principle, is an approach to compute an \svd\ distinct from the inductive maximization of \cref{sec:psvdt}.
 
@@ -2254,23 +2248,24 @@ Since \(5/\sqrt2=3.5255\) and \(\frac12\ln 2=0.3466\), the exponential fit is \(
 \end{solution}
 \end{example}
 
-
-\begin{activity}
-Plotted in the margin is some points from a function~\(f(t)\).  
-\marginpar{\begin{tikzpicture}[] 
+{% group
+\def\temp{\begin{tikzpicture}[] 
 \begin{axis}[footnotesize,axis lines=middle,xlabel={$t$},ylabel={$f(t)$}
   ,ymin=0,xmax=3.6,ymax=4.9,grid,xtick={0,1,2,3}]
 \addplot+[domain=0:3,samples=4,only marks] {4/3^x};
 \end{axis}\end{tikzpicture}}
+\begin{activity}[\temp]
+Plotted to the right is some points from a function~\(f(t)\).  
 By inspection, decide which of the following exponentials best represents the data plotted?
 \actposs{$f\propto1/3^t$}{$f\propto1/2^t$}{$f\propto e^{-3t}$}{$f\propto e^{-t/2}$}
 \end{activity}
+\vspace*{2ex plus 1ex}
+}
 
 
 Now let's develop the approach of \cref{eg:eidd1} to the more complicated and interesting example of fitting the linear combination of two exponentials to four data points.
 
-
-\begin{example} \label{eg:2expfit}
+\begingroup
 \newcommand{\mytemp}[1]{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 , xlabel={$t\ $},ylabel={$f$},axis lines=middle
@@ -2279,12 +2274,13 @@ Now let's develop the approach of \cref{eg:eidd1} to the more complicated and in
 \ifnum1=#1\addplot+[thick,no marks,domain=0:3.99] {-3/3^x+4/2^x};\fi
 \end{axis}
 \end{tikzpicture}}%
+\begin{wrapfigure}r{0pt} \mytemp0 \end{wrapfigure}
+\begin{example} \label{eg:2expfit}
 Suppose in some chemical or \idx{biochemical experiment} you measure the concentration of a key chemical at four times (as illustrated): 
-\marginpar{\mytemp0}%
 at the start of the experiment, time \(t_1=0\) you measure concentration \(f_1=1\) (in some units); 
 at time \(t_2=1\) the measurement is \(f_2=1\) (again); 
 at \(t_3=2\) the measurement is \(f_3=\frac23=0.6667\)\,; and 
-at \(t_4=3\) the measurement is \(f_4=\frac7{18}=0.3889\) (as plotted in the margin).
+at \(t_4=3\) the measurement is \(f_4=\frac7{18}=0.3889\) (as plotted to the right).
 We generally expect chemical reactions to decay exponentially in time. 
 So our task is to find a specific function of the form
 \begin{equation*}
@@ -2300,9 +2296,12 @@ f(1)=1&\iff&c_1e^{r_1}+c_2e^{r_2}=1\,,\\
 f(2)=\tfrac23&\iff&c_1e^{r_12}+c_2e^{r_22}=\tfrac23\,,\\
 f(3)=\tfrac7{18}&\iff&c_1e^{r_13}+c_2e^{r_23}=\tfrac7{18}\,.
 \end{eqnarray*}
+
+\begin{figbox}{\mytemp1}
 These are four \idx{nonlinear equation}s for the unknown coefficients. However, some algebraic tricks empower us to use our beautiful linear algebra to find the solution.
-\marginpar{\mytemp1}%
-After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as also shown in \text{the margin.}
+After solving these four \idx{nonlinear equation}s,  we ultimately plot the function~\(f(t)\) that interpolates between the data as also shown to \text{the right.}
+\vspace{4ex}
+\end{figbox}
 
 
 \begin{solution} 
@@ -2362,13 +2361,12 @@ Such an algebraic solution interpolates and extrapolates (with caution) \text{th
 Let's find the \idx{general solution} here.
 \begin{enumerate}
 \item The eigenvalues of matrix~\(K\) satisfy the characteristic equation
-\begin{eqnarray*}
-\det(K-\lambda I)&=&\begin{vmatrix} -\lambda&1\\-\frac16& \frac56-\lambda\end{vmatrix}
+\begin{equation*}
+\det(K-\lambda I)=\begin{vmatrix} -\lambda&1\\-\frac16& \frac56-\lambda\end{vmatrix}
 =\lambda^2-\tfrac56\lambda+\tfrac16
-\\&
-=&(\lambda-\tfrac12)(\lambda-\tfrac13)
+=(\lambda-\tfrac12)(\lambda-\tfrac13)
 =0\,.
-\end{eqnarray*}
+\end{equation*}
 So the eigenvalues are \(\lambda_1=\tfrac12\) and \(\lambda_2=\tfrac13\)\,.
 \item For eigenvalue \(\lambda_1=\tfrac12\) every corresponding eigenvector satisfies
 \begin{equation*}
@@ -2552,7 +2550,7 @@ f(t)=4(\tfrac12)^t-3(\tfrac13)^t
 since \(\ln\frac12=-0.6932\) and \(\ln \frac13=-1.0986\)\,.
 \end{solution}
 \end{example}
-
+\endgroup
 
 
 \cref{eg:2expfit} shows one way that fitting exponentials to data can be done with eigenvalues and eigenvectors.
@@ -2637,20 +2635,20 @@ Repeat this question for \(\vv_2=(-3,13)\).
 \begin{solution} To test a proposed eigenvector in this generalized eigen-problem,  multiply by the matrices and compare results.
 \begin{itemize}
 \item To test \(\vv_1=(1,1)\):
-\begin{eqnarray*}
-&&A\vv_1=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}
+\begin{align*}
+&A\vv_1=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}
 =\begin{bmatrix} 0\\4 \end{bmatrix};
-\\&&B\vv_1=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}
+&&B\vv_1=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\begin{bmatrix} 1\\1 \end{bmatrix}
 =\begin{bmatrix} 0\\2 \end{bmatrix}.
-\end{eqnarray*}
+\end{align*}
 Since \(A\vv_1\) is twice \(B\vv_1\) then \(\vv_1\)~is an eigenvector corresponding to eigenvalue \(\lambda_1=2\)\,.
 \item To test \(\vv_2=(-3,13)\):
-\begin{eqnarray*}
-&&A\vv_2=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\begin{bmatrix} -3\\13 \end{bmatrix}
+\begin{align*}
+&A\vv_2=\begin{bmatrix} -2&2\\3&1 \end{bmatrix}\begin{bmatrix} -3\\13 \end{bmatrix}
 =\begin{bmatrix} 32\\4 \end{bmatrix};
-\\&&B\vv_2=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\begin{bmatrix} -3\\13 \end{bmatrix}
+&&B\vv_2=\begin{bmatrix} 3&-3\\2&0 \end{bmatrix}\begin{bmatrix} -3\\13 \end{bmatrix}
 =\begin{bmatrix} -48\\-6 \end{bmatrix}.
-\end{eqnarray*}
+\end{align*}
 Since \(32=-\tfrac23(-48)\) and \(4=-\tfrac23(-6)\), then \(A\vv_2\) is~\(-2/3\) times~\(B\vv_2\), and so \(\vv_2\)~is an eigenvector corresponding to eigenvalue \(\lambda_2=-2/3\)\,.
 \end{itemize}
 \end{solution}
@@ -2682,10 +2680,10 @@ Hence determine the eigenvalues by finding the zeros of the characteristic polyn
 \begin{eqnarray*}
 \det(A-\lambda B)
 &=&\det\begin{bmatrix} -1+\lambda&1-\lambda\\-4+\lambda&0-2\lambda \end{bmatrix}
-\\&=&(-1+\lambda)(-2\lambda)-(-4+\lambda)(1-\lambda)
+=(-1+\lambda)(-2\lambda)-(-4+\lambda)(1-\lambda)
 \\&=&-2\lambda^2+2\lambda+\lambda^2-5\lambda+4
-\\&=&-\lambda^2-3\lambda+4
-\\&=&-(\lambda+4)(\lambda-1).
+=-\lambda^2-3\lambda+4
+=-(\lambda+4)(\lambda-1).
 \end{eqnarray*}
 Hence the only eigenvalues are \(\lambda_1=-4\) and \(\lambda_2=1\)\,.
 \begin{itemize}
@@ -2719,11 +2717,11 @@ Hence determine the eigenvalues by finding the zeros of the characteristic polyn
 \begin{eqnarray*}
 \det(A-\lambda B)
 &=&\det\begin{bmatrix} 2+\lambda&2-\lambda\\-1-\lambda&0+\lambda \end{bmatrix}
-\\&=&(2+\lambda)(\lambda)-(2-\lambda)(-1-\lambda)
+=(2+\lambda)(\lambda)-(2-\lambda)(-1-\lambda)
 \\&=&\lambda^2+2\lambda-2-\lambda^2+\lambda+2
-\\&=&3\lambda+2\,.
+=3\lambda+2\,.
 \end{eqnarray*}
-Hence the only eigenvalue is \(\lambda=-2/3\)\,.
+Hence, from \(3\lambda+2=0\), the only eigenvalue is \(\lambda=-2/3\)\,.
 Here the matrix~\(B\) is not invertible---its determinant is zero---and consequently in this example we do not get the typical full complement of two eigenvalues.
 
 For the only eigenvalue \(\lambda=-2/3\) the corresponding eigenvectors satisfy
@@ -2762,17 +2760,17 @@ Then \(r_k=(\log\lambda_k)/h\).
 Given measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=(j-1)h\) for time-spacing~\(h\) (and starting from time \(t_1=0\) without loss of applicability), we seek to fit the data with a sum of exponentials~\eqref{eq:eiddse}.
 \begin{enumerate}
 \item\label[step]{pro:eia} From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
-\begin{eqnarray*}&&
+\begin{align*}&
 A=\begin{bmatrix} f_2&f_3&\cdots&f_{n+1}
 \\f_3&f_4&\cdots&f_{n+2}
 \\\vdots&\vdots&&\vdots
 \\f_{n+1}&f_{n+2}&\cdots&f_{2n} \end{bmatrix},
-\\&&
+&&
 B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \\f_2&f_3&\cdots&f_{n+1}
 \\\vdots&\vdots&&\vdots
 \\f_{n}&f_{n+1}&\cdots&f_{2n-1} \end{bmatrix}.
-\end{eqnarray*}
+\end{align*}
 \index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| form these two matrices in \script.
 \footnote{This Hankel function is also invoked in exploring El~Ni\~no, \cref{eg:orthbapp}, and walking gaits, \cref{ex:wgpwpd}.  The reason is the same: the columns of matrices~\(A\) and~\(B\) appearing here are precisely the `sliding windows' appearing in the two \idx{Singular Spectrum Analysis} problems.}
 
@@ -2807,7 +2805,6 @@ Since the eigenvalues~\(\lambda\) may be nonreal \idx{complex valued} we need th
 \cref{tbl:mtlbpre,tbl:mtlbbasics,tbl:mtlbops,tbl:mtlbmops,tbl:mtlbsvd,tbl:mtlbimag,tbl:mtlbnorm} this section invokes these functions.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbexpf}
 \smallskip\hrule
 \begin{minipage}{\linewidth}
-%\parbox{\linewidth}{
 \begin{itemize}
 \item \index{hankel()@\texttt{hankel()}}\verb|hankel(x,y)| for two 
 vectors of the same size, \(\verb|x|=(\hlist xn)\) and \(\verb|y|=(\hlist yn)\), when \(x_n=y_1\), forms the \(n\times n\) matrix
@@ -2843,7 +2840,6 @@ The command \index{eig()@\texttt{eig()}|textbf}\verb|[V,D]=eig(A,B)| solves the 
 %\end{equation*}
 \end{itemize}
 \end{minipage}
-%}
 \hrule
 \end{table}
 
@@ -2858,11 +2854,11 @@ Denote the columns of matrices~\(A\) and~\(B\) by vectors of consecutive data va
 \begin{itemize}
 \item First seek a linear transformation, by some \(n\times n\) matrix~\(K\), from one data vector to the next in the form \(\fv_{j+1}=K\fv_j\) for \(j=1,2,\ldots,n\)\,.
 Arrange these \(n\)~equations \(\fv_{j+1}=K\fv_j\) into the one matrix equation
-\begin{eqnarray*}
+\begin{equation*}
 \begin{bmatrix} \fv_2&\fv_3&\cdots&\fv_4 \end{bmatrix}
-&=&\begin{bmatrix} K\fv_1&K\fv_2&\cdots&K\fv_3 \end{bmatrix}
-\\&=&K\begin{bmatrix} \fv_1&\fv_2&\cdots&\fv_3 \end{bmatrix},
-\end{eqnarray*}
+=\begin{bmatrix} K\fv_1&K\fv_2&\cdots&K\fv_3 \end{bmatrix}
+=K\begin{bmatrix} \fv_1&\fv_2&\cdots&\fv_3 \end{bmatrix},
+\end{equation*}
 after factoring the matrix~\(K\).
 That is, matrix~\(K\) satisfies \(A=KB\) (which in principle we could typically solve to obtain \(K=AB^{-1}\)).
 
@@ -2893,8 +2889,7 @@ So the solution \(f_j=\lincomb c{\lambda^{j-1}}n\) becomes the exponential inter
 
 
 
-
-\begin{example} \label{eg:eipiano}
+\begingroup
 \newcommand{\mytemp}[1]{\begin{tikzpicture}
 \def\aone{#1}
 \def\ugh{\ifnum2>\aone xmax=19,xtick={5,10,15},domain=0:19
@@ -2906,8 +2901,9 @@ So the solution \(f_j=\lincomb c{\lambda^{j-1}}n\) becomes the exponential inter
 \ifnum0<\aone\addplot+[smooth,thick,no marks] {cos(deg(2*x/5))*exp(-x/50)};\fi
 \end{axis}
 \end{tikzpicture}}%
+\begin{wrapfigure}r{0pt} \mytemp0 \end{wrapfigure}
+\begin{example} \label{eg:eipiano}
 A damped \idx{piano string} is struck and the sideways displacement of the string is measured at four times, \(5\)\,ms~apart. 
-\marginpar{\mytemp0}%
 The measurements (in~mm) are \(f_1=1.0000\), \(f_2=-0.3766\), \(f_3=-0.5352\) and \(f_4=0.7114\) (as illustrated).  
 Determine, by hand calculation, the \idx{frequency} and damping of the string.%
 \footnote{Some of you may know that identification of frequencies is most commonly done by what is called a \idx{Fourier transform}.  
@@ -2920,15 +2916,15 @@ Follow \cref{pro:ei} by hand.
 \begin{enumerate}
 \item 
 Form the two Hankel matrices from the four data values~\(f_1\), \(f_2\), \(f_3\) and~\(f_4\):
-\begin{eqnarray*}&&
+\begin{align*}&
 A=\begin{bmatrix} f_2&f_3\\f_3&f_4 \end{bmatrix}
 =\begin{bmatrix} -0.3766 & -0.5352
 \\  -0.5352&   0.7114 \end{bmatrix},
-\\&&
+&&
 B=\begin{bmatrix} f_1&f_2\\f_2&f_3 \end{bmatrix}
 =\begin{bmatrix} 1.0000&  -0.3766
 \\  -0.3766&  -0.5352 \end{bmatrix}.
-\end{eqnarray*}
+\end{align*}
 \item 
 With some arithmetic, the determinant 
 \begin{eqnarray*}
@@ -2954,18 +2950,21 @@ c_1+c_2=1\,,
 \end{align*}
 By inspection the solution is \(c_1=c_2=\tfrac12\) (to three decimal places).
 \end{enumerate}
-\marginpar{\mytemp1}%
-We conclude the exponential fit is, as plotted in the margin,
+
+\begin{wrapfigure}r{0pt} \mytemp1 \ \mytemp2\end{wrapfigure}
+We conclude that the exponential fit is, as plotted to the right on two differing time scales,
 \begin{eqnarray*}
 f(t)&=&\tfrac12e^{-20t+400\i t}+\tfrac12e^{-20t-400\i t}
 \\&=&\left(\tfrac12e^{400\i t}+\tfrac12e^{-400\i t}\right)e^{-20t}
 \\&=&\cos(400t)e^{-20t}.
 \end{eqnarray*}
 Interpreting, the cosine factor indicates the piano string oscillates at \(400\)~radians per second which is \(400/(2\pi)=63.66\)~cycles/sec.
-\marginpar{\mytemp2}%
 However, the piano string is damped by the factor~\(e^{-20t}\) so that in just a fraction of a second the oscillations, and the sound, stop.
+\aqed
+
 \end{solution}
 \end{example}
+\endgroup
 
 
 
@@ -3043,7 +3042,6 @@ As before, Euler's formula transforms this to a real form.
 
 
 
-
 \begin{example} 
 \newcommand{\mytemp}[1]{\begin{tikzpicture}
 \def\aone{#1}
@@ -3061,10 +3059,9 @@ As before, Euler's formula transforms this to a real form.
 \ifnum0<\aone\addplot+[smooth,thick,no marks] {1.01-2.28*exp(-0.13*x) +1.26*exp(-0.24*x)};\fi
 \end{axis}
 \end{tikzpicture}}%
-In a \idx{biochemical experiment} every three seconds we measure the concentration of an output chemical as tabulated below (and illustrated in the margin).
+In a \idx{biochemical experiment} every three seconds we measure the concentration of an output chemical as tabulated below (and illustrated to the right).
 Fit a sum of four exponentials to this data.
-\marginpar{\mytemp0}%
-\begin{equation*}
+\begin{align*}&
 \begin{array}{rl}\hline
 \text{secs}&\text{concentration}
 \\\hline0&0.0000
@@ -3077,7 +3074,9 @@ Fit a sum of four exponentials to this data.
 \\21&0.8705
 \\\hline
 \end{array}
-\end{equation*}
+&&
+\raisebox{-8ex}{\mytemp0}
+\end{align*}
 
 \begin{solution} 
 Follow \cref{pro:ei} using \script\ since the required matrices, \(4\times4\), are too big for hand calculation. 
@@ -3157,8 +3156,9 @@ However, the value \verb|rcond=0.008| is poor (\cref{pro:unisol}).
 This \verb|rcond| suggests that the results have two less significant digits than the original data (\cref{thm:erramp}).
 Since the original data is specified to four decimal places, the results are probably only accurate to two decimal~places.
 \end{enumerate}
-Consequently, this analysis fits the data with the exponential sum (as illustrated in the margin)
-\marginpar{\mytemp1}%
+
+\begin{wrapfigure}r{0pt} \mytemp1 \end{wrapfigure}
+Consequently, this analysis fits the data with the exponential sum (as illustrated to the right)
 \begin{eqnarray*}
 f(t)&\approx&1.01\cdot1^{t/3}+0\cdot(-0.47)^{t/3}
 -2.28\cdot0.67^{t/3}+1.26\cdot0.49^{t/3}
@@ -3169,7 +3169,7 @@ f(t)&\approx&1.01\cdot1^{t/3}+0\cdot(-0.47)^{t/3}
 
 
 As with any data fitting, in practical applications be careful about the reliability of the results.
-Sound statistical analysis needs to supplement \cref{pro:ei} to inform us about expected errors and \idx{sensitivity}.
+Sound statistical analysis (taught in Statistics courses)) needs to supplement \cref{pro:ei} to inform us about expected errors and \idx{sensitivity}.
 This problem of fitting exponentials to data is often sensitive \text{to errors.}
 
 The techniques and theory of this subsection generalize to cater for noisy data and for complex \idx{system} interactions with vast amounts of data.
@@ -3618,7 +3618,7 @@ Show your working.
 %d=diag(lams),if length(i)>0,if rand>0.99,d(i,j)=round(ceil(3*rand)),end;end
 %a=p*d*inv(p),[v,d]=eig(a), v=v*diag(1./max(abs(v)))
 %\end{verbatim}
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{bmatrix} -12 & 10
 \\-15 & 13 \end{bmatrix}\), \(\lambda=3\)
 \answer{\(\EE_{3}=\Span\{(2,3)\}\)}
@@ -3658,7 +3658,7 @@ Show your working.
 \\2 & -1 & 4 \end{bmatrix}\), \(\lambda=1\)
 \answer{\(\EE_{1}=\Span\{(2,1,-1),(-1,1,1)\}\)}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -3677,7 +3677,7 @@ For each of the following matrices, Use \script\ to find their eigenvalues, with
 %d=diag(lams),if length(i)>0,d(i,j)=round(ceil(3*rand)),if rand>0.7,d(j,i)=-d(i,j),end;end
 %a=0+round(p*d*inv(p)),[v,d]=eig(a),vt=num2str(conj(v'),2)
 %\end{verbatim}
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{bmatrix} 14 & 3 & -6
 \\14 & -2 & -2
 \\31 & 4 & -11 \end{bmatrix}\)
@@ -3762,7 +3762,7 @@ A=[75 7 -13 -51 -129
 \(\lambda=-1\), twice, \((-0.33,-0.89,-0.22 0,-0.22)\), \((-0.18,-0.81,-0.46,0.25,-0.20)\).}
 
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -3795,7 +3795,7 @@ Give reasons.
 \begin{exercise}  
 For each of the following matrices, use \script\ to compute the eigenvalues, and also to compute the eigenvalues of matrices obtained by adding \idx{random perturbation}s that are roughly of \idx{magnitude}~\(0.0001\) (use \verb|randn|).
 Give reasons for which eigenvalues appear \index{sensitivity}sensitive and which appear to be \text{not sensitive.}
-\begin{enumerate}
+\begin{Parts}
 \item \(\eAii=\begin{bmatrix} 0&-3\\-1&-2 \end{bmatrix}\)
 \answer{Both not sensitive.}
 
@@ -3855,7 +3855,7 @@ Give reasons for which eigenvalues appear \index{sensitivity}sensitive and which
 \answer{\(0.6\) mixed sensitivity!}
 \end{reduce}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -3874,7 +3874,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 %A=0+round(p*d*inv(p)*100)/100,[v,d]=eig(A)
 %y0=round(randn(n,1)*2)+1, y1=y0'*A',y2=y1*A',y3=y2*A'
 %\end{verbatim}
-\begin{enumerate}
+\begin{Parts}
 \item \(A=\begin{bmatrix} 3 & 0
 \\3 & 2 \end{bmatrix}\), 
 \(\yv(0)=\begin{bmatrix} 6
@@ -3936,7 +3936,7 @@ Predict \(\yv(1)\), \(\yv(2)\) and~\(\yv(3)\), for the given initial~\(\yv(0)\).
 \end{reduce}
 
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -3977,14 +3977,16 @@ Derive the matrix~\(A\) in the model \(\yv(t+1)=A\yv(t)\) for the following case
 
 
 
-
+\begin{wrapfigure}l{0pt}
+\includegraphics[width=9em]{EigGen/TasmanianDevil}
+% AJR's photo of a tasmanian devil.
+\end{wrapfigure}
 \begin{exercise}  
 From the following partial description of the \idx{Tasmanian Devil}, 
-\marginpar{\includegraphics[width=\marginparwidth]{EigGen/TasmanianDevil}
-% AJR's photo of a tasmanian devil.
-Tasmanian Devil}
+Tasmanian Devil
 derive a mathematical model in the form \(\yv(t+1)=A\yv(t)\) for the age structure of the Tasmanian Devil.
 By finding eigenvalues, and a corresponding eigenvector for each, predict the long-term growth of the population, and predict the long-term relative numbers of Devils of \text{various ages.}
+
 \begin{quoted}{\idx{Wikipedia} 2016, \cite[pp.~64--6]{Owen2005}}
 Devils are not monogamous, and their reproductive process is very robust and competitive. 
 Males fight one another for the females, and then guard their partners to prevent female infidelity. 
@@ -4002,13 +4004,15 @@ The young become independent after around nine months, so the female spends most
 
 
 
+\begin{wrapfigure}l{0pt}
+\includegraphics[width=9em]{EigGen/africanElephant}
+% AJR's photo of elephant: at Dubbo I think
+\end{wrapfigure}
 \begin{exercise}  
 From the following partial description of the \idx{elephant}, 
-\marginpar{\includegraphics[width=\marginparwidth]{EigGen/africanElephant}
-% AJR's photo of elephant, at Dubbo I think
-African Elephant}
 derive a mathematical model in the form \(\yv(t+1)=A\yv(t)\) for the age structure of the \idx{elephant}.
 By finding eigenvalues, and a corresponding eigenvector for each, predict the long-term growth of the population, and predict the long-term relative numbers of elephants of various ages.
+
 \begin{quoted}{\idx{Wikipedia} 2016 \cite[]{Sukumar2003}}
 Gestation in elephants typically lasts around two years with interbirth intervals usually lasting four to five years. Births tend to take place during the wet season. Calves are born 85\,cm (33\,in) tall and weigh around~120\,kg (260\,lb). Typically, only a single young is born, but twins sometimes occur.  The relatively long pregnancy is maintained by five corpus luteums (as opposed to one in most mammals) and gives the foetus more time to develop, particularly the brain and trunk. As such, newborn elephants are precocial and quickly stand and walk to follow their mother and family herd.  A new calf is usually the centre of attention for herd members.  Adults and most of the other young will gather around the newborn, touching and caressing it with their trunks.  For the first few days, the mother is intolerant of other herd members near her young.  Alloparenting---where a calf is cared for by someone other than its mother---takes place in some family groups.  Allomothers are typically two to twelve years old. When a predator is near, the family group gathers together with the calves in the centre.
 
@@ -4044,17 +4048,16 @@ Females start reproducing after ten months, while males develop functional testi
 
 
 
+\begin{wrapfigure}l{0pt}
+\includegraphics[width=9em]{EigGen/dolphins}
+% AJR's photo of two dolphins
+\end{wrapfigure}
 \begin{exercise}  
 From the following partial description of the \idx{dolphin} (Indo-Pacific bottlenose dolphin), 
-\marginpar{\includegraphics[width=\marginparwidth]{EigGen/dolphins}
-% AJR's photo of two golphins
-%{EigGen/Tursiops_aduncus}
-%\footnotesize\url{https://en.wikipedia.org/wiki/Indo-Pacific_bottlenose_dolphin}
-Two dolphins
-}
 derive a mathematical model in the form \(\yv(t+1)=A\yv(t)\) for the age structure of the \idx{dolphin}.
 (Assume only one calf is born at a time.)
 By finding eigenvalues, and a corresponding eigenvector for each, predict the long-term growth of the population, and predict the long-term relative numbers of \idx{dolphin}s of \text{various ages.}
+
 \begin{quoted}{\idx{Wikipedia} 2016 \cite[pp.~362--5]{Reeves2002}}
 Indo-Pacific bottlenose dolphins live in groups that can number in the hundreds, but groups of five to 15~dolphins are most common.  In some parts of their range, they associate with the common bottlenose dolphin and other dolphin species, such as the humpback dolphin.
 
@@ -4298,7 +4301,7 @@ Explain briefly how the properties established in the previous two
 \begin{exercise} 
 Consider the specified data values~\fv\ at the specified times, and either by hand or using \script\ fit a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
 Plot the data and the curve you \text{have fitted.}
-\begin{enumerate}\sloppy
+\begin{Parts}\sloppy
 \item For times \(0,1,2,3\) the data values are \(\fv=(3, 2.75, 2.5625, 2.4219)\).%
 \answer{\(f=(3/4)^t+2\)}
 
@@ -4344,7 +4347,8 @@ f=[3.250000
 \\ 0.300178
 \\ 0.046636 \end{bmatrix}.\]
 \answer{\(f=3.25(2/3)^t+\tfrac12(3/4)^t-\tfrac12\)}
-  
+
+\needlines7 
 \item For times \(0,2,4,\ldots,10\) the data values are 
 \setbox\ajrqrbox\hbox{\qrcode{% f
 f=[0.16667
@@ -4379,7 +4383,7 @@ f=[0.75000
 \\ 1.85343 \end{bmatrix}.\]
 \answer{\(f=(4/3)^t+\tfrac14(1/2)^t-\tfrac12(3/4)^t\)}
   
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -4405,7 +4409,7 @@ Consider the specified data values~\fv\ of some decaying \idx{oscillation}s at t
 Use \script\ to fit a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+\cdots+c_ne^{r_nt}\).
 Confirm your fit reproduces the data values.
 What frequencies do you detect in the \text{fitted constants?}
-\begin{enumerate}
+\begin{Parts}
 \item  For times \(0,1,2,\ldots,7\) the data values are 
 \setbox\ajrqrbox\hbox{\qrcode{% f
 f=[-0.153161
@@ -4490,7 +4494,7 @@ f=[1.297867
 \\ -0.028936 \end{bmatrix}.\]
 \answer{frequencies \(1.01\) and \(1.53\) radians/sec \twodp}
   
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 

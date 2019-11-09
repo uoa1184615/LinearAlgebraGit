@@ -24,12 +24,12 @@ This section introduces an alternate equivalent approach.
 
 The alternate approach invokes \idx{non-orthogonal coordinates}.
 Start by writing the \idx{population model} as a \idx{system} in terms of vector \(\yv(t)=(y(t),z(t))\), namely
-\begin{eqnarray*}&&
+\begin{align*}&
 \begin{bmatrix} y(t+1)\\z(t+1) \end{bmatrix}
 =\begin{bmatrix} 2y(t)-4z(t)\\-y(t)+2z(t) \end{bmatrix}
-,\\\text{that is,}&&
+,&& \text{that is, }
 \yv(t+1)=\begin{bmatrix} 2&-4\\-1&2 \end{bmatrix}\yv(t).
-\end{eqnarray*}
+\end{align*}
 Now let's ask if there is a basis \(\cP=\{\pv_1,\pv_2\}\) for the \(yz\)-plane that simplifies this matrix-vector system?
 In such a basis every vector may be written as \(\yv=Y_1\pv_1+Y_2\pv_2\) for some scalar components~\(Y_1\) and~\(Y_2\).
 That is,  \([\yv]_\cP=(Y_1,Y_2)\).
@@ -121,6 +121,8 @@ Correspondingly, this eigenvalue~\(1\) is the first entry in the diagonal~\(D\).
 \item The second column of~\(P\) is \(\pv_2=(-1,2)\).
 Multiplying \(A\pv_2=(0+2,-2-2)=(2,-4)=-2\pv_2\) so the second column vector~\(\pv_2\) is an eigenvector of~\(A\) corresponding to the eigenvalue~\(-2\).
 Correspondingly, this eigenvalue~\(-2\) is the second entry in the diagonal~\(D\).
+\aqed
+
 \end{itemize}
 \end{solution}
 \end{example}
@@ -131,7 +133,7 @@ Correspondingly, this eigenvalue~\(-2\) is the second entry in the diagonal~\(D\
 \begin{activity}
 %for it=1:999, p=0+round(randn(2)*3); if abs(det(p))==1,break,end, end, p=p, d=diag(0+round(randn(1,2)*3)), a=p*d*inv(p)
 Given matrix~\(F=\begin{bmatrix} 5&8\\-4&-7 \end{bmatrix}\) has eigenvectors \((-1,1)\) and~\((2,-1)\) corresponding to respective {eigenvalue}s~\(-3\) and~\(1\), what matrix diagonalizes~\(F\) to \(D=\diag(-3,1)\)?
-\actposs{\(\begin{bmatrix} -1&2\\1&-1 \end{bmatrix}\)}
+\actposs[4]{\(\begin{bmatrix} -1&2\\1&-1 \end{bmatrix}\)}
 {\(\begin{bmatrix} -1&1\\2&-1 \end{bmatrix}\)}
 {\(\begin{bmatrix} 2&-1\\-1&1 \end{bmatrix}\)}
 {\(\begin{bmatrix} 2&-1\\1&-1 \end{bmatrix}\)}
@@ -214,11 +216,8 @@ D =
 \end{example}
 
 
-
-\begin{example} \label{eg:sier2eigp}
-Recall the \idx{Sierpinski network} of \cref{eg:sier2eig} (shown in the margin).
-Is the following \(9\times9\) matrix~\(A\) encoding the network diagonalizable?
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}[4]r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
     ,axis equal image, axis lines=none ]
     \addplot[blue,mark=*,domain=40:400,samples=10
@@ -229,7 +228,12 @@ Is the following \(9\times9\) matrix~\(A\) encoding the network diagonalizable?
     ({cos(\x)+0.347*cos(2*\x)}
     ,{sin(\x)-0.347*sin(2*\x)});
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} \label{eg:sier2eigp}
+Recall the \idx{Sierpinski network} of \cref{eg:sier2eig} (shown to the right).
+The following \(9\times9\) matrix~\(A\) encodes the network.  
+Is the matrix diagonalizable?
 \begin{equation*}
 A=\begin{bmatrix}-3&1&1&0&0&0&0&0&1
 \\1&-2&1&0&0&0&0&0&0
@@ -241,9 +245,9 @@ A=\begin{bmatrix}-3&1&1&0&0&0&0&0&1
 \\0&0&0&0&0&0&1&-2&1
 \\1&0&0&0&0&0&1&1&-3 \end{bmatrix}.
 \end{equation*}
+
 \begin{solution} 
 In that example we used \script\ command \verb|[V,D]=eig(A)| to compute a matrix of eigenvectors~\verb|V| and the corresponding diagonal matrix of eigenvalues~\verb|D| where \twodp
-{\small%??
 \begin{verbatim}
 V =
  -0.41  0.51 -0.16 -0.21 -0.45  0.18 -0.40  0.06  0.33
@@ -266,7 +270,6 @@ D =
      0     0     0     0     0     0     0 -0.70     0
      0     0     0     0     0     0     0     0 -0.00
 \end{verbatim}
-}%
 %From these we identify the following eigenspaces:
 %\begin{eqnarray*}
 %&&\EE_{-5}=\Span\{(-1,0,1,-1,0,1,-1,0,1)\};
@@ -286,6 +289,8 @@ Since~\(V\) is orthogonal its column vectors are orthonormal and hence its colum
 Since there exist nine linearly independent eigenvectors, the nine column vectors of~\(V\), the matrix~\(A\) is diagonalizable.
 Further, the product \(V^{-1}AV=D\) for the above diagonal matrix~\(D\) of eigenvalues in the order of the eigenvectors in~\(V\).
 (Also, since \(V\)~is orthogonal, \(\tr VAV=D\).)
+\aqed
+
 \end{solution}
 \end{example}
 
@@ -591,7 +596,7 @@ Find eigenvalues via the characteristic polynomial
 \\&&{}-6(22-\lambda)6+\lambda24(-15)-5(-8)(-16-\lambda)
 \\&\vdots&
 \\&=&-\lambda^3+6\lambda^2-12\lambda+8
-\\&=&-(\lambda-2)^3.
+=-(\lambda-2)^3.
 \end{eqnarray*}
 This characteristic polynomial is zero only for eigenvalue \(\lambda=2\) which is of multiplicity three.
 
@@ -799,6 +804,19 @@ From the above general solution we then know that at time \(t=0\)
 =\begin{bmatrix} 2c_1+2c_2
 \\ -c_1+c_2 \end{bmatrix}
 \end{equation*}
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
+\begin{axis}[small,font=\footnotesize,domain=0:1, 
+xlabel={time $t$},ylabel={females},axis lines=middle
+,legend pos=outer north east]
+\addplot [blue] {2*exp(3*x)+20*exp(-x)};
+\addlegendentry{$y(t)$};
+\addplot [red] {-exp(3*x)+10*exp(-x)};
+\addlegendentry{$z(t)$};
+\end{axis}
+\end{tikzpicture}
+\end{wrapfigure}
 This determines the coefficients: \(2c_1+2c_2=22\)
 and \(-c_1+c_2=9\)\,.
 Adding the first to twice the second gives \(4c_2=40\)\,, that is, \(c_2=10\)\,.
@@ -811,19 +829,7 @@ Consequently, the \idx{particular solution} from this initial population is
 =\begin{bmatrix} 2e^{3t}+20e^{-t}
 \\ -e^{3t}+10e^{-t}\end{bmatrix}.
 \end{equation*}
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[small,font=\footnotesize,domain=0:1, 
-xlabel={time $t$},ylabel={females},axis lines=middle
-,legend pos=outer north east]
-\addplot [blue] {2*exp(3*x)+20*exp(-x)};
-\addlegendentry{$y(t)$};
-\addplot [red] {-exp(3*x)+10*exp(-x)};
-\addlegendentry{$z(t)$};
-\end{axis}
-\end{tikzpicture}
-\end{center}
-The above graph of this solution shows that the population of \(y\)-animals grows in time, whereas the population of \(z\)-animals crashes and becomes extinct at about time \(0.6\)~years.%
+The graph, above-right, of this solution shows that the population of \(y\)-animals grows in time, whereas the population of \(z\)-animals crashes and becomes extinct at about time \(0.6\)~years.%
 \footnote{After time \(0.6\)~years the differential equation model  and its predictions becomes meaningless as there is no biological meaning to a negative number of animals~\(z\).}
 
 
@@ -834,7 +840,7 @@ The forthcoming \cref{thm:ddtsol} confirms that the same approach solves general
 \begin{activity}
 A given \idx{population model} is expressed as the differential equations \(dx/dt=x+y-3z\)\,, \(dy/dt=-2x+z\) and \(dz/dt=-2x+y+2z\)\,.
 This may be written in \idx{matrix-vector form} \(d\xv/dt=A\xv\) for vector \(\xv(t)=(x,y,z)\) and which of the following matrices?
-\actposs{\(\begin{bmatrix} 1&1&-3
+\actposs[4]{\(\begin{bmatrix} 1&1&-3
 \\-2&0&1
 \\-2&1&2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 1&-3&1
@@ -883,15 +889,15 @@ X_n=c_ne^{\lambda_nt},
 \end{equation*}
 where \hlist cn\ are arbitrary constants.
 To rewrite this solution for the original coordinates~\xv\ use
-\begin{eqnarray*}
-\xv&=&P\Xv
+\begin{equation*}
+\xv = P\Xv
 =\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}
 \begin{bmatrix} c_1e^{\lambda_1t}
 \\c_2e^{\lambda_2t}
 \\\vdots
 \\c_ne^{\lambda_nt} \end{bmatrix}
-\\&=&c_1\pv_1e^{\lambda_1t}+c_2\pv_2e^{\lambda_2t}+\cdots+c_n\pv_ne^{\lambda_nt}
-\end{eqnarray*}
+= c_1\pv_1e^{\lambda_1t}+c_2\pv_2e^{\lambda_2t}+\cdots+c_n\pv_ne^{\lambda_nt}
+\end{equation*}
 to derive the solution~\eqref{eq:ddtsol}.
 
 \begin{comment}
@@ -915,8 +921,8 @@ Recalling \(e^0=1\)\,, formula~\eqref{eq:ddtsol} evaluated at \(t=0\)  requires
 \begin{eqnarray*}
 \xv(0)&=&c_1\pv_1e^{\lambda_10}+c_2\pv_2e^{\lambda_20}+\cdots+c_n\pv_ne^{\lambda_n0}
 \\&=&c_1\pv_1+c_2\pv_2+\cdots+c_n\pv_n
-\\&=&\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\cv
-\\&=&P\cv\,.
+=\begin{bmatrix} \pv_1&\pv_2&\cdots&\pv_n \end{bmatrix}\cv
+=P\cv\,.
 \end{eqnarray*}
 Since matrix~\(P\) is invertible, choose constants \(\cv=P^{-1}\xv(0)\) for any given~\(\xv(0)\).
 %\cref{thm:gendiag,thm:ftim3} establish that such an invertible~\(P\) exists for diagonalizable matrices~\(A\).
@@ -929,7 +935,7 @@ Since matrix~\(P\) is invertible, choose constants \(\cv=P^{-1}\xv(0)\) for any 
 \begin{activity}
 Recall that the \idx{differential equation}s \(dy/dt=y-4z\) and \(dz/dt=-y+z\) have a \idx{general solution} \(y(t)=2c_1e^{3t}+2c_2e^{-t}\) and \(z(t)=-c_1e^{3t}+c_2e^{-t}\).
 What are the values of these constants given that \(y(0)=2\) and \(z(0)=3\)?
-\actposs{\(c_1=-1\), \(c_2=2\)}
+\actposs[4]{\(c_1=-1\), \(c_2=2\)}
 {\(c_1=c_2=1\)}
 {\(c_1=0\), \(c_2=-1\)}
 {\(c_1=-2\), \(c_2=0\)}
@@ -943,13 +949,13 @@ Use matrix analysis to find (by hand) a \idx{general solution} to the system of 
 
 \begin{solution} 
 Let vector~\(\uv=(u,v,w)\), and then form the differential equations into the matrix-vector system
-\begin{eqnarray*}
-\D t\uv&=&\begin{bmatrix} \D tu\\\D tv\\\D t w \end{bmatrix}
+\begin{equation*}
+\D t\uv=\begin{bmatrix} \D tu\\\D tv\\\D t w \end{bmatrix}
 =\begin{bmatrix} -2u+2v\\u-2v+w\\2v-2w \end{bmatrix}
-\\&=&\begin{bmatrix} -2&2&0\\1&-2&1\\0&2&-2 \end{bmatrix}
+=\begin{bmatrix} -2&2&0\\1&-2&1\\0&2&-2 \end{bmatrix}
 \begin{bmatrix} u\\v\\w \end{bmatrix}
 =\underbrace{\begin{bmatrix} -2&2&0\\1&-2&1\\0&2&-2 \end{bmatrix}}_A\uv\,.
-\end{eqnarray*}
+\end{equation*}
 To use \cref{thm:ddtsol} we need eigenvalues and eigenvectors of the matrix~\(A\).
 Here the characteristic polynomial of~\(A\) is, using~\eqref{eq:dets23b},
 \begin{eqnarray*}
@@ -957,7 +963,7 @@ Here the characteristic polynomial of~\(A\) is, using~\eqref{eq:dets23b},
 \\&=&-(2+\lambda)^3+0+0-0+2(2+\lambda)+2(2+\lambda)
 \\&=&(2+\lambda)\left[-(2+\lambda)^2+4\right]
 \\&=&(2+\lambda)[-\lambda^2-4\lambda]
-\\&=&-\lambda(\lambda+2)(\lambda+4).
+=-\lambda(\lambda+2)(\lambda+4).
 \end{eqnarray*}
 This determinant is only zero for eigenvalues \(\lambda=0,-2,-4\)\,.
 \begin{itemize}
@@ -1019,11 +1025,10 @@ at time \(t=0\) gives, using the initial conditions and \(e^0=1\)\,,
 +c_3\begin{bmatrix} -1\\1\\-1 \end{bmatrix}
 =\begin{bmatrix} c_1+c_2-c_3\\c_1+c_3\\c_1-c_2-c_3 \end{bmatrix}.
 \end{equation*}
-Solving by hand, the second row requires \(c_3=-c_1\)\,, so the first row then requires \(c_1+c_2+c_1=0\)\,, that is, \(c_2=-2c_1\)\,.
-Putting both of these into the third row requires \(c_1+2c_1+c_1=4\)\,, that is, \(c_1=1\)\,.
-Then \(c_2=-2\) and \(c_3=-1\)\,.
-Consequently, as drawn in the margin, the particular solution is 
-\marginpar{\begin{tikzpicture}
+
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis lines=middle,xlabel={$t$},no marks,thick
 ,domain=0:2.2,smooth,legend pos=north east]
@@ -1034,14 +1039,19 @@ Consequently, as drawn in the margin, the particular solution is
 \addplot+[]{1+2*exp(-2*x)+exp(-4*x)};
 \addlegendentry{$w(t)$};
 \end{axis}
-\end{tikzpicture}}%
-\begin{eqnarray*}
+\end{tikzpicture}
+\end{wrapfigure}
+Solving by hand, the second row requires \(c_3=-c_1\)\,, so the first row then requires \(c_1+c_2+c_1=0\)\,, that is, \(c_2=-2c_1\)\,.
+Putting both of these into the third row requires \(c_1+2c_1+c_1=4\)\,, that is, \(c_1=1\)\,.
+Then \(c_2=-2\) and \(c_3=-1\)\,.
+Consequently, as drawn to the right, the particular solution is 
+\begin{equation*}
 \begin{bmatrix} u\\v\\w \end{bmatrix}
-&=&\begin{bmatrix} 1\\1\\1 \end{bmatrix}
+=\begin{bmatrix} 1\\1\\1 \end{bmatrix}
 -2\begin{bmatrix} 1\\0\\-1 \end{bmatrix}e^{-2t}
 -\begin{bmatrix} -1\\1\\-1 \end{bmatrix}e^{-4t}
-\\&=&\begin{bmatrix} 1-2e^{-2t}+e^{-4t}\\1-e^{-4t}\\1+2e^{-2t}+e^{-4t} \end{bmatrix}.
-\end{eqnarray*}
+=\begin{bmatrix} 1-2e^{-2t}+e^{-4t}\\1-e^{-4t}\\1+2e^{-2t}+e^{-4t} \end{bmatrix}.
+\end{equation*}
 \end{solution}
 \end{example}
 
@@ -1203,9 +1213,9 @@ y(t)=\frac32e^{\i2t}+\frac32e^{-\i2t}
 \quad\text{and}\quad
 z(t)=3\i e^{\i2t}-3\i e^{-\i2t}.
 \end{equation*}
-But recall \idx{Euler's formula} that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for every~\(\theta\).
-Invoking Euler's formula the above particular solution simplifies:
-\marginpar{\begin{tikzpicture}
+
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis lines=middle,xlabel={$t$},no marks,thick
 ,domain=0:10,smooth,legend pos=south east,legend columns=2]
@@ -1214,7 +1224,10 @@ Invoking Euler's formula the above particular solution simplifies:
 \addplot+[]{-6*sin(2*deg(x))};
 \addlegendentry{$z(t)$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+But recall \idx{Euler's formula} that \(e^{\i\theta}=\cos\theta+\i\sin\theta\) for every~\(\theta\).
+Invoking Euler's formula the above particular solution simplifies:
 \begin{eqnarray*}
 y(t)&=&\frac32[\cos2t+\i\sin2t]+\frac32[\cos(-2t)+\i\sin(-2t)]
 \\&=&\frac32\cos2t+\frac32\i\sin2t+\frac32\cos2t-\frac32\i\sin2t
@@ -1223,7 +1236,7 @@ y(t)&=&\frac32[\cos2t+\i\sin2t]+\frac32[\cos(-2t)+\i\sin(-2t)]
 \\&=&3\i\cos2t-3\sin2t-3\i\cos2t-3\sin2t
 \\&=&-6\sin2t\,.
 \end{eqnarray*}
-Because \(y(t)\) and~\(z(t)\) are just trigonometric functions of~\(t\), they oscillate in time~\(t\), as illustrated in the margin.
+Because \(y(t)\) and~\(z(t)\) are just trigonometric functions of~\(t\), they oscillate in time~\(t\), as illustrated above-right.
 \end{solution}
 \end{example}
 
@@ -1253,10 +1266,8 @@ Then the expression for
 \begin{eqnarray*}
 z(t)&=&2\i c_1e^{\i2t}-2\i c_2e^{-\i2t}
 \\&=&2\i\frac{C_1-\i C_2}2[\cos2t+\i\sin2t]
-\\&&{}
 -2\i\frac{C_1+\i C_2}2[\cos2t-\i\sin2t]
 \\&=&(\i C_1+C_2)[\cos2t+\i\sin2t]
-\\&&{}
 +(-\i C_1+C_2)[\cos2t-\i\sin2t]
 \\&=&\i C_1\cos2t-C_1\sin2t+C_2\cos2t+\i C_2\sin2t
 \\&&{}
@@ -1271,7 +1282,7 @@ That is, the corresponding general solution \(z(t)=-2C_1\sin2t+2C_2\cos2t\) is n
 
 
 \begin{reduce}
-\begin{example}[oscillating applications] \label{eg:sprmas}
+\begingroup
 \def\temp#1{\begin{tikzpicture}
 \def\ugh{\ifnum0=#1 axis x line=none
 \else axis x line=middle,xlabel={$x$},xtick={0}\fi}
@@ -1284,12 +1295,16 @@ That is, the corresponding general solution \(z(t)=-2C_1\sin2t+2C_2\cos2t\) is n
 \addlegendentry{mass $m$};
 \end{axis}
 \end{tikzpicture}}
+\begin{wrapfigure}r{0pt} \temp0 \end{wrapfigure}
+\begin{example}[oscillating applications] \label{eg:sprmas}
 A huge variety of vibrating systems are analogous to the basic \idx{oscillation}s of a mass on a spring, 
-\marginpar{\temp0}illustrated schematically in the margin.
+illustrated schematically to the right.
 The mass generally oscillates to and fro.  
 Describe such a system mathematically with two differential equations, and solve the differential equations to confirm \text{it oscillates.}
+
+\begin{wrapfigure}r{0pt} \temp1 \end{wrapfigure}
 \begin{solution} 
-At every time~\(t\), let the position of the mass relative to its rest position be denoted by~\(x(t)\): that is, we put an \(x\)-axis on the picture with \(x=0\) where the mass would stay at rest, \marginpar{\temp1} as illustrated.
+At every time~\(t\), let the position of the mass relative to its rest position be denoted by~\(x(t)\): that is, we put an \(x\)-axis on the picture with \(x=0\) where the mass would stay at rest, as illustrated.
 At every time~\(t\) let the mass be moving with velocity~\(v(t)\) (positive to the right, negative to the left).
 Then we know one differential equation, that \(\D tx=v\).
 
@@ -1339,15 +1354,12 @@ Substitute these relations into the above general solution, and using Euler's fo
 \begin{eqnarray*}
 x(t)&=&c_1e^{\i\sqrt{k/m}t}+c_2e^{-\i\sqrt{k/m}t}
 \\&=&\frac{C_1-\i C_2}2\big[\cos(\sqrt{k/m}t)+\i\sin(\sqrt{k/m}t)\big]
-\\&&{}
 +\frac{C_1+\i C_2}2\big[\cos(\sqrt{k/m}t)-\i\sin(\sqrt{k/m}t)\big]
 \\&=&
 \frac{C_1}2\cos(\sqrt{k/m}t)+\i\frac{C_1}2\sin(\sqrt{k/m}t)
-\\&&{}
 -\i\frac{C_2}2\cos(\sqrt{k/m}t)+\frac{C_2}2\sin(\sqrt{k/m}t)
 \\&&{}
 +\frac{C_1}2\cos(\sqrt{k/m}t)-\i\frac{C_1}2\sin(\sqrt{k/m}t)
-\\&&{}
 +\i\frac{C_2}2\cos(\sqrt{k/m}t)+\frac{C_2}2\sin(\sqrt{k/m}t)
 \\&=&C_1\cos(\sqrt{k/m}t)+C_2\sin(\sqrt{k/m}t).
 \end{eqnarray*}
@@ -1355,6 +1367,7 @@ For every value of the arbitrary constants~\(C_1\) and~\(C_2\), this formula des
 Similarly for the velocity~\(v(t)\) (\cref{ex:sprmas}).
 \end{solution}
 \end{example}
+\endgroup
 \end{reduce}
 
 

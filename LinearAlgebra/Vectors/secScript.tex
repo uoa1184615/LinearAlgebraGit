@@ -107,8 +107,7 @@ ans =  2.2361
 \end{tabular}
 
 This computes the answer \(|(2,-1)|=\sqrt{2^2+(-1)^2}=\sqrt5=2.2361\) (to five significant digits which we take to be practically exact).
-
-\ifinQRcodes
+\ifinQRcodes\par
 The \idx{qr-code} appearing in the margin here encodes these \script\ commands.  
 \setbox\ajrqrbox\hbox{\qrcode{% vector length
 a=[2;-1]
@@ -382,13 +381,11 @@ error: operator +: nonconformant arguments
 \end{example}
 
 
-
-
-\begin{activity}
+\needlines8
+\begin{activity}\label{acvecsub}
 You enter the two vectors into \script[1]\ by typing \verb|u=[1.1;3.7;-4.5]| and \verb|v=[1.7;0.6;-2.6]|.
-\begin{itemize}
-\item Which of the following is the result of typing the command \verb|u-v|?
-\actposs{\tt\begin{tabular}r
+Which of the following is the result of typing the command \verb|u-v|?
+\actposs[4]{\tt\begin{tabular}r
    -0.6000\\
     3.1000\\
    -1.9000
@@ -396,17 +393,21 @@ You enter the two vectors into \script[1]\ by typing \verb|u=[1.1;3.7;-4.5]| and
     2.8000\\
     4.3000\\
    -7.1000
-\end{tabular}}{\tt\begin{tabular}{p{9em}}
-Error using  * \\
+\end{tabular}}{\tt\begin{tabular}{p{8em}}
+Error using~* 
 Inner matrix dimensions must agree. 
 \end{tabular}}{\tt\begin{tabular}r
     2.2000\\
     7.4000\\
    -9.0000
 \end{tabular}}
-\item Which is the result of typing the command \verb|2*u|? %d
-\item Which is the result of typing the command \verb|u*v|? %c
-\end{itemize}
+\end{activity}
+
+
+\begin{activity} 
+For the vectors of the previous \cref{acvecsub}:
+ which is the result of typing the command \verb|2*u|? %d
+ which is the result of typing the command \verb|u*v|? %c
 \end{activity}
 
 
@@ -468,6 +469,7 @@ Verify the \idx{distributive law} for the \idx{dot product} \((\uv+\vv)\cdot\wv=
 \begin{solution} 
 In \script\
 
+\needlines6
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
 Assign vector \(\uv=(-0.1,-3.1,-2.9,-1.3)\)  with the command \verb|u=[-0.1;-3.1;-2.9;-1.3]| as shown to the right.
 &\begin{verbatim}
@@ -534,7 +536,7 @@ That the two answers agree verifies the distributive law for dot products.
 \end{reduce}
 
 
-
+\needlines8
 \begin{activity}
 Given two vectors~\uv\ and~\vv\ that have already been typed into \script,
 which of the following expressions could check the identity that \((\uv-2\vv)\cdot(\uv+\vv)=\uv\cdot\uv-\uv\cdot\vv-2\vv\cdot\vv\)\,?
@@ -542,12 +544,6 @@ which of the following expressions could check the identity that \((\uv-2\vv)\cd
 {\tt (u-2*v)*(u+v)-u*u+u*v+2*v*v}
 {\tt dot(u-2v,u+v)-dot(u,u)+dot(u,v)+2dot(v,v)}
 {None of the others}
-%\begin{enumerate}
-%\item \verb|(u-2*v)*(u+v)-u*u+u*v+2*v*v|
-%\item\actans \verb|dot(u-2*v,u+v)-dot(u,u)+dot(u,v)+2*dot(v,v)|
-%\item \verb|dot(u-2v,u+v)-dot(u,u)+dot(u,v)+2dot(v,v)|
-%\item None of the others.
-%\end{enumerate}
 \end{activity}
 
 

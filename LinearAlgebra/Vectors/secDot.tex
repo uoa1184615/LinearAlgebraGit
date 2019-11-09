@@ -12,19 +12,20 @@ The previous \cref{sec:asv} discussed how to add, subtract and stretch vectors.
 Question: can we multiply two vectors?
 The answer is that `vector multiplication' has major differences to the multiplication of scalar numbers.
 There are at least four ways of multiplying vectors together: each way useful in appropriate circumstances.
-\begin{aside}
 Often the angle between vectors is denoted by the Greek letter theta,~\(\theta\).
-\end{aside}%
 This section introduces one such multiplication, the so-called dot product of two vectors that, among other attributes, gives a valuable way to determine the angle between \text{two vectors.}
 
-\begin{example} \label{eg:ezyang}
-Consider the two vectors \(\uv=(7,-1)\) and \(\vv=(2,5)\) plotted in the margin.
+{%begingroup
+\needlines{11}
 \def\vecopsHook{\node[above] at (axis cs:0,0) {$\qquad\theta$};}
-\marginpar{\vecops07{-1}25}
+\begin{wrapfigure}r{0pt}\begin{tabular}c
+\vecops07{-1}25\\\vecops37{-1}25
+\end{tabular}\end{wrapfigure}
+\begin{example} \label{eg:ezyang}
+Consider the two vectors \(\uv=(7,-1)\) and \(\vv=(2,5)\) plotted first to the right.
 What is the angle~\(\theta\) between the two vectors?
 \begin{solution} 
-Form a triangle with the vector \(\uv-\vv=(5,-6)\) going from the tip of~\vv\ to the tip of~\uv, as shown in the margin.
-\marginpar{\vecops37{-1}25}%
+Form a triangle with the vector \(\uv-\vv=(5,-6)\) going from the tip of~\vv\ to the tip of~\uv, as plotted second.
 The sides of the triangles are of length \(|\uv|=\sqrt{7^2+(-1)^2}=\sqrt{50}=5\sqrt2\), \(|\vv|=\sqrt{2^2+5^2}=\sqrt{29}\), and \(|\uv-\vv|=\sqrt{5^2+(-6)^2}=\sqrt{61}\).
 By the \idx{cosine rule} for triangles
 \begin{equation*}
@@ -37,13 +38,12 @@ Here this rule rearranges to
 \\&=&\tfrac12(50+29-61)
 \\&=&9\,.
 \end{eqnarray*}
-\begin{aside}
-Recall that multiplication by~\(180/\pi\) converts an angle from radians to degrees (\(1.3322\cdot180/\pi=76.33^\circ\)).
-\end{aside}%
+(Recall that multiplication by~\(180/\pi\) converts an angle from radians to degrees (\(1.3322\cdot180/\pi=76.33^\circ\)).)
 Dividing by the product of the lengths then gives \(\cos\theta=9/(5\sqrt{58})=0.2364\) 
 so the angle \(\theta =\arccos(0.2364) =1.3322 =76.33^\circ\) as is reasonable from the plots.
 \end{solution}
 \end{example}
+}%endgroup
 
 The interest in this \cref{eg:ezyang} is the number nine on the right-hand side of \(|\uv||\vv|\cos\theta=9\)\,.  
 The reason is that~\(9\) just happens to be~\(14-5\), which in turn just happens to be \(7\cdot2+(-1)\cdot5\), and it is no coincidence that this expression is the same as \(u_1v_1+u_2v_2\) in terms of vector components \(\uv=(u_1,u_2)=(7,-1)\) and \(\vv=(v_1,v_2)=(2,5)\).
@@ -142,10 +142,19 @@ Let's prove this theorem after \text{some examples.}
 \begin{example} 
 Determine the \idx{angle} between the following pairs of vectors.
 \begin{enumerate}
+
 \item \((4,3)\) and \((5,12)\)
+
+\begin{tabular}{@{}p{0.75\linewidth}c@{}}
 \begin{solution} 
-These vectors (shown in the margin) 
-\marginpar{\begin{tikzpicture} 
+These vectors (shown to the right) 
+have length \(\sqrt{4^2+3^2}=\sqrt{25}=5\) and \(\sqrt{5^2+12^2}=\sqrt{169}=13\), respectively.
+Their dot product  \((4,3)\cdot(5,12)=20+36=56\).
+Hence \(\cos\theta =56/(5\cdot13) =0.8615\) and so angle \(\theta =\arccos(0.8615) =0.5325 =30.51^\circ\).
+\end{solution}
+&
+\begin{tikzpicture}%
+[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
   ] 
@@ -155,17 +164,22 @@ These vectors (shown in the margin)
   \addplot[blue,thick,quiver={u=5,v=12},-stealth,mark=empty] coordinates {(0,0)};
   \node[right] at (axis cs:5,12) {$(5,12)$};
 \end{axis}
-\end{tikzpicture}}%
-have length \(\sqrt{4^2+3^2}=\sqrt{25}=5\) and \(\sqrt{5^2+12^2}=\sqrt{169}=13\), respectively.
-Their dot product  \((4,3)\cdot(5,12)=20+36=56\).
-Hence \(\cos\theta =56/(5\cdot13) =0.8615\) and so angle \(\theta =\arccos(0.8615) =0.5325 =30.51^\circ\).
-\end{solution}
+\end{tikzpicture}
+\end{tabular}
 
 
 \item \((3,1)\) and \((-2,1)\)
+
+\begin{tabular}{@{}p{0.75\linewidth}c@{}}
 \begin{solution} 
-These vectors (shown in the margin) 
-\marginpar{\begin{tikzpicture} 
+These vectors (shown to the right) 
+have length \(\sqrt{3^2+1^2}=\sqrt{10}\) and \(\sqrt{(-2)^2+1^2}=\sqrt{5}\), respectively.
+Their dot product  \((3,1)\cdot(-2,1)=-6+1=-5\).
+Hence \(\cos\theta =-5/(\sqrt{10}\cdot\sqrt5) =-1/\sqrt2 =-0.7071\) and so angle \(\theta =\arccos(-1/\sqrt2) =2.3562 =\frac34\pi =135^\circ\) (\cref{tbl:cosines}).
+\end{solution}
+&
+\begin{tikzpicture}%
+[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
   ] 
@@ -175,19 +189,22 @@ These vectors (shown in the margin)
   \addplot[blue,thick,quiver={u=-2,v=1},-stealth,mark=empty] coordinates {(0,0)};
   \node[right] at (axis cs:-2,1) {$(-2,1)$};
 \end{axis}
-\end{tikzpicture}}%
-have length \(\sqrt{3^2+1^2}=\sqrt{10}\) and \(\sqrt{(-2)^2+1^2}=\sqrt{5}\), respectively.
-Their dot product  \((3,1)\cdot(-2,1)=-6+1=-5\).
-Hence \(\cos\theta =-5/(\sqrt{10}\cdot\sqrt5) =-1/\sqrt2 =-0.7071\) and so angle \(\theta =\arccos(-1/\sqrt2) =2.3562 =\frac34\pi =135^\circ\) (\cref{tbl:cosines}).
-\end{solution}
+\end{tikzpicture}
+\end{tabular}
 
 
-
-\begin{reduce}
 \item \((4,-2)\) and \((-1,-2)\)
+
+\begin{tabular}{@{}p{0.75\linewidth}c@{}}
 \begin{solution} 
-These vectors (shown in the margin) 
-\marginpar{\begin{tikzpicture} 
+These vectors (shown to the right) 
+have length \(\sqrt{4^2+(-2)^2}=\sqrt{20}=2\sqrt5\) and \(\sqrt{(-1)^2+(-2)^2}=\sqrt{5}\), respectively.
+Their dot product  \((4,-2)\cdot(-1,-2)=-4+4=0\).
+Hence \(\cos\theta =0/(2\sqrt{5}\cdot\sqrt5) =0\) and so angle \(\theta=\frac12\pi=90^\circ\) (\cref{tbl:cosines}).
+\end{solution}
+&
+\begin{tikzpicture}%
+[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
   ] 
@@ -197,16 +214,11 @@ These vectors (shown in the margin)
   \addplot[blue,thick,quiver={u=-1,v=-2},-stealth,mark=empty] coordinates {(0,0)};
   \node[right] at (axis cs:-1,-2) {$(-1,-2)$};
 \end{axis}
-\end{tikzpicture}}%
-have length \(\sqrt{4^2+(-2)^2}=\sqrt{20}=2\sqrt5\) and \(\sqrt{(-1)^2+(-2)^2}=\sqrt{5}\), respectively.
-Their dot product  \((4,-2)\cdot(-1,-2)=-4+4=0\).
-Hence \(\cos\theta =0/(2\sqrt{5}\cdot\sqrt5) =0\) and so angle \(\theta=\frac12\pi=90^\circ\) (\cref{tbl:cosines}).
-\end{solution}
-\end{reduce}
+\end{tikzpicture}
+\end{tabular}
 
 \end{enumerate}
 \end{example}
-
 
 
 \begin{activity}
@@ -373,8 +385,7 @@ A calculator  (or \script, see \cref{sec:umovc}) then gives the angle \(\theta_{
 A calculator  (or \script, see \cref{sec:umovc}) then gives the angle \(\theta_{bc} =\arccos(1/\sqrt3) =0.9553 =54.74^\circ\) so the sentences are moderately dissimilar.
 
 \end{itemize}
-The following stereo plot schematically draws these three vectors at the correct angles from each other, and with correct lengths, in some abstract coordinate system (\cref{sec:sbd} gives the techniques to do such plots systematically).
-\begin{center}
+\begin{wrapfigure}[7]r{0pt}
 %a=[0 1 1 1 0
 %1 1 0 0 1
 %1 1 1 1 0]'
@@ -391,17 +402,19 @@ The following stereo plot schematically draws these three vectors at the correct
   \threev{1.95}{0.21}{-0.39}{\cv}
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+
+This stereo plot schematically draws these three vectors at the correct angles from each other, and with correct lengths, in some abstract coordinate system (\cref{sec:sbd} gives the techniques to do such plots systematically).\aqed
+\par
 \end{solution}
 \end{example}
 
 
-
-\begin{proof} 
-To prove the Angle \cref{thm:anglev}, form a triangle from vectors \uv, \vv\ and \(\uv-\vv\) as illustrated in the margin.
-\marginpar{%
+\begin{wrapfigure}r{0pt}
 \def\vecopsHook{\node[above] at (axis cs:0,0) {$\qquad\theta$};}
-\vecops37{-1}35}%
+\vecops37{-1}35\end{wrapfigure}
+\begin{proof} 
+To prove the Angle \cref{thm:anglev}, form a triangle from vectors \uv, \vv\ and \(\uv-\vv\) as illustrated to the right.
 Recall and apply the \idx{cosine rule} for triangles
 \begin{equation*}
 |\uv-\vv|^2=|\uv|^2+|\vv|^2-2|\uv||\vv|\cos\theta\,.
@@ -425,9 +438,9 @@ In \(\RR^n\) this rule rearranges to
 \\&=&2\uv\cdot\vv\,.
 \end{eqnarray*}
 Dividing both sides by \(2|\uv||\vv|\) gives \(\cos\theta=\frac{\uv\cdot\vv}{|\uv||\vv|}\) as required.
+\aqed
+
 \end{proof}
-
-
 
 
 
@@ -461,23 +474,25 @@ The kinetic energy dissipates when the barbell hits \text{the floor.}
   \fi
 \end{axis}
 \end{tikzpicture}}
-In general, the applied force and the displacement are not in the same direction (as illustrated in the margin).
+\needlines5
+\begin{wrapfigure}[5]r{0pt}\mytemp0\end{wrapfigure}
+In general, the applied force and the displacement are not in the same direction (as illustrated to the right).
 Consider the general case when a vector force~\Fv\ acts on a body which moves a \idx{displacement vector}~\dv.
-\marginpar{\mytemp0}%
 Then the work done by the force on the body is the length of the displacement times the component of the force in the direction of the displacement---the component of the force at \idx{right-angles} to the displacement does \text{no work.}
 
-As illustrated in the margin, draw a right-angled triangle to decompose the force~\Fv\ into the component~\(F_0\) in the direction of the displacement, and an unnamed component at right-angles.
-\marginpar{\mytemp1}%
+\needlines4
+\begin{wrapfigure}[4]r{0pt}\mytemp1\end{wrapfigure}
+As illustrated to the right, draw a right-angled triangle to decompose the force~\Fv\ into the component~\(F_0\) in the direction of the displacement, and an unnamed component at right-angles.
 Then by the scalar formula, the work done is \(W=F_0|\dv|\).
 As drawn, the force~\Fv\ makes an angle~\(\theta\) to the displacement~\dv: the dot product determines this angle via \(\cos\theta=(\Fv\cdot\dv)/(|\Fv||\dv|)\)  (\cref{thm:anglev}).
 By basic trigonometry, the adjacent side of the force triangle has length \(F_0=|\Fv|\cos\theta=|\Fv|\frac{\Fv\cdot\dv}{|\Fv||\dv|}=\frac{\Fv\cdot\dv}{|\dv|}\).
 Finally, the work done \(W=F_0|\dv|=\frac{\Fv\cdot\dv}{|\dv|}|\dv|=\Fv\cdot\dv\): that is, the work done is the dot product of the vector force and vector displacement.
+\par
 \endgroup
 
 \begin{reduce}
-\begin{example} 
-A sailing boat travels a distance of~\(40\)\,m East and~\(10\)\,m North, as drawn in the margin.
-\marginpar{\begin{tikzpicture} 
+\needlines6
+\begin{wrapfigure}[6]r{0pt}\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal
   , axis lines=middle, xlabel={East}, ylabel={North}
@@ -490,23 +505,26 @@ A sailing boat travels a distance of~\(40\)\,m East and~\(10\)\,m North, as draw
   \addplot[brown,quiver={u=4.9,v=-19.6},-stealth,mark=empty] coordinates {(-5,20)};
   \node[right] at (axis cs:-5,20) {wind};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} 
+A sailing boat travels a distance of~\(40\)\,m East and~\(10\)\,m North, as drawn to the right.
 The wind from abeam of strength and direction \((1,-4)\)\,m/s generates a force \(\Fv=(20,-10)\) (newtons) on the sail, as drawn.
 What is the work done by the wind?
+
 \begin{solution} 
 The direction of the wind is immaterial except for the force it generates.
 The displacement vector \(\dv=(40,10)\)\,m.
-Then the work done is \(W=\Fv\cdot\dv =(40,10)\cdot(20,-10) =800-100 =700\)~joules.
+Then the work done is \(W=\Fv\cdot\dv =(40,10)\cdot(20,-10) =800-100 =700\)~joules. 
 \end{solution}
 \end{example}
 \end{reduce}
 
 
-
 \begin{activity}
 Recall the force of gravity on an object is the mass of the object times the acceleration of gravity,~\(9.8\)\,m/s\({}^2\).
-A 3\,kg~ball is thrown horizontally from a height of~2\,m and lands~10\,m away on the ground: what is the total work done by gravity on the ball?
-\actposs{\(58.8\) joules}{\(19.6\) joules}{\(29.4\) joules}{\(98\) joules}
+A 3\,kg~ball is thrown horizontally from a height of~2\,m and lands~10\,m away on the ground: what is the total work done by gravity on \text{the ball?}
+\actposs[4]{\(58.8\) joules}{\(19.6\) joules}{\(29.4\) joules}{\(98\) joules}
 \end{activity}
 
 
@@ -514,6 +532,9 @@ Finding components of vectors in various directions is called projection.
 Such projection is surprisingly common in applications and is developed much further by \cref{sec:proj}.
 
 \index{work done|)}
+
+
+
 
 
 
@@ -619,10 +640,9 @@ Hence, the vector~\uv\ must be the zero vector~\ov.
 \end{proof}
 
 
-
 \begin{activity}
 For vectors \(\uv,\vv,\wv\) in~\(\RR^n\), which of the following statements is not generally true?
-\actposs[1]{\((2\uv)\cdot(2\vv)=2(\uv\cdot\vv)\)}
+\actposs{\((2\uv)\cdot(2\vv)=2(\uv\cdot\vv)\)}
 {\(\uv\cdot(\vv+\wv)=\uv\cdot\vv+\uv\cdot\wv\)}
 {\(\uv\cdot\vv-\vv\cdot\uv=0\)}
 {\((\uv-\vv)\cdot(\uv+\vv)=\uv\cdot\uv-\vv\cdot\vv\)}
@@ -652,10 +672,12 @@ For the two vectors \(\uv=(3,4)\) and \(\vv=(2,1)\) verify the following three p
 \item Here \(|\uv\cdot\vv|=|3\cdot2+4\cdot1|=10\)\,, whereas  \(|\uv||\vv|=5\sqrt{2^2+1^2}=5\sqrt5=11.180\)\,.  
 Hence \(|\uv\cdot\vv|=10\leq11.180=|\uv||\vv|\).
 
-\item Here \(|\uv+\vv|=|(5,5)|=\sqrt{5^2+5^2}=\sqrt{50}=7.071\)\,, whereas \(|\uv|+|\vv|=5+\sqrt5=7.236\)\,.
+\item 
+\begin{figbox}{\vecops13421}
+Here \(|\uv+\vv|=|(5,5)|=\sqrt{5^2+5^2}=\sqrt{50}=7.071\)\,, whereas \(|\uv|+|\vv|=5+\sqrt5=7.236\)\,.
 Hence \(|\uv+\vv|=7.071\leq7.236=|\uv|+|\vv|\)\,.
-\marginpar{\vecops13421}%
-This is called the triangle inequality because the vectors~\uv, \vv\ and~\(\uv+\vv\) may be viewed as forming a triangle, as illustrated in the margin, and this inequality follows because the length of a side  of a triangle must be less than the sum of the lengths of the other \text{two sides.}
+This is called the triangle inequality because the vectors~\uv, \vv\ and~\(\uv+\vv\) may be viewed as forming a triangle, as illustrated to the right, and this inequality follows because the length of a side  of a triangle must be less than the sum of the lengths of the other \text{two sides.}
+\end{figbox}
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -663,11 +685,8 @@ This is called the triangle inequality because the vectors~\uv, \vv\ and~\(\uv+\
 
 The \idx{Cauchy--Schwarz inequality} is one point of distinction between this `vector multiplication' and \idx{scalar multiplication}: for scalars \(|ab|=|a||b|\), whereas the dot product of vectors is typically less, \(|\uv\cdot\vv|\leq|\uv||\vv|\).
 
-\begin{example} 
-The general proof of the \idx{Cauchy--Schwarz inequality} involves a trick, so let's introduce the trick using the vectors of \cref{eg:triscal}.
-Let vectors \(\uv=(3,4)\) and \(\vv=(2,1)\).
-Then consider the line given parametrically \index{parametric equation}(\cref{def:parlin}) as the \idx{position vector}s \(\xv=\uv+t\vv=(3+2t,4+t)\) for scalar parameter~\(t\)---illustrated in the margin.
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, domain=-2.9:1.9
   ,xlabel={$x$},ylabel={$y$}
@@ -679,7 +698,12 @@ Then consider the line given parametrically \index{parametric equation}(\cref{de
 \addplot[red,thick,quiver={u=2,v=1},-stealth] coordinates {(3,4)};
 \node[below] at (axis cs:5,5) {$\vv$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{example} 
+The general proof of the \idx{Cauchy--Schwarz inequality} involves a trick, so let's introduce the trick using the vectors of \cref{eg:triscal}.
+Let vectors \(\uv=(3,4)\) and \(\vv=(2,1)\).
+Then consider the line given parametrically \index{parametric equation}(\cref{def:parlin}) as the \idx{position vector}s \(\xv=\uv+t\vv=(3+2t,4+t)\) for scalar parameter~\(t\)---illustrated to the right.
 The \idx{position vector}~\xv\ of any point on the line has length~\(\ell\) (\cref{def:veclen}) where
 \begin{eqnarray*}
 \ell^2&=&(3+2t)^2+(4+t)^2
@@ -715,6 +739,7 @@ For all vectors \uv\ and \vv\ in~\(\RR^n\) the following properties hold:
 Except for the first, each property depends upon the previous.
 \begin{description}
 \item[\ref{thm:triscala}]
+Expand an rearrange
 \begin{eqnarray*}
 \sqrt{\uv\cdot\uv}&=&\sqrt{\lincomb uun}\quad(\text{by \cref{def:dotprod}})
 \\&=&\sqrt{u_1^2+u_2^2+\cdots+u_n^2}
@@ -724,8 +749,7 @@ Except for the first, each property depends upon the previous.
 \item[\ref{thm:triscalb}]  
 To prove the Cauchy--Schwarz inequality between vectors~\uv\ and~\vv\ first consider the trivial case when \(\vv=\ov\): then the left-hand side \(|\uv\cdot\vv|=|\uv\cdot\ov|=|\ov|=0\); whereas the right-hand side \(|\uv||\vv|=|\uv||\ov|=|\uv|0=0\); and so the inequality \(|\uv\cdot\vv|\leq|\uv||\vv|\) is satisfied in \text{this case.}
 
-Second, for the case when \(\vv\neq\ov\), consider the line given parametrically by \(\xv=\uv+t\vv\) for (real) scalar parameter~\(t\) (\cref{def:parlin}), as illustrated in the margin.
-\marginpar{\begin{tikzpicture} 
+\begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none, domain=-1.4:2.4 ] 
 \node[left] at (axis cs:0,0) {$O$};
@@ -735,19 +759,21 @@ Second, for the case when \(\vv\neq\ov\), consider the line given parametrically
 \addplot[red,thick,quiver={u=-2,v=1},-stealth] coordinates {(3,1)};
 \node[above] at (axis cs:2,1.5) {$\vv$};
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}}
+Second, for the case when \(\vv\neq\ov\), consider the line given parametrically by \(\xv=\uv+t\vv\) for (real) scalar parameter~\(t\) (\cref{def:parlin}), as illustrated to the right.
 The distance~\(\ell\) of a point on the line from the origin is the length of its position vector, and by property~\ref{thm:triscala}
+\end{figbox}
 \begin{eqnarray*}
 \ell^2&=&\xv\cdot\xv
 \\&=&(\uv+t\vv)\cdot(\uv+t\vv)
-\\&&\quad(\text{then using distributivity~\ref{thm:dotopsf}})
 \\&=&\uv\cdot(\uv+t\vv)+(t\vv)\cdot(\uv+t\vv)
-\\&&\quad(\text{again using distributivity~\ref{thm:dotopsf}})
+\quad(\text{using distributivity~\ref{thm:dotopsf}})
 \\&=&\uv\cdot\uv+\uv\cdot(t\vv)+(t\vv)\cdot\uv+(t\vv)\cdot(t\vv)
-\\&&\quad(\text{using scalar mult.\ property~\ref{thm:dotopse}})
+\quad(\text{again using distributivity~\ref{thm:dotopsf}})
 \\&=&\uv\cdot\uv+t(\uv\cdot\vv)+t(\vv\cdot\uv)+t^2(\vv\cdot\vv)
-\\&&\quad(\text{using~\ref{thm:triscala} and commutativity~\ref{thm:dotopsa}})
+\quad(\text{using scalar mult.\ property~\ref{thm:dotopse}})
 \\&=&|\uv|^2+2(\uv\cdot\vv)t+|\vv|^2t^2
+\quad(\text{using~\ref{thm:triscala} and commutativity~\ref{thm:dotopsa}})
 \\&=&at^2+bt+c,
 \end{eqnarray*}
 a quadratic in~\(t\), with coefficients \(a=|\vv|^2>0\), \(b=2(\uv\cdot\vv)\), and \(c=|\uv|^2\).
@@ -757,30 +783,33 @@ Substituting the particular coefficients here gives
 \(\tfrac14\big[2(\uv\cdot\vv)\big]^2=(\uv\cdot\vv)^2\leq|\vv|^2|\uv|^2\).
 Taking the square-root of both sides then establishes the Cauchy--Schwarz inequality  \(|\uv\cdot\vv|\leq|\uv||\vv|\).
 
+\begin{figbox}{\vecops131{-2}2}
 \item[\ref{thm:triscalc}]
 To prove the triangle inequality between vectors~\uv\ and~\vv\ first observe the Cauchy--Schwarz inequality implies \((\uv\cdot\vv)\leq|\uv||\vv|\) (since the left-hand side has magnitude\({}\leq{}\)the right-hand side).
 Then consider (analogous to the \(t=1\) case of the above)
-\marginpar{\vecops131{-2}2}%
+\end{figbox}
 \begin{eqnarray*}
 |\uv+\vv|^2
 &=&(\uv+\vv)\cdot(\uv+\vv)
-\\&&\quad(\text{then using distributivity~\ref{thm:dotopsf}})
 \\&=&\uv\cdot(\uv+\vv)+\vv\cdot(\uv+\vv)
-\\&&\quad(\text{again using distributivity~\ref{thm:dotopsf}})
+\quad(\text{using distributivity~\ref{thm:dotopsf}})
 \\&=&\uv\cdot\uv+\uv\cdot\vv+\vv\cdot\uv+\vv\cdot\vv
-\\&&\quad(\text{using~\ref{thm:triscala} and commutativity~\ref{thm:dotopsa}})
+\quad(\text{again using distributivity~\ref{thm:dotopsf}})
 \\&=&|\uv|^2+2(\uv\cdot\vv)+|\vv|^2
-\\&&\quad(\text{using Cauchy--Schwarz inequality})
+\quad(\text{using~\ref{thm:triscala} and commutativity~\ref{thm:dotopsa}})
 \\&\leq&|\uv|^2+2|\uv||\vv|+|\vv|^2
+\quad(\text{using Cauchy--Schwarz inequality})
 \\&&{}=(|\uv|+|\vv|)^2.
 \end{eqnarray*}
+\begin{figbox}{\vecops331{-2}2}%
 Take the square-root of both sides to establish the triangle inequality \(|\uv+\vv|\leq|\uv|+|\vv|\).
+The minus case follows (illustrated) because \(|\uv-\vv|=|\uv+(-\vv)|\leq|\uv|+|-\vv|=|\uv|+|\vv|\).   
 
-The minus case follows because \(|\uv-\vv|=|\uv+(-\vv)|\leq|\uv|+|-\vv|=|\uv|+|\vv|\).
-\marginpar{\vecops331{-2}2}%
-
+\end{figbox}
 \end{description}
 \end{proof}
+
+\reParshape
 
 
 \begin{example} 
@@ -833,9 +862,7 @@ We give a special name to vectors at right-angles.
 Two vectors~\uv\ and~\vv\ in~\(\RR^n\) are termed
 \bfidx{orthogonal} (or \bfidx{perpendicular})
 if and only if their dot product \(\uv\cdot\vv=0\)\,.
-\begin{aside}
-The term `orthogonal' derives from the Greek for `right-angled'.
-\end{aside}%
+\footnote{The term `orthogonal' derives from the Greek for `right-angled'.}
 \end{definition}
 
 By convention the \idx{zero vector}~\ov\ is orthogonal to all other vectors.
@@ -870,7 +897,6 @@ Is the dot product zero? or not?
 \end{example}
 
 
-
 \begin{activity}
 Which pair of the following three vectors are orthogonal to each other?
 \(\xv=\iv-2\kv\)\,, \(\yv=-3\iv-4\jv\)\,, \(\zv=-\iv-2\jv+2\kv\)
@@ -901,8 +927,8 @@ That is, \(\iv+\tfrac54\jv-3\kv\) is at right-angles to \(\iv+4\jv+2\kv\).
 The next couple of innocuous looking theorems are vital keys to important results in subsequent chapters.
 
 \index{i@$\iv$}\index{j@$\jv$}%
-To introduce the first theorem, consider the 2D plane and try to draw a nonzero vector at \idx{right-angles} to both the two \idx{standard unit vector}s~\iv\ and~\jv.
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
   ,ymin=-1.1,xmin=-1.1,xmax=1.1,ymax=1.1
@@ -914,8 +940,10 @@ To introduce the first theorem, consider the 2D plane and try to draw a nonzero 
   \node[right] at (axis cs:0,1) {$\jv$};
   \addplot+[quiver={u=rand,v=rand},-stealth] coordinates {(0,0)(0,0)(0,0)};
 \end{axis}
-\end{tikzpicture}}%
-The red vectors in the margin illustrate failed attempts to draw a nonzero vector at right-angles to both~\iv\ and~\jv.
+\end{tikzpicture}
+\end{wrapfigure}
+To introduce the first theorem, consider the 2D plane and try to draw a nonzero vector at \idx{right-angles} to both the two \idx{standard unit vector}s~\iv\ and~\jv.
+The red vectors to the right illustrate failed attempts to draw a nonzero vector at right-angles to both~\iv\ and~\jv.
 It cannot be done. 
 No vector in the plane can be at right-angles to both the standard unit vectors in \text{the plane.}
 
@@ -936,9 +964,8 @@ Then by \cref{def:orthovec} of orthogonality:
 Since \(u_1=u_2=\cdots=u_n=0\) the only vector that is orthogonal to all the standard unit vectors is \(\uv=\ov\), the zero vector.
 \end{proof}
 
-
-To introduce the second theorem, 
-\marginpar{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=none
   ] 
@@ -947,9 +974,10 @@ To introduce the second theorem,
   \addplot[blue,thick,quiver={u=-0.8,v=0.6},-stealth] coordinates {(0,0)};
   \addplot[blue,thick,quiver={u=0.145,v=-0.989},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}%
-imagine trying to draw three unit vectors in any \idx{orientation} in the 2D plane such that all three are at \idx{right-angles} to each other.
-The margin illustrates one attempt.
+\end{tikzpicture}
+\end{wrapfigure}
+To introduce the second theorem, imagine trying to draw three unit vectors in any \idx{orientation} in the 2D plane such that all three are at \idx{right-angles} to each other.
+The picture to the right illustrates one attempt.
 It cannot be done.
 There are at most two vectors in 2D that are all at right-angles to \text{each other.}
 
@@ -960,12 +988,8 @@ In a set of \idx{orthogonal} \idx{unit vector}s in~\(\RR^n\), there can be no mo
 The representation of a vector in~\(\RR^n\) by \(n\)~components (here \cref{def:vecs}) then follows as a consequence, instead of vice-versa as here.}
 \end{theorem}
 
-
-\begin{proof} 
-Use \idx{contradiction}%
-\ifcsname r@sec:pc\endcsname\ (\cref{sec:pc})\fi.
-Suppose there are more than \(n\)~orthogonal unit vectors in the set.
-\marginpar{\rotatebox{53.10}{\begin{tikzpicture} 
+\begin{wrapfigure}r{0pt}
+\rotatebox{53.10}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal image, axis lines=middle,xtick={-1,0,1},ytick={-1,0,1}
   ,ymin=-1.4,ymax=1.4,xmin=-1.4,xmax=1.4 ] 
@@ -976,12 +1000,18 @@ Suppose there are more than \(n\)~orthogonal unit vectors in the set.
   \node[right] at (axis cs:0,1) {$\ev_2$};
   \addplot[blue,thick,quiver={u=-0.704,v=-0.710},-stealth] coordinates {(0,0)};
 \end{axis}
-\end{tikzpicture}}}%
+\end{tikzpicture}}
+\end{wrapfigure}
+\begin{proof} 
+Use \idx{contradiction}%
+\ifcsname r@sec:pc\endcsname\ (\cref{sec:pc})\fi.
+Suppose there are more than \(n\)~orthogonal unit vectors in the set.
 Define a coordinate system for~\(\RR^n\) using the first~\(n\) of the given unit vectors as the \(n\)~standard unit vectors 
-(as illustrated for~\(\RR^2\) in the margin).
+(as illustrated for~\(\RR^2\) to the right).
 \cref{thm:nononz} then says there cannot be any more nonzero vectors orthogonal than these \(n\)~standard unit vectors.
 This contradicts there being more than~\(n\) orthogonal unit vectors.
 To avoid this contradiction the supposition must be wrong; that is, there cannot be more than~\(n\) orthogonal unit vectors in~\(\RR^n\).
+\par
 \end{proof}
 
 
@@ -1006,9 +1036,9 @@ Let's start with an example of the idea in 2D.
 \begin{example} 
 First find the equation of the line that is \idx{perpendicular} to the vector~\((2,3)\) and that passes through the origin.
 Second, find the equation of the line that passes through the point~\((4,1)\) (instead of the origin).
-\begin{solution} 
-Recall that vectors at right-angles have a zero dot product (\cref{sec:ovra}).
-\marginpar{\begin{tikzpicture} 
+
+\begin{wrapfigure}[5]r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, axis lines=middle, xlabel={$x$}, ylabel={$y$}
   ] 
@@ -1018,12 +1048,16 @@ Recall that vectors at right-angles have a zero dot product (\cref{sec:ovra}).
   \addplot[red,thick,quiver={u=-3,v=2},-stealth,mark=empty] coordinates {(0,-0.1)};
   \node[above] at (axis cs:-3,2) {$\xv$};  
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+\begin{solution} 
+Recall that vectors at right-angles have a zero dot product (\cref{sec:ovra}).
 Thus the position vector~\xv\ of every point in the line satisfies the dot product \(\xv\cdot(2,3)=0\)\,.
-For \(\xv=(x,y)\), as illustrated in the margin, \(\xv\cdot(2,3)=2x+3y\) so the equation of the line is \(2x+3y=0\)\,.
+For \(\xv=(x,y)\), as illustrated to the right, \(\xv\cdot(2,3)=2x+3y\) so the equation of the line is \(2x+3y=0\)\,.
 
-When the line goes through \((4,1)\) (instead of the origin), then it is the displacement vector \(\xv-(4,1)\) that must be orthogonal to~\((2,3)\), as illustrated.
-\marginpar{\begin{tikzpicture} 
+\vspace{1\baselineskip}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize, domain=-1:9
   ,axis equal, axis lines=middle, xlabel={$x$}, ylabel={$y$}
   ] 
@@ -1037,9 +1071,12 @@ When the line goes through \((4,1)\) (instead of the origin), then it is the dis
   \addplot[red,thick,quiver={u=-3,v=2},-stealth,mark=empty] coordinates {(4,0.95)};
   \node[right] at (axis cs:1.3,2.8) {$\vec x-(4,1)$};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+\end{wrapfigure}
+When the line goes through \((4,1)\) (instead of the origin), then it is the displacement vector \(\xv-(4,1)\) that must be orthogonal to~\((2,3)\), as illustrated.
 That is, the equation of the line is \((x-4,y-1)\cdot(2,3)=0\).
 Evaluating the dot product gives \(2(x-4)+3(y-1)=0\); that is, \(2x+3y=2\cdot4+3\cdot1=11\) is an equation of the line.
+\aqed\par
 \end{solution}
 \end{example}
 
@@ -1048,8 +1085,8 @@ Evaluating the dot product gives \(2(x-4)+3(y-1)=0\); that is, \(2x+3y=2\cdot4+3
 
 
 \begin{activity}
-What is an equation of the line  that is both through the point~\((4,2)\), and at \idx{right-angles} to the vector~\((1,3)\)?
-\actposs{\(x+3y=10\)}{\(4x+2y=10\)}{\(4x+y=11\)}{\(2x+3y=11\)}
+What is an equation of the line that is both through the point~\((4,2)\), and at \idx{right-angles} to the vector~\((1,3)\)?
+\actposs[4]{\(x+3y=10\)}{\(4x+2y=10\)}{\(4x+y=11\)}{\(2x+3y=11\)}
 \end{activity}
 
 
@@ -1079,10 +1116,10 @@ What is an equation of the line  that is both through the point~\((4,2)\), and a
   \fi
 \end{axis}
 \end{tikzpicture}}}
+\begin{wrapfigure}r{0pt} \mytmp0 \end{wrapfigure}
 Now use the same approach to finding an equation of a plane in~3D.
 The problem is to find the \idx{equation of the plane} that goes through a given point~\(P\) and is \idx{perpendicular} to a given vector~\nv, called a \bfidx{normal vector}.
-As illustrated in stereo below, that means to find all points~\(X\) such that~\(\ovect{PX}\) is orthogonal to~\nv.
-\begin{center}\mytmp0\end{center}
+As illustrated in stereo, that means to find all points~\(X\) such that~\(\ovect{PX}\) is orthogonal to~\nv.
 Denote the position vector of~\(P\) by~\(\pv=(x_0,y_0,z_0)\),  the position vector of~\(X\) by \(\xv=(x,y,z)\), and let the \idx{normal vector} be \(\nv=(a,b,c)\).
 Then, as drawn below, the \idx{displacement vector} \(\ovect{PX}=\xv-\pv=(x-x_0,y-y_0,z-z_0)\) and so for \(\ovect{PX}\) to be orthogonal to~\nv\ requires \(\nv\cdot(\xv-\pv)=0\); that is, an \bfidx{equation of the plane} is
 \begin{equation*}
@@ -1137,8 +1174,8 @@ Write down a \idx{normal vector} to each of the following planes:
 
 
 \begin{activity}
-Which of the following is a normal vector to the plane \(x_2+2x_3+4=x_1\)\,?
-\actposs{\((-1,1,2)\)}{\((1,2,1)\)}{\((1,2,4)\)}{none of these}
+Which vector is a normal vector to the plane \(x_2+2x_3+4=x_1\)\,?
+\actposs[4]{\((-1,1,2)\)}{\((1,2,1)\)}{\((1,2,4)\)}{none of these}
 \end{activity}
 
 
@@ -1154,9 +1191,7 @@ Which of the following is a normal vector to the plane \(x_2+2x_3+4=x_1\)\,?
 An alternative way of describing a plane is via a parametric equation analogous to the parametric equation of a line (\cref{sec:pel}).
 Such a parametric representation generalizes to every dimension (\cref{sec:lcss}).
 
-The basic idea, as illustrated in the margin, is that given any plane (through the origin for the moment), then choosing almost any two vectors in the plane allows us to write all points in the plane as a \idx{sum} of multiples of the two vectors.
-With the given vectors~\uv\ and~\vv\ shown in the margin, illustrated are the points \(\uv+2\vv\), \(\tfrac12\uv-2\vv\) and \(-2\uv+3\vv\).
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}\begin{tikzpicture}
 \newcommand{\ppoint}[2]{
     \pgfmathparse{#1*3+#2*1}\let\h\pgfmathresult
     \pgfmathparse{#1*1+#2*2}\let\v\pgfmathresult
@@ -1182,16 +1217,17 @@ With the given vectors~\uv\ and~\vv\ shown in the margin, illustrated are the po
 \ppoint{0.5}{-2}
 \ppoint{-2}{+3}
 \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+The basic idea, as illustrated to the right, is that given any plane (through the origin for the moment), then choosing almost any two vectors in the plane allows us to write all points in the plane as a \idx{sum} of multiples of the two vectors.
+With the given vectors~\uv\ and~\vv\ shown to the right, illustrated are the points \(\uv+2\vv\), \(\tfrac12\uv-2\vv\) and \(-2\uv+3\vv\).
 Similarly, all points in the plane have a \idx{position vector} in the form \(s\uv+t\vv\) for some scalar parameters~\(s\) and~\(t\).
-The grid shown in the margin illustrates the sum of integral and half-integral multiples.
+The grid shown to the right illustrates the sum of integral and half-integral multiples.
 The formula \(\xv=s\uv+t\vv\) for parameters~\(s\) and~\(t\) is called a parametric \idx{equation of the plane}.
 
 
 
-
-\begin{example} 
-Find a parametric \idx{equation of the plane} that passes through the three points \(P=(-1,2,3)\), \(Q=(2,3,2)\) and \(R=(0,4,5)\), drawn below in stereo.
+\begingroup
 \newcommand{\mytemp}[1]{%
 \qview{50}{55} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
@@ -1212,11 +1248,16 @@ Find a parametric \idx{equation of the plane} that passes through the three poin
 \fi
 \end{axis}
 \end{tikzpicture}}}
-\begin{center}\mytemp0\end{center}
+\needlines{12}
+\begin{wrapfigure}[7]r{0pt}\mytemp0\end{wrapfigure}
+\begin{example} 
+Find a parametric \idx{equation of the plane} that passes through the three points \(P=(-1,2,3)\), \(Q=(2,3,2)\) and \(R=(0,4,5)\), drawn to the right in stereo.
 
 \begin{solution} 
 This plane does not pass through the origin, so we first choose a point and make the description relative to that point: say we choose the point~\(P\) with position vector \(\pv=\ovect{OP}=-\iv+2\jv+3\kv\).
 Then, as illustrated below, two vectors parallel to the required plane are 
+\par\begin{figbox}{\mytemp1}
+\vspace{-1\baselineskip}
 \begin{eqnarray*}
 \uv&=&\ovect{PQ} =\ovect{OQ}-\ovect{OP} 
 \\&=&(2\iv+3\jv+2\kv)-(-\iv+2\jv+3\kv) 
@@ -1225,7 +1266,7 @@ Then, as illustrated below, two vectors parallel to the required plane are
 \\&=&(4\jv+5\kv)-(-\iv+2\jv+3\kv) 
 \\&=&\iv+2\jv+2\kv.
 \end{eqnarray*}
-\begin{center}\mytemp1\end{center} 
+\end{figbox}\par
 Lastly, every point in the plane is the sum of the displacement vector~\pv\ and arbitrary multiples of the parallel vectors~\uv\ and~\vv.
 That is, a parametric equation of the plane is \(\xv=\pv+s\uv+t\vv\) which here is
 \begin{eqnarray*}
@@ -1234,22 +1275,19 @@ That is, a parametric equation of the plane is \(\xv=\pv+s\uv+t\vv\) which here 
 \end{eqnarray*}
 \end{solution}
 \end{example}
-
+\endgroup
 
 
 
 \begin{definition} \label{def:parpla}
-A \bfidx{parametric equation} of a plane is \(\xv=\pv+s\uv+t\vv\) where \pv~is the \idx{position vector} of some point in the plane,   the two vectors~\uv\ and~\vv\ are parallel to the plane (\(\uv,\vv\neq\ov\) and are at a nonzero\slash non-\(\pi\) \idx{angle} to each other), and the scalar \bfidx{parameter}s~\(s\) and~\(t\) vary over all real values to give \idx{position vector}s of all points in the plane.
+A \bfidx{parametric equation} of a plane is \(\xv=\pv+s\uv+t\vv\) where \pv~is the \idx{position vector} of some point in the plane,   the two vectors~\uv\ and~\vv\ are parallel to the plane (\(\uv,\vv\neq\ov\) and are at a nonzero\slash non-\(\pi\) \idx{angle} to each other), and the scalar \bfidx{parameter}s~\(s\) and~\(t\) vary over all real values to give \idx{position vector}s of all points in \text{the plane.}
 \end{definition}
 
 The beauty of this definition is that it applies for planes in any number of dimensions.
 To do so the \idx{parametric equation}s just uses two vectors with the corresponding number \text{of components.}
 
-
-
-\begin{example} 
-Find a parametric \idx{equation of the plane} that passes through the three points \(P=(6,-4,3)\), \(Q=(-4,-18,7)\) and \(R=(11,3,1)\), drawn below in stereo.
-\begin{center}
+\needlines{10}
+\begin{wrapfigure}[8]r{0pt}
 \qview{50}{55} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
   ,axis lines=box, axis equal, view={\q}{25} ]
@@ -1259,7 +1297,9 @@ Find a parametric \idx{equation of the plane} that passes through the three poin
 (6,-4,3)[$P$] (-4,-18,7)[$Q$] (11,3,1)[$R$] };
 \end{axis}
 \end{tikzpicture}}
-\end{center}
+\end{wrapfigure}
+\begin{example} 
+Find a parametric \idx{equation of the plane} that passes through the three points \(P=(6,-4,3)\), \(Q=(-4,-18,7)\) and \(R=(11,3,1)\), drawn to the right in stereo.
 
 \begin{solution} 
 First choose a point and make the description relative to that point: say choose point~\(P\) with position vector \(\pv=\ovect{OP}=6\iv-4\jv+3\kv\).
@@ -1279,10 +1319,7 @@ Hence we cannot answer the question which requires ``the plane''.
 \end{example}
 
 
-
-\begin{example} 
-Find a parametric \idx{equation of the plane} that passes through the three points \(A=(-1.2,2.4,0.8)\), \(B=(1.6,1.4,2.4)\) and \(C=(0.2,-0.4,-2.5)\), drawn below in stereo.
-%Hence determine if the point \(D=(6.7,1.5,2.3)\) is in the plane, or not.
+\begingroup
 \newcommand{\mytemp}[1]{%
 \qview{10}{15} {\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize,height=5cm
@@ -1303,7 +1340,12 @@ Find a parametric \idx{equation of the plane} that passes through the three poin
 \fi
 \end{axis}
 \end{tikzpicture}}}
-\begin{center}\mytemp0\end{center}
+\needlines{10}
+\begin{wrapfigure}[8]r{0pt} \mytemp0 \end{wrapfigure}
+\begin{example} 
+Find a parametric \idx{equation of the plane} that passes through the three points \(A=(-1.2,2.4,0.8)\), \(B=(1.6,1.4,2.4)\) and \(C=(0.2,-0.4,-2.5)\), drawn below in stereo.
+%Hence determine if the point \(D=(6.7,1.5,2.3)\) is in the plane, or not.
+
 \begin{solution} 
 First choose a point and make the description relative to that point: say we choose the point~\(A\) with position vector \(\av=\ovect{OA}=-1.2\iv+2.4\jv+0.8\kv\).
 Then, as illustrated below, two vectors parallel to the required plane are 
@@ -1318,27 +1360,21 @@ Then, as illustrated below, two vectors parallel to the required plane are
 \begin{center}\mytemp1\end{center}
 Lastly, every point in the plane is the sum of the displacement vector~\av, and some multiples of the `parallel' vectors~\uv\ and~\vv.
 That is, a parametric equation of the plane is \(\xv=\av+s\uv+t\vv\) which here is
-\begin{eqnarray*}
-\xv&=&\begin{bmatrix} -1.2\\2.4\\0.8 \end{bmatrix}
+\begin{equation*}
+\xv=\begin{bmatrix} -1.2\\2.4\\0.8 \end{bmatrix}
 +s\begin{bmatrix} 2.8\\-1\\1.6 \end{bmatrix}
 +t\begin{bmatrix} 1.4\\-2.8\\-3.3 \end{bmatrix}
-\\&=&\begin{bmatrix} -1.2+2.8s+1.4t\\2.4-s-2.8t\\0.8+1.6s-3.3t \end{bmatrix}.
-\end{eqnarray*}
+=\begin{bmatrix} -1.2+2.8s+1.4t\\2.4-s-2.8t\\0.8+1.6s-3.3t \end{bmatrix}.
+\end{equation*}
 \end{solution}
 \end{example}
-
+\endgroup
 
 
 
 \begin{activity}
 Which of the following is \emph{not} a \idx{parametric equation} of a plane?
-\actposs[1]{\((4,1,4)+(3,6,3)s+(2,4,2)t\)}{\(\iv+s\jv+t\kv\)}{\((-1,1,-1)s+(4,2,-1)t\)}{\((3s+2t,4+2s+t,4+3t)\)}
-%\begin{enumerate}
-%\item \(\iv+s\jv+t\kv\)
-%\item \((-1,1,-1)s+(4,2,-1)t\)
-%\item \((3s+2t,4+2s+t,4+3t)\)
-%\item \((4,1,4)+(3,6,3)s+(2,4,2)t\) \actans
-%\end{enumerate}
+\actposs{\((4,1,4)+(3,6,3)s+(2,4,2)t\)}{\(\iv+s\jv+t\kv\)}{\((-1,1,-1)s+(4,2,-1)t\)}{\((3s+2t,4+2s+t,4+3t)\)}
 \end{activity}
 
 

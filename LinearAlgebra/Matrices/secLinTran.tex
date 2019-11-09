@@ -10,20 +10,20 @@
 
 \index{linear transformation|(}
 
-\begin{aside}
 This optional section unifies the transformation examples seen so far, and forms a foundation for more advanced algebra. 
-\end{aside}
 
-Recall function notation.
-For example, \(f(x)=x^2\) means that for every \(x\in\RR\) the function~\(f(x)\) gives a result in~\(\RR\), namely the value~\(x^2\), as plotted in the margin.  
-\marginpar{\begin{tikzpicture}
+\begin{wrapfigure}r{0pt}
+\begin{tikzpicture}
   \begin{axis}[footnotesize,font=\footnotesize
   ,xlabel={$x$}, ylabel={$f(x)=x^2$}
   ,axis lines=middle,thick,smooth,axis equal image
   ,domain=-1.3:1.3]
   \addplot+[blue,no marks]{x^2};
   \end{axis}
-\end{tikzpicture}}%
+\end{tikzpicture}
+\end{wrapfigure}
+Recall function notation.
+For example, \(f(x)=x^2\) means that for every \(x\in\RR\) the function~\(f(x)\) gives a result in~\(\RR\), namely the value~\(x^2\), as plotted to the right.  
 We often write \(f:\RR\to\RR\)\index{$\to$|textbf} to denote this functionality: that is, \(f:\RR\to\RR\) means function~\(f\) transforms any given real number into another real number by some \text{specific rule.}
 
 There is analogous functionality in multiple dimensions with vectors: given any vector 
@@ -37,23 +37,27 @@ For example, suppose the function~\(f(\xv)\) is to denote multiplication by the 
 \begin{equation*}
 A=\begin{bmatrix} 1&-\frac13\\\frac12&-1\\-1&-\frac12 \end{bmatrix}.
 \end{equation*}
+
+\needlines8
+\begin{wrapfigure}[7]r{0pt}
+\begin{tikzpicture} 
+\begin{axis}[small,font=\footnotesize
+  ,axis equal image,view={30}{20}
+  ,xlabel=$f_1$,ylabel=$f_2$,zlabel={$f_3$},label shift={-2ex}]
+\addplot3[surf,domain=-1:1,samples=11] ({x-y/3},{x/2-y},{-x-y/2});
+\end{axis}
+\end{tikzpicture}
+\end{wrapfigure}
 Then the function
 \begin{equation*}
 f(\xv)=A\xv
 =\begin{bmatrix} 1&-\frac13\\\frac12&-1\\-1&-\frac12 \end{bmatrix}\begin{bmatrix} x_1\\x_2 \end{bmatrix}
 =\begin{bmatrix} x_1-x_2/3\\x_1/2-x_2\\-x_1-x_2/2 \end{bmatrix}.
 \end{equation*}
-\marginpar{\begin{tikzpicture} 
-\begin{axis}[small,font=\footnotesize
-  ,axis equal image,view={30}{20}
-  ,xlabel=$f_1$,ylabel=$f_2$,zlabel={$f_3$},label shift={-2ex}]
-\addplot3[surf,domain=-1:1,samples=11] ({x-y/3},{x/2-y},{-x-y/2});
-\end{axis}
-\end{tikzpicture}}%
 That is, here \(f:\RR^2\to\RR^3\).  
 Given any vector in the 2D-plane, the function~\(f\), also called a \idx{transformation}, returns a vector in 3D-space.  
 Such a function can be evaluated for every vector \(\xv\in\RR^2\), so we ask what is the shape, the structure, of all the possible results of the function.
-The marginal plot illustrates the subspace formed by this~\(f(\xv)\) for all 2D vectors~\xv.
+The plot to the above-right illustrates the subspace formed by this~\(f(\xv)\) for all 2D vectors~\xv.
 
 
 There is a major difference between `curvaceous' functions like the parabola above, and matrix multiplication functions such as rotation and projection.
@@ -79,30 +83,41 @@ Alternatively one could test Property~\ref{def:lintran:ii} and consider \(f(cx)=
 Either of these prove that \(f\)~is not a \text{linear transformation.}
 \end{solution}
 
-\item Is the function \(T(x)=|x|\), \(T:\RR\to\RR\), a linear transformation? 
-\marginpar{\begin{tikzpicture}
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
 ,xlabel={$x$},ylabel={$T(x)$}]
 \addplot+[no marks]{abs(x)};
 \end{axis}
 \end{tikzpicture}}
+Is the function \(T(x)=|x|\), \(T:\RR\to\RR\), a linear transformation? 
+\vspace{2.5\baselineskip}
+\end{figbox}
+
 \begin{solution} 
 To prove not it is sufficient to find just one instance when \cref{def:lintran} fails. 
 Let \(u=-1\) and \(v=2\)\,, then \(T(u+v)=|-1+2|=|1|=1\) whereas \(T(u)+T(v)=|-1|+|2|=1+2=3\neq T(u+v)\) so the function~\(T\) fails the additivity property~\cref{def:lintran:i} and so is not a \text{linear transformation.}
 \end{solution}
 
-\item Is the function \(g:\RR\to\RR\) such that \(g(x)=-x/2\) a linear transformation?
-\marginpar{\begin{tikzpicture}
+
+
+\item 
+Is the function \(g:\RR\to\RR\) such that \(g(x)=-x/2\) a linear transformation?
+
+\begin{solution} \ \\
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
 ,xlabel={$x$},ylabel={$g(x)$}]
 \addplot+[no marks]{-x/2};
 \end{axis}
 \end{tikzpicture}}
-\begin{solution} 
-Because the graph of~\(g\) is a straight line (as in the marginal picture) we suspect it is a linear transformation.
+Because the graph of~\(g\) is a straight line (as in the right picture) we suspect it is a linear transformation.
 Thus check the properties in full generality:
+\vspace{2ex}
+
+\end{figbox}
 \begin{description}
 \item[\cref{def:lintran:i}] for every \(u,v\in\RR\), \(g(u+v)=-(u+v)/2=-u/2-v/2=(-u/2)+(-v/2)=g(u)+g(v)\);
 \item[\cref{def:lintran:ii}] for every \(u,c\in\RR\), \(g(cu)=-(cu)/2=c(-u/2)=cg(u)\).
@@ -110,33 +125,42 @@ Thus check the properties in full generality:
 Hence \(g\) is a linear transformation.
 \end{solution}
 
-\item Show that the function \(h(y)=2y-3\), \(h:\RR\to\RR\), is not a linear transformation.
-\marginpar{\begin{tikzpicture}
+
+
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[small,font=\footnotesize
 ,axis equal image,axis lines=middle
 ,xlabel={$y$},ylabel={$h(y)$}]
 \addplot+[no marks]{2*x-3};
 \end{axis}
 \end{tikzpicture}}
+Show that the function \(h(y)=2y-3\), \(h:\RR\to\RR\), is not a linear transformation.
+
 \begin{solution} 
-Because the graph of~\(h(y)\) is a straight line (as shown in the margin) we suspect it may be a linear transformation.
+Because the graph of~\(h(y)\) is a straight line (as shown to the right) we suspect it may be a linear transformation.
 To prove not it is enough to find one instance when \cref{def:lintran} fails. 
 Let \(u=0\) and \(c=2\)\,, then \(h(cu)=h(2\cdot0)=h(0)=-3\) whereas \(ch(u)=2h(0)=2\cdot(-3)=-6\neq h(cu)\) so the function~\(g\) fails the multiplication property~\ref{def:lintran:ii} and hence is not a \text{linear transformation.}
 
 This function fails because every linear transformation has to pass through the origin: that is, here we need \(h(0)=0\) but this does not hold so~\(h\) is not a linear transform.
 \end{solution}
+\end{figbox}
 
 \begin{reduce}
-\item Is the function \(S:\ZZ\to\ZZ\) given by \(S(n)=-2n\) a linear transformation?  Here \ZZ~denotes the set of \idx{integer}s \(\ldots,-2,-1,0,1,2,\ldots\)\,.
-\marginpar{\begin{tikzpicture}
+\item 
+\begin{figbox}{\begin{tikzpicture}
 \begin{axis}[footnotesize,font=\footnotesize
 ,axis equal image,axis lines=middle
 ,xlabel={$n$},ylabel={$S(n)$}]
-\addplot+[samples=11,only marks]{-2*x};
+\addplot+[samples=11,only marks]{-x/2};
 \end{axis}
 \end{tikzpicture}}
+Is the function \(S:\ZZ\to\ZZ\) given by \(S(n)=-n/2\) a linear transformation?  Here \ZZ~denotes the set of \idx{integer}s \(\ldots,-2,-1,0,1,2,\ldots\)\,.
+\vspace{1ex}
+\end{figbox}
+
 \begin{solution} 
-No, because the function~\(S\) is here only defined for integers~\ZZ\ (as plotted in the margin) whereas \cref{def:lintran} requires the function to be defined for all reals.%
+No, because the function~\(S\) is here only defined for integers~\ZZ\ (as plotted to the right) whereas \cref{def:lintran} requires the function to be defined for all reals.%
 \footnote{More advanced linear algebra generalizes the definition of a linear transformation to non-reals, but not here.}
 \end{solution}
 \end{reduce}
@@ -390,7 +414,7 @@ This \emph{may} be a linear transformation as the transform of the unit cube loo
 
 \begin{activity}
 Which of the following functions \(f:\RR^3\to\RR^2\) is \emph{not} a linear transformation?
-\actposs[1]{\(f(x,y,z)=(2.7x+3y,1-2z)\)}
+\actposs[2]{\(f(x,y,z)=(2.7x+3y,1-2z)\)}
 {\(f(x,y,z)=(0,0)\)}
 {\(f(x,y,z)=(y,x+z)\)}
 {\(f(x,y,z)=(0,13x+\pi y)\)}
@@ -454,6 +478,7 @@ But first, the following \cref{thm:mattranlin} proves, among many other possibil
 \item stretching\slash shrinking along \idx{coordinate axes} as these are multiplication by a diagonal matrix (\cref{sec:dmd});
 \item \index{reflection}\idx{rotations and/or reflection}s as they arise as multiplications by an \idx{orthogonal matrix} (\cref{sec:omr});
 \item \idx{orthogonal projection} onto a subspace as all such projections may be expressed as multiplication by a matrix (the matrix~\(W\tr W\) in \cref{thm:projmat}).
+\aqed
 \end{itemize}
 \end{example}
 
@@ -505,11 +530,11 @@ For every vector~\xv\ in~\(\RR^n\) we write \(\xv=(\hlist xn)=\lincomb x\ev n\) 
 Then
 \begin{eqnarray*}
 T(\xv)&=&T(\lincomb x\ev n)
-\\&&(\text{then using the identity of \cref{ex:genlintran}})
 \\&=&x_1T(\ev_1)+x_2T(\ev_2)+\cdots+x_nT(\ev_n)
+\quad(\text{using identity of \cref{ex:genlintran}})
 \\&=&\begin{bmatrix} T(\ev_1)& T(\ev_2)&\cdots&T(\ev_n) \end{bmatrix}
 \begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}
-\\&=&A\xv
+=A\xv
 \end{eqnarray*}
 for matrix~\(A\) of the theorem.
 Since \(T(\ev_1), T(\ev_2),\ldots,T(\ev_n)\) are \(n\) (column) vectors in~\(\RR^m\), the matrix~\(A\) is \(m\times n\).
@@ -536,14 +561,18 @@ Form the standard matrix with these as its three columns, in order,
 \item\label[example]{eg:stmatlt:b} Find the \idx{standard matrix} of the \idx{rotation} of the plane by~\(60^\circ\) anticlockwise about the origin.
 \begin{solution} 
 Denote the rotation of the plane by the function \(R:\RR^2\to\RR^2\).
-Since \(60^\circ=\frac\pi3\) then, as illustrated in the margin,
-\marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
-\begin{eqnarray*}
-&&R(\ev_1)=(\cos\tfrac\pi3,\sin\tfrac\pi3)
+Since \(60^\circ=\frac\pi3\) then, as illustrated to the right,
+\begin{align*}
+&
+\begin{array}l
+R(\ev_1)=(\cos\tfrac\pi3,\sin\tfrac\pi3)
 =(\tfrac12,\tfrac{\sqrt3}2),
-\\&&R(\ev_2)=(-\sin\tfrac\pi3,\cos\tfrac\pi3)
+\\[1ex]
+R(\ev_2)=(-\sin\tfrac\pi3,\cos\tfrac\pi3)
 =(-\tfrac{\sqrt3}2,\tfrac12).
-\end{eqnarray*}
+\end{array}
+&&\raisebox{-6ex}{\TwoD{0.5}{-0.866}{0.866}{0.5}}
+\end{align*}
 Form the standard matrix with these as its columns, in order,
 \begin{equation*}
 [R]=\begin{bmatrix} R(\ev_1)&R(\ev_2) \end{bmatrix}
@@ -581,7 +610,7 @@ Since the origin~\((0,0)\) is transformed by the rotation to~\((1,-1)\) which is
 
 \begin{activity}
 Which of the following is the \idx{standard matrix} for the transformation \(T(x,y,z)=(4.5y-1.6z,1.9x-2z)\)?
-\actposs{\(\begin{bmatrix} 0&4.5&-1.6\\1.9&0&-2 \end{bmatrix}\)}
+\actposs[4]{\(\begin{bmatrix} 0&4.5&-1.6\\1.9&0&-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 4.5&-1.6\\1.9&-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 4.5&1.9\\-1.6&-2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&1.9\\4.5&0\\-1.6&-2 \end{bmatrix}\)}
@@ -608,15 +637,15 @@ To find the standard matrix consider
 \end{eqnarray*}
 Hence the standard matrix 
 %\([H]=\diag(a,a,\ldots,a)=aI_n\).
-\begin{eqnarray*}
-[H]&=&\begin{bmatrix} H(\ev_1)&H(\ev_2)&\cdots&H(\ev_n) \end{bmatrix}
-\\&=&\begin{bmatrix} a&0&\cdots&0
+\begin{equation*}
+[H]=\begin{bmatrix} H(\ev_1)&H(\ev_2)&\cdots&H(\ev_n) \end{bmatrix}
+=\begin{bmatrix} a&0&\cdots&0
 \\0&a&&0
 \\\vdots&&\ddots&\vdots
 \\0&0&\cdots&a \end{bmatrix}
 =\diag(a,a,\ldots,a)
 =aI_n\,.
-\end{eqnarray*}
+\end{equation*}
 
 \end{solution}
 \end{example}
@@ -670,10 +699,9 @@ Best to introduce such terms in subsequent abstract vector spaces and a detailed
 Could save 10 pages or so if omitted??
 \end{comment}
 
-In attempting to solve \index{inconsistent equations}inconsistent \idx{linear equation}s, 
-\begin{aside}
 This subsection is an optional extension.
-\end{aside}%
+
+In attempting to solve \index{inconsistent equations}inconsistent \idx{linear equation}s, 
 \(A\xv=\bv\) for some given~\(A\)\,, \cref{pro:appsol} constructs a result~\xv, a result that is meant to be a `solution' of sorts, and that depends upon the right-hand side~\bv.
 That is, any given~\bv\ is transformed by the procedure to some result~\xv: the result is a function of the given~\bv.
 This section establishes that the result given by the procedure is a linear transformation of~\bv, and hence there must be a matrix corresponding to the procedure. 
@@ -711,7 +739,7 @@ x=A^+\bv\quad\text{for pseudo-inverse }A^+=\begin{bmatrix} \tfrac3{25}& \tfrac4{
 
 \begin{activity}
 By finding the smallest \idx{magnitude}, \idx{least square}, solution to \(D\xv=\bv\) for matrix \(D=\begin{bmatrix} 5&0\\0&0 \end{bmatrix}\) and arbitrary~\bv, determine that the pseudo-inverse of the \idx{diagonal matrix}~\(D\) is which of the following?
-\actposs{\(\begin{bmatrix} 0.2&0\\0&0 \end{bmatrix}\)}
+\actposs[4]{\(\begin{bmatrix} 0.2&0\\0&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&0.2\\0&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&0\\0.2&0 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0&0\\0&0.2 \end{bmatrix}\)}
@@ -817,7 +845,7 @@ Following the steps of \cref{pro:appsol}, Find the pseudo-inverse of the matrix 
 \\\frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}}
 \end{equation*}
 The pseudo-inverse is which of these?
-\actposs{\(\begin{bmatrix} 0.1&0.2\\0.1&0.2 \end{bmatrix}\)}
+\actposs[4]{\(\begin{bmatrix} 0.1&0.2\\0.1&0.2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0.1&0.1\\0.2&0.2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0.1&-0.1\\-0.2&0.2 \end{bmatrix}\)}
 {\(\begin{bmatrix} 0.1&-0.2\\-0.1&0.2 \end{bmatrix}\)}
@@ -854,18 +882,18 @@ A=\begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}
 \end{equation*}
 
 \item Solve \(U\zv=\bv\) by computing 
-\begin{eqnarray*}
-\zv&=&\tr U\bv
+\begin{equation*}
+\zv=\tr U\bv
 =\begin{bmatrix} 
   \h&\h&\h&\h
 \\\h&\h&-\h&-\h
 \\\h&-\h&-\h&\h
 \\\h&-\h&\h&-\h \end{bmatrix}\bv
-\\&=&\begin{bmatrix} \h b_1+\h b_2+\h b_3+\h b_4
+=\begin{bmatrix} \h b_1+\h b_2+\h b_3+\h b_4
 \\\h b_1+\h b_2-\h b_3-\h b_4
 \\\h b_1-\h b_2-\h b_3+\h b_4
 \\\h b_1-\h b_2+\h b_3-\h b_4 \end{bmatrix}.
-\end{eqnarray*}
+\end{equation*}
 
 \item  Now try to solve \(Sy=\zv\)\,, that is,
 \begin{equation*}
@@ -875,7 +903,7 @@ A=\begin{bmatrix} 1\\1\\1\\1 \end{bmatrix}
 \\\h b_1-\h b_2-\h b_3+\h b_4
 \\\h b_1-\h b_2+\h b_3-\h b_4 \end{bmatrix}.
 \end{equation*}
-Instead of seeking an \emph{exact} solution,  we \emph{have to} adjust the last three components to zero. 
+Instead of seeking an \emph{exact} solution,  we \emph{must} adjust the last three components to zero. 
 Hence we find a solution to a slightly different problem by solving
 \begin{equation*}
 \begin{bmatrix} 2\\0\\0\\0 \end{bmatrix}y
@@ -929,19 +957,19 @@ V =
     0.7071    0.4082    0.5774
 \end{verbatim}
 Upon recognizing various square-roots, these matrices are
-\begin{eqnarray*}
-U&=&\begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt2}&\frac1{\sqrt3}
+\begin{align*}&
+U=\begin{bmatrix} \frac1{\sqrt6}&-\frac1{\sqrt2}&\frac1{\sqrt3}
 \\-\frac1{\sqrt6}&-\frac1{\sqrt2}&-\frac1{\sqrt3}
 \\-\frac2{\sqrt6}&0&\frac1{\sqrt3} \end{bmatrix},
-\\
-S&=&\begin{bmatrix} \sqrt3&0&0
+&&
+S=\begin{bmatrix} \sqrt3&0&0
 \\0&\sqrt3&0
 \\0&0&0 \end{bmatrix},
-\\
-V&=&\begin{bmatrix} 0&-\frac2{\sqrt6}&\frac1{\sqrt3}
+&&
+V=\begin{bmatrix} 0&-\frac2{\sqrt6}&\frac1{\sqrt3}
 \\-\frac1{\sqrt2}&\frac1{\sqrt6}&\frac1{\sqrt3}
 \\\frac1{\sqrt2}&\frac1{\sqrt6}&\frac1{\sqrt3} \end{bmatrix}.
-\end{eqnarray*}
+\end{align*}
 The system of equations for the ratings becomes
 \begin{equation*}
 A\xv=
@@ -977,18 +1005,18 @@ So interpret the equation \(S\yv=\zv\) in detail as
 \end{enumerate}
 
 \item Finally, as \(V\) is orthogonal, \(\tr V\xv=\yv\) has the solution \(\xv=V\yv\) (unique for each valid~\yv):
-\begin{eqnarray*}
-\xv&=&V\yv
-\\&=&\begin{bmatrix} 0&-\frac2{\sqrt6}&\frac1{\sqrt3}
+\begin{equation*}
+\xv=V\yv
+=\begin{bmatrix} 0&-\frac2{\sqrt6}&\frac1{\sqrt3}
 \\-\frac1{\sqrt2}&\frac1{\sqrt6}&\frac1{\sqrt3}
 \\\frac1{\sqrt2}&\frac1{\sqrt6}&\frac1{\sqrt3} \end{bmatrix}
 \begin{bmatrix} \frac1{3\sqrt2}&-\frac1{3\sqrt2}&-\frac{\sqrt2}3 
 \\-\frac1{\sqrt6}&-\frac1{\sqrt6}&0
 \\0&0&0 \end{bmatrix}\bv
-\\&=&\frac13\begin{bmatrix} 1&1&0
+=\frac13\begin{bmatrix} 1&1&0
 \\-1&0&1
 \\0& -1&-1 \end{bmatrix}\bv
-\end{eqnarray*}
+\end{equation*}
 \end{enumerate}
 Hence the pseudo-inverse of~\(A\) is
 \begin{equation*}
@@ -1075,8 +1103,8 @@ Second, the \(n\times n\) matrix \((\tr AA)\) is invertible as it has \svd\ \(V(
 \end{eqnarray*}
 where the last equality follows because
 \begin{align*}
-&(\tr SS)^{-1}\tr S
-\\&=\diag(\hlist{1/\sigma^2}n)\diag_{n\times m}(\hlist\sigma n)
+(\tr SS)^{-1}\tr S
+&=\diag(\hlist{1/\sigma^2}n)\diag_{n\times m}(\hlist\sigma n)
 \\&=\diag_{n\times m}(\hlist{1/\sigma}n)=S^+.
 \end{align*}
 Hence the pseudo-inverse \(A^+=VS^+\tr U=(\tr AA)^{-1}\tr A\).
@@ -1135,17 +1163,23 @@ To achieve a complex goal we typically decompose the task of attaining the compl
 The analogy in linear algebra is that we often apply linear transformations one after another to build up or solve a complex problem.
 This section certifies how applying a sequence of linear transformations is equivalent to one grand overall \text{linear transformation.}
 
+
+\begin{wrapfigure}r{0pt}
+\TwoD{0.5}{-0.866}{0.866}{0.5}
+\end{wrapfigure}
 \begin{example}[simple rotation] 
-Recall \cref{eg:stmatlt:b} on \idx{rotation} by~\(60^\circ\) (anticlockwise as positive, as illustrated in the margin) with its \idx{standard matrix}
-\marginpar{\TwoD{0.5}{-0.866}{0.866}{0.5}}%
+Recall \cref{eg:stmatlt:b} on \idx{rotation} by~\(60^\circ\) (anticlockwise as positive, as illustrated to the right) with its \idx{standard matrix}
 \begin{equation*}
 [R]=\begin{bmatrix} \frac12&-\frac{\sqrt3}2
 \\\frac{\sqrt3}2&\frac12 \end{bmatrix}.
 \end{equation*}
 Consider two successive rotations by~\(60^\circ\): show that the standard matrix of the resultant rotation by~\(120^\circ\)  is the same as the \idx{matrix product}~\([R][R]\).
+
+\begin{wrapfigure}r{0pt}
+\TwoD{-0.5}{-0.866}{0.866}{-0.5}
+\end{wrapfigure}
 \begin{solution} 
-On the one hand, rotation by~\(120^\circ=2\pi/3\), call it~\(S\), transforms the unit vectors as (illustrated in the margin)
-\marginpar{\TwoD{-0.5}{-0.866}{0.866}{-0.5}}%
+On the one hand, rotation by~\(120^\circ=2\pi/3\), call it~\(S\), transforms the unit vectors as (illustrated to the right)
 \begin{eqnarray*}
 &&S(\iv)=(\cos\tfrac{2\pi}3,\sin\tfrac{2\pi}3)
 =(-\tfrac12,\tfrac{\sqrt3}2),
@@ -1159,20 +1193,21 @@ Form the standard matrix with these as its columns, in order,
 \\\frac{\sqrt3}2&-\frac12 \end{bmatrix}.
 \end{equation*}
 On the other hand, the matrix multiplication
-\begin{eqnarray*}
+\begin{equation*}
 [R][R]
-&=&\begin{bmatrix} \frac12&-\frac{\sqrt3}2
+=\begin{bmatrix} \frac12&-\frac{\sqrt3}2
 \\\frac{\sqrt3}2&\frac12 \end{bmatrix}\begin{bmatrix} \frac12&-\frac{\sqrt3}2
 \\\frac{\sqrt3}2&\frac12 \end{bmatrix}
-\\&=&\begin{bmatrix} \tfrac14-\tfrac34 & -\tfrac{\sqrt3}4-\tfrac{\sqrt3}4
+=\begin{bmatrix} \tfrac14-\tfrac34 & -\tfrac{\sqrt3}4-\tfrac{\sqrt3}4
 \\ \tfrac{\sqrt3}4+\tfrac{\sqrt3}4 & -\tfrac34+\tfrac14\end{bmatrix}
-\\&=&\begin{bmatrix} -\frac12&-\frac{\sqrt3}2
+=\begin{bmatrix} -\frac12&-\frac{\sqrt3}2
 \\\frac{\sqrt3}2&-\frac12 \end{bmatrix}=[S].
-\end{eqnarray*}
+\end{equation*}
 That is, multiplying the two matrices is equivalent to performing the two rotations in succession: the next theorem confirms this is generally true.
+\aqed
+
 \end{solution}
 \end{example}
-
 
 
 
@@ -1197,7 +1232,7 @@ It is thus a matrix transformation, which is consequently linear (\cref{thm:matt
 
 
 \begin{example} 
-Consider the linear transformation \(T:\RR^3\to\RR^2\) defined by \(T(x_1,x_2,x_3):=(3x_1+x_2,-x_2-7x_3)\), and the linear transformation \(S:\RR^2\to\RR^4\) defined by \(S(y_1,y_2)=(-y_1, -3y_1+2y_2, 2y_1-y_2, 2y_2)\).
+Consider two linear transformations: first, \(T:\RR^3\to\RR^2\) defined by \(T(x_1,x_2,x_3):=(3x_1+x_2,-x_2-7x_3)\); and second, the linear transformation \(S:\RR^2\to\RR^4\) defined by \(S(y_1,y_2)=(-y_1, -3y_1+2y_2, 2y_1-y_2, 2y_2)\).
 Find the \idx{standard matrix} of the linear transformation~\(S\circ T\), and also that of~\(T\circ S\).
 \begin{solution} 
 From the given formulas for the two given linear transformations we write down the standard matrices
@@ -1207,15 +1242,16 @@ From the given formulas for the two given linear transformations we write down t
 [S]=\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}.
 \end{equation*}
 First, \cref{thm:stmatcomp} assures us the standard matrix of the composition
-\begin{eqnarray*}
-[S\circ T]&=&[S][T]
-\\&=&\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}
+\begin{equation*}
+[S\circ T]
+=[S][T]
+=\begin{bmatrix} -1&0\\ -3&2\\2&-1\\0&2 \end{bmatrix}
 \begin{bmatrix}3&1&0\\0&-1&-7  \end{bmatrix}
-\\&=&\begin{bmatrix}-3&-1&0
+=\begin{bmatrix}-3&-1&0
 \\-9&-5&-14
 \\6&3&7
 \\0&-2&-14 \end{bmatrix}.
-\end{eqnarray*}
+\end{equation*}
 However, second, the standard matrix of~\(T\circ S\) does not exist because it would require the multiplication of a \(2\times3\) matrix by a \(4\times 2\) matrix, and such a multiplication is not defined.
 The failure is rooted earlier in the question because \(S:\RR^2\to\RR^4\) and \(T:\RR^3\to\RR^2\) so a result of~\(S\), which is in~\(\RR^4\), cannot be used as an argument to~\(T\), which must be in~\(\RR^3\): the lack of a defined multiplication is a direct reflection of this incompatibility in~`\(T\circ S\)' which means \(T\circ S\) \text{cannot exist.}
 \end{solution}
@@ -1225,24 +1261,29 @@ The failure is rooted earlier in the question because \(S:\RR^2\to\RR^4\) and \(
 
 \begin{example} 
 Find the \idx{standard matrix} of the transformation of the plane that first rotates by~\(45^\circ\) about the origin (anticlockwise as positive), and then second reflects in the vertical axis.
+\newcommand{\rt}{\frac1{\sqrt2}}
 \begin{solution} 
 Two possible solutions are the following.
 \begin{itemize}
-\item Let \(R\)~denote the rotation about the origin of the plane by~\(45^\circ\), \(R:\RR^2\to\RR^2\) (illustrated in the margin).
-\marginpar{\TwoD{0.7071}{-0.7071}{0.7071}{0.7071}}%
+\item 
+\begin{figbox}{\TwoD{0.7071}{-0.7071}{0.7071}{0.7071}}
+Let \(R\)~denote the rotation about the origin of the plane by~\(45^\circ\), \(R:\RR^2\to\RR^2\) (illustrated to the right).
 Its standard matrix is
-\newcommand{\rt}{\frac1{\sqrt2}}
 \begin{equation*}
 [R]=\begin{bmatrix} R(\iv)&R(\jv) \end{bmatrix}
 =\begin{bmatrix} \rt&-\rt\\\rt&\rt \end{bmatrix}.
 \end{equation*}
-Let \(F\)~denote the reflection in the vertical axis of the plane, \(F:\RR^2\to\RR^2\) (illustrated in the margin). 
-\marginpar{\TwoD{-1}00{1}}%
+\end{figbox}
+
+\begin{figbox}{\TwoD{-1}00{1}}
+Let \(F\)~denote the reflection in the vertical axis of the plane, \(F:\RR^2\to\RR^2\) (illustrated to the right). 
 Its standard matrix is
 \begin{equation*}
 [F]=\begin{bmatrix} F(\iv)&F(\jv) \end{bmatrix}
 =\begin{bmatrix} -1&0\\0&1 \end{bmatrix}.
 \end{equation*}
+\end{figbox}
+
 Then the standard matrix of the composition 
 \begin{equation*}
 [F\circ R]=[F][R]
@@ -1256,13 +1297,16 @@ Then the standard matrix of the composition
 \item \((F\circ R)(\iv)=F(R(\iv))\) which first rotates~\(\iv=(1,0)\) to point to the top-right, then reflects in the vertical axis to point to the top-left and thus \((F\circ R)(\iv)=(-\rt,\rt)\).
 \item \((F\circ R)(\jv)=F(R(\jv))\) which first rotates~\(\jv=(0,1)\) to point to the top-left, then reflects in the vertical axis to point to the top-right and thus \((F\circ R)(\jv)=(\rt,\rt)\).
 \end{itemize}
+
+\begin{figbox}{\TwoD{-0.7071}{0.7071}{0.7071}{0.7071}}
 Then the standard matrix of the composition is (as illustrated)
-\marginpar{\TwoD{-0.7071}{0.7071}{0.7071}{0.7071}}%
 \begin{equation*}
 [F\circ R]=\begin{bmatrix}(F\circ R)(\iv)&(F\circ R)(\jv)  \end{bmatrix}
 =\begin{bmatrix} -\rt&\rt\\\rt&\rt \end{bmatrix}
 \end{equation*}
+\end{figbox}
 \end{itemize}
+
 \end{solution}
 As an extension, check that although \(R\circ F\) is defined, it is 
 different to~\(F\circ R\): the difference is due to the \idx{non-commutativity} of matrix multiplication (\cref{sec:fapmo}).
@@ -1290,11 +1334,13 @@ Having introduced and characterized the composition of linear transformations, w
 Then \(S\circ T\) is first the \(-60^\circ\)~rotation by~\(T\), and second the \(60^\circ\)~rotation by~\(S\): the overall result is no change.
 Because \(S\circ T\) is effectively the \idx{identity transformation}, we call the rotations~\(S\) and~\(T\) the inverse transformation of \text{each other.}
 
-\item Let \(R\)~be \idx{reflection} of the plane in the line at~\(30^\circ\) to the horizontal (illustrated in the margin).  
-\marginpar{\TwoDx{0.5}{0.866}{0.866}{-0.5}{%
-\addplot[brown] coordinates {(-0.18,-0.1)(1.30,0.75)};}}%
+\item 
+\begin{figbox}{\TwoDx{0.5}{0.866}{0.866}{-0.5}{%
+\addplot[brown] coordinates {(-0.18,-0.1)(1.30,0.75)};}}
+Let \(R\)~be \idx{reflection} of the plane in the line at~\(30^\circ\) to the horizontal (illustrated to the right).  
 Then \(R\circ R\) is first reflection in the line at~\(30^\circ\) by~\(R\), and second another reflection in the line at~\(30^\circ\) by~\(R\): the overall result is no change.
 Because \(R\circ R\) is effectively the \idx{identity transformation}, the reflection~\(R\) is its \text{own inverse.}
+\end{figbox}
 \end{enumerate}
 \end{example}
 
@@ -1308,17 +1354,20 @@ Further, we say \(S\) and~\(T\) are \bfidx{invertible}.
 
 
 
-\begin{example} \ 
-Let \(S:\RR^3\to\RR^3\) be \idx{rotation} about the vertical axis by~\(120^\circ\) (as illustrated in stereo below), 
-\begin{center}
+\needlines{12}
+\begin{wrapfigure}[12]r{0pt}
+\begin{tabular}l
 \ThreeD{-0.5}{-0.866}0{0.866}{-0.5}0001
-\end{center}
-and let \(T:\RR^3\to\RR^3\) be rotation about the vertical axis by~\(240^\circ\) (below).
-\begin{center}
+\\
 \ThreeD{-0.5}{0.866}0{-0.866}{-0.5}0001
-\end{center}
+\end{tabular}
+\end{wrapfigure}
+\begin{example}  
+Let \(S:\RR^3\to\RR^3\) be \idx{rotation} about the vertical axis by~\(120^\circ\) (as illustrated in stereo above-right), 
+and let \(T:\RR^3\to\RR^3\) be rotation about the vertical axis by~\(240^\circ\) (below-right).
 Argue that \(S\circ T=T\circ S=I\) the identity and so \(S\) 
 and~\(T\) are \idx{inverse transformation}s of each other.
+
 \begin{solution} 
 A basic argument is that rotation by~\(120^\circ\) together with a rotation of~\(240^\circ\) about the same axis, in either order, is the same as a rotation by~\(360^\circ\) about the axis.
 But a \(360^\circ\)~rotation leaves everything unchanged and so must be \text{the identity.}
@@ -1343,13 +1392,13 @@ By \cref{def:invLT}, \(S\) and~\(T\) are inverse transformations of each other.
 \end{solution}
 \end{example}
 
-
-
-\begin{example} \label{eg:stormLT}
-In some violent weather a storm passes and the strong winds lean a house sideways as in the \idx{shear transformation} illustrated below.
-\begin{center}\def\unithousesize{small}
+\needlines8
+\begin{wrapfigure}[8]r{0pt}
+\def\unithousesize{small}
 \ThreeD10{-1}01{-0.5}001
-\end{center}
+\end{wrapfigure}
+\begin{example} \label{eg:stormLT}
+In some violent weather a storm passes and the strong winds lean a house sideways as in the \idx{shear transformation} illustrated to the right.
 Estimate the \idx{standard matrix} of the shear transformation shown.
 To restore the house back upright, we need to shear it an equal amount in the opposite direction: hence write down the standard matrix of the \idx{inverse} shear.
 Confirm that the product of the two standard matrices is the standard matrix of \text{the identity.}
@@ -1367,12 +1416,12 @@ To restore,~\(R\), the house upright we need to shear in the opposite direction,
 Multiplying these matrices together gives
 \begin{eqnarray*}
 [R\circ S]&=&[R][S]
-\\&=&\begin{bmatrix} 1&0&1\\0&1&\tfrac12\\0&0&1 \end{bmatrix}
+=\begin{bmatrix} 1&0&1\\0&1&\tfrac12\\0&0&1 \end{bmatrix}
 \begin{bmatrix} 1&0&-1\\0&1&-\tfrac12\\0&0&1 \end{bmatrix}
 \\&=&\begin{bmatrix} 1+0+0&0+0+0&-1+0+1\\
 0+0+0&0+1+0&0-\tfrac12+\tfrac12\\
 0+0+0&0+0+0&0+0+1 \end{bmatrix}
-\\&=&I_3\,.
+=I_3\,.
 \end{eqnarray*}
 This is the standard matrix of the identity transformation.
 \end{solution}
@@ -1398,10 +1447,11 @@ Similarly, \([T^{-1}][T]=[T^{-1}\circ T]=[I]=I_n\)\,.
 Consequently the matrices \([T]\) and~\([T^{-1}]\) are the inverses of \text{each other.}
 \end{proof}
 
-
+\begin{wrapfigure}r{0pt} 
+\TwoD{1.70}{1.90}{-1.00}{1.70} 
+\end{wrapfigure}
 \begin{example} 
-Estimate the \idx{standard matrix} of the linear transformation~\(T\) illustrated in the margin.  
-\marginpar{\TwoD{1.70}{1.90}{-1.00}{1.70}}%
+Estimate the \idx{standard matrix} of the linear transformation~\(T\) illustrated to the right.  
 Then use \cref{thm:2x2det} to determine the standard matrix of its 
 \idx{inverse transformation}~\(T^{-1}\).
 Hence sketch how the inverse transforms the \idx{unit square} and write a sentence or two about how the sketch confirms it is a \text{reasonable inverse.}
@@ -1416,9 +1466,12 @@ Using \cref{thm:2x2det} the inverse of this matrix is, since its determinant\({}
 =\frac1{4.79} \begin{bmatrix} 1.7&-1.9\\1&1.7 \end{bmatrix}
 \approx\begin{bmatrix} 0.35&-0.40\\0.21&0.35 \end{bmatrix}
 \end{equation*}
+
+\begin{wrapfigure}r{0pt}
+\TwoD{0.35}{-0.40}{0.21}{0.35}
+\end{wrapfigure}
 This matrix determines that the inverse transforms the corners of the unit square as \(T^{-1}(1,0)=(0.35,0.21)\), \(T^{-1}(0,1)=(-0.40,0.35)\) and \(T^{-1}(1,1)=(-0.05,0.56)\).
-\marginpar{\TwoD{0.35}{-0.40}{0.21}{0.35}}%
-Hence the unit square is transformed as shown in the margin.
+Hence the unit square is transformed as shown to the right.
 The original transformation, roughly, rotated the unit square clockwise and stretched it: the sketch shows the inverse roughly rotates the unit square anti-clockwise and shrinks it.  
 Thus the inverse does appear to undo the action of the \text{original transformation.}
 \end{solution}
@@ -1426,13 +1479,15 @@ Thus the inverse does appear to undo the action of the \text{original transforma
 
 
 
-
+\begin{wrapfigure}[5]r{0pt}
+\TwoD{0.75}{0.433}{0.433}{0.25}
+\end{wrapfigure}
 \begin{example} 
-Determine if the \idx{orthogonal projection} of the plane onto the line at~\(30^\circ\) to the horizontal (illustrated in the margin) is an \idx{invertible} transformation; if it is find its inverse.
-\marginpar{\TwoD{0.75}{0.433}{0.433}{0.25}}%
+Determine if the \idx{orthogonal projection} of the plane onto the line at~\(30^\circ\) to the horizontal (illustrated to the right) is an \idx{invertible} transformation; if it is find its inverse.
+
 \begin{solution} 
 Recall that \cref{thm:projmat} gives the matrix of an orthogonal projection as~\(W\tr W\) where columns of~\(W\) are an orthonormal basis for the projected space.
-Here the projected space is the line at~\(30^\circ\) to the horizontal (illustrated in the margin) which has orthonormal basis of the one vector \(\wv=(\cos 30^\circ,\sin 30^\circ)=(\tfrac{\sqrt3}2,\tfrac12)\).
+Here the projected space is the line at~\(30^\circ\) to the horizontal (illustrated to the right) which has orthonormal basis of the one vector \(\wv=(\cos 30^\circ,\sin 30^\circ)=(\tfrac{\sqrt3}2,\tfrac12)\).
 Hence the standard matrix of the projection is
 \begin{equation*}
 \wv\tr\wv=\begin{bmatrix} \tfrac{\sqrt3}2\\\tfrac12 \end{bmatrix}
