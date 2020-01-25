@@ -9,13 +9,13 @@
 There are more things in heaven and earth, Horatio, than are dreamt of in your philosophy.
 \end{quoted}
 
-In the eighteenth century, astronomers needed to describe both the position and velocity of the \idx{planets}. 
+In the eighteenth century, astronomers needed to describe both the position and the velocity of the \idx{planets}. 
 Such a description required quantities which have both a magnitude and a direction.
-Step outside, a wind blowing at~\(8\)\,m/s (metres per second) from the south-west has both a magnitude and direction.
+Step outside, a wind blowing at~\(8\)\,m/s (metres per second) from the south-west has both a magnitude and a direction.
 Quantities that have the properties of both a magnitude and a 
 direction are called \bfidx{vector}s (from the Latin for \emph{carrier}).
 
-{%begingroup
+\begingroup
 \newcommand{\tmp}[6]{
   \addplot[blue,thick,quiver={u=#5-#2,v=#6-#3},-stealth] coordinates {(#2,#3)};
   \node[below] at (axis cs:#2,#3) {$#1$};
@@ -37,6 +37,7 @@ An important class of vectors are the so-called \bfidx{displacement vector}s.
 Given two points in space, say~\(A\) and~\(B\), the displacement vector~\(\ovect{AB}\) is the directed line segment from the point~\(A\) to the point~\(B\)---as illustrated by the two displacement vectors \(\ovect{AB}\) and~\(\ovect{CD}\) to the right.
 For example, if your home is at position~\(A\) and your school at position~\(B\), then travelling from home to school is to move by the amount of the displacement vector~\(\ovect{AB}\).
 
+\needlines6
 \begin{wrapfigure}r{0pt} \temp1 \end{wrapfigure}
 To be able to manipulate vectors we describe them with numbers.
 For such numbers to have meaning they must be set in the context of a \idx{coordinate system}.
@@ -45,10 +46,10 @@ Here the displacement vector~\(\ovect{AB}\) goes three units to the right and on
 Whereas the displacement vector~\(\ovect{CD}\) goes three units to the left and four units up, so we denote it by the ordered pair of numbers~\(\ovect{CD}=(-3,4)\).
 Our choice of the origin~\(O\) does not affect the number representation of these vectors.
 \end{example}
-}%endgroup
+\endgroup
 
 
-{%begingroup
+\begingroup
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[below] at (axis cs:#2,#3) {$#1$};}%
@@ -78,17 +79,17 @@ Here the \idx{position vector}~\(\ovect{OA}\) goes one unit to the right and two
 Similarly, the position vectors \(\ovect{OB}=(4,3)\),  \(\ovect{OC}=(2,-1)\), and  \(\ovect{OD}=(-1,3)\).
 Recognize that the ordered pairs of numbers in the position vectors are exactly the \idx{coordinates} of each of the specified end-points. 
 \end{example}
-}%endgroup
+\endgroup
 
 
 
-{%begingroup
+\begingroup
 \newcommand{\tmp}[3]{
   \addplot[blue,thick,quiver={u=#2,v=#3},-stealth] coordinates {(0,0)};
   \node[above] at (axis cs:#2,#3) {#1};}
 \newcommand{\temp}[1]{\begin{tikzpicture} 
 \begin{axis}[tiny,font=\footnotesize
-  ,axis equal, xlabel={East}, ylabel={North}
+  ,axis equal, xlabel={east}, ylabel={north}
   ,axis lines=middle,
   {\ifcase#1 xtick={-9999},ytick={-9999} \or grid\fi}
   ,ymin=-1,xmin=-20,xmax=980,ymax=380
@@ -101,21 +102,23 @@ Recognize that the ordered pairs of numbers in the position vectors are exactly 
   \fi
 \end{axis}
 \end{tikzpicture}}%
+\needlines9
 \begin{wrapfigure}r{0pt}
 \begin{tabular}c \temp0 \\ \temp1 \end{tabular}
 \end{wrapfigure}%
 \begin{example}[\idx{velocity vector}]
 Consider an airplane in level flight at \(900\)\,km/hr (kilometres per hour) to the east-north-east.
-Choosing coordinate axes oriented to the East and the North, the direction of the airplane is at an angle~\(22.5^\circ\) from the East, as illustrated on the right.
-Trigonometry then tells us that the Eastward part of the speed of the airplane is \(900\cos(22.5^\circ)=831.5\)\,km/hr, whereas the Northward part of the speed is \(900\sin(22.5^\circ)=344.4\)\,km/hr (as indicated quantitatively).
+Choosing coordinate axes oriented to the east and the north, the direction of the airplane is at an angle~\(22.5^\circ\) from the east, as illustrated on the right.
+Trigonometry then tells us that the eastward part of the speed of the airplane is \(900\cos(22.5^\circ)=831.5\)\,km/hr, whereas the northward part of the speed is \(900\sin(22.5^\circ)=344.4\)\,km/hr (as indicated quantitatively).
 Further, the airplane is in level flight, not going up or down, so in the third direction of space (vertically) its speed component is zero.
 Putting these together forms the velocity vector \((831.5,344.4,0)\) in~km/hr \text{in space.}
 
 
+\needlines7
 \begin{wrapfigure}r{0pt}
 \begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
-  ,axis equal, xlabel={East}, ylabel={North}
+  ,axis equal, xlabel={east}, ylabel={north}
   ,axis lines=middle, grid
   ,ymin=-60,xmin=-299,xmax=99,ymax=349
   ] 
@@ -125,16 +128,16 @@ Putting these together forms the velocity vector \((831.5,344.4,0)\) in~km/hr \t
 \end{tikzpicture}%
 \end{wrapfigure}%
 Another airplane takes off from an airport at~\(360\)\,km/hr to the northwest and climbs at~\(2\)\,m/s.
-The direction northwest is~\(45^\circ\) to the East-West lines and \(45^\circ\) to the North-South lines.  
-Trigonometry then tells us that the Westward speed of the airplane is \(360\cos(45^\circ)=360\cos(\tfrac\pi4)=254.6\)\,km/hr, whereas the Northward speed is \(360\sin(45^\circ)=360\sin(\tfrac\pi4)=254.6\)\,km/hr as illustrated.
+The direction northwest is~\(45^\circ\) to the east-west lines and \(45^\circ\) to the north-south lines.  
+Trigonometry then tells us that the westward speed of the airplane is \(360\cos(45^\circ)=360\cos(\tfrac\pi4)=254.6\)\,km/hr, whereas the northward speed is \(360\sin(45^\circ)=360\sin(\tfrac\pi4)=254.6\)\,km/hr as illustrated.
 
-But West is the opposite direction to East, so if the coordinate system treats East as positive, then West must be negative.
+But west is the opposite direction to east, so if the coordinate system treats east as positive, then west must be negative.
 Consequently, together with the climb in the vertical, the velocity vector is \((-254.6\)\,km/hr,\(254.6\)\,km/hr,\(2\,\)m/s\()\).
 But we should avoid mixing units within a vector, so here convert all speeds to~m/s: here \(360\)\,km/hr upon dividing by~\(3600\)\,secs/hr and multiplying by \(1000\)\,m/km gives \(360\)\,km/hr\({}=100\)\,m/s.
-Then the North and West speeds are both \(100\cos(\tfrac\pi4)=70.71\)\,m/s.
+Then the north and west speeds are both \(100\cos(\tfrac\pi4)=70.71\)\,m/s.
 Consequently, the \idx{velocity vector} of the climbing airplane should be described as \((-70.71,70.71,2)\) in~m/s.
 \end{example}
-}%endgroup
+\endgroup
 
 
 In applications, as these examples illustrate, the `physical' vector exists before the \idx{coordinate system}.
@@ -154,7 +157,7 @@ Throughout, unless otherwise specified, this book assumes that vectors are expre
 \end{axis}
 \end{tikzpicture}}%
 In the two dimensions of the plane the \idx{standard coordinate system} has two \idx{coordinate axes}, 
-one horizontal and one vertical at right-angles to each other, often labelled~\(x_1\) and~\(x_2\) respectively (as illustrated), although labels~\(x\) and~\(y\) are also common.
+one horizontal and one vertical, at right-angles to each other, often labelled~\(x_1\) and~\(x_2\) respectively (as illustrated), although labels~\(x\) and~\(y\) are also common.
 \end{figbox}
 
 \item \begin{figbox}[\vspace{5ex}]{\begin{tikzpicture} 
@@ -172,7 +175,7 @@ one horizontal and one vertical at right-angles to each other, often labelled~\(
 \end{axis}
 \end{tikzpicture}}%
 In the three dimensions of space the \idx{standard coordinate system} has three \idx{coordinate axes}, 
-two horizontal and one vertical all at right-angles to each other, often labelled~\(x_1\), \(x_2\) and~\(x_3\) respectively (as illustrated), although labels~\(x\), \(y\) and~\(z\) are also common.
+two horizontal and one vertical, all at right-angles to each other, often labelled~\(x_1\), \(x_2\), and~\(x_3\) respectively (as illustrated), although labels~\(x\), \(y\), and~\(z\) are also common.
 \end{figbox}
 
 \item Correspondingly, in so-called `\(n\)~dimensions' the \idx{standard coordinate system} has \(n\)~\idx{coordinate axes}, all at right-angles to each other, and often labelled \hlist xn, respectively.
@@ -186,7 +189,7 @@ Given a \idx{standard coordinate system} with \(n\)~\idx{coordinate axes}, all a
 \begin{equation*}
 (\hlist xn)=\begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}
 \end{equation*}
-(they mean the same, it is just more convenient to usually use a row in parentheses in text, and a column in brackets in displayed mathematics).
+(they mean the same; it is just more convenient to usually use a row in parentheses in text, and a column in brackets in displayed mathematics).
 The real numbers \hlist xn\ are called the \bfidx{components} of the vector, and the number of components is termed its \bfidx{size} (here~\(n\)).
 The \idx{components} are determined such that letting~\(X\) be the point with \idx{coordinates} \((\hlist xn)\) then the \idx{position vector}~\(\ovect{OX}\) has the same magnitude and direction as the vector denoted \((\hlist xn)\).
 
@@ -196,7 +199,7 @@ The \idx{components} are determined such that letting~\(X\) be the point with \i
 \includegraphics[width=4.5em]{Vectors/RobertRecorde}&
 \parbox[b]{16em}{\index{Recorde, Robert}\rm
 Robert Recorde invented the equal sign circa 1557 ``bicause noe~2 thynges can be moare equalle''.  
-He also invented the term ``sine'' and the method of extracting the square root by hand.}
+He also invented the term ``sine'' and the method of extracting the square-root by hand.}
 \end{tabular} \end{wrapfigure}\strut{}%
 Two vectors of the same \idx{size} are \bfidx{equal},~\(=\), if all their corresponding \idx{components} are equal (vectors with different sizes are never equal).
 \vspace{1\baselineskip}
@@ -206,7 +209,7 @@ Two vectors of the same \idx{size} are \bfidx{equal},~\(=\), if all their corres
 
 
 \cref{eg:disvec,eg:posvec} introduced some vectors and wrote them as a row in parentheses, such as \(\ovect{AB}=(3,1)\).
-In this book exactly the same thing is meant by the columns in \idx{brackets}: for example,
+In this book, exactly the same thing is meant by the columns in \idx{brackets}: for example,
 \begin{eqnarray*}&&
 \ovect{AB}=(3,1)=\begin{bmatrix} 3\\1 \end{bmatrix},\quad
 \ovect{CD}=(-3,4)=\begin{bmatrix} -3\\4 \end{bmatrix},\quad
@@ -244,11 +247,11 @@ The vector with all components zero,  \((0,0,\ldots,0)\), is called the \bfidx{z
 
 \begin{example} 
 \begin{itemize}
-\item All the vectors we can draw and imagine in the two dimensional plane form~\(\RR^2\).  
+\item All the vectors we can draw and imagine in the two-dimensional plane form~\(\RR^2\).  
 Sometimes we write that \(\RR^2\)~is the plane because of this very close connection.
 
-\item All the vectors we can draw and imagine in three dimensional space form~\(\RR^3\).  
-Again, sometimes we write that \(\RR^3\)~is three dimensional space because of the close connection. 
+\item All the vectors we can draw and imagine in three-dimensional space form~\(\RR^3\).  
+Again, sometimes we write that \(\RR^3\)~is three-dimensional space because of the close connection. 
 
 \item The set~\(\RR^1\) is the set of all vectors with one component, and that one component is measured along one axis.  
 Hence \(\RR^1\)~is effectively the same as the set of real numbers labelling that axis.
@@ -264,7 +267,7 @@ Be aware of this different notation in reading \text{other books.}
 
 
 
-Question: why do we need vectors with \(n\)~components, in~\(\RR^n\), when the world around us is only three dimensional?
+Question: why do we need vectors with \(n\)~components, in~\(\RR^n\), when the world around us is only three-dimensional?
 Answer: because vectors can encode much more than just spatial structure.
 The next example illustrates another use \text{of vectors.}
 
@@ -277,10 +280,10 @@ Consider the following four sentences.
 \item The cat and dog sat on the mat.
 \item The dog scratched.
 \end{enumerate}
-These four sentences involve up to three objects, cat, dog and mat, and two actions, sat and scratched.  
-Some characteristic of each of the sentences is captured simply by counting the number of times each of these three objects and two actions appear in each sentence, and then forming a vector from the counts.
+These four sentences involve up to three objects, cat, dog, and mat, and two actions, sat and scratched.  
+Some characteristic of each of the sentences is captured simply by counting the number of times each of these three objects and two actions appears in each sentence, and then forming a vector from the counts.
 Let's use vectors \(\sloppy\wv=(N_{\text{cat}}, N_{\text{dog}}, N_{\text{mat}}, N_{\text{sat}}, N_{\text{scratched}})\) where the various~\(N\) are the counts of each word (\wv~for words). 
-The previous statement implicitly specifies that we use five \idx{coordinate axes}, perhaps labelled ``cat'', ``dog'', ``mat'', ``sat'' and ``scratched'', and that distance along each axis represents the number of times the corresponding word is used.
+The previous statement implicitly specifies that we use five \idx{coordinate axes}, perhaps labelled ``cat'', ``dog'', ``mat'', ``sat'', and ``scratched'', and that distance along each axis represents the number of times the corresponding word is used.
 These \idx{word vector}s are in~\(\RR^5\) as there are five components in each vector~\wv.
 Then
 \begin{enumerate}
@@ -301,7 +304,7 @@ To cope with such vectors of many components, modern linear algebra has been dev
 \end{example}
 
 \begin{table}
-\hrule
+\hrule\smallskip
 \begin{minipage}{\linewidth}
 \paragraph{King -- man + woman = queen}
 \begin{quoted}{Technology Review, 2015}
@@ -378,10 +381,10 @@ Find the \idx{length}s of the following vectors:
 Write down three different vectors, all three with the same number of components, for each of the following cases: (a)~of \idx{length}~\(5\), (b)~of length~\(3\), and (c)~of length~\(-2\).
 \begin{solution} 
 \begin{enumerate}
-\item Humans knew of the \(3:4:5\) right-angled triangle thousands of years ago, so perhaps one answer could be \((3,4)\), \((-4,3)\) and~\((5,0)\).
-\item One answer might be \((3,0,0)\), \((0,3,0)\) and~\((0,0,3)\). 
-A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading to an answer of perhaps~\((1,2,2)\), \((2,-1,2)\) and~\((-2,2,1)\).
-\item Since the length of a vector is~\(\sqrt{\cdots}\) which is always positive or zero, the length cannot be negative, so there is no possible answer to this last case.
+\item Humans knew of the \(3:4:5\) right-angled triangle thousands of years ago, so perhaps one answer could be \((3,4)\), \((-4,3)\), and~\((5,0)\).
+\item One answer might be \((3,0,0)\), \((0,3,0)\), and~\((0,0,3)\). 
+A more interesting answer might arise from knowing \(1^2+2^2+2^2=3^2\) leading to an answer of perhaps~\((1,2,2)\), \((2,-1,2)\), and~\((-2,2,1)\).
+\item Since the length of a vector is~\(\sqrt{\cdots}\)\,, which is always positive or zero, the length cannot be negative, so there is no possible answer to this last case.
 \aqed
 \end{enumerate}
 \end{solution}
@@ -430,7 +433,7 @@ Hence, the vector~\vv\ must be the zero vector~\ov.
 
 
 \begin{exercise}  
-For each case: on the plot draw the \idx{displacement vector}s \(\ovect{AB}\) and~\(\ovect{CD}\), and the \idx{position vector}s of the points~\(A\) and~\(D\).
+For each case: on the plot, draw the \idx{displacement vector}s \(\ovect{AB}\) and~\(\ovect{CD}\), and the \idx{position vector}s of the points~\(A\) and~\(D\).
 \newcommand{\mytemp}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
   ,axis equal, xlabel={$x_1$}, ylabel={$x_2$}
@@ -453,18 +456,18 @@ For each case: on the plot draw the \idx{displacement vector}s \(\ovect{AB}\) an
 \item \mytemp
 \item \mytemp
 \item \mytemp
-\begin{reduce}
+\begin{OmitV1}
 \item \mytemp
 \item \mytemp
-\end{reduce}
+\end{OmitV1}
 \end{Parts}
 \end{exercise}
 
 
 
-
+\needlines{12}
 \begin{exercise} \label{ex:fourvec} 
-For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{components} of the four \idx{position vector}s of the points~\(A\), \(B\), \(C\) and~\(D\).
+For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{components} of the four \idx{position vector}s of the points~\(A\), \(B\), \(C\), and~\(D\).
 \newcommand{\mytemp}{\edef\mytempans{}%
 \begin{tikzpicture}
 \pgfkeys{/pgf/number format/precision=1,/pgf/number format/fixed}
@@ -493,11 +496,11 @@ For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{compon
 \item \mytemp
 \item \mytemp
 \item \mytemp
-\begin{reduce}
+\item \mytemp
+\begin{OmitV1}
 \item \mytemp
 \item \mytemp
-\item \mytemp
-\end{reduce}
+\end{OmitV1}
 \end{Parts}
 \end{exercise}
 
@@ -507,7 +510,7 @@ For each case: roughly estimate (to say~\(\pm 0.2\)) each of the two \idx{compon
 For each case plotted in \cref{ex:fourvec}:
 from your estimated \idx{components} of each of the four \idx{position vector}s, calculate the \idx{length} (or \idx{magnitude}) of the four vectors. 
 Also use a ruler (or otherwise) to directly measure an estimate of the length of each vector.
-Confirm your calculated lengths reasonably approximate your measured lengths.
+Confirm that your calculated lengths reasonably approximate your measured lengths.
 \end{exercise}
 
 

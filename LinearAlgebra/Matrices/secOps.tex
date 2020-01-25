@@ -9,7 +9,7 @@
 Is the design here inconsistent with previous chapters??
 \end{comment}
 
-This section introduces basic matrix concepts, operations and algebra.
+This section introduces basic matrix concepts, operations, and algebra.
 You may have met some of it in \text{previous study.}
 
 
@@ -18,7 +18,7 @@ You may have met some of it in \text{previous study.}
 
 Let's start with some basic definitions of terminology.
 \begin{itemize}
-\item As already introduced by \cref{sec:dmsls}, a \bfidx{matrix} is a rectangular array of real numbers, scalars, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\), such as these six examples:
+\item As already introduced by \cref{sec:dmsls}, a \bfidx{matrix} is a rectangular array of real numbers, scalars, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\), such as these six examples:%
 \footnote{\cref{ch:gee} starts using complex numbers in a matrix, but until then we stay within the realm of real numbers.  Some books use parentheses,~\((\cdot)\), around matrices: we do not as here parentheses denote a vector when we write the components horizontally on the page (most often used when written in text).}
 \begin{align}&
 \begin{bmatrix}   -2 & -5 & 4
@@ -42,7 +42,7 @@ Let's start with some basic definitions of terminology.
 The six example matrices of~\eqref{eq:egmats} are of size, respectively, \(3\times 3\), \(2\times 2\), \(3\times 1\), \(2\times 3\), \(1\times 3\), and \(1\times 1\).
 
 Recall from \cref{def:matvecsys} that if the number of rows equals the number of columns, \(m=n\)\,, then it is called a \idx{square matrix}.
-For example, the first, second and last matrices in~\eqref{eq:egmats} are square; the others are not.
+For example, the first, second, and last matrices in~\eqref{eq:egmats} are square; the others are not.
 
 \item To correspond with vectors,  we often invoke the term \bfidx{column vector} which means a matrix with only one column; that is, a matrix of \idx{size} \(m\times 1\) for some~\(m\).
 For convenience and compatibility with vectors, we often write a column vector horizontally within \bfidx{parentheses}~\((\cdots )\).
@@ -51,8 +51,8 @@ The third matrix of~\eqref{eq:egmats} is an example, and may also be written as 
 Occasionally we refer to a \bfidx{row vector} to mean a matrix with one row; that is, a \(1\times n\) matrix for some~\(n\), such as the fifth matrix of~\eqref{eq:egmats}.  
 Remember the distinction: a row of numbers written within \idx{brackets},~\([\cdots]\), is a row vector, whereas a row of numbers written within \idx{parentheses},~\((\cdots)\), is a \idx{column vector}.
 
-\item The numbers appearing in a matrix are called the \bfidx{entries}, \bfidx{elements} or \bfidx{components} of the matrix.  
-For example, the first matrix in~\eqref{eq:egmats} has entries\slash elements\slash components of the numbers \(-5\), \(-3\), \(-2\), \(0\), \(1\), \(2\) and~\(4\).
+\item The numbers appearing in a matrix are called the \bfidx{entries}, \bfidx{elements}, or \bfidx{components} of the matrix.  
+For example, the first matrix in~\eqref{eq:egmats} has entries\slash elements\slash components of the numbers \(-5\), \(-3\), \(-2\), \(0\), \(1\), \(2\), and~\(4\).
 
 \item But it is important to identify where the numbers appear in a matrix:  the \bfidx{double subscript} notation identifies the location of an entry.
 For a matrix~\(A\), the entry in row~\(i\) and column~\(j\) is denoted by~\(a_{ij}\):
@@ -65,7 +65,7 @@ A=\begin{bmatrix}   -2 & -5 & 4
 \\ 1 & -3 & 0
 \\ 2 & 4 & 0 \end{bmatrix},
 \end{equation*}
-then entries \(a_{12}=-5\)\,, \(a_{22}=-3\) and \(a_{31}=2\)\,.
+then entries \(a_{12}=-5\)\,, \(a_{22}=-3\), and \(a_{31}=2\)\,.
 \begin{comment}
 Maybe we should use an accent to denote the minor?? and then capitals for the entries to be more consistent with computing.  But then column vectors of a matrix should also use capital letters, which would be ugly.
 \end{comment}
@@ -76,7 +76,7 @@ O_{2\times 4}=\begin{bmatrix} 0&0&0&0\\0&0&0&0 \end{bmatrix}.
 \end{equation*}
 The symbol~\(O_n\) denotes the square \idx{zero matrix} of \idx{size} \(n\times n\), whereas the plain symbol~\(O\) denotes a \idx{zero matrix} whose size is apparent from the context.
 
-\item Arising from the nature of matrix multiplication (\cref{sec:amwm}), the second special matrix is the \bfidx{identity matrix}: the symbol~\(I_n\) denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones.
+\item Arising from the nature of matrix multiplication (\cref{sec:amwm}), the second special matrix is the \bfidx{identity matrix}: the symbol~\(I_n\) denotes an \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones.
 Occasionally we invoke non-square `identity' matrices denoted by~\(I_{m\times n}\).
 Three examples are
 \begin{equation*}
@@ -108,7 +108,7 @@ for the three column vectors
 \end{equation*}
 Alternatively these column vectors may be written as 
 \(\bv_1=(  1,-5/3)\),
-\(\bv_2=(-\sqrt3,\sqrt5)\) and
+\(\bv_2=(-\sqrt3,\sqrt5)\), and
 \(\bv_3=(\pi,-1)\).
 
 
@@ -148,11 +148,11 @@ Which of the following matrices equals \(\begin{bmatrix}  3&-1&4
 
 
 
-\subsection{Addition, subtraction and multiplication with matrices}
+\subsection{Addition, subtraction, and multiplication with matrices}
 \label{sec:amwm}
 
 A matrix is not just an array of numbers: associated with a matrix is a suite of operations that empower a matrix to be useful in applications.
-We start with addition and multiplication: `division' is addressed by \cref{sec:im} and others.
+We start with addition and multiplication; `division' is addressed by \cref{sec:im} and others.
 
 An analogue in computing science is the concept of object orientated programming.
 In object oriented programming one defines not just data structures, but also the functions that operate on those structures.
@@ -284,7 +284,7 @@ A=\begin{bmatrix} a_{11}&a_{12}&\cdots&a_{1n}
 \quad\text{and}\quad
 \xv=\begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}.
 \end{equation*}
-This product is only defined when the number of columns of matrix~\(A\) are the same as the number of components of vector~\xv.%
+This product is only defined when the number of columns of matrix~\(A\) is the same as the number of components of vector~\xv.%
 \footnote{Some of you who have studied calculus may wonder about what might be called `continuous matrices'~\(A(x,y)\) which multiply a function~\(f(x)\) according to the integral \(\int_a^b A(x,y)f(y)\,dy\)\,.  
 Then you might wonder about solving problems such as find the unknown~\(f(x)\) such that \(\int_0^1 A(x,y)f(y)\,dy=\sin\pi x\) for given `continuous matrix' \(A(x,y):=\min(x,y)\big[1-\max(x,y)\big]\); 
 you may check that here the solution is \(f=\pi^2\sin\pi x\)\,.
@@ -310,7 +310,7 @@ B\bv&=&\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix}
 \\&=&\begin{bmatrix} 5\cdot1+(-6)\cdot0 + 4\cdot4\\ (-1)\cdot1 + (-3)\cdot0 + (-3)\cdot4 \end{bmatrix}
 =\begin{bmatrix} 21\\-13 \end{bmatrix}.
 \end{eqnarray*}
-The combinations \(A\bv\) and~\(B\xv\) are not defined as the number of columns of each matrix is not equal to the number of components in the multiplying vector.
+The combinations \(A\bv\) and~\(B\xv\) are not defined because the number of columns of each matrix is not equal to the number of components in the multiplying vector.
 
 Further, we do not here define vector-matrix products such as~\(\xv A\) or~\(\bv B\): the order of multiplication matters with matrices and so these are not in the scope of this definition.
 \end{example}
@@ -412,16 +412,16 @@ Multiplication by the identity matrix leaves the vector unchanged (\cref{thm:pmm
 
 
 
-\begin{reduce}
+
 \begin{wrapfigure}l{0pt}
-\includegraphics[width=\marginparwidth]{Matrices/rabbit}
+\includegraphics[height=12ex]{Matrices/rabbit}
 % AJR's photo of rabbit at Woods Hole in 1981
 \end{wrapfigure}
 \begin{example}[\idx{rabbit}s multiply]
-In 1202 \idx{Fibonacci}\footnote{%
+In 1202, \idx{Fibonacci}\footnote{%
 Fibonacci's real name is Leonardo Bonacci. 
-He lived circa 1175 to 1250, travelled extensively from Pisa, and is considered to be one of the most talented Western mathematicians of the Middle Ages.
-} famously considered the breeding of \idx{rabbit}s---such as the following question.
+He lived circa 1175 to 1250, travelled extensively from Pisa, and is considered to be one of the most talented Western mathematicians of the Middle Ages.} 
+famously considered the breeding of \idx{rabbit}s---such as the following question.
 One pair of rabbits can give birth to another pair of rabbits (called \idx{kitten}s) every month, say.
 Each \idx{kitten} becomes fertile after it has aged a month, when it becomes \idx{adult} and is called a buck (male) or doe (\idx{female}).
 The new bucks and does then also start breeding.
@@ -435,7 +435,7 @@ Then at the end of the month:
 \item and because all the does at the start month have bred another pair of kittens, of which we expect one to be female, the new number of female kittens just born is \(x_1'=x_2\)\,.
 \end{itemize}
 Then \(x_1'\) and~\(x_2'\) is the number of kittens and does at the start of the next month.
-Write this as a matrix vector system.
+Write this as a matrix-vector system.
 Let the female population be \(\xv=(x_1,x_2)\) and the population one month later be \(\xv'=(x_1',x_2')\).
 Then our model is that
 \begin{equation*}
@@ -458,11 +458,11 @@ Named after Patrick~H. Leslie, Leslie matrices are widely used in ecology to mod
 \end{itemize}
 Fibonacci's model predicts the rabbit population grows rapidly according to the famous \idx{Fibonacci numbers} \(\mathcode`\,="213B 1,2,3,5,8,13,21,34,55,89,\ldots\)\,.
 \end{example}
-\end{reduce}
 
 
 
-\begin{example}[\idx{age structured population}] \label{eg:matasp}
+
+\begin{example}[\idx{age-structured population}] \label{eg:matasp}
 % adapted from SACE Math Studies 2012
 An ecologist studies an isolated population of a \idx{species} of animal.
 The growth of the population depends primarily upon the females so it is only these that are counted.
@@ -476,11 +476,11 @@ During the study, the ecologist observes the following happens over the period o
 \item  female pups and juvenile females do not breed.
 \end{itemize}
 \begin{enumerate}
-\item Let \(x_1\), \(x_2\) and~\(x_3\) be the number of females at the start of a year, of ages zero, one and two+ respectively, and let \(x'_1\), \(x'_2\) and~\(x'_3\) be their number at the start of the next year.
-Use the ecologist's observations to write \(x'_1\), \(x'_2\) and~\(x'_3\) as a function of \(x_1\), \(x_2\) and~\(x_3\)  (this function is called a \idx{Markov chain}).
+\item Let \(x_1\), \(x_2\), and~\(x_3\) be the number of females at the start of a year, of ages zero, one, and two+ respectively, and let \(x'_1\), \(x'_2\), and~\(x'_3\) be their number at the start of the next year.
+Use the ecologist's observations to write \(x'_1\), \(x'_2\), and~\(x'_3\) as a function of \(x_1\), \(x_2\), and~\(x_3\)  (this function is called a \idx{Markov chain}).
 \item Letting vectors \(\xv=(x_1,x_2,x_3)\) and \(\xv'=(x'_1,x'_2,x'_3)\) write down your function as the matrix-vector product \(\xv'=L\xv\) for some matrix~\(L\) (called a \idx{Leslie matrix}).
 \item Suppose the ecologist observes the numbers of females at the start of a given year is \(\xv=(60,70,20)\), use your matrix to predict the numbers~\(\xv'\) at the start of the next year.  
-Continue similarly to predict the numbers after two years~(\(\xv''\))? and three years~(\(\xv'''\))?
+Continue similarly to predict the numbers after two years~(\(\xv''\)), and three years~(\(\xv'''\)).
 \end{enumerate}
 
 \begin{solution} 
@@ -558,7 +558,7 @@ BA=B\begin{bmatrix} 3 & 2\\ -2 & 1 \end{bmatrix}
 =\begin{bmatrix} B\begin{bmatrix} 3 \\ -2 \end{bmatrix}\W 
 B\begin{bmatrix} 2 \\ 1 \end{bmatrix} \end{bmatrix},
 \end{equation*}
-and neither of these matrix-vector products can be done as, for example,
+and neither of these matrix-vector products can be done because, for example,
 \begin{equation*}
 B\begin{bmatrix} 3 \\ -2 \end{bmatrix}
 =\begin{bmatrix} 5 & -6 & 4\\ -1 & -3 & -3 \end{bmatrix}
@@ -612,7 +612,7 @@ c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}\,.
 \end{equation*}
 \end{definition}
 
-This formula looks like a \idx{dot product}~(\cref{def:dotprod}) of two vectors: indeed we do use that the expression for the \((i,j)\)th~entry is the dot product of the \(i\)th~row of~\(A\) and the \(j\)th~column of~\(B\) as illustrated by
+This formula looks like a \idx{dot product}~(\cref{def:dotprod}) of two vectors, indeed we do use that the expression for the \((i,j)\)th~entry is the dot product of the \(i\)th~row of~\(A\) and the \(j\)th~column of~\(B\) as illustrated by
 \begin{equation*}
 \begin{bmatrix} a_{11}&a_{12}&\cdots&a_{1n}
 \\\vdots&\vdots&&\vdots
@@ -674,9 +674,9 @@ A^p=\underbrace{AA\cdots A}_{p\text{ factors}}.
 The \idx{matrix power}s~\(A^p\) are also \(n\times n\) square matrices.
 
 
-\begin{example}[\idx{age structured population}] \label{eg:poppred}
+\begin{example}[\idx{age-structured population}] \label{eg:poppred}
 \index{matrix power}Matrix powers occur naturally in modelling populations by ecologists such as the animals of \cref{eg:matasp}.
-Recall that given the numbers of \idx{female} \idx{pup}s, \idx{juvenile}s and \idx{adult}s formed into a vector \(\xv=(x_1,x_2,x_3)\), the number in each age one year later (indicated here by a dash) is \(\xv'=L\xv\) for \idx{Leslie matrix}
+Recall that given the numbers of \idx{female} \idx{pup}s, \idx{juvenile}s, and \idx{adult}s formed into a vector \(\xv=(x_1,x_2,x_3)\), the number in each age one year later (indicated here by a dash) is \(\xv'=L\xv\) for \idx{Leslie matrix}
 \begin{equation*}
 L=\begin{bmatrix} 0&0&4\\\frac12&0&0\\0&\frac13&\frac13 \end{bmatrix}.
 \end{equation*}
@@ -793,7 +793,7 @@ A \idx{symmetric matrix} must be a square matrix---as otherwise the sizes of \(A
 
 
 \begin{example} 
-None of the three matrices in \cref{eg:mattrans} are symmetric: the first two matrices are not square so cannot be symmetric; and the third matrix \(C\neq\tr C\).  
+None of the three matrices in \cref{eg:mattrans} are symmetric: the first two matrices are not square so cannot be symmetric, and the third matrix \(C\neq\tr C\).  
 The following matrix is symmetric:
 \begin{equation*}
 D=\begin{bmatrix} 2 & 0 & 1\\ 0 & -6 & 3\\ 1 & 3 & 4  \end{bmatrix}
@@ -850,7 +850,7 @@ Which one of the following matrices is a \idx{symmetric matrix}?
 
 \begin{table}
 \caption{As well as the basics of \script\ listed in \cref{tbl:mtlbpre,tbl:mtlbbasics},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbops}
-\hrule
+\smallskip\hrule\smallskip
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item \index{size()@\texttt{size()}|textbf}\verb|size(A)| returns the number of rows and columns of matrix~\(A\): if \(A\) is \(m\times n\), then \verb|size(A)| returns \(\begin{bmatrix} m&n \end{bmatrix}\).
@@ -858,7 +858,7 @@ Which one of the following matrices is a \idx{symmetric matrix}?
 \item \index{+,-,*@\texttt{+,-,*}|textbf}\verb|+,-,*| is matrix\slash vector\slash scalar addition, \idx{subtraction}, and multiplication, but only provided the sizes of the two operands are compatible.
 %\item As well as enclosing subscripts, parentheses,~\verb|()|, control the order of evaluation of a complicated expression.
 \item \verb|A^p| for scalar~\(p\) computes the \(p\)th~power of square matrix~\(A\) (in contrast to~\verb|A.^p| which  computes the \(p\)th~power of \emph{each element} of~\(A\), \cref{tbl:mtlbbasics}).
-\item The character single \bfidx{quote}\slash\bfidx{dash},~\verb|A'|, \idx{transpose}s the matrix~\(A\).  
+\item The character single \bfidx{prime}\slash\bfidx{quote}\slash\bfidx{dash},~\verb|A'|, \idx{transpose}s the matrix~\(A\).  
 But when using \idx{complex number}s be wary: \verb|A'|~is the \idx{complex conjugate} transpose (which is what we usually want); whereas \verb|A.'|~is the transpose without complex conjugation.
 \item Predefined matrices include:
 \begin{itemize}
@@ -882,7 +882,7 @@ With no argument, these functions return the corresponding scalar: for example, 
 \end{itemize}
 \end{itemize}
 \end{minipage}
-\hrule
+\smallskip\hrule
 \end{table}
 
 \paragraph{Matrix size and elements}
@@ -912,7 +912,7 @@ A(1,:)=[1 2 3 4 5]
 }}%
 \marginajrbox%
 The answer, ``\verb|3  5|'', confirms \(A\) is \(3\times5\).
-\script\ accesses individual \idx{elements}, rows and columns.
+\script\ accesses individual \idx{elements}, rows, and columns.
 For example, execute each of the following:
 \begin{itemize}
 \item \verb|A(2,4)| gives~\(a_{24}\) which here results in~\(11\);
@@ -945,7 +945,7 @@ A =
 
 \paragraph{Matrix addition and subtraction}
 To illustrate further operations let's use some random matrices generated by \script: you will generate different matrices to the following, but the operations will work the same.
-\cref{tbl:mtlbops} mentions that \verb|randn(m)| and \verb|randn(m,n)| generate random matrices so execute say
+\cref{tbl:mtlbops} mentions that \verb|randn(m)| and \verb|randn(m,n)| generate random matrices so execute, say,
 \begin{verbatim}
 A=randn(4)
 B=randn(4)
@@ -1069,7 +1069,7 @@ ans =
    -7.90   -0.70   -3.23
   -10.16   -5.18   -6.11
 \end{verbatim}
-This last computation illustrates that in any expression the operations of multiplication and division are performed before additions and subtractions---as normal in mathematics.
+This last computation illustrates that, in any expression, the operations of multiplication and division are performed before additions and subtractions---as normal in mathematics.
 
 
 \paragraph{Matrix multiplication}
@@ -1127,7 +1127,7 @@ error: operator *: nonconformant arguments
 \end{verbatim}
 
 The caret symbol,~\verb|^|, computes \idx{matrix power}s in \script, such as the cube~\verb|A^3|. 
-But such matrix powers only makes sense and works for square matrices~\(A\).%
+But such matrix powers only make sense and work for square matrices~\(A\).%
 \footnote{Here we define matrix powers for only integer power. \script\ computes the power of a square matrix for any real\slash complex exponent, but its meaning involves matrix exponentials and matrix logarithms that we do not explore here.}
 For example, if matrix~\(A\) was \(3\times4\)\,, then \(A^2=AA\) would involve multiplying a \(3\times4\) matrix by a \(3\times4\) matrix: since the number of columns of the left~\(A\),~4, is not the same as the number of rows of the right~\(A\),~3, such a multiplication is \text{not allowed.}
 
@@ -1211,7 +1211,7 @@ Hence \(C\) and~\(\tr C\) must be equal.
 \label{sec:fapmo}
 
 Almost all of the familiar algebraic properties of scalar addition, 
-subtraction and multiplication---namely \idx{commutativity}, \idx{associativity} and \idx{distributivity}---hold for matrix addition, subtraction and multiplication.
+subtraction, and multiplication---namely \idx{commutativity}, \idx{associativity}, and \idx{distributivity}---hold for matrix addition, subtraction, and multiplication.
 
 The one outstanding exception is that \idx{matrix multiplication} is \emph{not} commutative: for matrices~\(A\) and~\(B\) the products~\(AB\) and~\(BA\) are usually not equal.
 \begin{example} \label{eg:matnoncom}
@@ -1242,7 +1242,7 @@ Similar to these analogues, the result of a matrix multiplication depends upon t
 
 
 \begin{theorem}[Properties of \idx{addition} and \idx{scalar multiplication}] \label{thm:pasm}
-Let matrices \(A\), \(B\) and~\(C\) be of the same size, and let \(c\) and~\(d\) be scalars.  Then:
+Let matrices \(A\), \(B\), and~\(C\) be of the same size, and let \(c\) and~\(d\) be scalars.  Then:
 \begin{enumerate}[ref=\ref{thm:pasm}(\alph*)]
 \item\label[theorem]{thm:pasma} \(A+B=B+A\) (\idx{commutativity} of addition);\index{commutative law}
 \item \((A+B)+C=A+(B+C)\) (associativity of addition);\index{associative law}
@@ -1312,7 +1312,7 @@ Such associativity asserts that \(A(B\xv)=(AB)\xv\)\,: that is, the geometric tr
 
 
 \begin{theorem}[properties of \idx{matrix multiplication}] \label{thm:pmm}
-Let matrices \(A\), \(B\) and~\(C\) be of sizes such that the following expressions are defined, and let \(c\)~be a \idx{scalar}, then:
+Let matrices \(A\), \(B\), and~\(C\) be of sizes such that the following expressions are defined, and let \(c\)~be a \idx{scalar}, then:
 \begin{enumerate}[ref=\ref{thm:pmm}(\alph*)]
 \item\label[theorem]{thm:pmmb} \(A(B\pm C)=AB\pm AC\) (\idx{distributivity} of matrix multiplication);\index{distributive law}
 \item\label[theorem]{thm:pmmbb} \((A\pm B)C=AC\pm BC\) (\idx{distributivity} of matrix multiplication);\index{distributive law}
@@ -1320,7 +1320,7 @@ Let matrices \(A\), \(B\) and~\(C\) be of sizes such that the following expressi
 \item\label[theorem]{thm:pmmc} \(c(AB)=(cA)B=A(cB)\);
 \item\label[theorem]{thm:pmmd} \(I_mA=A=AI_n\) for \(m\times n\) matrix~\(A\) (multiplicative identity);
 \item\label[theorem]{thm:pmme} \(O_mA=O_{m\times n}=AO_n\)  for \(m\times n\) matrix~\(A\);
-\item\label[theorem]{thm:pmmg} \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square matrices~\(A\) and for positive integers~\(p\) and~\(q\).\index{matrix power}%
+\item\label[theorem]{thm:pmmg} \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\), and~\((cA)^p=c^pA^p\) for square matrices~\(A\) and for positive integers~\(p\) and~\(q\).\index{matrix power}%
 \footnote{Generally these exponent properties hold for all scalar~\(p\) and~\(q\), although one has to be very careful with non-integer exponents.}
 \end{enumerate}
 \end{theorem}
@@ -1415,7 +1415,7 @@ That is, \((A+B)^2= A^2+2AB+B^2\) \emph{only if} \(BA=AB\)\,.
 
 
 
-\begin{reduce}
+
 \begin{example} 
 Show that the matrix \(J=\begin{bmat} 0&0&1\\0&1&0\\1&0&0 \end{bmat}\) is not a multiplicative identity (despite having ones down a diagonal, this diagonal is the wrong one for an identity).
 \begin{solution} 
@@ -1435,7 +1435,7 @@ JA=
 Since \(JA\neq A\) then matrix~\(J\) cannot be a multiplicative identity (the multiplicative identity is only when the ones are along the diagonal from top-left to bottom-right).
 \end{solution}
 \end{example}
-\end{reduce}
+
 
 
 
@@ -1467,7 +1467,7 @@ Recall from \cref{def:mattran} of the transpose that
 \\&&(\text{then by \cref{def:mattran} of transpose})
 \\&=&(\tr A)_{ij}\pm(\tr B)_{ij}\,.
 \end{eqnarray*}
-Since this identity holds for all indices~\(i\) and~\(j\), then \(\tr{(A\pm B)}=\tr A\pm \tr B\) .
+Since this identity holds for all indices~\(i\) and~\(j\), then \(\tr{(A\pm B)}=\tr A\pm \tr B\).
 
 \item[\ref{thm:potd}]
 The transpose of matrix multiplication is more involved.
@@ -1544,7 +1544,7 @@ Consider the following six matrices:
 
 
 
-\begin{reduce}
+\begin{OmitV1}
 \begin{exercise}  
 Consider the following six matrices:
 \(A=\begin{bmatrix} 3&\tfrac{17}{6}
@@ -1579,7 +1579,7 @@ Consider the following six matrices:
 
 \end{enumerate}
 \end{exercise}
-\end{reduce}
+\end{OmitV1}
 
 
 \begin{exercise}  
@@ -1647,7 +1647,7 @@ For the following pairs of matrices, calculate their sum and \idx{difference}.
 \(C-D=\protect\begin{bmat} -6&-4&-5 \protect\end{bmat}\)}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(P=\begin{bmatrix} -2&5&1
 \\3&-3&2
 \\-3&3&-3 \end{bmatrix}\),
@@ -1660,7 +1660,7 @@ For the following pairs of matrices, calculate their sum and \idx{difference}.
 \(P-Q=\protect\begin{bmat} -1&8&2
 \protect\\-3&1&4
 \protect\\-6&6&-4 \protect\end{bmat}\)}
-\end{reduce}
+\end{OmitV1}
 
 
 \item \(R=\begin{bmatrix} -2.5&-0.4
@@ -1711,7 +1711,7 @@ For the given matrix, evaluate the following matrix-scalar products.
 \protect\\6.9&6.9 \protect\end{bmat}\).}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(U=\begin{bmatrix} -3.9&-0.3&-2.9
 \\3.1&-3.9&-1.
 \\3.1&-6.5&0.9 \end{bmatrix}\):
@@ -1725,7 +1725,7 @@ For the given matrix, evaluate the following matrix-scalar products.
 \(4U=\protect\begin{bmat} -15.6&-1.2&-11.6
 \protect\\12.4&-15.6&-4.
 \protect\\12.4&-26.&3.6 \protect\end{bmat}\).}
-\end{reduce}
+\end{OmitV1}
 
 
 \item \(V=\begin{bmatrix} -2.6&-3.2
@@ -1777,7 +1777,7 @@ For each of the given matrices, calculate the specified \idx{matrix-vector produ
 \(\pv=\begin{bmatrix} -6\\-5 \end{bmatrix}\), 
 \(\qv=\begin{bmatrix} -2\\-4 \end{bmatrix}\), and
 \(\rv=\begin{bmatrix} -3\\1 \end{bmatrix}\), 
-calculate  \(A\pv\), \(A\qv\) and~\(A\rv\).
+calculate  \(A\pv\), \(A\qv\), and~\(A\rv\).
 \answer{\(A\pv=\protect\begin{bmat} -9\protect\\-13 \protect\end{bmat}\), 
 \(A\qv=\protect\begin{bmat} 4\protect\\-16 \protect\end{bmat}\),
 \(A\rv=\protect\begin{bmat} -15\protect\\11 \protect\end{bmat}\).}
@@ -1788,7 +1788,7 @@ calculate  \(A\pv\), \(A\qv\) and~\(A\rv\).
 \(\pv=\begin{bmatrix} -3\\-3 \end{bmatrix}\), 
 \(\qv=\begin{bmatrix} 2\\1 \end{bmatrix}\), and
 \(\rv=\begin{bmatrix} -5\\2 \end{bmatrix}\), 
-calculate  \(B\pv\), \(B\qv\) and~\(B\rv\).
+calculate  \(B\pv\), \(B\qv\), and~\(B\rv\).
 \answer{\(B\pv=\protect\begin{bmat} -21\protect\\3 \protect\end{bmat}\), 
 \(B\qv=\protect\begin{bmat} 8\protect\\3 \protect\end{bmat}\),
 \(B\rv=\protect\begin{bmat} 7\protect\\-30 \protect\end{bmat}\).}
@@ -1799,24 +1799,24 @@ calculate  \(B\pv\), \(B\qv\) and~\(B\rv\).
 \(\uv=\begin{bmatrix} -4\\3\\2 \end{bmatrix}\), 
 \(\vv=\begin{bmatrix} -3\\1\\2 \end{bmatrix}\), and
 \(\wv=\begin{bmatrix} -4\\5\\-4 \end{bmatrix}\), 
-calculate  \(C\uv\), \(C\vv\) and~\(C\wv\).
+calculate  \(C\uv\), \(C\vv\), and~\(C\wv\).
 \answer{\(C\uv=\protect\begin{bmat} 6\protect\\3 \protect\end{bmat}\), 
 \(C\vv=\protect\begin{bmat} 3\protect\\4 \protect\end{bmat}\),
 \(C\wv=\protect\begin{bmat} 24\protect\\-5 \protect\end{bmat}\).}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item For \(D=\begin{bmatrix} 0&4
 \\1&2
 \\-1&1 \end{bmatrix}\) and vectors 
 \(\uv=\begin{bmatrix} 3\\-0.9 \end{bmatrix}\), 
 \(\vv=\begin{bmatrix} 0.9\\6.8 \end{bmatrix}\), and
 \(\wv=\begin{bmatrix} 0.3\\7.3 \end{bmatrix}\), 
-calculate  \(D\uv\), \(D\vv\) and~\(D\wv\).
+calculate  \(D\uv\), \(D\vv\), and~\(D\wv\).
 \answer{\(D\uv=\protect\begin{bmat} -3.6\protect\\1.2\protect\\-3.9 \protect\end{bmat}\), 
 \(D\vv=\protect\begin{bmat} 27.2\protect\\14.5\protect\\5.9 \protect\end{bmat}\),
 \(D\wv=\protect\begin{bmat} 29.2\protect\\14.9\protect\\7 \protect\end{bmat}\).}
-\end{reduce}
+\end{OmitV1}
 
 \end{enumerate}
 \end{exercise}
@@ -1857,7 +1857,7 @@ For each of the given matrices and vectors, calculate the \idx{matrix-vector pro
 \(C\xv_3=(-0.47,-0.38)\).}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item\label[exercise]{ex:matveciv} \(D=\begin{bmatrix} 0.1&3.4
 \\3.9&5.1 \end{bmatrix}\), 
 \(\av=\begin{bmatrix} 0.2\\0.5 \end{bmatrix}\),
@@ -1866,7 +1866,7 @@ For each of the given matrices and vectors, calculate the \idx{matrix-vector pro
 \answer{\(D\av=(1.72,3.33)\),
 \(D\bv=(0.99,0.36)\),
 \(D\cv=(-2.06,-3.84)\).}
-\end{reduce}
+\end{OmitV1}
 
 
 \end{enumerate}
@@ -1910,7 +1910,7 @@ Stretches by a factor of two.}
 Rotation (by \(36.87^\circ\)).}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(S=\begin{bmatrix} 0&1\\1&0 \end{bmatrix}\), 
 \(\av=\begin{bmatrix} -1.1\\0 \end{bmatrix}\),
 \(\bv=\begin{bmatrix} -4.6\\-1.5 \end{bmatrix}\), and
@@ -1919,7 +1919,7 @@ Rotation (by \(36.87^\circ\)).}
 \(S\bv=(-1.5,-4.6)\),
 \(S\cv=(0.9,-3.1)\).
 Reflection in the diagonal line `\(x=y\)'.}
-\end{reduce}
+\end{OmitV1}
 
 \end{enumerate}
 \end{exercise}
@@ -1970,7 +1970,7 @@ Using the matrix-vector products you calculated for \cref{ex:matvc}, write down 
 \(\protect\begin{bmat} 24&6\protect\\-5&3 \protect\end{bmat}\),
 \(\protect\begin{bmat} 24&3&6\protect\\-5&4&3 \protect\end{bmat}\).}
 
-\begin{reduce}
+\begin{OmitV1}
 \item For \(D=\begin{bmatrix} 0&4
 \\1&2
 \\-1&1 \end{bmatrix}\), write down the matrix products
@@ -1984,7 +1984,7 @@ Using the matrix-vector products you calculated for \cref{ex:matvc}, write down 
 \(\protect\begin{bmat} 27.2&-3.6\protect\\14.5&1.2\protect\\5.9&-3.9 \protect\end{bmat}\),
 \(\protect\begin{bmat} 29.2&-3.6\protect\\14.9&1.2\protect\\7&-3.9 \protect\end{bmat}\),
 \(\protect\begin{bmat} 27.2&29.2&-3.6\protect\\14.5&14.9&1.2\protect\\5.9&7&-3.9 \protect\end{bmat}\).}
-\end{reduce}
+\end{OmitV1}
 
 \end{enumerate}
 \end{exercise}
@@ -2000,7 +2000,7 @@ Choose some suitable exponents.
 Then confirm the \idx{matrix multiplication} properties of \cref{thm:pmm}.
 Record all your commands and the output from \script.
 
-In checking some properties you may get matrices with \idx{elements} such as \verb|2.2204e-16|: recall from \cref{tbl:mtlbops} that this denotes the very small number \(2.2204\cdot10^{-16}\). 
+In checking some properties, you may get matrices with \idx{elements} such as \verb|2.2204e-16|: recall from \cref{tbl:mtlbops} that this denotes the very small number \(2.2204\cdot10^{-16}\). 
 When adding and subtracting numbers of magnitude one or so, the result \verb|2.2204e-16| is effectively zero (due to the sixteen digit \idx{precision} of \script, \cref{tbl:mtlbpre}).
 \end{exercise}
 
@@ -2013,12 +2013,12 @@ Prove parts: \ref{thm:pmmbb}, distributivity; \ref{thm:pmmc}, scalar associativi
 Use the other parts of \cref{thm:pmm} to prove part~\ref{thm:pmmg} that \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square matrix~\(A\), scalar~\(c\), and for positive integer exponents~\(p\) and~\(q\).
 \end{exercise}
 
+\begin{exercise}[\idx{Tasmanian Devil}s]  
 \begin{wrapfigure}l{8em}
 % AJR's photo of Tassie Devil
 \includegraphics[width=\linewidth]{Matrices/tasmanianDevil}
 Tasmanian Devil
 \end{wrapfigure}
-\begin{exercise}[\idx{Tasmanian Devil}s]  
 % adapted from SACE Math Meths 2013
 % Wikipedia says four years breeding seasons typical, 
 % 2 females born per year is OK
@@ -2032,7 +2032,7 @@ female Tasmanian Devils survive for four years, \text{at most.}
 
 Analogous to \cref{eg:matasp} define a vector \(\xv\) in~\(\RR^4\) to be the number of females of specified ages.
 Use the above information to write down the \idx{Leslie matrix}~\(L\) that predicts the number in the next year,~\(\xv'\), from the number in any year,~\xv.
-Given the observed initial female numbers of \(18\)~newborns, \(9\)~one year olds, \(18\)~two year olds, and \(18\)~three year olds, use matrix multiplication to predict the numbers of female Tasmanian Devils one, two and three years later.
+Given the observed initial female numbers of \(18\)~newborns, \(9\)~one year olds, \(18\)~two year olds, and \(18\)~three year olds, use matrix multiplication to predict the numbers of female Tasmanian Devils one, two, and three years later.
 Does the population appear to be increasing? or decreasing?
 \answer{Let \(x_j\) be the number of females of age \((j-1)\)~years.
 \(L=\protect\begin{bmat} 0&0&2&2\protect\\ 2/3&0&0&0\protect\\ 0&2/3&0&0\protect\\ 0&0&1/2&0 \protect\end{bmat}\).
@@ -2042,7 +2042,7 @@ Increasing.}
 
 
 \begin{comment}
-Many Markov Chain possibilities, especially age structured populations, maybe snakes and ladders, and compute powers.
+Many Markov Chain possibilities, especially age-structured populations, maybe snakes and ladders, and compute powers.
 \end{comment}
 
 
@@ -2078,7 +2078,7 @@ Which of the following matrices are a \idx{symmetric matrix}?
 \protect\\3&-1&-6&-4
 \protect\\2&1&-4&4&\protect\end{bmat}\), symmetric}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 3&1&-2&-3 \end{bmatrix}\)
 \answer{\(\protect\begin{bmat} 3
 \protect\\1
@@ -2093,7 +2093,7 @@ Which of the following matrices are a \idx{symmetric matrix}?
 \protect\\-1&-2&-5&2
 \protect\\-2&-2&4&-1
 \protect\\2&0&-1&-2 \protect\end{bmat}\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} -4&-5.1&0.3
 \\-5.1&-7.4&-3.
@@ -2159,13 +2159,13 @@ In a few sentences, answer\slash discuss each of the following.
 
 \item What causes the identity matrix to be zero except for ones along the diagonal from the top-left to the bottom-right?
 
-\item How does multiplication by a square matrix arise in studying the age structure of populations?
+\item How does multiplication by a square matrix arise in studying the age-structure of populations?
 
 \item Why is it impossible to compute powers of a non-square matrix?
 
 \item Why did we invoke random matrices?
 
-\item Among all the properties for matrix addition and multiplication operations, which ones are different to the analogous properties for scalars?  why?
+\item Among all the properties for matrix addition and multiplication operations, which ones are different from the analogous properties for scalars?  why?
 
 \item What constraint must be put on matrix~\(A\) in order for \(A+\tr A\) to be defined?  
 What constraint must be put on matrix~\(B\) in order for \(B\tr B\) to be defined?  

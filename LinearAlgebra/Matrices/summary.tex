@@ -8,7 +8,7 @@
 
 \subsubsection{Matrix operations and algebra}
 
-\item First, some basic terminology (\cref{sec:bmt}) corresponds to commands in \script.
+\item First, some basic terminology (\cref{sec:bmt}) that corresponds to commands in \script:
 \begin{itemize}
 \itemhi A \bfidx{matrix} is a rectangular array of real numbers, written inside \bfidx{brackets}~\(\begin{bmatrix} \cdots  \end{bmatrix}\)---create in \script\ via \verb|[...;...;...]|.
 
@@ -18,16 +18,16 @@ If \(m=n\)\,, then it is called a \bfidx{square matrix}.
 \item A \bfidx{column vector} means a matrix of size \(m\times 1\) for some~\(m\).
 We often write a \idx{column vector} horizontally within \bfidx{parentheses}~\((\cdots )\).
 
-\item The numbers appearing in a matrix are called the \bfidx{entries}, \bfidx{elements} or \bfidx{components} of the matrix.
+\item The numbers appearing in a matrix are called the \bfidx{entries}, \bfidx{elements}, or \bfidx{components} of the matrix.
 For a matrix~\(A\), the entry in row~\(i\) and column~\(j\) is denoted by~\(a_{ij}\) ---compute with~\verb|A(i,j)|.
 
 \itemme \(O_{m\times n}\)~denotes the \(m\times n\) zero matrix, \(O_n\)~denotes the square zero matrix of size \(n\times n\)---compute with \verb|zeros(m,n)| and \verb|zeros(n)|, respectively---whereas \(O\)~denotes a zero matrix whose size is apparent from the context.
 
-\itemme The \bfidx{identity matrix}~\(I_n\) denotes a \(n\times n\) square matrix which has zero entries except for the diagonal from the top-left to the bottom-right which are all ones---compute with~\index{eye()@\texttt{eye()}}\verb|eye(n)|.
+\itemme The \bfidx{identity matrix}~\(I_n\) denotes a \(n\times n\) square matrix that has zero entries except for the diagonal from the top-left to the bottom-right which are all ones---compute with~\index{eye()@\texttt{eye()}}\verb|eye(n)|.
 Non-square `identity' matrices are denoted \(I_{m\times n}\)---compute with~\verb|eye(m,n)|.
 The symbol~\(I\) denotes an identity matrix whose size is apparent from \text{the context.}
 
-\item In \script, \verb|randn(m,n)|~computes a \(m\times n\) matrix with \idx{random entries} (distributed Normally, mean zero, standard deviation one).
+\item In \script, \verb|randn(m,n)|~computes a \(m\times n\) matrix with \idx{random entries} (distributed normally, mean zero, standard deviation one).
 
 \item Two matrices are \bfidx{equal}~(\(=\)) if they both have the same size \emph{and} their corresponding entries are equal.
 Otherwise the two matrices are not equal.
@@ -40,7 +40,7 @@ Otherwise the two matrices are not equal.
 \item When \(A\) and~\(B\) are both \(m\times n\) matrices, then their \bfidx{sum} or \bfidx{addition}, \(A+B\)\,, is the \(m\times n\) matrix whose \((i,j)\)th~entry is \(a_{ij}+b_{ij}\)\,---compute by \verb|A+B|.  
 Similarly,  the \bfidx{difference} or \bfidx{subtraction} \(A-B\) is the \(m\times n\) matrix whose \((i,j)\)th~entry is \(a_{ij}-b_{ij}\)\,---compute by \verb|A-B|.
 
-\item For an \(m\times n\) matrix~\(A\), the \bfidx{scalar product} by~\(c\), denoted either~\(cA\) or~\(Ac\)---and compute by \verb|c*A| or~\verb|A*c|---is the \(m\times n\) matrix whose \((i,j)\)th~entry is~\(ca_{ij}\).
+\item For an \(m\times n\) matrix~\(A\), the \bfidx{scalar product} by~\(c\), denoted either~\(cA\) or~\(Ac\)---and computed by \verb|c*A| or~\verb|A*c|---is the \(m\times n\) matrix whose \((i,j)\)th~entry is~\(ca_{ij}\).
 
 \itemhi For \(m\times n\) matrix~\(A\) and vector \(\xv\) in~\(\RR^n\), the \bfidx{matrix-vector product}~\(A\xv\)\,---compute by \verb|A*x|---is the following vector in~\(\RR^m\),
 \begin{equation*}
@@ -53,7 +53,7 @@ A\xv:=
 \end{equation*}
 Multiplication of a vector by a square matrix transforms the vector into another vector in the same space.
 
-\itemme In modelling the age structure of populations, the so-called \idx{Leslie matrix} encodes the birth, ageing, and death in the population (usually of females) to empower predictions of the future population.
+\itemme In modelling the age-structure of populations, the so-called \idx{Leslie matrix} encodes the birth, ageing, and death in the population (usually of females) to empower predictions of the future population.
 Such prediction often involves repeated matrix-matrix multiplication, that is, computing the powers of \text{a matrix.}
 
 \itemhi For \(m\times n\) matrix~\(A\), and \(n\times p\) matrix~\(B\), the \bfidx{matrix product} \(C=AB\)\,---compute by \verb|C=A*B|---is the \(m\times p\) matrix whose \((i,j)\)th~entry is
@@ -80,7 +80,7 @@ c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}\,.
  \(c(AB)=(cA)B=A(cB)\);
  \(I_mA=A=AI_n\) for \(m\times n\) matrix~\(A\) (multiplicative identity);
  \(O_mA=O_{m\times n}=AO_n\)  for \(m\times n\) matrix~\(A\);
- \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\) and~\((cA)^p=c^pA^p\) for square~\(A\) and integer~\(p,q\).
+ \(A^pA^q=A^{p+q}\), \((A^p)^q=A^{pq}\), and~\((cA)^p=c^pA^p\) for square~\(A\) and integer~\(p,q\).
  
 But matrix multiplication is \emph{not} commutative: generally \(AB\neq BA\)\,.
 
@@ -115,7 +115,7 @@ A^{-1}=\frac1{ad-bc}\begin{bmatrix} d&-b\\-c&a \end{bmatrix}.
 
 \itemme If a matrix~\(A\) is {invertible}, then  \(A\xv=\bv\) has the {unique solution} \(\xv=A^{-1}\bv\) for every~\(\bv\) (\cref{thm:invuniqsol}).
 
-\itemme For all invertible matrices~\(A\) and~\(B\), the inverse has the properties (\cref{thm:invprop}):
+\itemme For all invertible matrices,~\(A\) and~\(B\), the inverse has the properties (\cref{thm:invprop}):
 \begin{itemize}
 \item  matrix \(A^{-1}\) is invertible and \((A^{-1})^{-1}=A\)\,;
 \item if scalar \(c\neq0\)\,, then matrix~\(cA\) is invertible and \((cA)^{-1}=\frac1cA^{-1}\);
@@ -210,7 +210,7 @@ $y_i=z_i/\sigma_i$ for $i=1,\ldots,r$, and let $y_i$~be a {free variable} for $i
 
 \itemhi In \script:
 \begin{itemize}
-\item \index{svd()@\texttt{svd()}}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\) and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\).
+\item \index{svd()@\texttt{svd()}}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\), and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\).
 
 \verb|svd(A)| just reports the singular values in a vector.
 
@@ -246,7 +246,7 @@ When the right-hand side~\bv\ has relative error~\(\epsilon\), then the solution
 
 
 
-\subsubsection{Subspaces, basis and dimension}
+\subsubsection{Subspaces, basis, and dimension}
 
 \itemhi A \bfidx{subspace}~\WW\ of~\(\RR^n\),  is a set of vectors, including \(\ov\in\WW\), such that \WW\ is \bfidx{closed} under addition and scalar multiplication: that is, for all \(c\in\RR\) and \(\uv,\vv\in\WW\), then both \(\uv+\vv\in\WW\) and \(c\uv\in\WW\) (\cref{def:subspace}).
 
@@ -316,7 +316,7 @@ Further, given an \svd\ of the matrix, say \(A=\usv\) and setting \(r=\rank A\),
 
 \item A robust way to use the results of pairwise competitions to rate a group of players or teams is to approximately solve the set of equations \(x_i-x_j=\text{result}_{ij}\) where \(x_i\) and~\(x_j\) denote the unknown ratings of the players\slash teams to be determined, and \(\text{result}_{ij}\) is the result or score (to~\(i\) over~\(j\)) when the two compete against \text{each other.}
 
-Beware of Arrow's \idx{Impossibility Theorem} that all 1D ranking systems are flawed!
+Beware of Arrow's \idx{Impossibility Theorem}, that all 1D ranking systems are flawed!
 
 \itemme All \idx{approximate solution}s obtained by \cref{pro:appsol} solve the linear system \(A\xv=\bv'\) for the unique \idx{consistent} right-hand side vector~\(\bv'\) that minimizes the \idx{distance}~\(|\bv'-\bv|\) (\cref{thm:appsol}).
 
@@ -324,7 +324,7 @@ Beware of Arrow's \idx{Impossibility Theorem} that all 1D ranking systems are fl
 Say the task is to find the linear relation between~\(v\) (`vertical' values) and~\(h\) (`horizontal' values), \(v=x_1+x_2h\), for as yet unknown coefficients~\(x_1\) and~\(x_2\).
 Form the system of linear equations from all data points~\((h,v)\) by \(x_1+x_2h=v\), and solve the system via \cref{pro:appsol}.
 
-In science and engineering one often seeks power laws \(v=c_1h^{c_2}\) in which case take logarithms and use the data to find \(x_1=\log c_1\) and \(x_2=c_2\) via \cref{pro:appsol}.
+In science and engineering one often seeks power laws \(v=c_1h^{c_2}\), in which case take logarithms and use the data to find \(x_1=\log c_1\) and \(x_2=c_2\) via \cref{pro:appsol}.
 Taking logarithms of equations also empowers forming linear equations to be approximately solved in the \idx{computed tomography} of medical and industrial \textsc{ct}-scans\index{CT scan}.
 
 
@@ -340,9 +340,9 @@ Either \(p\) or~\(q\) can be~\verb|[]| in which case \script\ uses \(p=mn/q\) or
 
 \item \index{imagesc()@\texttt{imagesc()}}\verb|imagesc(A)| where \(A\)~is a \(m\times n\) matrix of values draws an \(m\times n\) image using the values of~\(A\) to determine the colour.
 
-\item \index{log()@\texttt{log()}}\verb|log(x)| where \(x\)~is a  matrix, vector or scalar computes the natural \idx{logarithm} to the base~\(e\) of each element, and returns the result(s) as a correspondingly sized matrix, vector or scalar.
+\item \index{log()@\texttt{log()}}\verb|log(x)| where \(x\)~is a  matrix, vector, or scalar computes the natural \idx{logarithm} to the base~\(e\) of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.
 
-\item \index{exp()@\texttt{exp()}}\verb|exp(x)| where \(x\)~is a  matrix, vector or scalar computes the \idx{exponential} of each element, and returns the result(s) as a correspondingly sized matrix, vector or scalar.
+\item \index{exp()@\texttt{exp()}}\verb|exp(x)| where \(x\)~is a  matrix, vector, or scalar computes the \idx{exponential} of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.
 \end{itemize}
 
 
@@ -362,7 +362,7 @@ For every vector \(\vv\in\RR^n\), the \bfidx{orthogonal projection} of vector~\v
 \(\proj_\WW(\vv)=(W\tr W)\vv\)
 for the \(n\times k\) matrix \(W=\begin{bmatrix} \wv_1&\wv_2&\cdots&\wv_k \end{bmatrix}\) (\cref{thm:projmat}).
 
-\begin{reduce}
+\begin{OmitV1}
 \item Let \WW\ be a \(k\)-dimensional \idx{subspace} of~\(\RR^n\).
 The set of all vectors \(\uv\in\RR^n\) (together with~\ov) that are each orthogonal to all vectors in~\WW\ is called the \bfidx{orthogonal complement}~\(\WW^\perp\) (\cref{def:orthsubsp}); that is,
 \begin{equation*}
@@ -386,7 +386,7 @@ For every vector \(\vv\in\RR^n\), the \bfidx{perpendicular component} of~\vv\  t
 \itemme Let \WW\ be a \idx{subspace} of~\(\RR^n\), then for every vector \(\vv\in\RR^n\) there exist unique vectors \(\wv\in\WW\) and \(\nv\in\WW^\perp\) such that vector \(\vv=\wv+\nv\) (\cref{thm:odt}); this  sum is called an \bfidx{orthogonal decomposition} of~\vv.
 
 \itemme For every vector~\vv\ in~\(\RR^n\), and every subspace~\WW\ in~\(\RR^n\),  \(\proj_\WW(\vv)\) is the closest vector in~\WW\ to~\vv\ (\cref{thm:bapr}).
-\end{reduce}
+\end{OmitV1}
 
 
 

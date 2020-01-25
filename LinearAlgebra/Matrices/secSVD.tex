@@ -17,7 +17,7 @@ The computation of an \svd\ is well conditioned, unlike \textsc{lu} decompositio
 
 
 The singular value decomposition (\svd) is sometimes called the \idx{jewel in the crown} of  linear algebra.%
-%It is a vital part of the toolkit needed by many scientists, engineers, statisticians and mathematicians.
+%It is a vital part of the toolkit needed by many scientists, engineers, statisticians, and mathematicians.
 \footnote{Beltrami first derived the \svd\ in 1873 \cite[]{Stewart1993}.  
 The first reliable method for computing an \svd\ was developed by Golub and Kahan in 1965, and only thereafter did applications proliferate.}
 The \svd's importance is certified by the many names by which it is invoked 
@@ -31,7 +31,7 @@ Let's start seeing what it can do \text{for us.}
 \subsection{Introductory examples}
 \label{sec:svdeg}
 
-Let's introduce an analogous problem so the \svd\ procedure follows more easily.
+Let's introduce an analogous problem, so the \svd\ procedure follows more easily.
 
 You are a contestant in a \idx{quiz show}.
 The final million dollar question is: 
@@ -49,7 +49,7 @@ You win the prize!
 Given \(154=2\cdot7\cdot11\)\,, solve in your head \(154\,x=8008\) or~\(9856\) or~\(12628\) or~\(13090\) or~\(14322\) (teacher to choose): first to answer wins!
 \end{activity}
 
-Such examples show \idx{factorization} can turn a hard problem into several easy problems.  
+Such examples show that \idx{factorization} can turn a hard problem into several easy problems.  
 We adopt an analogous matrix factorization to solve and understand general linear equations.  
 
 To illustrate the procedure to come, let's write the above solution steps in detail: we solve \(42\,x=1554\)\,.
@@ -65,7 +65,7 @@ and introduce two intermediate unknowns \(y\) and~\(z\) as indicated above (that
 \end{enumerate}
 
 Now let's proceed to small matrix examples.
-Each example follows analogous solutions steps to those above.
+Each example follows analogous solution steps to those above.
 The following examples introduce the general matrix procedure empowered by a \idx{factorization} of a matrix.
 Specifically, we use the matrix factorization called a singular value decomposition (\svd).
 %\begin{comment}
@@ -104,7 +104,7 @@ Optionally check the factorization if you like:
 \begin{bmatrix} \frac1{\sqrt2}&\frac1{\sqrt2}\\ -\frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}
 =\begin{bmatrix} 10&2\\5&11 \end{bmatrix}.
 \end{eqnarray*}
-Given the factorization, the following four steps forms the general procedure. 
+Given the factorization, the following four steps form the general procedure. 
 \begin{enumerate}
 \item Write the system using the factorization, and with two intermediate unknowns~\yv\ and~\zv\ as indicated below:
 \begin{equation*}
@@ -285,7 +285,7 @@ We must use matrix factorization in the correct order: to solve linear equations
 The previous examples depended upon a matrix being factored into a product of three matrices: 
 two orthogonal and one diagonal.
 Amazingly, such factorization is always possible.
-(\url{http://www.youtube.com/watch?v=JEYLfIVvR9I} is an entertaining prelude (their~\(D\) is our~\(S\)).)
+(\url{http://www.youtube.com/watch?v=JEYLfIVvR9I} is an entertaining prelude---their~\(D\) is our~\(S\).)
 
 \begin{theorem}[\svd\ \idx{factorization}] \label{thm:svd} 
     Every $m\times n$ real matrix~$A$ can be factored into a product of three matrices
@@ -311,7 +311,7 @@ Importantly, the singular values are unique (when ordered), although the orthogo
 Nonetheless, although there are many possible matrices~\(U\) and~\(V\) in the \svd{}s of a matrix, all such \svd{}s are equivalent \text{in application.}
 
 Some people may be disturbed by the non-uniqueness of an \svd.  
-But the non-uniqueness is analogous to the non-uniqueness of \idx{Gauss--Jordan elimination} upon re-ordering of equations, and/or re-ordering the variables in the equations (\cref{sec:amss}).
+But the non-uniqueness is analogous to the non-uniqueness of \idx{Gauss--Jordan elimination} upon reordering of equations, and/or reordering the variables in the equations (\cref{sec:amss}).
 Do not be disturbed by any non-uniqueness in~\(U\) and~\(V\).
 
 
@@ -340,7 +340,7 @@ so the singular values of this matrix are \(\sigma_1=10\sqrt2\) and \(\sigma_2=5
 \\-\frac19&-\frac89&\frac49 \end{bmatrix}},
 \end{equation*}}%
 where the two outer matrices are orthogonal (check),
-so the singular values of this matrix are \(\sigma_1=12\)\,, \(\sigma_2=6\) and \(\sigma_3=3\)\,.
+so the singular values of this matrix are \(\sigma_1=12\)\,, \(\sigma_2=6\)\,, and \(\sigma_3=3\)\,.
 \end{example}
 
 
@@ -355,7 +355,7 @@ Hence every \(n\times n\) orthogonal matrix has singular values \(\sigma_1=\sigm
 \begin{itemize}
 \item An \idx{identity matrix}, say~\(I_n\), has an \svd\ \(I_n=I_nI_n\tr{I_n}\).  
 \item Additionally, for \emph{every} \(n\times n\) \idx{orthogonal matrix}~\(Q\), the identity~\(I_n\) also has the \svd\ \(I_n=QI_n\tr Q\)---as this right-hand side \(QI_n\tr Q=Q\tr Q=I_n\).
-\item Further, any constant multiple of an identity, say \(sI_n=\diag(s,s,\ldots,s)\), has the same non-uniqueness: an \svd\ is \(sI_n=\usv\) for matrices \(U=Q\)\,, \(S=sI_n\) and \(V=Q\) for every \(n\times n\) orthogonal~\(Q\) (provided \(s\geq0\)).
+\item Further, any constant multiple of an identity, say \(sI_n=\diag(s,s,\ldots,s)\), has the same non-uniqueness: an \svd\ is \(sI_n=\usv\) for matrices \(U=Q\)\,, \(S=sI_n\)\,, and \(V=Q\) for every \(n\times n\) orthogonal~\(Q\) (provided \(s\geq0\)).
 \end{itemize}
 The matrices in this example are characterized by all their singular values having an identical value. 
 In general, analogous non-uniqueness in~\(U\) and~\(V\) occurs whenever two or more singular values are identical in value.
@@ -384,7 +384,7 @@ Find an \svd\ of the \idx{diagonal matrix}
 D=\begin{bmatrix} 2.7&0&0\\0&-3.9&0\\0& 0 &-0.9 \end{bmatrix}.
 \end{equation*}
 \begin{solution} 
-Singular values cannot be negative so a factorization is
+Singular values cannot be negative, so a factorization is
 \begin{equation*}
 D=\begin{bmatrix} 1&0&0\\0&-1&0\\0 &0 &-1 \end{bmatrix}
 \begin{bmatrix} 2.7&0&0\\0&3.9&0\\0 &0 &0.9 \end{bmatrix}
@@ -406,24 +406,24 @@ D=\begin{bmatrix} 0&1&0\\-1&0&0\\0 &0 &-1 \end{bmatrix}
 
 \begin{table}
 \caption{As well as the \script\ commands and operations listed in \cref{tbl:mtlbpre,tbl:mtlbbasics,tbl:mtlbops,tbl:mtlbmops},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbsvd}
-\hrule
+\smallskip\hrule\smallskip
 \begin{minipage}{\linewidth}
 \begin{itemize}
-\item \index{svd()@\texttt{svd()}|textbf}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\) and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\) for \(m\times m\) \idx{orthogonal matrix}~\(U\), \(n\times n\) orthogonal matrix~\(V\), and \(m\times n\) non-negative \idx{diagonal matrix}~\(S\) (\cref{thm:svd}).
+\item \index{svd()@\texttt{svd()}|textbf}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\), and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\) for \(m\times m\) \idx{orthogonal matrix}~\(U\), \(n\times n\) orthogonal matrix~\(V\), and \(m\times n\) non-negative \idx{diagonal matrix}~\(S\) (\cref{thm:svd}).
 
 \index{svd()@\texttt{svd()}}\verb|svd(A)| just reports the singular values in a vector.
 
 \item Complementing information of \cref{tbl:mtlbops}, to extract and compute with a subset of rows\slash columns of a matrix, specify the vector of indices.
-For examples:
+For example:
 \begin{itemize}
 \item \verb|V(:,1:r)| selects the first \(r\)~columns of~\(V\);
-\item \verb|A([2 3 5],:)| selects the second, third and fifth row of matrix~\(A\);
-\item \verb|B(4:6,1:3)| selects the \(3\times 3\) submatrix of the first three columns of the fourth, fifth and sixth rows.
+\item \verb|A([2 3 5],:)| selects the second, third, and fifth row of matrix~\(A\);
+\item \verb|B(4:6,1:3)| selects the \(3\times 3\) submatrix of the first three columns of the fourth, fifth, and sixth rows.
 \end{itemize}
 
 \end{itemize}
 \end{minipage}
-\hrule
+\smallskip\hrule
 \end{table}
 
 
@@ -440,12 +440,12 @@ Because, in a matrix's \svd\ \idx{factorization}, the \idx{rotation}s (and/or \i
 This and following examples illustrate the cases of either no or infinite solutions, to complement the case of unique solutions of the first two examples.
 
 \begin{example}[rate sport teams/players] \label{eg:rstp}
-    Consider three \idx{table tennis} players, Anne, Bob and Chris:
+    Consider three \idx{table tennis} players, Anne, Bob, and Chris:
         Anne beat Bob 3~games to 2~games;
         Anne beat Chris 3-1;
         Bob beat Chris 3-2.
 How good are they all?  What are their ratings?  
-That is we seek to assign a number to each player, called their rating, indicating how good they are at playing: the higher the number the better the player. 
+That is, we seek to assign a number to each player, called their rating, indicating how good they are at playing: the higher the number the better the player. 
     
 \begin{solution} 
     Denote Anne's rating by~$x_1$, Bob's rating by~$x_2$, and Chris' 
@@ -483,7 +483,7 @@ A=[1,-1,0;1,0,-1;0,1,-1]
 b=[1;2;1]
 rcond(A)
 \end{verbatim}
-but find \verb|rcond=0| which is extremely terrible so we cannot use \verb|A\b| to solve the system \(A\xv=\bv\)\,.
+but find \verb|rcond=0|, which is extremely terrible so we cannot use \verb|A\b| to solve the system \(A\xv=\bv\)\,.
 %With \verb|A\|, Matlab gives \verb|NaN|, and Octave warns of singular matrix. %Scilab warns and makes error!
 \emph{Whenever difficulties arise, use an \svd.}
 
@@ -554,7 +554,7 @@ So interpret the equation \(S\yv=\zv\) in detail as
 \begin{enumerate}
 \item the first line implies \(y_1=-1.2247/1.7321\);
 \item the second line implies \(y_2=-2.1213/1.7321\);
-\item the third line is \(0y_3=0\) which is satisfied for all~\(y_3\).
+\item the third line is \(0y_3=0\)\,, which is satisfied for all~\(y_3\).
 \end{enumerate}
 %A general solution is \(\yv=(-\frac1{\sqrt2},-\sqrt{\frac32},y_3)\) for free variable~\(y_3\).
 In using \script\ you must notice \(\sigma_3=0\), check that the corresponding \(z_3=0\), and then compute a \emph{particular solution} from the first two components to give the first two components of~\(\yv\):
@@ -588,7 +588,7 @@ Thus the three player ratings may be any one from the general solution
     +y_3(1,1,1)/\sqrt3\,.
 \end{displaymath}
 In this application we only care about relative ratings, not absolute ratings, so here adding any multiple of~\((1,1,1)\) is immaterial.
-This solution for the ratings indicates Anne is the best player, and Chris the worst. 
+This solution for the ratings indicates that Anne is the best player, and Chris the worst. 
 \end{solution}
 \end{example}
 
@@ -596,7 +596,7 @@ This solution for the ratings indicates Anne is the best player, and Chris the w
 \begin{compute}
 As seen in the previous example, often we need to compute with a subset of the \idx{components} of matrices, a submatrix (\cref{tbl:mtlbsvd}):
 \begin{itemize}
-\item \verb|b(1:r)| selects the first \(r\)~\idx{entries} of vector~\(\bv\)
+\item \verb|b(1:r)| selects the first \(r\)~\idx{entries} of vector~\(\bv\);
 \item \verb|S(1:r,1:r)| selects the top-left \(r\times r\) submatrix of~\(S\);
 \item \verb|V(:,1:r)| selects the first \(r\)~columns of matrix~\(V\).
 \end{itemize}
@@ -625,10 +625,10 @@ z =
    -2.0412\\-2.1213\\0.5774
 \end{bmatrix}.
 \end{equation*}
-The third line of this system says \(0y_3=0.5774\) which is impossible for any~\(y_3\).
+The third line of this system says \(0y_3=0.5774\), which is impossible for any~\(y_3\).
 \end{enumerate}
 In this case there is no solution of the system of equations.
-It would appear we cannot assign ratings to the players!  
+It would appear that we cannot assign ratings to the players!  
 \end{solution}
 \end{example}
 
@@ -671,13 +671,13 @@ V =
    -0.5000    0.5000    0.1900    0.6811
    -0.5000   -0.5000   -0.6811    0.1900
 \end{verbatim}
-(Depending upon \script\ you may get different alternatives for the last two columns for~\texttt{V}, and different signs for columns of \texttt{U} and~\texttt{V}---adjust accordingly.)
-The singular values are \(\sigma_1=28\)\,, \(\sigma_2=14\) and the problematic \(\sigma_3=0\) (it is computed as the negligible~\(10^{-15}\)).
+(Depending upon \script, you may get different alternatives for the last two columns for~\texttt{V}, and different signs for columns of \texttt{U} and~\texttt{V}---adjust accordingly.)
+The singular values are \(\sigma_1=28\)\,, \(\sigma_2=14\), and the problematic \(\sigma_3=0\) (it is computed as the negligible~\(10^{-15}\)).
 
 \item To solve \(U\zv=\bv\) we compute \(\zv=\tr U\bv\)\,.  
 But for the next step we must have the third component of~\zv\ to be zero as otherwise there is no solution.  
 Now \(z_3=\tr\uv_3\bv\) (where \(\uv_3\)~is the third column of~\(U\)); that is, \(z_3=0.2857\times c +0.4286\times8 +0.8571\times(-5)\) needs to be zero, which requires \(c=-(0.4286\times8 +0.8571\times(-5))/0.2857\)\,.  
-Recognize this expression is equivalent to \(c=-(0.2857\times0+0.4286\times8 +0.8571\times(-5))/0.2857=\uv_3\cdot(0,8,-5)/0.2857\) and so compute
+Recognize that this expression is equivalent to \(c=-(0.2857\times0+0.4286\times8 +0.8571\times(-5))/0.2857=\uv_3\cdot(0,8,-5)/0.2857\) and so compute
 \begin{verbatim}
 c=-U(:,3)'*[0;8;-5]/U(1,3)
 \end{verbatim}
@@ -689,14 +689,14 @@ Having found that \(c=3\)\,, compute~\zv\ from \verb|z=U'*[3;8;-5]| to find \(\z
 \\0&14&0&0
 \\0&0&0&0 \end{bmatrix}\yv=\begin{bmatrix} 7\\-7\\0 \end{bmatrix}.
 \end{equation*}
-The first line gives \(y_1=7/28=1/4\)\,, the second line gives \(y_2=-7/14=-1/2\), and the third line is \(0y_3+0y_4=0\) which is satisfied for all~\(y_3\) and~\(y_4\) (because we chose~\(c\) correctly).
+The first line gives \(y_1=7/28=1/4\)\,, the second line gives \(y_2=-7/14=-1/2\), and the third line is \(0y_3+0y_4=0\)\,, which is satisfied for all~\(y_3\) and~\(y_4\) (because we chose~\(c\) correctly).
 Thus \(\yv=(\frac14,-\frac12,y_3,y_4)\) is a general solution for this intermediary.
 Compute the particular solution with \(y_3=y_4=0\) via 
 \begin{verbatim}
 y=z(1:2)./diag(S(1:2,1:2))
 \end{verbatim}
 
-\item Finally solve \(\tr V\xv=\yv\) as \(\xv=V\yv\)\,, namely
+\item Finally, solve \(\tr V\xv=\yv\) as \(\xv=V\yv\)\,, namely
 \begin{equation*}
 \xv=\begin{bmatrix} -0.5&0.5&-0.1900&-0.6811
 \\-0.5&-0.5&0.6811&-0.1900
@@ -763,7 +763,7 @@ Hence \cref{pro:gensol} determines all possible solutions of \(A\xv=\bv\)\,.%
 
 
 
-This \cref{pro:gensol} determines for us that there is either none, one or an infinite number of solutions, as \cref{thm:fred} requires.
+This \cref{pro:gensol} determines for us that there is either none, one, or an infinite number of solutions, as \cref{thm:fred} requires.
 
 However,  \script's ``\verb|A\|'' gives one `answer' for all of these cases, even when there is \idx{no solution} or an infinite number of solutions.
 The function \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (\cref{pro:unisol}).
@@ -797,7 +797,7 @@ also, for zero matrices \(\cond O_{m\times n}:=\infty\)\,.
 \cref{eg:2and3sv} gives the singular values of two matrices:
 for the \(2\times 2\) matrix the condition number  \(\sigma_1/\sigma_2=(10\sqrt2)/(5\sqrt2)=2\) (for which \(\verb|rcond|=0.5\)); for the \(3\times 3\) matrix the condition number \(\sigma_1/\sigma_3=12/3=4\) (for which \(\verb|rcond|=0.25\)).
 \cref{eg:svdorthog} comments that every \(n\times n\) \idx{orthogonal matrix} has singular values \(\sigma_1=\cdots=\sigma_n=1\)\,; hence every orthogonal matrix has condition number one (\(\verb|rcond|=1\)).  
-Such condition numbers less than~\(100\) (non-small \verb|rcond|) indicate all these matrices are ``good'' matrices (as classified by \cref{pro:unisol}).
+Such condition numbers less than~\(100\) (non-small \verb|rcond|) indicate that all these matrices are ``good'' matrices (as classified by \cref{pro:unisol}).
 
 However, the matrix in the sports ranking \cref{eg:rstp} has singular values \(\sigma_1=\sigma_2=\sqrt3\) and \(\sigma_3=0\) so its condition number \(\sigma_1/\sigma_3=\sqrt3/0=\infty\) (correspondingly, \(\verb|rcond|=0\)) which indicates that the equations are likely to be unsolvable.
 (In \script, see that \(\sigma_3=2\cdot10^{-17}\) so a numerical calculation would give condition number \(1.7321/\sigma_3=7\cdot10^{16}\) which is effectively infinite.)
@@ -812,7 +812,7 @@ What is the condition number of the matrix of \cref{eg:3x4findc},
 \\8&4&8&4 \end{bmatrix},
 \end{equation*}
 given it has an \svd\ \twodp
-{\small\arraycolsep=0.3em\begin{equation*}
+\begin{equation*}
 \begin{bmatrix} -0.86&0.43&0.29
 \\-0.29&-0.86&0.43
 \\0.43&0.29&0.86 \end{bmatrix}\begin{bmatrix} 28&0&0&0
@@ -821,7 +821,7 @@ given it has an \svd\ \twodp
 \\0.50&-0.50&0.68&-0.19
 \\0.50&0.50&0.19&0.68
 \\0.50&-0.50&-0.68&0.19 \end{bmatrix}}
-\end{equation*}}
+\end{equation*}
 \actposs[4]{\(\infty\)}{\(0\)}{\(0.5\)}{\(2\)}
 \end{activity}
 
@@ -858,10 +858,10 @@ equivalently \(S=\diag_{m\times n}(\hlist\sigma r,0,\ldots,0)\).
 \end{definition}
 
 \begin{example} 
-In the four matrices of \cref{eg:condnum}, the respective ranks are~\(2\), \(3\), \(n\) and~\(2\).
+In the four matrices of \cref{eg:condnum}, the respective ranks are~\(2\), \(3\), \(n\), and~\(2\).
 \end{example}
 
-\cref{thm:svd} asserts the singular values are unique for a given matrix, so the rank of a matrix is independent of its different~\svd{}s.
+\cref{thm:svd} asserts that the singular values are unique for a given matrix, so the rank of a matrix is independent of its different~\svd{}s.
 
 \begin{activity}
 What is the rank of the matrix of \cref{eg:3x4findc}, 
@@ -879,14 +879,14 @@ given it has an \svd\ \twodp
 \\0&0&0&0 \end{bmatrix}\tr{\begin{bmatrix} 0.50&0.50&-0.19&-0.68
 \\0.50&-0.50&0.68&-0.19
 \\0.50&0.50&0.19&0.68
-\\0.50&-0.50&-0.68&0.19 \end{bmatrix}}
+\\0.50&-0.50&-0.68&0.19 \end{bmatrix}}.
 \end{equation*}}
 \actposs[4]{\(2\)}{\(1\)}{\(3\)}{\(4\)}
 \end{activity}
 
 
 
-\begin{reduce}
+
 \begin{example} 
 Use \script\ to find the rank of the matrix
 \(\begin{bmat}    0 & 1 & 0
@@ -911,11 +911,11 @@ A=[0 1 0
  2 0 -2 ]
 svd(A)
 \end{verbatim}
-The singular values are \(3.49\), \(1.34\) and \(1.55\cdot10^{-16}\approx0\) \twodp.
+The singular values are \(3.49\), \(1.34\)  \twodp, and \(1.55\cdot10^{-16}\approx0\).
 Since two singular values are nonzero, the rank of the matrix is two.
 \end{solution}
 \end{example}
-\end{reduce}
+
 
 
 
@@ -1138,7 +1138,7 @@ Now \(\xv=\ov\) is always a solution of \(A\xv=\ov\).  If property~\ref{thm:ftim
 Use \idx{contradiction}.  
 Assume a singular value is zero. 
 Then \cref{pro:gensol} finds an infinite number of solutions to the homogeneous system \(A\xv=\ov\)\,, which contradicts~\ref{thm:ftim1iii}.
-Hence the assumption is wrong, so all singular values are non-zero.
+Hence the assumption is wrong, so all singular values are nonzero.
 \item[\ref{thm:ftim1iv}$\iff$\ref{thm:ftim1ivx}]
 By \cref{def:condnum}, the condition number is finite if and only if the smallest singular value is\({}>0\), and hence if and only if all singular values are nonzero.
 \item[\ref{thm:ftim1iv}$\implies$\ref{thm:ftim1v}]
@@ -1177,7 +1177,7 @@ Consider the following innocuous looking system of \idx{linear equation}s
 \end{equation*}
 Solve by hand (\cref{pro:gje}) to find the unique solution is \((p,q,r)=(2,-1,1)\).
 
-But, and it is a big but in practical applications, what happens if the right-hand side comes from experimental measurements with a \idx{relative error} of~1\%? 
+But---and it is a big but in practical applications---what happens if the right-hand side comes from experimental measurements with a \idx{relative error} of~1\%? 
 (Recall that the \emph{relative error} of an approximation, compared to the exact, is \(\big(|(\text{approx})-(\text{exact})|\big)/{|\text{exact}|}\).)
 Let's explore by writing the system in matrix-vector form and using \script\ to solve with various example errors.
 \begin{enumerate}
@@ -1204,7 +1204,7 @@ x=A\slosh b
 A=[0 -2 1; 1 -5 1; -3 2 3]
 b=[3;8;-5]
 \end{verbatim}
-\item find \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| is \(0.0031\) which is poor, but we proceed anyway;
+\item find \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| is \(0.0031\), which is poor, but we proceed anyway;
 \item then \verb|x=A\b| gives the solution \(\xv=(2,-1,1)\) as before.
 \end{enumerate}
 
@@ -1234,10 +1234,10 @@ This solution is very different to the original solution \(\xv=(2,-1,1)\)\,!
 %    \threev[right]{1.2}{-1.3}{0.4}{\xv''}
 %    \threev[right]{1.7}{-1.1}{0.8}{\xv'''}
 \end{axis}
-\end{tikzpicture}}}
-As illustrated to the right, the large \idx{difference} between~\xv\ and~\(\xv'\) indicates `the solution'~\xv\ is almost complete nonsense.
+\end{tikzpicture}}}%
+As illustrated to the right, the large \idx{difference} between~\xv\ and~\(\xv'\) indicates that `the solution'~\xv\ is almost complete nonsense.
 How can a 1\%~error in~\bv\ turn into the astonishingly large 91\%~error in solution~\xv?  
-\cref{thm:erramp} below shows it is no accident that the magnification of the error by a factor of~\(91\) (from~1\% to~91\%)) is of the same order of magnitude as the condition number\({}=152.27\) computed via \index{svd()@\texttt{svd()}}\verb|s=svd(A)| and then \verb|condA=s(1)/s(3)|.
+\cref{thm:erramp} below shows that it is no accident that the magnification of the error by a factor of~\(91\) (from~1\% to~91\%)) is of the same order of magnitude as the condition number\({}=152.27\) computed via \index{svd()@\texttt{svd()}}\verb|s=svd(A)| and then \verb|condA=s(1)/s(3)|.
 \end{figbox}
 
 
@@ -1252,7 +1252,7 @@ How can a 1\%~error in~\bv\ turn into the astonishingly large 91\%~error in solu
     \node[right] at (axis cs:1.7,-1.1,0.8) {$\xv'''$};
     \addplot3[quiver={u=1.7,v=-1.1,w=0.8},blue,-stealth] coordinates {(0,0,0)};
 \end{axis}
-\end{tikzpicture}}}
+\end{tikzpicture}}}%
 To explore further, let's say the second component of~\bv\ is in error by~1\% of~\bv, that is, by~\(0.1\).
 As in the previous case, add \((0,0.1,0)\) to the right-hand side and solve to find now \(\xv''=(1.2,-1.3,0.4)\) which is quite different to both~\xv\ and~\(\xv'\), as illustrated to the right.
 Compute its \idx{relative error} \(|\xv-\xv''|/|\xv|=0.43\)\,.
@@ -1261,14 +1261,14 @@ At 43\%, the relative error in solution~\(\xv''\) is also much larger than the 1
 
 
 \item Lastly, let's say the third component of~\bv\ is in error by~1\% of~\bv, that is, by~\(0.1\).
-As in the previous cases, add \((0,0,0.1)\) to the right-hand side and solve to find now \(\xv'''=(1.7,-1.1,0.8)\) which, as illustrated above, is at least is roughly~\xv.
+As in the previous cases, add \((0,0,0.1)\) to the right-hand side and solve to find now \(\xv'''=(1.7,-1.1,0.8)\) which, as illustrated above, is at least roughly~\xv.
 Compute its \idx{relative error} \(|\xv-\xv'''|/|\xv|=0.15\)\,.
 At 15\%, the relative error in solution~\(\xv'''\) is significantly larger than the 1\%~error in~\bv.
 
 \end{enumerate}
-This example shows that the apparently innocuous matrix~\(A\) variously multiples measurement errors in~\bv\ by factors of at least up to~\(91\) when finding `the solution'~\xv\ to \(A\xv=\bv\)\,.
+This example shows that the apparently innocuous matrix~\(A\) variously multiplies measurement errors in~\bv\ by factors of at least up to~\(91\) when finding `the solution'~\xv\ to \(A\xv=\bv\)\,.
 The matrix~\(A\) must, after all, be a bad matrix.
-\cref{thm:erramp} shows this badness is quantified by its  condition number~\(152.27\), and its poor (estimated) reciprocal \(\verb|rcond(A)|=0.0031\). 
+\cref{thm:erramp} shows that this badness is quantified by its  condition number~\(152.27\), and its poor (estimated) reciprocal \(\verb|rcond(A)|=0.0031\). 
 \end{example}
 
 
@@ -1320,7 +1320,7 @@ x1=Q\(b+[0.1;0;0;0])
 relerr1=norm(x-x1)/norm(x)
 \end{verbatim}
 show the changed solution is \(\xv'=(-4.56,5.04,6.98,-2.12)\) which here is reasonably close to~\xv.
-Indeed its relative error \(|\xv-\xv'|/|\xv|\) is computed to be~\(0.0100={}\)1\%.
+Indeed, its relative error \(|\xv-\xv'|/|\xv|\) is computed to be~\(0.0100={}\)1\%.
 Here the relative error in solution~\xv\ is exactly the same as the relative error in~\bv.
 
 \item Exploring further, upon adding the 1\%~error \((0,0.1,0,0)\) to~\bv, analogous commands show the changed solution is \(\xv''=(-4.62,5.08,6.96,-2.24)\) which has relative error \(|\xv-\xv''|/|\xv|=0.0100={}\)1\% again.
@@ -1330,10 +1330,10 @@ Here the relative error in solution~\xv\ is exactly the same as the relative err
 \item Lastly, upon adding 1\%~error \((0,0,0,0.1)\) to~\bv, analogous commands show the changed solution is \(\xv''''=(-4.68,4.98,6.96,-2.16)\) which has relative error \(|\xv-\xv''''|/|\xv|=0.0100={}\)1\% yet again.
 
 \end{itemize}
-In this example, and in contrast to the previous \cref{eg:ilsle}, throughout the relative error in the solution~\xv\ is exactly the same as the relative error in~\bv.
+In this example, and in contrast to the previous \cref{eg:ilsle}, throughout, the relative error in the solution~\xv\ is exactly the same as the relative error in~\bv.
 The reason is that here the matrix~\(Q\) is an \idx{orthogonal matrix}---check by computing \verb|Q'*Q| (\cref{def:orthog}).
 Being orthogonal, multiplication by~\(Q\) only rotates or reflects, and never stretches or distorts (\cref{thm:orthog:i}).
-Consequently errors remain the same magnitude when multiplied by such orthogonal matrices, as seen in this example, and as reflected in the condition number of~\(Q\) being one (as computed via \verb|s=svd(Q)| and then \verb|condQ=s(1)/s(4)|).
+Consequently, errors remain the same magnitude when multiplied by such orthogonal matrices, as seen in this example, and as reflected in the condition number of~\(Q\) being one (as computed via \verb|s=svd(Q)| and then \verb|condQ=s(1)/s(4)|).
 \end{solution}
 \end{example}
 
@@ -1367,7 +1367,7 @@ Again because multiplication by orthogonal~\(V\) preserves lengths, the solution
 
 \begin{example} 
 Each of the following cases involves solving a linear system \(A\xv=\bv\) to determine quantities of interest~\xv\ from some measured quantities~\bv.
-From the given information estimate the \idx{maximum} \idx{relative error} in~\xv,  if  possible, otherwise say so.
+From the given information, estimate the \idx{maximum} \idx{relative error} in~\xv,  if  possible, otherwise say so.
 \begin{enumerate}
 \item Quantities~\bv\ are measured to a relative error~\(0.001\), and matrix~\(A\) has condition number of ten.
 \item Quantities~\bv\ are measured to three \idx{significant digits} and \index{rcond()@\texttt{rcond()}}\(\verb|rcond(A)|=0.025\)\,.
@@ -1393,7 +1393,7 @@ Then here with \(\verb|rcond(A)|=0.025\)\,, matrix~\(A\) has condition number of
 \begin{activity}
 In some experiment the components of~\bv, \(|\bv|=5\)\,, are measured to two \idx{decimal places}.
 We compute a vector~\xv\ by solving \(A\xv=\bv\)\,. 
-For matrix~\(A\) we compute \index{rcond()@\texttt{rcond()}}\(\verb|rcond(A)|=0.02\)\,.
+For matrix~\(A\), we compute \index{rcond()@\texttt{rcond()}}\(\verb|rcond(A)|=0.02\)\,.
 What is our estimate of the largest possible \idx{relative error} in~\xv?
 \actposs[4]{5\%}{20\%}{2\%}{0.1\%}
 \end{activity}
@@ -1435,7 +1435,7 @@ But then when you finally resolve it, you have this incredible feeling of how be
 \end{quoted}
 
 
-Two preliminary examples introduce the structure of the general proof that an \svd\ exists.  
+Two preliminary examples introduce the structure of the general proof that an \svd\ exists.%
 \footnote{This proof may be delayed until the last week of a semester.
 It may be given together with the closely related classic proof of \cref{thm:smevec} on the eigenvectors of symmetric matrices.}
 As in this example prelude, the proof of a general singular value decomposition is similarly constructive.
@@ -1454,12 +1454,12 @@ A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix}=
 \end{equation*}
 Here we find this \idx{factorization}, \(A=\usv\), by maximizing~\(|A\vv|\) over all \idx{unit vector}s~\vv\ (all vectors of length one).
 
+\begin{solution} 
 \begin{wrapfigure}r{0pt}
 \eRose{10/10}{2/10}{5/10}{11/10}
 \end{wrapfigure}
-\begin{solution} 
 In 2D, all unit vectors are of the form \(\vv=(\cos t,\sin t)\) for \(-\pi<t\leq\pi\)\,.  
-The picture to the right plots these unit vectors~\vv\ in blue for 32 angles~\(t\).
+The picture to the right plots these unit vectors~\vv\ in blue for 32 angles~\(t\).%
 \footnote{The \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} (download for R2017b and later) provides an interactive alternative to this static view---click on the \texttt{eig/(svd)} button to make \texttt{eigshow(A)} show \texttt{svd/(eig)}.}
 Plotted in red from the end of each~\vv\ is the vector~\(A\vv\) (scaled down by a factor of ten for clarity).
 Our aim is to find the~\vv\ that maximizes the length of the corresponding adjoined~\(A\vv\).
@@ -1506,7 +1506,7 @@ Normalize the vector~\(A\vv_1\) by \(A\vv_1/\sigma_1 =(6\sqrt2,8\sqrt2)/(10\sqrt
 \end{tikzpicture}
 \end{wrapfigure}
 The other column of~\(V\) must be orthogonal (at right-angles) to~\(\vv_1\) in order for matrix~\(V\) to be orthogonal.
-Thus set \(\vv_2=(-\frac1{\sqrt2},\frac1{\sqrt2})\) as shown in the  plot to the right.
+Thus set \(\vv_2=(-\frac1{\sqrt2},\frac1{\sqrt2})\), as shown in the  plot to the right.
 Now multiply to find \(A\vv_2=(-4\sqrt2,3\sqrt2)\):
 magically, and a crucial part of the general proof, the vector~\(A\vv_2\) is orthogonal to~\(\uv_1\).
 The length of \(A\vv_2=(-4\sqrt2,3\sqrt2)\) is \(\sqrt{32+18}=\sqrt{50}=5\sqrt2=\sigma_2\), the other singular value.
@@ -1515,7 +1515,7 @@ Normalize the vector to \(A\vv_2/\sigma_2 =(-4\sqrt2,3\sqrt2)/(2\sqrt2)=(-\frac4
 This construction establishes that here \(AV=US\)\,. 
 Then post-multiply each side by~\(\tr V\) to find an \svd\ is \(A=\usv\).
 
-In this example we could have chosen the negative of~\(\vv_1\) (angle \(t=-\frac{3\pi}4\)), and/or chosen the negative of~\(\vv_2\). 
+In this example, we could have chosen the negative of~\(\vv_1\) (angle \(t=-\frac{3\pi}4\)), and/or chosen the negative of~\(\vv_2\). 
 The result would still be a valid \svd\ of the matrix~\(A\).
 The orthogonal matrices in an \svd\ are not unique, and need not be. The ordered singular values are unique.
 \end{solution}
@@ -1558,7 +1558,7 @@ Choosing one alternative, say \(\vv_1=(1)\), then fixes the matrix \(V=\begin{bm
 \end{axis}
 \end{tikzpicture}}
 \end{wrapfigure}
-Then \(A\vv_1=(1,1,1)\) which is of length~\(\sqrt3\).
+Then \(A\vv_1=(1,1,1)\), which is of length~\(\sqrt3\).
 This length is the singular value \(\sigma_1=\sqrt3\)\,.  
 Dividing~\(A\vv_1\) by its length gives the unit vector \(\uv_1=(\thr,\thr,\thr)\), the first column of~\(U\).  
 To find the other columns of~\(U\), consider the three standard unit vectors in~\(\RR^3\) (red in the illustration to the right), rotate them all together so that one lines up with~\(\uv_1\), and then the other two rotated unit vectors form the other two columns of~\(U\) (blue vectors in the illustration).  
@@ -1582,7 +1582,7 @@ on the \idx{size} \(m\times n\) of the matrix.
 \item For any given \(m\times n\) matrix~\(A\), choose \(\vv_1\) to maximize~\(|A\vv|^2\) among all \idx{unit vector}s \(\vv\) in~\(\RR^n\).
 \item Crucially, we then establish that for every vector~\vv\ orthogonal to~\(\vv_1\), the vector \(A\vv\) is orthogonal to~\(A\vv_1\).
 \item Then rotate the \idx{standard unit vector}s to align one with~\(\vv_1\). Similarly for~\(A\vv_1\).  
-\item This \idx{rotation} transforms the matrix~\(A\) to strip off the leading singular value, and effectively leave an \((m-1)\times(n-1)\) matrix.
+\item This \idx{rotation} transforms the matrix~\(A\) to strip off the leading singular value, and to effectively leave an \((m-1)\times(n-1)\) matrix.
 \item  By induction on the size, an \svd\ exists for all sizes.
 \end{itemize}
 This proof corresponds closely to the proof of the spectral \cref{thm:smevec} for symmetric matrices of \cref{sec:sm}. 
@@ -1597,7 +1597,7 @@ This proof corresponds closely to the proof of the spectral \cref{thm:smevec} fo
 Use \idx{induction} on the \idx{size} \(m\times n\) of the matrix~\(A\): we assume an \svd\ exists for all \((m-1)\times(n-1)\)~matrices, and prove that consequently an \svd\ must exist for all \(m\times n\)~matrices.  There are three base cases to establish: one for \(m\leq n\)\,, one for \(m\geq n\)\,, and one for matrix \(A=O\)\,; then the induction extends to all \text{sized matrices.}
 
 \paragraph{Case $A=O_{m\times n}$:}
-When \(m\times n\) matrix \(A=O_{m\times n}\) then choose \(U=I_m\) (orthogonal), \(S=O_{m\times n}\) (diagonal), and \(V=I_n\) (orthogonal) so then \(\usv=I_mO_{m\times n}\tr I_n=O_{m\times n}=A\)\,.  
+When \(m\times n\) matrix \(A=O_{m\times n}\) then choose \(U=I_m\) (orthogonal), \(S=O_{m\times n}\) (diagonal), and \(V=I_n\) (orthogonal), so then \(\usv=I_mO_{m\times n}\tr I_n=O_{m\times n}=A\)\,.  
 
 Consequently, the rest of the proof only considers the non-trivial cases when the matrix~\(A\) is not all zero. 
 
@@ -1613,7 +1613,7 @@ Set \(1\times 1\) orthogonal matrix \(V=\begin{bmatrix} 1 \end{bmatrix}\);
 %\(S=\begin{bmatrix} \sigma_1\\0\\\vdots\\0 \end{bmatrix}\); and
 \(S=(\sigma_1,0,\ldots,0)\); and
 \(m\times m\) orthogonal matrix \(U=\begin{bmatrix} \uv_1 &\uv_2&\cdots&\uv_m\end{bmatrix}\).
-Matrix~\(U\) exists because we can take the orthonormal set of \idx{standard unit vector}s in~\(\RR^m\) and rotate them all together so that the first lines up with~\(\uv_1\): the other \((m-1)\)~unit vectors then become the other~\(\uv_j\).
+Matrix~\(U\) exists because we can take the orthonormal set of \idx{standard unit vector}s in~\(\RR^m\) and rotate them all together so that the first lines up with~\(\uv_1\); the other \((m-1)\)~unit vectors then become the other~\(\uv_j\).
 Then an \svd\ for the \(m\times1\) matrix~\(A\) is
 \begin{equation*}
 \usv
@@ -1649,7 +1649,7 @@ Assume  an \svd\ exists for all \((m-1)\times(n-1)\)~matrices: we proceed to pro
 Consider any \(m\times n\) nonzero matrix~\(A\) with \(m,n\geq2\)\,.
 Set vector~\(\vv_1\) in~\(\RR^n\) to be a \emph{unit vector} that maximizes~\(|A\vv|^2\) for unit vectors \(\vv\) in~\(\RR^n\); that is, vector~\(\vv_1\) achieves the \idx{maximum} in \(\max_{|\vv|=1}|A\vv|^2\).
 \begin{enumerate}
-\item \emph{Such a \idx{maximum} exists by the Extreme Value Theorem in Calculus.}
+\item \emph{Such a \idx{maximum} exists by the Extreme Value Theorem in calculus.}
 This theorem is proved in higher level analysis.
 
 %Optional (omit as no real need): confirm that a maximum exists by bounding it.
@@ -1682,7 +1682,7 @@ Nonetheless, the maximum value of~\(|A\vv|^2\) is unique, and so the following s
 \item \emph{Set the singular value \(\sigma_1:=|A\vv_1|>0\) and unit vector \(\uv_1:=(A\vv_1)/\sigma_1\) in~\(\RR^m\). 
 For every unit vector~\vv\ orthogonal to~\(\vv_1\) we now prove that the vector~\(A\vv\) is orthogonal to~\(\uv_1\).}
 Let \(\uv:=A\vv\) in~\(\RR^m\) and consider \(f(t):=|A(\vv_1\cos t+\vv\sin t)|^2\).
-Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for all~\(t\) (\cref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the Calculus of a maximum).
+Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for all~\(t\) (\cref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the calculus of a maximum).
 On the other hand, 
 \begin{eqnarray*}
 f(t)&=&|A\vv_1\cos t+A\vv\sin t|^2
@@ -1699,7 +1699,7 @@ Since the singular value \(\sigma_1>0\)\,, we must have \(\uv\cdot\uv_1=0\) and 
 \item Consider the \idx{orthonormal set} of \idx{standard unit vector}s in~\(\RR^n\): rotate them so that the first unit vector lines up with~\(\vv_1\), and let the other \((n-1)\)~rotated unit vectors become the columns of the \(n\times(n-1)\) matrix~\(\bar V\).
 Then set the \(n\times n\) matrix
 \(V_1:=\begin{bmatrix}\vv_1&\bar V\end{bmatrix}\) which is orthogonal as its columns are orthonormal (\cref{thm:orthog:ii}).
-Similarly set an \(m\times m\) \idx{orthogonal matrix}
+Similarly, set an \(m\times m\) \idx{orthogonal matrix}
 \(U_1:=\begin{bmatrix}\uv_1&\bar U\end{bmatrix}\).
 Compute the \(m\times n\) matrix
 \begin{equation*}
@@ -1736,7 +1736,7 @@ U:=U_1\begin{bmatrix} 1&O\\O&\hat U \end{bmatrix},\quad
 V:=V_1\begin{bmatrix} 1&O\\O&\hat V\end{bmatrix},\quad
 S:=\begin{bmatrix} \sigma_1&O\\O&\hat S \end{bmatrix}.
 \end{equation*}
-Matrices \(U\) and~\(V\) are orthogonal as each are the product of two orthogonal matrices (\cref{ex:orthoprod}).
+Matrices \(U\) and~\(V\) are orthogonal as each is the product of two orthogonal matrices (\cref{ex:orthoprod}).
 Also, matrix~\(S\) is diagonal.
 These form an \svd\ for matrix~\(A\) since
 \begin{eqnarray*}
@@ -1769,22 +1769,22 @@ Using a \idx{factorization} of the left-hand side coefficient, quickly solve by 
 % p=[2,3,5,7,11]; c=prod(p(ceil(5*rand(1,3)))),b=c*ceil(40+60*rand)
 \begin{Parts}
 \item \(18 x=1134\)
-\begin{reduce}
+\begin{OmitV1}
 \item \(42 x=2226\)
 \item \(66 x=3234\)
-\end{reduce}
+\end{OmitV1}
 \item \(70 x=3150\)
 \item \(99 x=8118\)
-\begin{reduce}
+\begin{OmitV1}
 \item \(154 x=7854\)
 \item \(175 x=14350\)
-\end{reduce}
+\end{OmitV1}
 \item \(242 x=20086\)
 \item \(245 x=12495\)
-\begin{reduce}
+\begin{OmitV1}
 \item \(363 x=25047\)
 \item \(385 x=15785\)
-\end{reduce}
+\end{OmitV1}
 \item \(539 x=28028\)
 \end{Parts}
 \end{exercise}
@@ -1812,7 +1812,7 @@ Calculate by hand using the given \svd\ factorization; record your working.
 \end{equation*}
 \answer{\(\xv=(-1,-\frac{3}{2})\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\underbrace{\begin{bmatrix} \frac{15}{13}&\frac{36}{13}
 \\\frac{36}{13}&-\frac{15}{13} \end{bmatrix}}_{=\eAii}\xv
 =\begin{bmatrix} \frac{54}{13}
@@ -1840,7 +1840,7 @@ Calculate by hand using the given \svd\ factorization; record your working.
 \\\frac{4}{5}&-\frac{3}{5} \end{bmatrix}}
 \end{equation*}
 \answer{\(\xv=(-1.08,1.44)-(0.8,0.6)t\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\underbrace{\begin{bmatrix} -\frac{5}{26}&-\frac{6}{13}
 \\-\frac{12}{13}&\frac{5}{13} \end{bmatrix}}_{=\eAii}\xv
@@ -1871,7 +1871,7 @@ Calculate by hand using the given \svd\ factorization; record your working.
 \end{equation*}
 \answer{\(\xv=(\frac{10}{9},-\frac{25}{18},\frac{5}{9})-(\frac{2}{3},\frac{2}{3},\frac{1}{3})t\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\underbrace{\begin{bmatrix} \frac{3}{35}&\frac{9}{35}&\frac{9}{70}
 \\-\frac{4}{35}&-\frac{12}{35}&-\frac{6}{35} \end{bmatrix}}_{=\eAii}\xv
 =\begin{bmatrix} \frac{3}{8}
@@ -1906,7 +1906,7 @@ Calculate by hand using the given \svd\ factorization; record your working.
 \\\frac{12}{13}&-\frac{5}{13} \end{bmatrix}}
 \end{equation*}
 \answer{\(\xv=(\frac{5}{13},\frac{12}{13})\)}
-\end{reduce}
+\end{OmitV1}
 
 
 \item \(\underbrace{\begin{bmatrix} \frac{36}{119}&-\frac{11}{17}
@@ -1946,7 +1946,7 @@ Calculate by hand using the given \svd\ factorization; record your working.
 \end{equation*}
 \answer{\(\xv=(1,\frac{1}{2},-\frac{1}{2})\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\underbrace{\begin{bmatrix} -\frac{10}{27}&-\frac{2}{27}&\frac{31}{54}
 \\-\frac{4}{27}&\frac{10}{27}&\frac{17}{27}
 \\-\frac{8}{27}&-\frac{7}{27}&\frac{7}{27} \end{bmatrix}}_{=\eAii}\xv
@@ -1984,7 +1984,7 @@ Calculate by hand using the given \svd\ factorization; record your working.
 \\\frac{9}{11}&-\frac{2}{11}&-\frac{6}{11} \end{bmatrix}}
 \end{equation*}
 \answer{\(\xv=(-\frac{7}{11},-\frac{21}{11},-\frac{63}{22})+(-\frac{9}{11}.\frac{6}{11},-\frac{2}{11})s+(\frac{6}{11},\frac{7}{11},-\frac{6}{11})t\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\underbrace{\begin{bmatrix} -\frac{6}{11}&-\frac{1}{11}&\frac{81}{22}
 \\\frac{7}{11}&\frac{3}{11}&\frac{27}{11}
@@ -2057,7 +2057,7 @@ V=[-4 4 -7
 \answer{\(\xv=(-\frac{19}{12},\frac{1}{3},-\frac{17}{12})\)}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\underbrace{\begin{bmatrix} \frac{79}{66}&\frac{7}{33}&-\frac{29}{33}
 \\-\frac{65}{66}&-\frac{13}{33}&\frac{35}{33}
 \\\frac{31}{66}&-\frac{29}{33}&-\frac{37}{33}
@@ -2129,7 +2129,7 @@ V=[2 -2 -1 4
 \end{equation*}
 \answer{\(\xv=(-\frac{16}{5},-\frac{26}{5},\frac{32}{5},\frac{13}{5})
 +(\frac{4}{5},\frac{1}{5},\frac{2}{5},\frac{2}{5})t\)}
-\end{reduce}
+\end{OmitV1}
 
 
 \item \(\underbrace{\begin{bmatrix} \frac{57}{22}&-\frac{3}{22}&-\frac{45}{22}&-\frac{9}{22}
@@ -2204,7 +2204,7 @@ V=[-7 -1 1 -7
 \answer{No solution.}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\underbrace{\begin{bmatrix} \frac{5}{14}&-\frac{41}{14}&\frac{1}{2}&-\frac{3}{2}
 \\\frac{22}{7}&-\frac{4}{7}&0&2
 \\-\frac{9}{14}&-\frac{13}{14}&\frac{5}{2}&-\frac{1}{2}
@@ -2243,7 +2243,7 @@ V=[-1 1 -1 -1
 \\-\frac{1}{2}&\frac{1}{2}&\frac{1}{2}&\frac{1}{2} \end{bmatrix}}
 \end{equation*}
 \answer{\(\xv=(-\frac{33}{2},\frac{25}{2},\frac{17}{2},\frac{9}{2})\)}
-\end{reduce}
+\end{OmitV1}
 
 
 \end{enumerate}
@@ -2275,7 +2275,7 @@ b=[-29.4;-12.4;13.2;-0.8]
 \answer{\(\xv=(-8,-6,1,2)\)}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -0.7&-0.7&-2.5&-0.7
 \\1&-2.2&0.2&-0.2
 \\-1&1.4&-1.4&-2.6
@@ -2312,7 +2312,7 @@ b=[-17.38;-1.14;5.22;12.26]
 }}%
 \marginajrbox%
 \answer{\(\xv=(3,5,-7,-2)\)}
-\end{reduce}
+\end{OmitV1}
 
 
 \item \(\begin{bmatrix} 1.38&0.50&3.30&0.34
@@ -2353,7 +2353,7 @@ b=[-5.28;2.04;6.30;2.50]
 \answer{No solution.}
 
 % u=randq(m), s=diag(-sort(-round(abs(randn(1,min(m,n))*2))),m,n), v=randq(n), x=v*s'*round(randn(m,1)*4), A=u*s*v', b=A*x
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 2.16&0.82&-2.06&0.72
 \\-0.18&-0.56&1.84&-0.78
 \\1.68&-0.14&0.02&-0.24
@@ -2393,7 +2393,7 @@ b=[-1.8;-3.2;-9.6;-0.6]
 \answer{\(\xv=(-3.2,-3.4,0.8,-3.4)
 +(0.8,-0.4,-0.2,-0.4)s
 +(0.2,-0.4,0.8,0.4)t\)}
-\end{reduce}
+\end{OmitV1}
 
 % m=ceil(rand*3)+2;n=ceil(rand*3)+2; a=round(randn(m,n)*3)+0, x=round(randn(1,n)*30)/10+0, b=a*x', svs=svd(a)'
 \item \(\begin{bmatrix} 7&1&-1&4
@@ -2432,7 +2432,7 @@ b=[-2.1;2.2;4.6;-0.7;5.5]
 \answer{No solution.}
 
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -1&0&-6&0&5
 \\0&-3&2&1&7
 \\0&2&-3&-2&2
@@ -2473,7 +2473,7 @@ b=[4;-7;2;-3]
 \answer{\(\xv=(0.70,-0.54,1.16,0.34,-1.26)
 \)\\\({}
 +(-0.64,0.12,0.66,-0.37,0.10)t\) \twodp}
-\end{reduce}
+\end{OmitV1}
 
 
 %\item \(\begin{bmatrix}  \end{bmatrix}\xv
@@ -2505,22 +2505,22 @@ Use \cref{pro:gensol} to provide an alternative proof to each of these two theor
 Write down the \idx{condition number} and the \idx{rank} of each of the matrices in \cref{ex:hsledvs} using the given \svd{}s.
 \answer{\protect\begin{enumerate}[label=(\protect\alph*)]
 \protect\item{}cond\({}=5/3\),  rank\({}=2\);
-\protect\begin{reduce}
+\protect\begin{OmitV1}
 \protect\item{}cond\({}=1\),  rank\({}=2\);
 \protect\item{}cond\({}=\infty\),  rank\({}=1\);
-\protect\end{reduce}
+\protect\end{OmitV1}
 \protect\item{}cond\({}=2\),  rank\({}=2\);
 \protect\item{}cond\({}=2\),  rank\({}=2\);
-\protect\begin{reduce}
+\protect\begin{OmitV1}
 \protect\item{}cond\({}=\infty\),  rank\({}=1\);
 \protect\item{}cond\({}=2\),  rank\({}=2\);
-\protect\end{reduce}
+\protect\end{OmitV1}
 \protect\item{}cond\({}=2\),  rank\({}=2\);
 \protect\item{}cond\({}=2\),  rank\({}=3\);
-\protect\begin{reduce}
+\protect\begin{OmitV1}
 \protect\item{}cond\({}=\infty\),  rank\({}=2\);
 \protect\item{}cond\({}=\infty\),  rank\({}=1\);
-\protect\end{reduce}
+\protect\end{OmitV1}
 \protect\item{}cond\({}=9\),  rank\({}=3\);
 \protect\end{enumerate}}
 \end{exercise}
@@ -2528,7 +2528,7 @@ Write down the \idx{condition number} and the \idx{rank} of each of the matrices
 
 
 
-\begin{reduce}
+\begin{OmitV1}
 \begin{exercise}  
 Write down the \idx{condition number} and the \idx{rank} of each of the matrices in \cref{ex:csledvs} using the given \svd{}s.
 For each square matrix, compute \verb|rcond| and comment on its relation to the \idx{condition number}.
@@ -2542,7 +2542,7 @@ For each square matrix, compute \verb|rcond| and comment on its relation to the 
 \protect\item{}cond\({}=4\), rank\({}=4\), \protect\verb|rcond|\({}=0.1167\).
 \protect\end{enumerate}}
 \end{exercise}
-\end{reduce}
+\end{OmitV1}
 
 
 
@@ -2573,8 +2573,8 @@ The cases with a zero singular value, rank less than~\(n\), either have no solut
 
 
 \begin{exercise}  
-Recall \cref{def:invertible} says that a square matrix~\(A\) is \idx{invertible} if there exists a matrix~\(B\) such that \emph{both} \(AB=I\) \emph{and} \(BA=I\)\,.
-We now see that we need only one of these to ensure the matrix is invertible.
+Recall that \cref{def:invertible} says that a square matrix~\(A\) is \idx{invertible} if there exists a matrix~\(B\) such that \emph{both} \(AB=I\) \emph{and} \(BA=I\)\,.
+We now see that we need only one of these to ensure that the matrix is invertible.
 \begin{enumerate}
 \item Use \cref{thm:ftim1iii} to now prove that a square matrix~\(A\) is invertible if there exists a matrix~\(B\) such that \(BA=I\)\,.
 
@@ -2590,13 +2590,13 @@ For each of the following systems, explore the effect on the solution of 1\%~err
 % for i=1:999, A=round(randn(2)*4)+0; if prod(abs(det(A))-[1,2,5,10])==0 & cond(A)<3, detA=det(A),condA=cond(A),[U,S,V]=svd(A); b=round(10*U(:,1)), break, end,end
 
 \begin{Parts}
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 1&0
 \\-4&1 \end{bmatrix}\xv
 =\begin{bmatrix} -2
 \\10 \end{bmatrix}\), 
 \(\cond=17.94\)
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} 2&-4
 \\-2&-1 \end{bmatrix}\xv
@@ -2615,13 +2615,13 @@ For each of the following systems, explore the effect on the solution of 1\%~err
 \\10 \end{bmatrix}\), 
 \(\cond=42.98\)
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -1&-2
 \\3&1 \end{bmatrix}\xv
 =\begin{bmatrix} -5
 \\9 \end{bmatrix}\), 
 \(\cond=2.618\)
-\end{reduce}
+\end{OmitV1}
 
 \end{Parts}
 \end{exercise}
@@ -2651,7 +2651,7 @@ b=[-7
 }}%
 \marginajrbox%
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -1&6&-1
 \\0&1&3
 \\-1&7&3 \end{bmatrix}\xv
@@ -2687,7 +2687,7 @@ b=[0
  4]
 }}%
 \marginajrbox%
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} -3&-2&-2&-2
 \\2&1&-5&-7
@@ -2735,7 +2735,7 @@ b=[5
 }}%
 \marginajrbox%
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 9&0&-10&-8&-1
 \\9&3&-5&-4&4
 \\-1&0&-3&-6&-6
@@ -2759,7 +2759,7 @@ b=[7
  1]
 }}%
 \marginajrbox%
-\end{reduce}
+\end{OmitV1}
 
 
 \end{Parts}
@@ -2790,15 +2790,15 @@ For any \(m\times n\) matrix~\(A\), use an \svd\ \(A=\usv\) to prove that \(\ran
 
 
 \begin{exercise}  
-Recall \cref{eg:2by2svdx} introduced that finding a singular vector and singular value of a matrix~\(A\) came from maximizing~\(|A\vv|\).
-Each of the following matrices, say~\(A\) for discussion, has plotted \(A\vv\) (red) adjoined the corresponding unit vector~\(\vv\) (blue).
+Recall how \cref{eg:2by2svdx} introduced that finding a singular vector and singular value of a matrix~\(A\) came from maximizing~\(|A\vv|\).
+Each of the following matrices, say~\(A\) for discussion, has plotted \(A\vv\) (red) adjoined to the corresponding unit vector~\(\vv\) (blue).
 For each case:
 \begin{enumerate}[label=\roman*.]
 \item by inspection of the plot, estimate a singular vector~\(\vv_1\) that appears to maximize~\(|A\vv_1|\) (to one decimal place say);
 \item estimate the corresponding singular value~\(\sigma_1\) by measuring~\(|A\vv_1|\) on the plot;
 \item set the second singular vector~\(\vv_2\) to be orthogonal to~\(\vv_1\) by swapping components, and making one negative;
 \item estimate the corresponding singular value~\(\sigma_2\) by measuring~\(|A\vv_2|\) on the plot;
-\item compute the \idx{matrix-vector product}s \(A\vv_1\) and~\(A\vv_2\), and confirm they are orthogonal (approximately).
+\item compute the \idx{matrix-vector product}s \(A\vv_1\) and~\(A\vv_2\), and confirm that they are orthogonal (approximately).
 \end{enumerate}
 
 \def\eRosesize{small}

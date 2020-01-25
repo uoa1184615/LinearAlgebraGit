@@ -47,7 +47,6 @@ BA=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 =\begin{bmatrix} 1&0\\0&1 \end{bmatrix}=I_2\,.
 \end{equation*}
 Since the identity matrix is analogous to the number one in scalar arithmetic, that both these products are the identity means that the matrix~\(A\) has the same relation to the matrix~\(B\) as a number has to its reciprocal\slash inverse.
-\marginpar{}%
 
 \begin{wrapfigure}r{0pt}
 \begin{tikzpicture}[]
@@ -72,7 +71,7 @@ Since the identity matrix is analogous to the number one in scalar arithmetic, t
 \end{tikzpicture}
 \end{wrapfigure}
 Being the inverse, matrix~\(B\) `undoes' the action of matrix~\(A\)---as illustrated to the right.
-The first picture shows multiplication by~\(A\) transforms the vector~\((2,1)\) to the vector~\((1,5)\): \(A\begin{bmat} 2\\1 \end{bmat}=\begin{bmat} 1\\5 \end{bmat}\).
+The first picture shows that multiplication by~\(A\) transforms the vector~\((2,1)\) to the vector~\((1,5)\): \(A\begin{bmat} 2\\1 \end{bmat}=\begin{bmat} 1\\5 \end{bmat}\).
 The second picture shows that multiplication by~\(B\) undoes the transform by~\(A\) because \(B\begin{bmat} 1\\5 \end{bmat}=\begin{bmat} 2\\1 \end{bmat}\) the original vector.
 \aqed
 
@@ -89,7 +88,8 @@ For every \(n\times n\) \idx{square matrix}~\(A\), an \index{inverse matrix|text
 If such a matrix~\(B\) exists, then matrix~\(A\) is called \bfidx{invertible}.
 \end{definition}
 
-By saying ``an inverse'' this definition allows for the possibility of many inverses, but \cref{thm:uninv} establishes that the inverse is unique.
+By saying ``an inverse'', this definition allows for the possibility of many inverses. 
+But \cref{thm:uninv} establishes that the inverse is unique.
 Further, an inverse may not exist for a given matrix~\(A\).
 
 \begin{example} \label{eg:a3x3inv}
@@ -164,7 +164,7 @@ Prove that the matrix
 \(A=\begin{bmatrix} 1&-2\\-3&6 \end{bmatrix}\)
 does not have an inverse.
 \begin{solution} 
-Assume there is an inverse matrix
+Assume that there is an inverse matrix
 \(B=\begin{bmat} a&b\\c&d \end{bmat}\).
 Then by \cref{def:invertible} the product \(AB=I_2\); that is,
 \begin{eqnarray*}
@@ -175,7 +175,7 @@ AB&=&\begin{bmatrix} 1&-2\\-3&6 \end{bmatrix}
 \end{eqnarray*}
 The bottom-left entry in this matrix equality asserts \(-3a+6c=0\) which is \(-3(a-2c)=0\), that is, \(a-2c=0\)\,.
 But the top-left entry in the matrix equality asserts \(a-2c=1\)\,.
-Both of these equations involving~\(a\) and~\(c\) cannot be true simultaneously; therefore the assumption of an inverse must be incorrect.
+Both of these equations involving~\(a\) and~\(c\) cannot be true simultaneously, therefore the assumption of an inverse must be incorrect.
 This matrix~\(A\) does not have an inverse.
 \end{solution}
 \end{example}
@@ -193,7 +193,7 @@ Consequently, using associativity of matrix multiplication (\cref{thm:pmma}),
 \begin{equation*}
 B_1=B_1I_n=B_1(AB_2)=(B_1A)B_2=I_nB_2=B_2\,.
 \end{equation*}
-That is, \(B_1=B_2\) and so the inverse is unique.
+That is, \(B_1=B_2\), and so the inverse is unique.
 \end{proof}
 
 
@@ -221,17 +221,17 @@ B=\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}
 \text{ is an inverse of }
 A=\begin{bmatrix} 1&-1\\4&-3 \end{bmatrix}.
 \end{equation*}
-Formula~\eqref{eq:2x2inv} gives this inverse from the matrix~\(A\): its elements are \(a=1\)\,, \(b=-1\)\,, \(c=4\) and \(d=-3\) so the determinant \(ad-bc=1\cdot(-3)-(-1)\cdot4=1\) and hence formula~\eqref{eq:2x2inv} derives the inverse
+Formula~\eqref{eq:2x2inv} gives this inverse from the matrix~\(A\): its elements are \(a=1\)\,, \(b=-1\)\,, \(c=4\), and \(d=-3\) so the determinant \(ad-bc=1\cdot(-3)-(-1)\cdot4=1\) and hence formula~\eqref{eq:2x2inv} derives the inverse
 \begin{equation*}
 A^{-1}=\frac11\begin{bmatrix} -3&-(-1)\\-4&1 \end{bmatrix}
 =\begin{bmatrix} -3&1\\-4&1 \end{bmatrix}=B\,.
 \end{equation*}
 
-\item Further, recall \cref{eg:no2x2inv} proved there is no inverse for matrix
+\item Further, recall \cref{eg:no2x2inv} proved that there is no inverse for matrix
 \begin{equation*}
 A=\begin{bmatrix} 1&-2\\-3&6 \end{bmatrix}.
 \end{equation*}
-\cref{thm:2x2det} also establishes this matrix is not invertible because the matrix determinant \(ad-bc=1\cdot6-(-2)\cdot(-3)=6-6=0\)\,. 
+\cref{thm:2x2det} also establishes that this matrix is not invertible because the matrix determinant \(ad-bc=1\cdot6-(-2)\cdot(-3)=6-6=0\)\,. 
 \end{enumerate}
 \end{example}
 
@@ -275,8 +275,8 @@ By cancellation and factorizing~\(x_{11}\), this equation then requires \((ad-bc
 But the determinant is zero, so this equation requires \(0\cdot x_{11}=d\)\,.
 \begin{itemize}
 \item If element~\(d\) is nonzero, then this equation cannot be satisfied and hence no inverse can be found.
-\item Otherwise, if \(d\) is zero, then any~\(x_{11}\) satisfies this equation so if there is an inverse then there would be an infinite number of inverses (through the free variable~\(x_{11}\)).
-But this contradicts the uniqueness \cref{thm:uninv} so an inverse cannot exist in this case either.
+\item Otherwise, if \(d\) is zero, then any~\(x_{11}\) satisfies this equation, so if there is an inverse then there would be an infinite number of inverses (through the free variable~\(x_{11}\)).
+But this contradicts the uniqueness \cref{thm:uninv}, so an inverse cannot exist in this case either.
 \end{itemize}
 That is, if the determinant \(ad-bc=0\)\,, then the \(2\times2\) matrix is not invertible.
 \end{proof}
@@ -350,7 +350,7 @@ r-2s=-1\,,\\-3r+6s=3\,.
 \item A matrix for this system is \(\begin{bmat} 1&-1\\4&-3 \end{bmat}\) which \cref{eg:a2x2inv} shows has an inverse.  
 \cref{thm:invuniqsol} then assures us the system has a unique solution.
 \item A matrix for this system is \(\begin{bmat} 1&-1&5\\-5&-1&3\\2&2&-6 \end{bmat}\) which \cref{eg:a3x3inv} shows has an inverse.  
-\cref{thm:invuniqsol} then assures us the system has a unique solution.
+\cref{thm:invuniqsol} then assures us that the system has a unique solution.
 \item A matrix for this system is \(\begin{bmat} 1&-2\\-3&6 \end{bmat}\) which \cref{eg:no2x2inv} shows is not invertible.  
 Thus the precondition of \cref{thm:invuniqsol} is not satisfied and so this theorem tells us nothing in this scenario.
 
@@ -376,7 +376,7 @@ Given the following information about solutions of systems of \idx{linear equati
 \begin{enumerate}
 \item Since the solution is unique, the preconditions of \cref{thm:invuniqsol} do not hold and so we cannot (as yet) decide. 
 (We need \cref{thm:ftim1} to certify that the matrix in the system must be invertible.)
-\item This solution has an apparent free parameter,~\(t\), and so there are many solutions which implies the matrix is not invertible.
+\item This solution has an apparent free parameter,~\(t\), and so there are many solutions which implies that the matrix is not invertible.
 \item Not enough information is given as we do not know whether there are any more solutions.
 \item Since a homogeneous system always has~\ov\ as a solution (\cref{sec:3pns}), then we know that there are at least two solutions to the system, and hence the matrix is not invertible.
 \end{enumerate}
@@ -525,7 +525,7 @@ So multiplication by~\(L^{-1}\) gives \(\xv^==L^{-1}\xv^-=L^{-1}L^{-1}\xv=L^{-2}
 \item One more year earlier, letting the population numbers three years ago be denoted by~\(\xv^\equiv\), then according to the model \(\xv^==L\xv^\equiv\).
 So multiplication by~\(L^{-1}\) gives \(\xv^\equiv=L^{-1}\xv^==L^{-1}L^{-2}\xv=L^{-3}\xv\).
 \end{itemize}
-Hence use the inverse powers of~\(L\) to predict the earlier history of the population of female animals in the given example: but first verify the given inverse is correct.
+Hence use the inverse powers of~\(L\) to predict the earlier history of the population of female animals in the given example, but first verify the given inverse is correct.
 \begin{solution} 
 Verify the given inverse by evaluating (showing only nonzero terms in a sum)
 \begin{eqnarray*}
@@ -563,7 +563,7 @@ L^{-2}=(L^{-1})^2
 \frac34&-\frac12&0\\
 0&\frac12&0 \end{bmatrix},
 \end{equation*}
-we predict the population of females two years ago was
+we predict that the population of females two years ago was
 \begin{equation*}
 \xv^==L^{-2}\xv
 =\begin{bmatrix} -\frac12&0&6\\
@@ -681,7 +681,7 @@ For brevity, sometimes we write \index{diag|textbf}\(\diag(\hlist vn)\) to denot
 \end{definition}
 
 \begin{example}  \sloppy
-The five diagonal matrices of \cref{eg:4diag} could equivalently be written as \(\diag(3,2)\), \(\diag(0.58,-1.61,2.17)\) \(\diag(\pi,\sqrt3,0)\), \(\diag_{3\times2}(-\sqrt2,\tfrac12)\) and \(\diag_{3\times5}(1,\pi,e)\), respectively.
+The five diagonal matrices of \cref{eg:4diag} could equivalently be written as \(\diag(3,2)\), \(\diag(0.58,-1.61,2.17)\), \(\diag(\pi,\sqrt3,0)\), \(\diag_{3\times2}(-\sqrt2,\tfrac12)\), and \(\diag_{3\times5}(1,\pi,e)\), respectively.
 \end{example}
 
 
@@ -707,7 +707,7 @@ Which of the following matrices are not diagonal?
 \begin{table}
 \caption{As well as the basics of \script\ listed in 
 \cref{tbl:mtlbpre,tbl:mtlbbasics,tbl:mtlbops},  we need these matrix operations.\index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbmops}
-\hrule
+\smallskip\hrule\smallskip
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item \index{diag()@\texttt{diag()}|textbf}\verb|diag(v)| where \verb|v| is a row/column vector of size~\(p\) generates the \(p\times p\) matrix 
@@ -729,7 +729,7 @@ Which of the following matrices are not diagonal?
 
 \end{itemize}
 \end{minipage}
-\hrule
+\smallskip\hrule
 \end{table}
 
 
@@ -739,14 +739,14 @@ Which of the following matrices are not diagonal?
 \index{system|(}
 
 Solving a system of \idx{linear equation}s (\cref{def:lineqn}) is particularly straightforward when the matrix of the system is diagonal.
-Indeed much mathematics in both theory and applications is devoted to transforming a given problem so that the matrix appearing in the  system is diagonal (e.g., \cref{sec:amss,sec:svdsgs,ch:eesm,ch:gee}).
+Indeed, much mathematics in both theory and applications is devoted to transforming a given problem so that the matrix appearing in the  system is diagonal (e.g., \cref{sec:amss,sec:svdsgs,ch:eesm,ch:gee}).
 
 \begin{comment}
 Here prepare for using the \svd, but also use diagonal matrices to reinforce the translation to/from matrix and symbolic forms, and to reinforce zero, one, many solutions.
 \end{comment}%
 
 
-\begin{reduce}
+
 \begin{example} 
 Solve 
 \(\begin{bmatrix} 3&0\\0&2 \end{bmatrix}
@@ -770,7 +770,7 @@ Interestingly, the two components of this solution are firstly the~\(2\) on the 
 %\end{equation*}
 \end{solution}
 \end{example}
-\end{reduce}
+
 
 
 
@@ -828,7 +828,7 @@ Diagonal matrices are `stretchers' in the coordinate directions, e.g.~the rack. 
 \begin{theorem}[inverse of diagonal matrix] \label{thm:idm}
 For every \(n\times n\) \idx{diagonal matrix}  \(D=\diag(\hlist dn)\), 
 if all the \idx{diagonal entries} are nonzero, \(d_{i}\neq 0\) for every \(i=1,2,\ldots,n\)\,, then \(D\)~is \idx{invertible} and the inverse \(D^{-1}=\diag(1/d_{1},1/d_{2},\ldots,1/d_{n})\).
-Conversely, if a diagonal matrix is invertible, then all its diagonal entries are non-zero.
+Conversely, if a diagonal matrix is invertible, then all its diagonal entries are nonzero.
 \end{theorem}
 \begin{proof} 
 Consider the matrix product 
@@ -1093,21 +1093,21 @@ Which of the following diagrams represents the transformation from the (blue) un
 \paragraph{Some diagonal matrices rotate}
 Now consider the transformation of multiplying by matrix \(\begin{bmat} -1&0\\0&-1 \end{bmat}\):
 the two \idx{reflection}s of this diagonal matrix, the two~\(-1\)s, have  the same effect as one \idx{rotation}, here by~\(180^\circ\), as shown to the right.
-Matrices that rotate are incredibly useful and is the topic of the next \cref{sec:omr}.
+Matrices that rotate are incredibly useful, and this is the topic of the next \cref{sec:omr}.
 
 
 \index{unit square|)}
 
 
 
-\begin{reduce}
+
 \subsubsection{Sketch convenient coordinates}
 This optional subsubsection is a preliminary to diagonalization.
 
 One of the fundamental principles of applying mathematics in science and engineering
 is that the real world---nature---does its thing irrespective of our mathematical description.
 Hence we often simplify our mathematical description of real world applications by choosing a \idx{coordinate system} to suit its nature.
-That is, although this book (almost) always draws the \(x\) or \(x_1\)~axis horizontally, and the \(y\) or \(x_2\)~axis vertically, in applications it is often better to draw the axes in some other  directions---directions which are convenient for the application.
+That is, although this book (almost) always draws the \(x\) or \(x_1\)~axis horizontally, and the \(y\) or \(x_2\)~axis vertically, in applications it is often better to draw the axes in some other  directions---directions that are convenient for the application.
 This example illustrates \text{the principle.}
 
 
@@ -1116,11 +1116,12 @@ This example illustrates \text{the principle.}
 \end{wrapfigure}
 \begin{example} 
 Consider the transformation shown to the right (it might arise from the deformation of some material and we need to know the internal stretching and shrinking to predict failure).
-The drawing has no \idx{coordinate axes} shown because it supposed to be some transformation in nature. 
+The drawing has no \idx{coordinate axes} shown because it is supposed to be some transformation in nature. 
 Now we impose on nature our mathematical description.
 Draw approximate coordinate axes, with origin at the common point at the lower-left corner, so the transformation becomes that of the diagonal matrix \(\diag(\frac12,2)=\begin{bmat} 1/2&0\\0&2 \end{bmat}\).
 
 \needlines6
+\begin{solution} 
 \begin{wrapfigure}r{0pt}
 \TwoDx{1.04}{-0.72}{-0.72}{1.46}{%
 \addplot[black,quiver={u=1.2,v=0.9},-stealth] coordinates {(0,0)};
@@ -1129,7 +1130,6 @@ Draw approximate coordinate axes, with origin at the common point at the lower-l
 \node[above] at (axis cs:-0.9,1.2) {$x_2$};
 }
 \end{wrapfigure}
-\begin{solution} 
 From the diagonal matrix we first look for a direction in which the transformation squashes---`stretching' by a factor of~\(1/2\): from the marginal graph, this direction must be towards the top-right (or bottom-left).
 Second, from the diagonal matrix we look for a direction in which the transformation stretches by a factor of two: from the marginal picture this direction must be aligned to the top-left (or bottom-right).
 Because the top-right corner of the square is stretched a little in this second direction, the first direction must be aimed a little lower than this corner.
@@ -1143,11 +1143,12 @@ Hence, coordinate axes that make the transformation the given diagonal matrix ar
 \begin{wrapfigure}r{0pt} \TwoDx1{-2}{-2}1{} \end{wrapfigure}
 \begin{example} 
 Consider the transformation shown to the right.
-It has no \idx{coordinate axes} shown because it supposed to be some transformation in nature. 
+It has no \idx{coordinate axes} shown because it is supposed to be some transformation in nature. 
 Now impose on nature our mathematical description.
 Draw approximate coordinate axes, with origin at the common corner point, so the transformation becomes that of the diagonal matrix \(\diag(3,-1)=\begin{bmat} 3&0\\0&-1 \end{bmat}\).
 
 \needlines6
+\begin{solution} 
 \begin{wrapfigure}r{0pt}
 \TwoDx1{-2}{-2}1{%
 \addplot[black,quiver={u=-3,v=3},-stealth] coordinates {(1.5,-1.5)};
@@ -1155,7 +1156,6 @@ Draw approximate coordinate axes, with origin at the common corner point, so the
 \addplot[black,quiver={u=-3,v=-3},-stealth] coordinates {(1.5,1.5)};    
 \node[left] at (axis cs:-1.5,-1.5) {$x_2$};
 }\end{wrapfigure}
-\begin{solution} 
 From the diagonal matrix we first look for a direction in which the transformation stretches by a factor of three: 
 from the marginal graph, this direction must be aligned along the diagonal top-left to bottom-right.
 Second, from the diagonal matrix we look for a direction in which the transformation reflects: from the marginal picture this direction must be aligned along the top-right to bottom-left.
@@ -1169,7 +1169,7 @@ Hence, coordinate axes that make the transformation the given diagonal matrix ar
 Finding such \idx{coordinate system}s in which a given real world transformation is diagonal is important in science, engineering, and computer science.
 Systematic methods for such diagonalization are developed in \cref{sec:fisvd,ch:eesm,ch:gee}.
 These rely on understanding the algebra and geometry of not only diagonal matrices, but also rotations, which is our \text{next topic.}
-\end{reduce}
+
 
 
 
@@ -1194,11 +1194,11 @@ Whereas diagonal matrices stretch and squash, the so-called
 `orthogonal matrices' represent just \idx{rotation}s (and/or \idx{reflection}).
 This section starts by showing that multiplying by the `\idx{orthogonal matrix}'~\(\begin{bmat} 3/5&-4/5\\4/5&3/5 \end{bmat}\) rotates by~\(53.13^\circ\) as shown to the right.
 Such orthogonal matrices are the best to compute with, such as in solving \idx{linear equation}s, since they all have \(\verb|rcond|=1\)\,.
-To see these and related marvellous properties, we must explore the affect of matrix multiplication on the geometry of lengths \text{and angles.}
+To see these and related marvellous properties, we must explore the effect of matrix multiplication on the geometry of lengths \text{and angles.}
 
 
 \index{dot product|(}
-\paragraph{Recall the dot product determines lengths and angles}
+\paragraph{Recall that the dot product determines lengths and angles}
 \cref{sec:dpdal} introduced the \idx{dot product}~\(\uv\cdot\vv\) between two vectors (\cref{def:dotprod}).
 The dot product is the same as the \idx{matrix product} (\cref{eg:trdp}): \(\uv\cdot\vv=\tr\uv\vv=\tr\vv\uv\).
 Further (\cref{thm:triscala}), the \idx{length} of a vector is \(|\vv|=\sqrt{\vv\cdot\vv}\).
@@ -1238,7 +1238,7 @@ If the two vectors are at \idx{right-angles}, then the dot product is zero and t
 \index{orthogonal set|(}
 \index{orthonormal set|(}
 
-We need sets of \idx{orthogonal} vectors (nonzero vectors which are all at \idx{right-angles} to each other).
+We need sets of \idx{orthogonal} vectors (nonzero vectors that are all at \idx{right-angles} to each other).
 (Recall that a \bfidx{set} of objects is denoted by a list of the objects enclosed within braces,~\(\{\ldots\}\).)
 One example is the set of \idx{standard unit vector}s \index{e@$\ev_j$}\(\{\hlist\ev n\}\) that are aligned with the \idx{coordinate axes} in~\(\RR^n\).  
 
@@ -1256,24 +1256,26 @@ The set of two vectors \(\{(3,4),(-8,6)\}\) shown to the right
 is an \idx{orthogonal set} as the two vectors have dot product\({}=3\cdot(-8)+4\cdot6=-24+24=0\) and hence are orthogonal.
 \end{example}
 
+
+\needlines6
+\begin{example} \label{eg:orthogtrio}
 \begin{wrapfigure}r{0pt}
 \qview{46}{50}{
 \begin{tikzpicture} 
 \begin{axis}[axis equal,footnotesize,font=\footnotesize
-  ,view={\q}{30}]
+  ,view={\q}{30},zmax=2.5]
 \threev{1}{-2}{2}{\qv_1}
 \threev[above]{2}{2}{1}{\qv_2}
 \threev[left]{-2}{1}{2}{\qv_3}
 \end{axis}
 \end{tikzpicture}}
 \end{wrapfigure}
-\begin{example} \label{eg:orthogtrio}
-Let vectors \(\qv_1=(1,-2,2)\), \(\qv_2=(2,2,1)\) and \(\qv_3=(-2,1,2)\), illustrated in stereo to the right. 
+Let vectors \(\qv_1=(1,-2,2)\), \(\qv_2=(2,2,1)\), and \(\qv_3=(-2,1,2)\), illustrated in stereo to the right. 
 Is \(\{\qv_1,\qv_2,\qv_3\}\) an \idx{orthogonal set}?
 
 \begin{solution} 
 Yes, because all the pairwise dot products are zero: \(\qv_1\cdot\qv_2=2-4+2=0\)\,; \(\qv_1\cdot\qv_3=-2-2+4=0\)\,; \(\qv_2\cdot\qv_3=-4+2+2=0\)\,. 
-Hence every pair of vectors are orthogonal. 
+Hence every pair of vectors is orthogonal. 
 \aqed
 
 \end{solution}
@@ -1295,8 +1297,8 @@ Any set, or subset, of \idx{standard unit vector}s in~\(\RR^n\) (\cref{def:stuni
 \end{example}
 
 \begin{example} 
-Let vectors \(\qv_1=(\frac13,-\frac23,\frac23)\), \(\qv_2=(\frac23,\frac23,\frac13)\), \(\qv_3=(-\frac23,\frac13,\frac23)\).  
-Show the set \(\{\qv_1,\qv_2,\qv_3\}\) is an orthonormal set.
+Let vectors \(\qv_1=(\frac13,-\frac23,\frac23)\), \(\qv_2=(\frac23,\frac23,\frac13)\), and \(\qv_3=(-\frac23,\frac13,\frac23)\).  
+Show that the set \(\{\qv_1,\qv_2,\qv_3\}\) is an orthonormal set.
 \begin{solution} 
 These vectors are all~\(1/3\) of the vectors in \cref{eg:orthogtrio} and so are orthogonal.
 They all have length one:
@@ -1330,7 +1332,7 @@ Now let's see how orthonormal vectors form a so-called orthogonal matrix and und
 
 \begin{example} 
 \cref{eg:orthogduo} showed \(\{(3,4),(-8,6)\}\) is an orthogonal set.  
-The vectors have lengths five and ten, respectively, so dividing each by their length means \(\{(\frac35,\frac45),(-\frac45,\frac35)\}\) is an \idx{orthonormal set}.
+The vectors have lengths five and ten, respectively, so dividing each by their length means that \(\{(\frac35,\frac45),(-\frac45,\frac35)\}\) is an \idx{orthonormal set}.
 Form the matrix with these two vectors as its columns:
 \(Q%=\begin{bmatrix} \qv_1&\qv_2 \end{bmatrix}
 %=\begin{bmatrix} \frac35&-\frac45\\\frac45&\frac35 \end{bmatrix}.
@@ -1363,9 +1365,9 @@ A square \(n\times n\) matrix~\(Q\) is called an \bfidx{orthogonal matrix} if \(
 Because of its special properties (\cref{thm:orthog}),
 multiplication by an orthogonal matrix is called a \bfidx{rotation 
 and/or reflection};%
-\footnote{Although herein we term multiplication by an orthogonal matrix as a `rotation' in three or more dimensions it generally is not a single rotation about a single axis.  
+\footnote{Although herein we term multiplication by an orthogonal matrix as a `rotation', in three or more dimensions it generally is not a single rotation about a single axis.  
 Instead, generally the `rotation' characterized by any one orthogonal matrix may be composed of a sequence of several rotations about different axes---each axis with a different \idx{orientation}.}
-for brevity and depending upon the circumstances it may be called just a \bfidx{rotation} or just a \bfidx{reflection}.
+for brevity, and depending upon the circumstances, it may be called just a \bfidx{rotation} or just a \bfidx{reflection}.
 \end{definition}
 
 
@@ -1386,6 +1388,7 @@ In the following equation, check that the matrix is orthogonal. Use its orthogon
 =\begin{bmatrix} 0\\2\\-1 \end{bmatrix}.
 \end{equation*} 
 
+\needlines9
 \begin{wrapfigure}r{0pt}
 \def\unithousesize{footnotesize,height=5.5cm}
 \ThreeD{1/3}{-2/3}{2/3}{2/3}{2/3}{1/3}{-2/3}{1/3}{2/3}
@@ -1449,16 +1452,16 @@ Here this equation gives the solution to be
 \end{wrapfigure}
 \begin{example} \label{eg:introt}
 The graph to the right shows a rotation of the \idx{unit square}. 
-From the graph estimate roughly the matrix~\(Q\) such that multiplication by~\(Q\) performs the rotation. 
+From the graph, estimate roughly the matrix~\(Q\) such that multiplication by~\(Q\) performs the rotation. 
 Confirm that your estimated matrix is orthogonal (approximately).
 
 \begin{solution} 
 Consider what happens to the standard unit vectors as shown in the graph:  multiplying~\(Q\) by~\((1,0)\) gives~\((0.5,-0.9)\) roughly (to one decimal place); whereas multiplying~\(Q\) by~\((0,1)\) gives~\((0.9,0.5)\) roughly.
-To do this the matrix~\(Q\) must have these two vectors as its two columns, that is,
+To do this, the matrix~\(Q\) must have these two vectors as its two columns, that is,
 \begin{equation*}
 Q\approx\begin{bmatrix} 0.5&0.9\\-0.9&0.5 \end{bmatrix}.
 \end{equation*}
-Let's check what happens to the corner point~\((1,1)\): \(Q(1,1)\approx (1.4,-0.4)\) which looks approximately correct.
+Let's check what happens to the corner point~\((1,1)\): \(Q(1,1)\approx (1.4,-0.4)\), which looks approximately correct.
 To confirm orthogonality of~\(Q\), find
 \begin{equation*}
 \tr QQ=\begin{bmatrix} 0.5&-0.9\\0.9&0.5 \end{bmatrix}
@@ -1543,7 +1546,7 @@ But each column of \(\tr QX=O_n\) is of the form \(\tr Q\xv=\ov\) which we know 
 Then \(X=I_n-Q\tr Q=O_n\) which rearranged gives \(Q\tr Q=I_n\)\,. 
 Put \(Q\tr Q=I_n\) together with \(\tr QQ=I_n\) (\cref{def:orthog}),  then by \cref{def:invertible}  \(Q\)~is invertible with inverse~\(\tr Q\).
 
-\item[\ref{thm:orthog:i}$\implies$\ref{thm:orthog:0},\ref{thm:orthog:ia}]
+\item[\ref{thm:orthog:i}$\implies$\ref{thm:orthog:0}, \ref{thm:orthog:ia}]
 Part~\ref{thm:orthog:i} asserts \(Q\)~is invertible with inverse~\(\tr Q\): by \cref{def:invertible} of the inverse, \(\tr QQ=Q\tr Q=I_n\).  
 Since \(\tr QQ=I_n\)\,, matrix~\(Q\) is orthogonal.
  
@@ -1579,7 +1582,7 @@ Since \(\cos\theta'=\cos\theta\) and the cosine is a one-one function for \(0\le
 Look at the consequences of matrix~\(Q\) preserving all lengths and angles when applied to the standard unit vectors \hlist\ev n.
 Observe \(Q\ev_j=\qv_j\)\,, the \(j\)th~column of matrix~\(Q\).
 Then for all~\(j\), the length of the \(j\)th~column \(|\qv_j|=|Q\ev_j|=|\ev_j|=1\) by the preservation of the length of the standard unit vector.
-Also, for all~\(i\neq j\) the dot product of columns \(\qv_i\cdot\qv_j=|\qv_i||\qv_j|\cos\theta'=1\cdot1\cdot\cos\frac\pi2=0\) where \(\theta'\)~is the angle between \(\qv_i\) and~\(\qv_j\) which is the angle between \(\ev_i\) and~\(\ev_j\) by preservation, namely the angle~\(\frac\pi2\).
+Also, for all~\(i\neq j\) the dot product of columns \(\qv_i\cdot\qv_j=|\qv_i||\qv_j|\cos\theta'=1\cdot1\cdot\cos\frac\pi2=0\) where \(\theta'\)~is the angle between \(\qv_i\) and~\(\qv_j\), which is the angle between \(\ev_i\) and~\(\ev_j\) by preservation, namely the angle~\(\frac\pi2\).
 That is, the columns of~\(Q\) form an \text{orthonormal set.}
 
 %\item[\ref{thm:orthog:v}]  Exercise: consider \(\tr{(Q_1Q_2)}Q_1Q_2\).
@@ -1649,7 +1652,7 @@ The following graphs illustrate the transformation of the \idx{unit square} thro
 {\TwoD{-1.67}{1.54}{1.07}{2.11}}
 {\TwoD{-1.3}{0}{0}{0.8}}
 {\TwoD{1.06}{-1.02}{-0.16}{-0.51}}
-\item Further, which of the above transformations appear to be that of multiplying by a \idx{diagonal matrix}?
+\item Further, which one of the above transformations appears to be that of multiplying by a \idx{diagonal matrix}?
 \end{itemize}
 \end{activity}
 
@@ -1669,7 +1672,7 @@ The following \idx{stereo pair}s illustrate the transformation of the \idx{unit 
 }{1.17}{-1.58}{-0.91
 }{-0.18}{-0.33}{1.35}
 
-\begin{reduce}
+\begin{OmitV1}
 \def\unithousesize{small}
 \item \ThreeD{-0.05}{1.50}{-0.51
 }{-2.35}{0.49}{0.35
@@ -1691,7 +1694,7 @@ The following \idx{stereo pair}s illustrate the transformation of the \idx{unit 
 \item \ThreeD{0.02}{0.20}{0.98
 }{0.99}{-0.16}{0.01
 }{-0.16}{-0.97}{0.20}
-\end{reduce}
+\end{OmitV1}
 
 \end{enumerate}
 
@@ -1699,10 +1702,10 @@ The following \idx{stereo pair}s illustrate the transformation of the \idx{unit 
 \begin{enumerate}
 \item Yes---the cube is just rotated.
 \item No---the cube is stretched and angles changed.
-\begin{reduce}
+\begin{OmitV1}
 \item No---the cube is stretched and angles changed.
 \item Yes---the cube is just rotated and reflected.
-\end{reduce}
+\end{OmitV1}
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -1741,7 +1744,7 @@ By direct multiplication, both ways, for each of the following pairs of matrices
 \\-1/4&0 \end{bmatrix}\)
 \answer{Inverse.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(A=\begin{bmatrix} -3&3
 \\-3&1 \end{bmatrix}\), 
 \(B=\begin{bmatrix} 1/6&-1/2
@@ -1753,7 +1756,7 @@ By direct multiplication, both ways, for each of the following pairs of matrices
 \(B=\begin{bmatrix} 3/7&-1/7
 \\3/7&-5/7 \end{bmatrix}\)
 \answer{Not inverse.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(A=\begin{bmatrix} -1&1
 \\-5&-1 \end{bmatrix}\), 
@@ -1769,7 +1772,7 @@ By direct multiplication, both ways, for each of the following pairs of matrices
 \\1/6&-1/6&1/2 \end{bmatrix}\)
 \answer{Inverse.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(A=\begin{bmatrix} -3&0&-1
 \\1&4&2
 \\3&-4&-1 \end{bmatrix}\), 
@@ -1777,7 +1780,7 @@ By direct multiplication, both ways, for each of the following pairs of matrices
 \\7/4&3/2&5/4
 \\-4&-3&-3 \end{bmatrix}\)
 \answer{Inverse.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(A=\begin{bmatrix} -3&-3&3
 \\4&3&-3
@@ -1810,7 +1813,7 @@ B=[0 1 -1 0
 \\6&36&-38&-7 \end{bmatrix}\), use \script
 \answer{Inverse.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(A=\begin{bmatrix} 0&-2&-2&-3
 \\-4&-5&0&1
 \\-2&0&4&5
@@ -1852,7 +1855,7 @@ B=[0 -1/2 2 -2
 \\0&0&3&-2
 \\-1&0&21&-14 \end{bmatrix}\), use \script
 \answer{Not inverse.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(A=\begin{bmatrix} 1&-7&-4&3
 \\0&2&1&-1
@@ -1904,7 +1907,7 @@ Use the direct formula of \cref{thm:2x2det} to calculate the inverse, when it ex
 \answer{\(\protect\begin{bmat} -1/4&-1/4
 \protect\\1/8&-3/8 \protect\end{bmat}\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 2&-4
 \\3&0 \end{bmatrix}\)
 \answer{\(\protect\begin{bmat} 0&1/3
@@ -1924,7 +1927,7 @@ Use the direct formula of \cref{thm:2x2det} to calculate the inverse, when it ex
 \\-0.3&0.5 \end{bmatrix}\)
 \answer{\(\protect\begin{bmat} 10/9&-10/9
 \protect\\2/3&4/3 \protect\end{bmat}\)}
-\end{reduce}
+\end{OmitV1}
 
 \end{Parts}
 \end{exercise}
@@ -1938,18 +1941,18 @@ Given the inverses of \cref{ex:abinv}, solve each of the following systems of \i
 \item \(\begin{cases} -4y=1\\4x+4y=-5 \end{cases}\)
 \answer{\((x,y)=(-1,-1/4)\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{cases} -3p+3q=3\\-3p+q=-1 \end{cases}\)
 \answer{\((p,q)=(1,2)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{cases} m-x=1\\-m-5x=-1 \end{cases}\)
 \answer{\(x=0,\ m=1\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{cases} -3x-z=3\\ x+4y+2z=-3\\ 3x-4y-z=2 \end{cases}\)
 \answer{\((x,y,z)=(2,13/4,-9)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{cases} 2p-2q+4r=-1\\ -p+q+r=-2\\ p+q-r=1 \end{cases}\)
 \answer{\((q,r,p)=(-1/2,-5/6,2/3)\)}
@@ -1967,13 +1970,13 @@ Given the inverses of \cref{ex:abinv}, solve each of the following systems of \i
 \\3p-2q-4r+s=-1 \end{cases}\)
 \answer{\((p,q,r,s)=(33,14,35,68)\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{cases}-3b-2c-2d=4
 \\-4a+b-5d=-3
 \\-2a+5b+4c=-2
 \\-a-2b+d=0 \end{cases}\)
 \answer{\((a,d,c,b)=(3,-7/3,13/3,-8/3)\)}
-\end{reduce}
+\end{OmitV1}
 
 \end{Parts}
 \end{exercise}
@@ -2014,7 +2017,7 @@ Give reasons.
 Use \script\ to generate some random matrices of a suitable size of your choice (see \cref{tbl:mtlbops}). 
 Also record some `random' integer exponents of your choice.
 Then confirm the properties of \index{inverse matrix}inverse matrices given by \cref{thm:invprop}.
-For the purposes of this exercise, use the \script\ function \index{inv()@\texttt{inv()}}\verb|inv(A)| that computes the inverse of the matrix~\(A\) if it exists (as commented, remember that computing the inverse of a matrix is generally inappropriate---the inverse is primarily a  theoretical device---this exercise only computes the inverse for educational purposes).
+For the purposes of this exercise, use the \script\ function \index{inv()@\texttt{inv()}}\verb|inv(A)|, which computes the inverse of the matrix~\(A\) if it exists (as commented, remember that computing the inverse of a matrix is generally inappropriate---the inverse is primarily a  theoretical device---this exercise only computes the inverse for educational purposes).
 Record all your commands and the output from \script.
 \end{exercise}
 
@@ -2056,7 +2059,7 @@ Using the inverses identified in \cref{ex:abinv}, and \idx{matrix multiplication
 \answer{\(\protect\begin{bmat} 0&1/16
 \protect\\-1/16&-1/16 \protect\end{bmat}\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 0&-4\\4&4 \end{bmatrix}^{-3}\)
 \answer{\(\protect\begin{bmat} -1/64&0
 \protect\\0&-1/64 \protect\end{bmat}\)}
@@ -2065,21 +2068,21 @@ Using the inverses identified in \cref{ex:abinv}, and \idx{matrix multiplication
 \\-3&1 \end{bmatrix}^{-2}\)
 \answer{\(\protect\begin{bmat} -2/9&1/6
 \protect\\-1/6&0 \protect\end{bmat}\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} -1/6&-1/6
 \\5/6&-1/6 \end{bmatrix}^{-4}\)
 \answer{\(\protect\begin{bmat} -4&16
 \protect\\-80&-4 \protect\end{bmat}\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -3&0&-1
 \\1&4&2
 \\3&-4&-1 \end{bmatrix}^{-2}\)
 \answer{\(\protect\begin{bmat} -5/4&-1/2&-3/4
 \protect\\-5/8&1/4&-1/8
 \protect\\11/4&1/2&5/4 \protect\end{bmat}\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} 0&1/2&1/2
 \\1/6&1/3&0
@@ -2097,7 +2100,7 @@ Using the inverses identified in \cref{ex:abinv}, and \idx{matrix multiplication
 \protect\\-13/2&-81/2&91/2&15/2
 \protect\\-44&-275&308&51 \protect\end{bmat}\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -2&-7&-1&1
 \\-1&-8/3&0&1/3
 \\-2&-22/3&-1&2/3
@@ -2106,7 +2109,7 @@ Using the inverses identified in \cref{ex:abinv}, and \idx{matrix multiplication
 \protect\\-6&25&11&-8
 \protect\\0&-40&-15&16
 \protect\\18&-76&-41&29 \protect\end{bmat}\)}
-\end{reduce}
+\end{OmitV1}
 
 \end{Parts}
 \end{exercise}
@@ -2157,7 +2160,7 @@ For those that are diagonal, write down how they may be represented with the \(\
 \\0&0 \end{bmatrix}\)
 \answer{Not diagonal.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 2&0&0
 \\0&1&0
 \\0&0&0 \end{bmatrix}\)
@@ -2177,7 +2180,7 @@ For those that are diagonal, write down how they may be represented with the \(\
 \\0&5b&0&0
 \\a&0&0&0 \end{bmatrix}\)
 \answer{Diagonal only when \(a=d=0\).}
-\end{reduce}
+\end{OmitV1}
 
 \end{Parts}
 \end{exercise}
@@ -2189,7 +2192,7 @@ For those that are diagonal, write down how they may be represented with the \(\
 Write down the individual algebraic equations represented by each of the following \idx{diagonal matrix}-vector equations.
 Hence, where possible solve each system.
 %m=1+ceil(4*rand);n=1+ceil(4*rand); a=round(diag(randn(ceil(min(m,n)*sqrt(rand)),1),m,n)*3)+0,b=round(randn(m,1)*3)+0
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{bmatrix} -4&0&0&0&0
 \\0&1&0&0&0
 \\0&0&-2&0&0
@@ -2212,7 +2215,7 @@ Hence, where possible solve each system.
 \\-1 \end{bmatrix}\)
 \answer{No solution.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 4&0
 \\0&0 \end{bmatrix}
 \begin{bmatrix}x\\y\end{bmatrix}
@@ -2246,7 +2249,7 @@ Hence, where possible solve each system.
 =\begin{bmatrix} 3
 \\-1 \end{bmatrix}\)
 \answer{\((w,x,y,z)=(6,-5,s,t)\) for all~\(s,t\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} 1&0&0&0
 \\0&-3&0&0
@@ -2268,7 +2271,7 @@ Hence, where possible solve each system.
 \\3 \end{bmatrix}\)
 \answer{No solution.}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -2284,13 +2287,13 @@ For those that are, estimate the \idx{elements} of the \text{diagonal matrix.}
 \item \TwoD2001
 \answer{\(\diag(2,1)\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \TwoD{1}00{1.5}
 \answer{\(\diag(1,1.5)\)}
 
 \item \TwoD{3}00{2}
 \answer{\(\diag(3,2)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \TwoD{-0.3}00{0.3}
 \answer{\(\diag(-0.3,0.3)\)}
@@ -2298,13 +2301,13 @@ For those that are, estimate the \idx{elements} of the \text{diagonal matrix.}
 \item \TwoD{-0.3}{0.1}{0.1}{0.3}
 \answer{Not diagonal.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \TwoD{0.4}{0.2}{0.1}{0.7}
 \answer{Not diagonal.}
 
 \item \TwoD{0.8}00{-0.5}
 \answer{\(\diag(0.8,-0.5)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \TwoD{1.4}{0.5}{0.1}{0.5}
 \answer{Not diagonal.}
@@ -2334,13 +2337,13 @@ For those that are, estimate the \idx{elements} of the \text{diagonal matrix.}
 \item \ThreeD{1.5}{0.4}{0.3}{0.9}{-0.2}{0.4}{-0.4}{0.}{0.6}
 \answer{Not diagonal.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \ThreeD{0.9}{0.}{0.}{0.}{-0.5}{0.}{0.}{0.}{0.6}
 \answer{\(\diag(0.9,-0.5,0.6)\)}
 
 \item \ThreeD{1.2}{0.}{0.}{0.}{0.3}{0.}{0.}{0.}{0.6}
 \answer{\(\diag(1.2,0.3,0.6)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \ThreeD{0.6}{0.4}{-0.1}{0.7}{1.3}{-0.2}{-0.1}{0.6}{-0.1}
 \answer{Not diagonal.}
@@ -2353,7 +2356,7 @@ For those that are, estimate the \idx{elements} of the \text{diagonal matrix.}
 
 
 
-\begin{reduce}
+
 \begin{exercise}  
 Consider each of the transformations shown below that transform the from blue \idx{unit square} to the red \idx{parallelogram}.
 They each have no \idx{coordinate axes} shown because it is supposed to be some transformation in nature. 
@@ -2395,12 +2398,12 @@ Draw approximate orthogonal coordinate axes, with origin at the common corner po
 
 \end{Parts}
 \end{exercise}
-\end{reduce}
+
 
 
 
 \begin{exercise} \label{ex:idmc} 
-Use \cref{thm:invuniqsol} to establish the converse part of \cref{thm:idm}: namely, that if a \idx{diagonal matrix} is \idx{invertible}, then all its diagonal entries are non-zero.
+Use \cref{thm:invuniqsol} to establish the converse part of \cref{thm:idm}: namely, that if a \idx{diagonal matrix} is \idx{invertible}, then all its diagonal entries are nonzero.
 \end{exercise}
 
 
@@ -2423,13 +2426,13 @@ Which appear to form an \idx{orthonormal set} of two vectors?
 \item \TwoVec{-0.93}{-0.36}{-0.36}{0.93}
 \answer{Orthonormal.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \TwoVec{0.47}{0.87}{-1.23}{1.17}
 \answer{Not orthogonal.}
 
 \item \TwoVec{-0.42}{-0.91}{-0.91}{0.42}
 \answer{Orthonormal.}
-\end{reduce}
+\end{OmitV1}
 
 \item \TwoVec{-1.40}{1.16}{0.88}{1.06}
 \answer{Orthogonal.}
@@ -2468,13 +2471,13 @@ Which appear to form an \idx{orthonormal set}?
 \item \ThreeVec{-0.21}{0.24}{-0.33}{0.25}{0.00}{-0.16}{-0.02}{-0.08}{-0.04}
 \answer{Orthogonal.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \ThreeVec{-1.19}{-1.05}{-0.35}{-0.03}{0.93}{-1.16}{-0.94}{0.04}{0.40}
 \answer{Not orthogonal.}
 
 \item \ThreeVec{-0.84}{0.33}{0.43}{-0.45}{-0.86}{-0.23}{0.29}{-0.38}{0.88}
 \answer{Orthonormal.}
-\end{reduce}
+\end{OmitV1}
 
 \item \ThreeVec{-0.99}{0.03}{-0.17}{-0.06}{-0.98}{0.19}{-0.16}{0.19}{0.97}
 \answer{Orthonormal.}
@@ -2496,13 +2499,13 @@ For the \idx{orthogonal set}s, scale the vectors to form an \idx{orthonormal set
 \item \(\{(2,3,6),\ (3,-6,2),\ (6,2,-3)\}\)
 \answer{Orthogonal set, divide each by seven.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\{(4,4,7),\ (1,-8,4),\ (-8,1,4)\}\)
 \answer{Orthogonal set, divide each by nine.}
 
 \item \(\{(2,6,9),\ (9,-6,2)\}\)
 \answer{Orthogonal set, divide each by eleven.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\{(6,3,2),\ (3,-6,2),\ (2,-3,6)\}\)
 \answer{Not orthogonal set.}
@@ -2510,13 +2513,13 @@ For the \idx{orthogonal set}s, scale the vectors to form an \idx{orthonormal set
 \item \(\{(1,1,1,1),\ (1,1,-1,-1),\ (1,-1,-1,1),\ (1,-1,1,-1)\}\)
 \answer{Orthogonal set, divide each by two.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\{(1,2,2,4),\ (2,-1,-4,2)\}\)
 \answer{Orthogonal set, divide each by five.}
 
 \item \(\{(1,2,2,4),\ (2,-1,-4,2),\ (-4,2,2,-1)\}\)
 \answer{Not orthogonal set.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\{(5,6,2,4),\ (-2,6,-5,-4),\ (6,-5,-4,2)\}\)
 \answer{Not orthogonal set.}
@@ -2533,11 +2536,11 @@ For those matrices which are orthogonal, confirm \cref{thm:orthog:i}.
 \\-\frac{12}{13}&\frac5{13} \end{bmatrix}\)
 \answer{Orthogonal matrix.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} \frac1{\sqrt2}&-\frac1{\sqrt2}
 \\\frac1{\sqrt2}&\frac1{\sqrt2} \end{bmatrix}\)
 \answer{Orthogonal matrix.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} -3&4
 \\4&3 \end{bmatrix}\)
@@ -2553,7 +2556,7 @@ For those matrices which are orthogonal, confirm \cref{thm:orthog:i}.
 \\\frac9{11}&\frac2{11} \end{bmatrix}\)
 \answer{Not orthogonal matrix as not square.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} \frac1{\sqrt3}&\frac1{\sqrt3}&\frac1{\sqrt3}
 \\-\frac1{\sqrt2}&0&\frac1{\sqrt2}
 \\\frac1{\sqrt6}&-\frac2{\sqrt6}&\frac1{\sqrt6} \end{bmatrix}\)
@@ -2563,7 +2566,7 @@ For those matrices which are orthogonal, confirm \cref{thm:orthog:i}.
 \\4&-8&-1
 \\7&4&-4 \end{bmatrix}\)
 \answer{Orthogonal matrix.}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\frac17\begin{bmatrix} 1&4&4&4
 \\4&-5&2&2
@@ -2596,7 +2599,7 @@ For those matrices which are orthogonal, confirm \cref{thm:orthog:i}.
 \begin{exercise} \label{ex:preserve} 
 Each part gives an \idx{orthogonal matrix}~\(Q\) and two vectors~\uv\ and~\vv.  
 For each part calculate the \idx{length}s of~\uv\ and~\vv, and the \idx{angle} between~\uv\ and~\vv.
-Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angle between~\(Q\uv\) and~\(Q\vv\), respectively.
+Confirm that these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angle between~\(Q\uv\) and~\(Q\vv\), respectively.
 
 %uv=round(randn(2,3)*2)+0,theta=acos(dot(uv(1,:),uv(2,:))/norm(uv(1,:))/norm(uv(2,:)))*180/pi
 \begin{enumerate}
@@ -2605,7 +2608,7 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 \(\vv=\begin{bmatrix} 12\\5 \end{bmatrix}\)
 \answer{\(\theta=21.04^\circ\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(Q=\begin{bmatrix} \frac1{\sqrt2}&\frac1{\sqrt2}
 \\\frac1{\sqrt2}&-\frac1{\sqrt2} \end{bmatrix}\), 
 \(\uv=\begin{bmatrix} 1\\-1 \end{bmatrix}\),
@@ -2617,7 +2620,7 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 \(\uv=\begin{bmatrix} 2\\-3 \end{bmatrix}\),
 \(\vv=\begin{bmatrix} 0\\-4 \end{bmatrix}\)
 \answer{\(\theta=33.69^\circ\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(Q=\begin{bmatrix} \frac35&\frac45
 \\-\frac45&\frac35 \end{bmatrix}\), 
@@ -2632,7 +2635,7 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 \(\vv=\begin{bmatrix} 1\\0\\1 \end{bmatrix}\)
 \answer{\(\theta=60^\circ\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(Q=\frac19\begin{bmatrix} 7&4&4
 \\4&-8&1
 \\4&1&-8 \end{bmatrix}\), 
@@ -2647,7 +2650,7 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 \(\uv=\begin{bmatrix} 0\\0\\-2\\-3 \end{bmatrix}\),
 \(\vv=\begin{bmatrix} -1\\-1\\-2\\-1 \end{bmatrix}\)
 \answer{\(\theta=42.79^\circ\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(Q=\begin{bmatrix} 0.1&0.3&0.3&0.9
 \\0.3&-0.1&-0.9&0.3
@@ -2664,14 +2667,14 @@ Confirm these are the same as the lengths of~\(Q\uv\) and~\(Q\vv\), and the angl
 
 \begin{exercise}  
 Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, solve each of the following systems of \idx{linear equation}s by a single matrix-vector multiplication.
-\begin{enumerate}
+\begin{Parts}
 \item \(\begin{cases}
 \frac35x+\frac45y=5
 \\-\frac45x+\frac35y=2
 \end{cases}\)
 \answer{\((x,y)=(1.4,5.2)\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{cases} 
 -\frac35x+\frac45y=1.6
 \\\frac45x+\frac35y=-3.5
@@ -2683,7 +2686,7 @@ Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, s
 \\\frac1{\sqrt2}(x-y)=2
 \end{cases}\)
 \answer{\((x,y)=(5/\sqrt2,1/\sqrt2)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{cases}
 3x+4y=20
@@ -2691,7 +2694,7 @@ Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, s
 \end{cases}\)
 \answer{\((x,y)=(1.6,3.8)\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{cases}
 \frac79p+\frac49q+\frac49r=2
 \\\frac49p-\frac89q+\frac19r=3
@@ -2705,7 +2708,7 @@ Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, s
 \\\frac49u-\frac89v+\frac19w=0
 \end{cases}\)
 \answer{\((u,v,w)=(5/3,2/3,-4/3)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{cases}
 7a+6b+6c=22
@@ -2714,7 +2717,7 @@ Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, s
 \end{cases}\)
 \answer{\((a,b,c)=(8,32,-1)/11\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{cases}
 0.1x_1+0.1x_2+0.7x_3+0.7x_4=1
 \\0.1x_1-0.1x_2-0.7x_3+0.7x_4=-1
@@ -2730,7 +2733,7 @@ Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, s
 \\0.1y_1-0.1y_2-0.7y_3+0.7y_4=2.5
 \end{cases}\)
 \answer{\(\yv=(0,-3.3,-0.6,2.5)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{cases}
   z_1+3z_2+3z_3+9z_4=5
@@ -2740,7 +2743,7 @@ Using one or other of the orthogonal matrices appearing in \cref{ex:preserve}, s
 \end{cases}\)
 \answer{\(\zv=(-0.25,0.15,0.07,0.51)\)}
 
-\end{enumerate}
+\end{Parts}
 \end{exercise}
 
 
@@ -2775,7 +2778,7 @@ Using \cref{thm:orthog:iv}, which transformations appear to be that of multiplyi
 \answer{No---the square is squashed (and rotated\slash reflected).}
 \item \TwoD{-0.27}{-0.96}{-0.96}{0.27}
 \answer{Yes---the square is rotated and reflected.}
-\begin{reduce}
+\begin{OmitV1}
 \item \TwoD{-1.67}{1.54}{1.07}{2.11}
 \answer{No---the square is stretched.}
 \item \TwoD{0.85}{0.52}{-0.52}{0.85}
@@ -2784,7 +2787,7 @@ Using \cref{thm:orthog:iv}, which transformations appear to be that of multiplyi
 \answer{Yes---the square is rotated and reflected.}
 \item \TwoD{0.20}{0.76}{-0.15}{0.18}
 \answer{No---the square is squashed.}
-\end{reduce}
+\end{OmitV1}
 \end{Parts}
 \end{exercise}
 
@@ -2817,7 +2820,7 @@ Using \cref{thm:orthog:iv}, which transformations appear to be that of multiplyi
 }{-0.15}{-0.48}{-1.08}
 \answer{No---the cube is deformed.}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \ThreeD{-0.79}{0.31}{0.54
 }{-0.61}{-0.53}{-0.59
 }{0.10}{-0.79}{0.60}
@@ -2832,7 +2835,7 @@ Using \cref{thm:orthog:iv}, which transformations appear to be that of multiplyi
 }{-1.21}{0.84}{-1.06
 }{0.52}{-2.66}{-0.78}
 \answer{No---the cube is deformed.}
-\end{reduce}
+\end{OmitV1}
 
 \end{enumerate}
 \end{exercise}

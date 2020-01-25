@@ -1,12 +1,12 @@
 \documentclass[11pt,smallborder]{refrep}
 \usepackage[% for 11pt
- paperwidth=169mm,paperheight=120mm % sqrt2:1 ratio??
+ paperwidth=213mm,paperheight=120mm % 16:9
 ,margin=7ex]{geometry}
-\settextfraction{0.71}
+\settextfraction{0.55}
 \def\includeonly#1{} % do all by disabling includeonly ***********
-%\def\thmIndent{-0.5\marginparwidth} % indent into margin ??
 \renewcommand{\footnote}[1]{} % omit all footnotes
 \AtBeginDocument{%
+   \inQRcodesfalse % invoke to omit QR-codes
    \excludeversion{comment}
    \excludeversion{draft}
    \excludeversion{proof}
@@ -26,15 +26,15 @@
 
 % Specify the version number of the next version.
 % Affects watermark and permutation of activity answers.
-\def\myversion{0.5c}
+\def\myversion{0.6b}
 
 \includeonly{
-,Vectors/ch
+%,Vectors/ch
 %,Vectors/secVecs
 %,Vectors/secVecOps
 %,Vectors/secDot
 %,Vectors/secCross 
-,Vectors/secScript
+%,Vectors/secScript
 %,Vectors/secLogic %draft
 %,Vectors/secWrite %pre-draft
 %,Vectors/summary
@@ -70,7 +70,7 @@
 %,EigGen/summary
 %,ComVecSp/ch %draft
 %,QR/ch %draft
-,back
+%,back
 }
 
 
@@ -89,10 +89,10 @@ South Australia, 5005
 }
 
 
-\usepackage{linearAlgebra}[2019/08/20]
+\usepackage{linearAlgebra}[2020/01/22]
 %% An environment to control/show a reduced/shortened version
-%\newenvironment{reduce}{\color{gray}}{}% grey planned omissions
-\newenvironment{reduce}{}{}% do not show what is omitted
+%\newenvironment{OmitV1}{\color{gray}}{}% grey planned omissions
+\newenvironment{OmitV1}{}{}% do not show what is omitted
 
 
 
@@ -161,6 +161,7 @@ South Australia, 5005
 %\include{QR/ch}
 %%\include{QR/summary}
 
+% does not include an index either
 \include{back}
 
 

@@ -11,7 +11,7 @@
 \end{comment}
 
 
-The great aspect of linear equations is that we straightforwardly manipulate them algebraically to deduce results: some results are not only immensely useful in applications but also in further theory.
+The great aspect of linear equations is that we straightforwardly manipulate them algebraically to deduce results: some results are immensely useful not only in applications but also in further theory.
 
 \begin{example}[simple algebraic manipulation] \label{eg:tempman}
 Following \cref{eg:infertemp}, recall that the temperature in Fahrenheit \(T_F=\frac95T_C+32\) in terms of the temperature in Celsius,~\(T_C\).
@@ -29,14 +29,8 @@ This algebra discovers that~\(-40^\circ\)C is the same temperature as~\(-40^\cir
 \end{example}
 
 
-
-Linear equations are characterized by each unknown never being multiplied or divided by another unknown, or itself, or inside `curvaceous' functions.  
-\cref{tbl:linnonlin} lists examples of both.
-Generally problems have many unknown variables.
-The power of linear algebra is especially important for large numbers of unknown variables.
-The number~\(n\) of unknown variables may be two or three as in many examples herein, or may be thousands or millions in many modern applications.
 \begin{table}[btp]
-\caption{examples of linear equations, and equations that are not linear (called \idx{nonlinear equation}s).}
+\caption{Examples of linear equations, and equations that are not linear (called \idx{nonlinear equation}s).}
 \label{tbl:linnonlin}
 \begin{equation*}
 \begin{array}{l@{\qquad}l}\hline
@@ -51,6 +45,13 @@ r-5s=2-3s+2t & r/s=2+t \\
 \end{array}
 \end{equation*}
 \end{table}
+
+
+Linear equations are characterized by each unknown never being multiplied or divided by another unknown, or itself, or inside `curvaceous' functions.  
+\cref{tbl:linnonlin} lists examples of both.
+Generally, problems have many unknown variables.
+The power of linear algebra is especially important for large numbers of unknown variables.
+The number~\(n\) of unknown variables may be two or three as in many examples herein, or may be thousands or millions in many modern applications.
 
 
 
@@ -69,6 +70,7 @@ A \bfidx{system} of linear equations is a set of one or more linear equations in
 \begin{example}[two equations in two variables] \label{eg:2eqs2vars}
 Graphically and algebraically solve each of the following systems.
 \begin{enumerate}[ref=\ref{eg:2eqs2vars}(\alph*)]
+
 \item \label[example]{eg:2eqs2vars:a}
 \begin{figbox}{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
@@ -78,23 +80,25 @@ Graphically and algebraically solve each of the following systems.
     \addplot{3-x};
     \addplot{x/2};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
 \(\begin{array}{l} x+y=3\\2x-4y=0 \end{array}\)
 
 \begin{solution} 
 To draw the graphs seen in the plot to the right, rearrange  the linear equations as \(y=3-x\) and \(y=x/2\)\,.  
 From the graph, they intersect only at the point~\((2,1)\) so \(x=2\) and \(y=1\) is the unique solution.
-
-Algebraically, one could add twice the first equation to half of the second equation: \(2(x+y)+\frac12(2x-4y)=2\cdot3+\frac12\cdot0\) which simplifies to \(3x=6\) as the \(y\)~terms cancel; hence \(x=2\)\,.  
-Then say consider the second equation, \(2x-4y=0\)\,, which now becomes \(2\cdot2-4y=0\)\,, that is, \(y=1\)\,.  
-This algebra gives the same solution \((x,y)=(2,1)\) as graphically.
+\notyetaqedfalse%fudge to help pagebreak
 
 \end{solution}
 \end{figbox}
 
+Algebraically, one could add twice the first equation to half of the second equation: \(2(x+y)+\frac12(2x-4y)=2\cdot3+\frac12\cdot0\) which simplifies to \(3x=6\) as the \(y\)~terms cancel; hence \(x=2\)\,.  
+Then, say, consider the second equation, \(2x-4y=0\)\,, which now becomes \(2\cdot2-4y=0\)\,, that is, \(y=1\)\,.  
+This algebra gives the same solution \((x,y)=(2,1)\) as graphically.
+\aqed
+
 
 \item 
-\begin{figbox}{\begin{tikzpicture}[]
+\begin{figbox}[\vspace{1ex}]{\begin{tikzpicture}[]
 \begin{axis}[footnotesize
     , axis equal image, axis lines=middle,
     , xlabel={$x$},ylabel={$y$}, thick, no marks, grid
@@ -102,19 +106,21 @@ This algebra gives the same solution \((x,y)=(2,1)\) as graphically.
     \addplot{2*x/3-2/3};
     \addplot{2*x/3+1/2};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
 \(\begin{array}{l} 2x-3y=2\\-4x+6y=3 \end{array}\)
 
 \begin{solution} 
 To draw the graphs seen in the plot to the right, rearrange  the linear equations as \(y=\frac23x-\frac23\) and \(y=\frac23x+\frac12\)\,.  
 Evidently these lines never intersect: they appear parallel so there appears to be no solution.
-
-Algebraically, one could add twice the first equation to the second equation: \(2(2x-3y)+(-4x+6y)=2\cdot2+3\) which, as all the \(x\) and \(y\)~terms cancel, simplifies to \(0=7\)\,. 
-This equation is a contradiction as zero cannot be equal to seven.  
-Thus there are no solutions to \text{the system.}
+\notyetaqedfalse%fudge to help pagebreak
 
 \end{solution}
 \end{figbox}
+
+Algebraically, one could add twice the first equation to the second equation: \(2(2x-3y)+(-4x+6y)=2\cdot2+3\) which, as all the \(x\) and \(y\)~terms cancel, simplifies to \(0=7\)\,. 
+This equation is a contradiction, as zero cannot be equal to seven.  
+Thus there are no solutions to \text{the system.}
+\aqed
 
 
 \item 
@@ -126,19 +132,21 @@ Thus there are no solutions to \text{the system.}
     \addplot{2-x/2+0.02};
     \addplot{2-x/2-0.02};
 \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}}%
 \(\begin{array}{l} x+2y=4\\2x+4y=8 \end{array}\)
 
 \begin{solution} 
 To draw the graphs seen in the plot to the right, rearrange  the linear equations as \(y=2-x/2\) and \(y=2-x/2\)\,.  
 They are the same line so every point on this line is a solution of the system.  
 There are an infinite number of possible solutions.
+\notyetaqedfalse%fudge to help pagebreak
 
-Algebraically, the rearrangement of both equations to exactly the same \(y=2-x/2\) establishes an infinite number of solutions, here parametrized by~\(x\).
-
-\aqed
 \end{solution}
 \end{figbox}
+
+Algebraically, the rearrangement of both equations to exactly the same \(y=2-x/2\) establishes an infinite number of solutions, here parametrized by~\(x\).
+\aqed
+
 
 \end{enumerate}
 \end{example}
@@ -146,7 +154,7 @@ Algebraically, the rearrangement of both equations to exactly the same \(y=2-x/2
 
 
 \begin{activity}
-Solve the system \(x+5y=9\) and \(x+2y=3\) to find the only solution is which of the following?
+Solve the system \(x+5y=9\) and \(x+2y=3\) to find that the only solution is which of the following?
 \actposs[4]{\((-1,2)\)}{\((-1,1)\)}{\((1,2)\)}{\((1,1)\)}
 \end{activity}
 
@@ -159,6 +167,7 @@ Each satellite knows very accurately its position at all times, and broadcasts t
 A receiver, say your smart-phone, pick up these signals and, from the time taken for the signals to arrive, knows the distance to all those satellites within `sight'.
 Your smart-phone then solves a system of equations and informs you of its \text{precise position.}
 
+\needlines7
 \begin{wrapfigure}r{0pt}
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize
@@ -176,7 +185,7 @@ Your smart-phone then solves a system of equations and informs you of its \text{
 \end{tikzpicture}
 \end{wrapfigure}
 Let's solve a definite example problem, but in two dimensions for simplicity.
-Suppose you and your smart-phone are at some unknown location~\((x,y)\) in the 2D-plane, on the Earth's surface where the Earth has radius about \(6\)\,Mm (here all distances are measured in units of Megametres,~Mm, equivalently thousands of~km).
+Suppose you and your smart-phone are at some unknown location~\((x,y)\) in the 2D-plane, on the Earth's surface where the Earth has radius about \(6\)\,Mm (here all distances are measured in units of megametres,~Mm, equivalently thousands of~km).
 But your smart-phone picks up the broadcast from three \gps\ satellites, and then determines their distance from you.
 From the broadcast and the timing, suppose you then know that a satellite at~\((29,10)\) is \(25\)~away (all in~Mm), one at \((17,19)\) is \(20\)~away, and one at~\((13,18)\) is \(17\)~away (as drawn to the right).
 Find your location~\((x,y)\).
@@ -189,7 +198,7 @@ From these three sources of information, Pythagoras and the length of displaceme
 \\&&(x-17)^2+(y-19)^2=20^2\,,
 \\&&(x-13)^2+(y-18)^2=17^2\,.
 \end{eqnarray*}
-These three equations constrain the unknown variables of your as yet unknown location~\((x,y)\).
+These three equations constrain the unknown variables of your, as yet unknown, location~\((x,y)\).
 Expanding the squares in these equations gives the equivalent system of equations
 \begin{eqnarray*}
 &&x^2-58x+841+y^2-20y+100=625\,,
@@ -199,6 +208,7 @@ Expanding the squares in these equations gives the equivalent system of equation
 Involving squares of the unknowns, \(x^2\)~and~\(y^2\), these form a \emph{nonlinear} system of equations and so appear to lie outside the remit of this book.  
 However, straightforward algebra transforms these three \idx{nonlinear equation}s into a system of two linear equations which \text{we solve.}
 
+\needlines6
 \begin{wrapfigure}r{0pt}
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize
@@ -217,7 +227,7 @@ However, straightforward algebra transforms these three \idx{nonlinear equation}
 \end{axis}
 \end{tikzpicture}
 \end{wrapfigure}
-Let's subtract the third equation from each of the other two, then the nonlinear squared terms cancel giving a system of two linear equations in two variables:
+Let's subtract the third equation from each of the other two, then the nonlinear squared terms cancel, giving a system of two linear equations in two variables:
 \begin{eqnarray*}
 -32x+672+16y-224=336&\iff&-2x+y=-7\,;
 \\-8x+120-2y+37=111&\iff&-4x-y=-23\,.
@@ -229,7 +239,7 @@ Then either equation, say the first, determines~\(y=-7+2x=-7+2\cdot 5=3\)\,.
 That is, your location is \((x,y)=(5,3)\) (in~Mm), as drawn.
 \end{solution}
 
-If the \(x\)-axis is a line through the equator, and the \(y\)-axis goes through the North pole, then trigonometry gives that your location would be at latitude
+If the \(x\)-axis is a line through the equator, and the \(y\)-axis goes through the North Pole, then trigonometry gives that your location would be at latitude
 \(\tan^{-1}\frac35=0.5404=30.96^\circ\)N.
 \end{example}
 
@@ -247,7 +257,9 @@ x_1+3x_2+5x_3=8\,,\\
 x_1+2x_2+x_3=1\,.
 \end{array}
 \end{equation*}
+
 \needlines8
+\begin{solution} 
 \begin{wrapfigure}[8]r{0pt}
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize,height=5cm
@@ -275,13 +287,12 @@ x y z c \\
 \end{axis}
 \end{tikzpicture}
 \end{wrapfigure}
-\begin{solution} 
 The plot to the right shows the three planes represented by the given equations (in the order blue, brown, red), and plots the (black) point of \idx{intersection} of all three planes.
 The black intersection point is where all three equations are satisfied.
 Let's find this point.
 
 Algebraically we combine and manipulate the equations in a sequence of steps designed to simplify the form of the system.  
-\emph{By doing the same manipulation to the whole of each of the equations, we ensure the intersection point remains the same throughout.}
+\emph{By doing the same manipulation to the whole of each of the equations, we ensure that the intersection point remains the same throughout.}
 \Needspace{5\baselineskip}
 \begin{enumerate}
 \item Subtract the first equation from each of the other two equations to deduce (as illustrated)
@@ -415,9 +426,9 @@ Thus the only solution to this system of three linear equations in three variabl
 \end{solution}
 \end{example}
 
-The sequence of graphs in the previous \cref{eg:3eq3var} illustrate the equations at each main step in the algebraic manipulations.  
+The sequence of graphs in the previous \cref{eg:3eq3var} illustrates the equations at each main step in the algebraic manipulations.  
 Apart from keeping the solution intersection point fixed, the sequence of graphs looks rather chaotic.
-Indeed for each of these algebraic steps there is no particular geometric pattern or interpretation.
+Indeed, for each of these algebraic steps there is no particular geometric pattern or interpretation.
 In contrast, one feature of the upcoming \cref{sec:fisvd} is that we discover how the so-called `singular value decomposition' solves linear equations via a great method with a strong geometric interpretation.
 This geometric interpretation then empowers further methods useful \text{in applications.}
 
@@ -433,7 +444,7 @@ Nonetheless, it is the abstraction by linear algebra that empowers wonderful res
 
 
 \begin{wraptable}[9]r{15em}
-\caption{in some artificial units, this table lists measured temperature, humidity, and rainfall.}
+\caption{In some artificial units, this table lists measured temperature, humidity, and rainfall.}
 \label{tbl:thr}
 \begin{equation*}
 \begin{array}{rrr} \hline
@@ -456,6 +467,7 @@ This task we \text{then do.}
 Suppose we observe that at some given temperature and humidity we get some rainfall: let's find a formula that predicts the rainfall from temperature and humidity measurements.
 In some \emph{completely artificial units}, \cref{tbl:thr} lists measured temperature (`temp'), humidity (`humid'), and rainfall (`rain').
 
+\begin{solution} 
 \begin{wrapfigure}r{0pt}
 \begin{tikzpicture}[]
 \begin{axis}[footnotesize,font=\footnotesize%,width=\marginparwidth
@@ -467,12 +479,11 @@ In some \emph{completely artificial units}, \cref{tbl:thr} lists measured temper
 \end{axis}
 \end{tikzpicture}
 \end{wrapfigure}
-\begin{solution} 
 To infer a relation to hold generally---to fill in the gaps between the known measurements, seek `rainfall' to be predicted by the linear formula
 \begin{equation*}
 \text{(`rain')}=x_1+x_2\text{(`temp')}+x_3\text{(`humid')},
 \end{equation*}
-for some coefficients~\(x_1\), \(x_2\) and~\(x_3\) to be determined.
+for some coefficients~\(x_1\), \(x_2\), and~\(x_3\) to be determined.
 The measured data of \cref{tbl:thr} constrains and determines these coefficients:
 substitute each triple of measurements to require
 \begin{equation*}
@@ -619,13 +630,13 @@ Graphically and algebraically solve each of the following systems.
 \item\(\begin{array}{l} x-2y=-3\\-4x=-4 \end{array}\)
 \answer{\((x,y)=(1,2)\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item\(\begin{array}{l} x+2y=5\\ 6x -2y=2 \end{array}\)
 \answer{\((x,y)=(1,2)\)}
 
 \item\(\begin{array}{l} x-y=2\\ -2x +7y=-4 \end{array}\)
 \answer{\((x,y)=(2,0)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item\(\begin{array}{l} 3x -2y=2\\ -3x +2y=-2 \end{array}\)
 \answer{line \(y=\frac32x-1\)}
@@ -639,13 +650,13 @@ Graphically and algebraically solve each of the following systems.
 \item\(\begin{array}{l} p +q=3\\ -p-q=2 \end{array}\)
 \answer{no solution}
 
-\begin{reduce}
+\begin{OmitV1}
 \item\(\begin{array}{l} p -q=1\\ -3p +5q=-4 \end{array}\)
 \answer{\((p,q)=(\frac12,-\frac12)\)}
 
 \item\(\begin{array}{l} 3u -v=0\\ u -v=-1 \end{array}\)
 \answer{\((u,v)=(\frac12,\frac32)\)}
-\end{reduce}
+\end{OmitV1}
 
 \item\(\begin{array}{l} 4u +4v=-2\\ -u -v=1 \end{array}\)
 \answer{no solution}
@@ -664,7 +675,7 @@ Graphically and algebraically solve each of the following systems.
 
 
 \begin{exercise}  
-For each of the following graphs: estimate the equations of the pair of lines; solve the pair of equations algebraically; and confirm the algebraic solution is reasonably close to the \idx{intersection} of the pair of lines.
+For each of the following graphs: estimate the equations of the pair of lines; solve the pair of equations algebraically; and confirm that the algebraic solution is reasonably close to the \idx{intersection} of the pair of lines.
 \newcommand{\temp}{
 \pgfmathparse{3*rnd+0.5}\edef\xx{\pgfmathresult}
 \pgfmathparse{3*rnd+0.2+\xx}\edef\xxx{\pgfmathresult}
@@ -692,12 +703,12 @@ For each of the following graphs: estimate the equations of the pair of lines; s
 \item \temp
 \item \temp
 \item \temp
-\begin{reduce}
+\begin{OmitV1}
 \item \temp
 \item \temp
 \item \temp
 \item \temp
-\end{reduce}
+\end{OmitV1}
 \end{Parts}
 \end{exercise}
 
@@ -720,13 +731,13 @@ Graphically and algebraically solve each of the following systems of three equat
 \item \(\begin{array}{l} -4x +3y=\frac72 \\ 7x +y=-3 \\ x -2y=\frac32  \end{array}\)
 \answer{no solution}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{array}{l} 2x +2y=2 \\ -3x -3y=-3 \\ x+y=1  \end{array}\)
 \answer{line \(y=1-x\)}
 
 \item \(\begin{array}{l} -2x -4y=3 \\ x +2y=3 \\ -4x -8y=-6  \end{array}\)
 \answer{no solution}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{array}{l} 3x +2y=4 \\ -2x -4y=-4 \\ 4x +2y=5  \end{array}\)
 \answer{\((x,y)=(1,\frac12)\)}

@@ -12,7 +12,7 @@
 It is the science of \emph{calculation}, which becomes continually more necessary at each step of our progress, and which must ultimately govern the whole of the applications of science to the arts of life.
 \end{quoted}
 
-Subsequent chapters invoke either of the computer packages \script[1]\ or \script[2]\ to perform calculations that would be tedious and error prone when done by hand.
+Subsequent chapters invoke either of the computer packages \script[1]\ or \script[2]\ to perform calculations that would be tedious and error prone if done by hand.
 This section introduces \script\ so that you can start to become familiar with it on small problems.
 You should directly compare the computed answer with your calculation by hand.
 The aim is to develop some basic confidence with \script\ before later using it to save you considerable time in \text{longer tasks.}
@@ -22,7 +22,7 @@ The aim is to develop some basic confidence with \script\ before later using it 
 It is also useable over the internet as \script[1]-Online or \script[1]-Mobile.
 \item \script[2]\ is free software, that for our purposes is almost identical to \script[1], and downloadable over the internet.\footnote{\url{https://www.gnu.org/software/octave/}}
 Octave is also freely useable over the internet.\footnote{\url{http://octave-online.net} for example} 
-\item Alternatively, your home institution may provide \script\ via a web service that is useable via smart phones, tablets and computers.
+\item Alternatively, your home institution may provide \script\ via a web service that is useable via smart phones, tablets, and computers.
 \end{itemize}
 
 
@@ -37,20 +37,20 @@ Avoid plotting because I do not want to confuse a vector with a row vector of pl
 \caption{Use \script\ to help compute vector results with the following basics.  
 This and subsequent tables throughout the book summarize \script\ for our use.
 \index{Matlab@\textsc{Matlab}|textbf}\index{Octave|textbf}} \label{tbl:mtlbpre}
-\hrule
+\hrule\smallskip
 \begin{minipage}{\linewidth}
 \begin{itemize}
 \item Real numbers are limited to being zero or of magnitude from \(10^{-323}\)  to~\(10^{+308}\), both positive and negative (called the \bfidx{floating point} numbers).
 Real numbers are computed and stored to a maximum \idx{precision} of nearly sixteen \idx{significant digits}.%
 \footnote{If desired, `\idx{computer algebra}' software provides us with an arbitrary level of \idx{precision}, even exact.
-Current computer algebra software includes the free Sage, Maxima and Reduce, and the commercial Maple, Mathematica and (via Matlab) MuPad.}
+Current computer algebra software includes the free Sage, Maxima, and Reduce, and the commercial Maple, Mathematica, and (via \script[1]) MuPad.}
 
 \item \script\ potentially use \idx{complex number}s~(\index{C@\CC}\CC), but mostly we stay within real numbers~(\index{R@\RR}\RR).
 
 \item Each \script\ command is usually typed on one line by itself.
 
-\item \index{[\ldots]@\texttt{[\ldots]}|textbf}\verb|[ . ; . ; . ]| where each dot denotes a number, forms vectors in~\(\RR^3\) (or use newlines instead of the semi-colons).  
-Use \(n\)~numbers separated by semi-colons for vectors in~\(\RR^n\).
+\item \index{[\ldots]@\texttt{[\ldots]}|textbf}\verb|[ . ; . ; . ]| where each dot denotes a number, forms vectors in~\(\RR^3\) (or use newlines instead of the semicolons).  
+Use \(n\)~numbers separated by semicolons for vectors in~\(\RR^n\).
 
 \item \index{=@\texttt{=}|textbf}\verb|=| assigns the result of the expression to the right of the~\verb|=| to the variable name on the left.
 If the result of an expression is not explicitly assigned to a variable, then by default it is assigned to the variable~\index{ans@\texttt{ans}|textbf}\verb|ans|.
@@ -91,7 +91,7 @@ Generally, computer commands and their output are typeset in the special \texttt
 \item \((2,-1)\)
 \begin{solution} 
 Start \script.  After a prompt, ``\verb|>>|'' in \script[1] or ``\verb|octave:1>|'' in \script[2], type a command, followed by the Return\slash Enter key to get it executed.
-As indicated by \cref{tbl:mtlbpre} the numbers with \idx{brackets} separated by semi-colons forms a vector, and the \verb|=|~character assigns the result to a variable for \text{subsequent use.}
+As indicated by \cref{tbl:mtlbpre} the numbers with \idx{brackets} separated by semicolons form a vector, and the \verb|=|~character assigns the result to a variable for \text{subsequent use.}
 
 \begin{tabular}{@{}*2{p{0.45\linewidth}}@{}}\raggedright
 Assign the vector~\((2,1)\) to a variable~\verb|a| by the command \verb|a=[2;-1]|.
@@ -106,7 +106,7 @@ ans =  2.2361
 \end{verbatim}
 \end{tabular}
 
-This computes the answer \(|(2,-1)|=\sqrt{2^2+(-1)^2}=\sqrt5=2.2361\) (to five significant digits which we take to be practically exact).
+This computes the answer \(|(2,-1)|=\sqrt{2^2+(-1)^2}=\sqrt5=2.2361\) (to five significant digits, which we take to be practically exact).
 \ifinQRcodes\par
 The \idx{qr-code} appearing in the margin here encodes these \script\ commands.  
 \setbox\ajrqrbox\hbox{\qrcode{% vector length
@@ -120,7 +120,7 @@ Although in this example the saving in typing is negligible, later you can save 
 \fi
 \end{solution}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \((-1,1,-5,4)\)
 \begin{solution} 
 In \script:
@@ -147,7 +147,7 @@ norm(b)
 
 Hence \(6.5574\) is the length of~\((-1,1,-5,4)\) (to five significant digits which we take to be practically exact).
 \end{solution}
-\end{reduce}
+\end{OmitV1}
 
 \item \((-0.3,4.3,-2.5,-2.8,7,-1.9)\)
 \begin{solution} 
@@ -289,7 +289,7 @@ ans =
 \end{tabular}
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
-Confirm it is~\(-2\pv\) by adding~\(2\pv\) to the above result with the command \verb|ans+2*p| as shown to the right, and see the zero vector result.
+Confirm that it is~\(-2\pv\) by adding~\(2\pv\) to the above result with the command \verb|ans+2*p| as shown to the right, and see the zero vector result.
 &\begin{verbatim}
 >> ans+2*p
 ans =
@@ -371,8 +371,8 @@ ans =
 
 \index{error:@\texttt{error:}}
 Alternatively, \script[2] gives the following error message.
-In such a message, ``\index{nonconformant 
-arguments@\texttt{nonconformant arguments}}\texttt{nonconformant arguments}'' means the vectors are of a wrong size.
+(In such a message, ``\index{nonconformant 
+arguments@\texttt{nonconformant arguments}}\texttt{nonconformant arguments}'' means that the vectors are of a wrong size.)
 \begin{verbatim}
 error: operator +: nonconformant arguments 
 (op1 is 4x1, op2 is 3x1)
@@ -462,10 +462,9 @@ theta =  30.510
 
 
 
-\begin{reduce}
 \begin{example} \sloppy
 Verify the \idx{distributive law} for the \idx{dot product} \((\uv+\vv)\cdot\wv=\uv\cdot\wv+\vv\cdot\wv\) (\cref{thm:dotopsf}) for vectors
-\(\uv=(-0.1,-3.1,-2.9,-1.3)\), \(\vv=(-3,0.5,6.4,-0.9)\) and \(\wv=(-1.5,-0.2,0.4,-3.1)\).
+\(\uv=(-0.1,-3.1,-2.9,-1.3)\), \(\vv=(-3,0.5,6.4,-0.9)\), and \(\wv=(-1.5,-0.2,0.4,-3.1)\).
 \begin{solution} 
 In \script\
 
@@ -515,7 +514,7 @@ w =
 \end{tabular}
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
-Compute the dot product \((\uv+\vv)\cdot\wv\)  with the command \verb|dot(u+v,w)| to find the answer is~\(13.390\).
+Compute the dot product \((\uv+\vv)\cdot\wv\)  with the command \verb|dot(u+v,w)| to find that the answer is~\(13.390\).
 &\begin{verbatim}
 >> dot(u+v,w)
 ans =  13.390
@@ -523,7 +522,7 @@ ans =  13.390
 \end{tabular}
 
 \begin{tabular}{@{}*2{p{0.47\linewidth}}@{}}\raggedright
-Compare this with the dot product expression \(\uv\cdot\wv+\vv\cdot\wv\)  via the command \verb|dot(u,w)+dot(v,w)| to find the answer is~\(13.390\).
+Compare this with the dot product expression \(\uv\cdot\wv+\vv\cdot\wv\)  via the command \verb|dot(u,w)+dot(v,w)| to find that the answer is~\(13.390\).
 &\begin{verbatim}
 >> dot(u,w)+dot(v,w)
 ans =  13.390
@@ -533,7 +532,6 @@ ans =  13.390
 That the two answers agree verifies the distributive law for dot products.
 \end{solution}
 \end{example}
-\end{reduce}
 
 
 \needlines8
@@ -549,7 +547,7 @@ which of the following expressions could check the identity that \((\uv-2\vv)\cd
 
 
 
-Many other books \cite[\S\S1.1--3, e.g.]{Quarteroni2006} give more details about the basics than the essentials that are introduced here.
+Many other books \cite[e.g.,][\S\S1.1--3]{Quarteroni2006} give more details about the basics than the essentials that are introduced here.
 
 
 
@@ -573,7 +571,7 @@ Use \script\ to compute the \idx{length} of each of the following vectors.
 \answer{\(7\)}
 \item \(\begin{bmatrix} 4\\-4\\7 \end{bmatrix}\)
 \answer{\(9\)}
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} -2\\6\\9 \end{bmatrix}\)
 \answer{\(11\)}
 \item \(\begin{bmatrix} 0.5\\0.1\\-0.5\\0.7 \end{bmatrix}\)
@@ -582,7 +580,7 @@ Use \script\ to compute the \idx{length} of each of the following vectors.
 \answer{\(13\)}
 \item \(\begin{bmatrix} 1.1\\1.7\\-4.2\\-3.8\\0.9 \end{bmatrix}\)
 \answer{\(6.0819\)}
-\end{reduce}
+\end{OmitV1}
 \item \(\begin{bmatrix} 2.6\\-0.1\\3.2\\-0.6\\-0.2 \end{bmatrix}\)
 \answer{\(4.1725\)}
 \item \(\begin{bmatrix} 1.6\\-1.1\\-1.4\\2.3\\-1.6 \end{bmatrix}\)
@@ -597,10 +595,10 @@ Use \script\ to determine which are wrong out of the following identities and re
 \begin{Parts}
 \item \(3(\pv-\qv)=3\pv-3\qv\)
 \item \(2(\pv-3\qv)+3(2\qv-\pv)=\pv\)
-\begin{reduce}
+\begin{OmitV1}
 \item \(\frac12(\pv-\qv)+\frac12(\pv+\qv)=\pv\)
 \item \(|\pv+\qv|\leq|\pv|+|\qv|\)
-\end{reduce}
+\end{OmitV1}
 \item \(|\pv-\qv|\leq|\pv|+|\qv|\)
 \item \(|\pv\cdot\qv|\leq|\pv||\qv|\)
 \end{Parts}
@@ -624,7 +622,7 @@ w=[1;-4;-4;-4]}}%
 \marginajrbox%
 \answer{\(\theta_{uv}=147.44^\circ\), \(\theta_{uw}=32.56^\circ\), \(\theta_{vw}=180^\circ\)}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\uv=\begin{bmatrix}5\\1\\-1\\3\end{bmatrix}\), \(\vv=\begin{bmatrix}-6\\4\\2\\-5\end{bmatrix}\), \(\wv=\begin{bmatrix}-4\\2\\1\\-2\end{bmatrix}\)
 \setbox\ajrqrbox\hbox{\qrcode{%
 u=[5;1;-1;3]
@@ -650,7 +648,7 @@ d=[1.8;-3.4;-8.6;1.4;1.8]
 }}%
 \marginajrbox%
 \answer{\(\theta_{ab}=42.82^\circ\), \(\theta_{ac}=99.11^\circ\), \(\theta_{ad}=109.89^\circ\), \(\theta_{bc}=64.32^\circ\), \(\theta_{bd}=92.89^\circ\), \(\theta_{cd}=61.70^\circ\)}
-\end{reduce}
+\end{OmitV1}
 
 
 \item \(\av=\begin{bmatrix}-0.5\\2.0\\-3.4\\1.8\\0.1\end{bmatrix}\), \(\bv=\begin{bmatrix}5.4\\7.4\\0.5\\0.7\\1.3\end{bmatrix}\), \(\cv=\begin{bmatrix} -0.2\\-1.5\\-0.3\\1.1\\2.5\end{bmatrix}\), \(\dv=\begin{bmatrix}1.0\\2.0\\-1.3\\-4.4\\-2.0\end{bmatrix}\)

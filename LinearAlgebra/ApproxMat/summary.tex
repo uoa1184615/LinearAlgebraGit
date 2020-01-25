@@ -13,7 +13,7 @@
 For an image stored as scalars in an \(m\times n\) matrix~\(A\).
 \begin{enumerate}
 \item Compute an \svd\ \(A=\usv\) with \verb|[U,S,V]=svd(A)|.
-\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}): typically there are \(k\)~`large' \idx{singular value}s and the rest are `small'.
+\item Choose a desired \idx{rank}~\(k\) based upon the \idx{singular value}s (\cref{thm:am}); typically there are \(k\)~`large' \idx{singular value}s and the rest are `small'.
 \item Then the `best' rank~\(k\) approximation to the image matrix~\(A\) is
 \begin{eqnarray*}
 A_k&:=&\sigma_1\uv_1\tr\vv_1+\sigma_2\uv_2\tr\vv_2+\cdots+\sigma_k\uv_k\tr\vv_k
@@ -52,7 +52,7 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 
 \item \index{axis@\texttt{axis}}\verb|axis| sets some properties of a drawn figure:
 \begin{itemize}
-\item \verb|axis equal| ensures horizontal and vertical directions are scaled the same---so here there is no distortion of the image;
+\item \verb|axis equal| ensures that horizontal and vertical directions are scaled the same---so here there is no distortion of the image;
 \item \verb|axis off| means that the horizontal and vertical axes are not drawn---so here the image is unadorned.
 \end{itemize}
 \end{itemize}
@@ -90,7 +90,7 @@ The \idx{distance} between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 
 \item Given a \(m\times n\) data matrix~\(A\) (usually with zero mean when averaged over all rows) with  \svd\ \(A=\usv\), then the \(j\)th column~\(\vv_j\) of~\(V\) is called the \(j\)th~\bfidx{principal vector} and the vector \(\xv_j:=A\vv_j\) is called the \(j\)th~\bfidx{principal components} of the data matrix~\(A\) (\cref{def:pc}).
 
-\item Using the \idx{matrix norm} to measure `best', the best \(k\)-dimensional summary of the \(m\times n\) data matrix~\(A\) (usually of zero mean) are the first~\(k\) principal components in the directions of the first~\(k\) principal vectors (\cref{thm:pc}).
+\item Using the \idx{matrix norm} to measure `best', the best \(k\)-dimensional summary of the \(m\times n\) data matrix~\(A\) (usually of zero mean) is the first~\(k\) principal components in the directions of the first~\(k\) principal vectors (\cref{thm:pc}).
 
 \itemme  
 \cref{pro:pca} considers the case when you have data values consisting of \(n\)~attributes for each of \(m\)~instances: it finds a good \(k\)-dimensional summary\slash view of the data. 
@@ -99,7 +99,7 @@ The \idx{distance} between~\(A\) and~\(A_k\) is \(\norm{A-A_k}=\sigma_{k+1}\)\,.
 \item \index{data scaling}Scale the data matrix~\(B\) to form \(m\times n\) matrix~\(A\):
 \begin{enumerate}
 \item usually make each column have zero mean by subtracting its mean~\(\bar b_j\), algebraically \(\av_j=\bv_j-\bar b_j\)\,;
-\item but ensure each column has the same `physical dimensions', often by dividing by the \idx{standard deviation}~\(s_j\) of each column, algebraically \(\av_j=(\bv_j-\bar b_j)/s_j\)\,.
+\item but ensure that each column has the same `physical dimensions', often by dividing by the \idx{standard deviation}~\(s_j\) of each column, algebraically \(\av_j=(\bv_j-\bar b_j)/s_j\)\,.
 \end{enumerate}
 Compute in \script\ via the \idx{auto-replication} of
 \begin{verbatim}
@@ -109,9 +109,7 @@ A=(B-mean(B))./std(B);
 \item Then the \(j\)th~column of~\verb|V| is the \(j\)th~\idx{principal vector}, and the \idx{principal components} are the entries of the \(m\times k\) matrix~\verb|A*V|.
 \end{enumerate}
 
-\begin{reduce}
 \item Latent Semantic Indexing uses \svd{}s to form useful low-rank approximations to word data and queries.
-\end{reduce}
 
 
 
@@ -119,7 +117,7 @@ A=(B-mean(B))./std(B);
 
 \itemhi \cref{pro:appmat} approximates \idx{linear equation}s.
 Suppose the \idx{system} of \idx{linear equation}s \(A\xv=\bv\) arises from an experiment where both the \(m\times n\) matrix~\(A\) and the right-hand side vector~\bv\ are subject to \idx{experimental error}.  
-Suppose the expected error in the matrix and vector \idx{entries} are of magnitude~\(\epsilon\).
+Suppose the expected errors in the matrix and vector \idx{entries} are of magnitude~\(\epsilon\).
 \begin{enumerate}
 \item When forming the matrix~\(A\) and vector~\bv, scale the data so that\index{data scaling} 
 \begin{itemize}
@@ -142,11 +140,11 @@ A_k&=&US_k\tr V
 in \cref{thm:appsol,thm:smallsoln} (often as an \idx{inconsistent} set of equations).
 Use the \svd\ \(A_k=US_k\tr V\).
 
-\item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application: often the smallest solution overall; or just as often a solution with the most zero \idx{components}.
+\item Among all the solutions allowed, choose the `best' according to some explicit additional need of the application, often the smallest solution overall, or just as often a solution with the most zero \idx{components}.
 \end{enumerate}
 
 
-\item In seeking to solve the poorly-posed system \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
+\item In seeking to solve the poorly posed system \(A\xv=\bv\) for \(m\times n\) matrix~\(A\), 
 a \bfidx{Tikhonov regularization} is the system \((\tr AA+\alpha^2I_n)\xv=\tr A\bv\) for some chosen \idx{regularization parameter} value~\(\alpha>0\) (\cref{def:Tikreg}).
 
 \item Solving the \idx{Tikhonov regularization}, with parameter~\(\alpha\), of \(A\xv=\bv\) is equivalent to finding the \index{smallest solution}smallest, \idx{least square}, solution of the system \(A'\xv=\bv\) where  

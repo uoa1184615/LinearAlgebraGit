@@ -12,9 +12,9 @@
 \paragraph{Population modelling} \index{population modelling}
 Suppose two \idx{species} of animals interact: how do their populations evolve in time?  
 Let \(y(t)\) and~\(z(t)\) be the number of \idx{female} animals in each of the species at time~\(t\) in years (biologists usually just count females in population models as females usually determine reproduction). 
-Modelling might deduce the populations interact according to the rule that one year later the population is \(y(t+1)=2y(t)-4z(t)\) and \(z(t+1)=-y(t)+2z(t)\): that is, if it was not for the other species, then for each species the number of females would double every year (since then \(y(t+1)=2y(t)\) and \(z(t+1)=2z(t)\)); but the presence of the other species causes competition for resources that decreases each of these growths via the~\(-4z(t)\) and~\(-y(t)\) terms.  
+Modelling might deduce that the populations interact according to the rule that one year later the population is \(y(t+1)=2y(t)-4z(t)\) and \(z(t+1)=-y(t)+2z(t)\): that is, if it was not for the other species, then for each species the number of females would double every year (since then \(y(t+1)=2y(t)\) and \(z(t+1)=2z(t)\)); but the presence of the other species causes competition for resources that decreases each of these growths via the~\(-4z(t)\) and~\(-y(t)\) terms.  
 
-Question: can we find special solutions in the form \((y,z)=\xv \lambda^{t}\) for some constant~\(\lambda\) and non-zero \(\xv=(x_1,x_2)\)?  
+Question: can we find special solutions in the form \((y,z)=\xv \lambda^{t}\) for some constant~\(\lambda\) and nonzero \(\xv=(x_1,x_2)\)?  
 Let's try by substituting \(y=x_1\lambda^{t}\) and \(z=x_2\lambda^{t}\) into the  equations:
 \begin{eqnarray*}
 &&y(t+1)=2y(t)-4z(t)\,,\quad z(t+1)=-y(t)+2z(t)
@@ -86,13 +86,13 @@ Rearranging the equation \(A\xv=\lambda\xv\) as the \idx{homogeneous} \idx{syste
 \paragraph{Three general difficulties in \idx{eigen-problem}s}
 Recall that \cref{sec:iee} introduced one way to visually estimate eigenvectors and eigenvalues of a given \(2\times2\) matrix~\(A\) \cite[]{Schonefeld1995}. 
 The graphical method is to plot many \idx{unit vector}s~\xv, and at the end of each~\xv\ to adjoin the vector~\(A\xv\).
-Since eigenvectors satisfy \(A\xv=\lambda\xv\) for some \idx{scalar} eigenvalue~\(\lambda\), we visually identify eigenvectors as those~\xv\ for which~\(A\xv\) points in the same (or opposite) direction as~\xv.
+Since eigenvectors satisfy \(A\xv=\lambda\xv\) for some \idx{scalar} eigenvalue~\(\lambda\), we visually identify eigenvectors as those~\xv\ for which~\(A\xv\) points in the same (or opposite) direction as~\xv.%
 \footnote{Recall that the \script[1]\ function \index{eigshow()@\texttt{eigshow()}}\texttt{eigshow(A)} (download for R2017b etc.) provides an interactive alternative to the static views shown herein.}
 Let's use this approach to identify three \text{general difficulties.}
 
 \begin{enumerate}
 \item 
-\begin{figbox}{\eRose{1}1{0.125}{1}}
+\begin{figbox}{\eRose{1}1{0.125}{1}}%
 In this first picture, for matrix
 \( A=\begin{bmat} 1&1\\1/8&1 \end{bmat}\),
 the eigenvectors appear to be in directions \(\xv_1\approx\pm(0.9,0.3)\) and \(\xv_2\approx\pm(0.9,-0.3)\) corresponding to eigenvalues \(\lambda_1\approx1.4\) and \(\lambda_2\approx 0.6\)\,.
@@ -103,7 +103,7 @@ This lack of orthogonality in general means we soon generalize the concept of or
 \end{figbox}
 
 \item 
-\begin{figbox}{\eRose01{-1}{0.5}}
+\begin{figbox}{\eRose01{-1}{0.5}}%
 In this second case, for
 \( A=\begin{bmat} 0&1\\-1&1/2 \end{bmat}\),
 there appears to be no (red) vector~\(A\xv\) in the same direction as the corresponding (blue) vector~\xv.
@@ -117,10 +117,10 @@ In this second case the vectors~\(A\xv\) all appear to be pointing clockwise.
 Such a consistent `\idx{rotation}' in~\(A\xv\) is characteristic of matrices with non-real complex valued eigenvalues and eigenvectors.
 
 \item 
-\begin{figbox}{\eRose1101}
+\begin{figbox}{\eRose1101}%
 In this third case, for
 \( A=\begin{bmat} 1&1\\0&1 \end{bmat}\),
-there appears to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
+there appear to be only the vectors \(\xv=\pm(1,0)\), aligned along the horizontal axis, for which \(A\xv=\lambda\xv\).
 Whereas for symmetric matrices there were always two pairs, here we only appear to have one pair of eigenvectors (\cref{thm:dimee}).
 Such degeneracy occurs for matrices on the border between reality \text{and complexity.}
 \vspace{1\baselineskip}
@@ -138,7 +138,7 @@ Find by algebra the eigenvalues and eigenvectors of the \idx{triangular matrix} 
 Recall \cref{pro:eeh}. 
 \begin{enumerate}
 \item Find all eigenvalues by solving the characteristic equation \(\det(A-\lambda I)=0\)\,. 
-Here \(\det(A-\lambda I)=\det\begin{bmat} 2-\lambda&1\\0&3-\lambda \end{bmat}\) which being a triangular matrix has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
+Here \(\det(A-\lambda I)=\det\begin{bmat} 2-\lambda&1\\0&3-\lambda \end{bmat}\) which, being a triangular matrix, has determinant that is the product of the diagonals, namely \(\det(A-\lambda I)=(2-\lambda)(3-\lambda)\)\,.
 This determinant is zero only for eigenvalues \(\lambda=2\) or~\(3\).
 These are the diagonal entries in the \text{triangular matrix.}
 \item For each eigenvalue, find corresponding eigenvectors by solving the system \((A-\lambda I)\xv=\ov\)\,.
@@ -161,7 +161,7 @@ The corresponding \idx{eigenvector}s of distinct \idx{eigenvalue}s are \emph{gen
 \end{theorem}
 
 \begin{proof} 
-We detail only the case of upper triangular matrices as the argument is similar for lower triangular matrices. 
+We detail only the case of upper triangular matrices, as the argument is similar for lower triangular matrices. 
 First establish that the diagonal entries are eigenvalues, and second prove there are no others.
 Let \(\lambda\) be any value in the diagonal of the matrix~\(A\), and let \(k\)~be the smallest index such that \(a_{k,k}=\lambda\) (this `smallest' caters for duplicated diagonal values).
 Let's construct an eigenvector in the form \(\xv=(\hlist x{k-1},1,0,\ldots,0)\).  
@@ -173,7 +173,7 @@ x_{k-1}&=&-a_{k-1,k}x_k/(a_{k-1,k-1}-\lambda),
 \\&\vdots&
 \\x_1&=&-(a_{1,k}x_k+a_{1,k-1}x_{k-1}+\cdots+a_{1,2}x_2)/(a_{1,1}-\lambda).
 \end{eqnarray*}
-Since \(k\)~is the smallest index for which \(\lambda=a_{k,k}\) none of the above expressions involve divisions by zero, and so all are well defined.
+Since \(k\)~is the smallest index for which \(\lambda=a_{k,k}\) none of the above expressions involve divisions by zero, and so all are well-defined.
 Rearranging the above equations shows that this vector~\xv\ satisfies, for  \(\lambda=a_{k,k}\)\,,
 \begin{equation*}
 \begin{array}{l@{}l@{}l@{}l@{}l@{}l}
@@ -254,13 +254,13 @@ That is, the eigenspace \(\EE_{4}=\Span\{(\frac1{14},\frac14,1)\}\).
 \end{itemize}
 \end{solution}
 
-\begin{reduce}
+
 \item \(\eAii=\begin{bmatrix}3&0&0&0
 \\-2&-4&0&0
 \\-3&1&0&0
 \\0&0&-3&1 \end{bmatrix}\)
 \begin{solution} 
-Matrix~\(\eAii\)\ is lower triangular so read the eigenvalues from the diagonal to be~\(3\), \(-4\), \(0\) and~\(1\).
+Matrix~\(\eAii\)\ is lower triangular so read the eigenvalues from the diagonal to be~\(3\), \(-4\), \(0\), and~\(1\).
 \begin{itemize}
 \item For \(\lambda=1\)\,, by inspection all eigenvectors are of the form \((0,0,0,1)\).
 Hence eigenspace \(\EE_{1}=\Span\{(0,0,0,1)\}\).
@@ -306,7 +306,7 @@ That is, the eigenspace \(\EE_{3}=\Span\{(1,-\frac27,-\frac{23}{21},\frac{23}{14
 
 \end{itemize}
 \end{solution}
-\end{reduce}
+
 
 \item \(\eAii=\begin{bmatrix} -1&1&-8&-5&5
 \\-3&6&4&-3&0
@@ -315,7 +315,7 @@ That is, the eigenspace \(\EE_{3}=\Span\{(1,-\frac27,-\frac{23}{21},\frac{23}{14
 \\-1&0&0&0&0 \end{bmatrix}\)
 \begin{solution} 
 Matrix~\(\eAii\) is not a triangular matrix (\cref{def:trim}), so \cref{thm:trieig} does not apply.
-Row or column swaps could transform it to be triangular, but we have not investigated the effect of such swaps on eigenvalues \text{and eigenvectors.}
+Row or column swaps could transform~\(C\) to be triangular, but we have not investigated the effect of such swaps on eigenvalues \text{and eigenvectors.}
 \end{solution}
 \end{enumerate}
 \end{example}
@@ -343,7 +343,7 @@ What are all the eigenvalues of the matrix
 
 
 One consequence of the second part of the proof of \cref{thm:trieig} is that, when counted according to multiplicity, there are precisely \(n\)~eigenvalues of an \(n\times n\) \idx{triangular matrix}.
-Correspondingly, the next \cref{sec:eennm} establishes there are precisely \(n\)~eigenvalues of general \(n\times n\) matrices, provided we count the eigenvalues according to multiplicity and allow \idx{complex eigenvalue}s.
+Correspondingly, the next \cref{sec:eennm} establishes that there are precisely \(n\)~eigenvalues of general \(n\times n\) matrices, provided we count the eigenvalues according to multiplicity and allow \idx{complex eigenvalue}s.
 
 
 
@@ -353,7 +353,7 @@ Correspondingly, the next \cref{sec:eennm} establishes there are precisely \(n\)
 
 
 
-
+\needlines{16}
 \sectionExercises
 
 \begin{exercise}  
@@ -365,7 +365,7 @@ By inspection decide whether the matrix, in each case, has real eigenvalues or n
 %\end{verbatim}
 
 \begin{Parts}
-\begin{reduce}
+\begin{OmitV1}
 \item \eRose{0.2}{-1.1}{ 1.3}{ 0.9}
 \answer{complex}
 
@@ -377,7 +377,7 @@ By inspection decide whether the matrix, in each case, has real eigenvalues or n
 
 \item \eRose{-0.7}{-0.2}{ 0.4}{-0.3}
 \answer{complex}
-\end{reduce}
+\end{OmitV1}
 
 \item \eRose{0.3}{-0.3}{-0.2}{1}
 \answer{real}
@@ -431,7 +431,7 @@ Show your working.
 \(\EE_{-4}=\Span\{(0,2,-5)\}\), 
 \(\EE_{0}=\Span\{(8,-6,-11)\}\).}
 
-\begin{reduce}
+\begin{OmitV1}
 \item \(\begin{bmatrix} 1 & -5 & 0
 \\0 & 0 & -4
 \\0 & 0 & 0 \end{bmatrix}\)
@@ -456,7 +456,7 @@ Show your working.
 \answer{\(\EE_{-2}=\Span\{(1,0,0,0)\}\), 
 \(\EE_{-3}=\Span\{(6,-1,1,0)\}\), 
 \(\EE_{2}=\Span\{(6,9,1,5)\}\).}
-\end{reduce}
+\end{OmitV1}
 
 \item \(\begin{bmatrix} 8 & -2 & 3 & 2
 \\0 & -6 & 1 & -2
@@ -487,5 +487,9 @@ Show your working.
 
 
 
+%\input{EigGen/secFind}
+%\input{EigGen/secLinInd}
+%\input{EigGen/secDiag}
+%\input{EigGen/summary}
 
 \endinput

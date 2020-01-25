@@ -5,7 +5,7 @@
 %   \def\includeonly#1{}\usepackage{showkeys}%% iff whole book draft
    \AtBeginDocument{%
 %   \inQRcodesfalse % invoke to omit QR-codes
-%   \excludeversion{reduce} % invoke for short version
+%   \excludeversion{OmitV1} % invoke for short version
    }%end of AtBeginDocument
 \or%2=A4 drafting
    \documentclass[10pt,a4paper,twoside]{refrep}
@@ -14,7 +14,7 @@
    \AtBeginDocument{%
    \excludeversion{comment}
    \inQRcodesfalse % invoke to omit QR-codes
-%   \excludeversion{reduce} % invoke for short version
+%   \excludeversion{OmitV1} % invoke for short version
    }%end of AtBeginDocument
 \or%3= version on A4
    \documentclass[10pt,a4paper,twoside]{refrep}
@@ -23,22 +23,20 @@
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
-%   \excludeversion{reduce} % invoke for short version
+%   \excludeversion{OmitV1} % invoke for short version
 %   \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
 \or%4= close to OUP I hope
    \documentclass[11pt,twoside]{book}
    \usepackage[a4paper,margin=31mm%
-   ,tmargin=41mm,bmargin=41mm]%
-   {geometry}
-   \setcounter{secnumdepth}{3} % number to subsubsections
+   ,tmargin=41mm,bmargin=41mm]{geometry}
    \let\MakeUppercase\sf
-   \def\includeonly#1{} % do all by disabling includeonly
+   \def\includeonly#1{} % do all by disabling includeonly *******
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
-%   \excludeversion{reduce} % invoke for short version
+%   \excludeversion{OmitV1} % invoke for short version
    \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
@@ -48,7 +46,7 @@
 
 % Specify the version number of the next version.
 % Affects watermark and permutation of activity answers.
-\def\myversion{0.6a}
+\def\myversion{0.6b}
 
 \includeonly{
 front,back
@@ -119,11 +117,11 @@ front,back
 
 
 
-\usepackage{linearAlgebra}[2019/11/05]
+\usepackage{linearAlgebra}[2020/01/22]
 \def\aNsMod{2}% typeset every second answer to exercises
 %% An environment to control/show a reduced/shortened version
-%\newenvironment{reduce}{\color{gray}}{}% grey planned omissions
-\newenvironment{reduce}{}{}% do not show what is omitted
+%\newenvironment{OmitV1}{\color{gray}}{}% grey planned omissions
+\newenvironment{OmitV1}{}{}% do not show what is omitted
 
 
 \makeindex
