@@ -1,0 +1,47 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,amsfonts,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Which of the following illustrated transformations of the plane \emph{cannot} be that of a linear transformation?
+In each illustration of a transformation~\(T\), the four corners of the blue unit square (\((0,0)\), \((1,0)\), \((1,1)\), and~\((0,1)\)), are transformed to the four corners of the red figure (\(T(0,0)\), \(T(1,0)\), \(T(1,1)\), and~\(T(0,1)\))---the `roof' of the unit square clarifies which side goes where.
+
+
+\newcommand{\TwoDnotLT}[6]{%5th and 6th are the distortion
+    \begin{tikzpicture}
+    \pgfmathparse{abs(#1)+abs(#2)+abs(#3)+abs(#4)}%
+    \pgfmathparse{(\pgfmathresult>5)+(\pgfmathresult>3.6)*0.5+0.5}%
+    \edef\xtdst{\pgfmathresult}%
+    \begin{axis}[grid,footnotesize,font=\footnotesize
+    ,xtick distance={\xtdst}
+      ,axis lines=middle,thick,axis equal image ] 
+    \addplot coordinates {(0,1)(1,1)(1,0)(0,0)(0,1)(0.5,1.2)(1,1)}; 
+    \addplot coordinates {(#2,#4)(#1+#2+#5,#3+#4+#6)(#1,#3)(0,0)
+      (#2,#4)(#1*0.5+#5/2+#2*1.2,#3*0.5+#6/2+#4*1.2)(#1+#2+#5,#3+#4+#6)}; 
+    \end{axis}
+    \end{tikzpicture}}
+
+
+\TwoDnotLT{-0.1}{ 3.0}{-1.4}{ 0.5}{ 0.4}{-0.4}
+\answer{Not an LT.}
+
+
+
+
+\end{document}

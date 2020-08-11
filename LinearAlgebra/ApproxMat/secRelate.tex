@@ -359,7 +359,7 @@ V =
 % AJR's photograph
 \end{wrapfigure}
 \begin{example} \label{eg:pascal}
-to the left is a \(292\times277\) image of Blaise Pascal\index{Pascal, Blaise} (French mathematician, physicist, inventor, and writer, 1623--62).  
+To the left is a \(292\times277\) image of Blaise Pascal\index{Pascal, Blaise} (French mathematician, physicist, inventor, and writer, 1623--62).  
 The image is coded as \(80\,884\)~numbers.
 Let's find a good approximation to the image that uses much fewer numbers, and hence takes less storage.
 That is, we effectively compress the image for storage \text{or transmission.}
@@ -368,7 +368,7 @@ That is, we effectively compress the image for storage \text{or transmission.}
 We use an \svd\ to approximate the image of Pascal to controllable levels of approximation.
 For example, \cref{fig:pascalrank} shows four approximations to the image of Pascal, ranging from the hopeless (labelled ``rank~3'')  to the original image (labelled ``rank~277'').
 \begin{figure}
-\caption{Four approximate images of Pascal ranging from the poor rank~\(3\), via the adequate rank~\(10\), the good rank~\(30\), to the original rank~\(277\).}
+\caption{Four approximate images of Pascal ranging from the poor rank~\(3\), via the rough rank~\(10\), the good rank~\(30\), to the original rank~\(277\).}
 \label{fig:pascalrank}
 \centering
 \includegraphics{ApproxMat/pascalrank}
@@ -471,7 +471,7 @@ When each of the \(m\)~lines in the file is \(n\)~numbers separated by commas, t
 
 \item \index{mean()@\texttt{mean()}|textbf}\verb|mean(A)| of an \(m\times n\) array computes the \(n\)~\idx{elements} in the \idx{row vector} of \idx{average}s (the arithmetic \idx{mean}) over each column of~\(A\).
 
-Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the \idx{mean} over the \verb|p|th~index to give an array of \idx{size} \(m_1\times\cdots\times m_{p-1}\times m_{p+1}\times\cdots\times m_\ell\).
+Whereas \verb|mean(A,p)| for an \(\ell\)-dimensional array~\(A\) of dimension \(m_1\times m_2\times\cdots\times m_\ell\),  computes the \idx{mean} over the \verb|p|th~index to give an array of \idx{size} \(m_1\times\cdots\times m_{p-1}\times1\times m_{p+1}\times\cdots\times m_\ell\).
 
 \item \index{std()@\texttt{std()}|textbf}\verb|std(A)| of an \(m\times n\) array computes the \(n\)~elements in the \idx{row vector} of the \idx{standard deviation} over each column of~\(A\).  
 That is, for each column of~\(A\), the corresponding elements of \verb|std(A)| are proportional to the \emph{spread} in values of \text{that column.}
@@ -869,11 +869,11 @@ The `distance' between matrices~\(B\) and~\(C\) is, via the matrix~\(A\) of \cre
 \end{solution}
 
 
-\item Find the distances between the matrix
+\item Find the distance between the matrix
 \begin{equation*}
 A=\begin{bmatrix} 10&2\\5&11 \end{bmatrix}
 \quad\text{and }B=\begin{bmatrix} 4&-4\\-3&3 \end{bmatrix},
-\quad\text{and } A_1=\begin{bmatrix} 6&6\\8&8 \end{bmatrix}.
+\quad\text{and between $A$ and} A_1=\begin{bmatrix} 6&6\\8&8 \end{bmatrix}.
 \end{equation*}
 Recall from \cref{eg:2by2svd} that the matrix~\(A\) has an \svd\ of
 \begin{equation*}

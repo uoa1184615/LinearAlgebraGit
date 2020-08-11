@@ -1724,7 +1724,7 @@ Then the solution becomes
 +\tfrac12(1-\i\sqrt3)^t\begin{bmatrix} 1\\-\frac \i{\sqrt3} \end{bmatrix}.
 \end{eqnarray*}
 Through the magic of the complex conjugate form of the two terms in this expression, the nonreal parts cancel to always give a real result.
-For example, this complex formula predicts at time step \(t=1\)
+For example, this complex formula predicts that at time step \(t=1\)
 \begin{eqnarray*}
 \yv(1)&=&\tfrac 12(1+\i\sqrt3)\begin{bmatrix} 1\\\frac \i{\sqrt3} \end{bmatrix}
 +\tfrac12(1-\i\sqrt3)\begin{bmatrix} 1\\-\frac \i{\sqrt3} \end{bmatrix}
@@ -2034,7 +2034,7 @@ Predation, disease, and food shortages are just some processes not included in t
 
 
 A crucial mathematical feature used in this section and its applications---so that we find a solution for all \idx{initial value}s---is that the matrix of eigenvectors is \idx{invertible}.
-The next \cref{sec:lisb} relates the invertibility of a matrix of eigenvectors to the new concept of `linear independence' (\cref{thm:ftim3}).
+The upcoming \cref{sec:lisb} relates the invertibility of a matrix of eigenvectors to the new concept of `linear independence' (\cref{thm:ftim3}).
 
 
 
@@ -2174,7 +2174,7 @@ Second, let \(\wv\in\RR^{2n}\)\ be an eigenvector of~\(B\) corresponding to an e
 Separate the components of~\wv\ into two: \(\wv=(\uv,\vv)\) for \(\uv,\vv\in\RR^n\).
 Then the fundamental eigen-problem \(B\wv=\lambda\wv\)  (\cref{def:evecval}) separates into
 \begin{equation}
-\begin{bmatrix} O& A\\\tr A&O \end{bmatrix}\begin{bmatrix} \uv\\\vv \end{bmatrix}=\lambda\begin{bmatrix} \uv\\\vv \end{bmatrix}
+\begin{bmatrix} O_n& A\\\tr A&O_n \end{bmatrix}\begin{bmatrix} \uv\\\vv \end{bmatrix}=\lambda\begin{bmatrix} \uv\\\vv \end{bmatrix}
 \iff  A\vv=\lambda\uv \text{ and }\tr A\uv=\lambda\vv\,.
 \label{eq:eigsvd}
 \end{equation}
@@ -2664,11 +2664,11 @@ Since \(32=-\tfrac23(-48)\) and \(4=-\tfrac23(-6)\), then \(A\vv_2\) is~\(-2/3\)
 
 
 \begin{activity}
-Which of the following vectors is an eigenvector of the generalized eigen-problem
+Which one of the following vectors is an eigenvector of the generalized eigen-problem
 \begin{equation*}
 \begin{bmatrix} -2&0\\1&0 \end{bmatrix}\vv=\lambda\begin{bmatrix} 3&-1\\-1&1 \end{bmatrix}\vv\,?
 \end{equation*}
-\actposs[4]{$(1,-1)$}{$(0,0)$}{$(0,1)$}{$(2,-1)$}
+\actposs[4]{$(1,-1)$}{$(0,0)$}{$(1,1)$}{$(2,-1)$}
 \end{activity}
 
 
@@ -2766,7 +2766,7 @@ Then \(r_k=(\log\lambda_k)/h\).
 
 \begin{procedure}[\bfidx{exponential interpolation}] \label{pro:ei}
 Given measured data \hlist f{2n}\ at \(2n\)~equi-spaced times \hlist t{2n} where time \(t_j=(j-1)h\) for time-spacing~\(h\) (and starting from time \(t_1=0\) without loss of applicability), we seek to fit the data with a sum of exponentials~\eqref{eq:eiddse}.
-\begin{enumerate}
+\begin{enumerate}[ref=\arabic*]
 \item\label[step]{pro:eia} From the \(2n\)~data points, form two \(n\times n\) (symmetric) \index{Hankel matrix}Hankel matrices 
 \begin{align*}&
 A=\begin{bmatrix} f_2&f_3&\cdots&f_{n+1}
@@ -2779,7 +2779,7 @@ B=\begin{bmatrix} f_1&f_2&\cdots&f_{n}
 \\\vdots&\vdots&&\vdots
 \\f_{n}&f_{n+1}&\cdots&f_{2n-1} \end{bmatrix}.
 \end{align*}
-\index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| form these two matrices in \script.%
+\index{hankel()@\texttt{hankel()}}\verb|A=hankel(f(2:n+1),f(n+1:2*n))| and \verb|B=hankel(f(1:n),f(n:2*n-1))| form these two matrices in \script\ (\cref{tbl:mtlbexpf}).%
 \footnote{This Hankel function is also invoked in exploring El~Ni\~no, \cref{eg:orthbapp}, and walking gaits, \cref{ex:wgpwpd}.  The reason is the same: the columns of matrices~\(A\) and~\(B\) appearing here are precisely the `sliding windows' appearing in the two \idx{Singular Spectrum Analysis} problems.}
 
 \item\label[step]{pro:eib} Find the \idx{eigenvalue}s of the \idx{generalized eigen-problem} \(A\vv=\lambda B\vv\)\,: 
@@ -2982,7 +2982,7 @@ However, the piano string is damped by the factor~\(e^{-20t}\) so that in just a
 For the data of the previous \cref{eg:eipiano}, determine the \idx{frequency} and damping of the \idx{piano string} using \script.
 
 \begin{solution} 
-Follow \cref{pro:ei} using \script. 
+Follow \cref{pro:ei} using \script\ (\cref{tbl:mtlbexpf}). 
 \begin{enumerate}
 \item Form the Hankel matrices from the data with commands
 \begin{verbatim}
@@ -3088,7 +3088,7 @@ Fit a sum of four exponentials to this data.
 \end{align*}
 
 \begin{solution} 
-Follow \cref{pro:ei} using \script\ since the required matrices, \(4\times4\), are too big for hand calculation. 
+Follow \cref{pro:ei} using \script\ since the required matrices, \(4\times4\), are too big for hand calculation (\cref{tbl:mtlbexpf}). 
 \begin{enumerate}
 \item Form the Hankel matrices from the data with commands
 \begin{verbatim}
@@ -4559,7 +4559,7 @@ f=[0.6543
 \\ 1.6406
 \\ 0.3678
 \\ 0.05918
-\\ 0.008227 \end{bmatrix}
+\\ 0.008227 \end{bmatrix}.
 \end{equation*}
 Detect the exponential decay in this supernova data by fitting a sum of exponentials~\eqref{eq:eiddse}, \(f(t)=c_1e^{r_1t}+c_2e^{r_2t}+c_3e^{r_3t}\).
 Comment on the result.

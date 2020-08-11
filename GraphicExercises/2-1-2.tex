@@ -1,0 +1,46 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+For each of the following graphs: estimate the equations of the pair of lines; solve the pair of equations algebraically; and confirm that the algebraic solution is reasonably close to the intersection of the pair of lines.
+
+\newcommand{\temp}{
+    \pgfmathparse{3*rnd+0.5}\edef\xx{\pgfmathresult}
+    \pgfmathparse{3*rnd+0.2+\xx}\edef\xxx{\pgfmathresult}
+    \pgfmathparse{2*rnd+0.5}\edef\yyy{\pgfmathresult}
+    \pgfmathparse{2*rnd+0.2+\yyy}\edef\yy{\pgfmathresult}
+    \begin{tikzpicture}
+    \begin{axis}[small,font=\footnotesize
+      ,axis equal image,axis lines=middle
+      , xlabel={$x$},ylabel={$y$}, thick, no marks, grid,samples=2
+      , domain=-0.5:1.5 
+    ]
+    \addplot+[] ({x*\xx},{(1-\x)*\yy});
+    \addplot+[] ({x*\xxx},{(1-\x)*\yyy});
+    \end{axis}
+    \end{tikzpicture}
+    \pgfmathparse{(1/\yyy-1/\yy)/(1/\xx/\yyy-1/\xxx/\yy)}
+    \pgfmathprintnumberto[precision=2,assume math mode=true]{\pgfmathresult}{\tempx}
+    \pgfmathparse{(1/\xx-1/\xxx)/(1/\xx/\yyy-1/\xxx/\yy)}
+    \pgfmathprintnumberto[precision=2,assume math mode=true]{\pgfmathresult}{\tempy}
+    \answer{$(\tempx,\tempy)$}
+}
+
+\pgfmathsetseed{1234}% maybe set seed
+\temp
+
+\end{document}

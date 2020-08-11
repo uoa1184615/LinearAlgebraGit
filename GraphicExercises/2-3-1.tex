@@ -1,0 +1,54 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec a\Vec b\Vec v
+For each of the following, express vectors~\av\ and~\bv\ as a linear combination of vectors~\(\vv_1\) and~\(\vv_2\).
+Estimate the coefficients roughly (to say~10\%).
+\newcommand{\pvec}[3]{%
+    \pgfmathparse{(#1)*0.7+(#2)*0.1}\let\h\pgfmathresult
+    \pgfmathparse{(#2)*0.7-(#1)*0.1}\let\v\pgfmathresult
+    \edef\mytmp{\noexpand
+    \addplot[\vcol,thick,quiver={u=#1,v=#2},-stealth] coordinates {(0,0)};
+    \noexpand\node[] at (axis cs:\h,\v) {#3};
+    }\mytmp
+    }
+\newcommand{\mytemp}[8]{%
+    \begin{tikzpicture} 
+    \begin{axis}[small,font=\footnotesize
+        ,axis equal, axis lines=none ] 
+        \addplot[] coordinates {(0,0)};
+        \def\vcol{red}
+        \pvec{#1}{#2}{$\noexpand\vv_1$};
+        \pvec{#3}{#4}{$\noexpand\vv_2$};
+        \def\vcol{blue}
+        \pvec{#5*#1+#6*#3}{#5*#2+#6*#4}{$\noexpand\av$};
+        \pvec{#7*#1+#8*#3}{#7*#2+#8*#4}{$\noexpand\bv$};
+    \end{axis}
+    \end{tikzpicture}
+    \answer{$\noexpand\av=#5 \noexpand\vv_1 #6 \noexpand\vv_2$, 
+    $\noexpand\bv=#7 \noexpand\vv_1 #8 \noexpand\vv_2$}
+}
+
+\mytemp{-1.0}{0.5}{0}{0.9}{1}{+1}{1.5}{-0.5}
+
+
+\end{document}

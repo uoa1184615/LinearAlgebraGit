@@ -224,7 +224,7 @@ We focus on the geometry and linear algebra of obtaining such a `best' approxima
 
 \begin{procedure}[\bfidx{approximate solution}]\label{pro:appsol}
     Obtain the so-called `\idx{least square}' approximate solution(s) of \idx{inconsistent} equations $A\xv=\bv$ using an \svd\ and via intermediate unknowns:
-    \begin{enumerate}[ref=\ref{pro:appsol}(\alph*)]
+    \begin{enumerate}[ref=\arabic*]
     \item\label[step]{as:a0} factorize \(A=\usv\) and set \(r=\rank A\) (remembering that relatively small \idx{singular value}s are effectively zero);
         \item\label[step]{as:a1} solve \(U\zv=\bv\) by $\zv=\tr U\bv$;
     
@@ -1033,7 +1033,7 @@ In the \idx{table tennis} ratings of \cref{eg:rstp3} the procedure found that th
 +\frac{y_3}{\sqrt3}\begin{bmatrix} 1\\1\\1 \end{bmatrix},
 \end{equation*}
 as illustrated in stereo to the right (blue).
-Verify that \(|\xv|\) is a \idx{minimum} only when the \idx{free variable} \(y_3=0\) (a disc in the plot).
+Verify that \(|\xv|\) is a \idx{minimum} only when the \idx{free variable} \(y_3=0\) (a red disc in the plot).
 
 \begin{solution} 
 \begin{eqnarray*}
@@ -1128,14 +1128,13 @@ Use the following \svd:
 Either \(p\) or~\(q\) can be~\verb|[]|, in which case \script\ uses \(p=mn/q\) or \(q=mn/p\) respectively.
 
 \item \index{colormap()@\texttt{colormap()}}\verb|colormap(gray)| \script\ usually draws graphs with colour, but for many images we need greyscale; this command changes the current figure to 64~shades of grey.  
-
 (\verb|colormap(jet)| is the default, \verb|colormap(hot)| is good for both colour and greyscale reproductions, \verb|colormap('list')| lists the available colormaps you can try.)
 
 \item \index{imagesc()@\texttt{imagesc()}}\verb|imagesc(A)| where \(A\)~is an \(m\times n\) matrix of values draws an \(m\times n\) image in the current figure window using the values of~\(A\) (scaled to fit) to determine the colour from the current colormap (e.g., greyscale).
 
-\item \index{log()@\texttt{log()}}\verb|log(x)| where \(x\)~is a  matrix, vector, or scalar computes the natural \idx{logarithm} to the base~\(e\) of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.
+\item \index{log()@\texttt{log()}}\verb|log(x)| where \verb|x|~is a  matrix, vector, or scalar computes the natural \idx{logarithm} to the base~\(e\) of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.
 
-\item \index{exp()@\texttt{exp()}}\verb|exp(x)| where \(x\)~is a  matrix, vector, or scalar computes the \idx{exponential} of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.%
+\item \index{exp()@\texttt{exp()}}\verb|exp(x)| where \verb|x|~is a  matrix, vector, or scalar computes the \idx{exponential} of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.%
 \footnote{In advanced linear algebra, for application to differential equations and Markov chains, we define the exponential of a matrix, denoted~\(\exp A\) or~\(e^A\).  
 This mathematical function is \emph{not} the same as \script's \texttt{exp(A)}; instead one computes \texttt{expm(A)} to get~\(e^A\).}
 
@@ -1318,7 +1317,7 @@ These are logarithms so to get the corresponding physical transmission factors c
 \begin{equation*}
 \rv=\exp(\xv)=(.66,.68,.91,.63,.65,.87,.53,.55,.74),
 \end{equation*}
-although it is perhaps more appealing to put these factors into the shape of the \(3\times3\) array of pixels as in (and as illustrated to the right)
+although it is perhaps more appealing to put these factors into the shape of the \(3\times3\) array of pixels as in (and as illustrated to the right, see \cref{tbl:mtlbimag})
 \begin{align*}&
 \begin{bmatrix} r_1&r_4&r_7\\r_2&r_5&r_8\\r_3&r_6&r_9 \end{bmatrix}
 =\begin{bmatrix} 0.66&0.63&0.53
@@ -1974,7 +1973,7 @@ Hence the projection of the given vector onto the plane is
 &=\uv_2(\uv_2\cdot(1,2,2))+\uv_3(\uv_3\cdot(1,2,2))
 \\&=2.2308\,\uv_2+0.1539\,\uv_3
 \\&=2.2308(0.1111,0.9914,0.0684)
-\\&{}+0.1539(-0.8889,0.0684,0.4530)
+\\&\quad{}+0.1539(-0.8889,0.0684,0.4530)
 \\&=(0.1111,2.2222,0.2222)
 \\&=\tfrac19(1,10,2)
 \qquad(\text{shown in brown below-right}).
@@ -2035,7 +2034,7 @@ Hence, \(\bv'=\proj_\AA(\bv)\) and so \cref{pro:appsol} solves the system \(A\xv
 
 
 \begin{example} \label{eg:fourwts2}
-Recall that \cref{eg:fourwts} rationalizes four apparently contradictory weighings: in~kg the weighings are~\(84.8\), \(84.1\), \(84.7\), and~\(84.4\)\,.
+Recall that \cref{eg:fourwts} rationalizes four apparently contradictory weighings: in~kg the weights are~\(84.8\), \(84.1\), \(84.7\), and~\(84.4\)\,.
 Denoting the `uncertain' weight by~\(x\),  we write these weighings as the inconsistent matrix-vector system
 \begin{equation*}
 Ax=\bv\,,\quad\text{namely }
@@ -2278,7 +2277,7 @@ W\tr W=\begin{bmatrix} 1&0\\0&1\\0&0 \end{bmatrix}
 
 \item \(\proj_\WW(\vv)\) for the subspace \(\WW=\Span\{(2,-2,1)\clb (2,1,-2)\}\).
 \begin{solution} 
-The two given vectors are orthogonal, so \(\wv_1=(\frac23,-\frac23,\frac13)\) and  \(\wv_2=(\frac23,\frac13,-\frac23)\) form an orthonormal basis for~\WW. 
+The two given vectors are orthogonal, so dividing by their lengths gives that \(\wv_1=(\frac23,-\frac23,\frac13)\) and  \(\wv_2=(\frac23,\frac13,-\frac23)\) form an orthonormal basis for~\WW. 
 Then let matrix
 \begin{equation*}
 W=\begin{bmatrix} \wv_1&\wv_2 \end{bmatrix}
@@ -2494,7 +2493,7 @@ Hence \(\vv=(-\tfrac43v,v)=(-\tfrac43,1)v\), for every~\(v\), and so \(\WW^\perp
 \end{figbox}
 \end{solution}
 
-
+% Maybe use [vspace{-2\baselineskip}] here??
 \item 
 \begin{figbox}{\qview{18}{22}{\begin{tikzpicture} 
 \begin{axis}[small,scale only axis
@@ -2587,9 +2586,9 @@ Prove \(\{\ov\}^\perp=\RR^n\) and \((\RR^n)^\perp=\{\ov\}\)\,.
 \begin{solution} 
 \begin{itemize}
 \item The only vector in \(\{\ov\}\) is \(\wv=\ov\).
-Since all vectors \(\vv\in\RR^n\) satisfy \(\wv\cdot\vv=\ov\cdot\vv=0\)\,, by \cref{def:orthsubsp} \(\{\ov\}^\perp=\RR^n\).
+Since every vector \(\vv\in\RR^n\) satisfies \(\wv\cdot\vv=\ov\cdot\vv=0\)\,, by \cref{def:orthsubsp} \(\{\ov\}^\perp=\RR^n\).
 
-\item Certainly, \(\ov\in(\RR^n)^\perp\) as \(\wv\cdot\ov=0\) for all vectors \(\wv\in\RR^n\).
+\item Certainly, \(\ov\in(\RR^n)^\perp\) as \(\wv\cdot\ov=0\) for every vector \(\wv\in\RR^n\).
 Establish that there are no others by \idx{contradiction}.
 Assume a nonzero vector \(\vv\in(\RR^n)^\perp\).
 Now set \(\wv=\vv\in\RR^n\), then \(\wv\cdot\vv=\vv\cdot\vv=|\vv|^2\neq0\) as \(\vv\)~is nonzero.
@@ -2629,15 +2628,15 @@ Further, the \idx{intersection} \(\WW\cap\WW^\perp=\{\ov\}\); that is, the \idx{
 Recall the \cref{def:subspace} of a subspace: we need to establish that~\(\WW^\perp\) has the zero vector, and is closed under addition and scalar multiplication.
 We invoke its \cref{def:orthsubsp}.
 \begin{itemize}
-\item For all \(\wv\in\WW\), \(\ov\cdot\wv=0\) and so \(\ov\in\WW^\perp\).
-\item Let \(\vv_1,\vv_2\in\WW^\perp\), then for all \(\wv\in\WW\) the dot product  \((\vv_1+\vv_2)\cdot\wv=\vv_1\cdot\wv+\vv_2\cdot\wv=0+0=0\) and so \(\vv_1+\vv_2\in\WW^\perp\).
-\item Let scalar \(c\in\RR\) and \(\vv\in\WW^\perp\), then for all \(\wv\in\WW\) the dot product  \((c\vv)\cdot\wv=c(\vv\cdot\wv)=c0=0\) and so \(c\vv\in\WW^\perp\).
+\item For every \(\wv\in\WW\), \(\ov\cdot\wv=0\) and so \(\ov\in\WW^\perp\).
+\item Let \(\vv_1,\vv_2\in\WW^\perp\), then for every \(\wv\in\WW\) the dot product  \((\vv_1+\vv_2)\cdot\wv=\vv_1\cdot\wv+\vv_2\cdot\wv=0+0=0\) and so \(\vv_1+\vv_2\in\WW^\perp\).
+\item Let scalar \(c\in\RR\) and \(\vv\in\WW^\perp\), then for every \(\wv\in\WW\) the dot product  \((c\vv)\cdot\wv=c(\vv\cdot\wv)=c0=0\) and so \(c\vv\in\WW^\perp\).
 \end{itemize}
 Hence, by \cref{def:subspace}, \(\WW^\perp\)~is a subspace.
 
 Further, as they are both subspaces, the zero vector is in both~\WW\ and~\(\WW^\perp\).
 Let vector~\uv\ be any vector in both~\WW\ and~\(\WW^\perp\).
-As \(\uv\in\WW^\perp\), by \cref{def:orthsubsp} \(\uv\cdot\wv=0\) for all \(\wv\in\WW\).
+As \(\uv\in\WW^\perp\), by \cref{def:orthsubsp} \(\uv\cdot\wv=0\) for every \(\wv\in\WW\).
 But \(\uv\in\WW\) also, so using this for~\wv\ in the previous equation gives \(\uv\cdot\uv=0\)\,; that is, \(|\uv|^2=0\)\,.
 Hence vector~\uv\ has to be the zero vector (\cref{thm:veclen0}).
 That is, \(\WW\cap\WW^\perp=\{\ov\}\).
@@ -3940,7 +3939,7 @@ For the lines in 2D, draw a graph to show the answer is correct.
 
 \begin{exercise}  
 Following the \idx{computed tomography} \cref{eg:ctscan}, predict the densities in the body if the fraction of \idx{X-ray} energy measured in the six paths is \(\sloppy\fv=(0.9, 0.2, 0.8, 0.9, 0.8, 0.2)\) respectively.  
-Draw an image of your predictions.  Which region is the most absorbing (least transmitting)?
+Draw an image of your predictions (see \cref{tbl:mtlbimag}).  Which region is the most absorbing (least transmitting)?
 %\begin{verbatim}
 %A=[1 1 1 0 0 0 0 0 0 
 % 0 0 0 1 1 1 0 0 0 

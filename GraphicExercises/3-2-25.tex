@@ -1,0 +1,68 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+The following stereo pairs illustrate the transformation of the unit cube through multiplying by some different matrices.
+Using Theorem~4.2.28(f), which transformations appear to be that of multiplying by an orthogonal matrix?
+
+\def\unithouseviews{33,29}%default stereo---now x-eyed
+\def\unithouselabels%
+{xlabel={$x_1$},ylabel={$x_2$},zlabel={$x_3$},label shift={-2ex}}
+
+\newcommand{\ThreeD}[9]{\mbox{% 
+    \foreach \z in \unithouseviews {% stereo pair in 3D
+    \begin{tikzpicture}
+    \begin{axis}[ view={\z}{30},\unithouselabels
+      ,axis equal image ,no marks %,grid
+      ,height=5cm, small
+      ] 
+    \addplot3+[thick] coordinates {(0,0,0)(1,0,0)
+      (1,0.4,0)(1,0.4,0.6)(1,0.7,0.6)(1,0.7,0)% doorway
+      (1,1,0)(0,1,0)(0,0,0)(0,0,1)(1,0,1)(0.5,0.5,1.2)
+      (0,0,1)(0,1,1)(0.5,0.5,1.2)(1,1,1)(0,1,1)
+      (0,1,0)(1,1,0)(1,1,1)(1,0,1)(1,0,0)
+      }; 
+    \addplot3+[thick] coordinates {(0,0,0) (#1,#4,#7)
+      (#1+0.4*#2,#4+0.4*#5,#7+0.4*#8)
+      (#1+0.4*#2+0.6*#3,#4+0.4*#5+0.6*#6,#7+0.4*#8+0.6*#9)
+      (#1+0.7*#2+0.6*#3,#4+0.7*#5+0.6*#6,#7+0.7*#8+0.6*#9)
+      (#1+0.7*#2,#4+0.7*#5,#7+0.7*#8)% doorway
+      (#1+#2,#4+#5,#7+#8)
+      (#2,#5,#8) (0,0,0) (#3,#6,#9) (#1+#3,#4+#6,#7+#9)
+      (0.5*#1+0.5*#2+1.2*#3,0.5*#4+0.5*#5+1.2*#6,0.5*#7+0.5*#8+1.2*#9)
+      (#3,#6,#9)  (#2+#3,#5+#6,#8+#9) 
+      (0.5*#1+0.5*#2+1.2*#3,0.5*#4+0.5*#5+1.2*#6,0.5*#7+0.5*#8+1.2*#9)
+      (#1+#2+#3,#4+#5+#6,#7+#8+#9) (#2+#3,#5+#6,#8+#9)
+      (#2,#5,#8) (#1+#2,#4+#5,#7+#8) (#1+#2+#3,#4+#5+#6,#7+#8+#9)
+      (#1+#3,#4+#6,#7+#9) (#1,#4,#7)
+      }; 
+    \end{axis}
+    \end{tikzpicture}
+}}}
+
+
+\ThreeD{-0.79}{0.31}{0.54
+}{-0.61}{-0.53}{-0.59
+}{0.10}{-0.79}{0.60}
+\answer{Yes---the cube appears rotated.}
+
+
+\end{document}

@@ -299,7 +299,7 @@ Amazingly, such factorization is always possible.
         \item  $m\times n$ \idx{diagonal matrix}~$S$ is zero except 
 		for non-negative \idx{diagonal elements} called \bfidx{singular value}s \hlist\sigma\mn\ (the symbol~\bfidx{$\sigma$}\index{sigma, $\sigma$} is the Greek letter sigma, and denotes singular values), which are unique when ordered from largest to smallest so that $\sigma_1\geq \sigma_2 \geq \cdots \geq \sigma_{\mn}\geq 0$\,.
     \end{itemize}
-    The \idx{orthonormal set}s of vectors \(\{\uv_j\}\) and~\(\{\vv_j\}\) are called \bfidx{singular vector}s.%
+    The two \idx{orthonormal set}s of vectors \(\{\uv_j\}\) and~\(\{\vv_j\}\) are called \bfidx{singular vector}s.%
     \footnote{This enormously useful theorem also generalizes from \(m\times n\) real matrices to complex matrices, and also to analogues in `infinite' dimensions  \cite[\S5]{Stewart1993}: an \svd\ exists for all compact linear operators \cite[\S7]{Kress2015}.}
 \end{theorem}
 
@@ -411,7 +411,7 @@ D=\begin{bmatrix} 0&1&0\\-1&0&0\\0 &0 &-1 \end{bmatrix}
 \begin{itemize}
 \item \index{svd()@\texttt{svd()}|textbf}\verb|[U,S,V]=svd(A)| computes the three matrices~\(U\), \(S\), and~\(V\) in a singular value decomposition (\svd) of the \(m\times n\) matrix: \(A=\usv\) for \(m\times m\) \idx{orthogonal matrix}~\(U\), \(n\times n\) orthogonal matrix~\(V\), and \(m\times n\) non-negative \idx{diagonal matrix}~\(S\) (\cref{thm:svd}).
 
-\index{svd()@\texttt{svd()}}\verb|svd(A)| just reports the singular values in a vector.
+\index{svd()@\texttt{svd()}}\verb|svd(A)| just reports (in a vector) the singular values.
 
 \item Complementing information of \cref{tbl:mtlbops}, to extract and compute with a subset of rows\slash columns of a matrix, specify the vector of indices.
 For example:
@@ -445,7 +445,7 @@ This and following examples illustrate the cases of either no or infinite soluti
         Anne beat Chris 3-1;
         Bob beat Chris 3-2.
 How good are they all?  What are their ratings?  
-That is, we seek to assign a number to each player, called their rating, indicating how good they are at playing: the higher the number the better the player. 
+That is, we seek to assign a number to each player, called their rating, indicating how good they are at playing: the higher the rating the better the player. 
     
 \begin{solution} 
     Denote Anne's rating by~$x_1$, Bob's rating by~$x_2$, and Chris' 
@@ -588,6 +588,7 @@ Thus the three player ratings may be any one from the general solution
     +y_3(1,1,1)/\sqrt3\,.
 \end{displaymath}
 In this application we only care about relative ratings, not absolute ratings, so here adding any multiple of~\((1,1,1)\) is immaterial.
+Hence we may assign the ratings to be \((x_1,x_2,x_3) =(1,0,-1)\).
 This solution for the ratings indicates that Anne is the best player, and Chris the worst. 
 \end{solution}
 \end{example}
@@ -689,7 +690,7 @@ Having found that \(c=3\)\,, compute~\zv\ from \verb|z=U'*[3;8;-5]| to find \(\z
 \\0&14&0&0
 \\0&0&0&0 \end{bmatrix}\yv=\begin{bmatrix} 7\\-7\\0 \end{bmatrix}.
 \end{equation*}
-The first line gives \(y_1=7/28=1/4\)\,, the second line gives \(y_2=-7/14=-1/2\), and the third line is \(0y_3+0y_4=0\)\,, which is satisfied for all~\(y_3\) and~\(y_4\) (because we chose~\(c\) correctly).
+The first line gives \(y_1=7/28=1/4\)\,, the second line gives \(y_2=-7/14=-1/2\), and the third line is \(0y_3+0y_4=0\)\,, which is satisfied for every~\(y_3\) and~\(y_4\) (because we chose~\(c\) correctly).
 Thus \(\yv=(\frac14,-\frac12,y_3,y_4)\) is a general solution for this intermediary.
 Compute the particular solution with \(y_3=y_4=0\) via 
 \begin{verbatim}

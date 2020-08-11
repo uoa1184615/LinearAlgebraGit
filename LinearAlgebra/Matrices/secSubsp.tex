@@ -180,6 +180,7 @@ All vectors~\((x,y)\) in the line \(y=x/2\) (\cref{eg:viewsubsa}).
 \begin{solution} \ \\
 \begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
+    ,xlabel={$x$},ylabel={$y$}
     ,axis equal image, axis lines=middle] 
     \addplot[blue,thick] {x/2};
 \end{axis}
@@ -200,6 +201,7 @@ The three requirements of \cref{def:subspace} are met, and so this line is \text
 \begin{solution} \ \\
 \begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,domain=-5:25
+    ,xlabel={$x$},ylabel={$y$}
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick] {x-x^2/20};
     \addplot[red,thick,quiver={u=20,v=0},-stealth] coordinates {(0,0)};
@@ -220,6 +222,7 @@ That is, the curve is not closed under scalar multiplication and hence is not \t
 \begin{solution} \ \\
 \begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,xmin=-4,ymin=-2
+    ,xlabel={$x$},ylabel={$y$}
     ,axis equal image, axis lines=middle ] 
     \addplot[blue,thick,domain=0:5] {x/2};
     \addplot[only marks,blue] coordinates {(0,0)};
@@ -433,6 +436,7 @@ For every $m\times n$ matrix~$A$:
 \item 
 \begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize
+    ,xlabel={$x$},ylabel={$y$}
     ,axis equal image, axis lines=middle] 
     \addplot[blue,thick] {-2*x};
 \end{axis}
@@ -453,6 +457,7 @@ is the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 
 \begin{figbox}{\begin{tikzpicture} 
 \begin{axis}[footnotesize,font=\footnotesize,ymin=-1.5,ymax=3.5
+    ,xlabel={$x$},ylabel={$y$}
     ,axis equal, axis lines=middle ] 
     \addplot[blue,thick,quiver={u=3,v=0},-stealth] coordinates {(0,0)};
     \addplot[blue,thick,quiver={u=3,v=3},-stealth] coordinates {(0,0)};
@@ -462,7 +467,7 @@ is the plane \(z=-x/6+y/3\) in~\(\RR^3\).
 The \idx{row space} of matrix~\(B\) is \(\Span\{(3,0)\clb (3,3)\clb (\frac12,1)\}\) which is a subspace of~\(\RR^2\)---the right-hand plot shows the three vectors. 
 % the next word should not be "However"
 Whereas the column space is a subspace of~\(\RR^3\).
-Here the span is all of~\(\RR^2\) as for each \((x,y)\in\RR^2\) choose  the linear combination \(\frac{x-y}3(3,0)+\frac{y}3(3,3)+0(\frac12,1)=(x-y+y+0,0+y+0)=(x,y)\) so each \((x,y)\) is in the span, and hence all of the \(\RR^2\)~plane is the span.
+Here the row space is all of~\(\RR^2\) as for each \((x,y)\in\RR^2\) choose  the linear combination \(\frac{x-y}3(3,0)+\frac{y}3(3,3)+0(\frac12,1)=(x-y+y+0,0+y+0)=(x,y)\) so each \((x,y)\) is in the span, and hence all of the \(\RR^2\)~plane is the span.
 That the column space and the row space are both planes is no coincidence (\cref{thm:rowcolD}).
 \end{figbox}
 
@@ -1181,7 +1186,7 @@ In the trivial case when the subspace is \(\WW=\{\ov\}\), then \(\WW=\Span\{\}\)
 For every other subspace \(\WW\neq\{\ov\}\) there exists a nonzero vector \(\wv\in\WW\).
 Normalize the vector by setting \(\uv_1=\wv/|\wv|\).
 Then all scalar multiples \(c\uv_1=c\wv/|\wv|=(c/|\wv|)\wv\in\WW\) by closure of~\WW\ under scalar multiplication (\cref{def:subspace}). 
-Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated to the right for an example).
+Hence \(\Span\{\uv_1\}\subseteq\WW\) (as illustrated to the above-right for example).
 Consequently, either  \(\Span\{\uv_1\}=\WW\) and we are done, or we repeat the following step until the space~\WW\ is spanned.
 
 \begin{wrapfigure}r{0pt}
@@ -1209,7 +1214,7 @@ By the closure of subspace~\WW\ under addition and scalar multiplication (\cref{
 Consequently, either \(\Span\{\hlist{\uv'}{k+1}\}=\WW\) and we are done, or we repeat the process of this paragraph with \(k\)~bigger \text{by one.}
 
 The process must terminate because \(\WW\subseteq\RR^n\). 
-If the process ever repeats until \(k=n\)\,, then we know \(\WW=\RR^n\) and we are done as \(\RR^n\) is spanned by the \(n\)~standard unit vectors.
+If the process repeats until \(k=n\)\,, then we know \(\WW=\RR^n\) and we are done as \(\RR^n\) is spanned by the \(n\)~standard unit vectors.
 \end{proof}
 
 

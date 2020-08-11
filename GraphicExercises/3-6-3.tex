@@ -1,0 +1,99 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,amsfonts,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\def\RR{\mathbb R}
+Consider the following illustrated transformations of~\(\RR^3\).
+Which of these \emph{cannot} be that of a linear transformation? 
+
+
+\def\unithouseviews{33,29}%default stereo---now x-eyed
+\def\unithouselabels%
+{xlabel={$x_1$},ylabel={$x_2$},zlabel={$x_3$},label shift={-2ex}}
+
+\newcommand{\ThreeDgen}[1]{\mbox{% 
+    \foreach \z in \unithouseviews {% stereo pair in 3D
+    \begin{tikzpicture}
+    \begin{axis}[ view={\z}{30},\unithouselabels
+      ,axis equal image ,no marks %,grid
+      ,height=5cm ,small
+      ] 
+    \addplot3+[thick] table[row sep=\\] {
+       0.00   0.00   0.00 \\
+       1.00   0.00   0.00 \\
+       1.00   0.40   0.00 \\
+       1.00   0.40   0.60 \\
+       1.00   0.70   0.60 \\
+       1.00   0.70   0.00 \\
+       1.00   1.00   0.00 \\
+       0.00   1.00   0.00 \\
+       0.00   0.00   0.00 \\
+       0.00   0.00   1.00 \\
+       1.00   0.00   1.00 \\
+       0.50   0.50   1.20 \\
+       0.00   0.00   1.00 \\
+       0.00   1.00   1.00 \\
+       0.50   0.50   1.20 \\
+       1.00   1.00   1.00 \\
+       0.00   1.00   1.00 \\
+       0.00   1.00   0.00 \\
+       1.00   1.00   0.00 \\
+       1.00   1.00   1.00 \\
+       1.00   0.00   1.00 \\
+       1.00   0.00   0.00 \\
+      }; 
+    \addplot3+[thick] table[row sep=\\] {#1}; 
+    \end{axis}
+    \end{tikzpicture}
+    }}%end stereo pair
+}% end new command
+
+
+
+\ThreeDgen{
+   0.00   0.00   0.00 \\
+   0.76   0.30   0.56 \\
+   0.99   1.08   0.68 \\
+   0.82   1.18   1.61 \\
+   0.86   1.73   1.84 \\
+   1.15   1.66   0.77 \\
+   1.32   2.24   0.87 \\
+  -0.04   1.07   0.53 \\
+   0.00   0.00   0.00 \\
+   0.10   0.21   1.22 \\
+   0.79   0.55   1.81 \\
+   0.14   1.06   2.42 \\
+   0.10   0.21   1.22 \\
+  -0.68   1.09   2.50 \\
+   0.14   1.06   2.42 \\
+   0.61   2.29   2.86 \\
+  -0.68   1.09   2.50 \\
+  -0.04   1.07   0.53 \\
+   1.32   2.24   0.87 \\
+   0.61   2.29   2.86 \\
+   0.79   0.55   1.81 \\
+   0.76   0.30   0.56 \\
+}
+\answer{Not an LT.}
+
+
+
+
+\end{document}

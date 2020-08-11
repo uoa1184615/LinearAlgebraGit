@@ -1,0 +1,66 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec a\Vec b\Vec c\Vec d\Vec p
+For each diagram, estimate roughly the components of each of the four vectors~\av, \bv, \cv, and~\dv\ in the basis \(\mathcal P=\{\pv_1,\pv_2\}\).
+
+\newcommand{\ppoint}[3]{%
+    \pgfmathparse{#1*\px+#2*\qx}\let\h\pgfmathresult
+    \pgfmathparse{#1*\py+#2*\qy}\let\v\pgfmathresult
+    \addplot[blue,mark=*,thick,quiver={u=\h,v=\v},-stealth] coordinates {(0,0)};
+    \edef\tempe{%
+    \noexpand\node[right] at (axis cs:\h,\v) {$\noexpand\vec #3$};
+    }\tempe
+    }%
+\newcommand{\cbase}[9]{\begin{tikzpicture}%
+    %[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
+    \begin{axis}[small,font=\footnotesize
+      , axis lines=none, unit vector ratio=1 1 1
+      , view={0}{90}
+      ]
+    \ifcase#1
+    \or\addplot3[mesh,red,samples=9,domain=-4:4,dotted] (\px*x+\qx*y,\py*x+\qy*y,0);
+    \fi
+    \addplot[red,quiver={u=\px,v=\py},-stealth,thick] coordinates {(0,0)};
+    \node[right] at (axis cs:\px,\py) {$\pv_1$};
+    \addplot[red,quiver={u=\qx,v=\qy},-stealth,thick] coordinates {(0,0)};
+    \node[right] at (axis cs:\qx,\qy) {$\pv_2$};
+    \ppoint{#2}{#3}{a}
+    \ppoint{#4}{#5}{b}
+    \ppoint{#6}{#7}{c}
+    \ppoint{#8}{#9}{d}
+    \end{axis}
+    \end{tikzpicture}
+    \answer{$(#2,#3)$, $(#4,#5)$, $(#6,#7)$, $(#8,#9)$}}%
+
+
+
+
+\def\px{0} \def\py{1} \def\qx{1} \def\qy{0} 
+\cbase0{-0.9}{ 0.3}{ 0.6}{ 0.2}{-0.2}{-1.1}{ 0.7}{-0.6}
+
+
+
+
+
+
+\end{document}

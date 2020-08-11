@@ -1,0 +1,38 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+For each of the following lines in 2D, write down a parametric equation of the line as a linear combination of two vectors, one of which is multiplied by the parameter.
+
+\newcommand{\mytemp}[4]{%
+    \begin{tikzpicture} 
+    \begin{axis}[small,font=\footnotesize
+        ,axis equal, axis lines=middle, grid, domain=-4.5:4.5 ] 
+        \addplot[blue,thick] {#2+(x-(#1))*(#4)/(#3)};
+    \end{axis}
+    \end{tikzpicture}
+    \answer{e.g.\ $(#1,#2)+t(#3,#4)$}
+}
+
+\mytemp{-1.5}{0.5}{1}{-1.5}
+
+
+\end{document}

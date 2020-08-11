@@ -1,0 +1,50 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+For each of the following networks:
+\begin{itemize}
+\item label the nodes; 
+\item construct the symmetric adjacency matrix~\(A\) such that \(a_{ij}\)~is one if node~\(i\) is linked to node~\(j\), and \(a_{ij}\)~is zero otherwise (and zero on the diagonal);
+\item in Matlab/Octave use \verb|eig()| to find all eigenvalues and eigenvectors;
+\item rank the `importance' of the nodes from the magnitude of their component in the eigenvector corresponding to the largest (most positive) eigenvalue.
+\end{itemize}
+ 
+
+\newcommand{\netwk}[2]{\begin{tikzpicture}
+    \begin{axis}[axis equal image, axis lines=none,small]
+    \addplot[blue,only marks,mark=*,samples=#1+1,domain=0:360]  ({cos(x)},{sin(x)});
+    \foreach \p in {1,2,...,#2} {
+        \addplot[blue,thick,samples=2,domain={rnd}:{rnd}]   
+        ({cos(360*round(x*#1)/#1)},{sin(360*round(x*#1)/#1)});
+        }
+    \end{axis}
+    \end{tikzpicture}}
+    
+    
+\pgfmathsetseed{1234}% set seed 
+\netwk5{12}
+
+
+
+
+
+\end{document}

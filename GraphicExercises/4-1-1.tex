@@ -1,0 +1,43 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec x\Vec v
+Each plot below shows (unit) vectors~\xv\  (blue), and for some matrix the corresponding vectors~\(A\xv\) (red) adjoined. 
+Estimate which directions~\xv\ are eigenvectors of matrix~\(A\), and for each eigenvector estimate the corresponding eigenvalue.
+
+\newcommand{\eRose}[4]{\begin{tikzpicture}%
+    %[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}] 
+    \begin{axis}[small,font=\footnotesize
+        ,axis equal image, axis lines=middle
+        ,samples=33] %25 or 33 not bad 
+        \addplot[domain=0:360,quiver={u=cos(\x),v=sin(\x)},blue,-stealth] 
+        ({0},{0});
+        \addplot[domain=0:360,quiver={u=#1*x+#2*y,v=#3*x+#4*y},red,-stealth] 
+        ({cos(\x)},{sin(\x)});
+    \end{axis}
+    \end{tikzpicture}}
+
+
+\eRose{0.5}{-0.5}{-0.5}{0.0}
+\answer{\(\vv_1\propto\pm(0.5,0.9)\), \(\lambda_1\approx -0.3\)\,;  and
+\(\vv_2\propto\pm(-0.9,0.5)\), \(\lambda_2\approx 0.8\)\,.}
+\end{document}

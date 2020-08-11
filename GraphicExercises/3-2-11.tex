@@ -1,0 +1,48 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+In each of the following illustrations, the unit square (blue, with `roof') is transformed by a matrix multiplication to some shape (red).
+Which of these transformations appear to correspond to multiplication by a diagonal matrix?  
+For those that are, estimate the elements of the \text{diagonal matrix.}
+
+\newcommand{\TwoD}[4]{%
+    \pgfmathparse{abs(#1)+abs(#2)+abs(#3)+abs(#4)}%
+    \pgfmathparse{(\pgfmathresult>5)+(\pgfmathresult>3.6)*0.5+0.5}%
+    \edef\xtdst{\pgfmathresult}%
+    \begin{tikzpicture}
+    \begin{axis}[small,font=\footnotesize
+    ,height=100pt,xtick distance={\xtdst}
+      ,axis lines=middle,thick,axis equal image, enlargelimits=0.05 %,grid,no marks
+      ] 
+    \addplot coordinates {(0,1)(1,1)(1,0)(0,0)(0,1)(0.5,1.2)(1,1)}; 
+    \addplot coordinates {(#2,#4)(#1+#2,#3+#4)(#1,#3)(0,0)
+      (#2,#4)(#1*0.5+#2*1.2,#3*0.5+#4*1.2)(#1+#2,#3+#4)}; 
+    \end{axis}
+    \end{tikzpicture}
+}
+
+
+\TwoD{3}00{2}
+\answer{\(\diag(3,2)\)}
+
+
+\end{document}

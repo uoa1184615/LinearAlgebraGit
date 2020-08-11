@@ -124,6 +124,7 @@ This section defines ``linearly dependent'' and ``linearly independent'', and th
 \begin{wrapfigure}r{0pt} \temp0 \end{wrapfigure}
 \begin{example}[2D \idx{non-orthogonal coordinates}] \label{eg:2dnoc}
 Show that every vector in the plane~\(\RR^2\) can be written uniquely as a \idx{linear combination} of the two vectors \(\vv_1=(2,1)\) and \(\vv_2=(1,2)\) that are shown to the right.
+\vspace*{3\baselineskip} % lines to clear the graphic??
 
 \begin{solution} 
 Let's start with some specific example vectors.
@@ -655,6 +656,7 @@ D =
 \end{verbatim}
 The five eigenvalues are all distinct, so \cref{thm:linhomo} asserts that a set of corresponding eigenvectors is linearly independent.
 The five columns of~\(V\), call them \hlist\vv5, are a set of corresponding eigenvectors.
+
 To confirm their linear independence let's seek a linear combination being zero, that is, \(\lincomb c\vv5=\ov\)\,.
 Written as a matrix-vector system we seek \(\cv=(\hlist c5)\) such that \(V\cv=\ov\)\,.
 Because the five singular values of square matrix~\(V\) are all nonzero,\footnote{One could alternatively compute the determinant \(\texttt{det(V)}=0.09090\) and because it is nonzero \cref{thm:ftim3} asserts that the equation has only the solution \(\cv=\ov\)\,.} obtained from \verb|svd(V)|~as
@@ -861,7 +863,7 @@ In the context of such errors, this set of five vectors would be  \text{linearly
 
 Recall that \cref{sec:lcss,sec:sbd} defined \idx{subspace}s and the \idx{span}, namely that a subspace is 
 a set of vectors \idx{closed} under addition and \idx{scalar multiplication}, and a span gives a subspace as all \idx{linear combination}s of a set of vectors.
-Also, \cref{def:orthobasis} defined an ``\idx{orthonormal basis}'' for a subspace to be a set of orthonormal vectors that span a subspace.
+Also, \cref{def:orthobasis} defined an ``\idx{orthonormal basis}'' for a subspace to be a set of orthonormal vectors that span the subspace.
 This section generalizes the concept of an ``orthonormal basis'' by relaxing the requirement of orthonormality to result in the concept of \text{a ``basis''.}
 
 
@@ -1804,7 +1806,7 @@ b=[-1;2;-6;-11;10]
 [U,S,V]=svd(W)
 z=U'*b
 y=z(1:3)./diag(S)
-bw=V*y
+bW=V*y
 }}%
 \marginajrbox%
 \item Then obtain an \svd\ with \verb|[U,S,V]=svd(W)| \twodp
@@ -1847,9 +1849,9 @@ y =
   -1.4958
 \end{verbatim}
 
-\item Lastly, find the coefficients \([\bv]_\cW=V\yv\) with \verb|bw=V*y| to get
+\item Lastly, find the coefficients \([\bv]_\cW=V\yv\) with \verb|bW=V*y| to get
 \begin{verbatim}
-bw =
+bW =
    1.00000
    1.00000
   -2.00000
@@ -1905,7 +1907,7 @@ extending \cref{thm:ftim1,thm:ftim2}, the following statements are equivalent:
 \end{enumerate}
 \end{theorem}
 \begin{proof} 
-Recall \cref{thm:ftim1,thm:ftim2} established the equivalence of \ref{thm:ftim3i}--\ref{thm:ftim3viii}, and \cref{thm:detinv} proved the equivalence of \ref{thm:ftim3i} and~\ref{thm:ftim3ix}.
+Recall \cref{thm:ftim1,thm:ftim2} establish the equivalence of \ref{thm:ftim3i}--\ref{thm:ftim3viii}, and \cref{thm:detinv} proves the equivalence of \ref{thm:ftim3i} and~\ref{thm:ftim3ix}.
 To establish that Property~\ref{thm:ftim3x} is equivalent to~\ref{thm:ftim3ix}, recall that \cref{thm:charpolyc} proved that \(\det A\) equals the product of the eigenvalues of~\(A\). 
 Hence  \(\det A\) is not zero if and only if all the eigenvalues \text{are nonzero.}
 

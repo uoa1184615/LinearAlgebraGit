@@ -308,11 +308,10 @@ Hence the set of eigenvectors for any given eigenvalue~\(\lambda\), nonzero solu
 
 
 \begin{example} \label{eg:eig3sp}
-Reconsider the \idx{symmetric matrix}
+Reconsider the \idx{symmetric matrix} of \cref{eg:eig3intro}:
 \begin{equation*}
-A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}
-\end{equation*}
-of \cref{eg:eig3intro}. 
+A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
+\end{equation*} 
 Find the \idx{eigenspace}s~\(\EE_1\), \(\EE_3\), and~\(\EE_0\)\,.
 \begin{solution} 
 \begin{itemize}
@@ -364,7 +363,7 @@ Which line, in the \(xy\)-plane, is the \idx{eigenspace} corresponding to the ei
 \eRose{1}{-0.5}{-0.5}{-0.2}
 \end{wrapfigure}
 \begin{example}[graphical \idx{eigenspace}s] \label{eg:eig2sp2} 
-The plot on the above-right shows \idx{unit vector}s~\xv\  (blue), and for the matrix~\(A\) of \cref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
+The plot to the right shows \idx{unit vector}s~\xv\  (blue), and for the matrix~\(A\) of \cref{eg:eig2pic2} the corresponding vectors~\(A\xv\) (red) adjoined. 
 Estimate and draw the eigenspaces of matrix~\(A\).
 
 \begin{solution}
@@ -378,7 +377,7 @@ Estimate and draw the eigenspaces of matrix~\(A\).
 \eRose{1}{-0.5}{-0.5}{-0.2}
 \end{wrapfigure}
 \cref{eg:eig2pic2} found directions in which \(A\xv\) is aligned with~\xv.
-Then the corresponding eigenspace (brown in below-right) is every vector in the line aligned with that direction, including the opposite direction.
+Then the corresponding eigenspace (brown to the right) is every vector in the line aligned with that direction, including the opposite direction.
 \aqed
 
 \end{solution}
@@ -493,7 +492,7 @@ If the matrix~\(A\) is either not symmetric, or is \idx{complex valued}, then th
 \end{table}
 
 \begin{compute}
-\index{eig()@\texttt{eig()}}\verb|[V,D]=eig(A)| computes \idx{eigenvalue}s and eigenvectors.
+\index{eig()@\texttt{eig()}}\verb|[V,D]=eig(A)| computes \idx{eigenvalue}s and eigenvectors (\cref{tbl:mtlbeig}).
 The function~\verb|eig()| places eigenvalues in the diagonal of \(D=\diag(\hlist\lambda n)\). 
 Then the \(j\)th~column of~\(V\) is a unit \idx{eigenvector} corresponding to the \(j\)th \idx{eigenvalue}~\(\lambda_j\):
 \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\).
@@ -508,7 +507,7 @@ A=\begin{bmatrix} 1&-1&0\\-1&2&-1\\0&-1&1 \end{bmatrix}.
 Use \script\ to find its eigenvalues and corresponding eigenvectors.
 Confirm that \(AV=VD\) for matrices \(V=\begin{bmatrix} \vv_1&\vv_2&\cdots&\vv_n \end{bmatrix}\) and \(D=\diag(\hlist\lambda n)\), and confirm that the computed~\(V\) is an orthogonal matrix.
 \begin{solution} 
-Enter the matrix into \script\ and execute \verb|eig()|:
+Enter the matrix into \script\ and execute \verb|eig()| (\cref{tbl:mtlbeig}):
 \setbox\ajrqrbox\hbox{\qrcode{% eigen-problem
 A=[1 -1 0;-1 2 -1;0 -1 1]
 [V,D]=eig(A)
@@ -645,13 +644,13 @@ That these three solutions combine together to form a general solution of the sy
 \end{wrapfigure}
 \begin{example}[\idx{Sierpinski network}] \label{eg:sier2eig}
 Consider three triangles formed into a single triangle (as shown to the right)---perhaps because triangles make strong structures, or perhaps because of a hierarchical computer\slash social network.
-The marginal picture is called a \emidx{network} because it is formed from a set of nodes (the discs) connected by links (the lines).
+Such a picture is called a \emidx{network} because it is formed from a set of nodes (the discs) connected by links (the lines).
 Let's analyse the matrix used to represent such a network.
  
 Form a matrix \(A=\begin{bmatrix} a_{ij} \end{bmatrix}\) of ones if node~\(i\) is connected to node~\(j\);  set the diagonal~\(a_{ii}\) to be minus the number of other nodes to which node~\(i\) is connected; and all other components of~\(A\) are zero.
 The symmetry of the matrix~\(A\) follows from the symmetry of the connections: construct the matrix, check it is symmetric, and find the \idx{eigenvalue}s and \idx{eigenspace}s with \script, and their \idx{multiplicity}.
 For the computed matrices~\(V\) and~\(D\), check that \(AV=VD\) and also that \(V\)~is an \text{orthogonal matrix.}
-\begin{solution} In \script\ use
+\begin{solution} In \script\ use (\cref{thm:symspec})
 \setbox\ajrqrbox\hbox{\qrcode{% Sierpinski network
 A=[-3 1 1 0 0 0 0 0 1
    1 -2 1 0 0 0 0 0 0
@@ -793,9 +792,9 @@ A challenge for an advanced learner is to find the two smallest connected networ
 \end{table}
 
 Why write ``the computation may give'' in \cref{eg:sier2eig}?  
-The reason is associated with the duplicated eigenvalues.
+The reason is associated with the repeated eigenvalues.
 What is important is the \idx{eigenspace}.
-When an eigenvalue of a \idx{symmetric matrix} is duplicated in the diagonal~\(D\) (or triplicated), then there are many choices of eigenvectors that form an \idx{orthonormal basis} (\cref{def:orthobasis}) of the eigenspace (the same holds for \idx{singular vector}s of a duplicated singular value).
+When an eigenvalue of a \idx{symmetric matrix} is duplicated in the diagonal~\(D\) (or triplicated), then there are many choices of eigenvectors that form an \idx{orthonormal basis} (\cref{def:orthobasis}) of the eigenspace (the same holds for \idx{singular vector}s of a repeated singular value).
 Different algorithms may report different orthonormal bases of the same eigenspace.
 The bases given in \cref{eg:sier2eig} are just one possibility for \text{each eigenspace.}
 
@@ -839,7 +838,7 @@ A=\begin{bmatrix} 2&2&-2&0
 \end{equation*}
 Confirm \(AV=VD\) for the computed matrices.
 \begin{solution} 
-First compute
+First compute (\cref{thm:symspec})
 \setbox\ajrqrbox\hbox{\qrcode{% eigen-problem
 A=[2 2 -2 0
  2 -1 -2 -3
@@ -1229,7 +1228,8 @@ no other.}
 
 
 \begin{exercise}
-In each case, use the \idx{matrix-vector product} to determine which of the given vectors are \idx{eigenvector}s of the given matrix, and for each eigenvector what is the corresponding \idx{eigenvalue}.
+In each case, use the \idx{matrix-vector product} to determine which of the given vectors are \idx{eigenvector}s of the given matrix.
+For each such eigenvector, what is the corresponding \idx{eigenvalue}?
 \begin{enumerate}
 \item \(\begin{bmatrix} 6&2\\3&1 \end{bmatrix}\),\quad
 \(\begin{bmatrix}2\\1\end{bmatrix}\), \(\begin{bmatrix}1\\-3\end{bmatrix}\), \(\begin{bmatrix}3\\-2\end{bmatrix}\), \(\begin{bmatrix}-\frac12\\-\frac14\end{bmatrix}\), \(\begin{bmatrix}0\\0\end{bmatrix}\), \(\begin{bmatrix}2\\-3\end{bmatrix}\)

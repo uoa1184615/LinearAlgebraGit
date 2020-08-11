@@ -1,0 +1,52 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec v
+Recall how Example~3.3.33 introduced that finding a singular vector and singular value of a matrix~\(A\) came from maximizing~\(|A\vv|\).
+Each of the following matrices, say~\(A\) for discussion, has plotted \(A\vv\) (red) adjoined to the corresponding unit vector~\(\vv\) (blue).
+For each case:
+\begin{enumerate}[label=\roman*.]
+\item by inspection of the plot, estimate a singular vector~\(\vv_1\) that appears to maximize~\(|A\vv_1|\) (to one decimal place say);
+\item estimate the corresponding singular value~\(\sigma_1\) by measuring~\(|A\vv_1|\) on the plot;
+\item set the second singular vector~\(\vv_2\) to be orthogonal to~\(\vv_1\) by swapping components, and making one negative;
+\item estimate the corresponding singular value~\(\sigma_2\) by measuring~\(|A\vv_2|\) on the plot;
+\item compute the matrix-vector products \(A\vv_1\) and~\(A\vv_2\), and confirm that they are orthogonal (approximately).
+\end{enumerate}
+
+\newcommand{\eRose}[4]{\begin{tikzpicture}%
+    %[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}] 
+    \begin{axis}[small,font=\footnotesize
+        ,axis equal image, axis lines=middle
+        ,samples=33] %25 or 33 not bad 
+        \addplot[domain=0:360,quiver={u=cos(\x),v=sin(\x)},blue,-stealth] 
+        ({0},{0});
+        \addplot[domain=0:360,quiver={u=#1*x+#2*y,v=#3*x+#4*y},red,-stealth] 
+        ({cos(\x)},{sin(\x)});
+    \end{axis}
+    \end{tikzpicture}}
+
+
+\(A=\begin{bmatrix} 1&1\\0.2&1.4 \end{bmatrix}\) \eRose{1}{1}{0.2}{1.4}
+\answer{\(\vv_1\approx(0.4,0.9)\), \(\sigma_1\approx1.9\), 
+\(\vv_2\approx(0.9,-0.4)\), \(\sigma_2\approx0.6\).}
+
+\end{document}

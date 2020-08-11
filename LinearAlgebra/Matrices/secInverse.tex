@@ -145,7 +145,7 @@ Since both of these products are the identity, then matrix~\(A\) is invertible, 
 
 
 \begin{activity}
-What value of~\(b\) makes the matrix \(\begin{bmatrix} -1&b\\1&2 \end{bmatrix}\) to be the inverse of
+What value of~\(b\) makes the matrix \(\begin{bmatrix} -1&b\\1&2 \end{bmatrix}\) to be an inverse of
 \(\begin{bmatrix} 2&3\\-1&-1 \end{bmatrix}\)?
 % a=0+round(randn(2)*3),b=inv(a)
 \actposs[4]{\(-3\)}{\(-2\)}{\(1\)}{\(3\)}
@@ -807,7 +807,7 @@ Consequently, by its uniqueness (\cref{thm:uninv}), the inverse of the given dia
 \begin{bmatrix} 2&0&0\\0&\frac23&0\\0&0&-1 \end{bmatrix}^{-1}
 =\begin{bmatrix} \frac12&0&0\\0&\frac32&0\\0&0&-1 \end{bmatrix},
 \end{equation*}
-which interestingly is simply the diagonal of reciprocals of the given matrix.
+which interestingly is simply the diagonal of reciprocals of the given matrix's diagonal.
 \end{solution}
 \end{example}
 
@@ -1022,7 +1022,7 @@ The next \cref{sec:omr} introduces matrices that rotate.
 Consider \(A=\diag(3,2)=\begin{bmat} 3&0\\0&2 \end{bmat}\). 
 The  picture to the right shows this matrix stretches the (blue) unit square (drawn with a `roof') by a factor of three horizontally and two vertically (to the red). 
 Recall that \((x_1,x_2)\) denotes the corresponding \idx{column vector}.  
-As seen in the corner points of the graphic to the right,  \(A\times(1,0)=(3,0)\), \(A\times(0,1)=(0,2)\), \(A\times(0,0)=(0,0)\),  and \(A\times(1,1)=(3,2)\).   
+As seen in the corner points of the graphic to the right,  \(A(1,0)=(3,0)\), \(A(0,1)=(0,2)\), \(A(0,0)=(0,0)\),  and \(A(1,1)=(3,2)\).   
 The `roof' just helps us to track which corner \text{goes where.}
 
 \begin{wrapfigure}r{0pt} \TwoD{1/3}00{1/2} \end{wrapfigure}
@@ -1239,7 +1239,6 @@ If the two vectors are at \idx{right-angles}, then the dot product is zero and t
 \index{orthonormal set|(}
 
 We need sets of \idx{orthogonal} vectors (nonzero vectors that are all at \idx{right-angles} to each other).
-(Recall that a \bfidx{set} of objects is denoted by a list of the objects enclosed within braces,~\(\{\ldots\}\).)
 One example is the set of \idx{standard unit vector}s \index{e@$\ev_j$}\(\{\hlist\ev n\}\) that are aligned with the \idx{coordinate axes} in~\(\RR^n\).  
 
 \needlines6
@@ -1542,7 +1541,7 @@ Pre-multiply by~\(\tr Q\): \(\tr QX
 =\tr Q-\tr Q
 =O_n\)\,.
 That is, \(\tr QX=O_n\)\,. 
-But each column of \(\tr QX=O_n\) is of the form \(\tr Q\xv=\ov\) which we know requires \(\xv=\ov\)\,, hence \(X=O_n\)\,.
+But each column of \(\tr QX=O_n\) is of the form \(\tr Q\xv=\ov\) which we know requires \(\xv=\ov\)\,, hence each column of~\(X\) is zero, and so \(X=O_n\)\,.
 Then \(X=I_n-Q\tr Q=O_n\) which rearranged gives \(Q\tr Q=I_n\)\,. 
 Put \(Q\tr Q=I_n\) together with \(\tr QQ=I_n\) (\cref{def:orthog}),  then by \cref{def:invertible}  \(Q\)~is invertible with inverse~\(\tr Q\).
 

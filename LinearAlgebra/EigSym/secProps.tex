@@ -373,7 +373,7 @@ That is, the eigenvalue~\(\lambda\) must \text{be real.}
 
 The other property that we have seen graphically for 2D matrices is that the \idx{eigenvector}s of symmetric matrices are orthogonal.
 For \cref{eg:2x2powmat}, both the matrices~\(A\) and~\(A^{-1}\) in 
-the second part are symmetric and from the marginal illustration their eigenvectors are proportional to \((1,1)\) and~\((-1,1)\) which are orthogonal directions---they are at \idx{right-angles} in \text{the illustration.}
+the second part are symmetric and from the illustration their eigenvectors are proportional to \((1,1)\) and~\((-1,1)\) which are orthogonal directions---they are at \idx{right-angles} in \text{the illustration.}
 
 \begin{example} 
 Recall that \cref{eg:3x3hande} found the \(3\times3\) \idx{symmetric matrix}
@@ -712,7 +712,7 @@ Let \(A\) be an \(n\times n\) real \idx{symmetric matrix} with \svd\ \(A=\usv\).
 If all the \idx{singular value}s are distinct or \idx{zero}, \(\sigma_1>\cdots>\sigma_r>\sigma_{r+1}=\cdots=\sigma_n=0\)\,, then \(\vv_j\)~is an \idx{eigenvector} of~\(A\) corresponding to an \idx{eigenvalue} of either \(\lambda_j=+\sigma_j\) or \(\lambda_j=-\sigma_j\) (not both, except for the trivial case of \(\sigma_j=0\)).
 \end{theorem}
 
-If nonzero singular values are duplicated, then one can always choose an \svd\ such that the result of this theorem still holds.
+If nonzero singular values are repeated, then one can always choose an \svd\ such that the result of this theorem still holds.
 However, the proof is too involved to give here.
 
 This proof modifies parts of the proof of the \svd\ \cref{thm:svd} to the specific case of a symmetric matrix.
@@ -764,7 +764,7 @@ Third and last,  from the \(j\)th~column of \(AV=US\)\,, \(A\vv_j=\sigma_j\uv_j=
 \end{proof}
 
 \begin{comment}
-For duplicated \idx{singular value}s, there are \idx{eigenvector}s in the span of the \idx{singular vector}s.  
+For repeated \idx{singular value}s, there are \idx{eigenvector}s in the span of the \idx{singular vector}s.  
 But appears difficult to prove.  
 Could come down to solutions of \(Q^2=I\) for orthogonal matrix~\(Q\).
 Equivalent to proving the Fundamental Theorem of Algebra that there are \(n\)~zeros of an \(n\)th~degree polynomial \pooliv{p.D8}.
@@ -949,7 +949,7 @@ ax^2+bxy+cy^2+dx+ey+f=0 \label{eq:gqe}
 \end{equation}
 (where \(a,b,c\) cannot all be zero).
 As invoked in the example, the canonical simplest algebraic form of such curves are the following.
-The challenge of this subsection is to choose good new coordinates so that a given quadratic equation~\eqref{eq:gqe} becomes one of these recognized \idx{canonical form}s.
+The challenge of this subsection is to choose good new coordinates so that a given quadratic equation~\eqref{eq:gqe} becomes one of the following recognized \idx{canonical form}s.
 \begin{description}
 \item[Ellipse or circle] \(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)
 \begin{itemize}
@@ -1432,13 +1432,13 @@ Then for every \idx{unit vector} \(\xv\in\RR^n\) (that is, \(|\xv|=1\)), the \id
 \end{theorem}
 
 \begin{proof} 
-Change to an orthogonal coordinate system~\yv\ that diagonalizes the matrix~\(A\) (\cref{thm:patqform}): say coordinates \(\yv=V\xv\) for orthogonal matrix~\(V\) whose columns are orthogonal eigenvectors of~\(A\) in order so that \(D=\tr VAV=\diag(\hlist\lambda n)\).
+Change to an orthogonal coordinate system~\yv\ that diagonalizes the matrix~\(A\) (\cref{thm:patqform}): say coordinates \(\xv=V\yv\) for orthogonal matrix~\(V\) whose columns are orthogonal eigenvectors of~\(A\) in order so that \(D=\tr VAV=\diag(\hlist\lambda n)\).
 Then the quadratic form 
 \begin{equation*}
 \tr\xv A\xv=\tr{(V\yv)} A(V\yv)=\tr\yv \tr VAV\yv=\tr\yv D\yv\,.
 \end{equation*}
 Since \(V\)~is orthogonal it preserves lengths (\cref{thm:orthog:iv}) so the unit vector condition \(|\xv|=1\) is the same as \(|\yv|=1\)\,.
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item To prove the lower bound, consider
 \begin{eqnarray*}
 \tr\xv A\xv&=&\tr\yv D\yv

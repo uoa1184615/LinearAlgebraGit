@@ -476,9 +476,9 @@ This in turn justifies why we define matrix multiplication to be as it is (\cref
 \begin{example} 
 But first, the following \cref{thm:mattranlin} proves, among many other possibilities, that the following transformations we have already met are linear transformations:
 \begin{itemize}
-\item stretching\slash shrinking along \idx{coordinate axes}, as these are multiplication by a diagonal matrix (\cref{sec:dmd});
-\item \index{reflection}\idx{rotations and/or reflection}s, as they arise as multiplications by an \idx{orthogonal matrix} (\cref{sec:omr});
-\item \idx{orthogonal projection} onto a subspace, as all such projections may be expressed as multiplication by a matrix (the matrix~\(W\tr W\) in \cref{thm:projmat}).
+\item stretching\slash shrinking along \idx{coordinate axes}, because these are multiplication by a diagonal matrix (\cref{sec:dmd});
+\item \index{reflection}\idx{rotations and/or reflection}s, because they arise as multiplications by an \idx{orthogonal matrix} (\cref{sec:omr});
+\item \idx{orthogonal projection} onto a subspace, because all such projections may be expressed as multiplication by a matrix (the matrix~\(W\tr W\) in \cref{thm:projmat}).
 \aqed
 \end{itemize}
 \end{example}
@@ -757,7 +757,7 @@ That is, although sometimes the pseudo-inverse is useful, beware that  many time
 
 
 \begin{theorem}[pseudo-inverse] \label{thm:lsqlt}
-In the context of a \idx{system} of \idx{linear equation}s \(A\xv=\bv\) with \(m\times n\) matrix~\(A\) vector~\(\bv\in\RR^m\), recall that \cref{pro:appsol} finds the \idx{smallest solution}~\(\xv\in\RR^n\)\ (\cref{thm:smallsoln}) to the closest \idx{consistent} system \(A\xv=\bv'\) (\cref{thm:appsol}).
+In the context of a \idx{system} of \idx{linear equation}s \(A\xv=\bv\) with \(m\times n\) matrix~\(A\) and vector~\(\bv\in\RR^m\), recall that \cref{pro:appsol} finds the \idx{smallest solution}~\(\xv\in\RR^n\)\ (\cref{thm:smallsoln}) to the closest \idx{consistent} system \(A\xv=\bv'\) (\cref{thm:appsol}).
 \cref{pro:appsol} forms a \idx{linear transformation} \(T:\RR^m\to\RR^n\), \(\xv=T(\bv)\).
 This linear transformation has an \(n\times m\) \idx{standard matrix}~\(A^+\) called the \bfidx{pseudo-inverse}, or \bfidx{Moore--Penrose inverse}, of matrix~\(A\).
 \end{theorem}
@@ -780,7 +780,7 @@ To check \(T(\bv^\dag+\bv^\ddag)=T(\bv^\dag)+T(\bv^\ddag)\), apply the procedure
 and hence \(\yv=\yv^\dag+\yv^\ddag\);
 \item solve \(\tr V\xv=\yv\) with \(\xv=V\yv=V(\yv^\dag+\yv^\ddag)=V\yv^\dag+V\yv^\ddag=\xv^\dag+\xv^\ddag\).
 \end{enumerate}
-Since result \(\xv=\xv^\dag+\xv^\ddag\), thus \(T(\bv^\dag+\bv^\ddag)=T(\bv^\dag)+T(\bv^\ddag)\).
+Since the result \(\xv=\xv^\dag+\xv^\ddag\), thus \(T(\bv^\dag+\bv^\ddag)=T(\bv^\dag)+T(\bv^\ddag)\).
 
 \item[\ref{def:lintran:ii}]  
 To check \(T(c\bv^\dag)=cT(\bv^\dag)\) for any scalar~\(c\), apply the procedure when the right-hand side is \(\bv=c\bv^\dag\):
@@ -1535,7 +1535,7 @@ Since its standard matrix is not invertible, the given orthogonal projection is 
 
 \begin{exercise} \label{ex:whichNotLT} 
 Which of the following illustrated transformations of the plane \emph{cannot} be that of a \idx{linear transformation}?
-In each illustration of a transformation~\(T\), the four corners of the blue \idx{unit square} (\((0,0)\), \((1,0)\), \((1,1)\), and~\((0,1)\)), are transformed to the four corners of the red figure (\(T(0,0)\), \(T(1,0)\), \(T(1,1)\), and~\(T(0,1)\)---the `roof' of the \idx{unit square} clarifies which side goes where).
+In each illustration of a transformation~\(T\), the four corners of the blue \idx{unit square} (\((0,0)\), \((1,0)\), \((1,1)\), and~\((0,1)\)), are transformed to the four corners of the red figure (\(T(0,0)\), \(T(1,0)\), \(T(1,1)\), and~\(T(0,1)\))---the `roof' of the \idx{unit square} clarifies which side goes where.
 \begin{Parts}
 \item\TwoDnotLT{ 0.3}{ 0.3}{-0.5}{ 1.1}{0}{0}
 \answer{Maybe an LT, with standard matrix \(\protect\begin{bmat} { 0.3}&{ 0.3}\protect\\{-0.5}&{ 1.1} \protect\end{bmat}\)}

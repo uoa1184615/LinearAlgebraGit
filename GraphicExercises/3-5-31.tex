@@ -1,0 +1,50 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,amsfonts,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec u\Vec v\Vec x
+\def\proj{\operatorname{proj}}
+\def\Span{\operatorname{span}}
+\def\XX{\ensuremath{\mathbb X}}
+For the subspace \(\XX=\Span\{\xv\}\) and the vector~\vv, draw the decomposition of~\vv\ into the sum of vectors in~\XX\ and~\(\XX^\perp\).
+
+\newcommand{\projxv}[9]{\begin{tikzpicture}
+  \begin{axis}[small
+  ,axis equal ,axis x line=none , axis y line=none
+  ,samples=2, enlarge x limits={value=0.15,auto} ]
+  \addplot[black,mark=*]coordinates {(0,0)};
+  \addplot[red,quiver={u=#1,v=#2},-stealth]coordinates {(0,0)};
+  \node[right] at (axis cs:#1,#2) {$\vec #9$};
+  \addplot[blue,quiver={u=#3,v=#4},-stealth]coordinates {(0,0)};
+  \node[right] at (axis cs:#3,#4) {$\vec #8$};
+  \ifnum#7>0
+  \addplot[black] coordinates {(#5/2,#6/2)} node {proj};
+  \addplot[brown,thick,quiver={u=#5,v=#6},-stealth]coordinates {(0,0)};
+  \addplot[black] coordinates {(#1/2+#5/2,#2/2+#6/2)} node {perp};
+  \addplot[brown,thick,quiver={u=#1-#5,v=#2-#6},-stealth]coordinates {(#5,#6)};
+  \fi
+  \end{axis}
+  \end{tikzpicture}}
+
+
+\projxv{-1.6}{ 1.2}{1.6}{ -3}{-0.8526}{ 1.5986}0xv
+
+
+\end{document}

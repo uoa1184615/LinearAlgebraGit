@@ -1,0 +1,51 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+For each of the following conic sections, draw a pair of coordinate axes for a coordinate system in which the algebraic description of the curves should be simplest.
+
+\newcommand{\myellipse}[3]{\rotatebox{#3}{
+\begin{tikzpicture}
+  \begin{axis}[small,font=\footnotesize ,axis equal image
+  ,axis lines=none ]
+  \addplot[blue,thick,smooth,domain=0:360] ({#1*cos(x)},{#2*sin(x)});
+  \end{axis}
+  \end{tikzpicture}}}%
+
+\newcommand{\myhyper}[3]{\rotatebox{#3}{
+\begin{tikzpicture}
+  \begin{axis}[small,font=\footnotesize ,axis equal image
+  ,axis lines=none ]
+  \addplot[blue,thick,smooth,domain=-2:2] {#1*sqrt(1+x^2*#2)};
+  \addplot[blue,thick,smooth,domain=-2:2] {-#1*sqrt(1+x^2*#2)};
+  \end{axis}
+  \end{tikzpicture}}}%
+
+
+\myellipse{2.42}{3.72}{58}
+\hfill 
+\myhyper{2.63}{2.31}{-30}
+
+
+
+
+
+\end{document}

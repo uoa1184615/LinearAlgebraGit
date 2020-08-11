@@ -1,0 +1,47 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec x\Vec v
+Each plot below shows (unit) vectors~\xv\ (blue), and for some \(2\times 2\) matrix~\(A\) the corresponding vectors~\(A\xv\) (red) adjoined. 
+By assessing whether there are any zero eigenvalues, estimate if the matrix~\(A\) is invertible \text{or not.}
+
+\newcommand{\eRose}[4]{\begin{tikzpicture}%
+    %[baseline={([yshift={-\ht\strutbox}]current bounding box.north)}] 
+    \begin{axis}[small,font=\footnotesize
+        ,axis equal image, axis lines=middle
+        ,samples=33] %25 or 33 not bad 
+        \addplot[domain=0:360,quiver={u=cos(\x),v=sin(\x)},blue,-stealth] 
+        ({0},{0});
+        \addplot[domain=0:360,quiver={u=#1*x+#2*y,v=#3*x+#4*y},red,-stealth] 
+        ({cos(\x)},{sin(\x)});
+    \end{axis}
+    \end{tikzpicture}}
+
+
+\eRose{0.2}{-0.5}{-0.4}{1.0}
+\answer{not invertible}
+
+
+
+
+
+\end{document}

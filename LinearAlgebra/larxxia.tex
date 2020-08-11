@@ -1,11 +1,11 @@
-\ifcase4
+\ifcase1
 \or%1=A5 drafting
    \documentclass[10pt,a5paper,smallborder,twoside]{refrep}
    \addtolength{\textheight}{-1.2ex}% allows space for footer
 %   \def\includeonly#1{}\usepackage{showkeys}%% iff whole book draft
    \AtBeginDocument{%
-%   \inQRcodesfalse % invoke to omit QR-codes
-%   \excludeversion{OmitV1} % invoke for short version
+   \inQRcodesfalse % invoke to omit QR-codes
+   \excludeversion{OmitV1} % invoke for short version
    }%end of AtBeginDocument
 \or%2=A4 drafting
    \documentclass[10pt,a4paper,twoside]{refrep}
@@ -27,12 +27,12 @@
 %   \inQRcodesfalse % invoke to omit QR-codes
 %   \def\titlePageInfo{...}
    }%end of AtBeginDocument
-\or%4= close to OUP I hope
+\or%4= close to OUP I hope, curses they actually use different font
    \documentclass[11pt,twoside]{book}
    \usepackage[a4paper,margin=31mm%
    ,tmargin=41mm,bmargin=41mm]{geometry}
    \let\MakeUppercase\sf
-   \def\includeonly#1{} % do all by disabling includeonly *******
+%   \def\includeonly#1{} % do all by disabling includeonly *******
    \AtBeginDocument{%
    \excludeversion{comment}
    \excludeversion{draft}
@@ -49,7 +49,7 @@
 \def\myversion{0.6b}
 
 \includeonly{
-front,back
+%front,back
 %,Vectors/ch
 %,Vectors/secVecs
 %,Vectors/secVecOps
@@ -100,7 +100,7 @@ front,back
 
 
 \title{Linear Algebra 
-\\for 21st\,C Application}
+\\for 21st\,C Applications}
 
 \author{A.~J. Roberts
 \thanks{\url{http://orcid.org/0000-0001-8930-1552}}

@@ -1,0 +1,36 @@
+\documentclass[11pt,a5paper]{article}
+\usepackage{amsmath,parskip,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{} % do nothing with answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Which of the following pairs of vectors appear to form an orthogonal set of two vectors? Which appear to form an orthonormal set of two vectors?
+
+\newcommand{\TwoVec}[4]{\begin{tikzpicture} 
+    \begin{axis}[axis equal, axis lines=middle,small]
+        \addplot[quiver={u=#1,v=#2},blue,-stealth,thick] coordinates {(0,0)};
+        \addplot[quiver={u=#3,v=#4},blue,-stealth,thick] coordinates {(0,0)};
+    \end{axis}
+\end{tikzpicture}}
+
+\TwoVec{0.47}{0.87}{-1.23}{1.17}
+\answer{Not orthogonal.}
+
+
+\end{document}
