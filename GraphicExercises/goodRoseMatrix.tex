@@ -1,0 +1,112 @@
+\documentclass[12pt,a5paper,twocolumn]{article}
+\IfFileExists{ajr.sty}{\usepackage{ajr}}{}
+\usepackage{pgfplots}
+
+
+\title{testing random Good Rose}
+\author{AJR, \today}
+\date{}
+
+\pgfplotsset{colormap={mySix}{
+    color(0cm)=(red); 
+    color(1cm)=(orange); 
+    color(2cm)=(yellow!85!black); 
+    color(3cm)=(green!85!black); 
+    color(4cm)=(cyan); 
+    color(5cm)=(blue)
+    }}
+
+
+\newcommand{\SVDrose}[4]{%
+  \begin{tikzpicture}%
+    \begin{axis}[small,font=\footnotesize
+        ,thick,axis equal image, axis lines=middle
+        ,colormap name=mySix ,samples=12% 8,10,12
+        ,title={\pgfmathprintnumber[fixed]{#1}, 
+                \pgfmathprintnumber[fixed]{#2}, 
+                \pgfmathprintnumber[fixed]{#3}, 
+                \pgfmathprintnumber[fixed]{#4} }]
+        \addplot[domain=0:165.001, %=180*(1-1/samples)
+          point meta={mod(\x,90)},
+          quiver={u=#1*cos(\x)+#2*sin(\x), 
+              v=#3*cos(\x)+#4*sin(\x),
+              colored=mapped color},
+         -stealth]    ({0},{0});
+        \addplot[domain=0:165.001, 
+          point meta={mod(\x,90)},
+          quiver={u=-#1*cos(\x)-#2*sin(\x), 
+              v=-#3*cos(\x)-#4*sin(\x),
+              colored=mapped color},
+         -stealth, densely dashed]    ({0},{0});
+        \addplot[domain=0:360,samples=73
+          ,black ,dotted] 
+          ({#1*cos(\x)+#2*sin(\x)}
+          ,{#3*cos(\x)+#4*sin(\x)});
+    \end{axis}
+  \end{tikzpicture}}
+
+
+
+
+\begin{document}
+\maketitle
+
+\pgfmathsetseed{6}
+
+\newcommand{\SVDgoodRose}{%Starts good Rose
+\newcount\SVDcount \SVDcount=1
+\loop\ifnum\SVDcount<9
+    \typeout{Loop: \the\SVDcount} %SVDcount = \the\SVDcount
+    %
+    \edef\rr{0.0625}% 0.1 => ratio of singular >0.31=sqrt(0.1)
+    \pgfmathparse{round(10*rand)/10}\edef\a{\pgfmathresult}
+    \pgfmathparse{round(10*rand)/10}\edef\b{\pgfmathresult}
+    \pgfmathparse{round(10*rand)/10}\edef\c{\pgfmathresult}
+    \pgfmathparse{round(10*rand)/10}\edef\d{\pgfmathresult}
+    %
+    \pgfmathparse{(\a)^2+(\b)^2}\edef\aa{\pgfmathresult}
+    \pgfmathparse{(\c)^2+(\d)^2}\edef\cc{\pgfmathresult}
+    \pgfmathparse{\a*\c+\b*\d}\edef\bb{\pgfmathresult}
+    \pgfmathparse{\aa+\cc}\edef\Si{\pgfmathresult}
+    \pgfmathparse{sqrt( (\aa-\cc)^2+4*(\bb)^2 )}\edef\Sii{\pgfmathresult}
+    %
+%    $S_1 = \pgfmathprintnumber[fixed]{\Si}$
+%    $S_2 = \pgfmathprintnumber[fixed]{\Sii}$
+    \pgfmathparse{sqrt( (\Si-\Sii)/(\Si+\Sii) )}
+    SVD-ratio~$\pgfmathprintnumber{\pgfmathresult}$\\
+    %
+    \pgfmathparse{(1+\rr)*\Sii < (1-\rr)*\Si}
+    \ifnum\pgfmathresult=1
+        \let\iterate\relax
+    \fi
+    %
+    \advance\SVDcount by 1\relax
+\repeat% loop
+%
+\ifnum\pgfmathresult=0% if fail, then simple shear of \b
+    \edef\a{1}\edef\c{0}\edef\d{1}
+    Fall-back onto simple shear
+\fi
+%
+%$a=\pgfmathprintnumber[fixed]{\a}$, 
+%$b=\pgfmathprintnumber[fixed]{\b}$, 
+%$c=\pgfmathprintnumber[fixed]{\c}$, 
+%$d=\pgfmathprintnumber[fixed]{\d}$
+%Finished loop
+}%end def goodRose
+
+\foreach \i in {1,...,9 }{\par%
+    \SVDgoodRose
+    \SVDrose{\a}{\b}{\c}{\d}
+    }
+
+\SVDgoodRose
+\SVDrose{\a}{\b}{\c}{\d}
+
+\SVDgoodRose
+\SVDrose{\a}{\b}{\c}{\d}
+
+\SVDgoodRose
+\SVDrose{\a}{\b}{\c}{\d}
+
+\end{document}

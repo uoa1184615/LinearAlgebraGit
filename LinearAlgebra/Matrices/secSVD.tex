@@ -35,9 +35,9 @@ Let's introduce an analogous problem, so the \svd\ procedure follows more easily
 
 You are a contestant in a \idx{quiz show}.
 The final million dollar question is: 
-\begin{quote}
-in your head, without a calculator, solve \(42\,x=1554\) within twenty seconds,
-\end{quote} 
+\begin{equation*}
+\text{in your head, without a calculator, solve \(42\,x=1554\) within twenty seconds,}
+\end{equation*}
 your time starts now \dotfill
 \begin{solution} 
 Long division is hopeless in the time available.  
@@ -300,7 +300,7 @@ Amazingly, such factorization is always possible.
 		for non-negative \idx{diagonal elements} called \bfidx{singular value}s \hlist\sigma\mn\ (the symbol~\bfidx{$\sigma$}\index{sigma, $\sigma$} is the Greek letter sigma, and denotes singular values), which are unique when ordered from largest to smallest so that $\sigma_1\geq \sigma_2 \geq \cdots \geq \sigma_{\mn}\geq 0$\,.
     \end{itemize}
     The two \idx{orthonormal set}s of vectors \(\{\uv_j\}\) and~\(\{\vv_j\}\) are called \bfidx{singular vector}s.%
-    \footnote{This enormously useful theorem also generalizes from \(m\times n\) real matrices to complex matrices, and also to analogues in `infinite' dimensions  \cite[\S5]{Stewart1993}: an \svd\ exists for all compact linear operators \cite[\S7]{Kress2015}.}
+    \footnote{This enormously useful theorem also generalizes from \(m\times n\) real matrices to complex matrices, and also to analogues in `infinite' dimensions  \cite[\S5]{Stewart1993}: an \svd\ exists for every compact linear operator \cite[\S7]{Kress2015}.}
 \end{theorem}
 
 \begin{proof}
@@ -766,7 +766,7 @@ Hence \cref{pro:gensol} determines all possible solutions of \(A\xv=\bv\)\,.%
 
 This \cref{pro:gensol} determines for us that there is either none, one, or an infinite number of solutions, as \cref{thm:fred} requires.
 
-However,  \script's ``\verb|A\|'' gives one `answer' for all of these cases, even when there is \idx{no solution} or an infinite number of solutions.
+However,  \script's ``\verb|A\|'' gives one `answer' for every such case, even when there is \idx{no solution} or an infinite number of solutions.
 The function \index{rcond()@\texttt{rcond()}}\verb|rcond(A)| indicates whether the `answer' is a good \idx{unique solution} of \(A\xv=\bv\) (\cref{pro:unisol}).
 \cref{sec:asie} addresses what the `answer' by \script\ means in the other cases of no or \text{infinite solutions.}
 
@@ -1428,6 +1428,8 @@ The condition number warns when this happens by characterizing \text{the amplifi
 
 % Maybe revise in light of the proof by Golub and van Loan p.70
 
+% Maybe revise in light of proof by \cite{Pan1994}
+
 \begin{quoted}{\index{Wiles, Andrew}Andrew Wiles, C1993}
 When doing maths there's this great feeling.
 You start with a problem that just mystifies you.
@@ -1537,7 +1539,7 @@ A=\begin{bmatrix} 1\\1\\1 \end{bmatrix}
 \begin{bmatrix} \sqrt3\\0\\0 \end{bmatrix}
 \tr{\begin{bmatrix} 1 \end{bmatrix}}=\usv,
 \end{equation*}
-where we do not worry about the elements denoted by dots as they are only multiplied by the zeros in the `diagonal'~\(S=(\sqrt3,0,0)\).
+where we do not worry about the elements denoted by dots as they are only multiplied by the zeros in the \(3\times1\) `diagonal' matrix~\(S=(\sqrt3,0,0)\).
 \begin{solution} 
 We seek to maximize \(|A\vv|^2\) but, since matrix~\(A\) is \(3\times1\), here vector~\vv\ is in~\(\RR^1\).  
 Being of unit magnitude, there are two alternatives: \(\vv=(\pm 1)\). 
@@ -1595,7 +1597,8 @@ This proof corresponds closely to the proof of the spectral \cref{thm:smevec} fo
 \subsubsection{Detailed proof of the SVD \cref{thm:svd}}
 \label{sec:dpsvdt}
 
-Use \idx{induction} on the \idx{size} \(m\times n\) of the matrix~\(A\): we assume an \svd\ exists for all \((m-1)\times(n-1)\)~matrices, and prove that consequently an \svd\ must exist for all \(m\times n\)~matrices.  There are three base cases to establish: one for \(m\leq n\)\,, one for \(m\geq n\)\,, and one for matrix \(A=O\)\,; then the induction extends to all \text{sized matrices.}
+Use \idx{induction} on the \idx{size} \(m\times n\) of the matrix~\(A\): we assume an \svd\ exists for every \((m-1)\times(n-1)\)~matrix, and prove that consequently an \svd\ must exist for every \(m\times n\)~matrix.  
+There are three base cases to establish: one for \(m\leq n\)\,, one for \(m\geq n\)\,, and one for matrix \(A=O\)\,; then the induction extends to all \text{sized matrices.}
 
 \paragraph{Case $A=O_{m\times n}$:}
 When \(m\times n\) matrix \(A=O_{m\times n}\) then choose \(U=I_m\) (orthogonal), \(S=O_{m\times n}\) (diagonal), and \(V=I_n\) (orthogonal), so then \(\usv=I_mO_{m\times n}\tr I_n=O_{m\times n}=A\)\,.  
@@ -1646,7 +1649,7 @@ use an exactly complementary argument to the preceding \(m\times1\) case.
 
 
 \paragraph{Induction}  
-Assume  an \svd\ exists for all \((m-1)\times(n-1)\)~matrices: we proceed to prove that consequently an \svd\ must exist for all \(m\times n\)~matrices.
+Assume  an \svd\ exists for every \((m-1)\times(n-1)\)~matrix: we proceed to prove that consequently an \svd\ must exist for every \(m\times n\)~matrix.
 Consider any \(m\times n\) nonzero matrix~\(A\) with \(m,n\geq2\)\,.
 Set vector~\(\vv_1\) in~\(\RR^n\) to be a \emph{unit vector} that maximizes~\(|A\vv|^2\) for unit vectors \(\vv\) in~\(\RR^n\); that is, vector~\(\vv_1\) achieves the \idx{maximum} in \(\max_{|\vv|=1}|A\vv|^2\).
 \begin{enumerate}
@@ -1683,7 +1686,7 @@ Nonetheless, the maximum value of~\(|A\vv|^2\) is unique, and so the following s
 \item \emph{Set the singular value \(\sigma_1:=|A\vv_1|>0\) and unit vector \(\uv_1:=(A\vv_1)/\sigma_1\) in~\(\RR^m\). 
 For every unit vector~\vv\ orthogonal to~\(\vv_1\) we now prove that the vector~\(A\vv\) is orthogonal to~\(\uv_1\).}
 Let \(\uv:=A\vv\) in~\(\RR^m\) and consider \(f(t):=|A(\vv_1\cos t+\vv\sin t)|^2\).
-Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for all~\(t\) (\cref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the calculus of a maximum).
+Since \(\vv_1\) achieves the maximum, and \(\vv_1\cos t+\vv\sin t\) is a unit vector for every~\(t\) (\cref{ex:univec}), then \(f(t)\)~must have a maximum at \(t=0\) (maybe at other~\(t\) as well), and so \(f'(0)=0\) (from the calculus of a maximum).
 On the other hand, 
 \begin{eqnarray*}
 f(t)&=&|A\vv_1\cos t+A\vv\sin t|^2
@@ -1752,7 +1755,7 @@ AV&=&AV_1\begin{bmatrix} 1&O\\O&\hat V\end{bmatrix}
 \end{eqnarray*}
 Hence \(A=\usv\) is an \svd\ for~\(A\). 
 \end{enumerate}
-By induction, an \svd\ exists for all \(m\times n\) matrices.
+By induction, an \svd\ exists for every \(m\times n\) matrix.
 This argument establishes the \svd\ \cref{thm:svd}.
 
 
@@ -2829,7 +2832,7 @@ For each case:
 
 
 \begin{exercise} \label{ex:univec} 
-Use properties of the \idx{dot product} to prove that when \(\vv_1\) and~\vv\ are orthogonal unit vectors the vector \(\vv_1\cos t+\vv\sin t\) is also a unit vector for all~\(t\)  (used in the proof of the \svd\ in \cref{sec:dpsvdt}).
+Use properties of the \idx{dot product} to prove that when \(\vv_1\) and~\vv\ are orthogonal unit vectors, then the vector \(\vv_1\cos t+\vv\sin t\) is also a unit vector for every~\(t\)  (used in the proof of the \svd\ in \cref{sec:dpsvdt}).
 \end{exercise}
 
 

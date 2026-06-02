@@ -1130,7 +1130,7 @@ Either \(p\) or~\(q\) can be~\verb|[]|, in which case \script\ uses \(p=mn/q\) o
 \item \index{colormap()@\texttt{colormap()}}\verb|colormap(gray)| \script\ usually draws graphs with colour, but for many images we need greyscale; this command changes the current figure to 64~shades of grey.  
 (\verb|colormap(jet)| is the default, \verb|colormap(hot)| is good for both colour and greyscale reproductions, \verb|colormap('list')| lists the available colormaps you can try.)
 
-\item \index{imagesc()@\texttt{imagesc()}}\verb|imagesc(A)| where \(A\)~is an \(m\times n\) matrix of values draws an \(m\times n\) image in the current figure window using the values of~\(A\) (scaled to fit) to determine the colour from the current colormap (e.g., greyscale).
+\item \index{imagesc()@\texttt{imagesc()}}\verb|imagesc(A)| where \verb|A|~is an \(m\times n\) matrix of values draws an \(m\times n\) image in the current figure window using the values of~\(A\) (scaled to fit) to determine the colour from the current colormap (e.g., greyscale).
 
 \item \index{log()@\texttt{log()}}\verb|log(x)| where \verb|x|~is a  matrix, vector, or scalar computes the natural \idx{logarithm} to the base~\(e\) of each element, and returns the result(s) as a correspondingly sized matrix, vector, or scalar.
 
@@ -1414,9 +1414,9 @@ Obtain the nonzero values via \verb|y=z(1:5)./diag(S(1:5,1:5))| to find
 \yv=(1.16,-0.30, 0.18, 0.03,-0.39,0,0,0,0)
 \end{equation*}
 
-\item 
+\item%
 \begin{figbox}{\temp{0.66}{0.68}{0.91}{0.63}{0.65}{0.87}{0.53}{0.55}{0.74}}%
-Then,  via \verb|x=V(:,1:5)*y|, solve \(\tr V\xv=\yv\) to determine the \idx{smallest solution} is
+Then, via \verb|x=V(:,1:5)*y|, solve \(\tr V\xv=\yv\) to determine the \idx{smallest solution} is
 \(\sloppy\xv= (-0.42,-0.39,-0.09,-0.47,-0.44,-0.14,-0.63,-0.60,-0.30)\).
 This is the same answer as computed by \script[2]'s \verb|A\b| to give the pixel image shown that has minimal artifices.
 \reParshape
@@ -1522,7 +1522,7 @@ But we could choose any~\(\bv'\) in the column space, so any answer for the mult
 Instead, often the preferred answer is, out of all vectors in the column space of matrix \(A=\begin{bmatrix} \av \end{bmatrix}\),  find the vector~\(\bv'\) in the column space \emph{which is closest to}~\bv---as illustrated to the right here, where it looks like \(\bv'=(4,2)\).
 
 The \svd\ approach of \cref{pro:appsol} to find~\(\bv'\) and~\(x\) is the following.
-\begin{enumerate}
+\begin{enumerate}%[label=\arabic*.]
 \item Use \verb|[U,S,V]=svd([2;1])| to find here the \svd\ factorization \begin{equation*}
 A=\usv=\begin{bmatrix} 0.89&-0.45\\0.45&0.89 \end{bmatrix} \begin{bmatrix} 2.24\\0 \end{bmatrix}\tr{\begin{bmatrix} 1 \end{bmatrix}}\quad \twodp.
 \end{equation*}
@@ -4139,7 +4139,7 @@ Take \idx{logarithm}s to form a system of linear equations.
 
 
 \begin{exercise}  
-This exercise is for those who, in calculus courses, have studied constrained optimization with \idx{Lagrange multiplier}s. 
+This exercise is for those who, in calculus courses, have studied constrained optimization with \idx{Lagrange multiplier}s.\footnote{\index{Lagrange, Joseph-Louis}The famous French mathematician Joseph-Louis Lagrange, apparently, was originally the young mathematician Giuseppe Luigi Lagrangia from Turin, Italy.}
 In some applications, we would like to solve as best we can \(A\xv=\bv\) but only for unknowns~\xv\ of limited \idx{magnitude}.
 So the aim of this exercise is to derive how to use the \svd\ to find the vector~\xv\ that minimizes \(|A\xv-\bv|\) such that the length \(|\xv|\leq\alpha\) for some given prescribed largest allowable magnitude~\(\alpha\).
 \begin{enumerate}

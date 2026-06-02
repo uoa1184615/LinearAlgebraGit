@@ -802,10 +802,10 @@ The following theorem validates such manipulations in general, and gives the bas
 
 \begin{theorem} \label{thm:erowop} 
 The following \bfidx{elementary row operation}s can be performed either on a \idx{system} of \idx{linear equation}s or on its corresponding \idx{augmented matrix} without changing the solutions:
-\begin{enumerate}
-\item \index{interchanging two rows}interchange two equations\slash rows; or
-\item multiply an equation\slash row by a nonzero constant; or
-\item add a multiple of an equation\slash row to another.
+\begin{enumerate}[ref=\ref{thm:erowop}(\alph*)]
+\item\label[theorem]{thm:erowopa} \index{interchanging two rows}interchange two equations\slash rows; or
+\item\label[theorem]{thm:erowopb} multiply an equation\slash row by a nonzero constant; or
+\item\label[theorem]{thm:erowopc} add a multiple of an equation\slash row to another.
 \end{enumerate}
 \end{theorem}
 
@@ -815,14 +815,16 @@ Interestingly, some other texts omit a proof that row operations preserve the so
 
 \begin{proof} 
 We just address the system of equations form because the augmented matrix form is equivalent but more abstract.
-\begin{enumerate}
-\item Swapping the order of two equations does not change the system of equations, the set of relations between the variables, so does not change the solution.
-\item Let vector~\xv\ satisfy \(\lincomb axn=b\)\,.
+\begin{description}
+\item[\ref{thm:erowopa}] 
+Swapping the order of two equations does not change the system of equations, the set of relations between the variables, so does not change the solution.
+\item[\ref{thm:erowopb}] 
+Let vector~\xv\ satisfy \(\lincomb axn=b\)\,.
 Then \(\lincomb{ca}xn=c(\lincomb axn)=cb\) and so~\xv\ satisfies \(c\)~times the equation.
 When the constant~\(c\) is nonzero, the above can be reversed through dividing by~\(c\).
 Hence, multiplying an equation by a nonzero constant~\(c\) does not change the \text{possible solutions.}
 
-\item 
+\item[\ref{thm:erowopc}] 
 Let vector~\xv\ satisfy both \(\lincomb axn=b\) and \(\lincomb{a'}xn=b'\).
 Then
 \begin{eqnarray*}
@@ -835,7 +837,7 @@ That is, \xv~also satisfies the equation formed by adding \(c\)~times the first 
 Conversely, every vector~\xv\ that satisfies both \(\lincomb axn=b\) and \((a'_1+ca_1)x_1+(a'_2+ca_2)x_2+\cdots+(a'_n+ca_n)x_n=b'+cb\), by adding \((-c)\)~times the first to the second as above, also satisfies \(\lincomb{a'}xn=b'\).
 Hence adding a multiple of an equation to another does not change the \text{possible solutions.}
 
-\end{enumerate}
+\end{description}
 \end{proof}
 
 

@@ -1,0 +1,108 @@
+%\documentclass[11pt,a5paper]{article}
+\documentclass[11pt,border=5pt,varwidth=120mm]{standalone}
+\usepackage{amsmath,parskip,enumitem,pgfplots}
+\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{patchplots}% for "patch refines"
+%\usepackage{pgfplotstable} % for some table plots
+% view stereo with cross eyes, or vice-versa
+%\newcommand{\qview}[2]{\foreach \q in {#2,#1}}
+\newcommand{\answer}[1]{\paragraph{Answer} #1} % maybe answers
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+\renewcommand{\Vec}[1]{%
+  \expandafter\def\csname#1v\endcsname%
+  {\ensuremath{\vec #1}}}
+
+
+\title{Exercise \jobname}
+\author{A. J. Roberts, \today}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\Vec x\Vec u\Vec v
+Each plot below shows (unit) direction vectors~\vv\  (left), and the corresponding vectors~\(A\vv\) (right), for some specific matrix~\(A\). 
+Estimate which \emph{pair of orthogonal} directions~\(\vv_1,\vv_2\)\ give a \emph{pair of orthogonal} result vectors~\(A\vv_1,A\vv_2\).  
+By imagining this resultant pair as \(\sigma_1\uv_1,\sigma_2\uv_2\) for orthogonal unit vectors~\(\uv_1,\uv_2\), estimate the singular values~\(\sigma_1,\sigma_2\) of the matrix~\(A\).
+
+\pgfplotsset{colormap={mySix}{
+    color(0cm)=(red); 
+    color(1cm)=(orange); 
+    color(2cm)=(yellow!85!black); 
+    color(3cm)=(green!85!black); 
+    color(4cm)=(cyan); 
+    color(5cm)=(blue)
+    }}
+
+
+\newcommand{\SVDrose}[4]{%
+%  \begin{tikzpicture}%
+%    \begin{axis}[footnotesize,font=\footnotesize
+%        ,thick,axis equal image, axis lines=middle
+%        ,colormap name=mySix ,samples=12]% 8,10,12
+%        \addplot[domain=0:165.001, 
+%          point meta={mod(\x,90)},
+%          quiver={u=cos(\x),v=sin(\x),
+%            colored=mapped color}, 
+%          -stealth]    ({0},{0});
+%        \addplot[domain=0:165.001, 
+%          point meta={mod(\x,90)},
+%          quiver={u=-cos(\x),v=-sin(\x),
+%            colored=mapped color}, 
+%          -stealth, densely dashed]    ({0},{0});
+%        \addplot[domain=0:360,samples=73
+%          ,black ,dotted] 
+%          ({cos(\x)},{sin(\x)});
+%    \end{axis}
+%  \end{tikzpicture}
+  \begin{tikzpicture}%
+    \begin{axis}[small,font=\footnotesize
+        ,thick,axis equal image, axis lines=middle
+        ,colormap name=mySix ,samples=12% 8,10,12
+        ,title={\pgfmathprintnumber[fixed]{#1}, 
+                \pgfmathprintnumber[fixed]{#2}, 
+                \pgfmathprintnumber[fixed]{#3}, 
+                \pgfmathprintnumber[fixed]{#4} }]
+        \addplot[domain=0:165.001, %=180*(1-1/samples)
+          point meta={mod(\x,90)},
+          quiver={u=#1*cos(\x)+#2*sin(\x), 
+              v=#3*cos(\x)+#4*sin(\x),
+              colored=mapped color},
+         -stealth]    ({0},{0});
+        \addplot[domain=0:165.001, 
+          point meta={mod(\x,90)},
+          quiver={u=-#1*cos(\x)-#2*sin(\x), 
+              v=-#3*cos(\x)-#4*sin(\x),
+              colored=mapped color},
+         -stealth, densely dashed]    ({0},{0});
+        \addplot[domain=0:360,samples=73
+          ,black ,dotted] 
+          ({#1*cos(\x)+#2*sin(\x)}
+          ,{#3*cos(\x)+#4*sin(\x)});
+    \end{axis}
+  \end{tikzpicture}}
+
+\edef\abcd{1}%fudged
+\SVDrose1001
+\SVDrose{1}{1}{0}{1}
+\answer{cyan \(\vv_1 \approx\pm(0.5,0.8)\) and \(\vv_2 \approx\pm(-0.8,0.5)\), map to cyan \(A\vv_1 \approx\pm(1.4,0.9) \approx \pm(0.8,0.5)\cdot1.6\) and \(A\vv_2 \approx\pm(-0.3,0.5) \approx\pm(-0.5,0.8)\cdot0.6\).  Thus singular values of~\(A\) are~\(\sigma_1\approx1.6\) and \(\sigma_2\approx 0.6\)\,.}
+
+\raggedright
+
+\def\SVDroseRand{%
+\pgfmathparse{round(16*rnd+4)/10}\edef\a{\pgfmathresult}
+\pgfmathparse{round(10*rand)/10} \edef\b{\pgfmathresult}
+\pgfmathparse{round(10*rand)/10} \edef\c{\pgfmathresult}
+\pgfmathparse{round(16*rnd+4)/10}\edef\d{\pgfmathresult}
+\pgfmathparse{\a*\d-\b*\c}\edef\abcd{\pgfmathresult}
+\SVDrose{\a}{\b}{\c}{\d}}
+
+\SVDroseRand
+\SVDroseRand
+\SVDroseRand
+\SVDroseRand
+\SVDroseRand
+\SVDroseRand
+
+\end{document}
